@@ -81,3 +81,14 @@ def test_book_crossing_speaks_once_per_mark_and_only_the_highest():
     assert subs(at("11:00", 1.2), at("11:30", 3.0)) == []
     assert subs(at("11:30", 3.0), at("12:00", 61)) == ["Hero Motors book crossed 50x — now 61x, closes 21 Sep"]
     assert subs(at("12:00", 61), at("12:30", 45)) == [], "a dip below a mark already announced stays quiet"
+
+
+def test_anchor_lock_in_speaks_once_the_day_before_for_mainboard_names():
+    a = [{"name": "Hero Motors", "lockIn30": "2026-10-21", "lockIn90": "2026-12-20", "amountCr": 300.0},
+         {"name": "Some SME", "lockIn30": "2026-10-21"}]
+    rec = [{"name": "Hero Motors", "type": "Mainboard"}, {"name": "Some SME", "type": "NSE SME"}]
+    at = lambda day: doc(f"2026-10-{day}T06:45:00+05:30", anchors=a, recent=rec)  # noqa: E731
+    assert evaluate(at(18), at(19)) == []
+    assert [x.line for x in evaluate(at(19), at(20))] == ["Hero Motors: lock-in on half the anchor book ends tomorrow (₹300 Cr book)"]
+    assert evaluate(at(20), at(21)) == [], "said once: the day itself does not repeat it"
+    assert [x.line for x in evaluate(at(18), at(21))] == ["Hero Motors: lock-in on half the anchor book ends today (₹300 Cr book)"]

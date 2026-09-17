@@ -16,14 +16,17 @@ existing names — the board's spelling wins, GMP-site spellings never reach the
 from __future__ import annotations
 
 import logging
+import pathlib
 import re
 
 from ..errors import SourceError
 from ..http import Session
+from ..names import load_aliases
 from ..result import Result
 from ..sources import investorgain, ipopremium, ipowatch
 
 log = logging.getLogger("collector.gmp")
+ALIASES_DIR = pathlib.Path(__file__).resolve().parents[2] / "data"
 
 BOARDS = ("mainboard", "sme")
 ACTIVE = {"Open", "Upcoming"}
@@ -86,6 +89,8 @@ def run(session: Session, prev: dict, res: Result, attempts: list[tuple[str, cal
     for _, row in rows:
         board_index.setdefault(normalise(row["name"]), row["name"])
     active = [row["name"] for _, row in rows if row.get("status") in ACTIVE]
+    board_names = {row["name"] for _, row in rows}
+    aliases = load_aliases(ALIASES_DIR)
 
     matched: dict[str, dict] = {}          # board name -> source row
     winners: list[str] = []
@@ -112,7 +117,8 @@ def run(session: Session, prev: dict, res: Result, attempts: list[tuple[str, cal
             continue
         added = 0
         for r in good:
-            bname = match_name(r["name"], board_index)
+            alias = aliases.get(r["name"])                 # data/aliases.json: the human override, e.g. "NSE"
+            bname = alias if alias in board_names else match_name(r["name"], board_index)
             if bname is None:
                 off_board.append(f"{r['name']} (₹{r['gmp']:g}, {name})")
             elif bname not in matched:
@@ -147,11 +153,13 @@ def run(session: Session, prev: dict, res: Result, attempts: list[tuple[str, cal
                 pct = round(float(src["gmp"]) / float(row["bandHigh"]) * 100, 2)
             except (TypeError, ValueError, ZeroDivisionError):
                 pct = None
-        patches.setdefault(key, {})[row["name"]] = {
-            "gmp": src["gmp"],
-            "gmpPct": pct,
-            "gmpTrend": trend(src["gmp"], row.get("gmp")),
-        }
+        patch = {"gmp": src["gmp"], "gmpPct": pct, "gmpTrend": trend(src["gmp"], row.get("gmp"))}
+        # The feed also quotes the whole issue at the upper band. NSE's list cannot: its share count is net of
+        # the anchor portion, so calendar's figure runs ~30% short on every mainboard issue (Hero Motors: 744 Cr
+        # there, 1,000 Cr here). Where the feed has it, that is the issue size.
+        if src.get("issueSizeCr"):
+            patch["issueSizeCr"] = src["issueSizeCr"]
+        patches.setdefault(key, {})[row["name"]] = patch
     res.rows = {k: v for k, v in patches.items() if v}
 
     res.ok, res.source, res.asOf = True, "+".join(winners), as_of

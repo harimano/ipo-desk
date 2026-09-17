@@ -145,9 +145,24 @@ def _investors(doc: dict, today: dt.date):
                 yield Alert(f"anchor:{a['name']}:{nm}", 650, f"{nm} is in the {a['name']} anchor book")
 
 
+def _lockins(doc: dict, today: dt.date):
+    """Anchor lock-in expiry: half the anchor shares become saleable 30 days after allotment, the rest after 90.
+    Mainboard names only, one line, the day before (or on the day, if the day before was missed)."""
+    main = {r["name"] for r in _rows(doc, "mainboard")} | {r["name"] for r in _rows(doc, "recent") if r.get("type") == "Mainboard"}
+    for a in _rows(doc, "anchors"):
+        if a["name"] not in main:
+            continue
+        for key, what in (("lockIn30", "half the anchor book"), ("lockIn90", "the rest of the anchor book")):
+            d = _date(a.get(key))
+            if d and (d - today).days in (0, 1):
+                size = f" (₹{a['amountCr']:,.0f} Cr book)" if isinstance(a.get("amountCr"), (int, float)) else ""
+                yield Alert(f"lockin:{a['name']}:{key}:{d}", 550, f"{a['name']}: lock-in on {what} ends {_in((d - today).days)}{size}")
+
+
 def _all(doc: dict, today: dt.date) -> dict[str, Alert]:
     out: dict[str, Alert] = {}
-    for a in (*_quota_dates(doc, today), *_quota_stages(doc), *_board(doc, today), *_investors(doc, today)):
+    for a in (*_quota_dates(doc, today), *_quota_stages(doc), *_board(doc, today), *_lockins(doc, today),
+              *_investors(doc, today)):
         out.setdefault(a.key, a)
     return out
 

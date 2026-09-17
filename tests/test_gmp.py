@@ -163,7 +163,8 @@ def test_name_normalisation_matches_board_spelling():
     res = gmp.run(s, prev, Result(module="gmp"))
     assert res.ok and res.source == "investorgain"
     assert list(res.rows["mainboard"]) == ["Kanohar Electricals"]          # board's spelling, not the site's
-    assert res.rows["mainboard"]["Kanohar Electricals"] == {"gmp": 45.0, "gmpPct": 12.5, "gmpTrend": "flat"}
+    assert res.rows["mainboard"]["Kanohar Electricals"] == {"gmp": 45.0, "gmpPct": 12.5, "gmpTrend": "flat",
+                                                            "issueSizeCr": 480.0}       # the feed's whole-issue figure
     assert any("not on the board" in n and "Dhoot Transmission" in n for n in res.notes)   # off-board -> notes
 
 
@@ -223,3 +224,20 @@ def test_gmp_pct_computed_from_board_band_when_source_lacks_it():
     prev = board({"name": "Kanohar Electricals", "bandHigh": 360})
     res = gmp.run(s, prev, Result(module="gmp"))
     assert res.ok and res.rows["mainboard"]["Kanohar Electricals"]["gmpPct"] == 10.0
+
+
+def test_live_feed_alias_and_whole_issue_size():
+    """Real feed, 17 Sep 2026. The site calls NSE's IPO just "NSE" — a name the normaliser reduces to nothing, so
+    only data/aliases.json can place it. And the feed's issue size is the whole issue: NSE's list, net of the
+    anchor portion, made Hero Motors 744 Cr when the issue is 1,000 Cr."""
+    import json
+    import pathlib
+    live = json.loads((pathlib.Path(__file__).resolve().parent.parent / "data/fixtures/live-2026-09-17/ig.json").read_text())
+    prev = {"mainboard": [{"name": "NSE (National Stock Exchange of India)", "status": "Open", "bandHigh": 1785, "gmp": 150, "issueSizeCr": 15822.76},
+                          {"name": "Hero Motors", "status": "Open", "bandHigh": 84, "gmp": 5.5, "issueSizeCr": 744.3}], "sme": []}
+    res = gmp.run(None, prev, Result(module="gmp"), attempts=[("investorgain", lambda: investorgain.parse_investorgain(live))])
+    rows = res.rows["mainboard"]
+    assert rows["NSE (National Stock Exchange of India)"]["issueSizeCr"] == 22561.57
+    assert rows["NSE (National Stock Exchange of India)"]["gmp"] is not None
+    assert rows["Hero Motors"]["issueSizeCr"] == 1000.0
+    assert not any("NSE (National" in u for u in res.unresolved)

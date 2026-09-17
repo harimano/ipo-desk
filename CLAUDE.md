@@ -44,16 +44,32 @@ symbols `calendar` wrote on the previous run.
 FII/DII, nsearchives CSVs, Yahoo, RSS, all eight scrip codes in `parents.json`.
 **Known broken or unproven**: the chittorgarh subscription fallback (site moved to Next.js; parser finds
 no table); ipopremium (403, leave it); Angel One (no secrets set yet — Hari adds them himself);
-`anchors`, the sweep-owned parts of `investors` (moves, holdings, portfolios — the retired Monday sweep), `flows.monthly/rotation`
+the investor lists inside `anchors` rows, the sweep-owned parts of `investors` (moves, holdings, portfolios — the retired Monday sweep), `flows.monthly/rotation`
 and the descriptive text of `quota` rows are still carried forward from the db era (BUILD-PLAN Tier 2/3).
 Live since 17 Sep: `offers` (BSE list), `expected` (SEBI registers, built inside `filings`), `investors.prices`
-(the `parents` module), sheet `parentPrice`.
+(the `parents` module), sheet `parentPrice`, and `anchors` book size / bid date / lock-in expiries (NSE issue
+information + InvestorGain report 480 — fetched JSON, never a document).
+
+**The pipeline fetches data and renders it. It does not read documents.** Hari's rule, 18 Sep 2026, after an
+attempt to OCR anchor-allocation letters inside a run: an important figure must come from a structured source
+(exchange or aggregator JSON), not from parsing a PDF/zip each run. Look for the JSON first — open the site's own
+page in a browser and read its network calls (that found BSE's demand endpoint and InvestorGain's reports 480 /
+333 / 399 / 400). If a figure exists only in a document, say so and leave the field empty; turning documents
+into data is research-layer work (`data/research/`, by pull request), never a collector module.
+`collector/pdf/anchor.py` and `collector/pdf/clause.py` are bench tools for that layer; no workflow calls them.
+The page follows the same rule: it renders fields the collector wrote and should not parse sentences (the anchor
+bars used to regex "₹X Cr from N investors — a, b, c" out of prose).
 
 **Lessons from first contact — check these first when a module says "ok" but the page looks old**
 - An "ok" module can be reading the wrong thing: SEBI's `nextValue` is zero-based (page=1 was page two, a month
   old), and real SEBI titles never say "DRHP" (the register a row is on is its meaning).
 - Anything overlaid after the modules (`data/research`, `data/investors.json`) silently undoes a module's write to
   the same key. Give the collector its own key (`investors.prices`) or let the newer `asOf` win (`parentPrice`).
+- A number can be precisely wrong: NSE's list gives an issue's share count net of the anchor portion, so
+  `issueSizeCr` ran ~30% short on every mainboard issue until the InvestorGain feed's figure replaced it. NSE's
+  SME issue pages label fields differently ("Price Range", "Lot Size"), which left SME rows without band or lot.
+- A private name matcher is a private bug: `gmp` normalised the name "NSE" to nothing, so the year's biggest
+  IPO never got a fresh GMP. `data/aliases.json` is honoured by `gmp`, `calendar`, `offers`, `filings`, `anchors`.
 - A workflow's push does not trigger other workflows; the page's built-in snapshot shares an `asOf` with the first
   fetch after every deploy. Both looked like "it works" until someone opened the Research tab.
 

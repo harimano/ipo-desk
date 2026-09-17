@@ -467,3 +467,14 @@ def test_bse_is_merged_into_the_nse_calendar():
     assert not any(r["name"].isupper() or r["name"].endswith("Limited") for r in bse_only), "house spelling for new rows"
     assert sme["Vidya Wires Limited"]["type"] == "NSE SME", "an NSE row is never relabelled by the BSE merge"
     assert any("+bse=" in x for x in res.notes)
+
+
+def test_nse_sme_detail_uses_its_own_labels():
+    """Live, 18 Sep 2026: an NSE Emerge issue page says "Price Range" and "Lot Size", not "Price Band" / "Bid Lot"."""
+    import json
+    import pathlib
+    from collector.sources import nse_ipo
+    raw = json.loads((pathlib.Path(__file__).parent.parent / "data/fixtures/nse/ipo-detail-KHERIAAUTO-sme.json").read_text())
+    detail = {"dataList": raw["issueInfo"]["dataList"]}
+    assert nse_ipo.detail_lot(detail) | {"issueSizeCr": None} == {"lotSize": 1200, "issueSizeCr": None, "bandLow": 96.0, "bandHigh": 101.0}
+    assert nse_ipo.detail_anchor_shares(detail) == 1310400

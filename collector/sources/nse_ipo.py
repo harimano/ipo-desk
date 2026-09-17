@@ -314,17 +314,35 @@ def detail_lot(detail: dict) -> dict:
         if value in NULLS:
             continue
         txt = re.sub(r"<[^>]+>", " ", str(value))
-        if "bid lot" in title or "minimum order" in title or "market lot" in title:
+        if "bid lot" in title or "minimum order" in title or "market lot" in title or "lot size" in title:   # SME pages say "Lot Size"
             n = number(txt)
             if n and out["lotSize"] is None:
                 out["lotSize"] = int(n)
         elif "issue size" in title and out["issueSizeCr"] is None:
             out["issueSizeCr"] = _size_text_to_cr(txt)
-        elif "price band" in title or "issue price" in title:
+        elif "price band" in title or "issue price" in title or "price range" in title:                      # SME pages say "Price Range"
             lo, hi = price_band(txt)
             if hi and out["bandHigh"] is None:
                 out["bandLow"], out["bandHigh"] = lo, hi
     return out
+
+
+_ANCHOR_SHARES = re.compile(r"anchor\s+(?:investors?\s+)?(?:reservation\s+)?(?:portion|allocation)\s*(?:of\s+)?"
+                            r"(?:up\s*to\s+)?([\d,]{4,})\s*(?:equity\s+)?shares", re.I)
+
+
+def detail_anchor_shares(detail: dict) -> int | None:
+    """The anchor portion in shares, as ipo-detail's "Issue Size" states it. Seen live (17 Sep 2026):
+    "Anchor Portion of 37,793,739 Equity Shares", "Anchor reservation portion of 3,57,14,284 equity shares",
+    "Anchor allocation 10,70,000 Equity Shares". None when the issue has no anchor portion or says nothing."""
+    for row in detail.get("dataList", []):
+        if "issue size" not in str(first(row, "title", "label", "key", default="") or "").lower():
+            continue
+        m = _ANCHOR_SHARES.search(re.sub(r"<[^>]+>", " ", str(first(row, "value", "val") or "")))
+        if m:
+            n = number(m.group(1))
+            return int(n) if n else None
+    return None
 
 
 def _size_text_to_cr(txt: str) -> float | None:

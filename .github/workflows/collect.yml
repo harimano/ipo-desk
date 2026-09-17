@@ -2,7 +2,7 @@ name: collect
 # The refresh. Deterministic, gated, committed to the `data` branch by a bot identity the deploy guard
 # recognises.
 #   full      06:45 IST (before market: the morning board) and 18:15 IST (after close: listing prints,
-#             final subscription). All nine modules.
+#             final subscription). Every module.
 #   intraday  every 30 min, 10:00-17:30 IST on weekdays, and only while an issue is open: subscription
 #             and GMP, about ten calls. Overwrites the day's one rolling intraday commit, so the data
 #             branch grows by three commits a day however often this runs.
@@ -74,13 +74,6 @@ jobs:
       - name: Install
         if: steps.mode.outputs.go == '1'
         run: pip install -e ".[dev]"
-
-      # Large issuers file their anchor letter as a scan; the anchors module reads those through Tesseract.
-      - name: Tesseract (full runs only)
-        if: steps.mode.outputs.go == '1' && steps.mode.outputs.mode == 'full'
-        run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr >/dev/null
-          echo "TESSDATA_PREFIX=$(dirname "$(find /usr/share -name eng.traineddata | head -1)")" >> "$GITHUB_ENV"
 
       - name: Lay the live document over ./data — it is the previous run and the delta baseline
         if: steps.mode.outputs.go == '1'

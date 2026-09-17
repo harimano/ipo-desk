@@ -121,12 +121,83 @@ def parse_investorgain(data) -> list[dict]:
             "type": strip_tags(_pick(raw, "~IPO_Category", "Type")),
             "status": STATUS.get(st.upper(), st) if st else "",
             "updated": strip_tags(_pick(raw, "Updated-On", "~Updated_On", "Updated")),
+            # the whole issue at the upper band, as the market quotes it. NSE's list cannot give this: its
+            # share count is net of the anchor portion (Hero Motors: 744 Cr there, 1,000 Cr here).
+            "issueSizeCr": parse_money(strip_tags(_pick(raw, "IPO Size", "Issue Size"))),
+            "igId": str(_pick(raw, "~id") or "") or None,
             "source": SOURCE,
         }
         compute_gmp_pct(r)
         out.append(r)
     if not out:
         raise SourceChanged(SOURCE, f"{len(rows)} rows but none had a name — field names changed?", BASE)
+    return out
+
+
+# ---------------------------------------------------------------------------------------------
+# report 480 — "IPO Anchor Investors List <year>": one row per issue with the anchor bid date and the two
+# lock-in expiries (50% of anchor shares after 30 days, the rest after 90). Dates only: neither this report
+# nor any other JSON anywhere carries who took the book — that exists only as the issuer's letter.
+# ---------------------------------------------------------------------------------------------
+ANCHOR_REPORT = 480
+ANCHOR_PAGE = "https://www.investorgain.com/report/ipo-anchor-investors-list/480/"
+
+
+def report_url(report: int, d: dt.date, page: int = 1) -> str:
+    return f"https://webnodejs.investorgain.com/cloud/v2/report/data-read/{report}/{page}/{d.month}/{d.year}/{fiscal_year(d)}/0/all"
+
+
+def _plain_name(fragment) -> str:
+    """'NSE<span class="badge …">Open</span>' -> 'NSE': the cell's text without its status badges."""
+    if not isinstance(fragment, str):
+        return clean(str(fragment or ""))
+    tree = HTMLParser(fragment)
+    for badge in tree.css("span"):
+        badge.decompose()
+    return clean(tree.text(separator=" "))
+
+
+def parse_anchor_calendar(data) -> list[dict]:
+    url = f"report {ANCHOR_REPORT}"
+    if not isinstance(data, dict):
+        raise SourceChanged(SOURCE, f"expected a JSON object, got {type(data).__name__}", url)
+    rows = data.get("reportTableData")
+    if not isinstance(rows, list) or not rows:
+        raise SourceChanged(SOURCE, f"anchor calendar: reportTableData missing or empty (msg={data.get('msg')!r})", url)
+    out = []
+    for raw in rows:
+        if not isinstance(raw, dict):
+            continue
+        name = _plain_name(_pick(raw, "IPO", "Name"))
+        bid = _date(_pick(raw, "Anchor Bid Date", "Anchor Date"))
+        if not name or not bid or not _ISO.match(bid):
+            continue
+        l30, l90 = _date(_pick(raw, "Lockin End 30 Days")), _date(_pick(raw, "Lockin End 90 Days"))
+        path = str(_pick(raw, "~URLRewrite_Folder_Name") or "")
+        out.append({"name": name, "igId": str(_pick(raw, "~id") or "") or None,
+                    "exchange": strip_tags(_pick(raw, "Exchange")),
+                    "issueSizeCr": parse_money(strip_tags(_pick(raw, "IPO Size", "Issue Size"))),
+                    "bidDate": bid,
+                    "lockIn30": l30 if l30 and _ISO.match(l30) else None,
+                    "lockIn90": l90 if l90 and _ISO.match(l90) else None,
+                    "page": "https://www.investorgain.com" + path if path.startswith("/") else None})
+    if not out:
+        raise SourceChanged(SOURCE, f"anchor calendar: {len(rows)} rows, none with a name and a bid date "
+                                    f"(keys: {sorted(rows[0].keys())[:8] if isinstance(rows[0], dict) else '?'})", url)
+    return out
+
+
+def fetch_anchor_calendar(session, today: dt.date | None = None) -> list[dict]:
+    """This year's list; in January-March also last year's, whose 90-day lock-ins are still running."""
+    d = today or dt.datetime.now(IST).date()
+    headers = {**HEADERS, "Referer": ANCHOR_PAGE}
+    out = parse_anchor_calendar(session.get_json(report_url(ANCHOR_REPORT, d), source=SOURCE, headers=headers))
+    if d.month <= 3:
+        try:
+            last = dt.date(d.year - 1, 12, 31)
+            out += parse_anchor_calendar(session.get_json(report_url(ANCHOR_REPORT, last), source=SOURCE, headers=headers))
+        except SourceChanged:
+            pass
     return out
 
 

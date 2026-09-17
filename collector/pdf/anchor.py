@@ -1,15 +1,17 @@
-"""Anchor allocation letters — the PDF an issuer files with the exchanges the evening before it opens.
-NSE serves it at nsearchives .../content/ipo/ANCHOR_<SYMBOL>.zip (linked from ipo-detail as "Anchor
-Allocation Report"; seen live 17 Sep 2026).
+"""Anchor allocation letters — a BENCH TOOL. No module and no workflow calls this.
 
-Seen in the wild: small issuers file real text; large ones file a scan (NSE's own letter: 14 pages, no
-text layer). So text comes from the text layer when there is one and from OCR (Tesseract through
-PyMuPDF) when there is not. Either way the text is only a candidate. A row is believed when its own
-arithmetic closes — shares x price = amount — and the letter is believed when the rows add up to the
-anchor portion. OCR that misreads a digit fails that test and the row is dropped; a letter that loses
-too much is refused (SourceChanged), so nothing half-read reaches the page.
+The collector's `anchors` module is fetch-only (book size from NSE's issue information, dates from
+InvestorGain). This file is what is left of an attempt, on 17 Sep 2026, to read the investor list out of
+the issuer's letter inside a run. It was taken out of the pipeline: big issuers file scans, and even with
+OCR plus arithmetic checks only 76% of NSE's own 14-page letter could be verified. Reading a document is
+research, not collection. It stays here for that use — someone (or Claude, on request) reading one letter
+and wanting the arithmetic checked:
 
-    python -m collector.pdf.anchor letter.pdf [--ocr]
+    python -m collector.pdf.anchor letter.pdf
+
+Letters are served at nsearchives .../content/ipo/ANCHOR_<SYMBOL>.zip. Small issuers file real text; large
+ones file a scan, which needs Tesseract on the machine. A row is believed only when shares x price equals
+the amount to the rupee, and a letter only when the believed rows cover the stated anchor portion.
 """
 from __future__ import annotations
 
