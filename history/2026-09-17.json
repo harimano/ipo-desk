@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-17T23:41:46+05:30",
+  "asOf": "2026-09-17T23:57:55+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "17 Sep 2026, 23:41 IST",
+  "label": "17 Sep 2026, 23:57 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -62,8 +62,8 @@
    "[listings] listings: no NSE symbol on row 'Shankesh Jewellers' — cannot price",
    "[listings] listings: no NSE symbol on row 'Horizon Industrial Parks' — cannot price",
    "[listings] listings: no NSE symbol on row 'Lalithaa Jewellery Mart' — cannot price",
-   "[parents] no NSE symbol found for investor stocks: Indo SMC, Sahajanand Medical Technologies (upcoming), NSE (upcoming) — BSE-only, or add to data/aliases.json",
-   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics"
+   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
+   "[anchors] anchor letters that could not be read: Glass Wall Systems; LCC Projects"
   ]
  },
  "expected": [
@@ -1403,9 +1403,9 @@
    "issueSizeCr": 210.0,
    "freshCr": 210,
    "ofsCr": 0,
-   "gmp": 8.5,
-   "gmpPct": 6.07,
-   "gmpTrend": "up",
+   "gmp": 6.0,
+   "gmpPct": 4.29,
+   "gmpTrend": "down",
    "sub": {
     "qib": 17.76,
     "nii": 18.03,
@@ -1442,9 +1442,9 @@
    "issueSizeCr": 91.96,
    "freshCr": 92.5,
    "ofsCr": null,
-   "gmp": 2.25,
-   "gmpPct": 5.23,
-   "gmpTrend": "up",
+   "gmp": 2.0,
+   "gmpPct": 4.65,
+   "gmpTrend": "down",
    "sub": {
     "qib": 10.94,
     "nii": 63.09,
@@ -1557,9 +1557,9 @@
    "issueSizeCr": 372.86,
    "freshCr": null,
    "ofsCr": null,
-   "gmp": 137.0,
-   "gmpPct": 32.31,
-   "gmpTrend": "up",
+   "gmp": 133.0,
+   "gmpPct": 31.37,
+   "gmpTrend": "down",
    "sub": {
     "qib": 0.23,
     "nii": 9.91,
@@ -7964,14 +7964,14 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-17T23:41:46+05:30",
+  "asOf": "2026-09-17T23:57:55+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-17T23:40:48+05:30",
-    "elapsed": 24.7,
+    "asOf": "2026-09-17T23:56:59+05:30",
+    "elapsed": 33.2,
     "calls": 15,
     "note": "nse current=7 upcoming=7 past=50 detail=10 +bse=11: 17 mainboard, 10 sme; 9 open, 5 upcoming"
    },
@@ -7979,8 +7979,8 @@
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-17T23:41:16+05:30",
-    "elapsed": 27.75,
+    "asOf": "2026-09-17T23:57:08+05:30",
+    "elapsed": 8.76,
     "calls": 14,
     "note": "9/11 rows patched via nse; no subscription for: Shakti Polytarp, Vama Wovenfab"
    },
@@ -7989,16 +7989,16 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "17-Sep 9:34",
-    "elapsed": 1.25,
+    "elapsed": 0.15,
     "calls": 1,
-    "note": "gmp: 14 board rows patched via investorgain; 14 active, 9 of them matched; gmp: 6 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); NSE (₹142, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹11, investorgain); Varmora Granito (₹10, investorgain)"
+    "note": "gmp: 14 board rows patched via investorgain; 14 active, 9 of them matched; gmp: 6 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); NSE (₹145, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹9, investorgain); Varmora Granito (₹10, investorgain)"
    },
    {
     "area": "listings",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 8.9,
+    "elapsed": 7.21,
     "calls": 0,
     "note": "20 names priced, 4 moved to recent, 0 history points"
    },
@@ -8007,8 +8007,8 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 13.26,
-    "calls": 2,
+    "elapsed": 8.26,
+    "calls": 0,
     "note": "5/5 parent prices; 27/32 investor stocks priced"
    },
    {
@@ -8016,7 +8016,7 @@
     "method": "bse_ann:ok, sebi:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 4.42,
+    "elapsed": 4.0,
     "calls": 10,
     "note": "bse_ann: 8/8 parents answered, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; expected: 25 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; 0 rows patched, 33 kept previous stage"
    },
@@ -8025,16 +8025,25 @@
     "method": "bse:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.9,
+    "elapsed": 1.31,
     "calls": 1,
     "note": "bse rows=12: 11 rights, 12 buybacks, 0 ofs, 1 ncd; 12 refreshed, 0 new, 0 closed windows dropped"
+   },
+   {
+    "area": "anchors",
+    "method": "nse-anchor-letters:ok",
+    "status": "ok",
+    "asOf": "2026-09-17",
+    "elapsed": 24.27,
+    "calls": 6,
+    "note": "read: Kanohar Electricals (42 allocations, ₹317 Cr, text); Prasol Chemicals (14 allocations, ₹150 Cr, text); Asset Reconstruction Company (India) (21 allocations, ₹220 Cr, text); Karamtara Engineering (15 allocations, ₹262 Cr, text); could not read: Glass Wall Systems: believed rows cover 56% of the anchor portion (9 rows kept, 2 rejected) — refusing a partial book; LCC Projects: no allocation row passed the arithmetic check (2 candidates rejected)"
    },
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.45,
+    "elapsed": 0.35,
     "calls": 1,
     "note": "2026-09-17 already in history; FII -3,209 / DII +3,618 Cr"
    },
@@ -8043,7 +8052,7 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.62,
+    "elapsed": 0.75,
     "calls": 2,
     "note": "bulk.csv: 212 deals; block.csv: 4 deals; 0 tracked-investor deals of 216; 13 patterns"
    },
@@ -8052,7 +8061,7 @@
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-09-17T21:03:04+05:30",
-    "elapsed": 0.81,
+    "elapsed": 0.66,
     "calls": 3,
     "note": "business-standard: 6/35 primary-market items; economic-times: 14/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 20 fresh, 25 kept"
    },
@@ -8066,7 +8075,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "83s, 49 calls, 10/10 modules ok"
+    "note": "89s, 53 calls, 11/11 modules ok"
    }
   ],
   "discrepancies": [
@@ -9961,6 +9970,804 @@
  },
  "anchors": [
   {
+   "amountCr": null,
+   "anchor": null,
+   "count": null,
+   "date": "2026-09-08",
+   "investors": [],
+   "issueSizeCr": null,
+   "name": "LCC Projects",
+   "note": "IPO opens 9 Sep 2026; anchor book (8 Sep) not yet published.",
+   "sources": [
+    "https://www.chittorgarh.com/ipo/lcc-projects-ipo/2086/"
+   ],
+   "topTierShare": null
+  },
+  {
+   "amountCr": null,
+   "anchor": null,
+   "count": null,
+   "date": "2026-09-08",
+   "investors": [],
+   "issueSizeCr": 1256,
+   "name": "Rentomojo",
+   "note": "IPO opens 9 Sep 2026; anchor book (8 Sep) not yet published.",
+   "sources": [
+    "https://inc42.com/buzz/rentomojo-sets-price-band-at-%E2%82%B9384-%E2%82%B9404-for-%E2%82%B91256-cr-ipo/"
+   ],
+   "topTierShare": null
+  },
+  {
+   "amountCr": null,
+   "anchor": null,
+   "count": null,
+   "date": "2026-09-08",
+   "investors": [],
+   "issueSizeCr": null,
+   "name": "Manipal Payment & Identity Solutions",
+   "note": "IPO opens 9 Sep 2026; anchor book (8 Sep) not yet published.",
+   "sources": [
+    "https://www.chittorgarh.com/ipo/manipal-payment-and-identity-solutions-ipo/2524/"
+   ],
+   "topTierShare": null
+  },
+  {
+   "amountCr": null,
+   "anchor": null,
+   "count": null,
+   "date": "2026-09-08",
+   "investors": [],
+   "issueSizeCr": 414,
+   "name": "Steamhouse India",
+   "note": "IPO opens 9 Sep 2026; anchor book (8 Sep) not yet published.",
+   "sources": [
+    "https://www.chittorgarh.com/ipo/steamhouse-india-ipo/2514/"
+   ],
+   "topTierShare": null
+  },
+  {
+   "name": "Asset Reconstruction Company (India)",
+   "date": "2026-09-08",
+   "amountCr": 219.89,
+   "issueSizeCr": 732.97,
+   "count": 21,
+   "topTierShare": 51.39,
+   "anchor": "₹219.89 Cr from 21 allocations on 2026-09-08 — Goldman Sachs Funds - Goldman Sachs India Equity Portfolio, Aditya Birla Sun Life Mutual Fund - Aditya Birla Sun Life Small Cap Fund, BANDHAN SMALL CAP FUND Premier ARC Asset Reconstruction Company (India) Limited The Ruby, 10th Floor, 29, Senapati Bapat Marg, Dadar (West), Mumbai 400 028. Ind, Fund, Ashoka Whiteoak Icav - Ashoka Whiteoak India Opportunities Fund, Whiteoak Capital Multi Cap Fund, Bajaj Life Insurance Limited, Societe Generale - Odi, Bofa Securities Europe Sa - Odi",
+   "investors": [
+    {
+     "name": "GOLDMAN SACHS FUNDS - GOLDMAN SACHS INDIA EQUITY PORTFOLIO",
+     "cat": "Other",
+     "amountCr": 35.0,
+     "pct": 15.92
+    },
+    {
+     "name": "ADITYA BIRLA SUN LIFE MUTUAL FUND - ADITYA BIRLA SUN LIFE SMALL CAP FUND",
+     "cat": "MF",
+     "amountCr": 26.0,
+     "pct": 11.82
+    },
+    {
+     "name": "BANDHAN SMALL CAP FUND Premier ARC Asset Reconstruction Company (India) Limited The Ruby, 10th Floor, 29, Senapati Bapat Marg, Dadar (West), Mumbai 400 028. Ind",
+     "cat": "MF",
+     "amountCr": 26.0,
+     "pct": 11.82
+    },
+    {
+     "name": "FUND",
+     "cat": "AIF",
+     "amountCr": 26.0,
+     "pct": 11.82
+    },
+    {
+     "name": "ASHOKA WHITEOAK ICAV - ASHOKA WHITEOAK INDIA OPPORTUNITIES FUND",
+     "cat": "MF",
+     "amountCr": 20.0,
+     "pct": 9.1
+    },
+    {
+     "name": "WHITEOAK CAPITAL MULTI CAP FUND",
+     "cat": "MF",
+     "amountCr": 10.0,
+     "pct": 4.55
+    },
+    {
+     "name": "BAJAJ LIFE INSURANCE LIMITED",
+     "cat": "Insurance",
+     "amountCr": 10.0,
+     "pct": 4.55
+    },
+    {
+     "name": "SOCIETE GENERALE - ODI",
+     "cat": "FPI",
+     "amountCr": 10.0,
+     "pct": 4.55
+    },
+    {
+     "name": "BOFA SECURITIES EUROPE SA - ODI",
+     "cat": "FPI",
+     "amountCr": 8.45,
+     "pct": 3.84
+    },
+    {
+     "name": "INTEGRATED CORE STRATEGIES (ASIA) PTE. LTD",
+     "cat": "FPI",
+     "amountCr": 8.45,
+     "pct": 3.84
+    },
+    {
+     "name": "WHITEOAK CAPITAL BANKING & FINANCIAL SERVICES FUND",
+     "cat": "AIF",
+     "amountCr": 6.5,
+     "pct": 2.96
+    },
+    {
+     "name": "GOLDMAN SACHS ETF TRUST - GOLDMAN SACHS INDIA EQUITY ETF",
+     "cat": "AIF",
+     "amountCr": 5.0,
+     "pct": 2.27
+    },
+    {
+     "name": "JM FINANCIAL MUTUAL FUND - JM AGGRESSIVE HYBRID FUND",
+     "cat": "MF",
+     "amountCr": 5.0,
+     "pct": 2.27
+    },
+    {
+     "name": "JM FINANCIAL MUTUAL FUND-JM VALUE FUND",
+     "cat": "MF",
+     "amountCr": 5.0,
+     "pct": 2.27
+    },
+    {
+     "name": "INDUSIND GENERAL INSURANCE COMPANY LIMITED",
+     "cat": "Insurance",
+     "amountCr": 5.0,
+     "pct": 2.27
+    },
+    {
+     "name": "GOLDMAN SACHS BANK EUROPE SE - ODI Total 1,58,19,583 2,19,89,22,037.00 40% of the Anchor Investor Portion was reserved for domestic Mutual Funds (as defined in ",
+     "cat": "MF",
+     "amountCr": 5.0,
+     "pct": 2.27
+    },
+    {
+     "name": "GROWW MUTUAL FUND - GROWW SMALL CAP FUND",
+     "cat": "MF",
+     "amountCr": 3.3,
+     "pct": 1.5
+    },
+    {
+     "name": "WHITEOAK CAPITAL AGGRESSIVE HYBRID FUND",
+     "cat": "MF",
+     "amountCr": 2.0,
+     "pct": 0.91
+    },
+    {
+     "name": "WHITEOAK CAPITAL BALANCED HYBRID FUND",
+     "cat": "MF",
+     "amountCr": 1.5,
+     "pct": 0.68
+    },
+    {
+     "name": "GROWW MUTUAL FUND- VALUE FUND",
+     "cat": "MF",
+     "amountCr": 1.0,
+     "pct": 0.45
+    },
+    {
+     "name": "GROWW MUTUAL FUND - GROWW BANKING AND FINANCIAL SERVICES FUND",
+     "cat": "MF",
+     "amountCr": 0.7,
+     "pct": 0.32
+    }
+   ],
+   "stated": {
+    "mf": {
+     "pct": 51.39,
+     "count": 6
+    }
+   },
+   "partial": false,
+   "coverage": 1.0,
+   "price": 139.0,
+   "sources": [
+    "https://nsearchives.nseindia.com/content/ipo/ANCHOR_ARCIL.zip"
+   ],
+   "source": "nse-anchor-letter",
+   "note": "Read from the letter's text; every listed row checked: shares × price = amount."
+  },
+  {
+   "name": "Karamtara Engineering",
+   "date": "2026-09-08",
+   "amountCr": 262.5,
+   "issueSizeCr": 875,
+   "count": 15,
+   "topTierShare": 62.66,
+   "anchor": "₹262.50 Cr from 15 allocations on 2026-09-08 — Hdfc Mutual Fund - Hdfc Innovation Fund, Nippon Life India Trustee Ltd-A/C Nippon India Small Cap Fund, Mirae Asset Elss Tax Saver Fund, Hdfc Life Insurance Company Limited, Sbi Life Insurance Co. Ltd, Singularity Equity Fund I, Authum Investment And Infrastructure Limited, Elm Park Fund Limited, Societe Generale - Odi",
+   "investors": [
+    {
+     "name": "HDFC MUTUAL FUND - HDFC INNOVATION FUND",
+     "cat": "MF",
+     "amountCr": 30.0,
+     "pct": 11.43
+    },
+    {
+     "name": "NIPPON LIFE INDIA TRUSTEE LTD-A/C NIPPON INDIA SMALL CAP FUND",
+     "cat": "MF",
+     "amountCr": 30.0,
+     "pct": 11.43
+    },
+    {
+     "name": "MIRAE ASSET ELSS TAX SAVER FUND",
+     "cat": "MF",
+     "amountCr": 30.0,
+     "pct": 11.43
+    },
+    {
+     "name": "HDFC LIFE INSURANCE COMPANY LIMITED",
+     "cat": "Insurance",
+     "amountCr": 20.0,
+     "pct": 7.62
+    },
+    {
+     "name": "SBI LIFE INSURANCE CO. LTD",
+     "cat": "Insurance",
+     "amountCr": 20.0,
+     "pct": 7.62
+    },
+    {
+     "name": "SINGULARITY EQUITY FUND I",
+     "cat": "AIF",
+     "amountCr": 20.0,
+     "pct": 7.62
+    },
+    {
+     "name": "AUTHUM INVESTMENT AND INFRASTRUCTURE LIMITED",
+     "cat": "Other",
+     "amountCr": 20.0,
+     "pct": 7.62
+    },
+    {
+     "name": "ELM PARK FUND LIMITED",
+     "cat": "AIF",
+     "amountCr": 20.0,
+     "pct": 7.62
+    },
+    {
+     "name": "SOCIETE GENERALE - ODI",
+     "cat": "FPI",
+     "amountCr": 20.0,
+     "pct": 7.62
+    },
+    {
+     "name": "MOTILAL OSWAL MANUFACTURING FUND",
+     "cat": "AIF",
+     "amountCr": 16.0,
+     "pct": 6.1
+    },
+    {
+     "name": "DURO INDIA OPPORTUNITIES FUND PTE. LTD",
+     "cat": "MF",
+     "amountCr": 9.0,
+     "pct": 3.43
+    },
+    {
+     "name": "SUSQUEHANNA PACIFIC PTY LTD",
+     "cat": "Other",
+     "amountCr": 9.0,
+     "pct": 3.43
+    },
+    {
+     "name": "TRUSTMF SMALL CAP FUND",
+     "cat": "MF",
+     "amountCr": 9.0,
+     "pct": 3.43
+    },
+    {
+     "name": "EDELWEISS LIFE INSURANCE COMPANY LIMITED",
+     "cat": "Insurance",
+     "amountCr": 5.5,
+     "pct": 2.1
+    },
+    {
+     "name": "MOTILAL OSWAL INFRASTRUCTURE FUND",
+     "cat": "AIF",
+     "amountCr": 4.0,
+     "pct": 1.52
+    }
+   ],
+   "stated": {
+    "mf": {
+     "pct": 45.33,
+     "count": 5
+    },
+    "insurancePension": {
+     "pct": 17.33,
+     "count": 3
+    }
+   },
+   "partial": false,
+   "coverage": 1.0,
+   "price": 254.0,
+   "sources": [
+    "https://nsearchives.nseindia.com/content/ipo/ANCHOR_KARAMTARA.zip"
+   ],
+   "source": "nse-anchor-letter",
+   "note": "Read from the letter's text; every listed row checked: shares × price = amount."
+  },
+  {
+   "amountCr": null,
+   "anchor": null,
+   "count": null,
+   "date": "2026-09-07",
+   "investors": [],
+   "issueSizeCr": 427.89,
+   "name": "Glass Wall Systems (India)",
+   "note": "Issue opened 8 Sep 2026; anchor allocation letter not located at refresh time.",
+   "sources": [
+    "https://ipowatch.in/glass-wall-systems-ipo/"
+   ],
+   "topTierShare": null
+  },
+  {
+   "name": "Kanohar Electricals",
+   "date": "2026-09-07",
+   "amountCr": 316.72,
+   "issueSizeCr": 1055.74,
+   "count": 42,
+   "topTierShare": 66.69,
+   "anchor": "₹316.72 Cr from 42 allocations on 2026-09-07 — Icici Prudential Multi Cap Fund, Isif Equity Ex-Top 100 Long- Short Fund, Ashoka Whiteoak Icav - Ashoka Whiteoak Emerging Markets Equity Fund, Mirae Asset Small Cap Fund, Motilal Oswal Balanced Advantage Fund, Allianz Global Investors Fund - Allianz India Equity, Hsbc Global Investment Funds - Asia Ex Japan Equity Smaller Companies, Vq Fastercap Fund, 18. 360 One Flexicap Fund",
+   "investors": [
+    {
+     "name": "ICICI PRUDENTIAL MULTI CAP FUND",
+     "cat": "MF",
+     "amountCr": 34.12,
+     "pct": 10.77
+    },
+    {
+     "name": "ISIF EQUITY EX-TOP 100 LONG- SHORT FUND",
+     "cat": "AIF",
+     "amountCr": 24.37,
+     "pct": 7.69
+    },
+    {
+     "name": "ASHOKA WHITEOAK ICAV - ASHOKA WHITEOAK EMERGING MARKETS EQUITY FUND",
+     "cat": "FPI",
+     "amountCr": 21.0,
+     "pct": 6.63
+    },
+    {
+     "name": "MIRAE ASSET SMALL CAP FUND",
+     "cat": "MF",
+     "amountCr": 14.0,
+     "pct": 4.42
+    },
+    {
+     "name": "MOTILAL OSWAL BALANCED ADVANTAGE FUND",
+     "cat": "MF",
+     "amountCr": 14.0,
+     "pct": 4.42
+    },
+    {
+     "name": "ALLIANZ GLOBAL INVESTORS FUND - ALLIANZ INDIA EQUITY",
+     "cat": "FPI",
+     "amountCr": 14.0,
+     "pct": 4.42
+    },
+    {
+     "name": "HSBC GLOBAL INVESTMENT FUNDS - ASIA EX JAPAN EQUITY SMALLER COMPANIES",
+     "cat": "FPI",
+     "amountCr": 14.0,
+     "pct": 4.42
+    },
+    {
+     "name": "VQ FASTERCAP FUND",
+     "cat": "AIF",
+     "amountCr": 14.0,
+     "pct": 4.42
+    },
+    {
+     "name": "18. 360 ONE FLEXICAP FUND",
+     "cat": "MF",
+     "amountCr": 10.0,
+     "pct": 3.16
+    },
+    {
+     "name": "HDFC LIFE INSURANCE COMPANY LIMITED",
+     "cat": "Insurance",
+     "amountCr": 10.0,
+     "pct": 3.16
+    },
+    {
+     "name": "ABAKKUS FLEXI EDGE FUND-1",
+     "cat": "AIF",
+     "amountCr": 10.0,
+     "pct": 3.16
+    },
+    {
+     "name": "KOTAK INFRASTRUCTURE & ECONOMIC REFORM FUND",
+     "cat": "AIF",
+     "amountCr": 8.0,
+     "pct": 2.53
+    },
+    {
+     "name": "KOTAK MAHINDRA TRUSTEE CO LTD A/C KOTAK MANUFACTURE IN INDIA FUND",
+     "cat": "AIF",
+     "amountCr": 8.0,
+     "pct": 2.53
+    },
+    {
+     "name": "KOTAK MAHINDRA TRUSTEE CO LTD A/C KOTAK SPECIAL OPPORTUNITIES FUND",
+     "cat": "MF",
+     "amountCr": 8.0,
+     "pct": 2.53
+    },
+    {
+     "name": "KOTAK MAHINDRA TRUSTEE CO LTD A/C KOTAK RURAL OPPORTUNITIES FUND",
+     "cat": "MF",
+     "amountCr": 8.0,
+     "pct": 2.53
+    },
+    {
+     "name": "WHITEOAK CAPITAL EQUITY TRUST - WHITEOAK CAPITAL EQUITY FUND II S. No. Name of the Anchor Investor No. of Equity Shares allocated No. of Equity Shares Allocated",
+     "cat": "AIF",
+     "amountCr": 7.5,
+     "pct": 2.37
+    },
+    {
+     "name": "TATA DIVIDEND YIELD FUND",
+     "cat": "AIF",
+     "amountCr": 7.5,
+     "pct": 2.37
+    },
+    {
+     "name": "EDELWEISS TRUSTEESHIP CO LTD AC- EDELWEISS MF AC- EDELWEISS AGGRESIVE HYBRID FUND",
+     "cat": "MF",
+     "amountCr": 7.5,
+     "pct": 2.37
+    },
+    {
+     "name": "TITANIUM HYBRID LONG-SHORT FUND",
+     "cat": "AIF",
+     "amountCr": 5.0,
+     "pct": 1.58
+    },
+    {
+     "name": "BANK OF INDIA BUSINESS CYCLE FUND",
+     "cat": "AIF",
+     "amountCr": 5.0,
+     "pct": 1.58
+    },
+    {
+     "name": "UNION SMALL CAP FUND",
+     "cat": "MF",
+     "amountCr": 5.0,
+     "pct": 1.58
+    },
+    {
+     "name": "TRUSTMF MID CAP FUND",
+     "cat": "MF",
+     "amountCr": 5.0,
+     "pct": 1.58
+    },
+    {
+     "name": "GROWW MUTUAL FUND - GROWW SMALL CAP FUND",
+     "cat": "MF",
+     "amountCr": 5.0,
+     "pct": 1.58
+    },
+    {
+     "name": "KOTAK MAHINDRA LIFE INSURANCE COMPANY LTD",
+     "cat": "Insurance",
+     "amountCr": 5.0,
+     "pct": 1.58
+    },
+    {
+     "name": "EDELWEISS LIFE INSURANCE COMPANY LIMITED",
+     "cat": "Insurance",
+     "amountCr": 5.0,
+     "pct": 1.58
+    },
+    {
+     "name": "BHARTI AXA LIFE INSURANCE COMPANY LTD",
+     "cat": "Insurance",
+     "amountCr": 5.0,
+     "pct": 1.58
+    },
+    {
+     "name": "NUVAMA CROSSOVER OPPORTUNITIES FUND SERIES 4A",
+     "cat": "MF",
+     "amountCr": 5.0,
+     "pct": 1.58
+    },
+    {
+     "name": "ICICI PRUDENTIAL SMART FUND",
+     "cat": "AIF",
+     "amountCr": 5.0,
+     "pct": 1.58
+    },
+    {
+     "name": "INDIA CAPITAL GROWTH FUND LIMITED",
+     "cat": "AIF",
+     "amountCr": 5.0,
+     "pct": 1.58
+    },
+    {
+     "name": "MOTILAL OSWAL FINVEST LIMITED",
+     "cat": "Other",
+     "amountCr": 5.0,
+     "pct": 1.58
+    },
+    {
+     "name": "SOCIETE GENERALE - ODI Out of the total allocation of 50,11,424 Equity Shares to the Anchor Investors, 2,788,267 Equity Shares (i.e.,55.64% of the total allocat",
+     "cat": "FPI",
+     "amountCr": 5.0,
+     "pct": 1.58
+    },
+    {
+     "name": "AXIS MAX LIFE INSURANCE LIMITED A/C UEGFH - HIGH GROWTH FUND II",
+     "cat": "Insurance",
+     "amountCr": 4.94,
+     "pct": 1.56
+    },
+    {
+     "name": "KOTAK MAHINDRA TRUSTEE CO LTD A/C KOTAK ENERGY OPPORTUNITIES FUND",
+     "cat": "MF",
+     "amountCr": 3.7,
+     "pct": 1.17
+    },
+    {
+     "name": "EDELWEISS TRUSTEESHIP CO LTD AC - EDELWEISS MF AC- EDELWEISS RECENTLY LISTED IPO FUND",
+     "cat": "MF",
+     "amountCr": 2.5,
+     "pct": 0.79
+    },
+    {
+     "name": "AXIS MAX LIFE INSURANCE LIMITED A/C SUSTAINABLE EQUITY FUND - ULIF02505/10/21SUSTAINEQU104",
+     "cat": "Insurance",
+     "amountCr": 2.25,
+     "pct": 0.71
+    },
+    {
+     "name": "AXIS MAX LIFE INSURANCE LIMITED PENSION MAXIMISER FUND (ULIF01715/02/13PENSMAXIMI104)",
+     "cat": "Insurance",
+     "amountCr": 1.59,
+     "pct": 0.5
+    },
+    {
+     "name": "TITANIUM EQUITY LONG-SHORT FUND",
+     "cat": "AIF",
+     "amountCr": 1.5,
+     "pct": 0.47
+    },
+    {
+     "name": "AXIS MAX LIFE INSURANCE LIMITED A/C UMFPH - HIGH S. No. Name of the Anchor Investor No. of Equity Shares allocated No. of Equity Shares Allocated as a % of Anch",
+     "cat": "Insurance",
+     "amountCr": 0.44,
+     "pct": 0.14
+    },
+    {
+     "name": "AXIS MAX LIFE INSURANCE LIMITED A/C UHG2S - INDIA CONSUMPTION OPPORTUNITIES FUND",
+     "cat": "MF",
+     "amountCr": 0.35,
+     "pct": 0.11
+    },
+    {
+     "name": "AXIS MAX LIFE INSURANCE LIMITED A/C - ULGF00217/04/06GRATBALANC104 - GROUP GRATUITY BALANCED FUND",
+     "cat": "Insurance",
+     "amountCr": 0.25,
+     "pct": 0.08
+    },
+    {
+     "name": "AXIS MAX LIFE INSURANCE LIMITED PENSION PRESERVER FUND(ULIF01815/02/13PENSPRESER10 4)",
+     "cat": "Insurance",
+     "amountCr": 0.09,
+     "pct": 0.03
+    },
+    {
+     "name": "AXIS MAX LIFE INSURANCE LIMITED A/C - ULIF00625/11/05PENSBALANC104 - PENSION BALANCED FUND",
+     "cat": "Insurance",
+     "amountCr": 0.09,
+     "pct": 0.03
+    }
+   ],
+   "stated": {
+    "mf": {
+     "pct": 55.64,
+     "count": 11
+    },
+    "insurancePension": {
+     "pct": 11.05,
+     "count": 5
+    }
+   },
+   "partial": false,
+   "coverage": 1.0,
+   "price": 632.0,
+   "sources": [
+    "https://nsearchives.nseindia.com/content/ipo/ANCHOR_KANOHAR.zip"
+   ],
+   "source": "nse-anchor-letter",
+   "note": "Read from the letter's text; every listed row checked: shares × price = amount."
+  },
+  {
+   "name": "Prasol Chemicals",
+   "date": "2026-09-07",
+   "amountCr": 150.0,
+   "issueSizeCr": 500,
+   "count": 14,
+   "topTierShare": 72.01,
+   "anchor": "₹150.00 Cr from 14 allocations on 2026-09-07 — Aditya Birla Sun Life Insurance Company Limited, Tata Aia Life Insurance Company Limited A/C Small Cap Discovery Fund (Ulif 071 22/05/23 Scf 110), Turnaround Opportunities Fund, Iti Small Cap Fund, Clarus Capital I - Lvf 1, Tata India Pharma & Healthcare Fund, Tata India Innovation Fund, Edelweiss Trusteeship Co Ltd Ac- Edelweiss Mf Ac- Edelweiss Aggresive Hybrid Fund, Nuvama Multi Asset Strategy Return Fund",
+   "investors": [
+    {
+     "name": "ADITYA BIRLA SUN LIFE INSURANCE COMPANY LIMITED",
+     "cat": "Insurance",
+     "amountCr": 20.0,
+     "pct": 13.33
+    },
+    {
+     "name": "TATA AIA LIFE INSURANCE COMPANY LIMITED A/C SMALL CAP DISCOVERY FUND (ULIF 071 22/05/23 SCF 110)",
+     "cat": "MF",
+     "amountCr": 20.0,
+     "pct": 13.33
+    },
+    {
+     "name": "TURNAROUND OPPORTUNITIES FUND",
+     "cat": "MF",
+     "amountCr": 15.0,
+     "pct": 10.0
+    },
+    {
+     "name": "ITI SMALL CAP FUND",
+     "cat": "MF",
+     "amountCr": 15.0,
+     "pct": 10.0
+    },
+    {
+     "name": "CLARUS CAPITAL I - LVF 1",
+     "cat": "Other",
+     "amountCr": 11.99,
+     "pct": 7.99
+    },
+    {
+     "name": "TATA INDIA PHARMA & HEALTHCARE FUND",
+     "cat": "AIF",
+     "amountCr": 10.0,
+     "pct": 6.67
+    },
+    {
+     "name": "TATA INDIA INNOVATION FUND",
+     "cat": "AIF",
+     "amountCr": 10.0,
+     "pct": 6.67
+    },
+    {
+     "name": "EDELWEISS TRUSTEESHIP CO LTD AC- EDELWEISS MF AC- EDELWEISS AGGRESIVE HYBRID FUND",
+     "cat": "MF",
+     "amountCr": 10.0,
+     "pct": 6.67
+    },
+    {
+     "name": "NUVAMA MULTI ASSET STRATEGY RETURN FUND",
+     "cat": "AIF",
+     "amountCr": 10.0,
+     "pct": 6.67
+    },
+    {
+     "name": "KOTAK MAHINDRA TRUSTEE CO LTD A/C KOTAK SPECIAL OPPORTUNITIES FUND",
+     "cat": "MF",
+     "amountCr": 7.97,
+     "pct": 5.31
+    },
+    {
+     "name": "KOTAK MAHINDRA TRUSTEE CO LTD A/C KOTAK HEALTHCARE FUND",
+     "cat": "AIF",
+     "amountCr": 7.97,
+     "pct": 5.31
+    },
+    {
+     "name": "9 360 ONE EQUITY OPPORTUNITY FUND - SERIES 4",
+     "cat": "AIF",
+     "amountCr": 5.0,
+     "pct": 3.33
+    },
+    {
+     "name": "KOTAK MAHINDRA TRUSTEE CO LTD A/C KOTAK RURAL OPPORTUNITIES FUND",
+     "cat": "MF",
+     "amountCr": 4.06,
+     "pct": 2.71
+    },
+    {
+     "name": "EDELWEISS TRUSTEESHIP CO LTD AC - EDELWEISS MF AC- EDELWEISS RECENTLY LISTED IPO FUND",
+     "cat": "MF",
+     "amountCr": 3.0,
+     "pct": 2.0
+    }
+   ],
+   "stated": {
+    "mf": {
+     "pct": 45.34,
+     "count": 4
+    },
+    "insurancePension": {
+     "pct": 26.67,
+     "count": 2
+    }
+   },
+   "partial": false,
+   "coverage": 1.0,
+   "price": 676.0,
+   "sources": [
+    "https://nsearchives.nseindia.com/content/ipo/ANCHOR_PRASOLCHEM.zip"
+   ],
+   "source": "nse-anchor-letter",
+   "note": "Read from the letter's text; every listed row checked: shares × price = amount."
+  },
+  {
+   "amountCr": 84.25,
+   "anchor": "₹84.25 Cr from 14 investors on 2026-09-04 at ₹124 — Goldman Sachs Investments (largest allocation), domestic mutual funds",
+   "count": 14,
+   "date": "2026-09-04",
+   "investors": [
+    {
+     "amountCr": 25,
+     "cat": "FPI",
+     "name": "Goldman Sachs Investments (Mauritius) Ltd",
+     "pct": 29.67
+    },
+    {
+     "amountCr": 24.5,
+     "cat": "MF",
+     "name": "ITI MF + Taurus MF (combined, 7 schemes)",
+     "pct": 29.08
+    },
+    {
+     "amountCr": 7.5,
+     "cat": "Other",
+     "name": "The Asio Fund VCC - Sub Fund 4",
+     "pct": 8.9
+    },
+    {
+     "amountCr": 7.25,
+     "cat": "Other",
+     "name": "Saint Capital Fund",
+     "pct": 8.6
+    },
+    {
+     "amountCr": 5,
+     "cat": "Other",
+     "name": "Abudantia Capital VCC",
+     "pct": 5.94
+    },
+    {
+     "amountCr": 5,
+     "cat": "Other",
+     "name": "ASAS Global Fund Incorporated VCC Sub-Fund",
+     "pct": 5.94
+    },
+    {
+     "amountCr": 5,
+     "cat": "AIF",
+     "name": "Ashika India Select Fund",
+     "pct": 5.94
+    },
+    {
+     "amountCr": 5,
+     "cat": "Other",
+     "name": "Rigel Global Fund",
+     "pct": 5.94
+    }
+   ],
+   "issueSizeCr": 351,
+   "name": "Pranav Constructions",
+   "note": "67,94,034 shares at Rs124. No allocation to life insurers or pension funds. MF share is small-house (ITI, Taurus).",
+   "sources": [
+    "https://www.ipoji.com/ipo/pranav-constructions-ipo",
+    "https://www.businesstoday.in/markets/ipo-corner/story/pranav-constructions-ipo-opens-should-you-subscribe-check-price-band-reviews-fresh-gmp-more-553540-2026-09-07"
+   ],
+   "topTierShare": 29.08
+  },
+  {
    "amountCr": 137.91,
    "anchor": "₹137.91 Cr from 9+ investors on 2026-08-31 — Nomura Singapore, Citigroup Global Markets Mauritius, Maybank Securities ODI, Ashoka India Equity Investment Trust, Motilal Oswal Finvest, WhiteOak Capital Equity Fund, Tata India Consumer Fund, Tata Dividend Yield Fund, Unifi Flexi Cap Fund",
    "count": 15,
@@ -10166,236 +10973,6 @@
     "https://www.ipoji.com/ipo/purple-style-labs-ipo"
    ],
    "topTierShare": 54.9
-  },
-  {
-   "amountCr": 84.25,
-   "anchor": "₹84.25 Cr from 14 investors on 2026-09-04 at ₹124 — Goldman Sachs Investments (largest allocation), domestic mutual funds",
-   "count": 14,
-   "date": "2026-09-04",
-   "investors": [
-    {
-     "amountCr": 25,
-     "cat": "FPI",
-     "name": "Goldman Sachs Investments (Mauritius) Ltd",
-     "pct": 29.67
-    },
-    {
-     "amountCr": 24.5,
-     "cat": "MF",
-     "name": "ITI MF + Taurus MF (combined, 7 schemes)",
-     "pct": 29.08
-    },
-    {
-     "amountCr": 7.5,
-     "cat": "Other",
-     "name": "The Asio Fund VCC - Sub Fund 4",
-     "pct": 8.9
-    },
-    {
-     "amountCr": 7.25,
-     "cat": "Other",
-     "name": "Saint Capital Fund",
-     "pct": 8.6
-    },
-    {
-     "amountCr": 5,
-     "cat": "Other",
-     "name": "Abudantia Capital VCC",
-     "pct": 5.94
-    },
-    {
-     "amountCr": 5,
-     "cat": "Other",
-     "name": "ASAS Global Fund Incorporated VCC Sub-Fund",
-     "pct": 5.94
-    },
-    {
-     "amountCr": 5,
-     "cat": "AIF",
-     "name": "Ashika India Select Fund",
-     "pct": 5.94
-    },
-    {
-     "amountCr": 5,
-     "cat": "Other",
-     "name": "Rigel Global Fund",
-     "pct": 5.94
-    }
-   ],
-   "issueSizeCr": 351,
-   "name": "Pranav Constructions",
-   "note": "67,94,034 shares at Rs124. No allocation to life insurers or pension funds. MF share is small-house (ITI, Taurus).",
-   "sources": [
-    "https://www.ipoji.com/ipo/pranav-constructions-ipo",
-    "https://www.businesstoday.in/markets/ipo-corner/story/pranav-constructions-ipo-opens-should-you-subscribe-check-price-band-reviews-fresh-gmp-more-553540-2026-09-07"
-   ],
-   "topTierShare": 29.08
-  },
-  {
-   "amountCr": null,
-   "anchor": null,
-   "count": null,
-   "date": "2026-09-07",
-   "investors": [],
-   "issueSizeCr": 427.89,
-   "name": "Glass Wall Systems (India)",
-   "note": "Issue opened 8 Sep 2026; anchor allocation letter not located at refresh time.",
-   "sources": [
-    "https://ipowatch.in/glass-wall-systems-ipo/"
-   ],
-   "topTierShare": null
-  },
-  {
-   "amountCr": 316.72,
-   "anchor": "₹316.72 Cr from 42 investors on 2026-09-05 at ₹632 — ICICI Prudential MF, Kotak MF, Mirae Asset MF, HDFC Life Insurance, Allianz Global Investors, Ashoka WhiteOak ICAV, HSBC Global Investment Funds, VQ FasterCap Fund",
-   "count": 42,
-   "date": "2026-09-05",
-   "investors": [
-    {
-     "amountCr": 176.22,
-     "cat": "MF",
-     "name": "Domestic MFs combined (ICICI Prudential, Kotak, Mirae Asset + others; 11 houses/19 schemes)",
-     "pct": 55.64
-    },
-    {
-     "amountCr": null,
-     "cat": "Insurance",
-     "name": "HDFC Life Insurance Company Ltd",
-     "pct": null
-    },
-    {
-     "amountCr": null,
-     "cat": "FPI",
-     "name": "Allianz Global Investors Fund - Allianz India Equity",
-     "pct": null
-    },
-    {
-     "amountCr": null,
-     "cat": "FPI",
-     "name": "Ashoka WhiteOak ICAV - Emerging Markets Equity Fund",
-     "pct": null
-    },
-    {
-     "amountCr": null,
-     "cat": "FPI",
-     "name": "HSBC Global Investment Funds - Asia Ex Japan Equity Smaller Companies",
-     "pct": null
-    },
-    {
-     "amountCr": null,
-     "cat": "AIF",
-     "name": "VQ FasterCap Fund",
-     "pct": null
-    }
-   ],
-   "issueSizeCr": 1055.74,
-   "name": "Kanohar Electricals",
-   "note": "50,11,424 shares at Rs632; 27,88,267 shares (55.64%) to 11 domestic MFs through 19 schemes. Per-investor amounts not published; HDFC Life share not broken out (excluded from topTier).",
-   "sources": [
-    "https://www.sujatawde.com/2026/09/kanohar-electricals-limited-raises-rs.html",
-    "https://dealroom.co/news/149274-kanohar-electricals-raises-33m-from-anchor-investors-ahead-of-ipo/",
-    "https://ipowatch.in/kanohar-electricals-ipo/"
-   ],
-   "topTierShare": 55.64
-  },
-  {
-   "amountCr": null,
-   "anchor": null,
-   "count": null,
-   "date": "2026-09-07",
-   "investors": [],
-   "issueSizeCr": 500,
-   "name": "Prasol Chemicals",
-   "note": "Issue opened 8 Sep 2026; anchor allocation letter not located at refresh time.",
-   "sources": [
-    "https://ipowatch.in/prasol-chemicals-ipo/",
-    "https://www.chittorgarh.com/ipo/prasol-chemicals-ipo/2775/"
-   ],
-   "topTierShare": null
-  },
-  {
-   "amountCr": null,
-   "anchor": null,
-   "count": null,
-   "date": "2026-09-08",
-   "investors": [],
-   "issueSizeCr": null,
-   "name": "Asset Reconstruction Company (India)",
-   "note": "IPO opens 9 Sep 2026; anchor book (8 Sep) not yet published.",
-   "sources": [
-    "https://www.businesstoday.in/markets/ipo-corner/story/asset-reconstruction-company-ipo-opens-on-sept-9-check-price-band-issue-size-key-details-553112-2026-09-03"
-   ],
-   "topTierShare": null
-  },
-  {
-   "amountCr": null,
-   "anchor": null,
-   "count": null,
-   "date": "2026-09-08",
-   "investors": [],
-   "issueSizeCr": null,
-   "name": "LCC Projects",
-   "note": "IPO opens 9 Sep 2026; anchor book (8 Sep) not yet published.",
-   "sources": [
-    "https://www.chittorgarh.com/ipo/lcc-projects-ipo/2086/"
-   ],
-   "topTierShare": null
-  },
-  {
-   "amountCr": null,
-   "anchor": null,
-   "count": null,
-   "date": "2026-09-08",
-   "investors": [],
-   "issueSizeCr": 875,
-   "name": "Karamtara Engineering",
-   "note": "IPO opens 9 Sep 2026; anchor book (8 Sep) not yet published.",
-   "sources": [
-    "https://www.chittorgarh.com/ipo/karamtara-engineering-ipo/2020/"
-   ],
-   "topTierShare": null
-  },
-  {
-   "amountCr": null,
-   "anchor": null,
-   "count": null,
-   "date": "2026-09-08",
-   "investors": [],
-   "issueSizeCr": 1256,
-   "name": "Rentomojo",
-   "note": "IPO opens 9 Sep 2026; anchor book (8 Sep) not yet published.",
-   "sources": [
-    "https://inc42.com/buzz/rentomojo-sets-price-band-at-%E2%82%B9384-%E2%82%B9404-for-%E2%82%B91256-cr-ipo/"
-   ],
-   "topTierShare": null
-  },
-  {
-   "amountCr": null,
-   "anchor": null,
-   "count": null,
-   "date": "2026-09-08",
-   "investors": [],
-   "issueSizeCr": null,
-   "name": "Manipal Payment & Identity Solutions",
-   "note": "IPO opens 9 Sep 2026; anchor book (8 Sep) not yet published.",
-   "sources": [
-    "https://www.chittorgarh.com/ipo/manipal-payment-and-identity-solutions-ipo/2524/"
-   ],
-   "topTierShare": null
-  },
-  {
-   "amountCr": null,
-   "anchor": null,
-   "count": null,
-   "date": "2026-09-08",
-   "investors": [],
-   "issueSizeCr": 414,
-   "name": "Steamhouse India",
-   "note": "IPO opens 9 Sep 2026; anchor book (8 Sep) not yet published.",
-   "sources": [
-    "https://www.chittorgarh.com/ipo/steamhouse-india-ipo/2514/"
-   ],
-   "topTierShare": null
   },
   {
    "amountCr": 216,
@@ -10609,72 +11186,6 @@
    "topTierShare": 68.04
   },
   {
-   "amountCr": 727.42,
-   "anchor": "₹727.42 Cr from 50 investors on 2026-08-11 — Domestic MFs combined (SBI, HDFC, Nippon, Kotak, Mirae, UTI, Motilal Oswal, Bandhan, PGIM, Baroda BNP, Edelweiss, ITI, Union; 13 houses/31 schemes), Life insurers & pension combined (ICICI Pru Life, Tata AIA, Edelweiss Life, Axis Max Life), Nomura Funds Ireland Plc, Ashoka WhiteOak Emerging Markets Equity Fund, Public Sector Pension Investment Board, Goldman Sachs Funds / GS ETF Trust, New York State Teachers Retirement System (via GSAM), Societe Generale",
-   "count": 50,
-   "date": "2026-08-11",
-   "investors": [
-    {
-     "amountCr": 485.63,
-     "cat": "MF",
-     "name": "Domestic MFs combined (SBI, HDFC, Nippon, Kotak, Mirae, UTI, Motilal Oswal, Bandhan, PGIM, Baroda BNP, Edelweiss, ITI, Union; 13 houses/31 schemes)",
-     "pct": 66.76
-    },
-    {
-     "amountCr": 51.79,
-     "cat": "Insurance",
-     "name": "Life insurers & pension combined (ICICI Pru Life, Tata AIA, Edelweiss Life, Axis Max Life)",
-     "pct": 7.12
-    },
-    {
-     "amountCr": 45.03,
-     "cat": "FPI",
-     "name": "Nomura Funds Ireland Plc",
-     "pct": 6.19
-    },
-    {
-     "amountCr": 45.03,
-     "cat": "FPI",
-     "name": "Ashoka WhiteOak Emerging Markets Equity Fund",
-     "pct": 6.19
-    },
-    {
-     "amountCr": 45.03,
-     "cat": "Pension/Sovereign",
-     "name": "Public Sector Pension Investment Board",
-     "pct": 6.19
-    },
-    {
-     "amountCr": null,
-     "cat": "FPI",
-     "name": "Goldman Sachs Funds / GS ETF Trust",
-     "pct": null
-    },
-    {
-     "amountCr": null,
-     "cat": "Pension/Sovereign",
-     "name": "New York State Teachers Retirement System (via GSAM)",
-     "pct": null
-    },
-    {
-     "amountCr": null,
-     "cat": "FPI",
-     "name": "Societe Generale",
-     "pct": null
-    }
-   ],
-   "issueSizeCr": 1617.48,
-   "name": "Shiprocket",
-   "note": "7,49,91,568 shares at Rs97. FPIs 26.12% total. topTier = MF 66.76 + insurers 7.12 + PSP 6.19.",
-   "sources": [
-    "https://entrackr.com/news/shiprocket-raises-rs-727-cr-from-anchor-investors-ahead-of-ipo-12251765",
-    "https://www.ipoji.com/ipo/shiprocket-ipo",
-    "https://hdfcsky.com/news/shiprocket-ipo-anchors-727cr-allotment",
-    "https://www.chittorgarh.com/ipo/shiprocket-ipo/2450/"
-   ],
-   "topTierShare": 80.07
-  },
-  {
    "amountCr": 246.3,
    "anchor": "₹246.3 Cr from 14 investors on 2026-08-20 — Domestic MFs combined (HDFC, Nippon, Tata, TRUSTMF; 4 houses/5 schemes), Edelweiss Life Insurance Co Ltd, Nomura Trust and Banking Co (Nomura India Stock Mother Fund), Turnaround Opportunities Fund, Jupiter India Fund, Jupiter Global Fund - Jupiter India Select, Lion Global Investment Funds, Authum Investment and Infrastructure Ltd, Bengal Finance and Investment (Ashish Kacholia), Girik Multicap Growth Equity Fund",
    "count": 14,
@@ -10821,6 +11332,72 @@
     "https://www.chittorgarh.com/ipo/tempsens-instruments-india-ipo/2668/"
    ],
    "topTierShare": 64.59
+  },
+  {
+   "amountCr": 727.42,
+   "anchor": "₹727.42 Cr from 50 investors on 2026-08-11 — Domestic MFs combined (SBI, HDFC, Nippon, Kotak, Mirae, UTI, Motilal Oswal, Bandhan, PGIM, Baroda BNP, Edelweiss, ITI, Union; 13 houses/31 schemes), Life insurers & pension combined (ICICI Pru Life, Tata AIA, Edelweiss Life, Axis Max Life), Nomura Funds Ireland Plc, Ashoka WhiteOak Emerging Markets Equity Fund, Public Sector Pension Investment Board, Goldman Sachs Funds / GS ETF Trust, New York State Teachers Retirement System (via GSAM), Societe Generale",
+   "count": 50,
+   "date": "2026-08-11",
+   "investors": [
+    {
+     "amountCr": 485.63,
+     "cat": "MF",
+     "name": "Domestic MFs combined (SBI, HDFC, Nippon, Kotak, Mirae, UTI, Motilal Oswal, Bandhan, PGIM, Baroda BNP, Edelweiss, ITI, Union; 13 houses/31 schemes)",
+     "pct": 66.76
+    },
+    {
+     "amountCr": 51.79,
+     "cat": "Insurance",
+     "name": "Life insurers & pension combined (ICICI Pru Life, Tata AIA, Edelweiss Life, Axis Max Life)",
+     "pct": 7.12
+    },
+    {
+     "amountCr": 45.03,
+     "cat": "FPI",
+     "name": "Nomura Funds Ireland Plc",
+     "pct": 6.19
+    },
+    {
+     "amountCr": 45.03,
+     "cat": "FPI",
+     "name": "Ashoka WhiteOak Emerging Markets Equity Fund",
+     "pct": 6.19
+    },
+    {
+     "amountCr": 45.03,
+     "cat": "Pension/Sovereign",
+     "name": "Public Sector Pension Investment Board",
+     "pct": 6.19
+    },
+    {
+     "amountCr": null,
+     "cat": "FPI",
+     "name": "Goldman Sachs Funds / GS ETF Trust",
+     "pct": null
+    },
+    {
+     "amountCr": null,
+     "cat": "Pension/Sovereign",
+     "name": "New York State Teachers Retirement System (via GSAM)",
+     "pct": null
+    },
+    {
+     "amountCr": null,
+     "cat": "FPI",
+     "name": "Societe Generale",
+     "pct": null
+    }
+   ],
+   "issueSizeCr": 1617.48,
+   "name": "Shiprocket",
+   "note": "7,49,91,568 shares at Rs97. FPIs 26.12% total. topTier = MF 66.76 + insurers 7.12 + PSP 6.19.",
+   "sources": [
+    "https://entrackr.com/news/shiprocket-raises-rs-727-cr-from-anchor-investors-ahead-of-ipo-12251765",
+    "https://www.ipoji.com/ipo/shiprocket-ipo",
+    "https://hdfcsky.com/news/shiprocket-ipo-anchors-727cr-allotment",
+    "https://www.chittorgarh.com/ipo/shiprocket-ipo/2450/"
+   ],
+   "topTierShare": 80.07
   },
   {
    "amountCr": 465.3,
