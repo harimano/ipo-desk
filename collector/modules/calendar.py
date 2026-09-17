@@ -116,7 +116,7 @@ def build_board(rows: list[dict], prev: dict, today: dt.date, exchange: str) -> 
         row = {
             "name": name,
             "slug": old.get("slug") or slug(name),
-            "type": _row_type(r.get("board") or "Mainboard", exchange),
+            "type": _row_type(r.get("board") or "Mainboard", r.get("exchange") or exchange),
             "status": status,
             "open": r.get("open"), "close": r.get("close"),
             "allotment": r.get("allotment"), "listing": r.get("listing"),
@@ -195,6 +195,21 @@ def _from_nse(session: Session, prev: dict, res: Result, today: dt.date) -> str:
         raise SourceChanged("nse", "current, upcoming and past issues all empty or unparseable: "
                             + "; ".join(f.detail for f in failures))
 
+    # BSE lists what NSE cannot: BSE SME issues, and the IPO_NO that unlocks BSE's subscription page for
+    # mainboard rows. Best effort — NSE alone is still a good calendar. NSE rows come first, so on a name
+    # both exchanges list, _dedupe keeps NSE's fields and BSE only fills gaps.
+    for r in rows:
+        r.setdefault("exchange", "nse")
+    n_bse = 0
+    try:
+        for r in bse_issues.public_issues_json(session):
+            r["exchange"] = "bse"
+            rows.append(r)
+            n_bse += 1
+    except SourceError as e:
+        log.info("bse enrichment skipped: %s", e.detail)
+        res.notes.append(f"bse not merged ({e.kind}): BSE SME issues may be missing")
+
     # lot size is not in the list rows; ipo-detail has it. Only for issues that need it and are live-ish.
     detail_calls = 0
     for r in _dedupe(rows):
@@ -224,7 +239,7 @@ def _from_nse(session: Session, prev: dict, res: Result, today: dt.date) -> str:
     if not mainboard and not sme:
         raise SourceChanged("nse", f"{len(rows)} rows fetched but none belong on today's board")
     return _finish(res, mainboard, sme, lot, prev,
-                   f"nse current={n_cur} upcoming={n_up} past={n_past} detail={detail_calls}")
+                   f"nse current={n_cur} upcoming={n_up} past={n_past} detail={detail_calls} +bse={n_bse}")
 
 
 def _from_bse(session: Session, prev: dict, res: Result, today: dt.date) -> str:

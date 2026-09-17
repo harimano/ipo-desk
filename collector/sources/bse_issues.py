@@ -23,7 +23,7 @@ from __future__ import annotations
 import re
 from urllib.parse import parse_qs, urlparse
 
-from ..errors import SourceChanged
+from ..errors import SourceChanged, SourceDown
 from ..http import BSE_BETA
 from .nse_ipo import first, iso_date, number, price_band
 
@@ -202,10 +202,39 @@ def parse_cumulative_demand(html: str, *, url: str = DEMAND_URL) -> list[dict]:
     return out
 
 
+DEMAND_JSON_PATH = "/Pubissues_BBS_CumultveCatdem_ng/w"    # what bseindia.com's own demand page calls (seen live 17 Sep 2026)
+
+
+def parse_category_demand(data, *, url: str = DEMAND_JSON_PATH) -> list[dict]:
+    """{"Table": [{SRNo, col2 category, col3 offered, col4 bid, col5 times}, ...]} -> [{category, noOfTime,
+    sharesOffered, sharesBid}]. The first row is BSE's own header ("Sr.No.", "Category", ...). `Maxdt` is
+    not used: on 17 Sep 2026 it carried the right time and the wrong year."""
+    table = data.get("Table") if isinstance(data, dict) else None
+    if not isinstance(table, list):
+        raise SourceChanged(SRC, f"category demand: no Table in {type(data).__name__}", url)
+    out = []
+    for r in table:
+        if not isinstance(r, dict) or "col2" not in r or "col5" not in r:
+            raise SourceChanged(SRC, f"category demand: row without col2/col5: {str(r)[:120]}", url)
+        label = str(r.get("col2") or "").strip()
+        if not label or label.lower() == "category":
+            continue
+        out.append({"category": label, "noOfTime": r.get("col5"),
+                    "sharesOffered": r.get("col3"), "sharesBid": r.get("col4")})
+    if not out:
+        raise SourceChanged(SRC, "category demand: no category rows (BSE shows 'No Records Found')", url)
+    return out
+
+
 def cumulative_demand(session, ipo_no: str) -> list[dict]:
-    url = f"{DEMAND_URL}?ID={ipo_no}&status=L"
-    html = session.get_text(url, source=SRC, headers={"Referer": BSE_BETA + "/"})
-    return parse_cumulative_demand(html, url=url)
+    """JSON first; the legacy beta page (an empty shell since the site moved to Angular) second."""
+    try:
+        data = session.bse_json(DEMAND_JSON_PATH, {"IPO_NO": ipo_no}, source=SRC)
+        return parse_category_demand(data)
+    except (SourceChanged, SourceDown):           # never SourceBlocked: a 403 is not retried on another door
+        url = f"{DEMAND_URL}?ID={ipo_no}&status=L"
+        html = session.get_text(url, source=SRC, headers={"Referer": BSE_BETA + "/"})
+        return parse_cumulative_demand(html, url=url)
 
 
 def ipo_no_from_url(url: str) -> str | None:

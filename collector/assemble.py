@@ -193,11 +193,24 @@ def enforce_caps(data: dict) -> None:
     data["recent"] = [r for r in data.get("recent", []) if (r.get("listingDate") or "9999") >= cut]
 
 
-def merge_unresolved(prev: list[str], contributions: list[str], resolved: set[str]) -> list[str]:
-    out = [u for u in prev if u not in resolved]
-    for u in contributions:
-        if u not in out:
+def merge_unresolved(prev: list[str], results: list) -> list[str]:
+    """`meta.unresolved` is the list of things a human should look at *now*, not a log.
+
+    Every note is tagged "[module] ...". A module that succeeded this run has just restated everything
+    that is still true, so its earlier notes are replaced. A module that failed or did not run keeps its
+    earlier notes — it had no chance to withdraw them. Untagged notes are from the db era, when Claude
+    wrote this list by hand; no code path can ever resolve them, so they are not carried."""
+    ran_ok = {r.module for r in results if r.ok}
+    out: list[str] = []
+    for u in prev:
+        m = re.match(r"\[([a-z_]+)\] ", u) if isinstance(u, str) else None
+        if m and m.group(1) not in ran_ok and u not in out:
             out.append(u)
+    for r in results:
+        for u in r.unresolved:
+            tagged = f"[{r.module}] {u}"
+            if tagged not in out:
+                out.append(tagged)
     return out
 
 

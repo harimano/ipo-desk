@@ -340,7 +340,7 @@ def test_happy_path_nse():
     assert "Gone Corp Limited" in lot          # lot is never pruned: the Book keys off it
     assert res.replace["expected"] == prev["expected"]
     assert set(res.replace) == {"mainboard", "sme", "lot", "expected"}
-    assert res.notes and "open" in res.notes[0]
+    assert any("open" in n for n in res.notes)
 
 
 def test_happy_path_assembles_without_ownership_error():
@@ -451,3 +451,20 @@ def test_names_matcher_rules():
     assert display_name("Hero Motors Limited") == "Hero Motors"
     assert display_name("Jindal Supreme (India) Limited") == "Jindal Supreme (India)"
     assert display_name("Kabra Jewels Pvt. Ltd.") == "Kabra Jewels"
+
+
+def test_bse_is_merged_into_the_nse_calendar():
+    """NSE wins the chain; BSE rows fill gaps on shared names and add what only BSE lists."""
+    import json
+    import pathlib
+    live = json.loads((pathlib.Path(__file__).parent.parent / "data/fixtures/live-2026-09-17/bse_issues.json").read_text())
+    n = nse_ok()
+    res = run(FakeSession(nse=n, bse={"/GetPublicIssue_par_updated/w": live}), prev_board(), today=TODAY)
+    assert res.ok and res.source == "nse"
+    sme = by_name(res.replace["sme"])
+    bse_only = [r for r in sme.values() if r["type"] == "BSE SME"]
+    assert bse_only, "issues only BSE lists must reach the board as BSE SME"
+    assert all(r.get("bseIpoNo") for r in bse_only)
+    assert not any(r["name"].isupper() or r["name"].endswith("Limited") for r in bse_only), "house spelling for new rows"
+    assert sme["Vidya Wires Limited"]["type"] == "NSE SME", "an NSE row is never relabelled by the BSE merge"
+    assert any("+bse=" in x for x in res.notes)

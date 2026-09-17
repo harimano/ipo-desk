@@ -1,11 +1,11 @@
 {
-  "_about": "BSE scrip codes for the quota parents polled by collector/modules/filings.py. `verified` says where the code was confirmed; entries marked '# verify' were filled from memory and must be checked once against bseindia.com before being trusted.",
-  "RELIANCE":   {"scrip": "500325", "name": "Reliance Industries Limited",      "verified": "nse-bse.md usage sketch (bse.announcements scripcode=500325)"},
-  "COALINDIA":  {"scrip": "533278", "name": "Coal India Limited",               "verified": "# verify"},
-  "HEROMOTOCO": {"scrip": "500182", "name": "Hero MotoCorp Limited",            "verified": "# verify"},
-  "EDELWEISS":  {"scrip": "532922", "name": "Edelweiss Financial Services Limited", "verified": "# verify"},
-  "IEX":        {"scrip": "540750", "name": "Indian Energy Exchange Limited",   "verified": "# verify"},
-  "PRESTIGE":   {"scrip": "533274", "name": "Prestige Estates Projects Limited", "verified": "# verify"},
-  "SIS":        {"scrip": "540673", "name": "SIS Limited",                      "verified": "# verify"},
-  "NLCINDIA":   {"scrip": "513683", "name": "NLC India Limited",                "verified": "# verify"}
+  "_about": "BSE scrip codes for the quota parents polled by collector/modules/filings.py. `verified` says where the code was confirmed; all eight confirmed on 17 Sep 2026 against BSE's ComHeadernew/w (scripcode -> SecurityId + ISIN). Verify any new entry the same way before adding it.",
+  "RELIANCE":   {"scrip": "500325", "name": "Reliance Industries Limited",      "verified": "BSE ComHeadernew 2026-09-17: SecurityId RELIANCE, ISIN INE002A01018"},
+  "COALINDIA":  {"scrip": "533278", "name": "Coal India Limited",               "verified": "BSE ComHeadernew 2026-09-17: SecurityId COALINDIA, ISIN INE522F01014"},
+  "HEROMOTOCO": {"scrip": "500182", "name": "Hero MotoCorp Limited",            "verified": "BSE ComHeadernew 2026-09-17: SecurityId HEROMOTOCO, ISIN INE158A01026"},
+  "EDELWEISS":  {"scrip": "532922", "name": "Edelweiss Financial Services Limited", "verified": "BSE ComHeadernew 2026-09-17: SecurityId EDELWEISS, ISIN INE532F01054"},
+  "IEX":        {"scrip": "540750", "name": "Indian Energy Exchange Limited",   "verified": "BSE ComHeadernew 2026-09-17: SecurityId IEX, ISIN INE022Q01020"},
+  "PRESTIGE":   {"scrip": "533274", "name": "Prestige Estates Projects Limited", "verified": "BSE ComHeadernew 2026-09-17: SecurityId PRESTIGE, ISIN INE811K01011"},
+  "SIS":        {"scrip": "540673", "name": "SIS Limited",                      "verified": "BSE ComHeadernew 2026-09-17: SecurityId SIS, ISIN INE285J01028"},
+  "NLCINDIA":   {"scrip": "513683", "name": "NLC India Limited",                "verified": "BSE ComHeadernew 2026-09-17: SecurityId NLCINDIA, ISIN INE589A01014"}
 }

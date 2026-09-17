@@ -168,7 +168,9 @@ def main() -> int:
                 old_c, new_c = census(prev), census(data)
                 compared = 0
                 for path, old in old_c.items():
-                    if old < MIN_CENSUS or path.startswith("/integrity") or path.startswith("/news"):
+                    # /meta/unresolved is a to-do list the collector rebuilds each run; it shrinking is the goal
+                    if (old < MIN_CENSUS or path.startswith("/integrity") or path.startswith("/news")
+                            or path == "/meta/unresolved"):
                         continue
                     compared += 1
                     new = new_c.get(path, 0)

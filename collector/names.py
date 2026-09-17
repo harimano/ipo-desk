@@ -31,6 +31,7 @@ FUZZY_MIN = 90
 _STRIP = re.compile(r"\b(limited|ltd|pvt|private|ipo|the|india)\b|[^a-z0-9 ]+")
 _SUFFIX = re.compile(r"[\s,]+(?:private\s+|pvt\.?\s+)?(?:limited|ltd\.?)\s*$", re.I)
 _PARENS = re.compile(r"\(([^)]*)\)")
+_SMALL = {"AND", "OF", "THE", "FOR", "IN"}
 
 
 def norm_name(s: str) -> str:
@@ -43,7 +44,11 @@ def display_name(source_name: str) -> str:
     """House spelling for a row that is genuinely new: the source's name without the legal suffix
     ("Hero Motors Limited" -> "Hero Motors"). Applied once, at creation; the name is frozen after."""
     s = re.sub(r"\s+", " ", source_name or "").strip()
-    return _SUFFIX.sub("", s).strip() or s
+    s = _SUFFIX.sub("", s).strip() or s
+    if s.isupper():                           # BSE shouts: "FX MULTITECH" -> "FX Multitech"
+        s = " ".join(w.lower() if w in _SMALL else w if len(w) <= 3 else w.capitalize() for w in s.split())
+        s = s[:1].upper() + s[1:]
+    return s
 
 
 def _forms(name: str) -> set[str]:

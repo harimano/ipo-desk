@@ -231,3 +231,19 @@ def test_row_patcher_only_touches_sub_key():
         for name, fields in patches.items():
             assert set(fields) == {"sub"}
     assert not res.replace and not res.merge
+
+
+def test_bse_category_demand_json_live_shape():
+    """The endpoint bseindia.com's demand page calls, recorded 17 Sep 2026 (NSE's own IPO, day 1)."""
+    import json
+    import pathlib
+    from collector.sources import bse_issues
+    from collector.modules.subscription import combine
+    live = json.loads((pathlib.Path(__file__).parent.parent / "data/fixtures/live-2026-09-17/bse_CatDem-7977.json").read_text())
+    sub = combine(bse_issues.parse_category_demand(live))
+    assert sub["qib"] == 0.19 and sub["nii"] == 0.72          # aggregate rows win; 2.1 / 2.2 are not added on top
+    assert sub["retail"] is not None and sub["total"] is not None
+    with pytest.raises(SourceChanged):
+        bse_issues.parse_category_demand({"Table": []})
+    with pytest.raises(SourceChanged):
+        bse_issues.parse_category_demand({"Table": [{"unexpected": 1}]})

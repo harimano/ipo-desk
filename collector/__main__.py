@@ -101,8 +101,7 @@ def main(argv=None) -> int:
 
     research_notes = assemble.load_research_layer(data, root)
     t = assemble.now_ist()
-    contributions = [u for r in results for u in r.unresolved]
-    data["meta"]["unresolved"] = assemble.merge_unresolved(prev["meta"].get("unresolved", []), contributions, set())
+    data["meta"]["unresolved"] = assemble.merge_unresolved(prev["meta"].get("unresolved", []), results)
     assemble.enforce_caps(data)
     assemble.stamp(data, results, t, research_notes, session.calls, time.monotonic() - t_start)
 
