@@ -24,6 +24,8 @@ def main(symbols: list[str]) -> int:
             pdf = letter.pdf_from_zip(s.get_bytes(url_for(sym), source="nsearchives"))
             text, how = letter.extract_text(pdf)
             flat = re.sub(r"\s+", " ", text)
+            pathlib.Path("anchor-text").mkdir(exist_ok=True)
+            pathlib.Path(f"anchor-text/{sym}-{how}.txt").write_text(text, encoding="utf8")
             print(f"read by {how}: {len(flat)} chars, {len(letter._ROW.findall(flat))} row candidates")
             book = letter.parse_text(text)
             print(f"BELIEVED {len(book['investors'])} rows, ₹{book['amountCr']} Cr, price {book['price']}, "

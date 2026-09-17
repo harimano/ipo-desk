@@ -25,3 +25,6 @@ jobs:
           echo "TESSDATA_PREFIX=$(dirname "$(find /usr/share -name eng.traineddata | head -1)")" >> "$GITHUB_ENV"
       - run: pip install -e . >/dev/null
       - run: python scripts/anchor_probe.py ${{ github.event.inputs.symbols }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: anchor-text, path: anchor-text, retention-days: 7 }
