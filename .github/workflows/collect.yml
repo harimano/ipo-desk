@@ -35,12 +35,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with: { fetch-depth: 1 }
 
       # Collector output lives on the orphan `data` branch, never on main. It is laid over ./data for the
       # run and committed back below. Depth 2 so the intraday commit can be amended and force-pushed.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with: { ref: data, path: _data, fetch-depth: 2 }
 
       - name: Mode — and whether an intraday run has anything to do (before paying for the install)
@@ -67,7 +67,7 @@ jobs:
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"; echo "go=$GO" >> "$GITHUB_OUTPUT"
           echo "mode=$MODE go=$GO"
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         if: steps.mode.outputs.go == '1'
         with: { python-version: "3.12", cache: "pip" }
 
@@ -146,7 +146,7 @@ jobs:
           if [ -n "$TELEGRAM_BOT_TOKEN$NTFY_TOPIC" ]; then SEND=--send; else SEND=""; fi
           python -m collector.alerts --prev /tmp/prev_latest.json --new data/latest.json $SEND
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always() && steps.mode.outputs.go == '1'
         with:
           name: collect-log-${{ github.run_number }}
