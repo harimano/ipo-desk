@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-18T00:20:43+05:30",
+  "asOf": "2026-09-18T00:44:04+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "18 Sep 2026, 00:20 IST",
+  "label": "18 Sep 2026, 00:44 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -39,7 +39,7 @@
   ],
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
-   "[subscription] subscription missing for Shakti Polytarp, Vama Wovenfab — check NSE/BSE ids on the row",
+   "[gmp] gmp: no grey-market print found for open issue Axiom Gas Engineering",
    "[listings] listings: no NSE symbol on row 'Amtech Esters' — cannot price",
    "[listings] listings: no NSE symbol on row 'Infrax Renewable' — cannot price",
    "[listings] listings: no NSE symbol on row 'Pranav Constructions' — cannot price",
@@ -1289,17 +1289,17 @@
    "bandHigh": 140.0,
    "lotSize": 107,
    "issueSizeCr": 210.0,
-   "freshCr": 210,
+   "freshCr": 210.0,
    "ofsCr": 0,
    "gmp": 8.5,
    "gmpPct": 6.07,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
-    "qib": 17.76,
-    "nii": 18.03,
-    "retail": 9.24,
-    "total": 13.55,
-    "asOf": "2026-09-15T17:42:00+05:30"
+    "qib": 19.13,
+    "nii": 19.41,
+    "retail": 9.95,
+    "total": 14.6,
+    "asOf": "2026-09-15T18:55:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -1313,7 +1313,53 @@
    "symbol": "VEEGALAND",
    "series": "EQ",
    "bseIpoNo": null,
-   "bseScripCode": null
+   "bseScripCode": "544923",
+   "igId": "1601",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "isin": "INE1JTV01015",
+   "sector": "Residential, Commercial Projects",
+   "anchorShares": 4500000,
+   "facts": {
+    "sector": "Residential, Commercial Projects",
+    "isin": "INE1JTV01015",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 16.02,
+     "roce": 11.89,
+     "debtEquity": 0.32,
+     "ronw": 16.02,
+     "patMargin": 10.47,
+     "ebitdaMargin": 16.78,
+     "pb": 1.77,
+     "eps": 7.89,
+     "epsPost": 5.46,
+     "pe": 17.74,
+     "pePost": 25.64,
+     "mcapCr": 682.5,
+     "promoterPre": 92.0,
+     "promoterPost": 63.69
+    },
+    "recs": [
+     {
+      "who": "Capital Market",
+      "view": "Neutral",
+      "url": "https://www.capitalmarket.com/pub/nim/nimshow.asp?code=96379",
+      "date": "2026-09-10"
+     }
+    ],
+    "registrar": "MUFG Intime India Pvt.Ltd.",
+    "leadManagers": [
+     "Cumulative Capital Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.sebi.gov.in/filings/public-issues/jan-2026/veegaland-developers-limited_99042.html",
+     "rhp": "https://www.sebi.gov.in/filings/public-issues/aug-2026/veegaland-developers-ltd-rhp_104160.html",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/veegaland-ipo-anchor.pdf",
+     "allotment": "https://in.mpms.mufg.com/Initial_Offer/public-issues.html"
+    },
+    "asOf": "2026-09-16T17:15:00+05:30"
+   }
   },
   {
    "name": "Manika Plastech",
@@ -1329,10 +1375,10 @@
    "lotSize": 348,
    "issueSizeCr": 125.5,
    "freshCr": 92.5,
-   "ofsCr": null,
+   "ofsCr": 33.0,
    "gmp": 2.25,
    "gmpPct": 5.23,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 10.94,
     "nii": 63.09,
@@ -1355,7 +1401,53 @@
    "symbol": "MANIKA",
    "series": "EQ",
    "bseIpoNo": null,
-   "bseScripCode": null
+   "bseScripCode": null,
+   "igId": "1806",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "sector": "Packaging",
+   "anchorShares": 8755813,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Packaging",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-06-30",
+     "roe": 8.34,
+     "roce": 8.34,
+     "debtEquity": 0.59,
+     "ronw": 8.34,
+     "patMargin": 8.03,
+     "ebitdaMargin": 15.01,
+     "pb": 2.61,
+     "eps": 2.36,
+     "epsPost": 4.49,
+     "pe": 18.22,
+     "pePost": 9.58,
+     "mcapCr": 501.0,
+     "promoterPre": 100.0,
+     "promoterPost": 74.95
+    },
+    "recs": [
+     {
+      "who": "Capital Market",
+      "view": "Neutral",
+      "url": "https://www.capitalmarket.com/pub/nim/nimshow.asp?code=77258",
+      "date": "2026-09-09"
+     }
+    ],
+    "registrar": "MUFG Intime India Pvt.Ltd.",
+    "leadManagers": [
+     "Pantomath Capital Advisors Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.sebi.gov.in/filings/public-issues/jul-2025/manika-plastech-limited_94990.html",
+     "rhp": "https://www.sebi.gov.in/filings/public-issues/sep-2026/manika-plastech-limited-rhp_104296.html",
+     "prospectus": "https://www.sebi.gov.in/filings/public-issues/sep-2026/manika-plastech-limited-prospectus_104534.html",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/manika-plastech-ipo-anchor-list.pdf",
+     "allotment": "https://in.mpms.mufg.com/Initial_Offer/public-issues.html"
+    },
+    "asOf": "2026-09-17T15:45:00+05:30"
+   }
   },
   {
    "name": "Hero Motors",
@@ -1364,14 +1456,14 @@
    "status": "Open",
    "open": "2026-09-16",
    "close": "2026-09-18",
-   "allotment": null,
-   "listing": null,
+   "allotment": "2026-09-21",
+   "listing": "2026-09-23",
    "bandLow": 79.0,
    "bandHigh": 84.0,
    "lotSize": 178,
    "issueSizeCr": 1000.0,
-   "freshCr": null,
-   "ofsCr": null,
+   "freshCr": 600.0,
+   "ofsCr": 400.0,
    "gmp": 5.5,
    "gmpPct": 6.55,
    "gmpTrend": "flat",
@@ -1392,7 +1484,53 @@
    "symbol": "HEROMOTORS",
    "series": "EQ",
    "bseIpoNo": "7971",
-   "bseScripCode": "4823"
+   "bseScripCode": "4823",
+   "igId": "1688",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "sector": "Auto Components & Equipments",
+   "anchorShares": 35714284,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Auto Components & Equipments",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 8.56,
+     "roce": 19.77,
+     "debtEquity": 0.83,
+     "ronw": 8.53,
+     "patMargin": 3.46,
+     "ebitdaMargin": 12.44,
+     "pb": 6.6,
+     "eps": 1.08,
+     "epsPost": 0.91,
+     "pe": 77.78,
+     "pePost": 92.31,
+     "mcapCr": 3815.41,
+     "promoterPre": 84.67,
+     "promoterPost": 61.63
+    },
+    "recs": [
+     {
+      "who": "Capital Market",
+      "view": "Neutral",
+      "url": "https://www.capitalmarket.com/pub/nim/nimshow.asp?code=25458",
+      "date": "2026-09-15"
+     }
+    ],
+    "registrar": "Kfin Technologies Ltd.",
+    "leadManagers": [
+     "ICICI Securities Ltd.",
+     "JM Financial Ltd.",
+     "Dam Capital Advisors Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.sebi.gov.in/filings/public-issues/jul-2025/hero-motors-limited_95172.html",
+     "rhp": "https://www.sebi.gov.in/filings/public-issues/sep-2026/hero-motors-limited-rhp_104395.html",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/hero-motor-ipo-anchor-book.pdf"
+    },
+    "asOf": "2026-09-17T18:10:00+05:30"
+   }
   },
   {
    "name": "Jindal Supreme (India)",
@@ -1401,14 +1539,14 @@
    "status": "Open",
    "open": "2026-09-16",
    "close": "2026-09-18",
-   "allotment": null,
-   "listing": null,
+   "allotment": "2026-09-21",
+   "listing": "2026-09-23",
    "bandLow": 88.0,
    "bandHigh": 93.0,
    "lotSize": 161,
    "issueSizeCr": 124.88,
-   "freshCr": null,
-   "ofsCr": null,
+   "freshCr": 99.89,
+   "ofsCr": 24.99,
    "gmp": 30.0,
    "gmpPct": 32.26,
    "gmpTrend": "flat",
@@ -1429,7 +1567,51 @@
    "symbol": "JSIPL",
    "series": "EQ",
    "bseIpoNo": "7976",
-   "bseScripCode": "4826"
+   "bseScripCode": "4826",
+   "igId": "2057",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "sector": "Iron & Steel Products",
+   "anchorShares": 4028400,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Iron & Steel Products",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-06-30",
+     "roe": 8.2,
+     "roce": 6.14,
+     "debtEquity": 0.88,
+     "ronw": 8.2,
+     "patMargin": 4.33,
+     "ebitdaMargin": 7.2,
+     "pb": 3.57,
+     "eps": 5.59,
+     "epsPost": 6.49,
+     "pe": 16.64,
+     "pePost": 14.33,
+     "mcapCr": 474.52,
+     "promoterPre": 100.0,
+     "promoterPost": 73.68
+    },
+    "recs": [
+     {
+      "who": "Capital Market",
+      "view": "Neutral",
+      "url": "https://www.capitalmarket.com/pub/nim/nimshow.asp?code=96165",
+      "date": "2026-09-15"
+     }
+    ],
+    "registrar": "Bigshare Services Pvt.Ltd.",
+    "leadManagers": [
+     "Sarthi Capital Advisors Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bseindia.com/corporates/download/386492/IPO%20Prior/Jindal_Supreme_DRHP_20260413215106.pdf",
+     "rhp": "https://www.sebi.gov.in/filings/public-issues/sep-2026/jindal-supreme-india-limited-rhp_104328.html",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/jinadal-supereme-anchor-book.pdf"
+    },
+    "asOf": "2026-09-16T18:10:00+05:30"
+   }
   },
   {
    "name": "SS Retail",
@@ -1438,17 +1620,17 @@
    "status": "Open",
    "open": "2026-09-16",
    "close": "2026-09-18",
-   "allotment": null,
-   "listing": null,
+   "allotment": "2026-09-21",
+   "listing": "2026-09-23",
    "bandLow": 403.0,
    "bandHigh": 424.0,
    "lotSize": 35,
    "issueSizeCr": 500.0,
-   "freshCr": null,
-   "ofsCr": null,
+   "freshCr": 360.0,
+   "ofsCr": 140.0,
    "gmp": 137.0,
    "gmpPct": 32.31,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 0.23,
     "nii": 9.91,
@@ -1467,7 +1649,52 @@
    "symbol": "SSRETAIL",
    "series": "EQ",
    "bseIpoNo": "7975",
-   "bseScripCode": "4828"
+   "bseScripCode": "4828",
+   "igId": "2076",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "sector": "Diversified Retail",
+   "anchorShares": 3452829,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Diversified Retail",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 30.6,
+     "roce": 29.3,
+     "debtEquity": 0.7,
+     "ronw": 32.6,
+     "patMargin": 2.52,
+     "ebitdaMargin": 5.32,
+     "pb": 12.35,
+     "eps": 9.0,
+     "epsPost": 7.97,
+     "pe": 47.11,
+     "pePost": 53.2,
+     "mcapCr": 3153.36,
+     "promoterPre": 75.74,
+     "promoterPost": 0.0
+    },
+    "recs": [
+     {
+      "who": "Capital Market",
+      "view": "Neutral",
+      "url": "https://www.capitalmarket.com/pub/nim/nimshow.asp?code=96372",
+      "date": "2026-09-15"
+     }
+    ],
+    "registrar": "Kfin Technologies Ltd.",
+    "leadManagers": [
+     "Anand Rathi Advisors Ltd.",
+     "Emkay Global Financial Services Ltd."
+    ],
+    "docs": {
+     "drhp": "https://nsearchives.nseindia.com/corporate/Registration_28122025051512_SSRL-DRHP.pdf",
+     "rhp": "https://www.sebi.gov.in/filings/public-issues/sep-2026/ss-retail-limited-rhp_104355.html",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/ss-retail-ipo-anchor-allocation.pdf"
+    },
+    "asOf": "2026-09-17T18:10:00+05:30"
+   }
   },
   {
    "name": "NSE (National Stock Exchange of India)",
@@ -1486,7 +1713,7 @@
    "ofsCr": 22561.57,
    "gmp": 142.0,
    "gmpPct": 7.96,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 0.19,
     "nii": 0.72,
@@ -1508,7 +1735,54 @@
    "symbol": "NSE",
    "series": "EQ",
    "bseIpoNo": "7977",
-   "bseScripCode": "4827"
+   "bseScripCode": "4827",
+   "igId": "2305",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "sector": "Exchange and Data Platform",
+   "anchorShares": 37793739,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Exchange and Data Platform",
+    "listingAt": "BSE",
+    "kpis": {
+     "asOf": "2026-06-30",
+     "roe": 9.26,
+     "roce": 11.55,
+     "ronw": 33.21,
+     "patMargin": 58.78,
+     "pb": 12.54,
+     "eps": 41.62,
+     "epsPost": 50.43,
+     "pe": 42.89,
+     "pePost": 35.4,
+     "mcapCr": 441787.5
+    },
+    "recs": [
+     {
+      "who": "Capital Market",
+      "view": "May Apply",
+      "url": "https://www.capitalmarket.com/pub/nim/nimshow.asp?code=21241",
+      "date": "2026-09-16"
+     }
+    ],
+    "registrar": "MUFG Intime India Pvt.Ltd.",
+    "leadManagers": [
+     "Kotak Mahindra Capital Co.Ltd.",
+     "ICICI Securities Ltd.",
+     "JM Financial Ltd.",
+     "JP Morgan India Pvt.Ltd.",
+     "Citigroup Global Markets India Pvt.Ltd.",
+     "Motilal Oswal Investment Advisors Ltd.",
+     "Dam Capital Advisors Ltd.",
+     "Morgan Stanley India Co.Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bseindia.com/corporates/download/327007/IPO%20Prior/NSEDRHP_20260617214858.pdf",
+     "rhp": "https://www.sebi.gov.in/filings/public-issues/sep-2026/national-stock-exchange-of-india-limited-rhp_104428.html",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/nse-anchor-book.pdf"
+    },
+    "asOf": "2026-09-17T17:21:00+05:30"
+   }
   },
   {
    "name": "Sonaselection India",
@@ -1517,13 +1791,13 @@
    "status": "Open",
    "open": "2026-09-17",
    "close": "2026-09-21",
-   "allotment": null,
-   "listing": null,
+   "allotment": "2026-09-22",
+   "listing": "2026-09-24",
    "bandLow": 94.0,
    "bandHigh": 99.0,
    "lotSize": 150,
    "issueSizeCr": 141.57,
-   "freshCr": null,
+   "freshCr": 141.57,
    "ofsCr": null,
    "gmp": 2.0,
    "gmpPct": 2.02,
@@ -1545,7 +1819,51 @@
    "symbol": "SONA",
    "series": "EQ",
    "bseIpoNo": "7973",
-   "bseScripCode": "4824"
+   "bseScripCode": "4824",
+   "igId": "2059",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "sector": "Other Textile Products",
+   "anchorShares": 4290000,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Other Textile Products",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 39.05,
+     "roce": 19.69,
+     "debtEquity": 2.48,
+     "ronw": 39.05,
+     "patMargin": 6.58,
+     "ebitdaMargin": 16.4,
+     "pb": 4.0,
+     "eps": 8.0,
+     "epsPost": 5.99,
+     "pe": 12.38,
+     "pePost": 16.53,
+     "mcapCr": 562.6,
+     "promoterPre": 86.21,
+     "promoterPost": 64.52
+    },
+    "recs": [
+     {
+      "who": "Capital Market",
+      "view": "Avoid",
+      "url": "https://www.capitalmarket.com/pub/nim/nimshow.asp?code=96172",
+      "date": "2026-09-16"
+     }
+    ],
+    "registrar": "Kfin Technologies Ltd.",
+    "leadManagers": [
+     "Choice Capital Advisors Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.sebi.gov.in/filings/public-issues/dec-2025/sonaselection-india-limited_98429.html",
+     "rhp": "https://www.sebi.gov.in/filings/public-issues/sep-2026/sonaselection-india-limited-rhp_104393.html",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/sonaselection_india_limited_anchor_allocation_letter06519b81-70d4-49c6-ad42-ec9eb7dc539d.pdf"
+    },
+    "asOf": "2026-09-17T05:03:00+05:30"
+   }
   }
  ],
  "offers": {
@@ -2387,13 +2705,13 @@
    "status": "Open",
    "open": "2026-09-17",
    "close": "2026-09-21",
-   "allotment": null,
-   "listing": null,
+   "allotment": "2026-09-22",
+   "listing": "2026-09-24",
    "bandLow": 96.0,
    "bandHigh": 101.0,
    "lotSize": 1200,
-   "issueSizeCr": 46.44,
-   "freshCr": null,
+   "issueSizeCr": 44.12,
+   "freshCr": 44.12,
    "ofsCr": null,
    "gmp": 10.0,
    "gmpPct": 9.9,
@@ -2415,7 +2733,42 @@
    "symbol": "KHERIAAUTO",
    "series": "SME",
    "bseIpoNo": null,
-   "bseScripCode": null
+   "bseScripCode": null,
+   "igId": "2016",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "sector": "Auto Components & Equipments",
+   "anchorShares": 1310400,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Auto Components & Equipments",
+    "listingAt": "NSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 33.72,
+     "roce": 26.89,
+     "debtEquity": 0.89,
+     "ronw": 33.72,
+     "patMargin": 9.52,
+     "ebitdaMargin": 19.08,
+     "eps": 10.15,
+     "epsPost": 7.21,
+     "pe": 9.95,
+     "pePost": 14.01,
+     "mcapCr": 160.07,
+     "promoterPre": 100.0,
+     "promoterPost": 70.99
+    },
+    "registrar": "Kfin Technologies Ltd.",
+    "leadManagers": [
+     "SMC Capitals Ltd."
+    ],
+    "docs": {
+     "drhp": "https://nsearchives.nseindia.com/emerge/corporates/content/Registration_30092025222608_KheriaAutocompLimitedDRHP.pdf",
+     "rhp": "https://www.chittorgarh.net/reports/ipo_notes/kheria_autocomp_limited_rhp-1.pdf",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/kheria-autocomp-anchor-book.pdf"
+    },
+    "asOf": "2026-09-17T15:21:00+05:30"
+   }
   },
   {
    "name": "SpectraA Technology Solutions",
@@ -2424,14 +2777,14 @@
    "status": "Open",
    "open": "2026-09-17",
    "close": "2026-09-21",
-   "allotment": null,
-   "listing": null,
+   "allotment": "2026-09-22",
+   "listing": "2026-09-24",
    "bandLow": 112.0,
    "bandHigh": 118.0,
    "lotSize": 1200,
-   "issueSizeCr": 42.52,
-   "freshCr": null,
-   "ofsCr": null,
+   "issueSizeCr": 40.37,
+   "freshCr": 36.26,
+   "ofsCr": 4.11,
    "gmp": 30.0,
    "gmpPct": 25.42,
    "gmpTrend": "flat",
@@ -2452,7 +2805,43 @@
    "symbol": "SPECTRAA",
    "series": "SME",
    "bseIpoNo": null,
-   "bseScripCode": null
+   "bseScripCode": null,
+   "igId": "2211",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "sector": "Industrial Products",
+   "anchorShares": 1024800,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Industrial Products",
+    "listingAt": "NSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 60.95,
+     "roce": 37.61,
+     "debtEquity": 1.09,
+     "ronw": 46.59,
+     "patMargin": 11.42,
+     "ebitdaMargin": 19.04,
+     "pb": 4.8,
+     "eps": 11.45,
+     "epsPost": 8.66,
+     "pe": 10.31,
+     "pePost": 13.63,
+     "mcapCr": 157.5,
+     "promoterPre": 96.04,
+     "promoterPost": 70.0
+    },
+    "registrar": "Maashitla Securities Pvt.Ltd.",
+    "leadManagers": [
+     "Indcap Advisors Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://nsearchives.nseindia.com/emerge/corporates/content/Registration_21032026160405_SpectraaTechnologySolutionsLtdDRHP.pdf",
+     "rhp": "https://www.spectraa.com/wp-content/uploads/2026/09/Red-Herring-Prosppectus.pdf",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/spectraa-technology-anchor-book.pdf"
+    },
+    "asOf": "2026-09-17T18:10:00+05:30"
+   }
   },
   {
    "name": "Axiom Gas Engineering",
@@ -2461,23 +2850,23 @@
    "status": "Open",
    "open": "2026-09-18",
    "close": "2026-09-22",
-   "allotment": null,
-   "listing": null,
+   "allotment": "2026-09-23",
+   "listing": "2026-09-25",
    "bandLow": 51.0,
    "bandHigh": 54.0,
    "lotSize": 2000,
-   "issueSizeCr": 44.97,
-   "freshCr": null,
+   "issueSizeCr": 48.17,
+   "freshCr": 48.17,
    "ofsCr": null,
-   "gmp": null,
-   "gmpPct": null,
-   "gmpTrend": null,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
    "sub": {
     "qib": null,
     "nii": null,
     "retail": null,
     "total": 0.0,
-    "asOf": "2026-09-18T00:19:44+05:30"
+    "asOf": "2026-09-18T00:43:34+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2490,7 +2879,43 @@
    "symbol": "AXIOMGAS",
    "series": "SME",
    "bseIpoNo": null,
-   "bseScripCode": null
+   "bseScripCode": null,
+   "igId": "1682",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "sector": "LPG/CNG/PNG/LNG Supplier",
+   "anchorShares": 1070400,
+   "gmpAsOf": "2026-09-17T23:35:00+05:30",
+   "facts": {
+    "sector": "LPG/CNG/PNG/LNG Supplier",
+    "listingAt": "NSE SME",
+    "kpis": {
+     "asOf": "2025-03-31",
+     "roe": 28.4,
+     "roce": 28.9,
+     "debtEquity": 0.48,
+     "ronw": 28.4,
+     "patMargin": 9.38,
+     "ebitdaMargin": 15.36,
+     "pb": 4.21,
+     "eps": 3.64,
+     "epsPost": 2.67,
+     "pe": 14.84,
+     "pePost": 20.22,
+     "mcapCr": 190.86,
+     "promoterPre": 98.28,
+     "promoterPost": 72.15
+    },
+    "registrar": "Kfin Technologies Ltd.",
+    "leadManagers": [
+     "SKI Capital Services Ltd."
+    ],
+    "docs": {
+     "drhp": "https://nsearchives.nseindia.com/emerge/corporates/content/sezalm_01102025164011_DRHP_AXIOM.pdf",
+     "rhp": "https://axiomgas.com/uploads/investors/Red_Herring_Prospectus_AXIOM.pdf",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/axiom-gas-anchor-book.pdf"
+    },
+    "asOf": "2026-09-17T17:58:00+05:30"
+   }
   },
   {
    "name": "FX Multitech",
@@ -2499,17 +2924,17 @@
    "status": "Upcoming",
    "open": "2026-09-21",
    "close": "2026-09-23",
-   "allotment": null,
-   "listing": null,
+   "allotment": "2026-09-24",
+   "listing": "2026-09-28",
    "bandLow": 110.0,
    "bandHigh": 116.0,
-   "lotSize": null,
-   "issueSizeCr": null,
-   "freshCr": null,
-   "ofsCr": null,
-   "gmp": null,
-   "gmpPct": null,
-   "gmpTrend": null,
+   "lotSize": 1200,
+   "issueSizeCr": 42.96,
+   "freshCr": 38.92,
+   "ofsCr": 4.04,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2521,7 +2946,42 @@
    "symbol": null,
    "series": null,
    "bseIpoNo": "7980",
-   "bseScripCode": "4831"
+   "bseScripCode": "4831",
+   "igId": "1589",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "sector": "Other Consumer Services",
+   "anchorShares": 1102800,
+   "gmpAsOf": "2026-09-17T23:34:00+05:30",
+   "facts": {
+    "sector": "Other Consumer Services",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 37.63,
+     "roce": 28.93,
+     "debtEquity": 0.49,
+     "ronw": 31.8,
+     "patMargin": 9.6,
+     "ebitdaMargin": 15.35,
+     "pb": 3.29,
+     "eps": 10.68,
+     "epsPost": 8.04,
+     "pe": 10.86,
+     "pePost": 14.43,
+     "mcapCr": 166.57,
+     "promoterPre": 100.0,
+     "promoterPost": 72.84
+    },
+    "registrar": "MUFG Intime India Pvt.Ltd.",
+    "leadManagers": [
+     "Oneview Corporate Advisors Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/305086/SME_IPO%20InPrinciple/DRHP_FX_20251231194839.pdf",
+     "rhp": "https://www.fxmultitech.com/wp-content/uploads/2026/09/FX_RHP_12092026_FINAL.pdf"
+    },
+    "asOf": "2026-09-16T23:11:00+05:30"
+   }
   },
   {
    "name": "Robokidz Eduventures",
@@ -2530,13 +2990,13 @@
    "status": "Upcoming",
    "open": "2026-09-21",
    "close": "2026-09-23",
-   "allotment": null,
-   "listing": null,
+   "allotment": "2026-09-24",
+   "listing": "2026-09-28",
    "bandLow": 100.0,
    "bandHigh": 106.0,
-   "lotSize": null,
-   "issueSizeCr": 31.09,
-   "freshCr": null,
+   "lotSize": 1200,
+   "issueSizeCr": 29.37,
+   "freshCr": 29.37,
    "ofsCr": null,
    "gmp": 51.0,
    "gmpPct": 48.11,
@@ -2552,7 +3012,42 @@
    "symbol": null,
    "series": null,
    "bseIpoNo": "7982",
-   "bseScripCode": "4833"
+   "bseScripCode": "4833",
+   "igId": "2359",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "sector": "Education",
+   "anchorShares": 828000,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Education",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 56.46,
+     "roce": 29.64,
+     "debtEquity": 1.19,
+     "ronw": 48.66,
+     "patMargin": 10.79,
+     "ebitdaMargin": 17.77,
+     "pb": 2.97,
+     "eps": 12.69,
+     "epsPost": 9.26,
+     "pe": 8.35,
+     "pePost": 11.45,
+     "mcapCr": 115.11,
+     "promoterPre": 72.33,
+     "promoterPost": 0.0
+    },
+    "registrar": "Maashitla Securities Pvt.Ltd.",
+    "leadManagers": [
+     "GYR Capital Advisors Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/384327/SME_IPO%20InPrinciple/DRHP_ROBOKIDZ_EDUVENTURES_20260724172601.pdf",
+     "rhp": "https://www.robokidz.co.in/wp-content/uploads/2020/11/RHP_Robokidz.pdf"
+    },
+    "asOf": "2026-09-15T17:30:00+05:30"
+   }
   },
   {
    "name": "Vivekanand Cotspin",
@@ -2561,17 +3056,17 @@
    "status": "Upcoming",
    "open": "2026-09-21",
    "close": "2026-09-23",
-   "allotment": null,
-   "listing": null,
+   "allotment": "2026-09-24",
+   "listing": "2026-09-28",
    "bandLow": 32.0,
    "bandHigh": 37.0,
-   "lotSize": null,
-   "issueSizeCr": null,
-   "freshCr": null,
+   "lotSize": 3000,
+   "issueSizeCr": 21.09,
+   "freshCr": 21.09,
    "ofsCr": null,
-   "gmp": null,
-   "gmpPct": null,
-   "gmpTrend": null,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2583,7 +3078,42 @@
    "symbol": null,
    "series": null,
    "bseIpoNo": "7981",
-   "bseScripCode": "4832"
+   "bseScripCode": "4832",
+   "igId": "1636",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "sector": "Other Textile Products",
+   "anchorShares": 1710000,
+   "gmpAsOf": "2026-09-17T23:29:00+05:30",
+   "facts": {
+    "sector": "Other Textile Products",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 15.96,
+     "roce": 13.14,
+     "debtEquity": 1.56,
+     "ronw": 15.96,
+     "patMargin": 0.9,
+     "ebitdaMargin": 3.7,
+     "pb": 2.08,
+     "eps": 2.27,
+     "epsPost": 1.62,
+     "pe": 16.3,
+     "pePost": 22.84,
+     "mcapCr": 84.17,
+     "promoterPre": 100.0,
+     "promoterPost": 0.0
+    },
+    "registrar": "MUFG Intime India Pvt.Ltd.",
+    "leadManagers": [
+     "Swastika Investmart Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/319724/SME_IPO%20InPrinciple/DRHP05062026Final_20260605175906.pdf",
+     "rhp": "https://www.vcottonexport.com/investor/ipo/drhp-prospectus/red-herring-prospectus.pdf"
+    },
+    "asOf": "2026-09-17T11:44:00+05:30"
+   }
   },
   {
    "name": "Himalaya Nutravedics India",
@@ -2592,17 +3122,17 @@
    "status": "Upcoming",
    "open": "2026-09-22",
    "close": "2026-09-24",
-   "allotment": null,
-   "listing": null,
+   "allotment": "2026-09-25",
+   "listing": "2026-09-29",
    "bandLow": 100.0,
    "bandHigh": 106.0,
-   "lotSize": null,
-   "issueSizeCr": null,
-   "freshCr": null,
+   "lotSize": 1200,
+   "issueSizeCr": 25.16,
+   "freshCr": 25.16,
    "ofsCr": null,
-   "gmp": null,
-   "gmpPct": null,
-   "gmpTrend": null,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2614,7 +3144,42 @@
    "symbol": null,
    "series": null,
    "bseIpoNo": "7983",
-   "bseScripCode": "4834"
+   "bseScripCode": "4834",
+   "igId": "2230",
+   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "sector": "Other Food Products",
+   "anchorShares": 710400,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Other Food Products",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 63.87,
+     "roce": 36.41,
+     "debtEquity": 0.31,
+     "ronw": 45.12,
+     "patMargin": 17.16,
+     "ebitdaMargin": 18.82,
+     "pb": 3.97,
+     "eps": 11.72,
+     "epsPost": 8.39,
+     "pe": 9.04,
+     "pePost": 12.63,
+     "mcapCr": 93.35,
+     "promoterPre": 95.14,
+     "promoterPost": 68.13
+    },
+    "registrar": "Kfin Technologies Ltd.",
+    "leadManagers": [
+     "Nirbhay Capital Services Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/346623/SME_IPO%20InPrinciple/HimalayaDRHP_20260516003940.zip",
+     "rhp": "https://himalayanutravedics.com/wp-content/uploads/2026/09/Red-Herring-Prospectus.pdf"
+    },
+    "asOf": "2026-09-16T17:30:00+05:30"
+   }
   }
  ],
  "comps": [
@@ -7859,50 +8424,59 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-18T00:20:43+05:30",
+  "asOf": "2026-09-18T00:44:04+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-18T00:19:30+05:30",
-    "elapsed": 37.93,
+    "asOf": "2026-09-18T00:43:17+05:30",
+    "elapsed": 47.05,
     "calls": 16,
     "note": "nse current=8 upcoming=5 past=49 detail=11 +bse=9: 14 mainboard, 8 sme; 8 open, 4 upcoming"
-   },
-   {
-    "area": "subscription",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-09-18T00:19:44+05:30",
-    "elapsed": 14.02,
-    "calls": 14,
-    "note": "9/11 rows patched via nse; no subscription for: Shakti Polytarp, Vama Wovenfab"
    },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "17-Sep 9:34",
-    "elapsed": 0.29,
+    "elapsed": 0.23,
     "calls": 1,
-    "note": "gmp: 15 board rows patched via investorgain; 14 active, 10 of them matched; gmp: 5 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹11, investorgain); Varmora Granito (₹10, investorgain); sme: 2 patched names not on the board: Shakti Polytarp, Vama Wovenfab"
+    "note": "gmp: 13 board rows patched via investorgain; 12 active, 8 of them matched; gmp: 7 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹11, investorgain); Shakti Polytarp (₹6, investorgain); Vama Wovenfab (₹3, investorgain); Varmora Granito (₹10, investorgain)"
+   },
+   {
+    "area": "details",
+    "method": "investorgain-list:ok, investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-09-18T00:43:18+05:30",
+    "elapsed": 13.27,
+    "calls": 15,
+    "note": "14 records fetched for 14 identified listings (7 without an id); 11 anchor books updated, 38 on file"
+   },
+   {
+    "area": "subscription",
+    "method": "nse:ok",
+    "status": "ok",
+    "asOf": "2026-09-18T00:43:34+05:30",
+    "elapsed": 2.86,
+    "calls": 9,
+    "note": "9/9 rows patched via nse"
    },
    {
     "area": "listings",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 11.04,
+    "elapsed": 10.33,
     "calls": 0,
-    "note": "20 names priced, 10 moved to recent, 1 history points; mainboard: 3 patched names not on the board: Glass Wall Systems, Kanohar Electricals, Prasol Chemicals"
+    "note": "17 names priced, 7 moved to recent, 0 history points"
    },
    {
     "area": "parents",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-16",
-    "elapsed": 13.0,
+    "elapsed": 10.59,
     "calls": 0,
     "note": "5/5 parent prices; 27/32 investor stocks priced"
    },
@@ -7911,7 +8485,7 @@
     "method": "bse_ann:ok, sebi:ok",
     "status": "ok",
     "asOf": "2026-09-18",
-    "elapsed": 5.52,
+    "elapsed": 6.77,
     "calls": 10,
     "note": "bse_ann: 8/8 parents answered, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; expected: 25 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; 0 rows patched, 33 kept previous stage"
    },
@@ -7925,20 +8499,11 @@
     "note": "bse rows=10: 11 rights, 12 buybacks, 0 ofs, 1 ncd; 10 refreshed, 0 new, 0 closed windows dropped"
    },
    {
-    "area": "anchors",
-    "method": "investorgain-480:ok, nse-ipo-detail:ok",
-    "status": "ok",
-    "asOf": "2026-09-18",
-    "elapsed": 26.69,
-    "calls": 7,
-    "note": "34 books on file; calendar matched 34 of ours, 34 dates set; sized: Axiom Gas Engineering ₹6 Cr, NSE (National Stock Exchange of India) ₹6,746 Cr, Sonaselection India ₹42 Cr, Hero Motors ₹300 Cr"
-   },
-   {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.27,
+    "elapsed": 0.42,
     "calls": 1,
     "note": "2026-09-17 already in history; FII -3,209 / DII +3,618 Cr"
    },
@@ -7947,7 +8512,7 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.6,
+    "elapsed": 0.45,
     "calls": 2,
     "note": "bulk.csv: 212 deals; block.csv: 4 deals; 0 tracked-investor deals of 216; 13 patterns"
    },
@@ -7956,7 +8521,7 @@
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-09-17T21:03:04+05:30",
-    "elapsed": 0.44,
+    "elapsed": 0.49,
     "calls": 3,
     "note": "business-standard: 6/35 primary-market items; economic-times: 14/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 20 fresh, 25 kept"
    },
@@ -7970,7 +8535,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "111s, 55 calls, 11/11 modules ok"
+    "note": "93s, 58 calls, 11/11 modules ok"
    }
   ],
   "discrepancies": [
@@ -9865,45 +10430,125 @@
  },
  "anchors": [
   {
+   "name": "Himalaya Nutravedics India",
+   "date": "2026-09-21",
+   "amountCr": 7.53,
+   "issueSizeCr": 25.16,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-25",
+   "lockIn90": "2026-12-24",
+   "anchorShares": 710400,
+   "price": 106.0,
+   "amountBasis": "exchange-json",
+   "anchor": "₹7.53 Cr anchor book · bid 21 Sep · 30% of the issue · lock-in ends 25 Oct (half) and 24 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "FX Multitech",
+   "date": "2026-09-18",
+   "amountCr": 12.79,
+   "issueSizeCr": 42.96,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-24",
+   "lockIn90": "2026-12-23",
+   "anchorShares": 1102800,
+   "price": 116.0,
+   "amountBasis": "exchange-json",
+   "anchor": "₹12.79 Cr anchor book · bid 18 Sep · 30% of the issue · lock-in ends 24 Oct (half) and 23 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "Robokidz Eduventures",
+   "date": "2026-09-18",
+   "amountCr": 8.78,
+   "issueSizeCr": 29.37,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-24",
+   "lockIn90": "2026-12-23",
+   "anchorShares": 828000,
+   "price": 106.0,
+   "amountBasis": "exchange-json",
+   "anchor": "₹8.78 Cr anchor book · bid 18 Sep · 30% of the issue · lock-in ends 24 Oct (half) and 23 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "Vivekanand Cotspin",
+   "date": "2026-09-18",
+   "amountCr": 6.33,
+   "issueSizeCr": 21.09,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-24",
+   "lockIn90": "2026-12-23",
+   "anchorShares": 1710000,
+   "price": 37.0,
+   "amountBasis": "exchange-json",
+   "anchor": "₹6.33 Cr anchor book · bid 18 Sep · 30% of the issue · lock-in ends 24 Oct (half) and 23 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
    "name": "Axiom Gas Engineering",
    "date": "2026-09-17",
    "amountCr": 5.78,
-   "issueSizeCr": 50.75,
+   "issueSizeCr": 48.17,
    "count": null,
    "topTierShare": null,
    "investors": [],
    "sources": [
     "https://www.nseindia.com/market-data/issue-information?symbol=AXIOMGAS&series=SME&type=Active",
-    "https://www.investorgain.com/ipo/axiom-gas-engineering-ipo/1682/"
+    "https://www.investorgain.com/ipo/axiom-gas-engineering-ipo/1682/",
+    "https://www.chittorgarh.net/reports/anchor-investor/axiom-gas-anchor-book.pdf"
    ],
    "source": "exchange-json",
    "auto": true,
    "lockIn30": "2026-10-23",
    "lockIn90": "2026-12-22",
-   "anchorShares": 1070000,
+   "anchorShares": 1070400,
    "price": 54.0,
    "amountBasis": "exchange-json",
-   "anchor": "₹5.78 Cr anchor book · bid 17 Sep · 11% of the issue · lock-in ends 23 Oct (half) and 22 Dec",
-   "note": "Book size is NSE's stated anchor portion × the upper band; dates are InvestorGain's. Who took the book is published only as the issuer's letter, which a run does not read."
+   "anchor": "₹5.78 Cr anchor book · bid 17 Sep · 12% of the issue · lock-in ends 23 Oct (half) and 22 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
   },
   {
    "name": "SpectraA Technology Solutions",
    "date": "2026-09-16",
-   "amountCr": null,
-   "issueSizeCr": 42.52,
+   "amountCr": 12.09,
+   "issueSizeCr": 40.37,
    "count": null,
    "topTierShare": null,
    "investors": [],
    "sources": [
-    "https://www.investorgain.com/ipo/spectraa-technology-solutions-ipo/2211/"
+    "https://www.investorgain.com/ipo/spectraa-technology-solutions-ipo/2211/",
+    "https://www.chittorgarh.net/reports/anchor-investor/spectraa-technology-anchor-book.pdf"
    ],
    "source": "exchange-json",
    "auto": true,
    "lockIn30": "2026-10-22",
    "lockIn90": "2026-12-21",
    "anchorShares": 1024800,
-   "anchor": "bid 16 Sep · lock-in ends 22 Oct (half) and 21 Dec",
-   "note": "Book size is NSE's stated anchor portion × the upper band; dates are InvestorGain's. Who took the book is published only as the issuer's letter, which a run does not read."
+   "anchor": "₹12.09 Cr anchor book · bid 16 Sep · 30% of the issue · lock-in ends 22 Oct (half) and 21 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read.",
+   "price": 118.0,
+   "amountBasis": "exchange-json"
   },
   {
    "name": "NSE (National Stock Exchange of India)",
@@ -9915,7 +10560,8 @@
    "investors": [],
    "sources": [
     "https://www.nseindia.com/market-data/issue-information?symbol=NSE&series=EQ&type=Active",
-    "https://www.investorgain.com/ipo/nse-ipo/2305/"
+    "https://www.investorgain.com/ipo/nse-ipo/2305/",
+    "https://www.chittorgarh.net/reports/anchor-investor/nse-anchor-book.pdf"
    ],
    "source": "exchange-json",
    "auto": true,
@@ -9925,26 +10571,29 @@
    "price": 1785.0,
    "amountBasis": "exchange-json",
    "anchor": "₹6,746.18 Cr anchor book · bid 16 Sep · 30% of the issue · lock-in ends 21 Oct (half) and 20 Dec",
-   "note": "Book size is NSE's stated anchor portion × the upper band; dates are InvestorGain's. Who took the book is published only as the issuer's letter, which a run does not read."
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
   },
   {
    "name": "Kheria Autocomp",
    "date": "2026-09-16",
-   "amountCr": null,
-   "issueSizeCr": 46.44,
+   "amountCr": 13.24,
+   "issueSizeCr": 44.12,
    "count": null,
    "topTierShare": null,
    "investors": [],
    "sources": [
-    "https://www.investorgain.com/ipo/kheria-autocomp-ipo/2016/"
+    "https://www.investorgain.com/ipo/kheria-autocomp-ipo/2016/",
+    "https://www.chittorgarh.net/reports/anchor-investor/kheria-autocomp-anchor-book.pdf"
    ],
    "source": "exchange-json",
    "auto": true,
    "lockIn30": "2026-10-22",
    "lockIn90": "2026-12-21",
    "anchorShares": 1310400,
-   "anchor": "bid 16 Sep · lock-in ends 22 Oct (half) and 21 Dec",
-   "note": "Book size is NSE's stated anchor portion × the upper band; dates are InvestorGain's. Who took the book is published only as the issuer's letter, which a run does not read."
+   "anchor": "₹13.24 Cr anchor book · bid 16 Sep · 30% of the issue · lock-in ends 22 Oct (half) and 21 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read.",
+   "price": 101.0,
+   "amountBasis": "exchange-json"
   },
   {
    "name": "Sonaselection India",
@@ -9956,7 +10605,8 @@
    "investors": [],
    "sources": [
     "https://www.nseindia.com/market-data/issue-information?symbol=SONA&series=EQ&type=Active",
-    "https://www.investorgain.com/ipo/sonaselection-india-ipo/2059/"
+    "https://www.investorgain.com/ipo/sonaselection-india-ipo/2059/",
+    "https://www.chittorgarh.net/reports/anchor-investor/sonaselection_india_limited_anchor_allocation_letter06519b81-70d4-49c6-ad42-ec9eb7dc539d.pdf"
    ],
    "source": "exchange-json",
    "auto": true,
@@ -9966,7 +10616,7 @@
    "price": 99.0,
    "amountBasis": "exchange-json",
    "anchor": "₹42.47 Cr anchor book · bid 16 Sep · 30% of the issue · lock-in ends 22 Oct (half) and 21 Dec",
-   "note": "Book size is NSE's stated anchor portion × the upper band; dates are InvestorGain's. Who took the book is published only as the issuer's letter, which a run does not read."
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
   },
   {
    "name": "Hero Motors",
@@ -9978,7 +10628,8 @@
    "investors": [],
    "sources": [
     "https://www.nseindia.com/market-data/issue-information?symbol=HEROMOTORS&series=EQ&type=Active",
-    "https://www.investorgain.com/ipo/hero-motors-ipo/1688/"
+    "https://www.investorgain.com/ipo/hero-motors-ipo/1688/",
+    "https://www.chittorgarh.net/reports/anchor-investor/hero-motor-ipo-anchor-book.pdf"
    ],
    "source": "exchange-json",
    "auto": true,
@@ -9988,43 +10639,51 @@
    "price": 84.0,
    "amountBasis": "exchange-json",
    "anchor": "₹300.00 Cr anchor book · bid 15 Sep · 30% of the issue · lock-in ends 21 Oct (half) and 20 Dec",
-   "note": "Book size is NSE's stated anchor portion × the upper band; dates are InvestorGain's. Who took the book is published only as the issuer's letter, which a run does not read."
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
   },
   {
    "name": "Jindal Supreme (India)",
    "date": "2026-09-15",
-   "amountCr": null,
+   "amountCr": 37.46,
    "issueSizeCr": 124.88,
    "count": null,
    "topTierShare": null,
    "investors": [],
    "sources": [
-    "https://www.investorgain.com/ipo/jindal-supreme-ipo/2057/"
+    "https://www.investorgain.com/ipo/jindal-supreme-ipo/2057/",
+    "https://www.chittorgarh.net/reports/anchor-investor/jinadal-supereme-anchor-book.pdf"
    ],
    "source": "exchange-json",
    "auto": true,
    "lockIn30": "2026-10-21",
    "lockIn90": "2026-12-20",
-   "anchor": "bid 15 Sep · lock-in ends 21 Oct (half) and 20 Dec",
-   "note": "Book size is NSE's stated anchor portion × the upper band; dates are InvestorGain's. Who took the book is published only as the issuer's letter, which a run does not read."
+   "anchor": "₹37.46 Cr anchor book · bid 15 Sep · 30% of the issue · lock-in ends 21 Oct (half) and 20 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read.",
+   "anchorShares": 4028400,
+   "price": 93.0,
+   "amountBasis": "exchange-json"
   },
   {
    "name": "SS Retail",
    "date": "2026-09-15",
-   "amountCr": null,
+   "amountCr": 146.4,
    "issueSizeCr": 500.0,
    "count": null,
    "topTierShare": null,
    "investors": [],
    "sources": [
-    "https://www.investorgain.com/ipo/ss-retail-ipo/2076/"
+    "https://www.investorgain.com/ipo/ss-retail-ipo/2076/",
+    "https://www.chittorgarh.net/reports/anchor-investor/ss-retail-ipo-anchor-allocation.pdf"
    ],
    "source": "exchange-json",
    "auto": true,
    "lockIn30": "2026-10-21",
    "lockIn90": "2026-12-20",
-   "anchor": "bid 15 Sep · lock-in ends 21 Oct (half) and 20 Dec",
-   "note": "Book size is NSE's stated anchor portion × the upper band; dates are InvestorGain's. Who took the book is published only as the issuer's letter, which a run does not read."
+   "anchor": "₹146.40 Cr anchor book · bid 15 Sep · 29% of the issue · lock-in ends 21 Oct (half) and 20 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read.",
+   "anchorShares": 3452829,
+   "price": 424.0,
+   "amountBasis": "exchange-json"
   },
   {
    "name": "Shakti Polytarp",
@@ -10047,38 +10706,46 @@
   {
    "name": "Manika Plastech",
    "date": "2026-09-10",
-   "amountCr": null,
+   "amountCr": 37.65,
    "issueSizeCr": 125.5,
    "count": null,
    "topTierShare": null,
    "investors": [],
    "sources": [
-    "https://www.investorgain.com/ipo/manika-plastech-ipo/1806/"
+    "https://www.investorgain.com/ipo/manika-plastech-ipo/1806/",
+    "https://www.chittorgarh.net/reports/anchor-investor/manika-plastech-ipo-anchor-list.pdf"
    ],
    "source": "exchange-json",
    "auto": true,
    "lockIn30": "2026-10-17",
    "lockIn90": "2026-12-16",
-   "anchor": "bid 10 Sep · lock-in ends 17 Oct (half) and 16 Dec",
-   "note": "Book size is NSE's stated anchor portion × the upper band; dates are InvestorGain's. Who took the book is published only as the issuer's letter, which a run does not read."
+   "anchor": "₹37.65 Cr anchor book · bid 10 Sep · 30% of the issue · lock-in ends 17 Oct (half) and 16 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read.",
+   "anchorShares": 8755813,
+   "price": 43.0,
+   "amountBasis": "exchange-json"
   },
   {
    "name": "Veegaland Developers",
    "date": "2026-09-09",
-   "amountCr": null,
+   "amountCr": 63.0,
    "issueSizeCr": 210.0,
    "count": null,
    "topTierShare": null,
    "investors": [],
    "sources": [
-    "https://www.investorgain.com/ipo/veegaland-developers-ipo/1601/"
+    "https://www.investorgain.com/ipo/veegaland-developers-ipo/1601/",
+    "https://www.chittorgarh.net/reports/anchor-investor/veegaland-ipo-anchor.pdf"
    ],
    "source": "exchange-json",
    "auto": true,
    "lockIn30": "2026-10-16",
    "lockIn90": "2026-12-15",
-   "anchor": "bid 9 Sep · lock-in ends 16 Oct (half) and 15 Dec",
-   "note": "Book size is NSE's stated anchor portion × the upper band; dates are InvestorGain's. Who took the book is published only as the issuer's letter, which a run does not read."
+   "anchor": "₹63.00 Cr anchor book · bid 9 Sep · 30% of the issue · lock-in ends 16 Oct (half) and 15 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read.",
+   "anchorShares": 4500000,
+   "price": 140.0,
+   "amountBasis": "exchange-json"
   },
   {
    "amountCr": null,
