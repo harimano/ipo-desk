@@ -98,6 +98,20 @@ curating or preserving individual legacy rows; make every future listing fill it
 - A workflow's push does not trigger other workflows; the page's built-in snapshot shares an `asOf` with the first
   fetch after every deploy. Both looked like "it works" until someone opened the Research tab.
 
+## How to build here (agreed with Hari, 18 Sep 2026)
+
+1. Survey sources before writing a parser: read the site's JS for its endpoints, watch its network calls. One
+   complete API beats five partial ones; a document is never the pipeline's source.
+2. State the design and get a "go" before anything larger than one file. Small fixes: just do them.
+3. When a bug is a pattern, grep every call site and fix them all in the same change.
+4. Side findings go on a list for the end of the task, unless they corrupt what is shipping now.
+5. Run it live early: `python -m collector --data /tmp/x/data` then `scripts/validate.py`; record the real response
+   as the fixture. Hand-made fixtures hid every real bug this repo had.
+6. Say what was verified (`git log`, `gh run list`), and say so when something was not.
+7. NEXT, in order: make freshness visible on the page (ages, change flashes, live strip, grey out old text) ->
+   cut each screen to what matters today -> remove or automate the db-era sections -> measure InvestorGain-vs-NSE
+   subscription lag and drop the slow NSE calls if it is minutes.
+
 ## Rules for working here
 
 - Never edit `latest.json` by hand, never commit it or `data/history/` on `main`, and never push to the
