@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-17T22:37:37+05:30",
+  "asOf": "2026-09-17T22:54:35+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "17 Sep 2026, 22:37 IST",
+  "label": "17 Sep 2026, 22:54 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -39,64 +39,28 @@
   ],
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
-   "NSE IPO day-1 subscription is a 10:50 IST print (0.13x overall; QIB not published by any tracker). Re-pull after 17:00 IST for a true day-1 close.",
-   "NSE GMP is unusually dispersed across trackers today (Rs 137-166); Rs 160 / ~9% taken as the consensus. GMP peaked at Rs 285 on 7 Sep and has trended down.",
-   "Apana Logistics listing price disputed: Business Standard says flat at Rs 60, Chittorgarh shows Rs 57 (-5%). Rs 60 used; BSE bhavcopy for 15 Sep would settle it.",
-   "Pranav Constructions total subscription reported as 126.34x / 120.11x / 96.02x across sources (category splits agree); 126.34x used.",
-   "Listing-day prices for ARCIL, LCC, Rentomojo, Steamhouse and Manipal are opening prints; current marks not yet captured.",
-   "All prices in this refresh are intraday quotes at ~11:40 IST on 17 Sep, not official closes.",
-   "Trendlyne cannot price a stock on its listing day: its snapshot DB has no row, and the fuzzy matcher silently returns unrelated companies. Use news/aggregator sources for debut prices.",
-   "Collector feed (data/latest.json) not configured — FEED_URL pending in the handoff doc",
-   "Fly-Hi Maritime, Farm Peace (8 Sep listing prices)",
-   "Phychem Technologies (exact listing price; reported +3.70%)",
-   "Deepa Jewellers, Rays of Belief, Purple Style Labs (day-1 close)",
-   "Glass Wall Systems, Prasol Chemicals (anchor allocation letters)",
-   "Kanohar Electricals (per-investor anchor amounts)",
-   "Trendlyne SAST not pulled this cycle for IEX, PRESTIGE, SIS, NLCINDIA (time box)",
-   "Quota pipeline daily re-check not run this cycle (time box) — stages carried from 7 Sep",
-   "NSE bulk/block CSV scan not run this cycle",
-   "Hero FinCorp (quota flag)",
-   "Prestige Hospitality Ventures (quota flag)",
-   "SIS Cash Services (quota flag)",
-   "Indian Gas Exchange (quota flag)",
-   "Mahanadi Coalfields (quota flag; DRHP date 31 Aug vs 1 Sep)",
-   "Apana Logistics, Amtech Esters, Infrax Renewable (SME platform: NSE per ipowatch calendar vs BSE per ipoji)",
-   "TechEra Engineering, Indo SMC (priceNow — no Trendlyne match for the SME codes)",
-   "gmp: no grey-market print found for open issue NSE (National Stock Exchange of India)",
-   "listings: no NSE symbol on row 'Deepa Jewellers' — cannot price",
-   "listings: no NSE symbol on row 'Rays of Belief' — cannot price",
-   "listings: no NSE symbol on row 'Pranav Constructions' — cannot price",
-   "listings: no NSE symbol on row 'Kanohar Electricals' — cannot price",
-   "listings: no NSE symbol on row 'Glass Wall Systems' — cannot price",
-   "listings: no NSE symbol on row 'Prasol Chemicals' — cannot price",
-   "listings: no NSE symbol on row 'Asset Reconstruction Company (India)' — cannot price",
-   "listings: no NSE symbol on row 'LCC Projects' — cannot price",
-   "listings: no NSE symbol on row 'Karamtara Engineering' — cannot price",
-   "listings: no NSE symbol on row 'Rentomojo' — cannot price",
-   "listings: no NSE symbol on row 'Manipal Payment & Identity Solutions' — cannot price",
-   "listings: no NSE symbol on row 'Steamhouse India' — cannot price",
-   "listings: no NSE symbol on row 'Qualiance International' — cannot price",
-   "listings: no NSE symbol on row 'Fly-Hi Maritime' — cannot price",
-   "listings: no NSE symbol on row 'Farm Peace' — cannot price",
-   "listings: no NSE symbol on row 'Apana Logistics' — cannot price",
-   "listings: no NSE symbol on row 'Amtech Esters' — cannot price",
-   "listings: no NSE symbol on row 'Vinod Texworld' — cannot price",
-   "listings: no NSE symbol on row 'Infrax Renewable' — cannot price",
-   "listings: no NSE symbol on row 'Purple Style Labs' — cannot price",
-   "listings: no NSE symbol on row 'ESDS Software' — cannot price",
-   "listings: no NSE symbol on row 'Priority Jewels' — cannot price",
-   "listings: no NSE symbol on row 'Lumino Industries' — cannot price",
-   "listings: no NSE symbol on row 'Annu Projects' — cannot price",
-   "listings: no NSE symbol on row 'Symbiotec Pharmalab' — cannot price",
-   "listings: no NSE symbol on row 'Hy-Tech Engineers' — cannot price",
-   "listings: no NSE symbol on row 'Skyways Air Services' — cannot price",
-   "listings: no NSE symbol on row 'Augmont Enterprises' — cannot price",
-   "listings: no NSE symbol on row 'Tempsens Instruments' — cannot price",
-   "listings: no NSE symbol on row 'Gaja Alternative Asset Management' — cannot price",
-   "listings: no NSE symbol on row 'Sunshine Pictures' — cannot price",
-   "listings: no NSE symbol on row 'Shankesh Jewellers' — cannot price",
-   "listings: no NSE symbol on row 'Horizon Industrial Parks' — cannot price",
-   "listings: no NSE symbol on row 'Lalithaa Jewellery Mart' — cannot price"
+   "[gmp] gmp: no grey-market print found for open issue NSE (National Stock Exchange of India)",
+   "[listings] listings: no NSE symbol on row 'Amtech Esters' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Infrax Renewable' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Pranav Constructions' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Apana Logistics' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Qualiance International' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Deepa Jewellers' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Purple Style Labs' — cannot price",
+   "[listings] listings: no NSE symbol on row 'ESDS Software' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Priority Jewels' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Lumino Industries' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Annu Projects' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Symbiotec Pharmalab' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Hy-Tech Engineers' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Skyways Air Services' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Augmont Enterprises' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Tempsens Instruments' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Gaja Alternative Asset Management' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Sunshine Pictures' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Shankesh Jewellers' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Horizon Industrial Parks' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Lalithaa Jewellery Mart' — cannot price"
   ]
  },
  "expected": [
@@ -740,6 +704,36 @@
    "shares": 2000,
    "price": 54.0,
    "listDate": null
+  },
+  "Shakti Polytarp": {
+   "shares": null,
+   "price": 59.0,
+   "listDate": null
+  },
+  "Vama Wovenfab": {
+   "shares": null,
+   "price": 341.0,
+   "listDate": null
+  },
+  "FX Multitech": {
+   "shares": null,
+   "price": 116.0,
+   "listDate": null
+  },
+  "Vivekanand Cotspin": {
+   "shares": null,
+   "price": 37.0,
+   "listDate": null
+  },
+  "Robokidz Eduventures": {
+   "shares": null,
+   "price": 106.0,
+   "listDate": null
+  },
+  "Himalaya Nutravedics India": {
+   "shares": null,
+   "price": 106.0,
+   "listDate": null
   }
  },
  "mainboard": [
@@ -1162,9 +1156,9 @@
    "issueSizeCr": 210.0,
    "freshCr": 210,
    "ofsCr": 0,
-   "gmp": 6.0,
-   "gmpPct": 4.29,
-   "gmpTrend": "flat",
+   "gmp": 8.5,
+   "gmpPct": 6.07,
+   "gmpTrend": "up",
    "sub": {
     "qib": 17.76,
     "nii": 18.03,
@@ -1201,9 +1195,9 @@
    "issueSizeCr": 91.96,
    "freshCr": 92.5,
    "ofsCr": null,
-   "gmp": 2.0,
-   "gmpPct": 4.65,
-   "gmpTrend": "flat",
+   "gmp": 2.25,
+   "gmpPct": 5.23,
+   "gmpTrend": "up",
    "sub": {
     "qib": 10.94,
     "nii": 63.09,
@@ -1261,8 +1255,8 @@
    ],
    "symbol": "HEROMOTORS",
    "series": "EQ",
-   "bseIpoNo": null,
-   "bseScripCode": null
+   "bseIpoNo": "7971",
+   "bseScripCode": "4823"
   },
   {
    "name": "Jindal Supreme (India)",
@@ -1298,8 +1292,8 @@
    ],
    "symbol": "JSIPL",
    "series": "EQ",
-   "bseIpoNo": null,
-   "bseScripCode": null
+   "bseIpoNo": "7976",
+   "bseScripCode": "4826"
   },
   {
    "name": "SS Retail",
@@ -1316,9 +1310,9 @@
    "issueSizeCr": 372.86,
    "freshCr": null,
    "ofsCr": null,
-   "gmp": 133.0,
-   "gmpPct": 31.37,
-   "gmpTrend": "flat",
+   "gmp": 137.0,
+   "gmpPct": 32.31,
+   "gmpTrend": "up",
    "sub": {
     "qib": 0.23,
     "nii": 9.91,
@@ -1336,8 +1330,8 @@
    ],
    "symbol": "SSRETAIL",
    "series": "EQ",
-   "bseIpoNo": null,
-   "bseScripCode": null
+   "bseIpoNo": "7975",
+   "bseScripCode": "4828"
   },
   {
    "name": "NSE (National Stock Exchange of India)",
@@ -1377,8 +1371,8 @@
    ],
    "symbol": "NSE",
    "series": "EQ",
-   "bseIpoNo": null,
-   "bseScripCode": null
+   "bseIpoNo": "7977",
+   "bseScripCode": "4827"
   },
   {
    "name": "Sonaselection India",
@@ -1414,8 +1408,8 @@
    ],
    "symbol": "SONA",
    "series": "EQ",
-   "bseIpoNo": null,
-   "bseScripCode": null
+   "bseIpoNo": "7973",
+   "bseScripCode": "4824"
   }
  ],
  "offers": {
@@ -2179,6 +2173,68 @@
    "bseScripCode": null
   },
   {
+   "name": "Shakti Polytarp",
+   "slug": "shakti-polytarp",
+   "type": "BSE SME",
+   "status": "Open",
+   "open": "2026-09-15",
+   "close": "2026-09-17",
+   "allotment": null,
+   "listing": null,
+   "bandLow": 56.0,
+   "bandHigh": 59.0,
+   "lotSize": null,
+   "issueSizeCr": null,
+   "freshCr": null,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "BSE public issues (api)"
+   ],
+   "symbol": null,
+   "series": null,
+   "bseIpoNo": "7967",
+   "bseScripCode": "4818"
+  },
+  {
+   "name": "Vama Wovenfab",
+   "slug": "vama-wovenfab",
+   "type": "BSE SME",
+   "status": "Open",
+   "open": "2026-09-15",
+   "close": "2026-09-17",
+   "allotment": null,
+   "listing": null,
+   "bandLow": 324.0,
+   "bandHigh": 341.0,
+   "lotSize": null,
+   "issueSizeCr": null,
+   "freshCr": null,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "BSE public issues (api)"
+   ],
+   "symbol": null,
+   "series": null,
+   "bseIpoNo": "7969",
+   "bseScripCode": "4820"
+  },
+  {
    "name": "Kheria Autocomp",
    "slug": "kheria-autocomp",
    "type": "NSE SME",
@@ -2282,6 +2338,130 @@
    "series": "SME",
    "bseIpoNo": null,
    "bseScripCode": null
+  },
+  {
+   "name": "FX Multitech",
+   "slug": "fx-multitech",
+   "type": "BSE SME",
+   "status": "Upcoming",
+   "open": "2026-09-21",
+   "close": "2026-09-23",
+   "allotment": null,
+   "listing": null,
+   "bandLow": 110.0,
+   "bandHigh": 116.0,
+   "lotSize": null,
+   "issueSizeCr": null,
+   "freshCr": null,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "BSE public issues (api)"
+   ],
+   "symbol": null,
+   "series": null,
+   "bseIpoNo": "7980",
+   "bseScripCode": "4831"
+  },
+  {
+   "name": "Robokidz Eduventures",
+   "slug": "robokidz-eduventures",
+   "type": "BSE SME",
+   "status": "Upcoming",
+   "open": "2026-09-21",
+   "close": "2026-09-23",
+   "allotment": null,
+   "listing": null,
+   "bandLow": 100.0,
+   "bandHigh": 106.0,
+   "lotSize": null,
+   "issueSizeCr": null,
+   "freshCr": null,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "BSE public issues (api)"
+   ],
+   "symbol": null,
+   "series": null,
+   "bseIpoNo": "7982",
+   "bseScripCode": "4833"
+  },
+  {
+   "name": "Vivekanand Cotspin",
+   "slug": "vivekanand-cotspin",
+   "type": "BSE SME",
+   "status": "Upcoming",
+   "open": "2026-09-21",
+   "close": "2026-09-23",
+   "allotment": null,
+   "listing": null,
+   "bandLow": 32.0,
+   "bandHigh": 37.0,
+   "lotSize": null,
+   "issueSizeCr": null,
+   "freshCr": null,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "BSE public issues (api)"
+   ],
+   "symbol": null,
+   "series": null,
+   "bseIpoNo": "7981",
+   "bseScripCode": "4832"
+  },
+  {
+   "name": "Himalaya Nutravedics India",
+   "slug": "himalaya-nutravedics-india",
+   "type": "BSE SME",
+   "status": "Upcoming",
+   "open": "2026-09-22",
+   "close": "2026-09-24",
+   "allotment": null,
+   "listing": null,
+   "bandLow": 100.0,
+   "bandHigh": 106.0,
+   "lotSize": null,
+   "issueSizeCr": null,
+   "freshCr": null,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "BSE public issues (api)"
+   ],
+   "symbol": null,
+   "series": null,
+   "bseIpoNo": "7983",
+   "bseScripCode": "4834"
   }
  ],
  "comps": [
@@ -6885,14 +7065,14 @@
    "date": "2026-09-17T21:03:04+05:30"
   },
   {
-   "title": "Six companies make record stock market debut in a day, five end higher",
+   "title": "Thursday's listings: 6 IPOs take the stage in record debut-day rush",
    "url": "https://www.business-standard.com/companies/news/six-companies-make-record-stock-market-debut-in-a-day-five-end-higher-126091701203_1.html",
-   "date": "2026-09-17T19:30:23+05:30"
+   "date": "2026-09-17T19:30:50+05:30"
   },
   {
-   "title": "NSE IPO subscribed 43% on first day as non-institutional investors lead",
+   "title": "NSE IPO subscribed 43% on the first day of bidding, QIBs' share 19%",
    "url": "https://www.business-standard.com/markets/news/nse-ipo-subscribed-43-on-first-day-as-non-institutional-investors-lead-126091701088_1.html",
-   "date": "2026-09-17T18:34:50+05:30"
+   "date": "2026-09-17T18:34:16+05:30"
   },
   {
    "title": "NSE enters India’s mega-IPO club: 2nd-largest issue, 2nd-highest anchor count with 189 investors",
@@ -7492,23 +7672,23 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-17T22:37:37+05:30",
+  "asOf": "2026-09-17T22:54:35+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-17T22:37:19+05:30",
-    "elapsed": 19.47,
-    "calls": 14,
-    "note": "nse current=7 upcoming=7 past=50 detail=10: 17 mainboard, 4 sme; 7 open, 1 upcoming"
+    "asOf": "2026-09-17T22:54:08+05:30",
+    "elapsed": 28.39,
+    "calls": 15,
+    "note": "nse current=7 upcoming=7 past=50 detail=10 +bse=11: 17 mainboard, 10 sme; 9 open, 5 upcoming"
    },
    {
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-17T22:37:22+05:30",
-    "elapsed": 2.99,
+    "asOf": "2026-09-17T22:54:11+05:30",
+    "elapsed": 2.89,
     "calls": 9,
     "note": "9/9 rows patched via nse"
    },
@@ -7517,16 +7697,16 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "17-Sep 9:34",
-    "elapsed": 1.04,
+    "elapsed": 1.07,
     "calls": 1,
-    "note": "gmp: 11 board rows patched via investorgain; 8 active, 6 of them matched; gmp: 9 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); NSE (₹145, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹9, investorgain); Robokidz Eduventures (₹51, investorgain); Shakti Polytarp (₹6, investorgain); Vama Wovenfab (₹3, investorgain) …"
+    "note": "gmp: 11 board rows patched via investorgain; 8 active, 6 of them matched; gmp: 9 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); NSE (₹142, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹11, investorgain); Robokidz Eduventures (₹51, investorgain); Shakti Polytarp (₹6, investorgain); Vama Wovenfab (₹3, investorgain) …"
    },
    {
     "area": "listings",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 6.5,
+    "elapsed": 8.32,
     "calls": 0,
     "note": "20 names priced, 4 moved to recent, 0 history points"
    },
@@ -7535,7 +7715,7 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.77,
+    "elapsed": 0.69,
     "calls": 0,
     "note": "5/5 parent prices"
    },
@@ -7544,7 +7724,7 @@
     "method": "bse_ann:ok, sebi:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 4.77,
+    "elapsed": 4.34,
     "calls": 10,
     "note": "bse_ann: 8/8 parents answered, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; 0 rows patched, 33 kept previous stage"
    },
@@ -7553,7 +7733,7 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.15,
+    "elapsed": 5.39,
     "calls": 1,
     "note": "2026-09-17 already in history; FII -3,209 / DII +3,618 Cr"
    },
@@ -7562,7 +7742,7 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.76,
+    "elapsed": 0.64,
     "calls": 2,
     "note": "bulk.csv: 212 deals; block.csv: 4 deals; 0 tracked-investor deals of 216; 13 patterns"
    },
@@ -7571,7 +7751,7 @@
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-09-17T21:03:04+05:30",
-    "elapsed": 0.92,
+    "elapsed": 3.47,
     "calls": 3,
     "note": "business-standard: 6/35 primary-market items; economic-times: 14/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 20 fresh, 25 kept"
    },
@@ -7585,7 +7765,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "37s, 40 calls, 9/9 modules ok"
+    "note": "55s, 41 calls, 9/9 modules ok"
    }
   ],
   "discrepancies": [
