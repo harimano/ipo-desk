@@ -311,7 +311,7 @@ def test_module_never_writes_quota_fields(monkeypatch):
                          ("500182", 2): _bse("paged_p2.json")},
                     sebi_post={"10": _sebi("drhp_page1.html"), "11": _sebi("rhp_page1.html")})
     res, prev = _run(s, monkeypatch=monkeypatch)
-    assert res.rows and set(res.rows) == {"quota"} and not res.replace and not res.merge
+    assert res.rows and set(res.rows) == {"quota"} and set(res.replace) <= {"expected"} and not res.merge
     for name, fields in res.rows["quota"].items():
         assert set(fields) <= filings.ALLOWED_FIELDS, (name, fields)
         assert not (set(fields) & filings.FORBIDDEN_FIELDS)
@@ -335,3 +335,44 @@ def test_parents_json_has_eight_known_parents():
     assert {"RELIANCE", "COALINDIA", "HEROMOTOCO", "EDELWEISS", "IEX", "PRESTIGE", "SIS", "NLCINDIA"} <= set(parents)
     assert parents["RELIANCE"]["scrip"] == "500325"
     assert all(p["scrip"].isdigit() for p in parents.values())
+
+
+def test_sebi_first_page_is_next_value_zero():
+    """Live, 17 Sep 2026: nextValue=1 answered with rows from 22 Aug back; nextValue=0 with today's."""
+    from collector.sources import sebi
+    assert sebi._post_body(10, 1)["nextValue"] == "0"
+    assert sebi._post_body(11, 2)["nextValue"] == "1"
+
+
+# ------------------------------------------------------------------------------------------
+# expected[] from the SEBI registers
+# ------------------------------------------------------------------------------------------
+def _f(register, title, date, kind=None):
+    from collector.sources import sebi
+    return {"register": register, "title": title, "date": date, "kind": kind or sebi.classify(title),
+            "issuer": sebi.issuer(title), "detailUrl": "https://www.sebi.gov.in/filings/x/" + title[:12].replace(" ", "-")}
+
+
+def test_build_expected_adds_facts_never_rewrites_handwriting():
+    import datetime as dt
+    prev = {"mainboard": [{"name": "Hero Motors"}], "sme": [], "recent": [], "quota": [{"name": "Mahanadi Coalfields"}],
+            "expected": [{"name": "Hero Motors", "sizeCr": 1200, "note": "launched"},
+                         {"name": "Zetwerk", "sizeCr": None, "note": "hand note", "stage": "UDRHP filed", "sources": ["u1"]},
+                         {"name": "Torrent Gas", "sizeCr": 5000, "note": "big one", "stage": "DRHP filed", "sources": []}]}
+    rows = [_f("DRHP", "Zetwerk Manufacturing Businesses Limited - Draft abridged prospectus", "2026-08-14"),
+            _f("DRHP", "IBERIA PHARMACEUTICALS INDIA LIMITED- Draft Abridged Prospectus", "2026-09-17"),
+            _f("DRHP", "Sterlite Electric Limited – Second Addendum to DRHP", "2026-09-16"),
+            _f("DRHP", "Mahanadi Coalfields Ltd. - Draft Abridged Prospectus", "2026-09-04"),
+            _f("RHP", "Torrent Gas Limited - Abridged Prospectus", "2026-09-15"),
+            _f("RHP", "SS RETAIL LIMITED - Abridged Prospectus", "2026-09-09")]
+    out, stats = filings.build_expected(prev, rows, dt.date(2026, 9, 17))
+    by = {r["name"]: r for r in out}
+    assert "Hero Motors" not in by and stats["launched"] == 1
+    assert by["Zetwerk"]["note"] == "hand note" and by["Zetwerk"]["stage"] == "UDRHP filed"
+    assert by["Zetwerk"]["lastFiling"]["date"] == "2026-08-14" and by["Zetwerk"]["sources"][-1] == "u1"
+    assert by["Torrent Gas"]["stage"] == "RHP filed 15 Sep 2026" and by["Torrent Gas"]["sizeCr"] == 5000
+    ib = by["Iberia Pharmaceuticals India"]
+    assert ib["auto"] is True and ib["stage"] == "DRHP filed 17 Sep 2026" and ib["sizeCr"] is None and ib["note"] is None
+    assert set(by) == {"Zetwerk", "Torrent Gas", "Iberia Pharmaceuticals India"}, "no addendum-only, quota, or RHP-register names"
+    again, stats2 = filings.build_expected({**prev, "expected": out}, rows, dt.date(2026, 9, 18))
+    assert [r["name"] for r in again] == [r["name"] for r in out] and stats2["new"] == 0 and stats2["rhp"] == 0

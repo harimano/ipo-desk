@@ -27,11 +27,13 @@ from zoneinfo import ZoneInfo
 
 from ..errors import SourceChanged, SourceError
 from ..http import Session
+from ..names import Matcher, display_name, load_aliases
 from ..result import Result
 from ..sources import bse_ann, sebi
 
 log = logging.getLogger("collector.filings")
 IST = ZoneInfo("Asia/Kolkata")
+ALIASES_DIR = pathlib.Path(__file__).resolve().parents[2] / "data"
 PARENTS_FILE = pathlib.Path(__file__).resolve().parent.parent / "sources" / "parents.json"
 
 LOOKBACK_DAYS = 3
@@ -185,7 +187,7 @@ def _rows_for_announcement(rows: list[dict], headline: str) -> list[dict]:
 
 
 def _from_sebi(session: Session, wl: dict[str, dict], prev: dict, patches: dict, res: Result,
-               today: dt.date) -> str | None:
+               today: dt.date, seen_rows: list[dict]) -> str | None:
     index: list[tuple[str, dict]] = []
     for p in wl.values():
         for row in p["rows"]:
@@ -202,16 +204,16 @@ def _from_sebi(session: Session, wl: dict[str, dict], prev: dict, patches: dict,
             continue
         kinds_ok.append(kind)
         listed += len(rows)
+        seen_rows.extend(rows)
         for f in rows:
-            if f.get("kind") not in ("DRHP", "RHP"):
-                continue        # addenda / prospectus registers do not move a stage
+            if f.get("kind") == "Addendum":
+                continue        # an addendum or corrigendum does not move a stage
             t = normalise(f["title"])
             for key, row in index:
                 if key not in t:
                     continue
-                cls = classify_headline(f["title"]) or {"stage": f"{f['kind']} filed",
-                                                        "bucket": "drhp" if f["kind"] == "DRHP" else "approved",
-                                                        "kind": f["kind"].lower()}
+                reg = f.get("register") or kind           # which SEBI list the row is on is what it means
+                cls = {"stage": f"{reg} filed", "bucket": "drhp" if reg == "DRHP" else "approved", "kind": reg.lower()}
                 evidence = {"source": "sebi", "url": f["detailUrl"], "headline": f["title"], "date": f.get("date")}
                 if _transition(row, cls, evidence, patches, today):
                     matched += 1
@@ -221,6 +223,83 @@ def _from_sebi(session: Session, wl: dict[str, dict], prev: dict, patches: dict,
     if errors:
         res.notes.append("sebi partial: " + "; ".join(errors))
     return today.isoformat()
+
+
+# ---------------------------------------------------------------------------------------------
+# expected[] — the pipeline beyond the quota names, from the same two SEBI registers
+# ---------------------------------------------------------------------------------------------
+AUTO_MAX = 30            # machine-added names kept, newest filings first
+AUTO_MAX_AGE_DAYS = 365  # a DRHP is valid for about a year after SEBI's observations
+
+
+def _d(v) -> dt.date | None:
+    try:
+        return dt.date.fromisoformat(str(v)[:10])
+    except (TypeError, ValueError):
+        return None
+
+
+def build_expected(prev: dict, sebi_rows: list[dict], today: dt.date) -> tuple[list[dict], dict]:
+    """Hand-written rows keep every word; the registers only add facts to them.
+
+      * a row now on the board (or in `recent`) has launched: it leaves;
+      * a row SEBI lists on the RHP register gets stage "RHP filed <date>";
+      * every matched row gets `lastFiling` {register, kind, date, title, url};
+      * an issuer on the DRHP register that is nowhere else (expected, board, recent, quota) joins as an
+        `auto` row — name, filing date, the SEBI link, nothing invented. Size and window stay null until
+        someone reads the document. At most AUTO_MAX of them, none older than AUTO_MAX_AGE_DAYS.
+    """
+    stats = {"new": 0, "rhp": 0, "launched": 0}
+    aliases = load_aliases(ALIASES_DIR)
+    elsewhere = Matcher([r for k in ("mainboard", "sme", "recent", "quota") for r in (prev.get(k) or [])
+                         if isinstance(r, dict)], aliases)
+    rows = []
+    for r in prev.get("expected") or []:
+        if not isinstance(r, dict) or not r.get("name"):
+            continue
+        if elsewhere.match(r["name"]):
+            stats["launched"] += 1
+            continue
+        rows.append(dict(r))
+    matcher = Matcher(rows, aliases)
+    by_name = {r["name"]: r for r in rows}
+
+    filings_ = sorted((f for f in sebi_rows if f.get("issuer") and f.get("date")), key=lambda f: f["date"])
+    for f in filings_:                                     # oldest first, so the newest filing has the last word
+        name = matcher.match(f["issuer"])
+        row = by_name.get(name) if name else None
+        if row is None:
+            if f.get("register") != "DRHP" or f.get("kind") == "Addendum" or elsewhere.match(f["issuer"]):
+                continue                                   # RHP-register names reach the board through calendar
+            row = {"name": display_name(f["issuer"]), "window": None, "stage": None, "sizeCr": None, "sizeText": None,
+                   "note": None, "parent": None, "sources": [], "auto": True}
+            rows.append(row)
+            by_name[row["name"]] = row
+            matcher = Matcher(rows, aliases)
+            stats["new"] += 1
+        last = row.get("lastFiling") or {}
+        if (last.get("date") or "") <= f["date"]:
+            row["lastFiling"] = {"register": f.get("register"), "kind": f.get("kind"), "date": f["date"],
+                                 "title": f["title"], "url": f["detailUrl"]}
+        if f.get("kind") == "Addendum":
+            continue
+        when = _d(f["date"])
+        label = f"{f['register']} filed {when.day} {when:%b %Y}" if when else f"{f['register']} filed"
+        if f.get("register") == "RHP" and not str(row.get("stage") or "").startswith("RHP filed"):
+            row["stage"] = label
+            stats["rhp"] += 1
+        elif row.get("auto") and f.get("register") == "DRHP":
+            row["stage"] = label
+            row["sizeText"] = f"DRHP {when.day} {when:%b}" if when else "DRHP filed"
+        if f["detailUrl"] not in (row.get("sources") or []):
+            row["sources"] = ([f["detailUrl"]] + list(row.get("sources") or []))[:4]
+
+    def filed(r):
+        return (r.get("lastFiling") or {}).get("date") or ""
+    hand = [r for r in rows if not r.get("auto")]
+    auto = [r for r in rows if r.get("auto") and (_d(filed(r)) is None or (today - _d(filed(r))).days <= AUTO_MAX_AGE_DAYS)]
+    auto.sort(key=filed, reverse=True)
+    return hand + auto[:AUTO_MAX], stats
 
 
 def _expire(prev: dict, patches: dict, today: dt.date) -> int:
@@ -258,8 +337,9 @@ def run(session: Session, prev: dict, res: Result) -> Result:
         res.notes.append("quota: no rows with a ticker in prev; nothing to watch")
     wins: list[str] = []
     last: Exception | None = None
+    sebi_rows: list[dict] = []
     for name, fn in (("bse_ann", lambda: _from_bse(session, wl, patches, res, today)),
-                     ("sebi", lambda: _from_sebi(session, wl, prev, patches, res, today))):
+                     ("sebi", lambda: _from_sebi(session, wl, prev, patches, res, today, sebi_rows))):
         try:
             fn()
             res.tried.append({"source": name, "ok": True})
@@ -280,6 +360,11 @@ def run(session: Session, prev: dict, res: Result) -> Result:
         if bad:
             raise RuntimeError(f"filings tried to write {sorted(bad)} on {name!r}")
     res.rows["quota"] = patches
+    if sebi_rows:                      # no SEBI answer -> `expected` is simply not replaced, i.e. carried forward
+        expected, stats = build_expected(prev, sebi_rows, today)
+        res.replace["expected"] = expected
+        res.notes.append(f"expected: {len(expected)} names; {stats['new']} new from the DRHP register, "
+                         f"{stats['rhp']} moved to RHP filed, {stats['launched']} left for the board")
     kept = sum(1 for r in prev.get("quota") or [] if isinstance(r, dict) and r.get("name") not in patches)
     res.notes.append(f"{len(patches)} rows patched, {kept} kept previous stage")
     if wins:

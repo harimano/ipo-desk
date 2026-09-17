@@ -338,8 +338,7 @@ def test_happy_path_nse():
     assert lot["Sona Selection India"] == {"shares": 150, "price": 100.0, "listDate": "2026-09-22"}
     assert lot["Kabra Jewels"]["shares"] == 117 and lot["Vidya Wires Limited"]["shares"] == 2000
     assert "Gone Corp Limited" in lot          # lot is never pruned: the Book keys off it
-    assert res.replace["expected"] == prev["expected"]
-    assert set(res.replace) == {"mainboard", "sme", "lot", "expected"}
+    assert set(res.replace) == {"mainboard", "sme", "lot"}
     assert any("open" in n for n in res.notes)
 
 

@@ -25,7 +25,7 @@ SUB_CATEGORIES = ("qib", "nii", "retail", "employee", "shareholder", "total")
 # Which module is the writer of which key. A module that patches a key it does not own is a bug
 # the assembler rejects.
 OWNERS: dict[str, str] = {
-    "mainboard": "calendar", "sme": "calendar", "lot": "calendar", "expected": "calendar",
+    "mainboard": "calendar", "sme": "calendar", "lot": "calendar", "expected": "filings",
     "recent": "listings", "listedPerf": "listings", "comps": "listings", "priceHistory": "listings",
     "flows": "flows", "news": "news", "quota": "filings", "integrity": "integrity", "meta": "integrity",
     # carried forward from the previous latest.json, refreshed by other layers:

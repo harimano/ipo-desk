@@ -11,7 +11,8 @@ Order, first hit wins:
   3. same exchange symbol as an existing row
   4. equal after normalisation — also tried against the text inside and outside a row's parentheses,
      so "NSE (National Stock Exchange of India)" is found by "National Stock Exchange of India Limited"
-  5. one normalised name is a prefix of the other (>= 8 chars)
+  5. one normalised name is a prefix of the other (>= 8 chars), or a whole-word prefix of >= 6 letters
+     when exactly one row qualifies ("Zetwerk" / "Zetwerk Manufacturing Businesses")
   6. rapidfuzz token_sort_ratio >= 90, only when unambiguous, always logged. Not token_set_ratio: it
      scores 100 whenever one name's words are a subset of the other's ("Coal India" inside "Bharat
      Coking Coal India"), which is exactly the false match that must never happen.
@@ -40,13 +41,26 @@ def norm_name(s: str) -> str:
     return re.sub(r"\s+", " ", s).strip()
 
 
+def _case(word: str) -> str:
+    """One shouted word -> house casing. Short vowel-less words are initials and stay up (FX, LCC, SS, MKC);
+    a short word with a vowel is a word (JAY -> Jay); brackets do not hide the first letter ((INDIA) -> (India))."""
+    lead = word[: len(word) - len(word.lstrip("(["))]
+    core = word[len(lead):]
+    bare = re.sub(r"[^A-Z]", "", core)
+    if core in _SMALL:
+        return lead + core.lower()
+    if len(bare) <= 3 and not re.search(r"[AEIOU]", bare):
+        return word
+    return lead + core.capitalize()
+
+
 def display_name(source_name: str) -> str:
     """House spelling for a row that is genuinely new: the source's name without the legal suffix
     ("Hero Motors Limited" -> "Hero Motors"). Applied once, at creation; the name is frozen after."""
     s = re.sub(r"\s+", " ", source_name or "").strip()
     s = _SUFFIX.sub("", s).strip() or s
     if s.isupper():                           # BSE shouts: "FX MULTITECH" -> "FX Multitech"
-        s = " ".join(w.lower() if w in _SMALL else w if len(w) <= 3 else w.capitalize() for w in s.split())
+        s = " ".join(_case(w) for w in s.split())
         s = s[:1].upper() + s[1:]
     return s
 
@@ -103,6 +117,12 @@ class Matcher:
         for f, e in self._by_form.items():
             if len(n) >= 8 and len(f) >= 8 and (n.startswith(f) or f.startswith(n)):
                 return e
+        # a short house name against the full legal one: "Zetwerk" / "Zetwerk Manufacturing Businesses".
+        # Whole words only, six letters or more, and only when exactly one row qualifies.
+        words = list(dict.fromkeys(e for f, e in self._by_form.items()
+                                   if len(f) >= 6 and (n.startswith(f + " ") or f.startswith(n + " ") and len(n) >= 6)))
+        if len(words) == 1:
+            return words[0]
         scored = sorted(((fuzz.token_sort_ratio(n, f), e) for f, e in self._by_form.items()), reverse=True)
         hits = list(dict.fromkeys(e for s, e in scored if s >= FUZZY_MIN))
         if len(hits) == 1:

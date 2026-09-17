@@ -1,4 +1,4 @@
-"""calendar — owns `mainboard`, `sme`, `lot`, `expected`.
+"""calendar — owns `mainboard`, `sme`, `lot`.
 
 Chain: nse (current + upcoming + past-issues window, plus ipo-detail for lot size where the list
 lacks it) -> bse (modern JSON api, then the legacy beta table). If both fail the module fails and the
@@ -11,7 +11,7 @@ Rules enforced here:
     carried forward from `prev` by name. Nothing is blanked because one source lacks a column.
   * status is derived from dates only (DATA-SCHEMA.md): Upcoming -> Open -> Closed -> Listed.
   * A row that listed more than one day ago leaves the board (listings owns `recent`).
-  * `expected` is copied from prev unchanged — the collector does not research the pipeline.
+  * `expected` belongs to `filings`, which builds it from the SEBI registers.
   * `lot{name: {shares, price, listDate}}` is updated from the board and never pruned — the viewer's
     applications and holdings key off it long after a name has left the board.
 """
@@ -164,7 +164,6 @@ def _finish(res: Result, mainboard: list, sme: list, lot: dict, prev: dict, labe
     res.replace["mainboard"] = mainboard
     res.replace["sme"] = sme
     res.replace["lot"] = lot
-    res.replace["expected"] = prev.get("expected") or []
     n_open = sum(1 for r in mainboard + sme if r["status"] == "Open")
     n_up = sum(1 for r in mainboard + sme if r["status"] == "Upcoming")
     res.notes.append(f"{label}: {len(mainboard)} mainboard, {len(sme)} sme; {n_open} open, {n_up} upcoming")

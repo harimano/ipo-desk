@@ -99,10 +99,28 @@ def parse_listing(html: str, *, source: str = "sebi", url: str | None = None) ->
 
 def _post_body(smid: int, page: int) -> dict:
     return {
-        "nextValue": str(page), "next": "n", "search": "", "fromDate": "", "toDate": "",
+        "nextValue": str(page - 1), "next": "n",     # zero-based: nextValue=1 is the SECOND page (seen live 17 Sep 2026) "search": "", "fromDate": "", "toDate": "",
         "fromYear": "", "toYear": "", "deptId": "", "sid": "3", "ssid": "15", "smid": str(smid),
         "ssidhidden": "15", "intmid": "-1", "sText": "Filings",
     }
+
+
+_ISSUER_RE = re.compile(r"\s*[-\u2013\u2014:]+\s*(?:the\s+)?(?:second\s+|third\s+)?(?:draft|abridged|addendum|corrigendum|erratum|"
+                        r"u?drhp|rhp|red\s+herring|prospectus|offer\s+document|public\s+announcement).*$", re.I)
+
+
+def issuer(title: str) -> str:
+    """'Torrent Gas Limited - Draft Abridged Prospectus' -> 'Torrent Gas Limited'."""
+    return _ISSUER_RE.sub("", _clean(title)).strip(" -\u2013\u2014.")
+
+
+def _tag(rows: list[dict], register: str) -> list[dict]:
+    """The register is the evidence: real titles say 'Draft Abridged Prospectus', not 'DRHP', so what a row
+    means comes from which list SEBI put it on (seen live 17 Sep 2026), not from its wording."""
+    for r in rows:
+        r["register"] = register
+        r["issuer"] = issuer(r["title"])
+    return rows
 
 
 def fetch_listing(session: Session, kind: str = "DRHP", page: int = 1, *, source: str = "sebi") -> list[dict]:
@@ -112,14 +130,14 @@ def fetch_listing(session: Session, kind: str = "DRHP", page: int = 1, *, source
                "Content-Type": "application/x-www-form-urlencoded"}
     try:
         html = session.post_text(AJAX, _post_body(smid, page), source=source, headers=headers)
-        return parse_listing(html, source=source, url=AJAX)
+        return _tag(parse_listing(html, source=source, url=AJAX), kind)
     except SourceChanged as first:
         params = {"doListing": "yes", "sid": "3", "ssid": "15", "smid": str(smid)}
         if page > 1:
             params["page"] = str(page)
         html = session.get_text(LISTING, source=source, params=params, headers={"Referer": REFERER})
         try:
-            return parse_listing(html, source=source, url=LISTING)
+            return _tag(parse_listing(html, source=source, url=LISTING), kind)
         except SourceChanged as second:
             raise SourceChanged(source, f"ajax: {first.detail}; listing: {second.detail}", LISTING)
 
