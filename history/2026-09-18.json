@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-18T00:44:04+05:30",
+  "asOf": "2026-09-18T01:07:25+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "18 Sep 2026, 00:44 IST",
+  "label": "18 Sep 2026, 01:07 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -928,27 +928,27 @@
   "Sonaselection India": {
    "shares": 150,
    "price": 99.0,
-   "listDate": null
+   "listDate": "2026-09-24"
   },
   "SS Retail": {
    "shares": 35,
    "price": 424.0,
-   "listDate": null
+   "listDate": "2026-09-23"
   },
   "Hero Motors": {
    "shares": 178,
    "price": 84.0,
-   "listDate": null
+   "listDate": "2026-09-23"
   },
   "Jindal Supreme (India)": {
    "shares": 161,
    "price": 93.0,
-   "listDate": null
+   "listDate": "2026-09-23"
   },
   "Axiom Gas Engineering": {
    "shares": 2000,
    "price": 54.0,
-   "listDate": null
+   "listDate": "2026-09-25"
   },
   "Shakti Polytarp": {
    "shares": null,
@@ -961,77 +961,37 @@
    "listDate": null
   },
   "FX Multitech": {
-   "shares": null,
+   "shares": 1200,
    "price": 116.0,
-   "listDate": null
+   "listDate": "2026-09-28"
   },
   "Vivekanand Cotspin": {
-   "shares": null,
+   "shares": 3000,
    "price": 37.0,
-   "listDate": null
+   "listDate": "2026-09-28"
   },
   "Robokidz Eduventures": {
-   "shares": null,
+   "shares": 1200,
    "price": 106.0,
-   "listDate": null
+   "listDate": "2026-09-28"
   },
   "Himalaya Nutravedics India": {
-   "shares": null,
+   "shares": 1200,
    "price": 106.0,
-   "listDate": null
+   "listDate": "2026-09-29"
   },
   "Kheria Autocomp": {
    "shares": 1200,
    "price": 101.0,
-   "listDate": null
+   "listDate": "2026-09-24"
   },
   "SpectraA Technology Solutions": {
    "shares": 1200,
    "price": 118.0,
-   "listDate": null
+   "listDate": "2026-09-24"
   }
  },
  "mainboard": [
-  {
-   "name": "Rays of Belief",
-   "slug": "rays-of-belief",
-   "type": "Mainboard",
-   "status": "Closed",
-   "open": "2026-09-01",
-   "close": "2026-09-03",
-   "allotment": "2026-09-04",
-   "listing": "2026-09-08",
-   "bandLow": 227.0,
-   "bandHigh": 239.0,
-   "lotSize": 62,
-   "issueSizeCr": 125,
-   "freshCr": 125,
-   "ofsCr": 0,
-   "gmp": 20,
-   "gmpPct": 8.37,
-   "gmpTrend": "up",
-   "sub": {
-    "asOf": "2026-09-03",
-    "nii": 279.11,
-    "qib": 9.06,
-    "retail": 195.86,
-    "total": 107.71
-   },
-   "shareholderQuota": null,
-   "listingPrice": 222.0,
-   "listingGainPct": -7.11,
-   "currentPrice": 224.3,
-   "sources": [
-    "https://www.business-standard.com/markets/news/ray-of-belief-shares-list-at-par-with-ipo-price-despite-108x-subscription-126090800194_1.html",
-    "https://retailintel.in/signal/deepa-jewellers-lists-25-above-ipo-price-rays-of-belief-debu-28ca716d",
-    "https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/",
-    "NSE public-past-issues"
-   ],
-   "symbol": "MOMSBELIEF",
-   "series": "EQ",
-   "bseIpoNo": null,
-   "bseScripCode": null
-  },
   {
    "name": "Asset Reconstruction Company (India)",
    "slug": "asset-reconstruction",
@@ -1069,6 +1029,7 @@
    ],
    "symbol": "ARCIL",
    "series": "EQ",
+   "igId": null,
    "bseIpoNo": null,
    "bseScripCode": null
   },
@@ -1110,6 +1071,7 @@
    ],
    "symbol": "KARAMTARA",
    "series": "EQ",
+   "igId": null,
    "bseIpoNo": null,
    "bseScripCode": null
   },
@@ -1150,6 +1112,7 @@
    ],
    "symbol": "LCCPROJECT",
    "series": "EQ",
+   "igId": null,
    "bseIpoNo": null,
    "bseScripCode": null
   },
@@ -1190,6 +1153,7 @@
    ],
    "symbol": "MPIMANIPAL",
    "series": "EQ",
+   "igId": null,
    "bseIpoNo": null,
    "bseScripCode": null
   },
@@ -1232,6 +1196,7 @@
    ],
    "symbol": "RENTOMOJO",
    "series": "EQ",
+   "igId": null,
    "bseIpoNo": null,
    "bseScripCode": null
   },
@@ -1273,6 +1238,7 @@
    ],
    "symbol": "STEAMHOUSE",
    "series": "EQ",
+   "igId": null,
    "bseIpoNo": null,
    "bseScripCode": null
   },
@@ -1291,9 +1257,9 @@
    "issueSizeCr": 210.0,
    "freshCr": 210.0,
    "ofsCr": 0,
-   "gmp": 8.5,
-   "gmpPct": 6.07,
-   "gmpTrend": "flat",
+   "gmp": 6.0,
+   "gmpPct": 4.29,
+   "gmpTrend": "down",
    "sub": {
     "qib": 19.13,
     "nii": 19.41,
@@ -1308,13 +1274,14 @@
    "sources": [
     "https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/",
     "https://www.businesstoday.in/markets/ipo-corner/story/ipo-rush-next-week-11-issues-eye-to-raise-rs-7055-crore-6-ipos-to-open-on-same-day-check-details-553357-2026-09-05",
-    "NSE public-past-issues"
+    "NSE public-past-issues",
+    "InvestorGain IPO list"
    ],
    "symbol": "VEEGALAND",
    "series": "EQ",
+   "igId": "1601",
    "bseIpoNo": null,
    "bseScripCode": "544923",
-   "igId": "1601",
    "igFetchedAt": "2026-09-18T00:43:18+05:30",
    "isin": "INE1JTV01015",
    "sector": "Residential, Commercial Projects",
@@ -1376,9 +1343,9 @@
    "issueSizeCr": 125.5,
    "freshCr": 92.5,
    "ofsCr": 33.0,
-   "gmp": 2.25,
-   "gmpPct": 5.23,
-   "gmpTrend": "flat",
+   "gmp": 2.0,
+   "gmpPct": 4.65,
+   "gmpTrend": "down",
    "sub": {
     "qib": 10.94,
     "nii": 63.09,
@@ -1396,13 +1363,14 @@
     "https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/",
     "https://www.goodreturns.in/news/upcoming-ipos-next-week-15-ipos-to-open-from-september-7-check-dates-price-bands-more-1533011.html",
     "NSE all-upcoming-issues",
-    "NSE public-past-issues"
+    "NSE public-past-issues",
+    "InvestorGain IPO list"
    ],
    "symbol": "MANIKA",
    "series": "EQ",
+   "igId": "1806",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igId": "1806",
    "igFetchedAt": "2026-09-18T00:43:18+05:30",
    "sector": "Packaging",
    "anchorShares": 8755813,
@@ -1479,14 +1447,15 @@
    "listingGainPct": null,
    "currentPrice": null,
    "sources": [
-    "NSE ipo-current-issue"
+    "NSE ipo-current-issue",
+    "InvestorGain IPO list"
    ],
    "symbol": "HEROMOTORS",
    "series": "EQ",
+   "igId": "1688",
    "bseIpoNo": "7971",
    "bseScripCode": "4823",
-   "igId": "1688",
-   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
    "sector": "Auto Components & Equipments",
    "anchorShares": 35714284,
    "gmpAsOf": "2026-09-17T23:37:00+05:30",
@@ -1562,14 +1531,15 @@
    "listingGainPct": null,
    "currentPrice": null,
    "sources": [
-    "NSE ipo-current-issue"
+    "NSE ipo-current-issue",
+    "InvestorGain IPO list"
    ],
    "symbol": "JSIPL",
    "series": "EQ",
+   "igId": "2057",
    "bseIpoNo": "7976",
    "bseScripCode": "4826",
-   "igId": "2057",
-   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
    "sector": "Iron & Steel Products",
    "anchorShares": 4028400,
    "gmpAsOf": "2026-09-17T23:37:00+05:30",
@@ -1644,14 +1614,15 @@
    "listingGainPct": null,
    "currentPrice": null,
    "sources": [
-    "NSE ipo-current-issue"
+    "NSE ipo-current-issue",
+    "InvestorGain IPO list"
    ],
    "symbol": "SSRETAIL",
    "series": "EQ",
+   "igId": "2076",
    "bseIpoNo": "7975",
    "bseScripCode": "4828",
-   "igId": "2076",
-   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
    "sector": "Diversified Retail",
    "anchorShares": 3452829,
    "gmpAsOf": "2026-09-17T23:37:00+05:30",
@@ -1730,14 +1701,15 @@
     "https://ipowatch.in/nse-ipo-subscription-status/",
     "https://www.business-standard.com/markets/ipo/nse-ipo-subscription-status-apply-or-avoid-review-latest-gmp-today-share-price-allotment-date-126091601151_1.html",
     "https://www.ipoji.com/ipo/nse-ipo",
-    "NSE ipo-current-issue"
+    "NSE ipo-current-issue",
+    "InvestorGain IPO list"
    ],
    "symbol": "NSE",
    "series": "EQ",
+   "igId": "2305",
    "bseIpoNo": "7977",
    "bseScripCode": "4827",
-   "igId": "2305",
-   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
    "sector": "Exchange and Data Platform",
    "anchorShares": 37793739,
    "gmpAsOf": "2026-09-17T23:37:00+05:30",
@@ -1814,14 +1786,15 @@
    "listingGainPct": null,
    "currentPrice": null,
    "sources": [
-    "NSE ipo-current-issue"
+    "NSE ipo-current-issue",
+    "InvestorGain IPO list"
    ],
    "symbol": "SONA",
    "series": "EQ",
+   "igId": "2059",
    "bseIpoNo": "7973",
    "bseScripCode": "4824",
-   "igId": "2059",
-   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
    "sector": "Other Textile Products",
    "anchorShares": 4290000,
    "gmpAsOf": "2026-09-17T23:37:00+05:30",
@@ -1863,6 +1836,258 @@
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/sonaselection_india_limited_anchor_allocation_letter06519b81-70d4-49c6-ad42-ec9eb7dc539d.pdf"
     },
     "asOf": "2026-09-17T05:03:00+05:30"
+   }
+  },
+  {
+   "name": "Varmora Granito",
+   "slug": "varmora-granito",
+   "type": "Mainboard",
+   "status": "Upcoming",
+   "open": "2026-09-22",
+   "close": "2026-09-24",
+   "allotment": "2026-09-25",
+   "listing": "2026-09-29",
+   "bandLow": 140.0,
+   "bandHigh": 148.0,
+   "lotSize": 101,
+   "issueSizeCr": 708.02,
+   "freshCr": 320.0,
+   "ofsCr": 388.02,
+   "gmp": 10.0,
+   "gmpPct": 6.76,
+   "gmpTrend": "flat",
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "1852",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "sector": "Ceramics",
+   "anchorShares": 0,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Ceramics",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 6.8,
+     "roce": 9.89,
+     "ronw": 7.79,
+     "patMargin": 3.53,
+     "ebitdaMargin": 14.18,
+     "pb": 3.74,
+     "eps": 2.7,
+     "epsPost": 2.44,
+     "pe": 54.81,
+     "pePost": 60.66,
+     "mcapCr": 3344.97,
+     "promoterPre": 52.0,
+     "promoterPost": 46.55
+    },
+    "registrar": "Kfin Technologies Ltd.",
+    "leadManagers": [
+     "JM Financial Ltd.",
+     "SBI Capital Markets Ltd.",
+     "Goldman Sachs (India) Securities Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.sebi.gov.in/web/?file=https://www.sebi.gov.in/sebi_data/attachdocs/jun-2026/1781761649731.pdf#page=1&zoom=page-width,-15,842",
+     "rhp": "https://live.jmfl.com/od/UploadedFiles/A49FD961-AE8C-4FE8-9A30-5041E1D8672C.pdf"
+    },
+    "asOf": "2026-09-17T17:30:00+05:30"
+   }
+  },
+  {
+   "name": "ArMee Infotech",
+   "slug": "armee-infotech",
+   "type": "Mainboard",
+   "status": "Upcoming",
+   "open": "2026-09-23",
+   "close": "2026-09-25",
+   "allotment": "2026-09-28",
+   "listing": "2026-09-30",
+   "bandLow": null,
+   "bandHigh": null,
+   "lotSize": null,
+   "issueSizeCr": 300.0,
+   "freshCr": 300.0,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "1667",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "sector": "Computers Hardware & Equipments",
+   "anchorShares": 0,
+   "facts": {
+    "sector": "Computers Hardware & Equipments",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 28.52,
+     "roce": 24.1,
+     "debtEquity": 0.96,
+     "ronw": 24.96,
+     "patMargin": 3.26,
+     "ebitdaMargin": 5.42,
+     "eps": 211.24,
+     "promoterPre": 92.72
+    },
+    "registrar": "Cameo Corporate Services Ltd.",
+    "leadManagers": [
+     "Saffron Capital Advisors Pvt.Ltd.",
+     "Khandwala Securities Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.sebi.gov.in/filings/public-issues/mar-2025/armee-infotech-limited_92506.html",
+     "rhp": "https://www.saffronadvisor.com/files/offer-documents/Red_Herring_Prospectus.pdf"
+    },
+    "asOf": "2026-09-17T17:30:00+05:30"
+   }
+  },
+  {
+   "name": "Elevate Campuses",
+   "slug": "elevate-campuses",
+   "type": "Mainboard",
+   "status": "Upcoming",
+   "open": "2026-09-23",
+   "close": "2026-09-25",
+   "allotment": "2026-09-28",
+   "listing": "2026-09-30",
+   "bandLow": null,
+   "bandHigh": null,
+   "lotSize": null,
+   "issueSizeCr": 2100.0,
+   "freshCr": 2100.0,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "1917",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "sector": "Real Estate Investment Trusts (REITs)",
+   "anchorShares": 0,
+   "facts": {
+    "sector": "Real Estate Investment Trusts (REITs)",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roce": 6.42,
+     "debtEquity": 4.98,
+     "ronw": 18.17,
+     "patMargin": 28.8,
+     "ebitdaMargin": 90.32,
+     "promoterPre": 100.0
+    },
+    "registrar": "Kfin Technologies Ltd.",
+    "leadManagers": [
+     "JM Financial Ltd.",
+     "Morgan Stanley India Co.Pvt.Ltd.",
+     "IIFL Capital Services Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bseindia.com/corporates/download/304620/IPO%20Prior/ProjectScholarspaceConsolidatedDRHP_20250929071116.pdf",
+     "rhp": "https://www.chittorgarh.net/reports/ipo_notes/elevate-campus-rhp.pdf"
+    },
+    "asOf": "2026-09-17T21:23:00+05:30"
+   }
+  },
+  {
+   "name": "A-One Steels",
+   "slug": "a-one-steels",
+   "type": "Mainboard",
+   "status": "Upcoming",
+   "open": "2026-09-24",
+   "close": "2026-09-28",
+   "allotment": "2026-09-29",
+   "listing": "2026-10-01",
+   "bandLow": 385.0,
+   "bandHigh": 405.0,
+   "lotSize": 37,
+   "issueSizeCr": 405.0,
+   "freshCr": 355.0,
+   "ofsCr": 50.0,
+   "gmp": 55.0,
+   "gmpPct": 13.58,
+   "gmpTrend": "flat",
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "1611",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "sector": "Iron & Steel Products",
+   "anchorShares": 0,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Iron & Steel Products",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 14.7,
+     "roce": 12.86,
+     "debtEquity": 1.17,
+     "ronw": 15.43,
+     "patMargin": 3.04,
+     "ebitdaMargin": 7.29,
+     "eps": 18.61,
+     "epsPost": 16.5,
+     "pe": 21.76,
+     "pePost": 24.55,
+     "mcapCr": 3127.84,
+     "promoterPre": 85.86,
+     "promoterPost": 74.52
+    },
+    "registrar": "Bigshare Services Pvt.Ltd.",
+    "leadManagers": [
+     "PL Capital Markets Pvt.Ltd.",
+     "Khambatta Securities Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.sebi.gov.in/filings/public-issues/jan-2025/a-one-steels-india-limited_90677.html",
+     "rhp": "https://www.chittorgarh.net/reports/ipo_notes/va20260912_rhp_project-ace_final.pdf"
+    },
+    "asOf": "2026-09-17T08:30:00+05:30"
    }
   }
  ],
@@ -2695,8 +2920,671 @@
    ],
    "symbol": "VINOD",
    "series": "SME",
+   "igId": null,
    "bseIpoNo": null,
    "bseScripCode": null
+  },
+  {
+   "name": "Maharaja & Speedex India",
+   "slug": "maharaja-speedex-india",
+   "type": "BSE SME",
+   "status": "Closed",
+   "open": "2026-09-10",
+   "close": "2026-09-15",
+   "allotment": "2026-09-16",
+   "listing": "2026-09-18",
+   "bandLow": 177.0,
+   "bandHigh": 186.0,
+   "lotSize": 600,
+   "issueSizeCr": 76.11,
+   "freshCr": 60.09,
+   "ofsCr": 16.03,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": {
+    "qib": 48.82,
+    "nii": 40.32,
+    "retail": 19.65,
+    "total": 32.41,
+    "asOf": "2026-09-15T18:56:00+05:30"
+   },
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": "SPEEDEX",
+   "series": null,
+   "igId": "2277",
+   "bseIpoNo": null,
+   "bseScripCode": "544925",
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "isin": "INE0SVD01012",
+   "sector": "Houseware",
+   "anchorShares": 1227000,
+   "facts": {
+    "sector": "Houseware",
+    "isin": "INE0SVD01012",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roce": 54.6,
+     "debtEquity": 0.92,
+     "ronw": 80.47,
+     "patMargin": 12.51,
+     "ebitdaMargin": 18.36,
+     "pb": 8.97,
+     "eps": 11.89,
+     "epsPost": 9.39,
+     "pe": 15.64,
+     "pePost": 19.81,
+     "mcapCr": 304.02,
+     "promoterPre": 87.69,
+     "promoterPost": 63.93
+    },
+    "registrar": "Maashitla Securities Pvt.Ltd.",
+    "leadManagers": [
+     "Choice Capital Advisors Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/354372/SME_IPO%20InPrinciple/MSIL_DRHP_20260424210952.pdf",
+     "rhp": "https://www.bsesme.com/download/354372/SME_IPO%20Open/SPeedex%20RHP_20260909195018.pdf",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/maharaja-speedex-anchor-list.pdf",
+     "allotment": "https://maashitla.com/allotment-status/public-issues"
+    },
+    "asOf": "2026-09-17T22:08:00+05:30"
+   }
+  },
+  {
+   "name": "Om Galaxy",
+   "slug": "om-galaxy",
+   "type": "BSE SME",
+   "status": "Closed",
+   "open": "2026-09-10",
+   "close": "2026-09-15",
+   "allotment": "2026-09-16",
+   "listing": "2026-09-18",
+   "bandLow": 85.0,
+   "bandHigh": 90.0,
+   "lotSize": 1600,
+   "issueSizeCr": 99.75,
+   "freshCr": 99.75,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": {
+    "qib": 5.37,
+    "nii": 1.07,
+    "retail": 0.62,
+    "total": 2.07,
+    "asOf": "2026-09-15T18:56:00+05:30"
+   },
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": "OMGL",
+   "series": null,
+   "igId": "2249",
+   "bseIpoNo": null,
+   "bseScripCode": "544922",
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "isin": "INE2D0Q01027",
+   "sector": "Industrial Products",
+   "anchorShares": 3321600,
+   "facts": {
+    "sector": "Industrial Products",
+    "isin": "INE2D0Q01027",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 22.13,
+     "roce": 20.39,
+     "debtEquity": 0.45,
+     "ronw": 22.13,
+     "patMargin": 13.42,
+     "ebitdaMargin": 26.33,
+     "pb": 2.5,
+     "eps": 7.49,
+     "epsPost": 4.91,
+     "pe": 12.02,
+     "pePost": 18.33,
+     "mcapCr": 304.9,
+     "promoterPre": 100.0,
+     "promoterPost": 65.56
+    },
+    "registrar": "Bigshare Services Pvt.Ltd.",
+    "leadManagers": [
+     "Indorient Financial Services Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/349703/SME_IPO%20InPrinciple/DRHP_OMGALAXYLIMITED_20260330220851.pdf",
+     "rhp": "https://www.bsesme.com/download/349703/SME_IPO%20Open/OmGalaxyLimited_RHP_20260907185746.pdf",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/om-galaxy-anchor-list.pdf",
+     "allotment": "https://ipo.bigshareonline.com/IPO_Status.html"
+    },
+    "asOf": "2026-09-16T13:45:00+05:30"
+   }
+  },
+  {
+   "name": "Panchatv Bharat",
+   "slug": "panchatv-bharat",
+   "type": "BSE SME",
+   "status": "Closed",
+   "open": "2026-09-10",
+   "close": "2026-09-15",
+   "allotment": "2026-09-16",
+   "listing": "2026-09-18",
+   "bandLow": null,
+   "bandHigh": 140.0,
+   "lotSize": 1000,
+   "issueSizeCr": 23.35,
+   "freshCr": 23.35,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": {
+    "qib": 0.0,
+    "nii": 0.39,
+    "retail": 2.42,
+    "total": 1.4,
+    "asOf": "2026-09-15T18:55:00+05:30"
+   },
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": "PANCHATV",
+   "series": null,
+   "igId": "1749",
+   "bseIpoNo": null,
+   "bseScripCode": "544926",
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "isin": "INE0VXN01011",
+   "sector": "Other Textile Products",
+   "anchorShares": 0,
+   "facts": {
+    "sector": "Other Textile Products",
+    "isin": "INE0VXN01011",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 89.99,
+     "roce": 24.01,
+     "debtEquity": 2.26,
+     "ronw": 31.93,
+     "patMargin": 7.09,
+     "ebitdaMargin": 11.32,
+     "pb": 4.54,
+     "eps": 9.84,
+     "epsPost": 6.89,
+     "pe": 14.23,
+     "pePost": 20.32,
+     "mcapCr": 81.91,
+     "promoterPre": 92.91,
+     "promoterPost": 65.02
+    },
+    "registrar": "Maashitla Securities Pvt.Ltd.",
+    "leadManagers": [
+     "Mark Corporate Advisors Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bseindia.com/corporates/download/322739/Draft%20Prospectus_20240904223227.pdf",
+     "prospectus": "https://www.bseindia.com/downloads/ipo/Panchatv%20Bharat%20Limited_Prospectus&GID_090920261057.zip",
+     "allotment": "https://maashitla.com/allotment-status/public-issues"
+    },
+    "asOf": "2026-09-16T13:00:00+05:30"
+   }
+  },
+  {
+   "name": "Raksan Transformers",
+   "slug": "raksan-transformers",
+   "type": "BSE SME",
+   "status": "Closed",
+   "open": "2026-09-10",
+   "close": "2026-09-15",
+   "allotment": "2026-09-16",
+   "listing": "2026-09-18",
+   "bandLow": 258.0,
+   "bandHigh": 273.0,
+   "lotSize": 400,
+   "issueSizeCr": 142.96,
+   "freshCr": 112.93,
+   "ofsCr": 30.03,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": {
+    "qib": 70.51,
+    "nii": 60.46,
+    "retail": 28.66,
+    "total": 47.43,
+    "asOf": "2026-09-15T18:55:00+05:30"
+   },
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": "RAKSAN",
+   "series": null,
+   "igId": "2022",
+   "bseIpoNo": null,
+   "bseScripCode": "544924",
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "isin": "INE1S7M01017",
+   "sector": "Heavy Electrical Equipment",
+   "anchorShares": 1570000,
+   "facts": {
+    "sector": "Heavy Electrical Equipment",
+    "isin": "INE1S7M01017",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 55.32,
+     "roce": 46.72,
+     "debtEquity": 0.27,
+     "ronw": 43.41,
+     "patMargin": 9.25,
+     "ebitdaMargin": 12.87,
+     "pb": 18.98,
+     "eps": 20.39,
+     "epsPost": 16.08,
+     "pe": 13.39,
+     "pePost": 16.98,
+     "mcapCr": 570.39,
+     "promoterPre": 100.0,
+     "promoterPost": 73.61
+    },
+    "registrar": "Bigshare Services Pvt.Ltd.",
+    "leadManagers": [
+     "Hem Securities Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/364084/SME_IPO%20InPrinciple/26._DRHP_Raksan_20250930231345.pdf",
+     "rhp": "https://www.bseindia.com/downloads/ipo/RHP&GID_Raksan%20Transformers%20Limited_090920261636.zip",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/raksan-transformers-anchor.pdf",
+     "allotment": "https://ipo.bigshareonline.com/IPO_Status.html"
+    },
+    "asOf": "2026-09-16T14:30:00+05:30"
+   }
+  },
+  {
+   "name": "Century Business Media",
+   "slug": "century-business-media",
+   "type": "BSE SME",
+   "status": "Closed",
+   "open": "2026-09-11",
+   "close": "2026-09-16",
+   "allotment": "2026-09-17",
+   "listing": "2026-09-21",
+   "bandLow": 70.0,
+   "bandHigh": 74.0,
+   "lotSize": 1600,
+   "issueSizeCr": 16.24,
+   "freshCr": 16.24,
+   "ofsCr": null,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
+   "sub": {
+    "qib": 47.53,
+    "nii": 113.88,
+    "retail": 39.81,
+    "total": 57.93,
+    "asOf": "2026-09-16T18:56:00+05:30"
+   },
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": "CENTURYOOH",
+   "series": null,
+   "igId": "1887",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "sector": "Advertising & Media Agencies",
+   "anchorShares": 654400,
+   "gmpAsOf": "2026-09-17T23:34:00+05:30",
+   "facts": {
+    "sector": "Advertising & Media Agencies",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 36.44,
+     "roce": 30.06,
+     "debtEquity": 0.44,
+     "ronw": 30.83,
+     "patMargin": 11.96,
+     "ebitdaMargin": 18.47,
+     "pb": 2.65,
+     "eps": 8.61,
+     "epsPost": 6.34,
+     "pe": 8.59,
+     "pePost": 11.67,
+     "mcapCr": 64.83,
+     "promoterPre": 100.0,
+     "promoterPost": 73.61
+    },
+    "registrar": "Kfin Technologies Ltd.",
+    "leadManagers": [
+     "Hem Securities Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/397611/SME_IPO%20InPrinciple/CBML_DRHP_05092025_20250905170008.pdf",
+     "rhp": "https://www.bsesme.com/download/397611/SME_IPO%20Open/RHP_05.09.2026_CBML_20260907163453.pdf",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/century-business-media-anchor-book.pdf",
+     "allotment": "https://ipostatus.kfintech.com/"
+    },
+    "asOf": "2026-09-17T15:45:00+05:30"
+   }
+  },
+  {
+   "name": "Injecto Polymers",
+   "slug": "injecto-polymers",
+   "type": "BSE SME",
+   "status": "Closed",
+   "open": "2026-09-11",
+   "close": "2026-09-16",
+   "allotment": "2026-09-17",
+   "listing": "2026-09-21",
+   "bandLow": 98.0,
+   "bandHigh": 100.0,
+   "lotSize": 1200,
+   "issueSizeCr": 53.29,
+   "freshCr": 53.29,
+   "ofsCr": null,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
+   "sub": {
+    "qib": 1.57,
+    "nii": 1.05,
+    "retail": 1.28,
+    "total": 1.23,
+    "asOf": "2026-09-16T18:56:00+05:30"
+   },
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": "INJECTO",
+   "series": null,
+   "igId": "1899",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "sector": "Packaging",
+   "anchorShares": 957600,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Packaging",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 28.94,
+     "roce": 15.64,
+     "debtEquity": 2.61,
+     "ronw": 41.73,
+     "patMargin": 4.26,
+     "ebitdaMargin": 10.13,
+     "pb": 2.4,
+     "eps": 10.55,
+     "epsPost": 7.7,
+     "pe": 9.48,
+     "pePost": 12.99,
+     "mcapCr": 207.9,
+     "promoterPre": 88.14,
+     "promoterPost": 64.35
+    },
+    "registrar": "Integrated Registry Management Services Pvt.Ltd.",
+    "leadManagers": [
+     "Indcap Advisors Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/372306/SME_IPO%20InPrinciple/InjectoPolymersLtdDRHP_20250923201535.pdf",
+     "rhp": "https://www.bsesme.com/download/372306/SME_IPO%20Open/INJECTORHPFINAL_20260907185618.pdf",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/injecto-polymers-anchor-book.pdf"
+    },
+    "asOf": "2026-09-12T04:36:00+05:30"
+   }
+  },
+  {
+   "name": "Quanto Agroworld",
+   "slug": "quanto-agroworld",
+   "type": "BSE SME",
+   "status": "Closed",
+   "open": "2026-09-15",
+   "close": "2026-09-17",
+   "allotment": "2026-09-18",
+   "listing": "2026-09-22",
+   "bandLow": null,
+   "bandHigh": 67.0,
+   "lotSize": 2000,
+   "issueSizeCr": 29.47,
+   "freshCr": 29.47,
+   "ofsCr": null,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
+   "sub": {
+    "qib": 0.0,
+    "nii": 1.66,
+    "retail": 0.79,
+    "total": 1.39,
+    "asOf": "2026-09-17T18:55:00+05:30"
+   },
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": "QAL",
+   "series": null,
+   "igId": "1760",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "sector": "Specialty Chemicals",
+   "anchorShares": 0,
+   "gmpAsOf": "2026-09-17T23:34:00+05:30",
+   "facts": {
+    "sector": "Specialty Chemicals",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 24.68,
+     "roce": 25.62,
+     "debtEquity": 0.16,
+     "ronw": 24.68,
+     "patMargin": 20.78,
+     "ebitdaMargin": 29.54,
+     "pb": 2.53,
+     "eps": 6.52,
+     "epsPost": 4.79,
+     "pe": 10.28,
+     "pePost": 13.99,
+     "mcapCr": 117.16,
+     "promoterPre": 61.49,
+     "promoterPost": 45.21
+    },
+    "registrar": "MUFG Intime India Pvt.Ltd.",
+    "leadManagers": [
+     "Sobhagya Capital Options Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/360290/SME_IPO%20InPrinciple/26.DRAFT_PROSPECTUS_QUANTO_27.02.26_Final_20260228013917.pdf",
+     "prospectus": "https://www.bsesme.com/download/360290/SME_IPO%20Open/Quanto%20Updated%20Prospectus%2016.46%20pm%20final_20260910115105.pdf"
+    },
+    "asOf": "2026-09-15T03:30:00+05:30"
+   }
+  },
+  {
+   "name": "Shakti Polytarp",
+   "slug": "shakti-polytarp",
+   "type": "BSE SME",
+   "status": "Closed",
+   "open": "2026-09-15",
+   "close": "2026-09-17",
+   "allotment": "2026-09-18",
+   "listing": "2026-09-22",
+   "bandLow": 56.0,
+   "bandHigh": 59.0,
+   "lotSize": 2000,
+   "issueSizeCr": 25.57,
+   "freshCr": 25.57,
+   "ofsCr": null,
+   "gmp": 6.0,
+   "gmpPct": 10.17,
+   "gmpTrend": "flat",
+   "sub": {
+    "qib": 49.22,
+    "nii": 5.43,
+    "retail": 4.12,
+    "total": 11.87,
+    "asOf": "2026-09-17T18:33:00+05:30"
+   },
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": "SHAKTIPOLY",
+   "series": null,
+   "igId": "1782",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "sector": "Packaging",
+   "anchorShares": 822000,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Packaging",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 44.04,
+     "roce": 17.87,
+     "debtEquity": 2.6,
+     "ronw": 44.04,
+     "patMargin": 4.66,
+     "ebitdaMargin": 8.94,
+     "pb": 2.66,
+     "eps": 8.0,
+     "epsPost": 5.87,
+     "pe": 7.38,
+     "pePost": 10.05,
+     "mcapCr": 101.06,
+     "promoterPre": 90.9,
+     "promoterPost": 66.67
+    },
+    "registrar": "Skyline Financial Services Pvt.Ltd.",
+    "leadManagers": [
+     "NEXGEN Financial Solutions Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/314858/SME_IPO%20InPrinciple/DRHP_Shakti_29092025_20250930132244.pdf",
+     "rhp": "https://www.bseindia.com/downloads/ipo/RHP%20&%20GID_110920261654.zip",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/shakti-polytrap-ipo-anchor-allocation-letter.pdf"
+    },
+    "asOf": "2026-09-17T18:10:00+05:30"
+   }
+  },
+  {
+   "name": "Vama Wovenfab",
+   "slug": "vama-wovenfab",
+   "type": "BSE SME",
+   "status": "Closed",
+   "open": "2026-09-15",
+   "close": "2026-09-17",
+   "allotment": "2026-09-18",
+   "listing": "2026-09-22",
+   "bandLow": 324.0,
+   "bandHigh": 341.0,
+   "lotSize": 400,
+   "issueSizeCr": 47.06,
+   "freshCr": 47.06,
+   "ofsCr": null,
+   "gmp": 3.0,
+   "gmpPct": 0.88,
+   "gmpTrend": "flat",
+   "sub": {
+    "qib": 1.0,
+    "nii": 1.56,
+    "retail": 2.8,
+    "total": 2.53,
+    "asOf": "2026-09-17T18:56:00+05:30"
+   },
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": "VAMAWOVEN",
+   "series": null,
+   "igId": "1969",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "sector": "Other Industrial Products",
+   "anchorShares": 0,
+   "gmpAsOf": "2026-09-17T23:37:00+05:30",
+   "facts": {
+    "sector": "Other Industrial Products",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 50.37,
+     "roce": 31.94,
+     "debtEquity": 0.89,
+     "ronw": 50.37,
+     "patMargin": 5.38,
+     "ebitdaMargin": 8.32,
+     "pb": 4.44,
+     "eps": 30.9,
+     "epsPost": 22.25,
+     "pe": 11.04,
+     "pePost": 15.33,
+     "mcapCr": 176.94,
+     "promoterPre": 100.0,
+     "promoterPost": 72.0
+    },
+    "registrar": "Maashitla Securities Pvt.Ltd.",
+    "leadManagers": [
+     "Gretex Corporate Services Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/323912/SME_IPO%20InPrinciple/DRHP_VAMA_20250927231509.pdf",
+     "rhp": "https://www.bseindia.com/downloads/ipo/RHP&GID_110920261651.zip"
+    },
+    "asOf": "2026-09-17T18:10:00+05:30"
+   }
   },
   {
    "name": "Kheria Autocomp",
@@ -2718,24 +3606,25 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.0,
-    "retail": null,
-    "total": 0.0,
-    "asOf": "2026-09-17T17:03:00+05:30"
+    "nii": 0.42,
+    "retail": 0.24,
+    "total": 0.21,
+    "asOf": "2026-09-17T18:56:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
    "listingGainPct": null,
    "currentPrice": null,
    "sources": [
-    "NSE ipo-current-issue"
+    "NSE ipo-current-issue",
+    "InvestorGain IPO list"
    ],
    "symbol": "KHERIAAUTO",
    "series": "SME",
+   "igId": "2016",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igId": "2016",
-   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
    "sector": "Auto Components & Equipments",
    "anchorShares": 1310400,
    "gmpAsOf": "2026-09-17T23:37:00+05:30",
@@ -2790,24 +3679,25 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.0,
-    "retail": null,
-    "total": 0.0,
-    "asOf": "2026-09-17T17:03:00+05:30"
+    "nii": 4.17,
+    "retail": 9.54,
+    "total": 5.66,
+    "asOf": "2026-09-17T18:56:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
    "listingGainPct": null,
    "currentPrice": null,
    "sources": [
-    "NSE ipo-current-issue"
+    "NSE ipo-current-issue",
+    "InvestorGain IPO list"
    ],
    "symbol": "SPECTRAA",
    "series": "SME",
+   "igId": "2211",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igId": "2211",
-   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
    "sector": "Industrial Products",
    "anchorShares": 1024800,
    "gmpAsOf": "2026-09-17T23:37:00+05:30",
@@ -2866,7 +3756,7 @@
     "nii": null,
     "retail": null,
     "total": 0.0,
-    "asOf": "2026-09-18T00:43:34+05:30"
+    "asOf": "2026-09-18T01:07:02+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2874,14 +3764,15 @@
    "currentPrice": null,
    "sources": [
     "NSE all-upcoming-issues",
-    "NSE ipo-current-issue"
+    "NSE ipo-current-issue",
+    "InvestorGain IPO list"
    ],
    "symbol": "AXIOMGAS",
    "series": "SME",
+   "igId": "1682",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igId": "1682",
-   "igFetchedAt": "2026-09-18T00:43:18+05:30",
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
    "sector": "LPG/CNG/PNG/LNG Supplier",
    "anchorShares": 1070400,
    "gmpAsOf": "2026-09-17T23:35:00+05:30",
@@ -2941,13 +3832,14 @@
    "listingGainPct": null,
    "currentPrice": null,
    "sources": [
-    "BSE public issues (api)"
+    "BSE public issues (api)",
+    "InvestorGain IPO list"
    ],
    "symbol": null,
    "series": null,
+   "igId": "1589",
    "bseIpoNo": "7980",
    "bseScripCode": "4831",
-   "igId": "1589",
    "igFetchedAt": "2026-09-18T00:43:18+05:30",
    "sector": "Other Consumer Services",
    "anchorShares": 1102800,
@@ -2995,7 +3887,7 @@
    "bandLow": 100.0,
    "bandHigh": 106.0,
    "lotSize": 1200,
-   "issueSizeCr": 29.37,
+   "issueSizeCr": 31.09,
    "freshCr": 29.37,
    "ofsCr": null,
    "gmp": 51.0,
@@ -3007,13 +3899,14 @@
    "listingGainPct": null,
    "currentPrice": null,
    "sources": [
-    "BSE public issues (api)"
+    "BSE public issues (api)",
+    "InvestorGain IPO list"
    ],
    "symbol": null,
    "series": null,
+   "igId": "2359",
    "bseIpoNo": "7982",
    "bseScripCode": "4833",
-   "igId": "2359",
    "igFetchedAt": "2026-09-18T00:43:18+05:30",
    "sector": "Education",
    "anchorShares": 828000,
@@ -3073,13 +3966,14 @@
    "listingGainPct": null,
    "currentPrice": null,
    "sources": [
-    "BSE public issues (api)"
+    "BSE public issues (api)",
+    "InvestorGain IPO list"
    ],
    "symbol": null,
    "series": null,
+   "igId": "1636",
    "bseIpoNo": "7981",
    "bseScripCode": "4832",
-   "igId": "1636",
    "igFetchedAt": "2026-09-18T00:43:18+05:30",
    "sector": "Other Textile Products",
    "anchorShares": 1710000,
@@ -3116,6 +4010,71 @@
    }
   },
   {
+   "name": "Anand Seamless",
+   "slug": "anand-seamless",
+   "type": "BSE SME",
+   "status": "Upcoming",
+   "open": "2026-09-22",
+   "close": "2026-09-24",
+   "allotment": "2026-09-25",
+   "listing": "2026-09-29",
+   "bandLow": null,
+   "bandHigh": 72.0,
+   "lotSize": 1600,
+   "issueSizeCr": 24.24,
+   "freshCr": 24.24,
+   "ofsCr": null,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "2269",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "sector": "Iron & Steel Products",
+   "anchorShares": 0,
+   "gmpAsOf": "2026-09-17T23:36:00+05:30",
+   "facts": {
+    "sector": "Iron & Steel Products",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2025-09-30",
+     "roe": 16.57,
+     "roce": 11.65,
+     "debtEquity": 1.38,
+     "ronw": 16.57,
+     "patMargin": 9.31,
+     "ebitdaMargin": 16.09,
+     "eps": 6.5,
+     "epsPost": 4.58,
+     "pe": 11.08,
+     "pePost": 15.72,
+     "mcapCr": 86.18,
+     "promoterPre": 100.0,
+     "promoterPost": 70.39
+    },
+    "registrar": "MUFG Intime India Pvt.Ltd.",
+    "leadManagers": [
+     "Aftertrade Broking Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/308069/SME_IPO%20InPrinciple/DraftProspectus_20260408112349.pdf",
+     "prospectus": "https://www.chittorgarh.net/reports/ipo_notes/anand-prospectus.pdf"
+    },
+    "asOf": "2026-09-17T17:30:00+05:30"
+   }
+  },
+  {
    "name": "Himalaya Nutravedics India",
    "slug": "himalaya-nutravedics-india",
    "type": "BSE SME",
@@ -3139,13 +4098,14 @@
    "listingGainPct": null,
    "currentPrice": null,
    "sources": [
-    "BSE public issues (api)"
+    "BSE public issues (api)",
+    "InvestorGain IPO list"
    ],
    "symbol": null,
    "series": null,
+   "igId": "2230",
    "bseIpoNo": "7983",
    "bseScripCode": "4834",
-   "igId": "2230",
    "igFetchedAt": "2026-09-18T00:43:18+05:30",
    "sector": "Other Food Products",
    "anchorShares": 710400,
@@ -3179,6 +4139,197 @@
      "rhp": "https://himalayanutravedics.com/wp-content/uploads/2026/09/Red-Herring-Prospectus.pdf"
     },
     "asOf": "2026-09-16T17:30:00+05:30"
+   }
+  },
+  {
+   "name": "Liqvd Digital",
+   "slug": "liqvd-digital",
+   "type": "BSE SME",
+   "status": "Upcoming",
+   "open": "2026-09-23",
+   "close": "2026-09-25",
+   "allotment": "2026-09-28",
+   "listing": "2026-09-30",
+   "bandLow": null,
+   "bandHigh": null,
+   "lotSize": null,
+   "issueSizeCr": null,
+   "freshCr": 34.14,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "2008",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "sector": "Digital Entertainment",
+   "anchorShares": 0,
+   "facts": {
+    "sector": "Digital Entertainment",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 25.36,
+     "roce": 44.05,
+     "debtEquity": 0.29,
+     "ronw": 25.36,
+     "patMargin": 13.32,
+     "ebitdaMargin": 18.69,
+     "eps": 1.41,
+     "promoterPre": 79.61
+    },
+    "registrar": "Bigshare Services Pvt.Ltd.",
+    "leadManagers": [
+     "Indorient Financial Services Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/393128/SME_IPO%20InPrinciple/DRHP_LIQVD_20251001004247.pdf",
+     "rhp": "https://indorient.in/assets/documents/Liqvd%20Digital%20RHP_1789621041.pdf"
+    },
+    "asOf": "2026-09-17T17:30:00+05:30"
+   }
+  },
+  {
+   "name": "S.K.Offset",
+   "slug": "s-k-offset",
+   "type": "BSE SME",
+   "status": "Upcoming",
+   "open": "2026-09-23",
+   "close": "2026-09-25",
+   "allotment": "2026-09-28",
+   "listing": "2026-09-30",
+   "bandLow": 119.0,
+   "bandHigh": 125.0,
+   "lotSize": 1000,
+   "issueSizeCr": 27.56,
+   "freshCr": 27.56,
+   "ofsCr": null,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "2304",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "sector": "Packaging",
+   "anchorShares": 540000,
+   "gmpAsOf": "2026-09-17T23:35:00+05:30",
+   "facts": {
+    "sector": "Packaging",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 37.82,
+     "roce": 22.91,
+     "debtEquity": 1.75,
+     "ronw": 37.82,
+     "patMargin": 11.22,
+     "ebitdaMargin": 21.27,
+     "pb": 3.42,
+     "eps": 13.8,
+     "epsPost": 9.66,
+     "pe": 9.06,
+     "pePost": 12.94,
+     "mcapCr": 96.79,
+     "promoterPre": 100.0,
+     "promoterPost": 69.97
+    },
+    "registrar": "Maashitla Securities Pvt.Ltd.",
+    "leadManagers": [
+     "Comfort Securities Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/369273/SME_IPO%20InPrinciple/DRHP_SKOffset_20260616195849.zip",
+     "rhp": "https://www.skoffset.com/investors/IPO-Documents/RHP.pdf"
+    },
+    "asOf": "2026-09-14T09:04:00+05:30"
+   }
+  },
+  {
+   "name": "Sai Urja Indo",
+   "slug": "sai-urja-indo",
+   "type": "BSE SME",
+   "status": "Upcoming",
+   "open": "2026-09-23",
+   "close": "2026-09-25",
+   "allotment": "2026-09-28",
+   "listing": "2026-09-30",
+   "bandLow": 107.0,
+   "bandHigh": 113.0,
+   "lotSize": 1200,
+   "issueSizeCr": 22.51,
+   "freshCr": 18.22,
+   "ofsCr": 4.28,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "1924",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-09-18T01:05:47+05:30",
+   "sector": "Other Consumer Services",
+   "anchorShares": 586800,
+   "gmpAsOf": "2026-09-17T23:34:00+05:30",
+   "facts": {
+    "sector": "Other Consumer Services",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 42.44,
+     "roce": 50.66,
+     "debtEquity": 0.59,
+     "ronw": 42.44,
+     "patMargin": 4.98,
+     "ebitdaMargin": 7.65,
+     "pb": 8.46,
+     "eps": 5.39,
+     "epsPost": 4.1,
+     "pe": 20.96,
+     "pePost": 27.56,
+     "mcapCr": 86.32,
+     "promoterPre": 92.87,
+     "promoterPost": 65.67
+    },
+    "registrar": "Maashitla Securities Pvt.Ltd.",
+    "leadManagers": [
+     "Shannon Advisors Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/382873/SME_IPO%20InPrinciple/DRHPSAIURJA_20250930030528.pdf",
+     "rhp": "https://www.chittorgarh.net/reports/ipo_notes/rhp_sai-urja.pdf"
+    },
+    "asOf": "2026-09-17T17:30:00+05:30"
    }
   }
  ],
@@ -8424,59 +9575,59 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-18T00:44:04+05:30",
+  "asOf": "2026-09-18T01:07:25+05:30",
   "checks": [
    {
     "area": "calendar",
-    "method": "nse:ok",
+    "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-09-18T00:43:17+05:30",
-    "elapsed": 47.05,
-    "calls": 16,
-    "note": "nse current=8 upcoming=5 past=49 detail=11 +bse=9: 14 mainboard, 8 sme; 8 open, 4 upcoming"
+    "asOf": "2026-09-18T01:05:47+05:30",
+    "elapsed": 2.48,
+    "calls": 5,
+    "note": "investorgain list=31 carried=8 +nse=13 +bse=9 exchange-only=0: 17 mainboard, 21 sme; 8 open, 12 upcoming"
    },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "17-Sep 9:34",
-    "elapsed": 0.23,
+    "elapsed": 0.06,
     "calls": 1,
-    "note": "gmp: 13 board rows patched via investorgain; 12 active, 8 of them matched; gmp: 7 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹11, investorgain); Shakti Polytarp (₹6, investorgain); Vama Wovenfab (₹3, investorgain); Varmora Granito (₹10, investorgain)"
+    "note": "gmp: 13 board rows patched via investorgain; 12 active, 8 of them matched; gmp: 7 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹9, investorgain); Shakti Polytarp (₹6, investorgain); Vama Wovenfab (₹3, investorgain); Varmora Granito (₹10, investorgain)"
    },
    {
     "area": "details",
     "method": "investorgain-list:ok, investorgain:ok",
     "status": "ok",
-    "asOf": "2026-09-18T00:43:18+05:30",
-    "elapsed": 13.27,
-    "calls": 15,
-    "note": "14 records fetched for 14 identified listings (7 without an id); 11 anchor books updated, 38 on file"
+    "asOf": "2026-09-18T01:05:47+05:30",
+    "elapsed": 20.97,
+    "calls": 26,
+    "note": "25 records fetched for 31 identified listings (7 without an id); 12 anchor books updated, 49 on file"
    },
    {
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-18T00:43:34+05:30",
-    "elapsed": 2.86,
-    "calls": 9,
-    "note": "9/9 rows patched via nse"
+    "asOf": "2026-09-18T01:07:02+05:30",
+    "elapsed": 53.2,
+    "calls": 11,
+    "note": "6/11 rows patched via nse"
    },
    {
     "area": "listings",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 10.33,
+    "elapsed": 7.67,
     "calls": 0,
-    "note": "17 names priced, 7 moved to recent, 0 history points"
+    "note": "17 names priced, 7 moved to recent, 0 history points; mainboard: 1 patched names not on the board: Rays of Belief"
    },
    {
     "area": "parents",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-16",
-    "elapsed": 10.59,
+    "elapsed": 8.81,
     "calls": 0,
     "note": "5/5 parent prices; 27/32 investor stocks priced"
    },
@@ -8485,7 +9636,7 @@
     "method": "bse_ann:ok, sebi:ok",
     "status": "ok",
     "asOf": "2026-09-18",
-    "elapsed": 6.77,
+    "elapsed": 4.49,
     "calls": 10,
     "note": "bse_ann: 8/8 parents answered, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; expected: 25 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; 0 rows patched, 33 kept previous stage"
    },
@@ -8494,7 +9645,7 @@
     "method": "bse:ok",
     "status": "ok",
     "asOf": "2026-09-18",
-    "elapsed": 0.92,
+    "elapsed": 1.04,
     "calls": 1,
     "note": "bse rows=10: 11 rights, 12 buybacks, 0 ofs, 1 ncd; 10 refreshed, 0 new, 0 closed windows dropped"
    },
@@ -8503,7 +9654,7 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.42,
+    "elapsed": 0.39,
     "calls": 1,
     "note": "2026-09-17 already in history; FII -3,209 / DII +3,618 Cr"
    },
@@ -8512,7 +9663,7 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.45,
+    "elapsed": 0.67,
     "calls": 2,
     "note": "bulk.csv: 212 deals; block.csv: 4 deals; 0 tracked-investor deals of 216; 13 patterns"
    },
@@ -8521,7 +9672,7 @@
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-09-17T21:03:04+05:30",
-    "elapsed": 0.49,
+    "elapsed": 0.45,
     "calls": 3,
     "note": "business-standard: 6/35 primary-market items; economic-times: 14/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 20 fresh, 25 kept"
    },
@@ -8535,7 +9686,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "93s, 58 calls, 11/11 modules ok"
+    "note": "100s, 60 calls, 11/11 modules ok"
    }
   ],
   "discrepancies": [
@@ -10430,6 +11581,92 @@
  },
  "anchors": [
   {
+   "name": "A-One Steels",
+   "date": "2026-09-23",
+   "amountCr": null,
+   "issueSizeCr": 405.0,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-29",
+   "lockIn90": "2026-12-28",
+   "anchor": "bid 23 Sep · lock-in ends 29 Oct (half) and 28 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "ArMee Infotech",
+   "date": "2026-09-22",
+   "amountCr": null,
+   "issueSizeCr": 300.0,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-28",
+   "lockIn90": "2026-12-27",
+   "anchor": "bid 22 Sep · lock-in ends 28 Oct (half) and 27 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "Elevate Campuses",
+   "date": "2026-09-22",
+   "amountCr": null,
+   "issueSizeCr": 2100.0,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-28",
+   "lockIn90": "2026-12-27",
+   "anchor": "bid 22 Sep · lock-in ends 28 Oct (half) and 27 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "S.K.Offset",
+   "date": "2026-09-22",
+   "amountCr": 6.75,
+   "issueSizeCr": 27.56,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-28",
+   "lockIn90": "2026-12-27",
+   "anchorShares": 540000,
+   "price": 125.0,
+   "amountBasis": "exchange-json",
+   "anchor": "₹6.75 Cr anchor book · bid 22 Sep · 24% of the issue · lock-in ends 28 Oct (half) and 27 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "Sai Urja Indo",
+   "date": "2026-09-22",
+   "amountCr": 6.63,
+   "issueSizeCr": 22.51,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-28",
+   "lockIn90": "2026-12-27",
+   "anchorShares": 586800,
+   "price": 113.0,
+   "amountBasis": "exchange-json",
+   "anchor": "₹6.63 Cr anchor book · bid 22 Sep · 29% of the issue · lock-in ends 28 Oct (half) and 27 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
    "name": "Himalaya Nutravedics India",
    "date": "2026-09-21",
    "amountCr": 7.53,
@@ -10446,6 +11683,22 @@
    "price": 106.0,
    "amountBasis": "exchange-json",
    "anchor": "₹7.53 Cr anchor book · bid 21 Sep · 30% of the issue · lock-in ends 25 Oct (half) and 24 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "Varmora Granito",
+   "date": "2026-09-21",
+   "amountCr": null,
+   "issueSizeCr": 708.02,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-25",
+   "lockIn90": "2026-12-24",
+   "anchor": "bid 21 Sep · lock-in ends 25 Oct (half) and 24 Dec",
    "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
   },
   {
@@ -10688,20 +11941,24 @@
   {
    "name": "Shakti Polytarp",
    "date": "2026-09-11",
-   "amountCr": null,
-   "issueSizeCr": 26.93,
+   "amountCr": 4.85,
+   "issueSizeCr": 25.57,
    "count": null,
    "topTierShare": null,
    "investors": [],
    "sources": [
-    "https://www.investorgain.com/ipo/shakti-polytarp-ipo/1782/"
+    "https://www.investorgain.com/ipo/shakti-polytarp-ipo/1782/",
+    "https://www.chittorgarh.net/reports/anchor-investor/shakti-polytrap-ipo-anchor-allocation-letter.pdf"
    ],
    "source": "exchange-json",
    "auto": true,
    "lockIn30": "2026-10-18",
    "lockIn90": "2026-12-17",
-   "anchor": "bid 11 Sep · lock-in ends 18 Oct (half) and 17 Dec",
-   "note": "Book size is NSE's stated anchor portion × the upper band; dates are InvestorGain's. Who took the book is published only as the issuer's letter, which a run does not read."
+   "anchor": "₹4.85 Cr anchor book · bid 11 Sep · 19% of the issue · lock-in ends 18 Oct (half) and 17 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read.",
+   "anchorShares": 822000,
+   "price": 59.0,
+   "amountBasis": "exchange-json"
   },
   {
    "name": "Manika Plastech",
@@ -10726,6 +11983,48 @@
    "amountBasis": "exchange-json"
   },
   {
+   "name": "Century Business Media",
+   "date": "2026-09-10",
+   "amountCr": 4.84,
+   "issueSizeCr": 16.24,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [
+    "https://www.chittorgarh.net/reports/anchor-investor/century-business-media-anchor-book.pdf"
+   ],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-17",
+   "lockIn90": "2026-12-16",
+   "anchorShares": 654400,
+   "price": 74.0,
+   "amountBasis": "exchange-json",
+   "anchor": "₹4.84 Cr anchor book · bid 10 Sep · 30% of the issue · lock-in ends 17 Oct (half) and 16 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "Injecto Polymers",
+   "date": "2026-09-10",
+   "amountCr": 9.58,
+   "issueSizeCr": 53.29,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [
+    "https://www.chittorgarh.net/reports/anchor-investor/injecto-polymers-anchor-book.pdf"
+   ],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-17",
+   "lockIn90": "2026-12-16",
+   "anchorShares": 957600,
+   "price": 100.0,
+   "amountBasis": "exchange-json",
+   "anchor": "₹9.58 Cr anchor book · bid 10 Sep · 18% of the issue · lock-in ends 17 Oct (half) and 16 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
    "name": "Veegaland Developers",
    "date": "2026-09-09",
    "amountCr": 63.0,
@@ -10746,6 +12045,69 @@
    "anchorShares": 4500000,
    "price": 140.0,
    "amountBasis": "exchange-json"
+  },
+  {
+   "name": "Maharaja & Speedex India",
+   "date": "2026-09-09",
+   "amountCr": 22.82,
+   "issueSizeCr": 76.11,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [
+    "https://www.chittorgarh.net/reports/anchor-investor/maharaja-speedex-anchor-list.pdf"
+   ],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-17",
+   "lockIn90": "2026-12-16",
+   "anchorShares": 1227000,
+   "price": 186.0,
+   "amountBasis": "exchange-json",
+   "anchor": "₹22.82 Cr anchor book · bid 9 Sep · 30% of the issue · lock-in ends 17 Oct (half) and 16 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "Om Galaxy",
+   "date": "2026-09-09",
+   "amountCr": 29.89,
+   "issueSizeCr": 99.75,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [
+    "https://www.chittorgarh.net/reports/anchor-investor/om-galaxy-anchor-list.pdf"
+   ],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-16",
+   "lockIn90": "2026-12-15",
+   "anchorShares": 3321600,
+   "price": 90.0,
+   "amountBasis": "exchange-json",
+   "anchor": "₹29.89 Cr anchor book · bid 9 Sep · 30% of the issue · lock-in ends 16 Oct (half) and 15 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "Raksan Transformers",
+   "date": "2026-09-09",
+   "amountCr": 42.86,
+   "issueSizeCr": 142.96,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [
+    "https://www.chittorgarh.net/reports/anchor-investor/raksan-transformers-anchor.pdf"
+   ],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-10-16",
+   "lockIn90": "2026-12-15",
+   "anchorShares": 1570000,
+   "price": 273.0,
+   "amountBasis": "exchange-json",
+   "anchor": "₹42.86 Cr anchor book · bid 9 Sep · 30% of the issue · lock-in ends 16 Oct (half) and 15 Dec",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
   },
   {
    "amountCr": null,
