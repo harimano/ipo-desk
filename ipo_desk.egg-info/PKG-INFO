@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: ipo-desk
+Version: 0.1.0
+Summary: Deterministic daily collector for the India IPO Command Center. Writes data/latest.json; a static site reads it.
+Requires-Python: >=3.11
+Requires-Dist: httpx[http2]>=0.27
+Requires-Dist: selectolax>=0.3.21
+Requires-Dist: nse[server]>=4.0.1
+Requires-Dist: bse>=3.3
+Requires-Dist: pymupdf>=1.24
+Requires-Dist: rapidfuzz>=3.9
+Requires-Dist: yfinance>=0.2.50
+Requires-Dist: feedparser>=6.0
+Requires-Dist: pyotp>=2.9
+Requires-Dist: smartapi-python>=1.4
+Requires-Dist: logzero>=1.7
+Requires-Dist: websocket-client>=1.6
+Requires-Dist: python-dateutil>=2.9
+Provides-Extra: dev
+Requires-Dist: pytest>=8; extra == "dev"
+Requires-Dist: pytest-httpx>=0.30; extra == "dev"
+Requires-Dist: ruff>=0.6; extra == "dev"

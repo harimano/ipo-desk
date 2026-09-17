@@ -1,0 +1,639 @@
+
+/* ================= RENDER CODE (never edited by the refresh task) ================= */
+window.__ipoInit = function (DATA) {
+"use strict";
+const $ = (s, el) => (el || document).querySelector(s);
+const $$ = (s, el) => [...(el || document).querySelectorAll(s)];
+const esc = s => s == null ? "" : String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const DAY = 86400000;
+let asOf = new Date(DATA.meta.asOf);
+let today = new Date(asOf.getFullYear(), asOf.getMonth(), asOf.getDate());
+const iso = dt => dt.toISOString().slice(0, 10);
+const d = s => s ? new Date(s + "T00:00:00") : null;
+const days = s => { const x = d(s); return x ? Math.round((x - today) / DAY) : null; };
+const fmtD = s => { const x = d(s); return x ? x.toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : "—"; };
+const fmtDY = s => { const x = d(s); return x ? x.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) : "—"; };
+const inr = n => n == null ? "—" : "₹" + Number(n).toLocaleString("en-IN", { maximumFractionDigits: 2 });
+const inr0 = n => n == null ? "—" : "₹" + Math.round(Number(n)).toLocaleString("en-IN");
+const cr = n => n == null ? "—" : "₹" + Number(n).toLocaleString("en-IN", { maximumFractionDigits: 0 }) + " Cr";
+const pct = (n, sign) => n == null ? "—" : ((sign && n > 0) ? "+" : "") + Number(n).toFixed(1) + "%";
+const xx = n => n == null ? "—" : Number(n).toFixed(2) + "x";
+const cls = n => n == null ? "dim" : n > 0 ? "up" : n < 0 ? "down" : "";
+const rel = n => n == null ? "" : n === 0 ? "today" : n === 1 ? "tomorrow" : n > 0 ? `in ${n} days` : `${-n} days ago`;
+const sgn = n => n == null ? "—" : (n >= 0 ? "+" : "−") + inr0(Math.abs(n));
+
+/* ---------- storage (keys fixed) ---------- */
+const store = {
+  get(k, def) { try { const v = localStorage.getItem(k); if (v == null) return def; try { return JSON.parse(v); } catch (e) { return v; } } catch (e) { return def; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+// Legacy shapes from the 8-tab build: holdings/interest/tasks-done were {name:true} objects, theme/tab raw strings, apps had {sellPrice}, tasks had {title, pr}.
+const asList = v => Array.isArray(v) ? v : (v && typeof v === "object") ? Object.keys(v).filter(k => v[k]) : (typeof v === "string" && v) ? [v] : [];
+const legacyApps = v => asList(v).filter(a => a && typeof a === "object").map(a => ({ name: a.name, cat: a.cat || "Retail", lots: +a.lots || 1, price: +a.price || 0, status: a.status || "Applied", sold: a.sold != null ? a.sold : (a.sellPrice != null ? a.sellPrice : null), added: a.added || null }));
+const legacyTasks = v => asList(v).filter(t => t && typeof t === "object").map(t => ({ id: String(t.id || ("c:" + Date.now())), text: t.text || t.title || "", added: t.added || null }));
+// ipo-holdings entries: "Parent short name" or {parent, qty, price, date}
+const S = {
+  holdings: asList(store.get("ipo-holdings", [])),
+  interest: new Set(asList(store.get("ipo-interest", []))),
+  apps: legacyApps(store.get("ipo-apps", [])),
+  done: new Set(asList(store.get("ipo-tasks-done", [])).map(String)),   // "id" = done, "id@YYYY-MM-DD" = snoozed until
+  tasksCustom: legacyTasks(store.get("ipo-tasks-custom", [])),
+};
+const holdName = h => typeof h === "string" ? h : h.parent;
+const held = p => S.holdings.some(h => holdName(h) === p);
+const heldNames = () => [...new Set(S.holdings.map(holdName))];
+const toggleHold = p => { if (held(p)) S.holdings = S.holdings.filter(h => holdName(h) !== p); else S.holdings.push(p); save(); };
+const isDone = id => S.done.has(id) || [...S.done].some(k => k.startsWith(id + "@") && k.slice(id.length + 1) > iso(today));
+const save = () => { store.set("ipo-holdings", S.holdings); store.set("ipo-interest", [...S.interest]); store.set("ipo-apps", S.apps); store.set("ipo-tasks-done", [...S.done]); store.set("ipo-tasks-custom", S.tasksCustom); };
+
+/* ---------- theme: system → light → dark ---------- */
+const root = document.documentElement;
+const applyTheme = t => { if (t) root.setAttribute("data-theme", t); else root.removeAttribute("data-theme"); $$("#themeSeg button").forEach(b => b.setAttribute("aria-checked", String((b.dataset.themeSet || null) === (t || null)))); };
+{ const t0 = store.get("ipo-theme", null); applyTheme(t0 === "dark" || t0 === "light" ? t0 : null); }
+const setTheme = t => { applyTheme(t); store.set("ipo-theme", t); drawCharts(); if (!$("#s-market").hidden) renderMarket(); if (!$("#s-book").hidden) drawPosCharts(); };
+$("#themeSeg").addEventListener("click", e => { const b = e.target.closest("button[data-theme-set]"); if (b) setTheme(b.dataset.themeSet || null); });
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { if (!store.get("ipo-theme", null)) drawCharts(); });
+const isDark = () => (root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")) === "dark";
+
+/* ---------- derived ---------- */
+let Q = DATA.quota || [];
+let live = Q.filter(q => ["approved", "drhp", "awaited"].includes(q.bucket)).sort((a, b) => a.rank - b.rank || a.name.localeCompare(b.name));
+let board = DATA.mainboard || [], sme = DATA.sme || [];
+let sheets = DATA.sheets || {}, current = DATA.current || {};
+const allIssues = () => board.concat(sme);
+const findIssue = n => allIssues().find(b => b.name === n);
+let stale = (Date.now() - asOf) > 36 * 3600000;
+function recompute() {
+  asOf = new Date(DATA.meta.asOf);
+  today = new Date(asOf.getFullYear(), asOf.getMonth(), asOf.getDate());
+  Q = DATA.quota || [];
+  live = Q.filter(q => ["approved", "drhp", "awaited"].includes(q.bucket)).sort((a, b) => a.rank - b.rank || a.name.localeCompare(b.name));
+  board = DATA.mainboard || []; sme = DATA.sme || [];
+  sheets = DATA.sheets || {}; current = DATA.current || {};
+  stale = (Date.now() - asOf) > 36 * 3600000;
+}
+const covClass = q => q.quota === false ? "noq" : q.bucket === "approved" && q.lapse && days(q.lapse) >= 0 && days(q.lapse) <= 45 && !held(q.parent) ? "risk" : held(q.parent) ? "cov" : q.bucket === "awaited" ? "noq" : "unc";
+const lotCost = b => b.lotSize && b.bandHigh ? b.lotSize * b.bandHigh : null;
+const expGain = b => b.lotSize && b.gmp != null ? b.lotSize * b.gmp : null;
+const odds = v => v == null ? "—" : v <= 1 ? "full allotment likely" : "~1 in " + (v < 10 ? v.toFixed(1) : Math.round(v));
+const quotaPill = q => q.quota === true ? `<span class="pill yes">quota ✓${q.quotaPct ? " " + q.quotaPct + "%" : ""}</span>` : q.quota === false ? `<span class="pill no">no quota</span>` : `<span class="pill unk">quota ?</span>`;
+const toast = m => { const t = $("#toast"); t.textContent = m; t.hidden = false; clearTimeout(toast.h); toast.h = setTimeout(() => t.hidden = true, 1800); };
+
+/* ---------- screens ---------- */
+let screen = "today";
+function show(id) {
+  screen = id; $$("#nav button").forEach(b => b.setAttribute("aria-selected", String(b.dataset.s === id)));
+  $$(".screen").forEach(p => p.hidden = p.id !== "s-" + id);
+  store.set("ipo-tab", id); cursor = -1; if (id === "board") drawCharts(); if (id === "market") renderMarket(); if (id === "book") drawPosCharts(); window.scrollTo(0, 0);
+}
+$("#nav").addEventListener("click", e => { const b = e.target.closest("button[data-s]"); if (b) show(b.dataset.s); });
+
+/* ================= QUEUE (the action plan) ================= */
+function buildQueue() {
+  const P = [];
+  live.forEach(q => {
+    const cov = held(q.parent);
+    if (q.recordDate && days(q.recordDate) >= -1) P.push({ id: "rec:" + q.name, pri: 0, tag: ["now", days(q.recordDate) <= 0 ? "Record date today" : "Record date " + rel(days(q.recordDate))], lbl: "Quota cover", ttl: `${cov ? "Confirm" : "Buy and settle"} ${q.parent} before ${fmtD(q.recordDate)}`, desc: `${q.name} record date. Shares must be in demat on the record date — buy at least 2 trading days ahead.`, big: q.ticker, bigCls: "down", acts: [["hold", cov ? "Held ✓" : "Mark held"], ["sheet", "Sheet"]], q });
+    const lapsing = q.bucket === "approved" && q.lapse && days(q.lapse) >= 0 && days(q.lapse) <= 45;
+    if ((q.bucket === "approved" || q.bucket === "drhp") && q.quota !== false && !cov) {
+      const now = q.bucket === "approved" && q.quota === true;
+      P.push({ id: "buy:" + q.parent, pri: now ? 1 : 2, tag: [now ? "now" : "soon", now ? "Buy now" : lapsing ? "Lapses " + rel(days(q.lapse)) : "Soon"], lbl: "Quota cover", ttl: `Buy 1 share of ${q.parentFull || q.parent}`, desc: `Covers <b>${esc(q.name)}</b>${q.sizeCr ? " (" + cr(q.sizeCr) + ")" : ""} — ${esc(q.stage)}${q.stageDate ? " (" + fmtDY(q.stageDate) + ")" : ""}. ${q.quota === true ? "Shareholder quota confirmed." : "Quota not yet confirmed; one share is cheap insurance."}${lapsing ? ` Approval lapses ${fmtD(q.lapse)} — if an RHP lands first, the record date follows within days.` : ""}${q.name === "Reliance Jio" ? " Record date arrives with the RHP, so this can't wait for the announcement." : ""}`, big: q.ticker, acts: [["hold", "Mark held"], ["snooze", "Later"], ["sheet", "Sheet"]], q });
+    }
+    else if (lapsing)
+      P.push({ id: "lapse:" + q.name, pri: 3, tag: ["soon", rel(days(q.lapse))], lbl: "Approval cliff", ttl: `${q.name} — approval lapses ${fmtD(q.lapse)}`, desc: `If an RHP is filed before then, expect a record date within days. Parent: ${esc(q.parent)}${q.ticker ? " (" + q.ticker + ")" : ""}${cov ? " — already held." : "."}`, big: fmtD(q.lapse), bigCls: "amb", acts: cov ? [["done", "Noted"]] : [["hold", "Mark held"], ["done", "Ignore"]], q });
+  });
+  Q.filter(q => q.isNew && q.bucket !== "dropped").forEach(q => P.push({ id: "new:" + q.name, pri: 4, tag: ["ok", "New filing"], lbl: "Pipeline", ttl: `${q.name} — ${q.stage}`, desc: `${esc(q.parent)}${q.stageDate ? " · " + fmtDY(q.stageDate) : ""}. ${esc(q.detail || "")}`, big: q.ticker, acts: [["star", "Star"], ["done", "Seen"]], q }));
+  board.forEach(b => {
+    const star = S.interest.has(b.name), g = expGain(b), c = lotCost(b);
+    const money = c ? `1 lot = ${b.lotSize} sh = <b>${inr0(c)}</b>${g != null ? ` · GMP ${inr(b.gmp)} (${pct(b.gmpPct, true)}) → about <b class="${cls(g)}">${sgn(g)} per lot</b>` : ""}` : "lot size TBA";
+    const sub = b.sub && b.sub.total != null ? ` Book ${xx(b.sub.total)}${b.sub.retail != null ? ", retail " + xx(b.sub.retail) + " (" + odds(b.sub.retail) + ")" : ""}.` : "";
+    if (b.status === "Open") P.push({ id: "apply:" + b.name, pri: days(b.close) <= 1 ? 1 : 2, tag: [days(b.close) <= 1 ? "now" : "soon", days(b.close) === 0 ? "Closes today" : "Closes " + rel(days(b.close))], lbl: "Mainboard" + (star ? " · starred" : ""), ttl: `${b.name} — apply or pass`, desc: `Band ${inr(b.bandLow)}–${inr(b.bandHigh)} · ${money}.${sub}`, big: fmtD(b.close), bigCls: days(b.close) <= 1 ? "down" : "", acts: [["app", "Log application"], ["done", "Pass"], ["sheet", "Sheet"]], b });
+    else if (b.status === "Upcoming" && (star || (b.gmpPct || 0) >= 15)) P.push({ id: "prep:" + b.name, pri: 5, tag: ["plan", "Opens " + rel(days(b.open))], lbl: "Mainboard" + (star ? " · starred" : " · strong GMP"), ttl: `${b.name} opens ${fmtD(b.open)}`, desc: `${b.bandHigh ? "Band " + inr(b.bandLow) + "–" + inr(b.bandHigh) + " · " : "Band TBA · "}${money}. Keep funds ready in UPI/ASBA.`, big: fmtD(b.open), acts: [["star", star ? "Starred ★" : "Star"], ["done", "Skip"], ["sheet", "Sheet"]], b });
+    else if (b.status === "Closed" && (star || S.apps.some(a => a.name === b.name))) P.push({ id: "allot:" + b.name, pri: 4, tag: ["ok", "Lists " + rel(days(b.listing))], lbl: "Allotment", ttl: `Check ${b.name} allotment`, desc: `Lists ${fmtDY(b.listing)}${g != null ? ` · expected ${sgn(g)} per lot at GMP ${inr(b.gmp)}` : ""}.`, big: fmtD(b.listing), acts: [["done", "Checked"]], b });
+  });
+  S.apps.filter(a => a.status === "Allotted — holding").forEach(a => { const b = findIssue(a.name); if (b && b.status === "Listed") P.push({ id: "exit:" + a.name, pri: 3, tag: ["soon", "Listed"], lbl: "Position", ttl: `Decide on ${a.name}`, desc: `Listed ${fmtD(b.listing)} at ${inr(b.listingPrice)} vs your ${inr(a.price)}.`, big: pct(b.listingGainPct, true), bigCls: cls(b.listingGainPct), acts: [["done", "Decided"]] }); });
+  return P.sort((a, b) => a.pri - b.pri);
+}
+function renderToday() {
+  const all = buildQueue(), P = all.filter(p => !isDone(p.id));
+  const urgent = P.filter(p => p.tag[0] === "now").length;
+  $("#todayTitle").textContent = today.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long" });
+  $("#todaySum").textContent = P.length ? `${P.length} thing${P.length > 1 ? "s" : ""} to do${urgent ? ` · ${urgent} now` : ""}` : "Nothing needs a decision — the queue is clear.";
+  const acts = p => p.acts.map(([k, l], j) => `<button class="btn sm${j === 0 ? " primary" : ""}" data-act="${k}">${esc(l)}${k === "hold" ? " <kbd>h</kbd>" : k === "done" ? " <kbd>d</kbd>" : k === "snooze" ? " <kbd>s</kbd>" : k === "star" ? " <kbd>*</kbd>" : ""}</button>`).join("");
+  const nm = p => p.q ? p.q.name : p.b ? p.b.name : "";
+  const top = P.filter(p => p.pri <= 2), later = P.filter(p => p.pri > 2);
+  $("#queue").innerHTML = (top.length ? top.map((p, i) => `<div class="card q${i === 0 ? " lead" : ""}" data-row data-id="${esc(p.id)}" data-name="${esc(nm(p))}">
+    <div class="l"><div class="tags"><span class="pill ${p.tag[0]}">${esc(p.tag[1])}</span><span class="lbl">${esc(p.lbl)}</span></div><div class="ttl">${esc(p.ttl)}</div><div class="desc">${p.desc}</div></div>
+    <div class="r"><div class="big mono ${p.bigCls || ""}">${esc(p.big || "")}</div><div class="acts">${acts(p)}</div></div></div>`).join("") : `<div class="card empty">Nothing urgent. ${later.length ? "The rest is below." : "Snoozed and done items are in Book."}</div>`)
+    + (later.length ? `<div class="card"><div class="ch">Later this month <span class="sub">${later.length} item${later.length > 1 ? "s" : ""}</span></div>${later.map(p => `<div class="q" data-row data-id="${esc(p.id)}" data-name="${esc(nm(p))}" style="padding:10px 18px;border-top:1px solid var(--line)"><div class="l"><div class="tags"><span class="pill ${p.tag[0]}">${esc(p.tag[1])}</span><span class="lbl">${esc(p.lbl)}</span><span style="font-weight:700">${esc(p.ttl)}</span></div><div class="desc" style="font-size:12.5px">${p.desc}</div></div><div class="r"><div class="acts">${acts(p)}</div></div></div>`).join("")}</div>` : "");
+  $("#c-today").textContent = urgent || "";
+
+  // KPIs
+  const actionable = live.filter(q => q.bucket !== "awaited" && q.quota !== false), covered = actionable.filter(q => held(q.parent)).length;
+  const open = board.filter(b => b.status === "Open"), best = open.slice().sort((a, b) => (b.gmpPct || 0) - (a.gmpPct || 0))[0];
+  const listing = board.filter(b => b.listing && days(b.listing) >= 0 && days(b.listing) <= 7);
+  const F = DATA.flows && DATA.flows.latest;
+  $("#kpis").innerHTML = [
+    ["Coverage", `${covered}<span class="dim">/${actionable.length}</span>`, "actionable names with the parent held", covered === actionable.length ? "up" : ""],
+    ["Open IPOs", open.length, best ? `best GMP: ${best.name} ${pct(best.gmpPct, true)}` : "none open", ""],
+    ["Mainboard listings this week", listing.length, listing[0] ? `${listing[0].name} on ${fmtD(listing[0].listing)}` : "—", ""],
+    ["Flows " + (F ? fmtD(F.date) : ""), F ? sgn((F.fiiNetCr || 0) + (F.diiNetCr || 0)) + " Cr" : "—", F ? `FII ${sgn(F.fiiNetCr)} · DII ${sgn(F.diiNetCr)}` : "no data", F ? cls((F.fiiNetCr || 0) + (F.diiNetCr || 0)) : ""],
+  ].map(([l, v, dd, c]) => `<div class="card kpi"><div class="lbl">${l}</div><div class="v mono ${c}">${v}</div><div class="d">${esc(dd)}</div></div>`).join("");
+
+  // mini lanes
+  const lane = (title, rows, max) => `<div class="lane"><div class="lbl">${title} · ${rows.length}</div>${rows.slice(0, max).map(q => `<button class="chip ${covClass(q)}" data-jump="${esc(q.name)}">${esc(q.name)}${S.interest.has(q.name) ? '<span class="mk">★</span>' : ""}<small>${esc(q.ticker || q.parent)}${q.sizeCr ? " · " + cr(q.sizeCr) : ""}${q.lapse && q.bucket === "approved" && days(q.lapse) <= 45 ? " · lapses " + fmtD(q.lapse) : q.quota === true ? " · quota ✓" : q.quota == null ? " · quota ?" : ""}</small></button>`).join("")}${rows.length > max ? `<button class="chip noq" data-jump="" style="color:var(--ink-3)">+ ${rows.length - max} more<small>${esc(rows.slice(max).map(q => q.name).join(", ").slice(0, 60))}…</small></button>` : ""}</div>`;
+  $("#miniLanes").innerHTML = lane("Approved", live.filter(q => q.bucket === "approved"), 5) + lane("DRHP filed", live.filter(q => q.bucket === "drhp"), 5) + lane("Awaited", live.filter(q => q.bucket === "awaited"), 2);
+
+  // calendar
+  const ev = [];
+  allIssues().forEach(b => { if (b.status === "Open" && b.close) ev.push({ d: b.close, w: b.name, s: "closes", c: days(b.close) <= 1 ? "now" : "" }); if (b.status === "Upcoming" && b.open) ev.push({ d: b.open, w: b.name, s: "opens", c: "" }); if (b.status === "Closed" && b.listing) ev.push({ d: b.listing, w: b.name, s: "lists", c: "" }); });
+  live.forEach(q => { if (q.recordDate) ev.push({ d: q.recordDate, w: q.name, s: "record date", c: "now" }); if (q.bucket === "approved" && q.lapse && days(q.lapse) <= 30) ev.push({ d: q.lapse, w: q.name, s: "approval lapses", c: "warn" }); });
+  const byDay = {}; ev.filter(e => days(e.d) >= 0 && days(e.d) <= 30).forEach(e => (byDay[e.d] = byDay[e.d] || []).push(e));
+  const daysArr = Object.keys(byDay).sort().slice(0, 7);
+  $("#cal").innerHTML = daysArr.map(k => { const es = byDay[k]; const c = es.some(e => e.c === "now") ? "now" : es.some(e => e.c === "warn") ? "warn" : ""; const groups = {}; es.forEach(e => (groups[e.s] = groups[e.s] || []).push(e.w)); return `<div class="day ${c}"><div class="d mono ${c === "now" ? "down" : c === "warn" ? "amb" : ""}">${fmtD(k)}</div>${Object.entries(groups).map(([s, ws]) => `<div class="w">${esc(ws.length > 2 ? ws.slice(0, 2).join(", ") + " +" + (ws.length - 2) : ws.join(", "))}<small>${s}</small></div>`).join("")}</div>`; }).join("") +
+    (live.some(q => q.name === "Reliance Jio" && !q.recordDate) ? `<div class="day est"><div class="d mono dim">?</div><div class="w dim">Jio record date<small>arrives with the RHP</small></div></div>` : "");
+}
+function queueAct(id, act, name) {
+  const q = Q.find(z => z.name === name), b = findIssue(name);
+  if (act === "done") { S.done.add(id); save(); toast("Done"); }
+  else if (act === "snooze") { S.done.add(id + "@" + iso(new Date(today.getTime() + 3 * DAY))); save(); toast("Snoozed 3 days"); }
+  else if (act === "hold" && q) { toggleHold(q.parent); toast(held(q.parent) ? `Holding ${q.parent}` : `Removed ${q.parent}`); }
+  else if (act === "star") { const n = name; S.interest.has(n) ? S.interest.delete(n) : S.interest.add(n); save(); toast(S.interest.has(n) ? "Starred" : "Unstarred"); }
+  else if (act === "app" && b) { show("book"); $("#apName").value = b.name; $("#apPrice").value = b.bandHigh || ""; bounds(); $("#apLots").focus(); return; }
+  else if (act === "sheet") { openSheet(name); return; }
+  const el = $(`[data-id="${CSS.escape(id)}"]`); if (el && (act === "done" || act === "snooze")) { el.classList.add("gone"); setTimeout(renderAll, 200); } else renderAll();
+}
+$("#queue").addEventListener("click", e => { const b = e.target.closest("button[data-act]"); if (!b) return; const card = b.closest("[data-id]"); queueAct(card.dataset.id, b.dataset.act, card.dataset.name); });
+$("#miniLanes").addEventListener("click", e => { const c = e.target.closest("[data-jump]"); if (!c) return; if (c.dataset.jump) { show("pipe"); openPipe(c.dataset.jump); } else show("pipe"); });
+
+/* ================= PIPELINE ================= */
+let pipeSel = null;
+function renderPipe() {
+  const L = [["awaited", "DRHP awaited", live.filter(q => q.bucket === "awaited")], ["drhp", "DRHP filed", live.filter(q => q.bucket === "drhp")], ["approved", "SEBI approved", live.filter(q => q.bucket === "approved")],
+    ["rhp", "RHP · record date", live.filter(q => q.recordDate)], ["done", "Listed 2026", Q.filter(q => q.bucket === "done").sort((a, b) => (b.listingDate || "").localeCompare(a.listingDate || ""))]];
+  $("#lanes").innerHTML = L.map(([k, t, rows]) => `<div class="pipe-lane"><div class="lh"><h2 style="font-size:13px">${t}</h2><span class="n mono">${rows.length}</span></div><div class="body">${rows.length ? rows.map(q => `<button class="chip ${q.bucket === "done" ? "cov" : covClass(q)}${pipeSel === q.name ? " cur" : ""}" data-row data-name="${esc(q.name)}">${esc(q.name)}${S.interest.has(q.name) ? '<span class="mk">★</span>' : ""}<small>${esc(q.ticker || q.parent)}${q.bucket === "done" ? ` · ${pct(q.listingGainPct, true)} · quota ${q.quotaPct != null ? q.quotaPct + "%" : "?"}` : q.sizeCr ? " · " + cr(q.sizeCr) : ""}${q.recordDate ? " · record " + fmtD(q.recordDate) : q.bucket === "approved" && q.lapse && days(q.lapse) <= 45 ? " · lapses " + fmtD(q.lapse) : q.stageDate && q.bucket !== "done" ? " · " + fmtD(q.stageDate) : ""}${held(q.parent) && q.bucket !== "done" ? " · held ✓" : ""}</small></button>`).join("") : `<div class="dim" style="font-size:12px;padding:6px 2px">${k === "rhp" ? "No record dates announced. Jio's arrives with its RHP." : "—"}</div>`}</div></div>`).join("");
+  $("#c-pipe").textContent = live.filter(q => (q.bucket === "approved" || q.bucket === "drhp") && q.quota !== false && !held(q.parent)).length || "";
+  const q = Q.find(z => z.name === pipeSel);
+  $("#pipeDetailWrap").hidden = !q;
+  if (q) $("#pipeDetail").innerHTML = `<div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><h2 style="font-size:18px">${esc(q.name)}</h2>${quotaPill(q)}${q.isNew ? '<span class="pill ok">new</span>' : ""}<span class="pill plan">${esc(q.stage)}</span><span class="dim" style="font-size:12px">confidence ${esc(q.confidence || "—")}</span></div>
+      <p class="prose" style="margin-top:8px">${esc(q.detail || "No detail captured yet.")}</p>
+      <dl class="kv"><dt>Parent</dt><dd>${esc(q.parentFull || q.parent)} <span class="mono dim">${esc(q.ticker || "")}</span></dd><dt>Stage date</dt><dd>${fmtDY(q.stageDate)}</dd><dt>Issue size</dt><dd>${q.sizeCr ? cr(q.sizeCr) : "TBA"}</dd><dt>Record date</dt><dd>${q.recordDate ? `<b class="down">${fmtDY(q.recordDate)}</b>` : "not announced"}</dd>${q.lapse ? `<dt>Approval lapses</dt><dd class="${days(q.lapse) <= 45 ? "amb" : ""}">${fmtDY(q.lapse)}</dd>` : ""}${q.sources && q.sources.length ? `<dt>Sources</dt><dd class="docs">${q.sources.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\//, "").slice(0, 50))}</a>`).join("")}</dd>` : ""}</dl></div>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end"><div style="display:flex;gap:6px"><button class="tg star${S.interest.has(q.name) ? " on" : ""}" data-star="${esc(q.name)}" title="Interested">★</button><button class="tg hold${held(q.parent) ? " on" : ""}" data-hold="${esc(q.parent)}" title="Holding the parent">✓</button></div>${sheets[q.name] ? `<button class="btn sm" data-sheet="${esc(q.name)}">Open sheet <kbd>⏎</kbd></button>` : ""}<button class="btn sm" data-close-detail>Close <kbd>esc</kbd></button></div>`;
+  // done + dropped
+  $("#done").innerHTML = `<thead><tr><th>Subsidiary</th><th>Parent</th><th>Record date</th><th>Listed</th><th class="r">Quota</th><th class="r">Listing gain</th></tr></thead><tbody>` + Q.filter(q => q.bucket === "done").sort((a, b) => (b.listingDate || "").localeCompare(a.listingDate || "")).map(q => `<tr><td class="nm">${esc(q.name)}</td><td>${esc(q.parent)}</td><td>${fmtDY(q.recordDate)}</td><td>${fmtDY(q.listingDate)}</td><td class="r num">${q.quotaPct != null ? q.quotaPct + "%" : "—"}</td><td class="r num ${cls(q.listingGainPct)}">${pct(q.listingGainPct, true)}</td></tr>`).join("") + "</tbody>";
+  $("#dropped").innerHTML = `<thead><tr><th>Subsidiary</th><th>Parent</th><th>Why</th><th>Quota</th></tr></thead><tbody>` + Q.filter(q => q.bucket === "dropped").map(q => `<tr><td class="nm">${esc(q.name)}</td><td>${esc(q.parent)}</td><td class="dim">${esc(q.stage)}${q.stageDate ? " · " + fmtDY(q.stageDate) : ""}${q.detail ? " — " + esc(q.detail) : ""}</td><td>${quotaPill(q)}</td></tr>`).join("") + "</tbody>";
+}
+function openPipe(name) { pipeSel = name; renderPipe(); const el = $("#pipeDetailWrap"); if (el && !el.hidden) el.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+$("#lanes").addEventListener("click", e => { const c = e.target.closest("[data-name]"); if (c) openPipe(pipeSel === c.dataset.name ? null : c.dataset.name); });
+$("#pipeDetail").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.star != null) { S.interest.has(b.dataset.star) ? S.interest.delete(b.dataset.star) : S.interest.add(b.dataset.star); save(); renderAll(); }
+  else if (b.dataset.hold != null) { toggleHold(b.dataset.hold); renderAll(); }
+  else if (b.dataset.sheet != null) openSheet(b.dataset.sheet);
+  else if (b.hasAttribute("data-close-detail")) { pipeSel = null; renderPipe(); }
+});
+
+/* ================= BOARD ================= */
+let bfilter = "all";
+const subBar = (l, v) => { const w = v == null ? 0 : Math.min(100, Math.log10(1 + v) / Math.log10(301) * 100); return `<div class="sb"><span class="l">${l}</span><span class="bar"><i class="${v == null ? "" : v < 1 ? "lo" : v >= 10 ? "hi" : ""}" style="width:${w}%"></i></span><span class="n num">${xx(v)}</span></div>`; };
+function boardRow(b) {
+  const isSme = /SME/i.test(b.type), g = expGain(b), c = lotCost(b), est = b.bandHigh != null && b.gmp != null ? b.bandHigh + b.gmp : null;
+  const when = b.status === "Upcoming" ? `Opens ${fmtD(b.open)}${b.close ? "–" + fmtD(b.close) : ""}` : b.status === "Open" ? `Closes ${fmtD(b.close)} · <span class="${days(b.close) <= 1 ? "down" : ""}">${rel(days(b.close))}</span>` : b.status === "Closed" ? `Lists ${fmtD(b.listing)} · ${rel(days(b.listing))}` : `Listed ${fmtD(b.listing)}`;
+  const band = b.bandLow != null && b.bandHigh != null && b.bandLow !== b.bandHigh ? `${inr(b.bandLow)}–${inr(b.bandHigh)}` : b.bandHigh != null ? inr(b.bandHigh) : "TBA";
+  return `<tr data-row data-name="${esc(b.name)}"><td><button class="tg star${S.interest.has(b.name) ? " on" : ""}" data-star="${esc(b.name)}">★</button></td>
+    <td><div class="nm"><button data-open="${esc(b.name)}">${esc(b.name)}</button></div><div class="dt">${esc(b.type)}${b.issueSizeCr ? " · " + cr(b.issueSizeCr) : ""}${b.shareholderQuota && b.shareholderQuota.parent ? ` · <span class="up">quota via ${esc(b.shareholderQuota.parent)}</span>` : ""}${b.status !== "Listed" ? " " + anchorChip(b.name) : ""}</div></td>
+    <td><span class="pill ${b.status.toLowerCase()}">${b.status}</span><div class="dt" style="margin-top:3px">${when}</div></td>
+    <td class="num">${band}<div class="dt">${b.lotSize ? b.lotSize + " sh" : "lot TBA"}</div></td>
+    <td class="r num">${c ? inr0(c) : "—"}</td>
+    <td class="r num">${b.status === "Listed" ? `<span class="${cls(b.listingGainPct)}">${inr(b.listingPrice)} · ${pct(b.listingGainPct, true)}</span>` : b.gmp != null ? `<span class="${cls(b.gmp)}">${inr(b.gmp)} · ${pct(b.gmpPct, true)}</span> ${b.gmpTrend === "up" ? "▲" : b.gmpTrend === "down" ? "▼" : ""}<div class="dt">est. ${inr(est)}</div>` : "—"}</td>
+    <td class="r num ${cls(g)}">${g != null && b.status !== "Listed" ? sgn(g) : isSme && b.sub && b.sub.total != null ? smeScoreCell(b) : "—"}</td>
+    <td style="min-width:200px">${b.sub && b.sub.total != null ? (isSme ? subBar("Total", b.sub.total) : subBar("QIB", b.sub.qib) + subBar("NII", b.sub.nii) + subBar("Retail", b.sub.retail) + subBar("Total", b.sub.total)) + `<div class="dt">${b.sub.retail != null ? "retail odds " + odds(b.sub.retail) : ""}${b.sub.asOf ? " · as of " + fmtD(b.sub.asOf) : ""}</div>` : `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`}</td></tr>`;
+}
+function renderBoard() {
+  const order = { Open: 0, Closed: 1, Upcoming: 2, Listed: 3 };
+  const srt = (a, b) => order[a.status] - order[b.status] || ((a.close || a.open || a.listing || "") > (b.close || b.open || b.listing || "") ? 1 : -1);
+  let rows = bfilter === "sme" ? sme.slice() : bfilter === "all" ? board.slice() : board.filter(b => b.status === bfilter);
+  rows.sort(srt);
+  $$("#bfilters button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.f === bfilter)));
+  $("#board").innerHTML = `<thead><tr><th></th><th>IPO</th><th>Status</th><th>Band · lot</th><th class="r">Funds / lot</th><th class="r">GMP → est.</th><th class="r">Exp. gain / lot</th><th>Subscription · odds</th></tr></thead><tbody>${rows.map(boardRow).join("") || `<tr><td colspan="8" class="empty">Nothing here.</td></tr>`}</tbody>`;
+  $("#c-board").textContent = board.filter(b => b.status === "Open").length || "";
+  const R = (DATA.recent || []).slice().sort((a, b) => (b.listingDate || "").localeCompare(a.listingDate || ""));
+  $("#recent").innerHTML = `<thead><tr><th>IPO</th><th>Listed</th><th class="r">Issue</th><th class="r">Listing</th><th class="r">Gain</th><th class="r">Day-1 close</th></tr></thead><tbody>` + R.map(r => `<tr><td class="nm">${esc(r.name)}</td><td>${fmtD(r.listingDate)}</td><td class="r num">${inr(r.issuePrice)}</td><td class="r num">${inr(r.listingPrice)}</td><td class="r num ${cls(r.gainPct)}">${pct(r.gainPct, true)}</td><td class="r num ${cls(r.closeDay1GainPct)}">${r.closeDay1 != null ? inr(r.closeDay1) + " · " + pct(r.closeDay1GainPct, true) : "—"}</td></tr>`).join("") + "</tbody>";
+  const O = DATA.offers || {}; $("#offersAsOf").textContent = O.asOf ? "as of " + fmtDY(O.asOf) : "";
+  const card = (title, rows, fn) => `<div class="card"><div class="ch">${title}<span class="sub">${rows.length}</span></div>${rows.length ? `<div class="tw"><table><tbody>${rows.map((o, i) => fn(o, i)).join("")}</tbody></table></div>` : `<div class="empty">None open.</div>`}</div>`;
+  const lnk = o => o.url ? `<a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.name)}</a>` : esc(o.name);
+  const det = (o, i, kind) => o.detail ? `<tr class="od" id="od-${kind}-${i}" hidden><td colspan="3"><dl class="kv">${Object.entries(o.detail).filter(([k, v]) => v).map(([k, v]) => `<dt>${esc({ why: "Why", math: "The maths", apply: "How to apply", flag: "Flag", note: "Note" }[k] || k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl></td></tr>` : "";
+  const st = o => ({ position: ["ok", "can position"], "open-holders": ["soon", "holders only"], live: ["ok", "live"], tba: ["plan", "dates TBA"], closed: ["plan", "closed"] }[o.status] || null);
+  const stp = o => { const s = st(o); return s ? `<span class="pill ${s[0]}">${s[1]}</span> ` : ""; };
+  $("#offers").innerHTML = card("Rights issues", O.rights || [], (o, i) => `<tr data-od="od-r-${i}" style="cursor:pointer"><td><div class="nm">${lnk(o)} ${o.detail ? '<span class="dim">▾</span>' : ""}</div><div class="dt">${stp(o)}${esc(o.deal || "")}</div></td><td class="num">${o.price != null ? inr(o.price) : ""}${o.terp ? `<div class="dt">TERP ${inr(o.terp)}${o.cmp ? " · CMP " + inr(o.cmp) : ""}</div>` : ""}</td><td class="dt" style="white-space:nowrap">${o.record ? "record " + fmtD(o.record) + "<br>" : ""}${o.open || o.close ? `${fmtD(o.open)}–${fmtD(o.close)}` : "dates TBA"}</td></tr>` + det(o, i, "r")) +
+    card("Buybacks", O.buybacks || [], (o, i) => `<tr data-od="od-b-${i}" style="cursor:pointer"><td><div class="nm">${lnk(o)} ${o.detail ? '<span class="dim">▾</span>' : ""}</div><div class="dt">${stp(o)}${esc(o.type || "")}${o.note ? " · " + esc(o.note) : ""}</div></td><td class="num">${o.price != null ? inr(o.price) : ""}</td><td class="dt" style="white-space:nowrap">${o.record && o.record !== "—" ? "record " + fmtD(o.record) + "<br>" : ""}${o.open || o.close ? `${fmtD(o.open)}–${fmtD(o.close)}` : ""}</td></tr>` + det(o, i, "b")) +
+    card("OFS", O.ofs || [], o => `<tr><td><div class="nm">${lnk(o)}</div><div class="dt">${esc(o.note || "")}</div></td></tr>`) +
+    card("NCDs", O.ncd || [], o => `<tr><td><div class="nm">${lnk(o)}</div><div class="dt">${esc(o.read || "")}</div></td><td class="num">${esc(o.rate || "")}<div class="dt">${esc(o.rating || "")}</div></td></tr>`);
+  renderPlanner();
+}
+$("#offers").addEventListener("click", e => { if (e.target.closest("a")) return; const r = e.target.closest("tr[data-od]"); if (!r) return; const d = document.getElementById(r.dataset.od); if (d) d.hidden = !d.hidden; });
+$("#bfilters").addEventListener("click", e => { const b = e.target.closest("button[data-f]"); if (b) { bfilter = b.dataset.f; renderBoard(); } });
+$("#board").addEventListener("click", e => { const s = e.target.closest("[data-star]"); if (s) { S.interest.has(s.dataset.star) ? S.interest.delete(s.dataset.star) : S.interest.add(s.dataset.star); save(); renderAll(); return; } const o = e.target.closest("[data-open]"); if (o) openSheet(o.dataset.open); });
+
+/* ---------- ₹2L quota planner ---------- */
+const CAT = { Retail: [1, 13, 200000], Shareholder: [1, null, 200000], "S-HNI": [14, 67, 1000000], "B-HNI": [68, null, null], Employee: [1, null, 500000] };
+let plan = { name: null, price: null, lot: null };
+function renderPlanner() {
+  const opts = live.filter(q => q.bucket !== "awaited" && q.quota !== false).map(q => ({ n: q.name, p: q.parent, kind: "q" })).concat(board.filter(b => b.status !== "Listed").map(b => ({ n: b.name, kind: "b" })));
+  if (!plan.name && opts[0]) plan.name = opts[0].n;
+  const q = Q.find(z => z.name === plan.name), b = findIssue(plan.name);
+  const price = plan.price != null ? plan.price : b && b.bandHigh != null ? b.bandHigh : null, lot = plan.lot != null ? plan.lot : b && b.lotSize ? b.lotSize : null;
+  const lotAmt = price && lot ? price * lot : null;
+  const maxL = cap => lotAmt ? Math.floor(cap / lotAmt) : null;
+  $("#planner").innerHTML = `<div class="form"><div><label class="lbl">IPO</label><select id="plName">${opts.map(o => `<option value="${esc(o.n)}"${o.n === plan.name ? " selected" : ""}>${esc(o.n)}${o.p ? " (" + esc(o.p) + ")" : ""}</option>`).join("")}</select></div><div><label class="lbl">Price ₹ (top of band)</label><input type="number" id="plPrice" value="${price != null ? price : ""}" placeholder="TBA — enter a guess"></div><div><label class="lbl">Lot size</label><input type="number" id="plLot" value="${lot != null ? lot : ""}" placeholder="TBA"></div></div>
+    ${lotAmt ? `<div class="out"><div class="o"><div class="v mono">${inr0(lotAmt)}</div><div class="l">funds per lot (${lot} sh)</div></div><div class="o"><div class="v mono">${maxL(200000)} lots</div><div class="l">max in Shareholder (₹2 lakh cap) = ${inr0(maxL(200000) * lotAmt)}</div></div><div class="o"><div class="v mono">${Math.min(13, maxL(200000))} lots</div><div class="l">max in Retail (≤ ₹2 lakh, 13 lots)</div></div><div class="o"><div class="v mono">${inr0(14 * lotAmt)}+</div><div class="l">S-HNI minimum (14 lots)</div></div></div>
+    <p class="dim" style="font-size:12px;margin-top:10px">${q ? `Hold ≥1 ${esc(q.parent)} share on the record date to use the Shareholder category <b>and</b> Retail/HNI in parallel — two shots at allotment, one PAN. ` : ""}Funds blocked in both categories if you apply in both.</p>` : `<div class="empty">Enter a price and lot size to plan.${q ? " " + esc(q.name) + "'s band comes with the RHP." : ""}</div>`}`;
+  $("#plName").onchange = e => { plan = { name: e.target.value, price: null, lot: null }; renderPlanner(); };
+  $("#plPrice").oninput = e => { plan.price = +e.target.value || null; renderPlanner(); $("#plPrice").focus(); };
+  $("#plLot").oninput = e => { plan.lot = +e.target.value || null; renderPlanner(); $("#plLot").focus(); };
+}
+
+/* ---------- charts ---------- */
+let charts = {};
+const tok = n => getComputedStyle(root).getPropertyValue(n).trim();
+function drawCharts() {
+  if (typeof Chart === "undefined" || $("#s-board").hidden) return;
+  Object.values(charts).forEach(c => c.destroy()); charts = {};
+  const grid = tok("--chart-grid"), text = tok("--chart-text"), up = tok("--up"), down = tok("--down"), acc = tok("--accent");
+  const base = { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: text, boxWidth: 10 } } }, scales: { x: { ticks: { color: text }, grid: { color: grid } }, y: { ticks: { color: text }, grid: { color: grid } } } };
+  const F = DATA.flows || {}, H = (F.history || []).slice(-20);
+  $("#flowsSub").textContent = F.latest ? `latest ${fmtD(F.latest.date)}` : "";
+  charts.f = new Chart($("#flowsChart"), { type: "bar", data: { labels: H.map(r => fmtD(r[0])), datasets: [{ label: "FII net ₹Cr", data: H.map(r => r[1]), backgroundColor: H.map(r => r[1] >= 0 ? up : down), borderRadius: 3, maxBarThickness: 18 }, { label: "DII net ₹Cr", data: H.map(r => r[2]), backgroundColor: acc + "99", borderRadius: 3, maxBarThickness: 18 }] }, options: base });
+  const R = (DATA.recent || []).filter(r => r.listingPrice != null).slice(0, 12).reverse();
+  charts.r = new Chart($("#recentChart"), { type: "bar", data: { labels: R.map(r => r.name.length > 16 ? r.name.slice(0, 15) + "…" : r.name), datasets: [{ label: "Issue ₹", data: R.map(r => r.issuePrice), backgroundColor: grid, borderRadius: 3, maxBarThickness: 16 }, { label: "Listing ₹", data: R.map(r => r.listingPrice), backgroundColor: R.map(r => r.gainPct >= 0 ? up : down), borderRadius: 3, maxBarThickness: 16 }] },
+    options: { ...base, plugins: { ...base.plugins, tooltip: { callbacks: { afterBody: it => "Gain " + pct(R[it[0].dataIndex].gainPct, true) } } }, scales: { x: { ticks: { color: text, autoSkip: false, maxRotation: 45, minRotation: 30, font: { size: 10 } }, grid: { display: false } }, y: { ticks: { color: text }, grid: { color: grid } } } } });
+}
+
+/* ================= RESEARCH ================= */
+function renderResearchSelect() {
+  const sel = $("#rsel"), opts = [];
+  const pipeNames = live.map(q => q.name).filter(n => sheets[n]);
+  if (pipeNames.length) opts.push(`<optgroup label="Quota pipeline">${pipeNames.map(n => `<option value="q:${esc(n)}">${esc(n)} — ${esc(Q.find(z => z.name === n).parent)}</option>`).join("")}</optgroup>`);
+  const curNames = Object.keys(current);
+  if (curNames.length) opts.push(`<optgroup label="Current mainboard IPOs">${curNames.map(n => `<option value="c:${esc(n)}">${esc(n)}${findIssue(n) ? " · " + findIssue(n).status : ""}</option>`).join("")}</optgroup>`);
+  sel.innerHTML = opts.join("");
+  const saved = store.get("ipo-research-sel", null);
+  if (saved && [...sel.options].some(o => o.value === saved)) sel.value = saved;
+  renderSheet();
+}
+$("#rsel").onchange = () => { store.set("ipo-research-sel", $("#rsel").value); renderSheet(); };
+function openSheet(name) { const sel = $("#rsel"); const v = sheets[name] ? "q:" + name : current[name] ? "c:" + name : null; if (!v) { toast("No sheet for " + name + " yet"); return; } sel.value = v; store.set("ipo-research-sel", v); show("research"); renderSheet(); }
+const li = a => (a && a.length) ? `<ul class="plain">${a.map(s => `<li>${esc(s)}</li>`).join("")}</ul>` : `<div class="dim">—</div>`;
+const kvs = pairs => `<dl class="kv">${pairs.filter(p => p[1] != null && p[1] !== "").map(([k, v]) => `<dt>${esc(k)}</dt><dd>${v}</dd>`).join("")}</dl>`;
+function renderSheet() {
+  const v = $("#rsel").value || "", kind = v.slice(0, 1), name = v.slice(2), el = $("#sheet");
+  if (!name) { el.innerHTML = `<div class="card empty">No sheets available.</div>`; return; }
+  if (kind === "q") {
+    const s = sheets[name], q = Q.find(z => z.name === name) || {}, t = s.timeline || {}, is = s.issue || {}, val = s.valuation || {};
+    el.innerHTML = `<div class="sheet"><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><h3>${esc(name)}</h3>${quotaPill(q)}<button class="tg star${S.interest.has(name) ? " on" : ""}" data-star="${esc(name)}">★</button><button class="tg hold${held(q.parent) ? " on" : ""}" data-hold="${esc(q.parent)}">✓</button></div><div class="meta">${esc(s.parent)} · <span class="mono">${esc(s.parentTicker || "")}</span>${s.parentPrice && s.parentPrice.value ? ` · parent ${inr(s.parentPrice.value)} (${fmtD(s.parentPrice.asOf)})` : ""} · ${esc(s.status || q.stage || "")}</div>
+      <div class="grid g2" style="margin-top:16px">
+        <div class="card"><div class="ch">Timeline</div><div class="cb">${kvs([["DRHP", fmtDY(t.drhp)], ["SEBI approval", fmtDY(t.sebiApproval)], ["RHP", t.rhp ? fmtDY(t.rhp) : "awaited"], ["Expected window", esc(t.expectedWindow) || "—"], ["Record date", t.recordDate ? `<b class="down">${fmtDY(t.recordDate)}</b>` : "not announced"], ["Approval lapses", q.lapse ? fmtDY(q.lapse) : null]])}</div></div>
+        <div class="card"><div class="ch">Issue structure</div><div class="cb">${kvs([["Total", is.totalCr != null ? cr(is.totalCr) : "TBA"], ["Fresh / OFS", is.freshCr != null || is.ofsCr != null ? `${cr(is.freshCr)} / ${cr(is.ofsCr)}` : null], ["Sellers", is.sellers && is.sellers.length ? esc(is.sellers.join(", ")) : null], ["Shareholder quota", is.shareholderQuota ? esc(is.shareholderQuota) : `<span class="dim">unverified</span>`], ["Employee quota", esc(is.employeeQuota)], ["Allocation", esc(is.allocation)], ["Objects", esc(is.objects)], ["Lead managers", esc(is.leadManagers)]])}</div></div>
+        <div class="card"><div class="ch">Parent logistics</div><div class="cb prose">${esc(s.logistics) || "<span class='dim'>—</span>"}</div></div>
+        <div class="card"><div class="ch">Business &amp; metrics</div><div class="cb prose">${esc(s.business) || "<span class='dim'>Not yet researched — the daily task fills this in once the row is approved or DRHP-filed.</span>"}${s.metrics && s.metrics.length ? "<div style='margin-top:8px'>" + kvs(s.metrics.map(m => [m[0], esc(m[1])])) + "</div>" : ""}</div></div>
+      </div>
+      <div class="sec grid g2">
+        <div class="card"><div class="ch">Financials</div>${s.financials && s.financials.length ? `<div class="tw"><table><thead><tr><th>FY</th><th class="r">Revenue</th><th class="r">PAT</th><th class="r">Margin</th><th class="r">RoNW</th><th>Note</th></tr></thead><tbody>${s.financials.map(f => `<tr><td>${esc(f.fy)}</td><td class="r num">${f.revenue != null ? cr(f.revenue) : "—"}</td><td class="r num ${cls(f.pat)}">${f.pat != null ? cr(f.pat) : "—"}</td><td class="r num">${f.margin != null ? f.margin + "%" : "—"}</td><td class="r num">${f.ronw != null ? f.ronw + "%" : "—"}</td><td class="dt">${esc(f.note || "")}</td></tr>`).join("")}</tbody></table></div>` : `<div class="empty">No financials captured yet.</div>`}</div>
+        <div class="card"><div class="ch">Valuation</div><div class="cb">${kvs([["Implied mcap", val.impliedMcapCr != null ? cr(val.impliedMcapCr) + (val.impliedMcapNote ? ` <span class="dt">${esc(val.impliedMcapNote)}</span>` : "") : null], ["Implied P/E", val.impliedPE != null ? val.impliedPE + "x" + (val.impliedPENote ? ` <span class="dt">${esc(val.impliedPENote)}</span>` : "") : null], ["Implied P/B", val.impliedPB != null ? val.impliedPB + "x" : null]])}${val.peers && val.peers.length ? `<div class="chart-wrap" style="height:160px;margin-top:8px"><canvas id="peerChart"></canvas></div>` : `<div class="dim" style="margin-top:6px">Peer multiples not yet captured.</div>`}</div></div>
+      </div>
+      <div class="sec grid g2"><div class="card"><div class="ch up">For</div><div class="cb">${li(s.bull)}</div></div><div class="card"><div class="ch down">Against</div><div class="cb">${li(s.bear)}</div></div></div>
+      <div class="sec grid g2"><div class="card"><div class="ch">Flags</div><div class="cb">${s.flags && s.flags.length ? s.flags.map(f => `<div class="flag">${esc(f)}</div>`).join("") : "<span class='dim'>—</span>"}</div></div><div class="card"><div class="ch">Street view</div><div class="cb">${s.street && s.street.length ? `<table><tbody>${s.street.map(v => `<tr><td class="nm">${esc(v.who)}</td><td class="dt">${fmtD(v.date)}</td><td>${esc(v.view)}</td></tr>`).join("")}</tbody></table>` : "<span class='dim'>No broker views captured yet.</span>"}</div></div></div>
+      <div class="sec docs">${(s.sources || []).map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\//, "").slice(0, 60))}</a>`).join("") || "<span class='dim' style='font-size:12px'>Source links are attached on the next refresh.</span>"}</div></div>`;
+    if (val.peers && val.peers.length && typeof Chart !== "undefined") { if (charts.p) charts.p.destroy(); charts.p = new Chart($("#peerChart"), { type: "bar", data: { labels: val.peers.map(p => p[0]), datasets: [{ label: val.peers[0][2] || "multiple", data: val.peers.map(p => p[1]), backgroundColor: tok("--accent") + "99", borderRadius: 3 }] }, options: { indexAxis: "y", responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: tok("--chart-text") }, grid: { color: tok("--chart-grid") } }, y: { ticks: { color: tok("--chart-text") }, grid: { display: false } } } } }); }
+    return;
+  }
+  const c = current[name] || {}, r = c.research || {}, rec = c.recs || {}, sh = c.sheet || {}, b = findIssue(name), fin = r.financials && r.financials.rows ? r.financials.rows : [];
+  const g = b ? expGain(b) : null, lc = b ? lotCost(b) : null;
+  el.innerHTML = `<div class="sheet"><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><h3>${esc(name)}</h3>${b ? `<span class="pill ${b.status.toLowerCase()}">${b.status}</span>` : ""}<button class="tg star${S.interest.has(name) ? " on" : ""}" data-star="${esc(name)}">★</button></div><div class="meta">${b ? `${esc(b.type)} · ${fmtD(b.open)}–${fmtD(b.close)} · lists ${fmtD(b.listing)} · band ${b.bandLow != null ? inr(b.bandLow) + "–" : ""}${inr(b.bandHigh)} · GMP ${b.gmp != null ? inr(b.gmp) + " (" + pct(b.gmpPct, true) + ")" : "—"}` : esc(r.status || "")}</div>
+    ${b && lc ? `<div class="kpis" style="margin-top:14px"><div class="card kpi"><div class="lbl">Funds per lot</div><div class="v mono">${inr0(lc)}</div><div class="d">${b.lotSize} shares at ${inr(b.bandHigh)}</div></div><div class="card kpi"><div class="lbl">Expected gain / lot</div><div class="v mono ${cls(g)}">${sgn(g)}</div><div class="d">at GMP ${inr(b.gmp)}; grey market, not a promise</div></div><div class="card kpi"><div class="lbl">Retail odds</div><div class="v mono">${b.sub && b.sub.retail != null ? odds(b.sub.retail) : "—"}</div><div class="d">${b.sub && b.sub.retail != null ? "retail book " + xx(b.sub.retail) : "book not open"}</div></div><div class="card kpi"><div class="lbl">Retail max</div><div class="v mono">${Math.min(13, Math.floor(200000 / lc))} lots</div><div class="d">${inr0(Math.min(13, Math.floor(200000 / lc)) * lc)} · S-HNI from ${inr0(14 * lc)}</div></div>${(() => { const q = anchorScore(anchorFor(name)); return q.s == null ? "" : `<div class="card kpi"><div class="lbl">Anchor book</div><div class="v mono ${q.c === "hi" ? "up" : q.c === "mid" ? "amb" : "down"}">${q.s}</div><div class="d">${q.v} · ${anchorFor(name).amountCr ? cr(anchorFor(name).amountCr) : ""}</div></div>`; })()}</div>` : ""}
+    ${rec.consensus ? `<div class="card" style="margin-top:14px;padding:12px 18px;border-color:var(--amber)"><span class="lbl amb">Consensus</span> &nbsp;${esc(rec.consensus)}</div>` : ""}
+    <div class="grid g2" style="margin-top:14px">
+      <div class="card"><div class="ch">Issue sheet</div><div class="cb">${sh.kv ? kvs(sh.kv.filter(p => !/^⚠/.test(p[0])).map(p => [p[0], esc(p[1])])) : "<span class='dim'>—</span>"}</div></div>
+      <div class="card"><div class="ch">Demand ${r.demand && r.demand.asOf ? `<span class="sub">${esc(r.demand.asOf)}</span>` : ""}</div><div class="cb">${r.demand && r.demand.sub && r.demand.sub.length ? r.demand.sub.map(s => subBar(s[0].replace(" (HNI)", ""), s[1])).join("") : "<span class='dim'>Not open yet.</span>"}${r.demand && r.demand.anchor ? `<div class="prose" style="margin-top:8px"><b>Anchor:</b> ${esc(r.demand.anchor)}</div>` : ""}${r.demand && r.demand.read ? `<div class="prose" style="margin-top:8px">${esc(r.demand.read)}</div>` : ""}</div></div>
+      <div class="card"><div class="ch">Financials</div>${fin.length ? `<div class="tw"><table><thead><tr><th>FY</th><th class="r">Revenue ₹Cr</th><th class="r">PAT ₹Cr</th></tr></thead><tbody>${fin.map(f => `<tr><td>${esc(f[0])}</td><td class="r num">${f[1] != null ? f[1] : "—"}</td><td class="r num ${cls(f[2])}">${f[2] != null ? f[2] : "—"}</td></tr>`).join("")}</tbody></table></div>` : ""}${r.financials && r.financials.read ? `<div class="cb prose">${esc(r.financials.read)}</div>` : ""}</div>
+      <div class="card"><div class="ch">Valuation</div><div class="cb">${r.valuation && r.valuation.own ? kvs([["P/E", r.valuation.own.pe != null ? r.valuation.own.pe + "x" : null], ["RoNW", r.valuation.own.ronw != null ? r.valuation.own.ronw + "%" : null], ["EPS", r.valuation.own.eps != null ? inr(r.valuation.own.eps) : null]]) : ""}${r.valuation && r.valuation.peers && r.valuation.peers.length ? `<table style="margin-top:6px"><tbody>${r.valuation.peers.map(p => `<tr><td>${esc(p[0])}</td><td class="r num">${esc(p[1])}${typeof p[1] === "number" ? "x" : ""}</td></tr>`).join("")}</tbody></table>` : ""}${r.valuation && r.valuation.read ? `<div class="prose" style="margin-top:8px">${esc(r.valuation.read)}</div>` : ""}</div></div>
+    </div>
+    <div class="sec grid g2"><div class="card"><div class="ch up">For</div><div class="cb">${li(rec.claude && rec.claude.bull)}</div></div><div class="card"><div class="ch down">Against</div><div class="cb">${li(rec.claude && rec.claude.bear)}</div></div></div>
+    <div class="sec grid g2"><div class="card"><div class="ch">Governance flags</div><div class="cb">${r.governance && r.governance.flags && r.governance.flags.length ? r.governance.flags.map(f => `<div class="flag">${esc(Array.isArray(f) ? f[1] : f)}</div>`).join("") : "<span class='dim'>—</span>"}</div></div><div class="card"><div class="ch">Street view</div><div class="cb">${rec.experts && rec.experts.length ? `<table><tbody>${rec.experts.map(e => `<tr><td class="nm">${esc(e[0])}</td><td>${esc(e[1])}<div class="dt">${esc(e[2] || "")}</div></td></tr>`).join("")}</tbody></table>` : "<span class='dim'>—</span>"}</div></div></div>
+    ${r.company && r.company.about ? `<div class="sec card"><div class="ch">Company</div><div class="cb prose">${esc(r.company.about)}${r.company.facts ? "<div style='margin-top:8px'>" + kvs(r.company.facts.map(f => [f[0], esc(f[1])])) + "</div>" : ""}</div></div>` : ""}
+    ${r.allotment ? `<div class="sec card"><div class="ch">Allotment</div><div class="cb prose">${esc(r.allotment)}</div></div>` : ""}
+    ${rec.claude && rec.claude.take ? `<div class="sec card"><div class="ch">Synthesis</div><div class="cb prose">${esc(rec.claude.take)}</div></div>` : ""}
+    <div class="sec docs">${(r.docs || sh.docs || []).map(dd => `<a href="${esc(dd[1])}" target="_blank" rel="noopener">${esc(dd[0])}</a>`).join("")}</div></div>`;
+}
+$("#sheet").addEventListener("click", e => { const s = e.target.closest("[data-star]"); if (s) { S.interest.has(s.dataset.star) ? S.interest.delete(s.dataset.star) : S.interest.add(s.dataset.star); save(); renderAll(); } const h = e.target.closest("[data-hold]"); if (h) { toggleHold(h.dataset.hold); renderAll(); } });
+
+/* ================= BOOK ================= */
+function markPrice(name) { const ph = (DATA.priceHistory || {})[name]; if (ph && ph.length) return ph[ph.length - 1][1]; const b = findIssue(name); return b ? b.listingPrice : null; }
+function parentPrice(p) { const s = Object.values(sheets).find(s => s.parent === p && s.parentPrice && s.parentPrice.value); return s ? s.parentPrice.value : null; }
+function renderBook() {
+  // holdings
+  const pm = {}; Q.forEach(q => (pm[q.parent] = pm[q.parent] || []).push(q));
+  $("#parentNames").innerHTML = Object.keys(pm).sort().map(p => `<option value="${esc(p)}">`).join("");
+  let hCost = 0, hVal = 0, hKnown = true;
+  const hrows = S.holdings.map((h, i) => { const p = holdName(h), o = typeof h === "object" ? h : {}, subs = (pm[p] || []).filter(q => !["done", "dropped"].includes(q.bucket)), mp = parentPrice(p), cost = o.qty && o.price ? o.qty * o.price : null, val = o.qty && mp ? o.qty * mp : null; if (cost) hCost += cost; if (val) hVal += val; else if (cost) hKnown = false;
+    return `<tr data-row data-name="${esc(p)}"><td><div class="nm">${esc(p)}</div><div class="dt">${subs.length ? subs.map(q => `${esc(q.name)} · ${esc(q.stage)}`).join("<br>") : "no live subsidiary IPO"}</div></td><td class="num">${o.qty ? o.qty + " sh" : "✓"}</td><td class="r num">${o.price ? inr(o.price) : "—"}</td><td class="r num">${mp ? inr(mp) : "—"}</td><td class="r num ${cls(val != null && cost != null ? val - cost : null)}">${val != null && cost != null ? sgn(val - cost) : "—"}</td><td><button class="x" data-delhold="${i}">✕</button></td></tr>`; });
+  $("#holdings").innerHTML = `<thead><tr><th>Parent</th><th>Qty</th><th class="r">Bought</th><th class="r">Last</th><th class="r">P&amp;L</th><th></th></tr></thead><tbody>${hrows.join("") || `<tr><td colspan="6" class="empty">Tick ✓ on a pipeline name, or log qty and price here.</td></tr>`}</tbody>`;
+  // apps
+  $("#ipoNames").innerHTML = allIssues().map(b => `<option value="${esc(b.name)}">`).join("");
+  let aCost = 0, aPnl = 0;
+  const arows = S.apps.map((a, i) => { const b = findIssue(a.name) || {}, lot = (DATA.lot || {})[a.name] || {}, shares = a.lots * (lot.shares || b.lotSize || 0), cost = shares * a.price, mark = a.status === "Sold" ? a.sold : markPrice(a.name), pnl = ["Not allotted", "Applied"].includes(a.status) ? null : (mark != null && shares ? (mark - a.price) * shares : null); if (a.status === "Applied") aCost += cost; if (pnl != null) aPnl += pnl;
+    return `<tr data-row data-name="${esc(a.name)}"><td><div class="nm">${esc(a.name)}</div><div class="dt">${esc(a.cat)}</div></td><td class="num">${a.lots} lot${a.lots > 1 ? "s" : ""}${shares ? `<div class="dt">${shares} sh</div>` : ""}</td><td class="r num">${inr(a.price)}<div class="dt">${shares ? inr0(cost) : ""}</div></td><td>${esc(a.status)}</td><td class="r num">${mark != null ? inr(mark) : "—"}</td><td class="r num ${cls(pnl)}">${pnl != null ? sgn(pnl) : "—"}</td><td><button class="x" data-delapp="${i}">✕</button></td></tr>`; });
+  $("#apps").innerHTML = `<thead><tr><th>IPO</th><th>Qty</th><th class="r">Price · cost</th><th>Status</th><th class="r">Mark</th><th class="r">P&amp;L</th><th></th></tr></thead><tbody>${arows.join("") || `<tr><td colspan="7" class="empty">No applications logged.</td></tr>`}</tbody>`;
+  $("#totals").innerHTML = `<div><div class="v mono ${cls(aPnl)}">${S.apps.length ? sgn(aPnl) : "—"}</div><div class="l">IPO P&amp;L (allotted + sold)</div></div><div><div class="v mono">${inr0(aCost)}</div><div class="l">funds blocked in open applications</div></div><div><div class="v mono ${cls(hVal - hCost)}">${hCost ? (hKnown ? sgn(hVal - hCost) : "—") : "—"}</div><div class="l">parent shares P&amp;L${hCost && !hKnown ? " (no parent price in data yet)" : ""}</div></div><div><div class="v mono">${heldNames().length}</div><div class="l">parents held · ${live.filter(q => held(q.parent) && q.bucket !== "awaited").length} live names covered</div></div>`;
+  // done/snoozed + tasks
+  const all = buildQueue(); const dn = all.filter(p => isDone(p.id));
+  $("#doneList").innerHTML = dn.length ? dn.map(p => { const sn = [...S.done].find(k => k.startsWith(p.id + "@")); return `<div class="task done"><input type="checkbox" checked data-undo="${esc(p.id)}"><div class="t">${esc(p.ttl)}<small>${sn ? "snoozed until " + fmtD(sn.split("@")[1]) : "done"}</small></div><span></span></div>`; }).join("") : `<div class="empty">Nothing done or snoozed.</div>`;
+  $("#tasks").innerHTML = S.tasksCustom.length ? S.tasksCustom.map(t => `<div class="task${S.done.has(t.id) ? " done" : ""}"><input type="checkbox" data-id="${esc(t.id)}" ${S.done.has(t.id) ? "checked" : ""}><div class="t">${esc(t.text)}<small>added ${fmtD(t.added)}</small></div><button class="x" data-del="${esc(t.id)}">✕</button></div>`).join("") : `<div class="empty">No custom tasks.</div>`;
+  $("#c-book").textContent = S.tasksCustom.filter(t => !S.done.has(t.id)).length || "";
+}
+function bounds() {
+  const n = $("#apName").value, cat = $("#apCat").value, b = findIssue(n), c = CAT[cat];
+  if (!b || !c) { $("#apBounds").textContent = ""; return; }
+  const lc = lotCost(b); if (!lc) { $("#apBounds").textContent = "Lot size or band not yet known for this IPO."; return; }
+  const maxLots = c[2] ? Math.min(c[1] || 999, Math.floor(c[2] / lc)) : c[1];
+  $("#apBounds").textContent = `${cat}: ${c[0]} lot = ${inr0(c[0] * lc)} minimum${maxLots ? `; up to ${maxLots} lots = ${inr0(maxLots * lc)}` : ""}${cat === "Shareholder" ? " (₹2 lakh cap; one application per PAN per category)" : ""}.`;
+  if (!$("#apPrice").value && b.bandHigh) $("#apPrice").value = b.bandHigh;
+}
+["#apName", "#apCat"].forEach(s => $(s).addEventListener("input", bounds));
+$("#apAdd").onclick = () => { const n = $("#apName").value.trim(); if (!n) return; S.apps.push({ name: n, cat: $("#apCat").value, lots: +$("#apLots").value || 1, price: +$("#apPrice").value || 0, status: $("#apStatus").value, sold: +$("#apSold").value || null, added: iso(today) }); save(); $("#apName").value = ""; $("#apPrice").value = ""; $("#apSold").value = ""; toast("Application logged"); renderAll(); };
+$("#hAdd").onclick = () => { const p = $("#hName").value.trim(); if (!p) return; S.holdings = S.holdings.filter(h => holdName(h) !== p); S.holdings.push({ parent: p, qty: +$("#hQty").value || 1, price: +$("#hPrice").value || null, date: iso(today) }); save(); $("#hName").value = ""; $("#hPrice").value = ""; toast("Holding logged"); renderAll(); };
+$("#taskAdd").onclick = () => { const t = $("#taskIn").value.trim(); if (!t) return; S.tasksCustom.push({ id: "c:" + Date.now(), text: t, added: iso(today) }); $("#taskIn").value = ""; save(); renderBook(); };
+$("#taskIn").addEventListener("keydown", e => { if (e.key === "Enter") $("#taskAdd").click(); });
+$("#s-book").addEventListener("change", e => { const cb = e.target.closest("input[type=checkbox]"); if (!cb) return; if (cb.dataset.undo) { S.done.delete(cb.dataset.undo); [...S.done].filter(k => k.startsWith(cb.dataset.undo + "@")).forEach(k => S.done.delete(k)); } else if (cb.dataset.id) { cb.checked ? S.done.add(cb.dataset.id) : S.done.delete(cb.dataset.id); } save(); renderAll(); });
+$("#s-book").addEventListener("click", e => { const t = e.target.closest("button"); if (!t) return; if (t.dataset.del) { S.tasksCustom = S.tasksCustom.filter(x => x.id !== t.dataset.del); } else if (t.dataset.delapp != null) S.apps.splice(+t.dataset.delapp, 1); else if (t.dataset.delhold != null) S.holdings.splice(+t.dataset.delhold, 1); else return; save(); renderAll(); });
+
+
+/* ================= MARKET ================= */
+function smeScore(r) {
+  const s = r.sub || {}; if (s.qib == null && s.total == null) return null;
+  const q = s.qib != null ? s.qib : s.total, ret = s.retail != null ? s.retail : s.total;
+  const s1 = q < 0.5 ? 10 : q < 1 ? 30 : q < 5 ? 50 : q < 20 ? 65 : q < 60 ? 80 : q < 150 ? 90 : 95;
+  const ratio = q / Math.max(ret || 0.1, 0.1); const s2 = ratio >= 1 ? 90 : ratio >= 0.5 ? 75 : ratio >= 0.1 ? 50 : 20;
+  let s3 = r.gmpPct == null ? 60 : r.gmpPct <= 25 ? 80 : r.gmpPct <= 50 ? 60 : 30; if (q > 50) s3 = Math.min(100, s3 + 15); if (q < 1) s3 = Math.max(0, s3 - 15);
+  return Math.round((s1 + s2 + s3) / 3);
+}
+const smeVerdict = sc => sc == null ? ["pending", "na"] : sc >= 75 ? ["institution-backed", "hi"] : sc >= 55 ? ["mixed signals", "mid"] : ["retail froth", "lo"];
+const smeScoreCell = r => { const sc = smeScore(r), [v, c] = smeVerdict(sc); return `<span class="score ${c}" title="${v}">${sc == null ? "—" : sc}</span>`; };
+const norm2 = s => (s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+const sameName = (x, y) => { const a = norm2((x || "").replace(/\(.*?\)/g, "").split(" ").slice(0, 2).join(" ")), b = norm2((y || "").replace(/\(.*?\)/g, "").split(" ").slice(0, 2).join(" ")); return a && b && (a.startsWith(b) || b.startsWith(a)); };
+const anchorFor = name => (DATA.anchors || []).find(a => sameName(a.name, name));
+function anchorScore(a) {
+  if (!a || !a.investors || !a.investors.length) return { s: null, c: "na", v: "no book" };
+  const tot = a.investors.reduce((s, x) => s + (x.pct || 0), 0), unk = a.investors.filter(x => x.pct == null).length;
+  const share = x => x.pct != null ? x.pct : (100 - tot) / Math.max(1, unk);
+  const tt = a.topTierShare != null ? a.topTierShare : a.investors.filter(x => /MF|Insurance|Pension/.test(x.cat || "")).reduce((s, x) => s + share(x), 0);
+  const cov = a.amountCr && a.issueSizeCr ? Math.min(1, (a.amountCr / a.issueSizeCr) / 0.3) : 0.5, br = Math.min(1, (a.count || a.investors.length) / 12);
+  const s = Math.round(0.6 * Math.min(100, tt) + 25 * cov + 15 * br);
+  return { s, c: s >= 70 ? "hi" : s >= 45 ? "mid" : "lo", v: s >= 70 ? "institution-backed" : s >= 45 ? "mixed book" : "weak book" };
+}
+const watchNames = () => { const I = DATA.investors || {}, l = store.get("ipo-investors", { add: [], remove: [] }) || {}; return [...new Set([...(I.watchlist || (I.portfolios || []).map(p => p.name)), ...(l.add || [])])].filter(n => !(l.remove || []).includes(n)); };
+const anchorChip = name => { const q = anchorScore(anchorFor(name)); return q.s == null ? "" : `<span class="aq ${q.c}" title="anchor-book quality: ${q.v}">anchors ${q.s}</span>`; };
+let mcharts = {}, smeSort = { k: "status", dir: 1 };
+$("#smeScreen").addEventListener("click", e => { const o = e.target.closest("[data-open]"); if (o) { openSheet(o.dataset.open); return; } const th = e.target.closest("th[data-sort]"); if (!th) return; smeSort = smeSort.k === th.dataset.sort ? { k: th.dataset.sort, dir: -smeSort.dir } : { k: th.dataset.sort, dir: 1 }; renderMarket(); });
+function renderMarket() {
+  const grid = tok("--chart-grid"), text = tok("--chart-text"), up = tok("--up"), down = tok("--down"), acc = tok("--accent"), lav = tok("--lav");
+  // temperature
+  const LP = (DATA.listedPerf || []).filter(r => r.issue && r.listing != null);
+  const gain = r => (r.listing - r.issue) / r.issue * 100, pred = r => r.gmpImplied != null ? (r.gmpImplied - r.issue) / r.issue * 100 : null;
+  const avg = xs => xs.length ? xs.reduce((s, v) => s + v, 0) / xs.length : 0;
+  const last10 = LP.slice(0, 10).map(gain), prev10 = LP.slice(10, 20).map(gain), last20 = LP.slice(0, 20);
+  const a10 = avg(last10), p10 = avg(prev10), trend = a10 - p10, hit = last20.length ? Math.round(last20.filter(r => gain(r) > 0).length / last20.length * 100) : 0;
+  const errs = last20.filter(r => pred(r) != null).map(r => Math.abs(gain(r) - pred(r))), gmpErr = avg(errs);
+  const best = last20.slice().sort((x, y) => gain(y) - gain(x))[0], worst = last20.slice().sort((x, y) => gain(x) - gain(y))[0];
+  $("#mtKpis").innerHTML = [["Avg gain · last 10 listings", pct(a10, true), `${LP.length ? fmtD(null) && "" : ""}mainboard, by listing date`, cls(a10)], ["vs prior 10", (trend > 3 ? "warming ▲" : trend < -3 ? "cooling ▼" : "steady →"), `prior 10 averaged ${pct(p10, true)}`, trend > 3 ? "up" : trend < -3 ? "down" : ""], ["Hit rate · last 20", hit + "%", "listed above issue price", hit >= 60 ? "up" : hit >= 40 ? "amb" : "down"], ["GMP miss · avg", "±" + gmpErr.toFixed(1) + "pp", "grey market vs actual listing", gmpErr <= 6 ? "up" : gmpErr <= 10 ? "amb" : "down"]]
+    .map(([l, v, dd, c]) => `<div class="card kpi"><div class="lbl">${l}</div><div class="v mono ${c}">${v}</div><div class="d">${esc(dd)}</div></div>`).join("");
+  $("#mtRead").innerHTML = `The IPO market is <b>${trend > 3 ? "warming" : trend < -3 ? "cooling" : "steady"}</b>: the last 10 listings averaged ${pct(a10, true)} against ${pct(p10, true)} for the 10 before, and ${hit}% of the last 20 listed above issue. GMP has missed the actual pop by ±${gmpErr.toFixed(1)} points on average — ${gmpErr <= 6 ? "a usable guide" : gmpErr <= 10 ? "directionally right, size it down" : "not to be trusted for sizing"}. Best of the last 20: <b>${best ? esc(best.name) : "—"}</b> ${best ? pct(gain(best), true) : ""}; worst: <b>${worst ? esc(worst.name) : "—"}</b> ${worst ? pct(gain(worst), true) : ""}.`;
+  Object.values(mcharts).forEach(c => c.destroy()); mcharts = {};
+  if (typeof Chart !== "undefined") {
+    const seq = LP.slice(0, 24).reverse(), sg = seq.map(gain), roll = sg.map((_, i) => +avg(sg.slice(Math.max(0, i - 4), i + 1)).toFixed(1));
+    mcharts.mt = new Chart($("#mtChart"), { data: { labels: seq.map(r => r.name.length > 14 ? r.name.slice(0, 13) + "…" : r.name), datasets: [{ type: "bar", label: "Listing gain %", data: sg.map(v => +v.toFixed(1)), backgroundColor: sg.map(v => v >= 0 ? up : down), borderRadius: 3, maxBarThickness: 22, order: 2 }, { type: "line", label: "5-listing trend", data: roll, borderColor: acc, borderWidth: 2.5, borderDash: [6, 3], pointRadius: 0, tension: .3, order: 1 }] },
+      options: { responsive: true, maintainAspectRatio: false, interaction: { mode: "index", intersect: false }, plugins: { legend: { position: "bottom", labels: { color: text, boxWidth: 10 } }, tooltip: { callbacks: { afterBody: it => { const r = seq[it[0].dataIndex], pg = pred(r); return pg != null ? "GMP had implied " + pct(pg, true) : "no GMP tracked"; } } } }, scales: { x: { ticks: { color: text, autoSkip: false, maxRotation: 45, minRotation: 30, font: { size: 10 } }, grid: { display: false } }, y: { ticks: { color: text, callback: v => v + "%" }, grid: { color: grid } } } } });
+    // comps
+    const C = DATA.comps || [], liveP = allIssues().filter(r => r.status === "Open" && r.sub && (r.sub.qib || r.sub.total) > 0 && r.gmpPct != null).map(r => ({ x: r.sub.qib || r.sub.total, y: r.gmpPct, name: r.name }));
+    mcharts.c = new Chart($("#compChart"), { type: "scatter", data: { datasets: [{ label: "Listed issues, newest first", data: C.map(c => ({ x: c.qib, y: c.ret, name: c.name })), backgroundColor: C.map(c => c.ret >= 0 ? up + "aa" : down + "aa"), pointRadius: 5, pointHoverRadius: 8 }, { label: "Open now (GMP-implied)", data: liveP, backgroundColor: acc, pointStyle: "rectRot", pointRadius: 9, pointHoverRadius: 12 }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: "bottom", labels: { color: text, boxWidth: 10 } }, tooltip: { callbacks: { title: it => it[0].raw.name, label: c => `QIB ${c.raw.x}x → ${c.datasetIndex ? "GMP-implied " : "listed "}${pct(c.raw.y, true)}` } } }, scales: { x: { type: "logarithmic", title: { display: true, text: "QIB subscription (x, log)", color: text }, ticks: { color: text }, grid: { color: grid } }, y: { title: { display: true, text: "Listing-day return", color: text }, ticks: { color: text, callback: v => v + "%" }, grid: { color: grid } } } } });
+    const bins = [["QIB < 5x", C.filter(c => c.qib < 5)], ["5x – 50x", C.filter(c => c.qib >= 5 && c.qib < 50)], ["QIB ≥ 50x", C.filter(c => c.qib >= 50)]];
+    $("#compBins").innerHTML = bins.map(([l, xs]) => { const a = avg(xs.map(c => c.ret)); return `<div class="bin ${a > 5 ? "up" : a < 0 ? "down" : "mid"}"><div class="v mono ${cls(a)}">${xs.length ? pct(a, true) : "—"}</div><div class="l">${l} · ${xs.length} issues</div></div>`; }).join("") + `<div class="dim" style="grid-column:1/-1;font-size:12px">Average listing-day return by institutional depth. ${liveP.length ? "Diamonds are today's open books at their GMP-implied return — a diamond far above the cloud for its QIB level is froth." : "No open issue has a QIB print yet."}</div>`;
+    // flows
+    const Fh = DATA.flows || {}, H = (Fh.history || []).slice(-20);
+    mcharts.f = new Chart($("#flowsChart2"), { type: "bar", data: { labels: H.map(r => fmtD(r[0])), datasets: [{ label: "FII net ₹Cr", data: H.map(r => r[1]), backgroundColor: H.map(r => r[1] >= 0 ? up : down), borderRadius: 3, maxBarThickness: 18 }, { label: "DII net ₹Cr", data: H.map(r => r[2]), backgroundColor: acc + "99", borderRadius: 3, maxBarThickness: 18 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: text, boxWidth: 10 } } }, scales: { x: { ticks: { color: text }, grid: { color: grid } }, y: { ticks: { color: text }, grid: { color: grid } } } } });
+  } else { $("#compBins").innerHTML = ""; }
+  // anchors — parse "₹X Cr from N investors — a, b, c" strings into bars + a frequency table
+  const A = DATA.anchors || [], amt = s => { const m = /₹\s?([\d,.]+)\s*Cr/i.exec(s || ""); return m ? parseFloat(m[1].replace(/,/g, "")) : null; };
+  const namesOf = s => { const t = (s || "").split("—")[1] || ""; return t.split(/,|;/).map(x => x.replace(/\(.*?\)/g, "").replace(/\b(and|plus|via|including|led by|alongside)\b.*$/i, "").trim()).filter(x => x.length > 3 && x.length < 60 && !/not (yet )?(disclosed|published|available)|\bnames?\b|investors?$/i.test(x)); };
+  const hbar = (rows, max, fmt, col) => rows.map(r => `<div class="hb"><div class="n" title="${esc(r.n)}">${esc(r.n)}${r.s ? `<small>${esc(r.s)}</small>` : ""}</div><div class="bar"><i class="${col ? col(r) : ""}" style="left:0;width:${max ? Math.max(2, r.v / max * 100) : 0}%"></i></div><div class="v num">${fmt(r.v)}</div></div>`).join("");
+  const ab = A.map(x => ({ n: x.name, v: amt(x.anchor), s: (n => n ? n + (n > 1 ? " names" : " name") : "")(namesOf(x.anchor).length) })).filter(r => r.v != null).sort((x, y) => y.v - x.v);
+  $("#anchorBars").innerHTML = ab.length ? hbar(ab, ab[0].v, v => cr(v)) : `<div class="dim" style="font-size:12.5px">${A.length ? "Anchor amounts not yet published for the current books." : "No anchor books captured."}</div>`;
+  const freq = {}; const bump = (n, w) => { const k = n.replace(/\b(Mutual Fund|MF|Fund|Limited|Ltd|Trust)\b/gi, "").replace(/\s+/g, " ").trim(); if (k) freq[k] = (freq[k] || 0) + w; };
+  A.forEach(x => namesOf(x.anchor).forEach(n => bump(n, 1)));
+  const known = ["HDFC", "ICICI Prudential", "SBI", "Nippon India", "Kotak", "Mirae Asset", "Motilal Oswal", "Tata", "Axis", "Aditya Birla", "Nomura", "Goldman Sachs", "Citigroup", "Societe Generale", "BNP Paribas", "Morgan Stanley", "WhiteOak", "Bandhan", "UTI", "Edelweiss", "360 ONE", "Invesco", "Quant", "Bajaj", "Jupiter", "Ashoka", "Abu Dhabi Investment Authority", "GIC", "Smallcap World", "IFC"];
+  ((DATA.investors || {}).anchorActivity || []).forEach(t => known.forEach(k => { const re = new RegExp("\\b" + k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "i"); if (re.test(t)) bump(k, 1); }));
+  const fr = Object.entries(freq).map(([n, v]) => ({ n, v })).filter(r => r.v > 1).sort((x, y) => y.v - x.v).slice(0, 8);
+  $("#anchorFreq").innerHTML = fr.length ? hbar(fr, fr[0].v, v => v + " books", () => "lav") : `<div class="dim" style="font-size:12.5px">Not enough anchor books captured to rank investors.</div>`;
+  $("#anchorNotes").innerHTML = A.map(x => `<div style="margin-bottom:6px"><b>${esc(x.name)}</b> <span class="dim">${esc(x.anchor)}</span></div>`).join("") + ((DATA.investors || {}).anchorActivity || []).map(t => `<div class="dim" style="margin-bottom:6px">${esc(t)}</div>`).join("");
+  // sme screener — sortable table with inline bars
+  const order = { Open: 0, Upcoming: 1, Closed: 2, Listed: 3 };
+  const sbar = (v, k) => `<div class="tb"><div class="bar"><i class="${k}" style="width:${v == null ? 0 : Math.min(100, Math.log10(1 + v) / Math.log10(301) * 100)}%"></i></div><span class="num">${xx(v)}</span></div>`;
+  const cols = [["name", "Issue"], ["status", "Status"], ["gmpPct", "GMP", 1], ["qib", "QIB", 1], ["retail", "Retail", 1], ["total", "Total", 1], ["score", "Score", 1], ["verdict", "Verdict"], ["listing", "Listing / est.", 1]];
+  const val = (r, k) => k === "status" ? order[r.status] : k === "score" ? smeScore(r) : k === "verdict" ? (smeScore(r) == null ? -1 : smeScore(r)) : ["qib", "retail", "total"].includes(k) ? (r.sub || {})[k] : k === "listing" ? (r.listingGainPct != null ? r.listingGainPct : r.gmpPct) : k === "name" ? r.name : r[k];
+  const S2 = sme.slice().sort((x, y) => { const a = val(x, smeSort.k), b = val(y, smeSort.k); const d = a == null && b == null ? 0 : a == null ? 1 : b == null ? -1 : typeof a === "string" ? a.localeCompare(b) * smeSort.dir : (smeSort.k === "status" ? (a - b) : (b - a)) * smeSort.dir; return d || order[x.status] - order[y.status] || (smeScore(y) || 0) - (smeScore(x) || 0); });
+  $("#smeScreen").innerHTML = `<thead><tr>${cols.map(([k, l, r]) => `<th class="${r ? "r" : ""} srt${smeSort.k === k ? " on" : ""}" data-sort="${k}">${l}${smeSort.k === k ? (smeSort.dir === 1 ? " ▾" : " ▴") : ""}</th>`).join("")}</tr></thead><tbody>${S2.length ? S2.map(r => { const sc = smeScore(r), [v, c] = smeVerdict(sc), s = r.sub || {}, froth = r.gmpPct != null && r.gmpPct > 50; return `<tr data-row data-name="${esc(r.name)}"><td><div class="nm"><button data-open="${esc(r.name)}">${esc(r.name)}</button></div><div class="dt">${esc(r.type)}${r.issueSizeCr ? " · " + cr(r.issueSizeCr) : ""}</div></td><td><span class="pill ${r.status.toLowerCase()}">${r.status}</span><div class="dt">${r.status === "Upcoming" ? "opens " + fmtD(r.open) : r.status === "Open" ? "closes " + fmtD(r.close) : "lists " + fmtD(r.listing)}</div></td><td class="r num ${froth ? "down" : cls(r.gmpPct)}">${pct(r.gmpPct, true)}${froth ? `<div><span class="pill now" style="height:18px;font-size:10.5px">froth</span></div>` : ""}</td><td class="r">${sbar(s.qib, "qb")}</td><td class="r">${sbar(s.retail, "rt")}</td><td class="r">${sbar(s.total, "")}</td><td class="r"><span class="score ${c}">${sc == null ? "—" : sc}</span></td><td><span class="pill ${c === "hi" ? "ok" : c === "mid" ? "soon" : c === "lo" ? "now" : "plan"}">${v}</span></td><td class="r num ${cls(r.listingGainPct != null ? r.listingGainPct : null)}">${r.listingPrice != null ? inr(r.listingPrice) + " · " + pct(r.listingGainPct, true) : r.gmpPct != null ? `<span class="dim">est.</span> ${pct(r.gmpPct, true)}` : "—"}</td></tr>`; }).join("") : `<tr><td colspan="9" class="empty">No SME issues on the board.</td></tr>`}</tbody>`;
+  // flow kpis + context
+  const F = DATA.flows || {}, L = F.latest;
+  $("#flowsSub2").textContent = L ? `latest ${fmtD(L.date)}${L.source ? " · " + L.source : ""}` : "";
+  $("#flowKpis").innerHTML = L ? [["FII net", sgn(L.fiiNetCr) + " Cr", cls(L.fiiNetCr)], ["DII net", sgn(L.diiNetCr) + " Cr", cls(L.diiNetCr)], ["Combined", sgn((L.fiiNetCr || 0) + (L.diiNetCr || 0)) + " Cr", cls((L.fiiNetCr || 0) + (L.diiNetCr || 0))]].map(([l, v, c]) => `<div class="kpi card"><div class="lbl">${l} · ${fmtD(L.date)}</div><div class="v mono ${c}">${v}</div></div>`).join("") : "";
+  const M = (F.monthly || []).filter(m => m[1] != null), isCum = m => /cumul|ytd|h1|h2|fy/i.test(m[0]), mmax = Math.max(1, ...M.filter(m => !isCum(m)).map(m => Math.abs(m[1])));
+  $("#flowMonthly").innerHTML = M.length ? `<div class="lbl" style="margin-bottom:6px">FII net · cash market</div>` + M.map(m => `<div class="hb" title="${esc(m[2] || "")}"><div class="n">${esc(m[0])}</div><div class="bar"><i class="${m[1] >= 0 ? "up" : "down"}" style="${m[1] >= 0 ? "left:50%" : "right:50%"};width:${Math.min(50, Math.max(1, Math.abs(m[1]) / mmax * 50))}%${Math.abs(m[1]) > mmax ? ";background:repeating-linear-gradient(45deg,var(--down) 0 4px,var(--down-soft) 4px 8px)" : ""}"></i></div><div class="v num ${cls(m[1])}">${sgn(m[1])}</div></div>`).join("") : `<div class="dim">No monthly context captured.</div>`;
+  const R = F.rotation || {};
+  $("#flowRot").innerHTML = `<div class="col"><div class="lbl down">FII selling</div>${(R.fiiSelling || []).map(x => `<div class="rc sell" title="${esc(x[1])}">${esc(x[0])}</div>`).join("") || "<div class='dim'>—</div>"}</div><div class="col"><div class="lbl up">DII buying</div>${(R.diiBuying || []).map(x => `<div class="rc buy" title="${esc(x[1])}">${esc(x[0])}</div>`).join("") || "<div class='dim'>—</div>"}</div>`;
+  $("#flowNote").textContent = F.note || ""; $("#flowNoteWrap").hidden = !F.note;
+  // ===== smart money: anchor cards =====
+  const CATS = [["MF", "c-mf"], ["Insurance", "c-ins"], ["Pension/Sovereign", "c-sov"], ["FPI", "c-fpi"], ["AIF", "c-aif"], ["Other", "c-oth"]];
+  const curIss = allIssues().filter(b => b.status === "Open" || b.status === "Upcoming" || (b.status === "Closed" && days(b.listing) >= 0));
+  const WL = watchNames();
+  const tracked = nm => WL.find(w => norm2(nm).includes(norm2(w.split(" ")[0])) && norm2(nm).includes(norm2(w.split(" ").slice(-1)[0])));
+  const withBook = curIss.filter(b => { const A1 = anchorFor(b.name); return A1 && A1.investors && A1.investors.length; }), pending = curIss.filter(b => !withBook.includes(b) && !/SME/i.test(b.type));
+  $("#anchorCards").innerHTML = withBook.map(b => { const A1 = anchorFor(b.name), q = anchorScore(A1); const tot = A1.investors.reduce((s, x) => s + (x.pct || 0), 0);
+    const cats = {}; A1.investors.forEach(x => cats[x.cat || "Other"] = (cats[x.cat || "Other"] || 0) + (x.pct != null ? x.pct : (100 - tot) / Math.max(1, A1.investors.filter(y => y.pct == null).length)));
+    const rc = q.c === "hi" ? "var(--up)" : q.c === "mid" ? "var(--amber)" : "var(--down)";
+    return `<div class="card acard" data-row data-name="${esc(b.name)}"><div class="ring" style="--p:${q.s};--rc:${rc}" title="${q.v}"><b>${q.s}</b></div><div style="min-width:0"><div class="nm">${esc(b.name)} <span class="aq ${q.c}">${q.v}</span></div><div class="dt">${A1.amountCr ? cr(A1.amountCr) : "—"}${A1.issueSizeCr && A1.amountCr ? ` · ${Math.round(A1.amountCr / A1.issueSizeCr * 100)}% of issue` : ""}${A1.count ? ` · ${A1.count} investors` : ""}${A1.date ? " · " + fmtD(A1.date) : ""} · <span class="pill ${b.status.toLowerCase()}" style="height:17px;font-size:10.5px">${b.status}</span></div>
+      <div class="cat">${CATS.map(([k, c]) => cats[k] ? `<i class="${c}" style="width:${cats[k]}%" title="${k} ${Math.round(cats[k])}%"></i>` : "").join("")}</div>
+      <div class="who">${A1.investors.slice(0, 8).map(x => `<span class="${tracked(x.name) ? "tk" : /MF|Insurance|Pension/.test(x.cat) ? "tt" : ""}" title="${esc(x.cat || "")}${x.pct != null ? " · " + x.pct + "%" : ""}">${esc(x.name.replace(/\s*\(.*?\)\s*/g, "").slice(0, 34))}</span>`).join("")}${A1.investors.length > 8 ? `<span>+${A1.investors.length - 8}</span>` : ""}</div></div></div>`; }).join("")
+    + (pending.length ? `<div class="card acard pend" style="grid-column:1/-1;display:block"><div class="lbl" style="margin-bottom:6px">Books not yet published</div><div class="chips" style="margin-top:0">${pending.map(b => { const A1 = anchorFor(b.name); return `<span title="${esc(b.type)}">${esc(b.name)} <b class="dim">${A1 && A1.date ? "anchor " + fmtD(A1.date) : b.open ? "anchor " + fmtD(iso(new Date(d(b.open).getTime() - DAY))) : "TBA"}</b></span>`; }).join("")}</div><div class="dt" style="margin-top:8px">The morning sweep fills these in once the allocation letter is out — usually the evening before the issue opens.</div></div>` : "")
+    || `<div class="empty">No current issues.</div>`;
+  const past = (DATA.anchors || []).filter(a => a.investors && a.investors.length && !curIss.some(b => sameName(a.name, b.name))).map(a => { const q = anchorScore(a), lp = (DATA.listedPerf || []).find(r => sameName(r.name, a.name)); return { a, q, g: lp && lp.issue ? (lp.listing - lp.issue) / lp.issue * 100 : null }; }).sort((x, y) => y.q.s - x.q.s);
+  $("#anchorHow").innerHTML = `<p class="prose">Score = 60% share of the book taken by top-tier money (domestic MFs, insurers, pension/sovereign), 25% anchor size vs issue (30% of the issue = full marks), 15% breadth (12+ names). Tracked superinvestors in a book are highlighted in purple. It is a quality read, not a promise: it tells you who did the diligence, not what the stock will do.</p>${past.length ? `<div class="hbars" style="margin-top:10px"><div class="lbl">Past books · score → listing-day gain</div>${past.map(({ a, q, g }) => `<div class="hb"><div class="n">${esc(a.name)}<small>${a.amountCr ? cr(a.amountCr) : ""}${a.topTierShare != null ? " · top-tier " + Math.round(a.topTierShare) + "%" : ""}</small></div><div class="bar"><i class="${q.c === "hi" ? "up" : q.c === "mid" ? "" : "down"}" style="left:0;width:${q.s}%"></i></div><div class="v num ${cls(g)}">${q.s} → ${g == null ? "—" : pct(g, true)}</div></div>`).join("")}</div>` : ""}`;
+  // ===== superinvestors =====
+  const I = DATA.investors || {}, worthOf = s => { const m = /([\d,.]+)\s*(Cr|crore)/i.exec(s || ""); return m ? parseFloat(m[1].replace(/,/g, "")) : null; };
+  const isBuy = t => /fresh|add|buy|bought|raised|bulk buy/i.test(t) && !/exit|trim|sold/i.test(t), isSell = t => /exit|trim|sold|sell|cut|reduced|below/i.test(t);
+  const dir = t => { const m = /([\d.]+)\s*%?\s*(?:→|->|to)\s*([\d.]+)/.exec(t); if (m) return +m[2] > +m[1] ? "up" : "down"; return isBuy(t) ? "up" : isSell(t) ? "down" : ""; };
+  const kind = m => isBuy(m.action) ? "up" : isSell(m.action) ? "down" : "lav";
+  const actLbl = t => /fresh/i.test(t) ? "fresh" : /bulk/i.test(t) ? "bulk buy" : /add/i.test(t) ? "add" : /trim/i.test(t) ? "trim" : /exit/i.test(t) ? "exit" : t.toLowerCase();
+  const ret = m => m.priceAtDisclosure && m.priceNow ? (m.priceNow - m.priceAtDisclosure) / m.priceAtDisclosure * 100 : null;
+  const invOf = s => WL.find(w => norm2(s).startsWith(norm2(w.split(" (")[0]))) || s.split(" (")[0];
+  const moves = (I.moves || []).map(m => ({ ...m, inv: invOf(m.investor), r: ret(m), k: kind(m) }));
+  const deals = (I.bulkDeals || []).map(d => ({ ...d, inv: invOf(d.investor) }));
+  const lst = store.get("ipo-investors", { add: [], remove: [] }) || { add: [], remove: [] };
+  $("#watchlist").innerHTML = WL.map(w => `<span class="chip-i${(I.watchlist || []).includes(w) ? "" : " local"}" title="${(I.watchlist || []).includes(w) ? "tracked by the daily sweep" : "added here — ask Claude to add to the sweep"}">${esc(w)}<button data-rm="${esc(w)}" title="Remove">✕</button></span>`).join("") + `<input type="text" id="wlIn" placeholder="Add an investor…"><button class="btn sm" id="wlAdd">Add</button>`;
+  $("#wlAdd").onclick = () => { const v = $("#wlIn").value.trim(); if (!v) return; lst.add = [...new Set([...(lst.add || []), v])]; lst.remove = (lst.remove || []).filter(x => x !== v); store.set("ipo-investors", lst); toast(`${v} added — tell Claude to include them in the morning sweep`); renderMarket(); };
+  $("#wlIn").onkeydown = e => { if (e.key === "Enter") $("#wlAdd").click(); };
+  $$("#watchlist [data-rm]").forEach(b => b.onclick = () => { const v = b.dataset.rm; lst.add = (lst.add || []).filter(x => x !== v); if ((I.watchlist || []).includes(v)) lst.remove = [...new Set([...(lst.remove || []), v])]; store.set("ipo-investors", lst); renderMarket(); });
+  const wmax = Math.max(1, ...(I.portfolios || []).map(p => worthOf(p.worth) || 0));
+  $("#portfolios").innerHTML = WL.map(w => { const p = (I.portfolios || []).find(x => x.name === w) || { name: w }; const mm = moves.filter(m => m.inv === w), buys = mm.filter(m => m.k === "up" && m.r != null), sells = mm.filter(m => m.k === "down" && m.r != null); const avgB = buys.length ? avg(buys.map(m => m.r)) : null, hit = buys.length ? Math.round(buys.filter(m => m.r > 0).length / buys.length * 100) : null, avoided = sells.length ? -avg(sells.map(m => m.r)) : null; const dd = deals.filter(d => d.inv === w); const wv = worthOf(p.worth);
+    return `<div class="p"><b>${esc(p.name)}</b> <span class="dim mono" style="font-size:11.5px">${p.worth ? esc(p.worth) : ""}${p.stocks ? " · " + p.stocks + " stocks" : ""}</span>${wv ? `<div class="wb"><i style="width:${wv / wmax * 100}%"></i></div>` : ""}<div class="s">${esc(p.style || "Not yet in the sweep — no filings pulled.")}</div>
+      <div class="tr"><div><div class="v mono ${cls(avgB)}">${avgB == null ? "—" : pct(avgB, true)}</div><div class="l">avg since buys (${buys.length})</div></div><div><div class="v mono ${hit == null ? "dim" : hit >= 60 ? "up" : hit >= 40 ? "amb" : "down"}">${hit == null ? "—" : hit + "%"}</div><div class="l">buys up so far</div></div><div><div class="v mono ${cls(avoided)}">${avoided == null ? "—" : pct(avoided, true)}</div><div class="l">avoided on exits (${sells.length})</div></div></div>
+      ${mm.length ? `<div class="rc">${mm.map(m => `<span class="${m.k === "lav" ? "" : m.k}" title="${esc(m.detail || "")}${m.priceAtDisclosure ? " · " + inr(m.priceAtDisclosure) + " → " + inr(m.priceNow) : ""}">${esc(m.stock.length > 22 ? m.stock.slice(0, 21) + "…" : m.stock)} ${esc(actLbl(m.action))}${m.r != null ? `<b class="num">${pct(m.r, true)}</b>` : ""}</span>`).join("")}</div>` : ""}
+      ${dd.length ? `<div class="bd">${dd.map(d => `<b>${d.side}</b> ${esc(d.stock)} ${d.valueCr ? cr(d.valueCr) : ""} · ${fmtD(d.date)}`).join(" · ")}</div>` : ""}
+      ${p.read ? `<div class="rd r">${esc(p.read)}</div><button class="tgl" data-pf="${esc(w)}">Read the quarter ▾</button>` : ""}</div>`; }).join("") || `<div class="empty">No investors tracked.</div>`;
+  $$("#portfolios .tgl").forEach(b => b.onclick = () => { const p = b.closest(".p"); p.classList.toggle("open"); b.textContent = p.classList.contains("open") ? "Hide ▴" : "Read the quarter ▾"; });
+  // bulk deals + insiders
+  $("#bulkDeals").innerHTML = `<thead><tr><th>Date</th><th>Investor</th><th>Stock</th><th>Side</th><th class="r">Qty</th><th class="r">Price</th><th class="r">Value</th></tr></thead><tbody>${deals.slice().sort((x, y) => (y.date || "").localeCompare(x.date || "")).map(d => `<tr><td class="dt" style="white-space:nowrap">${fmtD(d.date)}</td><td class="nm">${esc(d.inv)}<div class="dt">${esc((d.vehicle || "").slice(0, 40))}</div></td><td>${d.source ? `<a href="${esc(d.source)}" target="_blank" rel="noopener">${esc(d.stock)}</a>` : esc(d.stock)}</td><td><span class="pill ${d.side === "BUY" ? "ok" : "now"}">${esc(d.side)}</span></td><td class="r num">${d.qty ? d.qty.toLocaleString("en-IN") : "—"}</td><td class="r num">${d.price ? inr(d.price) : "—"}</td><td class="r num">${d.valueCr ? cr(d.valueCr) : "—"}</td></tr>`).join("") || `<tr><td colspan="7" class="empty">No bulk or block deals by tracked names in the window.</td></tr>`}</tbody>`;
+  $("#insiders").innerHTML = `<thead><tr><th>Parent</th><th>Who</th><th>Action</th><th class="r">Value</th><th>Note</th></tr></thead><tbody>${(I.insiders || []).slice().sort((x, y) => (y.date || "").localeCompare(x.date || "")).map(x => `<tr><td class="nm">${esc(x.parent)}<div class="dt">${fmtD(x.date)}</div></td><td class="dt">${esc(x.who)}<div>${esc(x.role || "")}</div></td><td><span class="pill ${x.side === "BUY" ? "ok" : x.side === "SELL" || x.side === "OFS" ? "now" : "soon"}">${esc(x.side)}</span></td><td class="r num" style="white-space:nowrap">${x.valueCr ? cr(x.valueCr) : "—"}</td><td class="dt" title="${esc(x.note || "")}">${esc((x.note || "").replace(/^OUTSIDE 60-day window \(context only\)\.\s*/i, "").slice(0, 150))}${(x.note || "").length > 150 ? "…" : ""}${/OUTSIDE 60-day/i.test(x.note || "") ? ` <span class="pill plan" style="height:17px;font-size:10.5px">context</span>` : ""}${x.source ? ` <a href="${esc(x.source)}" target="_blank" rel="noopener">↗</a>` : ""}</td></tr>`).join("") || `<tr><td colspan="5" class="empty">No insider or promoter actions found in the quota parents.</td></tr>`}</tbody>`;
+  // overlap + sector tilt
+  const HD = (I.holdings || []).map(h => ({ ...h, inv: invOf(h.investor) })).filter(h => WL.includes(h.inv));
+  const byStock = {}; HD.forEach(h => (byStock[h.stock] = byStock[h.stock] || []).push(h));
+  const ov = Object.entries(byStock).filter(([, hs]) => new Set(hs.map(h => h.inv)).size >= 2).sort((x, y) => y[1].length - x[1].length);
+  $("#overlap").innerHTML = ov.length ? `<div class="ov">${ov.map(([s, hs]) => `<div class="o"><div class="n">${esc(s)}<div class="dt">${esc(hs[0].sector || "")}${hs[0].listedDate ? " · listed " + fmtD(hs[0].listedDate) : ""}</div></div><div class="hs">${[...new Map(hs.map(h => [h.inv, h])).values()].map(h => `<span>${esc(h.inv.split(" ")[0])} ${h.pct != null ? h.pct + "%" : ""}</span>`).join("")}</div></div>`).join("")}</div>` : `<div class="dim" style="font-size:12.5px">No stock is held above 1% by two tracked names in the captured holdings (${HD.length} positions). Overlap appears as the sweep fills more portfolios.</div>`;
+  const GROUPS = ["Financials", "Industrials", "Pharma / Health", "Consumer", "Chemicals", "Tech / IT", "Infra / Construction", "Energy / Power", "Other"];
+  const tilt = WL.map(w => { const hs = HD.filter(h => h.inv === w); const c = {}; hs.forEach(h => c[h.sectorGroup || "Other"] = (c[h.sectorGroup || "Other"] || 0) + 1); return { w, n: hs.length, c }; }).filter(t => t.n);
+  $("#sectorTilt").innerHTML = tilt.length ? tilt.map(t => `<div class="hb"><div class="n">${esc(t.w)}<small>${t.n} holdings</small></div><div class="bar">${GROUPS.map((g, gi) => t.c[g] ? `<i class="s${gi}" style="width:${t.c[g] / t.n * 100}%" title="${g}: ${t.c[g]}"></i>` : "").join("")}</div><div class="v num">${Object.entries(t.c).sort((x, y) => y[1] - x[1])[0][0].split(" ")[0]}</div></div>`).join("") + `<div class="slegend">${GROUPS.map((g, gi) => `<span><i class="s${gi}" style="display:inline-block"></i>${g}</span>`).join("")}</div>` : `<div class="dim">No holdings captured.</div>`;
+  // smart money in recent listings
+  const RL = (I.recentListings || []).filter(r => WL.some(w => norm2(r.investor || "").includes(norm2(w.split(" ")[0]))) || /pre-IPO|post-listing/i.test(r.how || "") || /singularity|rare|abakkus|kedia|kacholia|khanna|kela|agrawal|jhunjhunwala/i.test(r.investor || ""));
+  $("#smartRecent").innerHTML = `<thead><tr><th>Stock</th><th>Listed</th><th>Investor</th><th>How</th><th class="r">Stake</th></tr></thead><tbody>${RL.slice().sort((x, y) => (y.listedDate || "").localeCompare(x.listedDate || "")).map(r => `<tr><td class="nm">${r.source ? `<a href="${esc(r.source)}" target="_blank" rel="noopener">${esc(r.stock)}</a>` : esc(r.stock)}${r.note ? `<div class="dt" title="${esc(r.note)}">${esc(r.note.slice(0, 70))}${r.note.length > 70 ? "…" : ""}</div>` : ""}</td><td class="dt">${fmtD(r.listedDate)}</td><td>${esc(r.investor)}</td><td><span class="pill ${r.how === "anchor" ? "ok" : r.how === "pre-IPO" ? "plan" : "soon"}">${esc(r.how || "")}</span></td><td class="r num">${r.pct != null ? r.pct + "%" : "—"}</td></tr>`).join("") || `<tr><td colspan="5" class="empty">No tracked names found inside 2026 listings yet.</td></tr>`}</tbody>`;
+  $("#moves").innerHTML = `<thead><tr><th>Investor</th><th>Stock</th><th>Action</th><th class="r">Since</th><th>Detail</th></tr></thead><tbody>${moves.map(m => `<tr><td class="nm">${esc(m.inv)}</td><td>${esc(m.stock)}<div class="dt">${esc(m.when || "")}</div></td><td><span class="pill ${m.k === "up" ? "ok" : m.k === "down" ? "now" : "plan"}">${esc(m.action)}</span></td><td class="r num ${cls(m.r)}">${m.r == null ? "—" : pct(m.r, true)}${m.priceNow && m.priceAtDisclosure ? `<div class="dt" style="white-space:nowrap">${inr(m.priceAtDisclosure)} → ${inr(m.priceNow)}</div>` : m.priceNow ? `<div class="dt">now ${inr(m.priceNow)}</div>` : ""}</td><td class="dt">${esc(m.detail || "")}</td></tr>`).join("") || `<tr><td class="empty" colspan="5">No moves captured.</td></tr>`}</tbody>`;
+  $("#invNotes").innerHTML = (I.notes || []).map(esc).join("<br>"); $("#invNotesWrap").hidden = !(I.notes || []).length;
+  // expected pipeline — sized bars + TBA chips
+  const E = DATA.expected || [], Es = E.filter(e => e.sizeCr).sort((x, y) => y.sizeCr - x.sizeCr), Et = E.filter(e => !e.sizeCr);
+  $("#expWrap").style.height = Math.max(120, 30 * Es.length + 40) + "px";
+  if (typeof Chart !== "undefined" && Es.length) mcharts.e = new Chart($("#expChart"), { type: "bar", data: { labels: Es.map(e => { const n = e.name.split(" (")[0]; return n.length > 22 ? n.slice(0, 21) + "…" : n; }), datasets: [{ label: "Expected size ₹Cr", data: Es.map(e => e.sizeCr), backgroundColor: Es.map(e => /sept|sep 2026|this month/i.test(e.window || "") ? acc : lav), borderRadius: 4, maxBarThickness: 18 }] }, options: { indexAxis: "y", responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { title: it => Es[it[0].dataIndex].name, label: c => cr(c.raw), afterLabel: c => { const e = Es[c.dataIndex]; return [e.window ? "Window: " + e.window : "", e.stage || "", e.note || ""].filter(Boolean).join("\n"); } } } }, scales: { x: { ticks: { color: text, callback: v => "₹" + (v >= 1000 ? (v / 1000).toFixed(0) + "k" : v) + " Cr" }, grid: { color: grid } }, y: { ticks: { color: text, font: { size: 11 } }, grid: { display: false } } } } });
+  else $("#expWrap").innerHTML = `<div class="empty">No sized names captured.</div>`;
+  $("#expTba").innerHTML = `<span class="acc" style="cursor:default"><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--accent)"></i> September window</span><span class="plan" style="cursor:default"><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--lav)"></i> later / TBD</span>` + Et.map(e => `<span title="${esc([e.window, e.stage, e.note].filter(Boolean).join(" · "))}">${esc(e.name)} <b class="dim">${esc(e.sizeText || "size TBA")}</b></span>`).join("");
+  // news — date badges
+  $("#news").innerHTML = `<div class="newsl">${(DATA.news || []).map(n => `<a href="${esc(n.url || "#")}" target="_blank" rel="noopener"><span class="db">${n.date ? fmtD(n.date) : "—"}</span>${esc(n.title)}</a>`).join("") || `<div class="empty">No headlines captured.</div>`}</div>`;
+  // integrity — status bar + chips
+  const G = DATA.integrity || {}; $("#intAsOf").textContent = G.asOf ? "checked " + fmtDY(G.asOf) : "";
+  const ck = G.checks || [], nOk = ck.filter(c => c.status === "ok").length, nW = ck.filter(c => c.status === "warn").length, nS = ck.length - nOk - nW;
+  $("#intBar").innerHTML = ck.length ? [["ok", nOk], ["warn", nW], ["single", nS]].filter(([, n]) => n).map(([k, n]) => `<i class="${k}" style="flex:${n}" title="${n} ${k}"></i>`).join("") : "";
+  $("#intChips").innerHTML = ck.map(c => `<span class="${c.status === "ok" ? "ok" : c.status === "warn" ? "bad" : "warn"}" title="${esc(c.note || "")}">${c.status === "ok" ? "✓" : c.status === "warn" ? "!" : "○"} ${esc(c.area)}</span>`).join("") + (ck.length ? `<span style="background:transparent;color:var(--ink-3)">${nOk} cross-checked · ${nW} flagged · ${nS} single-source</span>` : "");
+  $("#intDisc").innerHTML = (G.discrepancies || []).length ? `<div class="lbl" style="margin-bottom:2px">Where sources disagree</div><div class="discs">${G.discrepancies.map(x => `<div class="disc">${esc(x)}</div>`).join("")}</div>` : "";
+  $("#integrity").innerHTML = `<thead><tr><th>Area</th><th>Method</th><th>Status</th><th>Finding</th></tr></thead><tbody>${ck.map(c => `<tr><td class="nm">${esc(c.area)}</td><td class="dt">${esc(c.method || "")}</td><td><span class="pill ${c.status === "ok" ? "ok" : c.status === "warn" ? "now" : "soon"}">${esc(c.status === "ok" ? "cross-checked" : c.status === "warn" ? "flagged" : "single source")}</span></td><td class="dt">${esc(c.note || "")}</td></tr>`).join("")}</tbody>`;
+  $("#c-market").textContent = (G.discrepancies || []).length || "";
+}
+/* ---------- position charts (Book) ---------- */
+let pcharts = [];
+function drawPosCharts() {
+  pcharts.forEach(c => c.destroy()); pcharts = [];
+  const held = S.apps.filter(a => a.status === "Allotted — holding"); const el = $("#posCharts");
+  if (!held.length) { el.innerHTML = `<div class="card empty" style="grid-column:1/-1">Charts appear here for allotted holdings, drawn from the daily price points.</div>`; return; }
+  el.innerHTML = held.map((a, i) => { const ph = (DATA.priceHistory || {})[a.name] || []; return `<div class="card"><div class="ch">${esc(a.name)}<span class="sub">${ph.length} point${ph.length === 1 ? "" : "s"} · bought ${inr(a.price)}</span></div><div class="cb">${ph.length > 1 ? `<div class="chart-wrap" style="height:160px"><canvas id="pc${i}"></canvas></div>` : `<div class="dim" style="font-size:12.5px">${ph.length ? "One price point so far (" + inr(ph[0][1]) + " on " + fmtD(ph[0][0]) + ") — the line draws itself from tomorrow." : "No price points yet."}</div>`}</div></div>`; }).join("");
+  if (typeof Chart === "undefined") return;
+  held.forEach((a, i) => { const ph = (DATA.priceHistory || {})[a.name] || []; if (ph.length < 2) return; pcharts.push(new Chart($("#pc" + i), { type: "line", data: { labels: ph.map(p => fmtD(p[0])), datasets: [{ label: "Price", data: ph.map(p => p[1]), borderColor: tok("--accent"), backgroundColor: tok("--accent") + "22", fill: true, tension: .3, pointRadius: 3 }, { label: "Your cost", data: ph.map(() => a.price), borderColor: tok("--ink-3"), borderDash: [4, 4], pointRadius: 0 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: tok("--chart-text") }, grid: { display: false } }, y: { ticks: { color: tok("--chart-text") }, grid: { color: tok("--chart-grid") } } } } })); });
+}
+
+/* ================= TAPE ================= */
+function renderTape() {
+  const t = [];
+  board.filter(b => b.status === "Open").forEach(b => t.push(`<span class="t"><b>${esc(b.name.split(" ")[0].toUpperCase())}</b><span class="${cls(b.gmpPct)} num">${pct(b.gmpPct, true)}</span><span class="dim">closes ${fmtD(b.close)}</span></span>`));
+  board.filter(b => b.status === "Closed").slice(0, 2).forEach(b => t.push(`<span class="t"><b>${esc(b.name.split(" ")[0].toUpperCase())}</b><span class="${cls(b.gmpPct)} num">${pct(b.gmpPct, true)}</span><span class="dim">lists ${fmtD(b.listing)}</span></span>`));
+  const F = DATA.flows && DATA.flows.latest; if (F) t.push(`<span class="t"><b>FII</b><span class="${cls(F.fiiNetCr)} num">${sgn(F.fiiNetCr)}</span><b>DII</b><span class="${cls(F.diiNetCr)} num">${sgn(F.diiNetCr)}</span><span class="dim">${fmtD(F.date)}</span></span>`);
+  const rec = live.filter(q => q.recordDate).sort((a, b) => a.recordDate.localeCompare(b.recordDate))[0];
+  t.push(rec ? `<span class="t"><b>NEXT RECORD DATE</b><span class="down">${esc(rec.name)} · ${fmtD(rec.recordDate)}</span></span>` : `<span class="t"><b>NEXT RECORD DATE</b><span class="amb">Jio — with its RHP</span></span>`);
+  $("#tape").innerHTML = t.join("") + `<span class="asof${stale ? " stale" : ""}">Data ${esc(DATA.meta.label)}${stale ? " · refresh overdue" : ""}</span>`;
+}
+
+/* ================= COMMAND BAR ================= */
+const cmdEl = $("#cmd"), cmdIn = $("#cmdIn"), cmdList = $("#cmdList"); let cmdSel = 0, cmdItems = [];
+function catalog() {
+  const items = [];
+  live.forEach(q => items.push({ k: sheets[q.name] ? "SHEET" : "PIPE", t: q.name, h: `${q.parent} · ${q.stage}${sheets[q.name] ? " · ⏎ sheet" : ""}`, run: () => { if (sheets[q.name]) openSheet(q.name); else { show("pipe"); openPipe(q.name); } }, keys: [q.name, q.parent, q.ticker || ""] }));
+  live.filter(q => sheets[q.name]).forEach(q => items.push({ k: "PIPE", t: q.name + " on the map", h: q.parent, run: () => { show("pipe"); openPipe(q.name); }, keys: [q.name, q.parent] }));
+  allIssues().forEach(b => items.push({ k: b.type.includes("SME") ? "SME" : "IPO", t: b.name, h: `${b.status}${b.gmpPct != null ? " · GMP " + pct(b.gmpPct, true) : ""}`, run: () => openSheet(b.name), keys: [b.name] }));
+  [["today", "Today"], ["pipe", "Pipeline"], ["board", "Board"], ["market", "Market"], ["research", "Research"], ["book", "Book"]].forEach(([s, l]) => items.push({ k: "GO", t: l, h: "screen", run: () => show(s), keys: [l, s] }));
+  [["light", "Light theme"], ["dark", "Dark theme"], [null, "Auto theme (follow system)"]].forEach(([v, l]) => items.push({ k: "SET", t: l, h: "", run: () => setTheme(v), keys: [l, l.split(" ")[0], v === "dark" ? "night" : ""] }));
+  return items;
+}
+const norm = s => s.toLowerCase().replace(/[^a-z0-9 ]/g, "");
+function parseCmd(raw) {
+  const s = raw.trim(); if (!s) return null; const parts = s.split(/\s+/), verb = parts[0].toUpperCase(), rest = parts.slice(1).join(" ");
+  const findQ = n => live.find(q => norm(q.name).startsWith(norm(n)) || norm(q.parent).startsWith(norm(n)) || (q.ticker || "").toLowerCase() === n.toLowerCase());
+  const findB = n => allIssues().find(b => norm(b.name).startsWith(norm(n)));
+  if (verb === "HOLD" && rest) { const q = findQ(rest); const p = q ? q.parent : rest; return { k: "HOLD", t: `${held(p) ? "Remove" : "Mark held"}: ${p}`, h: q ? "covers " + q.name : "parent short name", run: () => { toggleHold(p); toast(held(p) ? "Holding " + p : "Removed " + p); renderAll(); } }; }
+  if ((verb === "STAR" || verb === "*") && rest) { const q = findQ(rest) || findB(rest); if (!q) return null; return { k: "STAR", t: `${S.interest.has(q.name) ? "Unstar" : "Star"}: ${q.name}`, h: "", run: () => { S.interest.has(q.name) ? S.interest.delete(q.name) : S.interest.add(q.name); save(); renderAll(); } }; }
+  if (verb === "APP" && rest) { const m = rest.match(/^(.+?)(?:\s+(\d+))?(?:\s+(retail|shareholder|s-?hni|b-?hni|employee))?$/i); const b = m && findB(m[1]); if (!b) return null; const lots = +(m[2] || 1), cat = m[3] ? m[3].replace(/hni/i, "HNI").replace(/^s/i, "S-").replace(/^b/i, "B-").replace(/^(retail|shareholder|employee)$/i, x => x[0].toUpperCase() + x.slice(1).toLowerCase()).replace("S-S-", "S-").replace("B-B-", "B-") : "Retail"; const lc = lotCost(b); return { k: "APP", t: `Log ${lots} lot${lots > 1 ? "s" : ""} of ${b.name} · ${cat}`, h: lc ? inr0(lots * lc) + " at " + inr(b.bandHigh) : "band TBA", run: () => { S.apps.push({ name: b.name, cat, lots, price: b.bandHigh || 0, status: "Applied", sold: null, added: iso(today) }); save(); toast("Application logged"); renderAll(); show("book"); } }; }
+  if (verb === "DONE" && rest) { const p = buildQueue().find(p => norm(p.ttl).includes(norm(rest))); if (!p) return null; return { k: "DONE", t: "Done: " + p.ttl, h: "", run: () => { S.done.add(p.id); save(); renderAll(); } }; }
+  return null;
+}
+function openCmd(prefill) { cmdEl.hidden = false; cmdIn.value = prefill || ""; cmdIn.focus(); cmdFilter(); }
+function closeCmd() { cmdEl.hidden = true; cmdIn.value = ""; }
+function cmdFilter() {
+  const q = cmdIn.value.trim(), n = norm(q); const parsed = parseCmd(q); const all = catalog();
+  let list = !n ? all.filter(i => i.k !== "SET").slice(0, 12) : all.filter(i => i.keys.some(k => norm(k).includes(n))).sort((a, b) => (norm(a.t).startsWith(n) ? 0 : 1) - (norm(b.t).startsWith(n) ? 0 : 1)).slice(0, 12);
+  cmdItems = parsed ? [parsed, ...list] : list; cmdSel = 0;
+  cmdList.innerHTML = cmdItems.length ? cmdItems.map((i, ix) => `<div class="cmd-it${ix === 0 ? " sel" : ""}" data-ix="${ix}"><span class="k">${i.k}</span><span>${esc(i.t)}</span><span class="h">${esc(i.h || "")}</span></div>`).join("") : `<div class="cmd-it"><span class="k"></span><span class="dim">No match. Try a name, HOLD RELIANCE, STAR DEEPA, APP DEEPA 2 RETAIL, BOARD.</span><span></span></div>`;
+}
+cmdIn.addEventListener("input", cmdFilter);
+cmdIn.addEventListener("keydown", e => {
+  if (e.key === "Escape") { closeCmd(); e.preventDefault(); }
+  else if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); cmdSel = (cmdSel + (e.key === "ArrowDown" ? 1 : -1) + cmdItems.length) % Math.max(1, cmdItems.length); $$(".cmd-it", cmdList).forEach((el, i) => el.classList.toggle("sel", i === cmdSel)); }
+  else if (e.key === "Enter") { e.preventDefault(); const it = cmdItems[cmdSel]; if (it) { closeCmd(); it.run(); } }
+});
+cmdList.addEventListener("click", e => { const el = e.target.closest("[data-ix]"); if (el) { const it = cmdItems[+el.dataset.ix]; closeCmd(); it && it.run(); } });
+cmdEl.addEventListener("click", e => { if (e.target === cmdEl) closeCmd(); });
+$("#cmdOpen").onclick = () => openCmd();
+
+/* ================= KEYBOARD ================= */
+let cursor = -1;
+const rows = () => $$(`#s-${screen} [data-row]`);
+function setCursor(i) { const R = rows(); if (!R.length) return; cursor = (i + R.length) % R.length; R.forEach((r, j) => r.classList.toggle("cur", j === cursor)); R[cursor].scrollIntoView({ block: "nearest" }); }
+document.addEventListener("keydown", e => {
+  const tag = (e.target.tagName || "").toLowerCase();
+  if (!cmdEl.hidden) return;
+  if (tag === "input" || tag === "select" || tag === "textarea") { if (e.key === "Escape") e.target.blur(); return; }
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const k = e.key;
+  if (k === "/") { e.preventDefault(); openCmd(); return; }
+  if (/^[1-6]$/.test(k)) { show(["today", "pipe", "board", "market", "research", "book"][+k - 1]); return; }
+  if (k === "j" || k === "ArrowDown") { e.preventDefault(); setCursor(cursor + 1); return; }
+  if (k === "k" || k === "ArrowUp") { e.preventDefault(); setCursor(cursor - 1); return; }
+  if (k === "Escape") { if (screen === "pipe" && pipeSel) { pipeSel = null; renderPipe(); } cursor = -1; rows().forEach(r => r.classList.remove("cur")); return; }
+  if (k === "?") { toast("/ command · 1–6 screens · j/k move · ⏎ open · * star · h held · d done · s snooze · t theme"); return; }
+  if (k === "t") { setTheme(isDark() ? "light" : "dark"); return; }
+  const R = rows(), row = R[cursor]; if (!row) { if (k === "Enter" || k === "*" || k === "h" || k === "d" || k === "s") setCursor(0); return; }
+  const name = row.dataset.name, id = row.dataset.id, q = Q.find(z => z.name === name);
+  if (k === "Enter") { if (screen === "today") { if (q && sheets[q.name]) openSheet(q.name); else if (q) { show("pipe"); openPipe(q.name); } else if (name) openSheet(name); } else if (screen === "pipe") openPipe(name); else if (name) openSheet(name); }
+  else if (k === "*") { if (!name) return; S.interest.has(name) ? S.interest.delete(name) : S.interest.add(name); save(); toast(S.interest.has(name) ? "Starred " + name : "Unstarred " + name); const c = cursor; renderAll(); setCursor(c); }
+  else if (k === "h") { const p = q ? q.parent : Q.find(z => z.parent === name) ? name : null; if (!p) return; toggleHold(p); toast(held(p) ? "Holding " + p : "Removed " + p); const c = cursor; renderAll(); setCursor(c); }
+  else if (k === "d" && id) { queueAct(id, "done", name); }
+  else if (k === "s" && id) { queueAct(id, "snooze", name); }
+});
+
+/* ================= BOOT ================= */
+function renderAll() { renderTape(); renderToday(); renderPipe(); renderBoard(); renderBook(); }
+$("#foot").innerHTML = `${esc(DATA.meta.quotaSourceNote || "")}${DATA.meta.marketNotes && DATA.meta.marketNotes.length ? "<br>" + DATA.meta.marketNotes.map(esc).join("<br>") : ""}${DATA.meta.unresolved && DATA.meta.unresolved.length ? `<br>Unverified this cycle: ${esc(DATA.meta.unresolved.join(", "))}.` : ""}<br>Aggregated public data and analytical synthesis with both sides shown — not investment advice. Nothing here places orders. Press <b>?</b> for keys.`;
+try { renderAll(); renderResearchSelect(); } catch (err) { document.querySelector("main").insertAdjacentHTML("afterbegin", `<div class="card" style="padding:14px 18px;border-color:var(--down);margin-bottom:16px"><b class="down">The page hit an error while rendering.</b> <span class="dim">${esc(err && err.message)}</span></div>`); console.error(err); }
+const savedTab = store.get("ipo-tab", "today"); show(["today", "pipe", "board", "market", "research", "book"].includes(savedTab) ? savedTab : "today");
+
+/* Swap in freshly fetched data without reloading the page or touching local state
+   (starred names, held parents, applications and tasks all live in localStorage). */
+return {
+  update(next) {
+    if (!next || !next.meta) return false;
+    DATA = next;
+    recompute();
+    try {
+      renderAll(); renderResearchSelect();
+      if (screen === "market") renderMarket();
+      if (screen === "board") drawCharts();
+      if (screen === "book") drawPosCharts();
+    } catch (err) { console.error(err); return false; }
+    return true;
+  },
+  get asOf() { return DATA.meta.asOf; }
+};
+};
+

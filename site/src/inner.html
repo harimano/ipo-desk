@@ -1,0 +1,452 @@
+<!--INNER-START-->
+<style>
+/* ============ TOKENS — paper light on :root, dark redefines tokens only ============ */
+/* Light: cool paper with a blue accent; pastels carry state. Dark: deep navy, same pastels lifted. */
+:root { color-scheme: light;
+  --paper:#f3f6fb; --surface:#ffffff; --surface-2:#eaf0f8; --line:#dbe3ef; --line-2:#c3cfe0;
+  --ink:#172033; --ink-2:#4d5b73; --ink-3:#7f8ba0;
+  --accent:#2f6fed; --accent-ink:#ffffff; --accent-soft:#e3ecfd; --accent-line:#b7cdf8;
+  --up:#1d8a5b; --up-soft:#dcf5ea; --down:#d64545; --down-soft:#fde4e4; --amber:#b26a00; --amber-soft:#fff0cc;
+  --lav:#6c5ce7; --lav-soft:#ebe7fd; --peach:#d9663a; --peach-soft:#ffe7dc; --mint:#1a9c8f; --mint-soft:#d9f5f1;
+  --star:#d99a00; --focus:#2f6fed;
+  --r:14px; --r-sm:9px; --el:0 1px 2px rgba(23,32,51,.04), 0 2px 10px rgba(47,111,237,.06);
+  --chart-grid:#dbe3ef; --chart-text:#7f8ba0;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark;
+  --paper:#0f1626; --surface:#161f33; --surface-2:#1d2840; --line:#27334d; --line-2:#354565;
+  --ink:#e8edf7; --ink-2:#aab6cc; --ink-3:#7484a0;
+  --accent:#7aa5ff; --accent-ink:#0c1526; --accent-soft:#1c2c4f; --accent-line:#2f4a80;
+  --up:#5fd39a; --up-soft:#153328; --down:#ff7b7b; --down-soft:#3d1f24; --amber:#f5c04a; --amber-soft:#3a2f14;
+  --lav:#b3a6ff; --lav-soft:#2a2650; --peach:#ffa27f; --peach-soft:#3f2a22; --mint:#6fe0d0; --mint-soft:#163a37;
+  --star:#f5c04a; --focus:#7aa5ff; --el:0 1px 2px rgba(0,0,0,.4), 0 2px 10px rgba(0,0,0,.25); --chart-grid:#27334d; --chart-text:#7484a0; } }
+:root[data-theme="dark"] { color-scheme: dark;
+  --paper:#0f1626; --surface:#161f33; --surface-2:#1d2840; --line:#27334d; --line-2:#354565;
+  --ink:#e8edf7; --ink-2:#aab6cc; --ink-3:#7484a0;
+  --accent:#7aa5ff; --accent-ink:#0c1526; --accent-soft:#1c2c4f; --accent-line:#2f4a80;
+  --up:#5fd39a; --up-soft:#153328; --down:#ff7b7b; --down-soft:#3d1f24; --amber:#f5c04a; --amber-soft:#3a2f14;
+  --lav:#b3a6ff; --lav-soft:#2a2650; --peach:#ffa27f; --peach-soft:#3f2a22; --mint:#6fe0d0; --mint-soft:#163a37;
+  --star:#f5c04a; --focus:#7aa5ff; --el:0 1px 2px rgba(0,0,0,.4), 0 2px 10px rgba(0,0,0,.25); --chart-grid:#27334d; --chart-text:#7484a0; }
+
+* { box-sizing:border-box; margin:0; }
+html { background:var(--paper); }
+body { font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--paper); min-height:100vh; }
+.mono, table td.num, .num { font-family:"SF Mono",SFMono-Regular,ui-monospace,Menlo,Consolas,"Liberation Mono",monospace; font-variant-numeric:tabular-nums; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+button { font:inherit; color:inherit; background:none; border:0; cursor:pointer; }
+button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focus-visible { outline:2px solid var(--focus); outline-offset:2px; }
+input, select { font:inherit; color:var(--ink); background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-sm); padding:7px 10px; }
+@media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important; } }
+.up { color:var(--up); } .down { color:var(--down); } .amb { color:var(--amber); } .dim { color:var(--ink-3); } .acc { color:var(--accent); }
+.lbl { font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); }
+h1 { font-size:26px; font-weight:800; letter-spacing:-.03em; line-height:1.15; text-wrap:balance; }
+h2 { font-size:15px; font-weight:800; letter-spacing:-.01em; }
+
+/* ============ HEADER ============ */
+.hdr { position:sticky; top:0; z-index:20; background:var(--surface); border-bottom:1px solid var(--line); }
+.brand::before { content:""; display:inline-block; width:10px; height:10px; border-radius:3px; background:var(--accent); margin-right:8px; vertical-align:-1px; }
+.hdr-in { max-width:1360px; margin:0 auto; padding:0 28px; display:flex; align-items:center; gap:18px; height:58px; }
+.brand { font-weight:800; font-size:17px; letter-spacing:-.02em; white-space:nowrap; }
+.nav { display:flex; gap:4px; }
+.nav button { height:32px; padding:0 13px; border-radius:16px; font-weight:700; font-size:13px; color:var(--ink-2); display:inline-flex; align-items:center; gap:7px; }
+.nav button:hover { background:var(--surface-2); }
+.nav button[aria-selected="true"] { background:var(--accent); color:var(--accent-ink); }
+.nav button kbd { font-size:10px; font-weight:700; opacity:.55; }
+.nav .cnt { min-width:18px; padding:0 5px; border-radius:9px; background:var(--accent-soft); color:var(--accent); font-size:11px; text-align:center; }
+.nav button[aria-selected="true"] .cnt { background:rgba(255,255,255,.18); color:inherit; }
+.hdr-r { margin-left:auto; display:flex; align-items:center; gap:8px; }
+.cmd-btn { height:32px; padding:0 12px; border:1px solid var(--line-2); border-radius:var(--r-sm); display:inline-flex; align-items:center; gap:10px; color:var(--ink-3); font-size:12.5px; min-width:220px; }
+.cmd-btn kbd { font-family:inherit; font-size:11px; font-weight:800; color:var(--accent); border:1px solid var(--accent-line); border-radius:4px; padding:0 5px; }
+.ibtn { height:32px; padding:0 10px; border:1px solid var(--line-2); border-radius:var(--r-sm); font-size:12px; font-weight:700; color:var(--ink-2); }
+.ibtn:hover { border-color:var(--accent-line); color:var(--accent); }
+.seg { display:inline-flex; height:32px; border:1px solid var(--line-2); border-radius:var(--r-sm); overflow:hidden; background:var(--surface); }
+.seg button { display:inline-flex; align-items:center; justify-content:center; min-width:36px; padding:0 10px; font-size:12px; font-weight:700; color:var(--ink-3); border-right:1px solid var(--line); }
+.seg button:last-child { border-right:0; }
+.seg button:hover { color:var(--accent); background:var(--surface-2); }
+.seg button[aria-checked="true"] { background:var(--accent); color:var(--accent-ink); }
+.tape { border-bottom:1px solid var(--line); background:var(--surface); }
+.tape-in { max-width:1360px; margin:0 auto; padding:0 28px; height:30px; display:flex; align-items:center; gap:22px; overflow-x:auto; white-space:nowrap; font-size:12px; color:var(--ink-2); scrollbar-width:none; }
+.tape-in::-webkit-scrollbar { display:none; }
+.tape-in .t { display:inline-flex; gap:6px; align-items:baseline; } .tape-in .t b { color:var(--ink); font-weight:700; }
+.tape-in .asof { margin-left:auto; color:var(--ink-3); }
+.tape-in .asof.stale { color:var(--amber); font-weight:700; }
+.tape-in .asof { cursor:pointer; } .tape-in .asof:hover { color:var(--accent); text-decoration:underline; }
+#refreshPill { position:fixed; left:50%; bottom:28px; transform:translateX(-50%); z-index:61; height:34px; padding:0 16px; border-radius:17px; font-size:13px; font-weight:700; border:1px solid var(--line-2); background:var(--surface); color:var(--ink); box-shadow:0 4px 16px rgba(0,0,0,.14); }
+#refreshPill.new { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+#refreshPill.busy { color:var(--ink-3); } #refreshPill.done { color:var(--up); border-color:var(--up); }
+
+/* ============ LAYOUT ============ */
+main { max-width:1360px; margin:0 auto; padding:24px 28px 80px; }
+.screen[hidden] { display:none; }
+.card { background:var(--surface); border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--el); }
+.card .ch { padding:12px 18px; border-bottom:1px solid var(--line); display:flex; align-items:baseline; gap:10px; font-weight:800; font-size:14px; }
+.card .ch .sub { font-weight:500; color:var(--ink-3); font-size:12px; margin-left:auto; }
+.card .cb { padding:14px 18px; }
+.sec { margin-top:28px; }
+.sec-h { display:flex; align-items:baseline; gap:12px; margin-bottom:12px; }
+.sec-h .sub { font-size:12.5px; color:var(--ink-3); } .sec-h .right { margin-left:auto; font-size:12px; color:var(--ink-3); }
+.grid { display:grid; gap:16px; } .g2 { grid-template-columns:repeat(auto-fit, minmax(min(400px, 100%), 1fr)); }
+@media (max-width:760px) { .hdr-in { flex-wrap:wrap; height:auto; padding:8px 14px; gap:8px 12px; } .nav { order:3; width:100%; overflow-x:auto; } .cmd-btn { min-width:0; flex:1; } .hdr-r { margin-left:auto; } main { padding:16px 14px 60px; } .tape-in { padding:0 14px; } .q { grid-template-columns:1fr; } .q .r { align-items:flex-start; } }
+.empty { color:var(--ink-3); font-size:13px; padding:16px; text-align:center; }
+.pill { display:inline-flex; align-items:center; height:22px; padding:0 9px; border-radius:11px; font-size:11.5px; font-weight:700; white-space:nowrap; }
+.pill.now { background:var(--down-soft); color:var(--down); } .pill.soon { background:var(--amber-soft); color:var(--amber); }
+.pill.ok { background:var(--up-soft); color:var(--up); } .pill.plan { background:var(--lav-soft); color:var(--lav); }
+.pill.open { background:var(--up-soft); color:var(--up); } .pill.upcoming { background:var(--accent-soft); color:var(--accent); }
+.pill.listed { background:var(--mint-soft); color:var(--mint); border:0; }
+.pill.closed { background:var(--lav-soft); color:var(--lav); } .pill.listed { background:var(--surface); border:1px solid var(--line); color:var(--ink-2); }
+.pill.yes { background:var(--up-soft); color:var(--up); } .pill.no { background:var(--down-soft); color:var(--down); } .pill.unk { background:var(--amber-soft); color:var(--amber); }
+.btn { height:34px; padding:0 14px; border-radius:var(--r-sm); font-weight:700; font-size:13px; display:inline-flex; align-items:center; gap:6px; border:1px solid var(--line-2); background:var(--surface); color:var(--ink); white-space:nowrap; }
+.btn:hover { border-color:var(--accent-line); }
+.btn.primary { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+.btn.sm { height:28px; padding:0 10px; font-size:12px; }
+.btn kbd { font-family:inherit; font-size:10.5px; opacity:.55; font-weight:800; }
+.tg { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:7px; border:1px solid var(--line); font-size:13px; font-weight:800; color:var(--ink-3); background:var(--surface); }
+.tg:hover { border-color:var(--accent-line); color:var(--accent); }
+.tg.on.star { color:var(--star); border-color:var(--star); background:var(--amber-soft); }
+.tg.on.hold { color:var(--up); border-color:var(--up); background:var(--up-soft); }
+[data-row] { position:relative; }
+[data-row].cur { outline:2px solid var(--focus); outline-offset:-2px; border-radius:var(--r-sm); }
+tr[data-row].cur { outline:none; box-shadow: inset 3px 0 0 var(--focus); background:var(--accent-soft); }
+
+/* ============ TODAY ============ */
+.today-h { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:16px; }
+.today-h .sum { color:var(--ink-3); font-size:14px; }
+.queue { display:flex; flex-direction:column; gap:12px; }
+.q { padding:16px 20px; display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center; transition:opacity .2s, transform .2s; }
+.q.lead { border-color:var(--accent-line); background:linear-gradient(135deg, var(--accent-soft) 0%, var(--surface) 55%); }
+.q .l { display:flex; flex-direction:column; gap:5px; min-width:0; }
+.q .tags { display:flex; gap:8px; align-items:center; }
+.q .ttl { font-size:17px; font-weight:800; letter-spacing:-.02em; }
+.q.lead .ttl { font-size:20px; }
+.q .desc { color:var(--ink-2); font-size:13px; max-width:70ch; }
+.q .desc b { color:var(--ink); }
+.q .r { display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
+.q .big { font-size:20px; font-weight:700; }
+.q .acts { display:flex; gap:6px; }
+.q.gone { opacity:0; transform:translateX(24px); }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); gap:12px; }
+.kpi { padding:12px 16px; background:linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 140%); }
+.kpi .v { font-size:24px; font-weight:700; margin-top:2px; }
+.kpi .d { color:var(--ink-3); font-size:12px; }
+.lanes { display:flex; gap:10px; }
+.lane { flex:1; display:flex; flex-direction:column; gap:6px; min-width:0; }
+.chip { border-radius:var(--r-sm); padding:8px 10px 8px 12px; font-size:12.5px; font-weight:700; border:1px solid var(--line); background:var(--surface); display:flex; flex-direction:column; gap:2px; text-align:left; width:100%; position:relative; }
+.chip small { font-weight:500; color:var(--ink-3); font-size:11.5px; }
+.chip::before { content:""; position:absolute; left:0; top:8px; bottom:8px; width:3px; border-radius:2px; background:var(--line-2); }
+.chip.unc::before { background:var(--accent); } .chip.cov::before { background:var(--up); } .chip.risk::before { background:var(--down); } .chip.noq::before { background:var(--lav); opacity:.5; }
+.chip.unc { border-color:var(--accent-line); background:var(--accent-soft); } .chip.risk { border-color:var(--down); background:var(--down-soft); } .chip.cov { background:var(--up-soft); }
+.chip.cur { outline:2px solid var(--focus); }
+.chip .mk { position:absolute; right:8px; top:7px; font-size:11px; color:var(--star); }
+.cal { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:8px; }
+.day { border-radius:var(--r-sm); background:var(--accent-soft); padding:9px 12px; }
+.day.now { background:var(--peach-soft); } .day.warn { background:var(--amber-soft); } .day.est { background:transparent; border:1px dashed var(--line-2); }
+.day .d { font-size:16px; font-weight:700; } .day .w { font-size:12px; font-weight:600; margin-top:2px; } .day .w small { display:block; color:var(--ink-3); font-weight:500; }
+
+/* ============ PIPELINE ============ */
+.pipe-lanes { display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:12px; }
+.pipe-lane .lh { display:flex; align-items:baseline; gap:8px; margin-bottom:8px; }
+.pipe-lane .lh .n { font-size:12px; color:var(--ink-3); }
+.pipe-lane .body { display:flex; flex-direction:column; gap:6px; }
+.detail { padding:14px 18px; display:grid; grid-template-columns:1fr auto; gap:16px; align-items:start; }
+.detail .kv { display:grid; grid-template-columns:max-content 1fr; gap:4px 14px; font-size:13px; margin-top:8px; }
+.detail .kv dt { color:var(--ink-3); font-weight:600; }
+.legend { display:flex; gap:16px; font-size:12px; color:var(--ink-3); flex-wrap:wrap; }
+.legend i { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:5px; vertical-align:-1px; }
+@media (max-width:1000px) { .pipe-lanes { grid-template-columns:repeat(2, minmax(0,1fr)); } .lanes { flex-direction:column; } }
+
+/* ============ TABLES ============ */
+.tw { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th { text-align:left; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); padding:9px 12px; border-bottom:1px solid var(--line); white-space:nowrap; }
+td { padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+tr:last-child td { border-bottom:0; }
+td.r, th.r { text-align:right; }
+td .nm { font-weight:700; } td .nm button { font-weight:700; padding:0; text-align:left; } td .nm button:hover { color:var(--accent); }
+td .dt { font-size:12px; color:var(--ink-3); }
+tr.sect td { background:var(--accent-soft); font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2); padding:7px 12px; }
+.sb { display:grid; grid-template-columns:40px 1fr 48px; gap:6px; align-items:center; font-size:11px; line-height:1.4; }
+.sb .bar { height:6px; border-radius:3px; background:var(--surface-2); overflow:hidden; }
+.sb .bar i { display:block; height:100%; background:var(--accent); border-radius:3px; }
+.sb .bar i.lo { background:var(--peach); } .sb .bar i.hi { background:var(--up); }
+.sb .l { color:var(--ink-3); font-weight:700; } .sb .n { text-align:right; }
+.filters { display:flex; gap:6px; flex-wrap:wrap; }
+.filters button { height:28px; padding:0 11px; border-radius:14px; font-weight:700; font-size:12px; color:var(--ink-2); border:1px solid var(--line); }
+.filters button[aria-pressed="true"] { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+.chart-wrap { position:relative; height:220px; }
+.explain { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:10px; margin-bottom:14px; }
+.explain div { padding:10px 12px; border-radius:var(--r-sm); background:var(--accent-soft); font-size:12.5px; color:var(--ink-2); }
+.explain div b { color:var(--ink); }
+tr.od td { background:var(--surface-2); font-size:12.5px; }
+.od .kv { grid-template-columns:max-content 1fr; gap:4px 12px; }
+.score { display:inline-block; min-width:34px; text-align:center; padding:2px 6px; border-radius:6px; font-weight:800; }
+.score.hi { background:var(--up-soft); color:var(--up); } .score.mid { background:var(--amber-soft); color:var(--amber); } .score.lo { background:var(--down-soft); color:var(--down); } .score.na { background:var(--surface-2); color:var(--ink-3); }
+.pf { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:10px; }
+.pf .p { padding:12px 14px; border-radius:var(--r-sm); background:var(--lav-soft); }
+.pf .p b { font-size:14px; } .pf .p .s { font-size:12px; color:var(--ink-2); margin-top:2px; } .pf .p .r { font-size:12.5px; margin-top:6px; } .pf .p .rc { margin-top:6px; display:flex; flex-wrap:wrap; gap:4px; }
+.pf .p .rc span { font-size:11px; padding:1px 7px; border-radius:9px; background:var(--surface); }
+.newsl a { display:block; padding:7px 0; border-bottom:1px solid var(--line); font-size:13px; } .newsl a:last-child { border-bottom:0; }
+.pos-charts { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:12px; }
+.form { display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:10px; align-items:end; }
+.form label { display:block; margin-bottom:4px; }
+.form input, .form select { width:100%; min-width:0; }
+.planner .out { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:10px; margin-top:12px; }
+.planner .o { padding:10px 12px; background:var(--mint-soft); border-radius:var(--r-sm); }
+.planner .o .v { font-size:18px; font-weight:700; } .planner .o .l { font-size:11.5px; color:var(--ink-3); }
+
+/* ============ MARKET VISUALS ============ */
+.hbars { display:flex; flex-direction:column; gap:7px; }
+.hb { display:grid; grid-template-columns:minmax(90px, 32%) 1fr 62px; gap:10px; align-items:center; font-size:12.5px; }
+.hb .n { font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } .hb .n small { display:block; font-weight:500; color:var(--ink-3); font-size:11px; }
+.hb .bar { height:12px; border-radius:4px; background:var(--surface-2); position:relative; overflow:hidden; }
+.hb .bar i { position:absolute; top:0; bottom:0; border-radius:4px; background:var(--accent); }
+.hb .bar i.up { background:var(--up); } .hb .bar i.down { background:var(--down); } .hb .bar i.lav { background:var(--lav); } .hb .bar i.mint { background:var(--mint); }
+.hb .v { text-align:right; font-weight:700; }
+.hbars.diverge .hb { grid-template-columns:minmax(90px, 30%) 1fr 84px; }
+.discs { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(420px,100%),1fr)); gap:6px; }
+.hbars.diverge .bar::after { content:""; position:absolute; left:50%; top:-2px; bottom:-2px; width:1px; background:var(--line-2); }
+.hbars.stack .bar { display:flex; gap:2px; } .hbars.stack .bar i { position:static; border-radius:3px; }
+.chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+.chips span, .chips a { display:inline-flex; align-items:center; gap:6px; height:26px; padding:0 10px; border-radius:13px; font-size:12px; font-weight:600; background:var(--surface-2); color:var(--ink-2); border:1px solid transparent; }
+.chips .ok { background:var(--up-soft); color:var(--up); } .chips .warn { background:var(--amber-soft); color:var(--amber); } .chips .bad { background:var(--down-soft); color:var(--down); } .chips .plan { background:var(--lav-soft); color:var(--lav); } .chips .acc { background:var(--accent-soft); color:var(--accent); }
+.chips b { font-weight:800; }
+.bins { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-top:12px; }
+.bin { padding:10px 12px; border-radius:var(--r-sm); background:var(--surface-2); text-align:center; } .bin .v { font-size:20px; font-weight:700; } .bin .l { font-size:11.5px; color:var(--ink-3); } .bin.up { background:var(--up-soft); } .bin.down { background:var(--down-soft); } .bin.mid { background:var(--amber-soft); }
+.srtbl th.srt { cursor:pointer; user-select:none; } .srtbl th.srt:hover { color:var(--accent); } .srtbl th.on { color:var(--accent); }
+.tb { display:grid; grid-template-columns:1fr 52px; gap:6px; align-items:center; min-width:110px; } .tb .bar { height:7px; border-radius:4px; background:var(--surface-2); overflow:hidden; } .tb .bar i { display:block; height:100%; border-radius:4px; background:var(--accent); } .tb .bar i.qb { background:var(--lav); } .tb .bar i.rt { background:var(--peach); } .tb .num { text-align:right; font-size:12px; }
+.tiles { display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:12px; }
+.tile { padding:14px 16px; display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:center; }
+.ring { width:64px; height:64px; border-radius:50%; display:grid; place-items:center; background:conic-gradient(var(--rc) calc(var(--p)*1%), var(--surface-2) 0); position:relative; }
+.ring::before { content:""; position:absolute; inset:6px; border-radius:50%; background:var(--surface); } .ring b { position:relative; font-size:18px; font-weight:800; color:var(--rc); }
+.ring.na { --rc:var(--ink-3); }
+.tile .t { min-width:0; } .tile .t .nm { font-weight:800; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } .tile .t .dt { font-size:11.5px; color:var(--ink-3); }
+.tile .subs { display:grid; grid-template-columns:36px 1fr 46px; gap:6px; align-items:center; font-size:11px; margin-top:6px; }
+.tile .subs .bar { height:6px; border-radius:3px; background:var(--surface-2); overflow:hidden; } .tile .subs .bar i { display:block; height:100%; border-radius:3px; background:var(--accent); }
+.tile .subs .bar i.q { background:var(--lav); } .tile .subs .bar i.r { background:var(--peach); }
+.tile .gmp { margin-top:6px; font-size:12px; }
+.rot { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; } .rot .col .lbl { margin-bottom:6px; }
+.rot .rc { padding:8px 10px; border-radius:var(--r-sm); font-size:12.5px; font-weight:700; margin-bottom:6px; cursor:help; }
+.rot .rc.sell { background:var(--down-soft); color:var(--down); border-left:3px solid var(--down); } .rot .rc.buy { background:var(--up-soft); color:var(--up); border-left:3px solid var(--up); }
+.pf .p .wb { height:6px; border-radius:3px; background:var(--surface); margin-top:8px; overflow:hidden; } .pf .p .wb i { display:block; height:100%; background:var(--lav); border-radius:3px; }
+.pf .p .rc span.up { background:var(--up-soft); color:var(--up); } .pf .p .rc span.down { background:var(--down-soft); color:var(--down); }
+.pf .p .rd { display:none; } .pf .p.open .rd { display:block; } .pf .p .tgl { font-size:11.5px; color:var(--accent); font-weight:700; margin-top:6px; }
+.intbar { display:flex; height:14px; border-radius:7px; overflow:hidden; gap:2px; background:var(--surface-2); }
+.intbar i { display:block; height:100%; } .intbar i.ok { background:var(--up); } .intbar i.warn { background:var(--down); } .intbar i.single { background:var(--amber); }
+.disc { padding:8px 12px; border-radius:var(--r-sm); background:var(--amber-soft); color:var(--ink-2); font-size:12.5px; margin-top:6px; border-left:3px solid var(--amber); }
+details.more { margin-top:12px; } details.more summary { cursor:pointer; font-size:12px; font-weight:700; color:var(--accent); } details.more > div { margin-top:8px; font-size:12.5px; }
+.newsl a .db { display:inline-block; min-width:44px; padding:1px 6px; border-radius:6px; background:var(--accent-soft); color:var(--accent); font-size:11px; font-weight:700; margin-right:8px; text-align:center; }
+@media (max-width:760px) { .bins { grid-template-columns:1fr 1fr 1fr; } .rot { grid-template-columns:1fr; } }
+
+/* ============ SMART MONEY ============ */
+.acards { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:12px; }
+.acard { padding:14px 16px; display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start; }
+.acard .nm { font-weight:800; font-size:14px; } .acard .dt { font-size:11.5px; color:var(--ink-3); }
+.acard .cat { display:flex; height:10px; border-radius:5px; overflow:hidden; gap:2px; margin-top:8px; background:var(--surface-2); }
+.acard .cat i { display:block; height:100%; }
+.acard .who { margin-top:8px; display:flex; flex-wrap:wrap; gap:4px; } .acard .who span { font-size:11px; padding:1px 7px; border-radius:9px; background:var(--surface-2); color:var(--ink-2); } .acard .who span.tt { background:var(--up-soft); color:var(--up); } .acard .who span.tk { background:var(--lav-soft); color:var(--lav); font-weight:700; }
+.acard.pend { border-style:dashed; } .acard.pend .ring { --rc:var(--ink-3); }
+.c-mf { background:var(--up); } .c-ins { background:var(--mint); } .c-sov { background:var(--accent); } .c-fpi { background:var(--lav); } .c-aif { background:var(--amber); } .c-oth { background:var(--line-2); }
+.wl { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+.wl .chip-i { display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 6px 0 10px; border-radius:14px; background:var(--lav-soft); color:var(--lav); font-size:12px; font-weight:700; }
+.wl .chip-i.local { background:var(--amber-soft); color:var(--amber); } .wl .chip-i button { font-size:12px; color:inherit; opacity:.6; } .wl .chip-i button:hover { opacity:1; }
+.wl input { height:28px; padding:2px 10px; font-size:12.5px; width:190px; }
+.pf .p .tr { display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; margin-top:8px; } .pf .p .tr div { background:var(--surface); border-radius:7px; padding:6px 8px; } .pf .p .tr .v { font-size:15px; font-weight:800; } .pf .p .tr .l { font-size:10.5px; color:var(--ink-3); }
+.pf .p .rc span b { font-weight:800; margin-left:4px; }
+.pf .p .bd { margin-top:6px; font-size:11.5px; color:var(--ink-2); } .pf .p .bd b { color:var(--accent); }
+.ov { display:flex; flex-direction:column; gap:6px; } .ov .o { display:grid; grid-template-columns:minmax(120px,38%) 1fr; gap:10px; align-items:center; font-size:12.5px; } .ov .o .n { font-weight:700; } .ov .o .hs { display:flex; flex-wrap:wrap; gap:4px; } .ov .o .hs span { font-size:11px; padding:1px 7px; border-radius:9px; background:var(--lav-soft); color:var(--lav); }
+.hbars.stack .bar i.s0 { background:var(--accent); } .hbars.stack .bar i.s1 { background:var(--up); } .hbars.stack .bar i.s2 { background:var(--lav); } .hbars.stack .bar i.s3 { background:var(--peach); } .hbars.stack .bar i.s4 { background:var(--mint); } .hbars.stack .bar i.s5 { background:var(--amber); } .hbars.stack .bar i.s6 { background:var(--down); } .hbars.stack .bar i.s7 { background:var(--ink-3); } .hbars.stack .bar i.s8 { background:var(--line-2); }
+.slegend { display:flex; flex-wrap:wrap; gap:10px; font-size:11px; color:var(--ink-3); margin-top:8px; } .slegend i { display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:4px; vertical-align:-1px; }
+.aq { display:inline-flex; align-items:center; gap:4px; font-size:11px; font-weight:700; padding:1px 7px; border-radius:9px; background:var(--surface-2); color:var(--ink-2); } .aq.hi { background:var(--up-soft); color:var(--up); } .aq.mid { background:var(--amber-soft); color:var(--amber); } .aq.lo { background:var(--down-soft); color:var(--down); }
+
+/* ============ RESEARCH ============ */
+.rs-head { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:16px; }
+select#rsel { min-width:340px; }
+.sheet h3 { font-size:20px; font-weight:800; letter-spacing:-.02em; }
+.sheet .meta { color:var(--ink-3); font-size:13px; margin-top:2px; }
+.kv { display:grid; grid-template-columns:max-content 1fr; gap:6px 14px; font-size:13px; }
+.kv dt { color:var(--ink-3); font-weight:600; }
+ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
+.flag { padding:7px 10px; border-radius:var(--r-sm); background:var(--amber-soft); color:var(--amber); font-size:12.5px; margin:4px 0; }
+.docs a { display:inline-block; margin:2px 10px 2px 0; font-size:12.5px; }
+.prose { font-size:13px; line-height:1.55; max-width:72ch; }
+@media (max-width:760px) { select#rsel { min-width:100%; } }
+
+/* ============ BOOK ============ */
+.task { display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:start; padding:9px 0; border-bottom:1px solid var(--line); }
+.task:last-child { border-bottom:0; }
+.task input[type=checkbox] { margin-top:3px; accent-color:var(--accent); }
+.task .t { font-size:13px; } .task .t small { display:block; color:var(--ink-3); font-size:12px; }
+.task.done .t { text-decoration:line-through; color:var(--ink-3); }
+.x { color:var(--ink-3); font-size:12px; } .x:hover { color:var(--down); }
+.tot { display:flex; gap:24px; flex-wrap:wrap; }
+.tot div .v { font-size:22px; font-weight:700; } .tot div .l { font-size:11.5px; color:var(--ink-3); }
+
+/* ============ COMMAND BAR ============ */
+.cmd { position:fixed; inset:0; z-index:50; background:rgba(20,22,26,.35); display:flex; align-items:flex-start; justify-content:center; padding-top:12vh; }
+.cmd[hidden] { display:none; }
+.cmd-box { width:min(680px, 92vw); background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r); box-shadow:0 20px 60px rgba(0,0,0,.25); overflow:hidden; }
+.cmd-box input { width:100%; border:0; border-bottom:1px solid var(--line); border-radius:0; padding:14px 18px; font-size:17px; background:transparent; }
+.cmd-box input:focus { outline:none; }
+.cmd-list { max-height:50vh; overflow:auto; }
+.cmd-it { display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:center; padding:9px 18px; font-size:13.5px; cursor:pointer; }
+.cmd-it.sel { background:var(--accent-soft); }
+.cmd-it .k { font-size:10.5px; font-weight:800; letter-spacing:.08em; color:var(--accent); width:56px; }
+.cmd-it .h { color:var(--ink-3); font-size:12px; }
+.cmd-help { padding:8px 18px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-3); display:flex; gap:14px; flex-wrap:wrap; }
+.toast { position:fixed; left:50%; bottom:28px; transform:translateX(-50%); background:var(--accent); color:var(--accent-ink); padding:9px 14px; border-radius:var(--r-sm); font-size:13px; font-weight:600; z-index:60; box-shadow:var(--el); }
+.toast[hidden] { display:none; }
+.foot { margin-top:40px; font-size:11.5px; color:var(--ink-3); border-top:1px solid var(--line); padding-top:12px; line-height:1.6; }
+</style>
+
+<div class="hdr"><div class="hdr-in">
+  <div class="brand">IPO Desk</div>
+  <div class="nav" role="tablist" id="nav">
+    <button role="tab" data-s="today" aria-selected="true">Today<span class="cnt" id="c-today"></span><kbd>1</kbd></button>
+    <button role="tab" data-s="pipe" aria-selected="false">Pipeline<span class="cnt" id="c-pipe"></span><kbd>2</kbd></button>
+    <button role="tab" data-s="board" aria-selected="false">Board<span class="cnt" id="c-board"></span><kbd>3</kbd></button>
+    <button role="tab" data-s="market" aria-selected="false">Market<span class="cnt" id="c-market"></span><kbd>4</kbd></button>
+    <button role="tab" data-s="research" aria-selected="false">Research<kbd>5</kbd></button>
+    <button role="tab" data-s="book" aria-selected="false">Book<span class="cnt" id="c-book"></span><kbd>6</kbd></button>
+  </div>
+  <div class="hdr-r">
+    <button class="cmd-btn" id="cmdOpen"><kbd>/</kbd> jump, hold, apply, star…</button>
+    <div class="seg" id="themeSeg" role="radiogroup" aria-label="Appearance">
+      <button data-theme-set="light" title="Light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <button data-theme-set="dark" title="Dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <button data-theme-set="" title="Follow system">Auto</button>
+    </div>
+  </div>
+</div></div>
+<div class="tape"><div class="tape-in" id="tape"></div></div>
+
+<main>
+  <section class="screen" id="s-today">
+    <div class="today-h"><h1 id="todayTitle"></h1><span class="sum" id="todaySum"></span></div>
+    <div class="queue" id="queue"></div>
+    <div class="sec kpis" id="kpis"></div>
+    <div class="sec grid g2">
+      <div class="card"><div class="ch">Quota pipeline <span class="sub">who you need to hold, by stage</span></div><div class="cb lanes" id="miniLanes"></div></div>
+      <div class="card"><div class="ch">Next 30 days <span class="sub">opens · closes · listings · record dates · lapses</span></div><div class="cb cal" id="cal"></div></div>
+    </div>
+  </section>
+
+  <section class="screen" id="s-pipe" hidden>
+    <div class="sec-h" style="margin-top:0"><h2>Subsidiary-IPO pipeline</h2><span class="sub">buy one parent share the moment the DRHP is filed · ⏎ opens a name · <kbd>*</kbd> star · <kbd>h</kbd> parent held</span>
+      <span class="right legend"><span><i style="background:var(--accent)"></i>parent not held</span><span><i style="background:var(--up)"></i>covered</span><span><i style="background:var(--down)"></i>approval lapsing</span><span><i style="background:var(--line-2)"></i>no quota / watch</span></span></div>
+    <div class="pipe-lanes" id="lanes"></div>
+    <div class="sec" id="pipeDetailWrap" hidden><div class="card detail" id="pipeDetail"></div></div>
+    <div class="sec"><div class="sec-h"><h2>Completed this year</h2></div><div class="card tw"><table id="done"></table></div></div>
+    <div class="sec"><div class="sec-h"><h2>Dropped</h2><span class="sub">withdrawn, lapsed, or no shareholder reservation</span></div><div class="card tw"><table id="dropped"></table></div></div>
+  </section>
+
+  <section class="screen" id="s-board" hidden>
+    <div class="sec-h" style="margin-top:0"><h2>Board</h2><span class="sub">expected gain per lot = GMP × lot · funds blocked = top of band × lot · odds from the latest book</span>
+      <div class="filters right" id="bfilters"><button data-f="all" aria-pressed="true">All</button><button data-f="Open">Open</button><button data-f="Upcoming">Upcoming</button><button data-f="Closed">Closed</button><button data-f="sme">SME</button></div></div>
+    <div class="card tw"><table id="board"></table></div>
+    <div class="sec grid g2">
+      <div class="card planner"><div class="ch">₹2 lakh shareholder-quota planner <span class="sub">one application per PAN per category</span></div><div class="cb" id="planner"></div></div>
+      <div class="card"><div class="ch">Recent listings <span class="sub">issue vs listing price</span></div><div class="cb"><div class="chart-wrap"><canvas id="recentChart"></canvas></div></div></div>
+    </div>
+    <div class="sec grid g2">
+      <div class="card"><div class="ch">FII / DII net flows <span class="sub" id="flowsSub"></span></div><div class="cb"><div class="chart-wrap"><canvas id="flowsChart"></canvas></div></div></div>
+      <div class="card"><div class="ch">Recent listings</div><div class="tw"><table id="recent"></table></div></div>
+    </div>
+    <div class="sec"><div class="sec-h"><h2>Other entitlement plays</h2><span class="sub">rights · buybacks · OFS · NCDs · click a row for the plain-words breakdown</span><span class="right" id="offersAsOf"></span></div>
+      <div class="explain" id="offerHow">
+        <div><b>Rights issue</b> — existing holders buy new shares cheap. You must own the stock on the <b>record date</b>. New shares dilute, so the TERP is the price after dilution: the real discount is price vs TERP, not vs market.</div>
+        <div><b>Buyback (tender)</b> — the company buys shares back at a premium. Own it on the record date, tender in the window. Holdings under ₹2 lakh get a reserved 15% small-shareholder quota — far better acceptance odds.</div>
+        <div><b>OFS</b> — promoter or government sells a block on the exchange at a floor price, usually a discount. Announced ~1 day ahead; the daily refresh watches for it.</div>
+        <div><b>NCD</b> — a bond, not a stock. Judge on rating and coupon; there is no listing pop.</div>
+      </div>
+      <div class="grid g2" id="offers"></div></div>
+  </section>
+
+  <section class="screen" id="s-market" hidden>
+    <div class="sec-h" style="margin-top:0"><h2>Market temperature</h2><span class="sub">is the IPO market warming or cooling? last 10 mainboard listings vs the 10 before</span></div>
+    <div class="kpis" id="mtKpis"></div>
+    <div class="card" style="margin-top:12px"><div class="cb"><div class="chart-wrap" style="height:260px"><canvas id="mtChart"></canvas></div><div class="dim" id="mtRead" style="font-size:12.5px;margin-top:10px"></div></div></div>
+
+    <div class="sec grid g2">
+      <div class="card"><div class="ch">Comparables <span class="sub">does institutional conviction predict the pop?</span></div><div class="cb"><div class="chart-wrap" style="height:280px"><canvas id="compChart"></canvas></div><div class="bins" id="compBins"></div></div></div>
+      <div class="card"><div class="ch">Anchor X-ray <span class="sub">who is writing the big cheques</span></div><div class="cb">
+        <div class="lbl" style="margin-bottom:6px">Anchor book size · current issues</div><div class="hbars" id="anchorBars"></div>
+        <div class="lbl" style="margin:14px 0 6px">Most active anchors · Aug–Sep books</div><div class="hbars" id="anchorFreq"></div>
+        <details class="more"><summary>Anchor book notes</summary><div id="anchorNotes"></div></details></div></div>
+    </div>
+
+    <div class="sec"><div class="sec-h"><h2>SME screener</h2><span class="sub">conviction vs froth — click a column to sort · score from QIB depth, demand quality and GMP sanity</span><span class="right legend"><span><i style="background:var(--up)"></i>institution-backed ≥75</span><span><i style="background:var(--amber)"></i>mixed 55–74</span><span><i style="background:var(--down)"></i>retail froth &lt;55</span></span></div><div class="card tw"><table id="smeScreen" class="srtbl"></table></div></div>
+
+    <div class="sec grid g2">
+      <div class="card"><div class="ch">FII / DII daily flows <span class="sub" id="flowsSub2"></span></div><div class="cb"><div id="flowKpis" class="kpis" style="margin-bottom:10px"></div><div class="chart-wrap"><canvas id="flowsChart2"></canvas></div></div></div>
+      <div class="card"><div class="ch">Flow context <span class="sub">monthly FII net · where the money is rotating</span></div><div class="cb">
+        <div class="hbars diverge" id="flowMonthly"></div>
+        <div class="rot" id="flowRot"></div>
+        <details class="more" id="flowNoteWrap"><summary>Source note</summary><div class="dim" id="flowNote" style="font-size:12px"></div></details></div></div>
+    </div>
+
+    <div class="sec"><div class="sec-h"><h2>Smart money on the board</h2><span class="sub">anchor-book quality for current issues — who wrote the cheques, one day before you decide</span><span class="right legend"><span><i style="background:var(--up)"></i>MF</span><span><i style="background:var(--mint)"></i>Insurance</span><span><i style="background:var(--accent)"></i>Pension / sovereign</span><span><i style="background:var(--lav)"></i>FPI</span><span><i style="background:var(--amber)"></i>AIF</span><span><i style="background:var(--line-2)"></i>Other</span></span></div>
+      <div class="acards" id="anchorCards"></div>
+      <details class="more"><summary>How the anchor score works · past books</summary><div id="anchorHow"></div></details></div>
+
+    <div class="sec"><div class="sec-h"><h2>Superinvestors</h2><span class="sub">tracked big-money names · track record = price move since each disclosed buy</span><span class="right legend"><span><i style="background:var(--up)"></i>fresh / add</span><span><i style="background:var(--down)"></i>exit / trim</span><span><i style="background:var(--lav)"></i>other</span></span></div>
+      <div class="wl" id="watchlist"></div>
+      <div class="pf" id="portfolios" style="margin-top:12px"></div>
+      <div class="grid g2" style="margin-top:16px">
+        <div class="card"><div class="ch">Bulk &amp; block deals <span class="sub" id="bulkSub">tracked names · last 45 days</span></div><div class="tw"><table id="bulkDeals"></table></div></div>
+        <div class="card"><div class="ch">Insider &amp; corporate actions in quota parents <span class="sub">promoter, government, buybacks</span></div><div class="tw"><table id="insiders"></table></div></div>
+      </div>
+      <div class="grid g2" style="margin-top:16px">
+        <div class="card"><div class="ch">Conviction overlap <span class="sub">stocks held by two or more tracked names</span></div><div class="cb" id="overlap"></div></div>
+        <div class="card"><div class="ch">Sector tilt <span class="sub">disclosed holdings by sector, per investor</span></div><div class="cb hbars stack" id="sectorTilt"></div></div>
+      </div>
+      <div class="grid g2" style="margin-top:16px">
+        <div class="card"><div class="ch">Smart money in 2026 listings <span class="sub">tracked names inside recent IPOs</span></div><div class="tw"><table id="smartRecent"></table></div></div>
+        <div class="card"><div class="ch">Move log <span class="sub">with price since disclosure</span></div><div class="tw" style="max-height:360px;overflow:auto"><table id="moves"></table></div></div>
+      </div>
+      <details class="more" id="invNotesWrap"><summary>Data notes</summary><div class="dim" id="invNotes" style="font-size:12px"></div></details></div>
+
+    <div class="sec grid g2">
+      <div class="card"><div class="ch">Expected pipeline <span class="sub">non-quota names by expected size</span></div><div class="cb"><div class="chart-wrap" id="expWrap"><canvas id="expChart"></canvas></div><div class="chips" id="expTba"></div></div></div>
+      <div class="card"><div class="ch">Latest IPO news</div><div class="cb" id="news"></div></div>
+    </div>
+
+    <div class="sec"><div class="sec-h"><h2>Data integrity</h2><span class="sub">what the last refresh cross-checked, and where sources disagree</span><span class="right" id="intAsOf"></span></div>
+      <div class="card"><div class="cb"><div class="intbar" id="intBar"></div><div class="chips" id="intChips" style="margin-top:12px"></div><div id="intDisc" style="margin-top:12px"></div><details class="more"><summary>Methods</summary><div class="tw"><table id="integrity"></table></div></details></div></div></div>
+  </section>
+
+  <section class="screen" id="s-research" hidden>
+    <div class="rs-head"><label for="rsel" class="lbl">Investor sheet</label><select id="rsel"></select></div>
+    <div id="sheet"></div>
+  </section>
+
+  <section class="screen" id="s-book" hidden>
+    <div class="card" style="margin-bottom:16px"><div class="cb tot" id="totals"></div></div>
+    <div class="grid g2">
+      <div class="card"><div class="ch">Parent shares held for quota <span class="sub">✓ from the pipeline, or log qty and price here</span></div>
+        <div class="cb"><div class="form"><div><label class="lbl">Parent</label><input type="text" id="hName" list="parentNames" placeholder="Reliance Industries"><datalist id="parentNames"></datalist></div><div><label class="lbl">Qty</label><input type="number" id="hQty" min="1" value="1"></div><div><label class="lbl">Price ₹</label><input type="number" id="hPrice" step="0.01"></div><button class="btn primary" id="hAdd">Log</button></div></div>
+        <div class="tw"><table id="holdings"></table></div></div>
+      <div class="card"><div class="ch">Applications <span class="sub">lot bounds by SEBI category</span></div>
+        <div class="cb"><div class="form">
+          <div><label class="lbl">IPO</label><input type="text" id="apName" list="ipoNames" placeholder="Name"><datalist id="ipoNames"></datalist></div>
+          <div><label class="lbl">Category</label><select id="apCat"><option>Retail</option><option>Shareholder</option><option>S-HNI</option><option>B-HNI</option><option>Employee</option></select></div>
+          <div><label class="lbl">Lots</label><input type="number" id="apLots" min="1" value="1"></div>
+          <div><label class="lbl">Price ₹</label><input type="number" id="apPrice" step="0.01"></div>
+          <div><label class="lbl">Status</label><select id="apStatus"><option>Applied</option><option>Allotted — holding</option><option>Not allotted</option><option>Sold</option></select></div>
+          <div><label class="lbl">Sold ₹</label><input type="number" id="apSold" step="0.01"></div>
+          <button class="btn primary" id="apAdd">Log</button></div><div class="dim" id="apBounds" style="font-size:12px;margin-top:6px"></div></div>
+        <div class="tw"><table id="apps"></table></div></div>
+    </div>
+    <div class="sec"><div class="sec-h"><h2>Position charts</h2><span class="sub">price path since listing for allotted holdings, from the daily price points</span></div><div class="pos-charts" id="posCharts"></div></div>
+    <div class="sec grid g2">
+      <div class="card"><div class="ch">Done &amp; snoozed <span class="sub">from today's queue</span></div><div class="cb" id="doneList"></div></div>
+      <div class="card"><div class="ch">My tasks</div><div class="cb"><div class="form" style="grid-template-columns:1fr auto"><div><label class="lbl" for="taskIn">New task</label><input type="text" id="taskIn" placeholder="e.g. Move 1 RELIANCE share to the demat I apply from"></div><button class="btn primary" id="taskAdd">Add</button></div><div id="tasks" style="margin-top:8px"></div></div></div>
+    </div>
+  </section>
+
+  <div class="foot" id="foot"></div>
+</main>
+
+<div class="cmd" id="cmd" hidden><div class="cmd-box" role="dialog" aria-label="Command bar">
+  <input type="text" id="cmdIn" placeholder="Type a name or a command…" autocomplete="off" spellcheck="false">
+  <div class="cmd-list" id="cmdList"></div>
+  <div class="cmd-help"><span><b>JIO</b> open sheet</span><span><b>HOLD RELIANCE</b> toggle parent held</span><span><b>STAR DEEPA</b></span><span><b>APP DEEPA 2 RETAIL</b> log application</span><span><b>BOARD</b> · <b>PIPE</b> · <b>BOOK</b></span><span><b>DARK</b> · <b>LIGHT</b> · <b>SYSTEM</b></span></div>
+</div></div>
+<div class="toast" id="toast" hidden></div>

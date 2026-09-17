@@ -1,0 +1,37 @@
+[project]
+name = "ipo-desk"
+version = "0.1.0"
+description = "Deterministic daily collector for the India IPO Command Center. Writes data/latest.json; a static site reads it."
+requires-python = ">=3.11"
+dependencies = [
+  "httpx[http2]>=0.27",
+  "selectolax>=0.3.21",
+  "nse[server]>=4.0.1",
+  "bse>=3.3",
+  "pymupdf>=1.24",
+  "rapidfuzz>=3.9",
+  "yfinance>=0.2.50",
+  "feedparser>=6.0",
+  "pyotp>=2.9",
+  "smartapi-python>=1.4",
+  "logzero>=1.7",
+  "websocket-client>=1.6",
+  "python-dateutil>=2.9",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-httpx>=0.30", "ruff>=0.6"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["collector", "collector.sources", "collector.modules", "collector.pdf"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

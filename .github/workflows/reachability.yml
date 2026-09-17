@@ -1,0 +1,23 @@
+name: reachability
+# Day-one test. Which sources answer a GitHub runner through the collector's own HTTP layer?
+# Run it manually; also runs on the first push so the answer is waiting.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scripts/reachability.py", "collector/http.py", ".github/workflows/reachability.yml"]
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install "httpx[http2]>=0.27"
+      - run: python scripts/reachability.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reachability-${{ github.run_number }}
+          path: reachability.json

@@ -1,0 +1,11 @@
+{
+  "_about": "BSE scrip codes for the quota parents polled by collector/modules/filings.py. `verified` says where the code was confirmed; entries marked '# verify' were filled from memory and must be checked once against bseindia.com before being trusted.",
+  "RELIANCE":   {"scrip": "500325", "name": "Reliance Industries Limited",      "verified": "nse-bse.md usage sketch (bse.announcements scripcode=500325)"},
+  "COALINDIA":  {"scrip": "533278", "name": "Coal India Limited",               "verified": "# verify"},
+  "HEROMOTOCO": {"scrip": "500182", "name": "Hero MotoCorp Limited",            "verified": "# verify"},
+  "EDELWEISS":  {"scrip": "532922", "name": "Edelweiss Financial Services Limited", "verified": "# verify"},
+  "IEX":        {"scrip": "540750", "name": "Indian Energy Exchange Limited",   "verified": "# verify"},
+  "PRESTIGE":   {"scrip": "533274", "name": "Prestige Estates Projects Limited", "verified": "# verify"},
+  "SIS":        {"scrip": "540673", "name": "SIS Limited",                      "verified": "# verify"},
+  "NLCINDIA":   {"scrip": "513683", "name": "NLC India Limited",                "verified": "# verify"}
+}

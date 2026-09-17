@@ -1,0 +1,135 @@
+{
+ "name": "South Eastern Coalfields",
+ "kind": "sheet",
+ "order": 4,
+ "bear": [
+  "Margins far below MCL (~13% FY25 vs 35%) due to underground mines and a large workforce.",
+  "Profit volatility: PAT fell from Rs 6,877 cr (FY24) to ~Rs 4,650 cr (FY25).",
+  "Timeline slippage risk — 25% OFS + 10% fresh is a large supply overhang."
+ ],
+ "bull": [
+  "Only CIL arm growing production, offtake and OB in FY26.",
+  "Gevra/Kusmunda mega-mine expansion; largest reserve base in CIL.",
+  "Fresh-issue component gives growth capital, unlike MCL."
+ ],
+ "business": "South Eastern Coalfields Ltd (Bilaspur, Chhattisgarh) is CIL's second-largest producer, with mixed opencast/underground operations across Korba (Gevra — world's second-largest coal mine, Kusmunda, Dipka) and Central India Coalfields; reserves ~90 BT (Apr 2023), ~25% of CIL's reserve base. Higher cost structure than MCL due to underground mines and ~60,000 workforce.",
+ "financials": [
+  {
+   "fy": "FY26",
+   "margin": null,
+   "networth": null,
+   "note": "PAT per CIL CMD (31 Aug 2026); revenue not disclosed.",
+   "pat": 4755,
+   "revenue": null,
+   "ronw": null
+  },
+  {
+   "fy": "FY25",
+   "margin": 13,
+   "networth": null,
+   "note": "Per ipoji compilation; Upstox cites FY25 PAT Rs 4,545 cr — unverified against annual report.",
+   "pat": 4648,
+   "revenue": 35871,
+   "ronw": null
+  },
+  {
+   "fy": "FY24",
+   "margin": 25.2,
+   "networth": null,
+   "note": "Revenue from operations Rs 27,255.2 cr, PAT Rs 6,877.5 cr (Grokipedia/annual report).",
+   "pat": 6877,
+   "revenue": 27255,
+   "ronw": null
+  }
+ ],
+ "flags": [
+  "Government pricing and PSU governance as with MCL.",
+  "Fresh-issue dilution; use of proceeds unspecified."
+ ],
+ "issue": {
+  "allocation": null,
+  "employeeQuota": null,
+  "freshCr": null,
+  "leadManagers": null,
+  "objects": "Up to 25% OFS by Coal India plus fresh issue of up to 10% of post-issue paid-up capital (structure approved in principle by CIL board, Mar/Aug 2026); fresh proceeds for expansion (Gevra/Kusmunda/Dipka capacity, evacuation).",
+  "ofsCr": null,
+  "sellers": [
+   "Coal India Ltd — up to 25% OFS (share count TBD)"
+  ],
+  "shareholderQuota": "Not yet disclosed; CIL precedent is 10% of issue for Coal India shareholders.",
+  "totalCr": null
+ },
+ "logistics": "Same expected mechanics as MCL: 1 COALINDIA share on the RHP record date likely qualifies for any shareholder quota; not yet confirmed.",
+ "metrics": [
+  [
+   "Production FY26",
+   "176.29 MT (+5.3% YoY; only CIL arm to grow on all three parameters)"
+  ],
+  [
+   "Production FY25",
+   "167.49 MT"
+  ],
+  [
+   "Production FY24",
+   "187.38 MT"
+  ],
+  [
+   "Offtake FY26",
+   "~178.6 MT (+4.6%)"
+  ],
+  [
+   "Overburden FY26",
+   "364.3 M cu m (record)"
+  ],
+  [
+   "Gevra output FY24",
+   "59 MT; Kusmunda 50.1 MT; Dipka 35.1 MT"
+  ]
+ ],
+ "parent": "Coal India",
+ "parentPrice": {
+  "asOf": "2026-09-08",
+  "value": 418.85
+ },
+ "parentTicker": "COALINDIA",
+ "sources": [
+  "https://www.business-standard.com/companies/news/south-eastern-coalfields-mahanadi-coalfields-ipo-by-year-end-cil-cmd-126083100671_1.html",
+  "https://www.orissapost.com/south-eastern-coalfields-mahanadi-coalfields-ipo-by-year-end-cil-cmd/",
+  "https://www.awazthevoice.in/india-news/secl-records-all-round-growth-in-fy-55784.html",
+  "https://grokipedia.com/page/South_Eastern_Coalfields"
+ ],
+ "status": "Board-approved; DRHP not yet filed",
+ "street": [
+  {
+   "date": "2026-08-31",
+   "view": "SECL IPO (25% OFS + up to 10% fresh) to be completed within FY27.",
+   "who": "B. Sairam, CMD Coal India"
+  }
+ ],
+ "timeline": {
+  "drhp": null,
+  "expectedWindow": "CIL CMD (31 Aug 2026): IPO to be completed within FY27, timing subject to market conditions and government directives; DRHP expected after MCL's.",
+  "recordDate": null,
+  "rhp": null,
+  "sebiApproval": null
+ },
+ "valuation": {
+  "impliedMcapCr": null,
+  "impliedMcapNote": "No size guidance yet; at Coal India's ~8.3x P/E FY26 PAT Rs 4,755 cr implies ~Rs 39,000-40,000 cr equity value.",
+  "impliedPB": null,
+  "impliedPE": null,
+  "impliedPENote": null,
+  "peers": [
+   [
+    "Coal India",
+    8.3,
+    "PE"
+   ],
+   [
+    "NLC India",
+    11.9,
+    "PE"
+   ]
+  ]
+ }
+}

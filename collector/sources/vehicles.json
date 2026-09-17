@@ -1,0 +1,12 @@
+{
+  "_comment": "Investment vehicles whose bulk/block-deal client names should be attributed to a tracked investor. Matched as case-insensitive substrings of the NSE client name. Keep in sync with data/investors.json watchlist.",
+  "vehicles": [
+    {"match": "Bengal Finance & Investment", "investor": "Ashish Kacholia"},
+    {"match": "Bengal Finance and Investment", "investor": "Ashish Kacholia"},
+    {"match": "Kedia Securities", "investor": "Vijay Kedia"},
+    {"match": "RARE Enterprises", "investor": "Rekha Jhunjhunwala (RARE)"},
+    {"match": "Param Capital", "investor": "Mukul Agrawal"},
+    {"match": "Singularity", "investor": "Madhusudan Kela (Singularity)"},
+    {"match": "Rajiv Khanna", "investor": "Rajiv Khanna"}
+  ]
+}
