@@ -17,7 +17,7 @@ from . import assemble
 from .http import Session
 from .result import Result
 
-MODULES = ["calendar", "subscription", "gmp", "listings", "parents", "filings", "offers", "flows", "deals", "news"]
+MODULES = ["calendar", "subscription", "gmp", "listings", "parents", "filings", "offers", "anchors", "flows", "deals", "news"]
 log = logging.getLogger("collector")
 
 

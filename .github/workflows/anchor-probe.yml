@@ -1,0 +1,27 @@
+name: anchor-probe
+# Manual diagnostic: read anchor allocation letters (OCR included) and print what the parser believes.
+# Writes nothing anywhere. Use it when `anchors` reports a letter it could not read.
+on:
+  workflow_dispatch:
+    inputs:
+      symbols:
+        description: "NSE symbols, space separated"
+        default: "NSE HEROMOTORS SONA"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: "pip" }
+      - name: Tesseract (OCR for scanned letters)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr >/dev/null
+          echo "TESSDATA_PREFIX=$(dirname "$(find /usr/share -name eng.traineddata | head -1)")" >> "$GITHUB_ENV"
+      - run: pip install -e . >/dev/null
+      - run: python scripts/anchor_probe.py ${{ github.event.inputs.symbols }}
