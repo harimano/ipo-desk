@@ -477,7 +477,9 @@ function renderMarket() {
   const actLbl = t => /fresh/i.test(t) ? "fresh" : /bulk/i.test(t) ? "bulk buy" : /add/i.test(t) ? "add" : /trim/i.test(t) ? "trim" : /exit/i.test(t) ? "exit" : t.toLowerCase();
   const ret = m => m.priceAtDisclosure && m.priceNow ? (m.priceNow - m.priceAtDisclosure) / m.priceAtDisclosure * 100 : null;
   const invOf = s => WL.find(w => norm2(s).startsWith(norm2(w.split(" (")[0]))) || s.split(" (")[0];
-  const moves = (I.moves || []).map(m => ({ ...m, inv: invOf(m.investor), r: ret(m), k: kind(m) }));
+  // the collector prices these stocks every run (investors.prices); the sweep's own quote is only a fallback
+  const livePx = m => { const p = (I.prices || {})[m.stock]; return p && p.value != null && String(p.asOf || "") >= String(m.priceAsOf || "") ? { priceNow: p.value, priceAsOf: p.asOf } : {}; };
+  const moves = (I.moves || []).map(m => { const x = { ...m, ...livePx(m) }; return { ...x, inv: invOf(m.investor), r: ret(x), k: kind(m) }; });
   const deals = (I.bulkDeals || []).map(d => ({ ...d, inv: invOf(d.investor) }));
   const lst = store.get("ipo-investors", { add: [], remove: [] }) || { add: [], remove: [] };
   $("#watchlist").innerHTML = WL.map(w => `<span class="chip-i${(I.watchlist || []).includes(w) ? "" : " local"}" title="${(I.watchlist || []).includes(w) ? "tracked by the daily sweep" : "added here — ask Claude to add to the sweep"}">${esc(w)}<button data-rm="${esc(w)}" title="Remove">✕</button></span>`).join("") + `<input type="text" id="wlIn" placeholder="Add an investor…"><button class="btn sm" id="wlAdd">Add</button>`;

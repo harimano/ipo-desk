@@ -40,7 +40,7 @@ ROW_PATCHERS: dict[str, set[str]] = {
 }
 # Modules that shallow-merge INTO a dict another layer owns.
 MERGE_PATCHERS: dict[str, set[str]] = {
-    "parents": {"sheets"},     # only parentPrice / priceAsOf per sheet
+    "parents": {"sheets", "investors"},     # sheets: only parentPrice; investors: only `prices`
     "deals": {"investors"},    # only bulkDeals
 }
 

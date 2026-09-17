@@ -92,3 +92,42 @@ def test_both_fail_keeps_previous(no_angel, monkeypatch):
 def test_no_parent_tickers_is_not_success(no_angel):
     res = parents.run(FakeSession(), {"sheets": {"X": {"parent": "Y"}}}, Result(module="parents"))
     assert not res.ok and res.error["kind"] == "changed"
+
+
+def test_nse_equity_lists_parse_both_header_spellings():
+    import pathlib
+    import pytest
+    from collector.errors import SourceChanged
+    from collector.sources import nse_symbols
+    fx = pathlib.Path(__file__).resolve().parent.parent / "data/fixtures/live-2026-09-17"
+    main = nse_symbols.parse((fx / "EQUITY_L.csv").read_text() * 3)      # the fixture keeps 39 rows; the floor is 50
+    sme = nse_symbols.parse((fx / "SME_EQUITY_L.csv").read_text() * 3)
+    assert main[0] == {"symbol": "20MICRONS", "name": "20 Microns Limited"} and sme[0]["symbol"] == "VINOD"
+    for bad in ("", "A,B\n1,2\n", "SYMBOL,NAME OF COMPANY\nX,Y\n"):
+        with pytest.raises(SourceChanged):
+            nse_symbols.parse(bad)
+
+
+def test_investor_symbols_are_remembered_and_the_list_is_only_fetched_for_new_names():
+    from collector.modules import parents
+    from collector.result import Result
+
+    class S:
+        calls = 0
+
+        def get_text(self, url, **kw):
+            S.calls += 1
+            rows = "\n".join(f"SYM{i},Filler Company {i} Limited,EQ" for i in range(60))
+            return "SYMBOL,NAME OF COMPANY, SERIES\nASIANENE,Asian Energy Services Limited,EQ\n" + rows + "\n"
+
+    prev = {"investors": {"moves": [{"stock": "Asian Energy"}, {"stock": "Beta Drugs"}, {"stock": "Nowhere Listed Co"}],
+                          "prices": {"Beta Drugs": {"symbol": "BETA", "value": 1, "asOf": "2026-09-16"}}}}
+    res = Result(module="parents")
+    got = parents.resolve_symbols(S(), prev, res)
+    assert got == {"Beta Drugs": "BETA", "Asian Energy": "ASIANENE"} and S.calls == 2
+    assert any("Nowhere Listed Co" in u for u in res.unresolved)
+    S.calls = 0
+    prev["investors"]["moves"] = prev["investors"]["moves"][:2]
+    prev["investors"]["prices"]["Asian Energy"] = {"symbol": "ASIANENE"}
+    assert parents.resolve_symbols(S(), prev, Result(module="parents")) == {"Asian Energy": "ASIANENE", "Beta Drugs": "BETA"}
+    assert S.calls == 0, "every name already resolved: no fetch"

@@ -94,10 +94,15 @@ class Matcher:
         self._alias_norm = {norm_name(k): v for k, v in self.aliases.items()}
         self._by_symbol = {str(r["symbol"]).upper(): r["name"] for r in rows
                            if isinstance(r, dict) and r.get("name") and r.get("symbol")}
+        self._symbol_by_name = {name: sym for sym, name in self._by_symbol.items()}
         self._by_form: dict[str, str] = {}
         for n in self.names:
             for f in _forms(n):
                 self._by_form.setdefault(f, n)
+
+    def symbol_of(self, row_name: str) -> str | None:
+        """The symbol carried by the row with this exact name, if it had one."""
+        return self._symbol_by_name.get(row_name)
 
     def match(self, name: str, symbol: str | None = None) -> str | None:
         """The existing board spelling for `name`, or None when it is genuinely new."""
