@@ -22,15 +22,27 @@ from ..errors import SourceChanged
 
 SRC = "anchor-letter"
 ROW_TOLERANCE_RS = 1.0       # shares x price must equal the amount to the rupee: these are exact integers
+MIN_PARTIAL = 0.50           # below this even a summary row is not published
 MIN_COVERAGE = 0.90          # believed rows must carry this much of the letter's stated total (or of 100%)
 
-_NUM = r"\d[\d,]*"
-_ROW = re.compile(
-    rf"(?<![\d,.])(?P<sr>\d{{1,3}})[.)]?\s+(?P<name>[A-Za-z][^%]{{2,220}}?)\s+(?P<shares>{_NUM})\s+"
-    rf"(?P<pct>\d{{1,3}}(?:\.\d{{1,4}})?)\s*%\s+(?:Rs\.?\s*|₹\s*)?(?P<price>\d[\d,]*(?:\.\d+)?)\s*(?:/-)?\s+"
-    rf"(?:Rs\.?\s*|₹\s*)?(?P<amount>{_NUM}(?:\.\d+)?)")
-_PRICE = re.compile(r"allocation\s+price\s+of\s+(?:Rs\.?|₹|INR)\s*([\d,]+(?:\.\d+)?)", re.I)
-_TOTAL = re.compile(r"allocation\s+of\s+([\d,]{4,})\s+Equity\s+Shares", re.I)
+# The dependable part of every row, in text and in OCR alike, is its numeric tail:
+#     shares  pct%  price  amount          (cells may be split by "|", the price may end "/-", digits may
+# carry OCR punctuation slips such as 4,99,99.488.00). The name is whatever lies between two tails.
+_INT = r"\d[\d,.]*\d"
+_TAIL = re.compile(
+    rf"(?<![\d,.])(?P<shares>{_INT})[\s|]*(?P<pct>\d{{1,3}}(?:[.,]\d{{1,4}})?)\s*%[\s|]*(?:Rs\.?|₹|INR)?\s*"
+    rf"(?P<price>{_INT}|\d)\s*(?:/-)?[\s|]*(?:Rs\.?|₹|INR)?\s*(?P<amount>{_INT})(?:\s*/-)?")
+_SERIAL = re.compile(r"(?:^|[\s|\[(])(\d{1,3})\s*[.\])]?\s*\|")            # "| 9. |", "10. |", "106]"
+_SERIAL_LINE = re.compile(r"(?:^|\s)(\d{1,3})[.)]\s+(?=[A-Za-z])")
+_HEADER_END = re.compile(r".*(?:\(\s*(?:in\s+)?(?:Rs\.?|₹|INR|%|z)\s*\)|\bper\s+Equity\s+Share\)?|\bEquity\s+Shares?\)?|\bPortion\b|"
+                         r"\ballocated\b|\bAllocation\b|\bAmount\b|\bPrice\b|\bInvestor\b|\bmanner\s*:)", re.I | re.S)
+# "Out of the 37,793,739 Equity Shares allocated to the Anchor Investors, 13,977,524 Equity Shares (i.e., 36.98% ...)
+#  were allocated to 29 domestic mutual funds ..." — the issuer's own statement of who took the book. The tables
+# that follow these sentences repeat rows of the main table, so the main table ends where the first one starts.
+_STATED = re.compile(r"out\s+of\s+the\b.{0,120}?\(\s*i\.?\s*e\.?,?\s*(?P<pct>\d{1,3}(?:\.\d{1,2})?)\s*%.{0,90}?allocated\s+to\s+"
+                     r"(?P<n>\d{1,3})\s+(?P<who>[A-Za-z /&-]{4,70}?)(?:,|\s+which|\s+details|\s+through|\.)", re.I)
+_PRICE = re.compile(r"allocation\s+price\s+of\s*(?:Rs\.?|₹|INR|%|z|Z)?\s*([\d,]+(?:\.\d+)?)", re.I)
+_TOTAL = re.compile(r"(?:allocation\s+of|out\s+of\s+the(?:\s+total\s+allocation\s+of)?)\s+([\d,]{5,})\s+Equity\s+Shares", re.I)
 _DATE = re.compile(r"(?:Date[d:]*\s*)?((?:January|February|March|April|May|June|July|August|September|October|November|"
                    r"December)\s+\d{1,2},?\s+\d{4}|\d{1,2}(?:st|nd|rd|th)?\s+(?:January|February|March|April|May|June|July|"
                    r"August|September|October|November|December),?\s+\d{4})", re.I)
@@ -48,7 +60,22 @@ _CATS = (("MF", r"mutual fund|\bmf\b|\bamc\b|asset management|flexi ?cap|small ?
 
 
 def _n(s: str) -> float:
-    return float(str(s).replace(",", ""))
+    """Indian or Western grouping, with OCR's comma/full-stop confusion: a final group of one or two digits
+    after a separator is the paise; every other separator is just grouping."""
+    s = str(s).strip()
+    m = re.fullmatch(r"(.*\d)[.,](\d{1,2})", s)
+    whole, frac = (m.group(1), m.group(2)) if m else (s, "")
+    digits = re.sub(r"\D", "", whole)
+    return float(f"{digits}.{frac}") if frac else float(digits)
+
+
+def _clean_name(s: str) -> str:
+    s = re.sub(r"[|\[\]{}_~;=]+", " ", s)
+    s = re.sub(r"\s+", " ", s).strip(" -–—:,.'\"")
+    s = re.sub(r"^(?:Sr\.?\s*No\.?|No\.?)\s*", "", s, flags=re.I)
+    s = re.sub(r"^\d{1,3}[.,)]?\s+(?=[A-Za-z])", "", s)                      # the row's own serial number
+    s = re.sub(r"(?<=[A-Za-z])\s+\d{1,2}\s+(?=[A-Z])", " ", s)               # a serial OCR dropped inside a wrapped name
+    return s.strip(" -–—:,.'\"")
 
 
 def category(name: str) -> str:
@@ -78,28 +105,91 @@ def parse_text(text: str) -> dict:
     pm, tm = _PRICE.search(flat), _TOTAL.search(flat)
     stated_price = _n(pm.group(1)) if pm else None
     stated_total = _n(tm.group(1)) if tm else None
-    rows, dropped = [], 0
-    for m in _ROW.finditer(flat):
-        shares, price, amount, pct = _n(m["shares"]), _n(m["price"]), _n(m["amount"]), float(m["pct"])
-        name = re.sub(r"\s+", " ", m["name"]).strip(" -–|:;,.")
-        ok = shares > 0 and price > 0 and abs(shares * price - amount) <= ROW_TOLERANCE_RS
-        if stated_price and abs(price - stated_price) > 0.01 * stated_price:
-            ok = False
-        if not ok or len(name) < 3 or pct > 100:
+
+    stated = {}
+    for s in _STATED.finditer(flat):
+        who = s["who"].lower()
+        key = "mf" if "mutual" in who else "insurancePension" if re.search(r"insur|pension", who) else None
+        if key and key not in stated:
+            stated[key] = {"pct": float(s["pct"]), "count": int(s["n"])}
+    first_summary = _STATED.search(flat)
+    main_end = first_summary.start() if first_summary else len(flat)
+    tails = list(_TAIL.finditer(flat))
+    flat_for_rows = flat
+    rows, dropped, seen = [], 0, set()
+    prev_end = 0
+    for m in tails:
+        between, prev_end = flat_for_rows[prev_end:m.start()], m.end()
+        try:
+            shares, price, amount = _n(m["shares"]), _n(m["price"]), _n(m["amount"])
+            pct = float(m["pct"].replace(",", "."))
+        except ValueError:
             dropped += 1
             continue
-        rows.append({"name": name, "cat": category(name), "shares": int(shares),
-                     "amountCr": round(amount / 1e7, 2), "pct": round(pct, 2)})
+        # which words belong to this row? After a serial marker they are this row's; before it they are the
+        # tail end of the previous row's name, which wrapped under its numbers.
+        cut = None
+        for s in list(_SERIAL.finditer(between)) + list(_SERIAL_LINE.finditer(between)):
+            cut = s if cut is None or s.start() > cut.start() else cut
+        carry, own = (between[:cut.start()], between[cut.end():]) if cut else ("", between)
+        if rows and carry.strip() and rows[-1].get("_open"):
+            rows[-1]["name"] = _clean_name(rows[-1]["name"] + " " + carry)[:160]
+        hdr = _HEADER_END.match(own)
+        name = _clean_name(own[hdr.end():] if hdr else own)[-160:]
+        ok = (shares > 0 and price > 0 and abs(shares * price - amount) <= ROW_TOLERANCE_RS and 0 < pct <= 100
+              and (not stated_price or abs(price - stated_price) <= 0.01 * stated_price))
+        if re.fullmatch(r"(?:grand\s+)?total.*", name, re.I) or (stated_total and shares == stated_total):
+            continue                                        # the letter's own total line
+        if not ok or len(name) < 3:
+            dropped += 1
+            continue
+        key = (name, shares, m.start() < main_end)
+        if key in seen:                                     # the same table printed again for the MF break-up
+            continue
+        seen.add(key)
+        rows.append({"name": name, "shares": int(shares), "amountCr": round(amount / 1e7, 2), "pct": round(pct, 2),
+                     "_open": True, "_main": m.start() < main_end})
     if not rows:
         raise SourceChanged(SRC, f"no allocation row passed the arithmetic check ({dropped} candidates rejected)")
+
+    # The break-up tables after the summary sentences repeat rows of the main table. A row OCR garbled in the
+    # main table is often legible in its repeat, so per share-count the book holds max(main, repeats) rows:
+    # repeats are a subset of the main table, never an addition to it.
+    main_rows = [r for r in rows if r["_main"]]
+    later: dict[int, list[dict]] = {}
+    for r in rows:
+        if not r["_main"]:
+            later.setdefault(r["shares"], []).append(r)
+    have: dict[int, int] = {}
+    for r in main_rows:
+        have[r["shares"]] = have.get(r["shares"], 0) + 1
+    recovered = 0
+    for v, rs in later.items():
+        for r in rs[have.get(v, 0):]:
+            main_rows.append(r)
+            recovered += 1
+    rows = main_rows
     got_shares, got_pct = sum(r["shares"] for r in rows), sum(r["pct"] for r in rows)
     coverage = got_shares / stated_total if stated_total else got_pct / 100
+    partial = False
     if not (MIN_COVERAGE <= coverage <= 1.02):
-        raise SourceChanged(SRC, f"believed rows cover {coverage:.0%} of the anchor portion "
-                                 f"({len(rows)} rows kept, {dropped} rejected) — refusing a partial book")
-    price = stated_price or _n(_ROW.search(flat)["price"])
+        # A long scan rarely reads clean line by line. The letter still says, in prose, how big the book is and
+        # how much of it mutual funds and insurers took. With those three facts on record the verified rows can be
+        # published as what they are — part of the list — under totals that are the issuer's, not ours.
+        if coverage > 1.02 or coverage < MIN_PARTIAL or not (stated_total and stated_price and stated):
+            raise SourceChanged(SRC, f"believed rows cover {coverage:.0%} of the anchor portion "
+                                     f"({len(rows)} rows kept, {dropped} rejected) — refusing a partial book")
+        partial = True
+    for r in rows:
+        r.pop("_open", None)
+        r.pop("_main", None)
+        r["cat"] = category(r["name"])
+    price = stated_price or _n(tails[0]["price"])
+    # the book's size is the issuer's statement whenever the letter makes one; our row sum is the fallback
+    amount = stated_total * stated_price / 1e7 if stated_total and stated_price else sum(r["amountCr"] for r in rows)
     return {"date": _iso(flat), "price": price, "totalShares": int(stated_total or got_shares),
-            "amountCr": round(sum(r["amountCr"] for r in rows), 2), "investors": rows, "dropped": dropped}
+            "amountCr": round(amount, 2), "partial": partial, "coverage": round(coverage, 4), "stated": stated, "recovered": recovered,
+            "investors": rows, "dropped": dropped}
 
 
 # ---------------------------------------------------------------------------------------------

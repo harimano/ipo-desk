@@ -95,3 +95,19 @@ def test_module_fails_only_when_every_letter_it_tried_failed(monkeypatch):
     assert not res.ok and res.replace == {} and res.unresolved
     nothing = {"mainboard": [], "sme": [], "anchors": []}
     assert anchors.run(FakeSession({}), nothing, Result(module="anchors"), today=TODAY).ok
+
+
+def test_real_scanned_letters_ocr_text():
+    """OCR text of two real scans (Tesseract on a GitHub runner, 17 Sep 2026)."""
+    hero = letter.parse_text((ROOT / "data/fixtures/anchor/HEROMOTORS-letter-ocr.txt").read_text())
+    assert hero["partial"] is False and hero["coverage"] >= 0.90 and hero["price"] == 84 and hero["totalShares"] == 35714284
+    assert hero["stated"] == {"mf": {"pct": 81.66, "count": 7}, "insurancePension": {"pct": 6.67, "count": 2}}
+    assert all(abs(i["shares"] * 84 - i["amountCr"] * 1e7) < 1e5 for i in hero["investors"])
+
+    nse = letter.parse_text((ROOT / "data/fixtures/anchor/NSE-letter-ocr.txt").read_text())
+    assert nse["partial"] is True and 0.5 <= nse["coverage"] < 0.9
+    assert nse["amountCr"] == round(37793739 * 1785 / 1e7, 2), "a partial book carries the issuer's total, not our sum"
+    assert nse["stated"]["mf"] == {"pct": 36.98, "count": 29} and nse["stated"]["insurancePension"]["pct"] == 16.04
+    row = anchors.build_row({"name": "NSE", "issueSizeCr": 15822.76}, {**nse, "read": "ocr"}, "u")
+    assert row["topTierShare"] == 53.02 and row["partial"] and "left out rather than guessed" in row["note"]
+    assert sum(i["amountCr"] for i in row["investors"]) < row["amountCr"]

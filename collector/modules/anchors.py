@@ -55,18 +55,31 @@ def targets(prev: dict, today: dt.date) -> list[dict]:
 
 def build_row(board_row: dict, book: dict, url: str) -> dict:
     inv = sorted(book["investors"], key=lambda i: -i["amountCr"])
-    total = book["amountCr"] or sum(i["amountCr"] for i in inv)
+    total = book["amountCr"]
     for i in inv:
         i["pct"] = round(100 * i["amountCr"] / total, 2) if total else i["pct"]
-    top = round(sum(i["pct"] for i in inv if i["cat"] in TOP_TIER), 2)
+    stated = book.get("stated") or {}
+    if stated:                                  # the issuer's own sentence beats categories guessed from names
+        top = round(sum(v["pct"] for v in stated.values()), 2)
+    else:
+        top = round(sum(i["pct"] for i in inv if i["cat"] in TOP_TIER), 2)
+    count = len(inv) + (book.get("dropped", 0) if book.get("partial") else 0)
     names = ", ".join(i["name"].title() if i["name"].isupper() else i["name"] for i in inv[:9])
+    how = {"text": "the letter's text", "ocr": "a scanned letter (OCR)"}.get(book.get("read"), "the letter")
+    note = f"Read from {how}; every listed row checked: shares × price = amount."
+    if book.get("partial"):
+        note = (f"Read from {how}. Book size and the mutual-fund / insurer shares are the issuer's own statements in the "
+                f"letter. Only {book['coverage']:.0%} of the allocation lines could be verified (shares × price = amount); "
+                f"those are listed, the rest are left out rather than guessed.")
+    elif book.get("read") == "ocr":
+        note += " Names come from OCR and may carry small errors."
     return {"name": board_row["name"], "date": book.get("date"), "amountCr": total,
-            "issueSizeCr": board_row.get("issueSizeCr"), "count": len(inv), "topTierShare": top,
-            "anchor": f"₹{total:,.2f} Cr from {len(inv)} allocations on {book.get('date') or '—'} — {names}",
+            "issueSizeCr": board_row.get("issueSizeCr"), "count": count, "topTierShare": top,
+            "anchor": f"₹{total:,.2f} Cr from {'about ' if book.get('partial') else ''}{count} allocations on "
+                      f"{book.get('date') or '—'} — {names}",
             "investors": [{"name": i["name"], "cat": i["cat"], "amountCr": i["amountCr"], "pct": i["pct"]} for i in inv],
-            "price": book.get("price"), "sources": [url], "source": SOURCE_TAG,
-            "note": f"Read from the issuer's allocation letter ({book.get('read')}); every row checked: shares × price = amount."
-                    + (f" {book['dropped']} unreadable line(s) left out." if book.get("dropped") else "")}
+            "stated": stated or None, "partial": bool(book.get("partial")), "coverage": book.get("coverage"),
+            "price": book.get("price"), "sources": [url], "source": SOURCE_TAG, "note": note}
 
 
 def run(session: Session, prev: dict, res: Result, today: dt.date | None = None) -> Result:
