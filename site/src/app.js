@@ -617,6 +617,24 @@ document.addEventListener("keydown", e => {
 function renderAll() { renderTape(); renderToday(); renderPipe(); renderBoard(); renderBook(); }
 $("#foot").innerHTML = `${esc(DATA.meta.quotaSourceNote || "")}${DATA.meta.marketNotes && DATA.meta.marketNotes.length ? "<br>" + DATA.meta.marketNotes.map(esc).join("<br>") : ""}${DATA.meta.unresolved && DATA.meta.unresolved.length ? `<br>Unverified this cycle: ${esc(DATA.meta.unresolved.join(", "))}.` : ""}<br>Aggregated public data and analytical synthesis with both sides shown — not investment advice. Nothing here places orders. Press <b>?</b> for keys.`;
 try { renderAll(); renderResearchSelect(); } catch (err) { document.querySelector("main").insertAdjacentHTML("afterbegin", `<div class="card" style="padding:14px 18px;border-color:var(--down);margin-bottom:16px"><b class="down">The page hit an error while rendering.</b> <span class="dim">${esc(err && err.message)}</span></div>`); console.error(err); }
+// ---- backup / restore: every "ipo-*" key, raw, so legacy shapes round-trip untouched -------------
+const backupKeys = () => { const out = {}; try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && k.startsWith("ipo-")) out[k] = localStorage.getItem(k); } } catch (e) {} return out; };
+const backupDoc = () => ({ app: "ipo-desk", version: 1, exportedAt: new Date().toISOString(), origin: location.origin, keys: backupKeys() });
+function restoreFrom(text) {
+  let doc; try { doc = JSON.parse(text); } catch (e) { toast("That is not a backup: not JSON"); return; }
+  const keys = doc && doc.app === "ipo-desk" && doc.keys && typeof doc.keys === "object" ? doc.keys : null;
+  const names = keys ? Object.keys(keys).filter(k => k.startsWith("ipo-") && typeof keys[k] === "string") : [];
+  if (!names.length) { toast("That is not an ipo-desk backup"); return; }
+  if (!confirm(`Restore ${names.length} item(s) from the backup of ${String(doc.exportedAt || "").slice(0, 10) || "unknown date"}?\n\nThis replaces the stars, holdings, applications and tasks in this browser.`)) return;
+  try { names.forEach(k => localStorage.setItem(k, keys[k])); } catch (e) { toast("Could not write to this browser's storage"); return; }
+  location.reload();
+}
+{ const n = Object.keys(backupKeys()).length; $("#bkNote").textContent = n ? "" : "nothing saved in this browser yet — restore a backup from your old dashboard"; }
+$("#bkSave").onclick = () => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(backupDoc(), null, 1)], { type: "application/json" })); a.download = `ipo-desk-backup-${iso(new Date())}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); toast("Backup saved"); };
+$("#bkLoad").onclick = () => $("#bkFile").click();
+$("#bkFile").onchange = e => { const f = e.target.files[0]; if (f) f.text().then(restoreFrom); e.target.value = ""; };
+$("#bkPaste").onclick = () => { const t = prompt("Paste the backup text here"); if (t) restoreFrom(t); };
+
 const savedTab = store.get("ipo-tab", "today"); show(["today", "pipe", "board", "market", "research", "book"].includes(savedTab) ? savedTab : "today");
 
 /* Swap in freshly fetched data without reloading the page or touching local state

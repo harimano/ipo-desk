@@ -439,6 +439,14 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
       <div class="card"><div class="ch">Done &amp; snoozed <span class="sub">from today's queue</span></div><div class="cb" id="doneList"></div></div>
       <div class="card"><div class="ch">My tasks</div><div class="cb"><div class="form" style="grid-template-columns:1fr auto"><div><label class="lbl" for="taskIn">New task</label><input type="text" id="taskIn" placeholder="e.g. Move 1 RELIANCE share to the demat I apply from"></div><button class="btn primary" id="taskAdd">Add</button></div><div id="tasks" style="margin-top:8px"></div></div></div>
     </div>
+    <div class="card" style="margin-top:16px"><div class="ch">Your data <span class="sub">stars, holdings, applications and tasks live in this browser only</span></div>
+      <div class="cb" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <button class="btn" id="bkSave">Back up to file</button>
+        <button class="btn" id="bkLoad">Restore from file</button>
+        <button class="btn" id="bkPaste">Restore from pasted text</button>
+        <input type="file" id="bkFile" accept="application/json,.json" hidden>
+        <span class="dt" id="bkNote"></span>
+      </div></div>
   </section>
 
   <div class="foot" id="foot"></div>
