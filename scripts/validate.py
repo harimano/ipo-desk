@@ -63,18 +63,26 @@ def walk_dates(o, where):
             walk_dates(x, where)
 
 
-def census(o, path="", acc=None):
-    """Count every nested list/dict so a loss anywhere in the tree is visible."""
+def census(o, path="", acc=None, in_row=False):
+    """Count every collection so a loss anywhere in the tree is visible.
+
+    Top level: a list's length, a dict's key count (lot, priceHistory, sheets… are dicts keyed by name). Inside the
+    rows of a list the measure changes: a nested list is SUMMED across all rows (`anchors[]/investors` = every
+    investor on file), and a row's own nested objects are not counted at all. They used to be — overwritten row by
+    row, so the figure was whichever row came last, and a board whose last listing had 7 KPI fields instead of 15
+    read as a 53% loss (18 Sep 2026). How many keys one listing's `facts.kpis` has is not a collection."""
     acc = {} if acc is None else acc
+    key = path or "/"
     if isinstance(o, dict):
-        acc[path or "/"] = len(o)
+        if not in_row:
+            acc[key] = len(o)
         for k, v in o.items():
-            census(v, f"{path}/{k}", acc)
+            census(v, f"{path}/{k}", acc, in_row)
     elif isinstance(o, list):
-        acc[path or "/"] = len(o)
+        acc[key] = acc.get(key, 0) + len(o) if in_row else len(o)
         for v in o:
             if isinstance(v, (dict, list)):
-                census(v, f"{path}[]", acc)
+                census(v, f"{path}[]", acc, True)
     return acc
 
 
