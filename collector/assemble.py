@@ -85,7 +85,14 @@ def load_research_layer(data: dict, root: pathlib.Path) -> list[str]:
             body = {k: v for k, v in b.items() if k not in ("name", "order")}
             kind = b.get("kind", "current")          # "current" (issue sheet) or "sheet" (quota parent)
             target = "sheets" if kind == "sheet" else "current"
-            data[target][name] = {**data[target].get(name, {}), **body}
+            have = data[target].get(name, {})
+            merged = {**have, **body}
+            # parentPrice is the one sheet field a module owns (parents): a research file written weeks ago
+            # must not put its old quote back over today's
+            live, filed = have.get("parentPrice") or {}, body.get("parentPrice") or {}
+            if str(live.get("asOf") or "") > str(filed.get("asOf") or ""):
+                merged["parentPrice"] = live
+            data[target][name] = merged
         notes.append(f"research: {len(bodies)} files overlaid")
     reviews = root / "quota-reviews"
     if reviews.exists():

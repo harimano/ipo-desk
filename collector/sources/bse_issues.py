@@ -126,7 +126,9 @@ def public_issues_html(session) -> list[dict]:
 # ---------------------------------------------------------------------------------------------
 # calendar: modern JSON API
 # ---------------------------------------------------------------------------------------------
-def parse_public_issues_json(data, *, url: str = JSON_PATH) -> list[dict]:
+def parse_public_issues_json(data, *, url: str = JSON_PATH, kinds: tuple[str, ...] = ("IPO",)) -> list[dict]:
+    """`kinds` are BSE IR_flag values: IPO, FPO, RI (rights), OTB (offer to buy: buyback / takeover tender),
+    OFS, DPI (debt public issue). Rows carry theirs as `kind`."""
     table = data.get("Table") if isinstance(data, dict) else data
     if not isinstance(table, list) or not table:
         raise SourceChanged(SRC, "GetPublicIssue_par_updated: no Table rows", url)
@@ -135,7 +137,7 @@ def parse_public_issues_json(data, *, url: str = JSON_PATH) -> list[dict]:
         if not isinstance(r, dict):
             continue
         flag = str(first(r, "IR_flag", "IR_FLAG", "ir_flag", default="") or "").upper()
-        if flag and flag != "IPO":
+        if (flag or "IPO") not in kinds:
             continue
         name = first(r, "LONG_NAME", "Scrip_Name", "short_name", "SCRIP_NAME")
         if not name:
@@ -155,10 +157,10 @@ def parse_public_issues_json(data, *, url: str = JSON_PATH) -> list[dict]:
             "withdrawn": "withdraw" in str(first(r, "Status", default="") or "").lower(), "totalSub": None,
             "bseIpoNo": str(int(number(ipo_no))) if number(ipo_no) is not None else None,
             "bseScripCode": str(first(r, "Scrip_cd", "SCRIP_CD", default="") or "") or None,
-            "source": "BSE public issues (api)",
+            "source": "BSE public issues (api)", "kind": flag or "IPO",
         })
     if not rows:
-        raise SourceChanged(SRC, f"GetPublicIssue_par_updated: {len(table)} rows, none an IPO with a name and dates "
+        raise SourceChanged(SRC, f"GetPublicIssue_par_updated: {len(table)} rows, none of {kinds} with a name and dates "
                                  f"(keys: {sorted(table[0].keys())[:10] if isinstance(table[0], dict) else '?'})", url)
     return rows
 
@@ -166,6 +168,15 @@ def parse_public_issues_json(data, *, url: str = JSON_PATH) -> list[dict]:
 def public_issues_json(session) -> list[dict]:
     data = session.bse_json(JSON_PATH, JSON_PARAMS, source=SRC)
     return parse_public_issues_json(data, url=JSON_PATH)
+
+
+OFFER_KINDS = ("RI", "OTB", "OFS", "DPI")
+
+
+def public_offers_json(session) -> list[dict]:
+    """Everything on BSE's public-issues list that is not an IPO: one call with a blank ir_flag."""
+    data = session.bse_json(JSON_PATH, {**JSON_PARAMS, "ir_flag": ""}, source=SRC)
+    return parse_public_issues_json(data, url=JSON_PATH, kinds=OFFER_KINDS)
 
 
 # ---------------------------------------------------------------------------------------------
