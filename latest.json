@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-17T23:04:08+05:30",
+  "asOf": "2026-09-17T23:19:44+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "17 Sep 2026, 23:04 IST",
+  "label": "17 Sep 2026, 23:19 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -39,8 +39,6 @@
   ],
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
-   "[subscription] subscription missing for Shakti Polytarp, Vama Wovenfab — check NSE/BSE ids on the row",
-   "[gmp] gmp: no grey-market print found for open issue NSE (National Stock Exchange of India)",
    "[listings] listings: no NSE symbol on row 'Amtech Esters' — cannot price",
    "[listings] listings: no NSE symbol on row 'Infrax Renewable' — cannot price",
    "[listings] listings: no NSE symbol on row 'Pranav Constructions' — cannot price",
@@ -61,7 +59,9 @@
    "[listings] listings: no NSE symbol on row 'Sunshine Pictures' — cannot price",
    "[listings] listings: no NSE symbol on row 'Shankesh Jewellers' — cannot price",
    "[listings] listings: no NSE symbol on row 'Horizon Industrial Parks' — cannot price",
-   "[listings] listings: no NSE symbol on row 'Lalithaa Jewellery Mart' — cannot price"
+   "[listings] listings: no NSE symbol on row 'Lalithaa Jewellery Mart' — cannot price",
+   "[subscription] subscription missing for Shakti Polytarp, Vama Wovenfab — check NSE/BSE ids on the row",
+   "[gmp] gmp: no grey-market print found for open issue NSE (National Stock Exchange of India)"
   ]
  },
  "expected": [
@@ -7673,24 +7673,15 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-17T23:04:08+05:30",
+  "asOf": "2026-09-17T23:19:44+05:30",
   "checks": [
-   {
-    "area": "calendar",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-09-17T23:03:39+05:30",
-    "elapsed": 46.71,
-    "calls": 15,
-    "note": "nse current=7 upcoming=7 past=50 detail=10 +bse=11: 17 mainboard, 10 sme; 9 open, 5 upcoming"
-   },
    {
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-17T23:03:49+05:30",
-    "elapsed": 9.54,
-    "calls": 14,
+    "asOf": "2026-09-17T23:19:43+05:30",
+    "elapsed": 40.98,
+    "calls": 15,
     "note": "9/11 rows patched via nse; no subscription for: Shakti Polytarp, Vama Wovenfab"
    },
    {
@@ -7698,63 +7689,9 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "17-Sep 9:34",
-    "elapsed": 0.2,
+    "elapsed": 1.09,
     "calls": 1,
     "note": "gmp: 14 board rows patched via investorgain; 14 active, 9 of them matched; gmp: 6 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); NSE (₹142, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹11, investorgain); Varmora Granito (₹10, investorgain)"
-   },
-   {
-    "area": "listings",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-09-17",
-    "elapsed": 8.5,
-    "calls": 0,
-    "note": "20 names priced, 4 moved to recent, 0 history points"
-   },
-   {
-    "area": "parents",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-09-17",
-    "elapsed": 0.88,
-    "calls": 0,
-    "note": "5/5 parent prices"
-   },
-   {
-    "area": "filings",
-    "method": "bse_ann:ok, sebi:ok",
-    "status": "ok",
-    "asOf": "2026-09-17",
-    "elapsed": 5.21,
-    "calls": 10,
-    "note": "bse_ann: 8/8 parents answered, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; 0 rows patched, 33 kept previous stage"
-   },
-   {
-    "area": "flows",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-09-17",
-    "elapsed": 1.62,
-    "calls": 1,
-    "note": "2026-09-17 already in history; FII -3,209 / DII +3,618 Cr"
-   },
-   {
-    "area": "deals",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-09-17",
-    "elapsed": 2.15,
-    "calls": 2,
-    "note": "bulk.csv: 212 deals; block.csv: 4 deals; 0 tracked-investor deals of 216; 13 patterns"
-   },
-   {
-    "area": "news",
-    "method": "rss:ok",
-    "status": "ok",
-    "asOf": "2026-09-17T21:03:04+05:30",
-    "elapsed": 1.09,
-    "calls": 3,
-    "note": "business-standard: 6/35 primary-market items; economic-times: 14/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 20 fresh, 25 kept"
    },
    {
     "area": "research layer",
@@ -7766,7 +7703,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "76s, 46 calls, 9/9 modules ok"
+    "note": "42s, 16 calls, 2/2 modules ok"
    }
   ],
   "discrepancies": [
