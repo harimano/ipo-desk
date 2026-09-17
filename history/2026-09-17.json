@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-17T23:19:44+05:30",
+  "asOf": "2026-09-17T23:24:45+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "17 Sep 2026, 23:19 IST",
+  "label": "17 Sep 2026, 23:24 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -39,6 +39,8 @@
   ],
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
+   "[subscription] subscription missing for Shakti Polytarp, Vama Wovenfab — check NSE/BSE ids on the row",
+   "[gmp] gmp: no grey-market print found for open issue NSE (National Stock Exchange of India)",
    "[listings] listings: no NSE symbol on row 'Amtech Esters' — cannot price",
    "[listings] listings: no NSE symbol on row 'Infrax Renewable' — cannot price",
    "[listings] listings: no NSE symbol on row 'Pranav Constructions' — cannot price",
@@ -60,8 +62,7 @@
    "[listings] listings: no NSE symbol on row 'Shankesh Jewellers' — cannot price",
    "[listings] listings: no NSE symbol on row 'Horizon Industrial Parks' — cannot price",
    "[listings] listings: no NSE symbol on row 'Lalithaa Jewellery Mart' — cannot price",
-   "[subscription] subscription missing for Shakti Polytarp, Vama Wovenfab — check NSE/BSE ids on the row",
-   "[gmp] gmp: no grey-market print found for open issue NSE (National Stock Exchange of India)"
+   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics"
   ]
  },
  "expected": [
@@ -1414,144 +1415,7 @@
   }
  ],
  "offers": {
-  "asOf": "2026-09-07",
-  "buybacks": [
-   {
-    "close": "2026-12-11",
-    "name": "Great Eastern Shipping",
-    "note": "Max price Rs 1,530; route per ipowatch window",
-    "open": "2026-09-04",
-    "price": 1530,
-    "record": null,
-    "status": "live",
-    "type": "Open market",
-    "url": "https://ipowatch.in/share-buyback-offers/"
-   },
-   {
-    "close": "2026-11-20",
-    "name": "Advanced Enzyme Technologies",
-    "note": "Max price Rs 500; up to Rs 69.70 cr",
-    "open": "2026-08-14",
-    "price": 500,
-    "record": null,
-    "status": "live",
-    "type": "Open market",
-    "url": "https://ipowatch.in/advanced-enzyme-technologies-buyback-2026/"
-   },
-   {
-    "close": "2026-11-20",
-    "name": "SIS",
-    "note": "Max price Rs 478.50; up to Rs 106 cr",
-    "open": "2026-08-13",
-    "price": 478.5,
-    "record": null,
-    "status": "live",
-    "type": "Open market",
-    "url": "https://ipowatch.in/sis-buyback-2026/"
-   },
-   {
-    "close": null,
-    "name": "PVR Inox",
-    "note": "Announced; dates awaited",
-    "open": null,
-    "price": 1450,
-    "record": null,
-    "status": "tba",
-    "type": null,
-    "url": "https://ipowatch.in/share-buyback-offers/"
-   },
-   {
-    "close": null,
-    "name": "Prime Securities",
-    "note": "Announced; record date awaited",
-    "open": null,
-    "price": 305,
-    "record": null,
-    "status": "tba",
-    "type": "Tender",
-    "url": "https://ipowatch.in/prime-securities-buyback-2025/"
-   },
-   {
-    "close": null,
-    "name": "Tips Music",
-    "note": "Announced; record date awaited",
-    "open": null,
-    "price": 750,
-    "record": null,
-    "status": "tba",
-    "type": "Tender",
-    "url": "https://ipowatch.in/tips-music-buyback-2026/"
-   },
-   {
-    "close": null,
-    "name": "VRL Logistics",
-    "note": "Announced; record date awaited",
-    "open": null,
-    "price": 320,
-    "record": null,
-    "status": "tba",
-    "type": "Tender",
-    "url": "https://ipowatch.in/vrl-logistics-buyback-2026/"
-   },
-   {
-    "close": null,
-    "name": "Man Infraconstruction",
-    "note": "Announced; dates awaited",
-    "open": null,
-    "price": 171,
-    "record": null,
-    "status": "tba",
-    "type": null,
-    "url": "https://ipowatch.in/share-buyback-offers/"
-   }
-  ],
-  "ncd": [],
-  "ofs": [],
   "rights": [
-   {
-    "close": "2026-09-09",
-    "cmp": null,
-    "deal": "7 rights shares for every 40 held; RE trading 2-3 Sep",
-    "detail": null,
-    "name": "Ratnaveer Precision Engineering",
-    "open": "2026-09-02",
-    "price": 264,
-    "record": "2026-08-26",
-    "status": "open-holders",
-    "terp": null,
-    "url": "https://www.business-standard.com/content/press-releases-ani/ratnaveer-precision-engineering-rights-issue-opens-today-at-inr-264-re-trading-begins-as-investors-get-opportunity-to-subscribe-126090200322_1.html"
-   },
-   {
-    "close": "2026-09-11",
-    "cmp": null,
-    "deal": "6 rights shares for every 7 held",
-    "detail": {
-     "apply": "Record date passed (20 Aug): if you already held, apply 3-11 Sep via your broker's rights/ASBA page.",
-     "flag": "⚠ Price shown as ₹115 on ipowatch but ₹112 on other trackers, and issue size reported as both ₹49.5 Cr and ₹107 Cr — confirm on the company letter of offer before acting.",
-     "math": "Hold 10 (~₹1,287 at CMP) → buy 7 more for ~₹794 → you'd own 17 shares costing ₹2,081 = ₹122.4 avg. If the stock holds above ~₹122 after dilution, the rights add value; below it, they don't. The 'discount' is really ~5%, not the 11% the raw prices suggest.",
-     "why": "Raising ~₹50-107 Cr (sources differ — see flag) mainly for hotel renovation capex and completing existing properties."
-    },
-    "name": "Viceroy Hotels",
-    "open": "2026-09-03",
-    "price": 115,
-    "record": "2026-08-20",
-    "status": "open-holders",
-    "terp": null,
-    "url": "https://ipowatch.in/viceroy-hotels-rights-issue-2026/"
-   },
-   {
-    "close": "2026-09-10",
-    "cmp": null,
-    "deal": "1 rights share for every 1 held",
-    "detail": null,
-    "name": "Rajgor Castor Derivatives",
-    "open": "2026-08-31",
-    "price": 10,
-    "record": "2026-08-24",
-    "status": "open-holders",
-    "terp": null,
-    "url": "https://ipowatch.in/rajgor-castor-derivatives-rights-issue-2026/"
-   },
    {
     "close": "2026-09-18",
     "cmp": null,
@@ -1559,11 +1423,12 @@
     "detail": null,
     "name": "Jaykay Enterprises",
     "open": "2026-09-07",
-    "price": 75,
+    "price": 75.0,
     "record": "2026-08-28",
     "status": "open-holders",
     "terp": null,
-    "url": "https://ipowatch.in/rights-issue-calendar/"
+    "url": "https://ipowatch.in/rights-issue-calendar/",
+    "bseIpoNo": "7945"
    },
    {
     "close": "2026-09-18",
@@ -1572,11 +1437,12 @@
     "detail": null,
     "name": "NCL Research & Financial Services",
     "open": "2026-09-03",
-    "price": 1,
+    "price": 1.0,
     "record": "2026-08-27",
     "status": "open-holders",
     "terp": null,
-    "url": "https://ipowatch.in/rights-issue-calendar/"
+    "url": "https://ipowatch.in/rights-issue-calendar/",
+    "bseIpoNo": "7940"
    },
    {
     "close": "2026-09-21",
@@ -1616,11 +1482,12 @@
     },
     "name": "Containe Technologies",
     "open": "2026-08-31",
-    "price": 15,
+    "price": 15.0,
     "record": "2026-08-21",
     "status": "open-holders",
     "terp": null,
-    "url": "https://ipowatch.in/rights-issue-calendar/"
+    "url": "https://ipowatch.in/rights-issue-calendar/",
+    "bseIpoNo": "7923"
    },
    {
     "close": "2026-09-25",
@@ -1629,11 +1496,12 @@
     "detail": null,
     "name": "Salem Erode Investments",
     "open": "2026-09-15",
-    "price": 20,
+    "price": 20.0,
     "record": "2026-09-03",
     "status": "open-holders",
     "terp": null,
-    "url": "https://ipowatch.in/rights-issue-calendar/"
+    "url": "https://ipowatch.in/rights-issue-calendar/",
+    "bseIpoNo": "7972"
    },
    {
     "close": "2026-09-29",
@@ -1647,20 +1515,34 @@
     },
     "name": "Manoj Jewellers",
     "open": "2026-08-31",
-    "price": 20,
+    "price": 20.0,
     "record": "2026-08-21",
     "status": "open-holders",
     "terp": null,
-    "url": "https://ipowatch.in/manoj-jewellers-rights-issue-2026/"
+    "url": "https://ipowatch.in/manoj-jewellers-rights-issue-2026/",
+    "bseIpoNo": "7924"
+   },
+   {
+    "name": "Indrayani Biotech",
+    "open": "2026-09-15",
+    "close": "2026-10-14",
+    "price": 15.0,
+    "record": null,
+    "deal": null,
+    "detail": null,
+    "note": "BSE public issues list",
+    "url": "https://www.bseindia.com/markets/PublicIssues/IPOIssues_new.aspx",
+    "bseIpoNo": "7970",
+    "status": "open-holders"
    },
    {
     "close": null,
     "cmp": null,
     "deal": null,
     "detail": null,
-    "name": "Vivid Mercantile",
+    "name": "Fiberweb (India)",
     "open": null,
-    "price": 5,
+    "price": null,
     "record": null,
     "status": "tba",
     "terp": null,
@@ -1684,15 +1566,179 @@
     "cmp": null,
     "deal": null,
     "detail": null,
-    "name": "Fiberweb (India)",
+    "name": "Vivid Mercantile",
     "open": null,
-    "price": null,
+    "price": 5,
     "record": null,
     "status": "tba",
     "terp": null,
     "url": "https://ipowatch.in/rights-issue-calendar/"
    }
-  ]
+  ],
+  "buybacks": [
+   {
+    "name": "Mitshi India",
+    "open": "2026-09-03",
+    "close": "2026-09-17",
+    "price": 15.0,
+    "record": null,
+    "deal": null,
+    "detail": null,
+    "note": "BSE public issues list",
+    "url": "https://www.bseindia.com/markets/PublicIssues/IPOIssues_new.aspx",
+    "type": "Tender / open offer",
+    "bseIpoNo": "7941",
+    "status": "live"
+   },
+   {
+    "close": "2026-09-17",
+    "name": "PVR Inox",
+    "note": "Announced; dates awaited",
+    "open": "2026-09-10",
+    "price": 1450.0,
+    "record": null,
+    "status": "live",
+    "type": null,
+    "url": "https://ipowatch.in/share-buyback-offers/",
+    "bseIpoNo": "7965"
+   },
+   {
+    "name": "Shankara Building Products",
+    "open": "2026-09-07",
+    "close": "2026-09-21",
+    "price": 150.0,
+    "record": null,
+    "deal": null,
+    "detail": null,
+    "note": "BSE public issues list",
+    "url": "https://www.bseindia.com/markets/PublicIssues/IPOIssues_new.aspx",
+    "type": "Tender / open offer",
+    "bseIpoNo": "7944",
+    "status": "live"
+   },
+   {
+    "name": "Cubical Financial Services",
+    "open": "2026-09-17",
+    "close": "2026-09-30",
+    "price": 2.5,
+    "record": null,
+    "deal": null,
+    "detail": null,
+    "note": "BSE public issues list",
+    "url": "https://www.bseindia.com/markets/PublicIssues/IPOIssues_new.aspx",
+    "type": "Tender / open offer",
+    "bseIpoNo": "7979",
+    "status": "live"
+   },
+   {
+    "name": "ECS Biztech",
+    "open": "2026-09-17",
+    "close": "2026-09-30",
+    "price": 10.5,
+    "record": null,
+    "deal": null,
+    "detail": null,
+    "note": "BSE public issues list",
+    "url": "https://www.bseindia.com/markets/PublicIssues/IPOIssues_new.aspx",
+    "type": "Tender / open offer",
+    "bseIpoNo": "7978",
+    "status": "live"
+   },
+   {
+    "close": "2026-11-20",
+    "name": "Advanced Enzyme Technologies",
+    "note": "Max price Rs 500; up to Rs 69.70 cr",
+    "open": "2026-08-14",
+    "price": 500,
+    "record": null,
+    "status": "live",
+    "type": "Open market",
+    "url": "https://ipowatch.in/advanced-enzyme-technologies-buyback-2026/"
+   },
+   {
+    "close": "2026-11-20",
+    "name": "SIS",
+    "note": "Max price Rs 478.50; up to Rs 106 cr",
+    "open": "2026-08-13",
+    "price": 478.5,
+    "record": null,
+    "status": "live",
+    "type": "Open market",
+    "url": "https://ipowatch.in/sis-buyback-2026/"
+   },
+   {
+    "close": "2026-12-11",
+    "name": "Great Eastern Shipping",
+    "note": "Max price Rs 1,530; route per ipowatch window",
+    "open": "2026-09-04",
+    "price": 1530,
+    "record": null,
+    "status": "live",
+    "type": "Open market",
+    "url": "https://ipowatch.in/share-buyback-offers/"
+   },
+   {
+    "close": null,
+    "name": "Man Infraconstruction",
+    "note": "Announced; dates awaited",
+    "open": null,
+    "price": 171,
+    "record": null,
+    "status": "tba",
+    "type": null,
+    "url": "https://ipowatch.in/share-buyback-offers/"
+   },
+   {
+    "close": null,
+    "name": "Prime Securities",
+    "note": "Announced; record date awaited",
+    "open": null,
+    "price": 305,
+    "record": null,
+    "status": "tba",
+    "type": "Tender",
+    "url": "https://ipowatch.in/prime-securities-buyback-2025/"
+   },
+   {
+    "close": null,
+    "name": "Tips Music",
+    "note": "Announced; record date awaited",
+    "open": null,
+    "price": 750,
+    "record": null,
+    "status": "tba",
+    "type": "Tender",
+    "url": "https://ipowatch.in/tips-music-buyback-2026/"
+   },
+   {
+    "close": null,
+    "name": "VRL Logistics",
+    "note": "Announced; record date awaited",
+    "open": null,
+    "price": 320,
+    "record": null,
+    "status": "tba",
+    "type": "Tender",
+    "url": "https://ipowatch.in/vrl-logistics-buyback-2026/"
+   }
+  ],
+  "ofs": [],
+  "ncd": [
+   {
+    "name": "Muthoot Fincorp",
+    "open": "2026-09-08",
+    "close": "2026-09-22",
+    "price": null,
+    "record": null,
+    "deal": null,
+    "detail": null,
+    "note": "BSE public issues list",
+    "url": "https://www.bseindia.com/markets/PublicIssues/IPOIssues_new.aspx",
+    "bseIpoNo": "7953",
+    "status": "live"
+   }
+  ],
+  "asOf": "2026-09-17"
  },
  "recent": [
   {
@@ -7068,12 +7114,12 @@
   {
    "title": "Thursday's listings: 6 IPOs take the stage in record debut-day rush",
    "url": "https://www.business-standard.com/companies/news/six-companies-make-record-stock-market-debut-in-a-day-five-end-higher-126091701203_1.html",
-   "date": "2026-09-17T19:30:50+05:30"
+   "date": "2026-09-17T19:30:16+05:30"
   },
   {
    "title": "NSE IPO subscribed 43% on the first day of bidding, QIBs' share 19%",
    "url": "https://www.business-standard.com/markets/news/nse-ipo-subscribed-43-on-first-day-as-non-institutional-investors-lead-126091701088_1.html",
-   "date": "2026-09-17T18:34:16+05:30"
+   "date": "2026-09-17T18:34:56+05:30"
   },
   {
    "title": "NSE enters India’s mega-IPO club: 2nd-largest issue, 2nd-highest anchor count with 189 investors",
@@ -7673,15 +7719,24 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-17T23:19:44+05:30",
+  "asOf": "2026-09-17T23:24:45+05:30",
   "checks": [
+   {
+    "area": "calendar",
+    "method": "nse:ok",
+    "status": "ok",
+    "asOf": "2026-09-17T23:24:17+05:30",
+    "elapsed": 50.04,
+    "calls": 15,
+    "note": "nse current=7 upcoming=7 past=50 detail=10 +bse=11: 17 mainboard, 10 sme; 9 open, 5 upcoming"
+   },
    {
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-17T23:19:43+05:30",
-    "elapsed": 40.98,
-    "calls": 15,
+    "asOf": "2026-09-17T23:24:22+05:30",
+    "elapsed": 4.84,
+    "calls": 14,
     "note": "9/11 rows patched via nse; no subscription for: Shakti Polytarp, Vama Wovenfab"
    },
    {
@@ -7689,9 +7744,72 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "17-Sep 9:34",
-    "elapsed": 1.09,
+    "elapsed": 1.28,
     "calls": 1,
     "note": "gmp: 14 board rows patched via investorgain; 14 active, 9 of them matched; gmp: 6 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); NSE (₹142, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹11, investorgain); Varmora Granito (₹10, investorgain)"
+   },
+   {
+    "area": "listings",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-09-17",
+    "elapsed": 11.1,
+    "calls": 0,
+    "note": "20 names priced, 4 moved to recent, 0 history points"
+   },
+   {
+    "area": "parents",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-09-17",
+    "elapsed": 1.12,
+    "calls": 0,
+    "note": "5/5 parent prices"
+   },
+   {
+    "area": "filings",
+    "method": "bse_ann:ok, sebi:ok",
+    "status": "ok",
+    "asOf": "2026-09-17",
+    "elapsed": 5.78,
+    "calls": 10,
+    "note": "bse_ann: 8/8 parents answered, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; 0 rows patched, 33 kept previous stage"
+   },
+   {
+    "area": "offers",
+    "method": "bse:ok",
+    "status": "ok",
+    "asOf": "2026-09-17",
+    "elapsed": 0.95,
+    "calls": 1,
+    "note": "bse rows=12: 11 rights, 12 buybacks, 0 ofs, 1 ncd; 6 refreshed, 6 new, 3 closed windows dropped"
+   },
+   {
+    "area": "flows",
+    "method": "nse:ok",
+    "status": "ok",
+    "asOf": "2026-09-17",
+    "elapsed": 0.42,
+    "calls": 1,
+    "note": "2026-09-17 already in history; FII -3,209 / DII +3,618 Cr"
+   },
+   {
+    "area": "deals",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-09-17",
+    "elapsed": 0.63,
+    "calls": 2,
+    "note": "bulk.csv: 212 deals; block.csv: 4 deals; 0 tracked-investor deals of 216; 13 patterns"
+   },
+   {
+    "area": "news",
+    "method": "rss:ok",
+    "status": "ok",
+    "asOf": "2026-09-17T21:03:04+05:30",
+    "elapsed": 1.03,
+    "calls": 3,
+    "note": "business-standard: 6/35 primary-market items; economic-times: 14/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 20 fresh, 25 kept"
    },
    {
     "area": "research layer",
@@ -7703,7 +7821,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "42s, 16 calls, 2/2 modules ok"
+    "note": "77s, 47 calls, 10/10 modules ok"
    }
   ],
   "discrepancies": [
@@ -14571,8 +14689,8 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "asOf": "2026-09-08",
-    "value": 1309.5
+    "value": 1243.9,
+    "asOf": "2026-09-17"
    },
    "parentTicker": "RELIANCE",
    "sources": [
@@ -14624,8 +14742,8 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "asOf": "2026-09-08",
-    "value": 132.72
+    "value": 128.34,
+    "asOf": "2026-09-17"
    },
    "parentTicker": "EDELWEISS",
    "sources": [
@@ -14779,8 +14897,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "asOf": "2026-09-08",
-    "value": 418.85
+    "value": 418.0,
+    "asOf": "2026-09-17"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -14908,8 +15026,8 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "asOf": "2026-09-08",
-    "value": 5270
+    "value": 5325.0,
+    "asOf": "2026-09-17"
    },
    "parentTicker": "HEROMOTOCO",
    "sources": [
@@ -15023,8 +15141,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "asOf": "2026-09-08",
-    "value": 418.85
+    "value": 418.0,
+    "asOf": "2026-09-17"
    },
    "parentTicker": "COALINDIA",
    "sources": [
