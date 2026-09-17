@@ -26,6 +26,7 @@ MAX_LINES = 6
 GAP_HOURS = 36
 RECORD_WINDOW = (30, 14, 7, 3, 1, 0)
 LAPSE_WINDOW = (14, 7, 3, 1, 0)
+SUB_MARKS = (1, 10, 50, 100)     # total subscription, while the issue is open
 _SIDE = {"BUY": "bought", "SELL": "sold"}
 
 
@@ -107,6 +108,13 @@ def _board(doc: dict, today: dt.date):
                                       f"book {sub:g}x" if isinstance(sub, (int, float)) else None,
                                       f"GMP {gmp:+.1f}%" if isinstance(gmp, (int, float)) else None) if x)
         tail = f" ({facts})" if facts else ""
+        if isinstance(sub, (int, float)) and o and c and o <= today <= c:
+            crossed = [x for x in SUB_MARKS if sub >= x]
+            if crossed:                       # only the highest mark speaks; lower ones are keyed so they stay quiet
+                yield Alert(f"sub:{b['name']}:{crossed[-1]}", 350,
+                            f"{b['name']} book crossed {crossed[-1]}x — now {sub:g}x, closes {_fmt(c)}")
+                for x in crossed[:-1]:
+                    yield Alert(f"sub:{b['name']}:{x}", 999, "")
         if c and (c - today).days in (0, 1):
             n = (c - today).days
             yield Alert(f"close:{b['name']}:{c}:{n}", 300 + n, f"{b['name']} closes {_in(n)}{tail}")
@@ -152,10 +160,13 @@ def evaluate(prev: dict, new: dict) -> list[Alert]:
     now = _all(new, today)
     before = _all(prev, _day(prev) or today) if prev else {}
     prev_quota = {q["name"] for q in _rows(prev, "quota")} if prev else set()
+    prev_board = {b["name"] for b in _rows(prev, "mainboard")} if prev else set()
     fresh = []
     for key, a in now.items():
-        if key in before:
+        if key in before or not a.line:
             continue
+        if key.startswith("sub:") and key.split(":")[1] not in prev_board:
+            continue                                       # first sighting is not a crossing
         if key.startswith("stage:"):
             name = key.split(":")[1]
             if not prev:                                   # no baseline: every stage would look new

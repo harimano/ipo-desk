@@ -1,19 +1,30 @@
 name: collect
-# The daily refresh. Deterministic, gated, committed by a bot identity that the guard workflow
-# recognises. Two runs: 06:45 IST (before market, for the morning board) and 18:15 IST (after
-# close, for listing prints and final subscription).
+# The refresh. Deterministic, gated, committed to the `data` branch by a bot identity the deploy guard
+# recognises.
+#   full      06:45 IST (before market: the morning board) and 18:15 IST (after close: listing prints,
+#             final subscription). All nine modules.
+#   intraday  every 30 min, 10:00-17:30 IST on weekdays, and only while an issue is open: subscription
+#             and GMP, about ten calls. Overwrites the day's one rolling intraday commit, so the data
+#             branch grows by three commits a day however often this runs.
 on:
   schedule:
-    - cron: "15 1 * * *"     # 06:45 IST
-    - cron: "45 12 * * *"    # 18:15 IST
+    - cron: "15 1 * * *"          # 06:45 IST  full
+    - cron: "45 12 * * *"         # 18:15 IST  full
+    - cron: "*/30 4-11 * * 1-5"   # 10:00-17:30 IST weekdays  intraday (04:30 UTC is the first that matters)
+    - cron: "0 12 * * 1-5"        # 17:30 IST  intraday, the 5 pm book
   workflow_dispatch:
     inputs:
+      mode:
+        description: "full = all modules; intraday = subscription + gmp, only if an issue is open"
+        type: choice
+        options: [full, intraday]
+        default: full
       only:
-        description: "comma-separated module names (blank = all)"
+        description: "full mode only: comma-separated module names (blank = all)"
         required: false
         default: ""
 
-concurrency: { group: collect, cancel-in-progress: false }
+concurrency: { group: collect, cancel-in-progress: false }   # a light run never races a full one
 
 permissions:
   contents: write
@@ -27,24 +38,52 @@ jobs:
       - uses: actions/checkout@v4
         with: { fetch-depth: 1 }
 
+      # Collector output lives on the orphan `data` branch, never on main. It is laid over ./data for the
+      # run and committed back below. Depth 2 so the intraday commit can be amended and force-pushed.
+      - uses: actions/checkout@v4
+        with: { ref: data, path: _data, fetch-depth: 2 }
+
+      - name: Mode — and whether an intraday run has anything to do (before paying for the install)
+        id: mode
+        run: |
+          case "${{ github.event_name }}:${{ github.event.schedule }}" in
+            "schedule:15 1 * * *"|"schedule:45 12 * * *") MODE=full ;;
+            schedule:*)                                   MODE=intraday ;;
+            *)                                            MODE="${{ github.event.inputs.mode || 'full' }}" ;;
+          esac
+          GO=1
+          if [ "$MODE" = intraday ]; then
+            OPEN=$(TZ=Asia/Kolkata python3 - <<'PY'
+          import datetime, json
+          d = json.load(open("_data/latest.json"))
+          t = datetime.date.today().isoformat()
+          print(sum(1 for k in ("mainboard", "sme") for r in d.get(k) or []
+                    if (r.get("open") or "9") <= t <= (r.get("close") or "0")))
+          PY
+            )
+            echo "issues open today: $OPEN"
+            [ "$OPEN" -gt 0 ] || GO=0
+          fi
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"; echo "go=$GO" >> "$GITHUB_OUTPUT"
+          echo "mode=$MODE go=$GO"
+
       - uses: actions/setup-python@v5
+        if: steps.mode.outputs.go == '1'
         with: { python-version: "3.12", cache: "pip" }
 
       - name: Install
+        if: steps.mode.outputs.go == '1'
         run: pip install -e ".[dev]"
 
-      # Collector output lives on the orphan `data` branch, never on main: ~1 MB of history a day stays
-      # off the branch humans work on. It is laid over ./data for the run and committed back below.
-      - uses: actions/checkout@v4
-        with: { ref: data, path: _data, fetch-depth: 1 }
-
       - name: Lay the live document over ./data — it is the previous run and the delta baseline
+        if: steps.mode.outputs.go == '1'
         run: |
           cp _data/latest.json data/latest.json
           mkdir -p data/history && cp -R _data/history/. data/history/ 2>/dev/null || true
           cp _data/latest.json /tmp/prev_latest.json
 
       - name: Collect
+        if: steps.mode.outputs.go == '1'
         env:
           ANGEL_API_KEY:     ${{ secrets.ANGEL_API_KEY }}
           ANGEL_CLIENT_CODE: ${{ secrets.ANGEL_CLIENT_CODE }}
@@ -52,17 +91,21 @@ jobs:
           ANGEL_TOTP_SECRET: ${{ secrets.ANGEL_TOTP_SECRET }}
         run: |
           set -o pipefail
-          ONLY="${{ github.event.inputs.only }}"
+          if [ "${{ steps.mode.outputs.mode }}" = intraday ]; then ONLY="subscription,gmp"
+          else ONLY="${{ github.event.inputs.only }}"; fi
           if [ -n "$ONLY" ]; then python -m collector --only "$ONLY" --max-seconds 900 | tee collect.log
           else python -m collector --max-seconds 900 | tee collect.log; fi
 
       - name: Gate — the validator must pass or nothing is committed
+        if: steps.mode.outputs.go == '1'
         run: python scripts/validate.py data/latest.json --prev /tmp/prev_latest.json --max-age-hours 2
 
       - name: Build the site — proves the document renders into a page before it is committed
+        if: steps.mode.outputs.go == '1'
         run: python site/build.py
 
       - name: Commit to the data branch as the collector bot
+        if: steps.mode.outputs.go == '1'
         id: commit
         run: |
           cp data/latest.json _data/latest.json
@@ -72,8 +115,17 @@ jobs:
           git config user.email "ipo-desk-bot@users.noreply.github.com"
           git add -A latest.json history
           if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
-          git commit -m "collect: $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git push origin data
+          MODE="${{ steps.mode.outputs.mode }}"
+          STAMP="$(date -u +'%Y-%m-%d %H:%M UTC')"
+          TODAY="$(TZ=Asia/Kolkata date +%F)"
+          LAST_DAY="$(TZ=Asia/Kolkata git log -1 --format=%cd --date=format-local:%Y-%m-%d)"
+          if [ "$MODE" = intraday ] && [ "$LAST_DAY" = "$TODAY" ] && git log -1 --format=%s | grep -q '^intraday:'; then
+            git commit --amend -m "intraday: $STAMP"          # the day's one rolling intraday commit
+            git push --force-with-lease origin data
+          else
+            if [ "$MODE" = intraday ]; then git commit -m "intraday: $STAMP"; else git commit -m "collect: $STAMP"; fi
+            git push origin data
+          fi
           echo "pushed=1" >> "$GITHUB_OUTPUT"
 
       - name: Publish — dispatch the deploy workflow for the commit just pushed
@@ -95,7 +147,7 @@ jobs:
           python -m collector.alerts --prev /tmp/prev_latest.json --new data/latest.json $SEND
 
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && steps.mode.outputs.go == '1'
         with:
           name: collect-log-${{ github.run_number }}
           path: collect.log

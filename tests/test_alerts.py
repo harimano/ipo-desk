@@ -70,3 +70,14 @@ def test_tracked_investor_bulk_deal_is_new_once():
     new = doc("2026-09-17T18:15:00+05:30", investors={"bulkDeals": [deal]})
     assert [a.line for a in evaluate(prev, new)] == ["Ashish Kacholia bought Rentomojo ₹12.4 Cr (2026-09-17)"]
     assert evaluate(new, new) == []
+
+
+def test_book_crossing_speaks_once_per_mark_and_only_the_highest():
+    row = dict(HERO, close="2026-09-21")
+    at = lambda hhmm, total: doc(f"2026-09-17T{hhmm}:00+05:30", mainboard=[dict(row, sub={"total": total})])  # noqa: E731
+    subs = lambda a, b: [x.line for x in evaluate(a, b) if x.key.startswith("sub:")]  # noqa: E731
+    assert subs(at("10:00", 0.4), at("10:30", 0.9)) == []
+    assert subs(at("10:30", 0.9), at("11:00", 1.2)) == ["Hero Motors book crossed 1x — now 1.2x, closes 21 Sep"]
+    assert subs(at("11:00", 1.2), at("11:30", 3.0)) == []
+    assert subs(at("11:30", 3.0), at("12:00", 61)) == ["Hero Motors book crossed 50x — now 61x, closes 21 Sep"]
+    assert subs(at("12:00", 61), at("12:30", 45)) == [], "a dip below a mark already announced stays quiet"
