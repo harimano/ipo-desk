@@ -17,7 +17,10 @@ from . import assemble
 from .http import Session
 from .result import Result
 
-MODULES = ["calendar", "subscription", "gmp", "listings", "parents", "filings", "offers", "anchors", "flows", "deals", "news"]
+# Order is the fallback logic: a later module's patch wins. `details` (the fullest record) runs after `gmp` so its
+# fresher quote overwrites the cached report, and before `subscription` / `listings` so the exchanges' live book and
+# the traded listing price overwrite its copies when they answer — and its copies stand when they do not.
+MODULES = ["calendar", "gmp", "details", "subscription", "listings", "parents", "filings", "offers", "flows", "deals", "news"]
 log = logging.getLogger("collector")
 
 

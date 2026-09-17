@@ -477,4 +477,3 @@ def test_nse_sme_detail_uses_its_own_labels():
     raw = json.loads((pathlib.Path(__file__).parent.parent / "data/fixtures/nse/ipo-detail-KHERIAAUTO-sme.json").read_text())
     detail = {"dataList": raw["issueInfo"]["dataList"]}
     assert nse_ipo.detail_lot(detail) | {"issueSizeCr": None} == {"lotSize": 1200, "issueSizeCr": None, "bandLow": 96.0, "bandHigh": 101.0}
-    assert nse_ipo.detail_anchor_shares(detail) == 1310400

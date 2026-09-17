@@ -50,6 +50,8 @@ def main() -> int:
     else:
         data = json.loads(latest_path.read_text(encoding="utf8"))
         fb = {k: data[k] for k in FALLBACK_KEYS if k in data}
+        for k in ("mainboard", "sme"):                       # the snapshot only has to paint the board; facts arrive with the fetch
+            fb[k] = [{f: v for f, v in r.items() if f != "facts"} for r in fb.get(k) or []]
         missing = [k for k in FALLBACK_KEYS if k not in fb]
         if missing:
             raise SystemExit(f"fallback keys missing from latest.json: {missing}")

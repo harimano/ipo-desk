@@ -47,8 +47,7 @@ no table); ipopremium (403, leave it); Angel One (no secrets set yet — Hari ad
 the investor lists inside `anchors` rows, the sweep-owned parts of `investors` (moves, holdings, portfolios — the retired Monday sweep), `flows.monthly/rotation`
 and the descriptive text of `quota` rows are still carried forward from the db era (BUILD-PLAN Tier 2/3).
 Live since 17 Sep: `offers` (BSE list), `expected` (SEBI registers, built inside `filings`), `investors.prices`
-(the `parents` module), sheet `parentPrice`, and `anchors` book size / bid date / lock-in expiries (NSE issue
-information + InvestorGain report 480 — fetched JSON, never a document).
+(the `parents` module), sheet `parentPrice`, and everything `details` fetches (see below).
 
 **The pipeline fetches data and renders it. It does not read documents.** Hari's rule, 18 Sep 2026, after an
 attempt to OCR anchor-allocation letters inside a run: an important figure must come from a structured source
@@ -60,16 +59,20 @@ into data is research-layer work (`data/research/`, by pull request), never a co
 The page follows the same rule: it renders fields the collector wrote and should not parse sentences (the anchor
 bars used to regex "₹X Cr from N investors — a, b, c" out of prose).
 
-**The richest source found so far (18 Sep 2026) — not yet wired in.** InvestorGain's backend has a complete
-per-IPO record: `GET https://webnodejs.investorgain.com/cloud/v2/ipo/ipo-detail-read/<id>` (ids from
-`cloud/v2/ipo/list-read`, or `~id` in report 331). One call, ~280 fields: NSE symbol, BSE code, ISIN; open / close /
-allotment / refund / credit / listing dates; anchor bid date and both lock-in expiries; band (lower/upper/final),
-lot, retail/sHNI/bHNI quantities; total / fresh / OFS in shares and rupees; shares offered per category including
-`shares_offered_anchor_investor` (x final price = anchor book); day-by-day subscription by category
-(`biddingData`); GMP history (`gmpData`); `listing_price`; P/E, market cap, ROE, ROCE, D/E, EPS, margins, promoter
-holding pre/post; DRHP / RHP / prospectus links; broker recommendations; lead managers; registrar. Fixtures:
-`data/fixtures/investorgain/ipo-detail-*.json`. It is a private, undocumented API (v1 was retired July 2026), so
-the NSE/BSE modules stay as the fallback chain. `anchorInvestorData` is empty: investor lists are still PDF-only.
+**The backbone is one complete record per listing (`collector/modules/details.py`, since 18 Sep 2026).**
+InvestorGain's backend — `GET …/cloud/v2/ipo/list-read` for ids, `GET …/cloud/v2/ipo/ipo-detail-read/<id>` for ~280
+fields — fills every placeholder a listing has: ISIN / codes / sector; allotment and listing dates; band, lot, size
+split into fresh and OFS; anchor shares x allocation price = anchor book, bid date, both lock-in expiries
+(`details` owns `anchors[]`); GMP with its own timestamp; subscription by category; listing price; `facts` (P/E,
+market cap, ROE, ROCE, margins, promoter holding, broker views, documents, lead managers, registrar), which the
+Research screen renders for any listing nobody has written up. A row is matched to its record once, by name AND
+opening date, and carries `igId` from then on. MODULE ORDER IS THE FALLBACK LOGIC: `details` runs after `gmp`
+(fresher quote wins) and before `subscription` / `listings` (the exchanges' live book and the traded listing price
+overwrite its copies when they answer; its copies stand when they do not). It is a private, undocumented API whose
+v1 vanished in July 2026 — if it goes, `details` fails, rows keep what they had, and the NSE/BSE modules carry the
+board. `anchorInvestorData` is always empty: who took a book exists only as a PDF letter, which no run reads.
+Hari, 18 Sep: the companies on the board are sample material for getting the METHOD right — do not spend effort
+curating or preserving individual legacy rows; make every future listing fill itself.
 
 **Lessons from first contact — check these first when a module says "ok" but the page looks old**
 - An "ok" module can be reading the wrong thing: SEBI's `nextValue` is zero-based (page=1 was page two, a month

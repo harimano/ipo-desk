@@ -327,24 +327,6 @@ def detail_lot(detail: dict) -> dict:
     return out
 
 
-_ANCHOR_SHARES = re.compile(r"anchor\s+(?:investors?\s+)?(?:reservation\s+)?(?:portion|allocation)\s*(?:of\s+)?"
-                            r"(?:up\s*to\s+)?([\d,]{4,})\s*(?:equity\s+)?shares", re.I)
-
-
-def detail_anchor_shares(detail: dict) -> int | None:
-    """The anchor portion in shares, as ipo-detail's "Issue Size" states it. Seen live (17 Sep 2026):
-    "Anchor Portion of 37,793,739 Equity Shares", "Anchor reservation portion of 3,57,14,284 equity shares",
-    "Anchor allocation 10,70,000 Equity Shares". None when the issue has no anchor portion or says nothing."""
-    for row in detail.get("dataList", []):
-        if "issue size" not in str(first(row, "title", "label", "key", default="") or "").lower():
-            continue
-        m = _ANCHOR_SHARES.search(re.sub(r"<[^>]+>", " ", str(first(row, "value", "val") or "")))
-        if m:
-            n = number(m.group(1))
-            return int(n) if n else None
-    return None
-
-
 def _size_text_to_cr(txt: str) -> float | None:
     """'Rs. 1,200.00 crore' / '₹ 450 Cr' / 'up to 20,00,000 equity shares aggregating to 42.5 crores'."""
     t = txt.replace(",", "")

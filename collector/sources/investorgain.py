@@ -135,70 +135,156 @@ def parse_investorgain(data) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------------------------
-# report 480 — "IPO Anchor Investors List <year>": one row per issue with the anchor bid date and the two
-# lock-in expiries (50% of anchor shares after 30 days, the rest after 90). Dates only: neither this report
-# nor any other JSON anywhere carries who took the book — that exists only as the issuer's letter.
+# The per-IPO record — the fullest source there is for an Indian IPO (found 18 Sep 2026 by reading the site's
+# own bundles): one call returns ~280 fields. `list-read` gives the ids of every current and upcoming issue.
+#
+#   GET /cloud/v2/ipo/list-read                 {ipoList: [{id, company_short_name, issue_open_dt, ipo_status, …}]}
+#   GET /cloud/v2/ipo/ipo-detail-read/<id>      {ipoData: [{…282 fields…}], biddingData: {ipoBiddingData: [day rows]},
+#                                                gmpData: [newest first], ipoRecommendationData, ipoLeadManagersList,
+#                                                registrarInfo, anchorInvestorData (always empty: lists are PDF-only)}
+#
+# Private and undocumented, like report 331 (whose v1 was retired without notice in July 2026): every shape
+# surprise raises SourceChanged, and the NSE/BSE modules remain the fallback for everything they can supply.
 # ---------------------------------------------------------------------------------------------
-ANCHOR_REPORT = 480
-ANCHOR_PAGE = "https://www.investorgain.com/report/ipo-anchor-investors-list/480/"
+_API = "https://webnodejs.investorgain.com/cloud/v2/ipo"
+IPO_LIST_URL = _API + "/list-read"
+IPO_DETAIL_URL = _API + "/ipo-detail-read/{id}"
+_NUMBER = re.compile(r"-?\d[\d,]*(?:\.\d+)?")
 
 
-def report_url(report: int, d: dt.date, page: int = 1) -> str:
-    return f"https://webnodejs.investorgain.com/cloud/v2/report/data-read/{report}/{page}/{d.month}/{d.year}/{fiscal_year(d)}/0/all"
+def _num(v) -> float | None:
+    """'10557402000.00' / '5,011,424' / '&#8377;1055.74 Cr' / '23 shares (1 lot)' -> the first number; else None."""
+    if v is None or isinstance(v, bool):
+        return None
+    if isinstance(v, (int, float)):
+        return float(v)
+    m = _NUMBER.search(strip_tags(v).replace("&#8377;", " "))
+    try:
+        return float(m.group().replace(",", "")) if m else None
+    except ValueError:
+        return None
 
 
-def _plain_name(fragment) -> str:
-    """'NSE<span class="badge …">Open</span>' -> 'NSE': the cell's text without its status badges."""
-    if not isinstance(fragment, str):
-        return clean(str(fragment or ""))
-    tree = HTMLParser(fragment)
-    for badge in tree.css("span"):
-        badge.decompose()
-    return clean(tree.text(separator=" "))
+def _day(v) -> str | None:
+    """'2026-09-11T00:00:00.000Z' / '2026-09-08' / '16th Sep 2026' / '16-Sep-2026' / '16-09-2026' -> ISO date."""
+    s = strip_tags(v)
+    if not s:
+        return None
+    m = re.match(r"^(\d{2})-(\d{2})-(\d{4})$", s)
+    if m:
+        s = f"{m.group(3)}-{m.group(2)}-{m.group(1)}"
+    iso = _date(re.sub(r"(?<=\d)(st|nd|rd|th)\b", "", s))
+    return iso if iso and _ISO.match(iso) else None
 
 
-def parse_anchor_calendar(data) -> list[dict]:
-    url = f"report {ANCHOR_REPORT}"
-    if not isinstance(data, dict):
-        raise SourceChanged(SOURCE, f"expected a JSON object, got {type(data).__name__}", url)
-    rows = data.get("reportTableData")
+def _stamp(v) -> str | None:
+    """'10th Sep 2026 18:56' / '16-Sep-2026 9:33' -> '2026-09-10T18:56:00+05:30' (the site speaks IST)."""
+    s = strip_tags(v)
+    day = _day(re.sub(r"\s+\d{1,2}:\d{2}.*$", "", s))
+    if not day:
+        return None
+    m = re.search(r"(\d{1,2}):(\d{2})", s)
+    return f"{day}T{int(m.group(1)):02d}:{m.group(2)}:00+05:30" if m else day
+
+
+def parse_ipo_list(data) -> list[dict]:
+    rows = data.get("ipoList") if isinstance(data, dict) else None
     if not isinstance(rows, list) or not rows:
-        raise SourceChanged(SOURCE, f"anchor calendar: reportTableData missing or empty (msg={data.get('msg')!r})", url)
-    out = []
-    for raw in rows:
-        if not isinstance(raw, dict):
-            continue
-        name = _plain_name(_pick(raw, "IPO", "Name"))
-        bid = _date(_pick(raw, "Anchor Bid Date", "Anchor Date"))
-        if not name or not bid or not _ISO.match(bid):
-            continue
-        l30, l90 = _date(_pick(raw, "Lockin End 30 Days")), _date(_pick(raw, "Lockin End 90 Days"))
-        path = str(_pick(raw, "~URLRewrite_Folder_Name") or "")
-        out.append({"name": name, "igId": str(_pick(raw, "~id") or "") or None,
-                    "exchange": strip_tags(_pick(raw, "Exchange")),
-                    "issueSizeCr": parse_money(strip_tags(_pick(raw, "IPO Size", "Issue Size"))),
-                    "bidDate": bid,
-                    "lockIn30": l30 if l30 and _ISO.match(l30) else None,
-                    "lockIn90": l90 if l90 and _ISO.match(l90) else None,
-                    "page": "https://www.investorgain.com" + path if path.startswith("/") else None})
+        raise SourceChanged(SOURCE, f"list-read: ipoList missing or empty (msg={data.get('msg') if isinstance(data, dict) else None!r})", IPO_LIST_URL)
+    out = [{"igId": str(r["id"]), "name": clean(str(r["company_short_name"])), "open": _day(r.get("issue_open_dt")),
+            "close": _day(r.get("issue_end_dt")), "status": strip_tags(r.get("ipo_status")),
+            "category": strip_tags(r.get("issue_category") or r.get("ipo_category")), "listingAt": strip_tags(r.get("ipo_listing_at"))}
+           for r in rows if isinstance(r, dict) and r.get("id") and r.get("company_short_name")]
     if not out:
-        raise SourceChanged(SOURCE, f"anchor calendar: {len(rows)} rows, none with a name and a bid date "
-                                    f"(keys: {sorted(rows[0].keys())[:8] if isinstance(rows[0], dict) else '?'})", url)
+        raise SourceChanged(SOURCE, f"list-read: {len(rows)} rows, none with id and company_short_name", IPO_LIST_URL)
     return out
 
 
-def fetch_anchor_calendar(session, today: dt.date | None = None) -> list[dict]:
-    """This year's list; in January-March also last year's, whose 90-day lock-ins are still running."""
-    d = today or dt.datetime.now(IST).date()
-    headers = {**HEADERS, "Referer": ANCHOR_PAGE}
-    out = parse_anchor_calendar(session.get_json(report_url(ANCHOR_REPORT, d), source=SOURCE, headers=headers))
-    if d.month <= 3:
-        try:
-            last = dt.date(d.year - 1, 12, 31)
-            out += parse_anchor_calendar(session.get_json(report_url(ANCHOR_REPORT, last), source=SOURCE, headers=headers))
-        except SourceChanged:
-            pass
-    return out
+def fetch_ipo_list(session) -> list[dict]:
+    return parse_ipo_list(session.get_json(IPO_LIST_URL, source=SOURCE, headers=HEADERS))
+
+
+def _drop_empty(d: dict) -> dict:
+    return {k: v for k, v in d.items() if v not in (None, "", [], {})}
+
+
+def normalise_detail(raw) -> dict:
+    """The record, flat and typed. Only fields the desk uses; prose (objects, company text) is left behind."""
+    url = IPO_DETAIL_URL
+    ipo = (raw.get("ipoData") or [None])[0] if isinstance(raw, dict) else None
+    if not isinstance(ipo, dict) or not ipo.get("id") or "issue_open_dt_json" not in ipo:
+        raise SourceChanged(SOURCE, f"ipo-detail-read: no ipoData record (msg={raw.get('msg') if isinstance(raw, dict) else None!r})", url)
+    g = ipo.get
+    band_hi = _num(g("issue_price_upper")) or _num(g("max_price_to_display"))
+    final = _num(g("issue_price_final")) or _num(g("allotment_price"))
+    anchor_shares = int(_num(g("shares_offered_anchor_investor")) or 0)
+    total_amt = _num(g("issue_size_in_amt"))
+
+    bids = (raw.get("biddingData") or {}).get("ipoBiddingData") if isinstance(raw.get("biddingData"), dict) else None
+    sub = None
+    if isinstance(bids, list) and bids and isinstance(bids[-1], dict):
+        b = bids[-1]
+        sub = {"qib": _num(b.get("qib")), "nii": _num(b.get("nii")), "retail": _num(b.get("rii")), "total": _num(b.get("total")),
+               "asOf": _stamp(b.get("bid_date"))}
+        for ours, theirs in (("employee", "emp"), ("shareholder", "shareholder")):
+            if (_num(b.get(f"{theirs}_offered")) or 0) > 0:
+                sub[ours] = _num(b.get(theirs))
+        if sub["total"] is None:
+            sub = None
+
+    gmp = None
+    quotes = [q for q in (raw.get("gmpData") or []) if isinstance(q, dict)]
+    if quotes:
+        q = next((x for x in quotes if str(x.get("gmp_active_record_flag")) == "1"), quotes[0])
+        if _num(q.get("gmp")) is not None:
+            gmp = {"value": _num(q.get("gmp")), "pct": _num(q.get("gmp_percent_calc")),
+                   "estListing": _num(q.get("estimated_listing_price")), "asOf": _stamp(q.get("last_updated"))}
+
+    late = "_2" if g("kpi_as_of_date_2") else ""               # two reporting periods: take the later one
+    kpis = _drop_empty({"asOf": _day(g("kpi_as_of_date" + late)), "roe": _num(g("kpi_roe" + late)), "roce": _num(g("kpi_roce" + late)),
+                        "debtEquity": _num(g("kpi_debt_equity" + late)), "ronw": _num(g("kpi_ronw" + late)),
+                        "patMargin": _num(g("kpi_pat_margin" + late)), "ebitdaMargin": _num(g("kpi_ebitda" + late)),
+                        "pb": _num(g("price_to_book_value" + late)), "eps": _num(g("kpi_eps")), "epsPost": _num(g("kpi_eps_post")),
+                        "pe": _num(g("pe_ratio")), "pePost": _num(g("post_pe_ratio")), "mcapCr": _num(g("market_cap")),
+                        "promoterPre": _num(g("promoter_shareholding_pre_issue")), "promoterPost": _num(g("promoter_shareholding_post_issue"))})
+    recs = [_drop_empty({"who": strip_tags(r.get("reviewer_name")), "view": strip_tags(r.get("recommendation")),
+                         "url": strip_tags(r.get("reviewer_link")), "date": _day(r.get("create_date"))})
+            for r in (raw.get("ipoRecommendationData") or []) if isinstance(r, dict) and r.get("reviewer_name")][:12]
+    registrar = next((strip_tags(r.get("registrar_name")) for r in (raw.get("registrarInfo") or []) if isinstance(r, dict)), None)
+
+    return {
+        "igId": str(g("id")), "name": clean(str(g("company_short_name") or "")), "companyName": strip_tags(g("company_name")),
+        "category": strip_tags(g("issue_category")), "listingAt": strip_tags(g("ipo_listing_at")),
+        "symbol": strip_tags(g("nse_symbol") or g("nse_script_symbol")) or None,
+        "bseCode": strip_tags(g("bse_script_code") or g("bse_cd")) or None, "isin": strip_tags(g("isin")) or None,
+        "sector": strip_tags(g("company_sector")) or None, "faceValue": _num(g("face_value")),
+        "open": _day(g("issue_open_dt_json")), "close": _day(g("issue_end_dt_json")), "allotment": _day(g("timetable_boa_dt")),
+        "refund": _day(g("timetable_refunds_dt")), "credit": _day(g("timetable_share_credit_dt")),
+        "listing": _day(g("ipo_listing_date")) or _day(g("timetable_listing_dt")),
+        "anchorBidDate": _day(g("timetable_anchor_bid_dt")), "lockIn30": _day(g("timetable_anchor_lockin_end_dt_1")),
+        "lockIn90": _day(g("timetable_anchor_lockin_end_dt_2")),
+        "bandLow": _num(g("issue_price_lower")), "bandHigh": band_hi, "priceFinal": final,
+        "lotSize": int(_num(g("market_lot_size")) or 0) or None, "minAmount": _num(g("min_order_amount")),
+        "issueSizeCr": round(total_amt / 1e7, 2) if total_amt else _num(g("issue_size")),
+        "freshCr": round((_num(g("issue_size_fresh_in_amt")) or 0) / 1e7, 2) or None,
+        "ofsCr": round((_num(g("issue_size_ofs_in_amt")) or 0) / 1e7, 2) or None,
+        "anchorShares": anchor_shares,
+        "anchorCr": round(anchor_shares * (final or band_hi) / 1e7, 2) if anchor_shares and (final or band_hi) else None,
+        "sub": sub, "gmp": gmp, "listingPrice": _num(g("listing_price")),
+        "facts": _drop_empty({"sector": strip_tags(g("company_sector")), "isin": strip_tags(g("isin")), "listingAt": strip_tags(g("ipo_listing_at")),
+                              "kpis": kpis, "recs": recs, "registrar": registrar,
+                              "leadManagers": [strip_tags(m.get("comp_name")) for m in (raw.get("ipoLeadManagersList") or [])
+                                               if isinstance(m, dict) and m.get("comp_name")][:8],
+                              "docs": _drop_empty({"drhp": strip_tags(g("prospectus_drhp")), "rhp": strip_tags(g("prospectus_rhp")),
+                                                   "prospectus": strip_tags(g("final_prospectus")),
+                                                   "anchorLetter": strip_tags(g("anchor_investor_url")),
+                                                   "allotment": strip_tags(g("ipo_allotment_url"))})}),
+        "updated": _stamp(g("last_updated")),
+    }
+
+
+def fetch_detail(session, ig_id: str) -> dict:
+    return normalise_detail(session.get_json(IPO_DETAIL_URL.format(id=ig_id), source=SOURCE, headers=HEADERS))
 
 
 def as_of(rows: list[dict]) -> str | None:

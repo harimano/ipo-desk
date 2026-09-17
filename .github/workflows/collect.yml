@@ -4,7 +4,7 @@ name: collect
 #   full      06:45 IST (before market: the morning board) and 18:15 IST (after close: listing prints,
 #             final subscription). Every module.
 #   intraday  every 30 min, 10:00-17:30 IST on weekdays, and only while an issue is open: subscription
-#             and GMP, about ten calls. Overwrites the day's one rolling intraday commit, so the data
+#             GMP and the per-IPO records of open issues, about twenty calls. Overwrites the day's one rolling intraday commit, so the data
 #             branch grows by three commits a day however often this runs.
 on:
   schedule:
@@ -91,7 +91,7 @@ jobs:
           ANGEL_TOTP_SECRET: ${{ secrets.ANGEL_TOTP_SECRET }}
         run: |
           set -o pipefail
-          if [ "${{ steps.mode.outputs.mode }}" = intraday ]; then ONLY="subscription,gmp"
+          if [ "${{ steps.mode.outputs.mode }}" = intraday ]; then ONLY="gmp,details,subscription"
           else ONLY="${{ github.event.inputs.only }}"; fi
           if [ -n "$ONLY" ]; then python -m collector --only "$ONLY" --max-seconds 900 | tee collect.log
           else python -m collector --max-seconds 900 | tee collect.log; fi

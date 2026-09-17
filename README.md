@@ -82,8 +82,7 @@ reason this repo exists.
 | subscription | NSE `ipo-detail` bidDetails → BSE `CummDemandSchedule` → chittorgarh report 21 | NII sub-buckets summed once, never double-counted |
 | GMP | InvestorGain v2 JSON → IPOWatch → IPOPremium (HTML, parsers from oriz-ipo, MIT) | v1 retired July 2026; v2 treated as fragile |
 | listing prices | Angel One SmartAPI → yfinance `.NS` | Angel One has new symbols on listing morning; yfinance lags 0–2 days |
-| issue size | InvestorGain feed (the whole issue at the upper band), patched by `gmp` over calendar's NSE figure | NSE's list counts shares net of the anchor portion, so its figure runs ~30% short on mainboard issues |
-| anchors | NSE `ipo-detail` "Issue Size" (anchor portion in shares × upper band = book size) + InvestorGain report 480 (bid date, 30/90-day lock-in expiries) | fetched facts only. Who took a book exists only as the issuer's letter (PDF, often a scan) on exchanges and aggregators alike — a run never reads it |
+| everything about one listing | InvestorGain `ipo-detail-read/<id>` — one complete record per IPO (`details` module): dates, band, lot, fresh/OFS, anchor book and lock-ins, GMP, subscription, listing price, KPIs, documents | the fullest source; private and undocumented, so every exchange module above stays as the fallback. Module order decides who wins per field |
 | offers (rights / buybacks / OFS / NCD) | BSE `GetPublicIssue_par_updated` with a blank `ir_flag` | one call; hand-written detail on existing rows is kept |
 | expected pipeline | SEBI DRHP + RHP registers (the same two fetches `filings` makes) | hand-written rows keep their text; new DRHP filers join with name, date and link only |
 | investor stock prices | NSE equity lists (name → symbol) + the `parents` price batch | written to `investors.prices`, a key the sweep file's overlay cannot undo |

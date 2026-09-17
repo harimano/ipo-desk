@@ -29,12 +29,13 @@ OWNERS: dict[str, str] = {
     "recent": "listings", "listedPerf": "listings", "comps": "listings", "priceHistory": "listings",
     "flows": "flows", "news": "news", "quota": "filings", "integrity": "integrity", "meta": "integrity",
     # carried forward from the previous latest.json, refreshed by other layers:
-    "offers": "offers", "anchors": "anchors", "investors": "carry", "current": "research", "sheets": "research",
+    "offers": "offers", "anchors": "details", "investors": "carry", "current": "research", "sheets": "research",
 }
 # Modules that patch FIELDS INTO rows another module produced (by row name).
 ROW_PATCHERS: dict[str, set[str]] = {
     "subscription": {"mainboard", "sme"},
     "gmp": {"mainboard", "sme"},
+    "details": {"mainboard", "sme"},     # the per-IPO record: every field it has, on every listing
     "listings": {"mainboard", "sme"},
     "filings": {"quota"},
 }
