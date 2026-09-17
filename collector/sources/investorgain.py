@@ -236,7 +236,10 @@ def normalise_detail(raw) -> dict:
     quotes = [q for q in (raw.get("gmpData") or []) if isinstance(q, dict)]
     if quotes:
         q = next((x for x in quotes if str(x.get("gmp_active_record_flag")) == "1"), quotes[0])
-        if _num(q.get("gmp")) is not None:
+        # "0" with no trade behind it (no subject-to-sauda rate, no estimated profit) is the site saying "no quote",
+        # not a premium of zero — seen live on issues days away from opening
+        unquoted = (_num(q.get("gmp")) or 0) == 0 and _num(q.get("subject_to_sauda")) is None and _num(q.get("est_profit")) is None
+        if _num(q.get("gmp")) is not None and not unquoted:
             gmp = {"value": _num(q.get("gmp")), "pct": _num(q.get("gmp_percent_calc")),
                    "estListing": _num(q.get("estimated_listing_price")), "asOf": _stamp(q.get("last_updated"))}
 

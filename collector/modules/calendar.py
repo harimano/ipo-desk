@@ -1,5 +1,7 @@
 """calendar — owns `mainboard`, `sme`, `lot`.
 
+Chain: investorgain (its IPO list is the calendar; NSE + BSE enrich it) -> nse (+ BSE merged) -> bse.
+
 Chain: nse (current + upcoming + past-issues window, plus ipo-detail for lot size where the list
 lacks it) -> bse (modern JSON api, then the legacy beta table). If both fail the module fails and the
 assembler keeps yesterday's board.
@@ -27,7 +29,7 @@ from ..errors import SourceBlocked, SourceChanged, SourceError
 from ..http import Session
 from ..names import Matcher, display_name, load_aliases, norm_name  # noqa: F401  (norm_name re-exported)
 from ..result import Result, try_chain
-from ..sources import bse_issues, nse_ipo
+from ..sources import bse_issues, investorgain, nse_ipo
 
 log = logging.getLogger("collector.calendar")
 IST = ZoneInfo("Asia/Kolkata")
@@ -37,7 +39,7 @@ PAST_WINDOW_DAYS = 45
 LISTED_GRACE_DAYS = 1           # a Listed row stays this many days past its listing date
 CARRY_FIELDS = ("gmp", "gmpPct", "gmpTrend", "sub", "listingPrice", "listingGainPct", "currentPrice",
                 "sources", "shareholderQuota", "slug", "allotment", "listing", "lotSize", "issueSizeCr",
-                "freshCr", "ofsCr", "bandLow", "bandHigh", "symbol", "series", "bseIpoNo", "bseScripCode")
+                "freshCr", "ofsCr", "bandLow", "bandHigh", "symbol", "series", "bseIpoNo", "bseScripCode", "igId")
 
 
 # ---------------------------------------------------------------------------------------------
@@ -111,7 +113,8 @@ def build_board(rows: list[dict], prev: dict, today: dt.date, exchange: str) -> 
         status = derive_status(r.get("open"), r.get("close"), r.get("listing"), today)
         if status == "Listed" and r["listing"] < cutoff:
             continue
-        name = matcher.match(r["name"], r.get("symbol")) or display_name(r["name"])
+        # `_final`: the source path already decided which row this is (by id, or by name AND opening date)
+        name = r["name"] if r.get("_final") else matcher.match(r["name"], r.get("symbol")) or display_name(r["name"])
         old = prev_by_name.get(name, {})
         row = {
             "name": name,
@@ -126,7 +129,7 @@ def build_board(rows: list[dict], prev: dict, today: dt.date, exchange: str) -> 
             "gmp": None, "gmpPct": None, "gmpTrend": None, "sub": None,
             "shareholderQuota": None, "listingPrice": None, "listingGainPct": None, "currentPrice": None,
             "sources": [],
-            "symbol": r.get("symbol"), "series": r.get("series"),
+            "symbol": r.get("symbol"), "series": r.get("series"), "igId": r.get("igId"),
             "bseIpoNo": r.get("bseIpoNo"), "bseScripCode": r.get("bseScripCode"),
         }
         for f in CARRY_FIELDS:
@@ -173,6 +176,103 @@ def _finish(res: Result, mainboard: list, sme: list, lot: dict, prev: dict, labe
 # ---------------------------------------------------------------------------------------------
 # sources
 # ---------------------------------------------------------------------------------------------
+CARRY_AFTER_CLOSE_DAYS = 14     # a closed issue no source shows any more, and with no listing date, stays this long
+SAME_ISSUE_DAYS = 3             # a name match must also agree on the opening date, within this many days
+_BASICS = ("symbol", "series", "bseIpoNo", "bseScripCode", "bandLow", "bandHigh", "lotSize", "listing", "allotment", "issueSizeCr")
+
+
+def _same_issue(a, b) -> bool:
+    try:
+        return abs((dt.date.fromisoformat(str(a)[:10]) - dt.date.fromisoformat(str(b)[:10])).days) <= SAME_ISSUE_DAYS
+    except ValueError:
+        return True                                     # one side has no date: nothing contradicts the name
+
+
+def _from_investorgain(session: Session, prev: dict, res: Result, today: dt.date) -> str:
+    """The calendar is InvestorGain's list — every upcoming, open and closed-not-yet-listed issue on both
+    exchanges, SME included, days before NSE or BSE show it, each with a stable id. The exchanges then ENRICH it
+    (symbol, series, BSE issue number: what the subscription module needs to ask them for the live book). Rows the
+    list has dropped — it forgets an issue the moment it lists — are carried from the previous board until the
+    normal expiry. Band, lot and the rest arrive from `details` later in the same run, so nothing here asks for them:
+    no past-issues download, no per-row ipo-detail calls."""
+    listed = investorgain.fetch_ipo_list(session)       # SourceError here hands the calendar to the NSE path
+    aliases = load_aliases(ALIASES_DIR)
+    prev_rows = [r for r in (prev.get("mainboard") or []) + (prev.get("sme") or []) if isinstance(r, dict) and r.get("name")]
+    by_ig = {str(r["igId"]): r for r in prev_rows if r.get("igId")}
+    by_name = {r["name"]: r for r in prev_rows}
+    known = Matcher(prev_rows, aliases)
+
+    def blank(**kw) -> dict:
+        return {"symbol": None, "series": None, "listing": None, "allotment": None, "bandLow": None, "bandHigh": None,
+                "lotSize": None, "issueSizeCr": None, "bseIpoNo": None, "bseScripCode": None, "withdrawn": False,
+                "totalSub": None, "_final": True, **kw}
+
+    rows: list[dict] = []
+    for c in listed:
+        old = by_ig.get(c["igId"])
+        if old is None:                                 # first sighting: our row, if the name AND the opening date agree
+            old = by_name.get(known.match(c["name"]) or "")          # an alias can name a row that is not on the board
+            if old is not None and not _same_issue(old.get("open"), c.get("open")):
+                old = None
+        name = old["name"] if old else display_name(c["name"])
+        if any(r["name"] == name for r in rows):
+            continue
+        where = c.get("listingAt") or ""
+        rows.append(blank(name=name, igId=c["igId"], open=c.get("open"), close=c.get("close"),
+                          symbol=(old or {}).get("symbol"), series=(old or {}).get("series"),
+                          board="SME" if "sme" in (c.get("category") or "").lower() or "SME" in where else "Mainboard",
+                          exchange="bse" if "BSE SME" in where else "nse", source="InvestorGain IPO list"))
+    n_list = len(rows)
+
+    cut = (today - dt.timedelta(days=CARRY_AFTER_CLOSE_DAYS)).isoformat()
+    for old in prev_rows:                               # what the list has dropped: build_board applies the normal expiry
+        if any(r["name"] == old["name"] for r in rows) or (not old.get("listing") and (old.get("close") or "9999") < cut):
+            continue
+        rows.append(blank(name=old["name"], igId=old.get("igId"), open=old.get("open"), close=old.get("close"), source=None,
+                          board="SME" if str(old.get("type", "")).endswith("SME") else "Mainboard",
+                          exchange="bse" if old.get("type") == "BSE SME" else "nse",
+                          **{f: old.get(f) for f in _BASICS}))
+    n_carried = len(rows) - n_list
+
+    ours = Matcher(rows, aliases)
+    final = {r["name"]: r for r in rows}
+    seen = {"nse": 0, "bse": 0, "new": 0}
+
+    def absorb(found: list[dict], exchange: str) -> None:
+        for e in found:
+            seen[exchange] += 1
+            hit = ours.match(e["name"], e.get("symbol"))
+            target = final.get(hit)                     # an alias may name a row that is not on today's board
+            if target is not None and not _same_issue(target.get("open"), e.get("open")):
+                target = None
+            if target is None:                          # an issue only the exchange knows still gets its row
+                rows.append({**e, "exchange": exchange, "totalSub": None})
+                seen["new"] += 1
+                continue
+            for f in _BASICS:
+                if target.get(f) in (None, "") and e.get(f) not in (None, ""):
+                    target[f] = e[f]
+
+    for label, fn in (("current", nse_ipo.current_issues), ("upcoming", nse_ipo.upcoming_issues)):
+        try:
+            absorb(fn(session), "nse")
+        except SourceBlocked as e:
+            res.notes.append(f"nse blocked ({e.detail}): symbols for new rows wait for the next run")
+            break
+        except SourceError as e:                        # an empty upcoming list is normal
+            log.info("nse %s: %s", label, e.detail)
+    try:
+        absorb(bse_issues.public_issues_json(session), "bse")
+    except SourceError as e:
+        res.notes.append(f"bse not merged ({e.kind}): BSE issue numbers for new rows wait for the next run")
+
+    mainboard, sme, lot = build_board(rows, prev, today, "nse")
+    if not mainboard and not sme:
+        raise SourceChanged("investorgain", f"{len(listed)} listed issues but none belong on today's board")
+    return _finish(res, mainboard, sme, lot, prev,
+                   f"investorgain list={n_list} carried={n_carried} +nse={seen['nse']} +bse={seen['bse']} exchange-only={seen['new']}")
+
+
 def _from_nse(session: Session, prev: dict, res: Result, today: dt.date) -> str:
     rows: list[dict] = []
     failures: list[SourceError] = []
@@ -264,5 +364,6 @@ def _from_bse(session: Session, prev: dict, res: Result, today: dt.date) -> str:
 
 def run(session: Session, prev: dict, res: Result, today: dt.date | None = None) -> Result:
     t = _today(today)
-    return try_chain(res, [("nse", lambda: _from_nse(session, prev, res, t)),
+    return try_chain(res, [("investorgain", lambda: _from_investorgain(session, prev, res, t)),
+                           ("nse", lambda: _from_nse(session, prev, res, t)),
                            ("bse", lambda: _from_bse(session, prev, res, t))])

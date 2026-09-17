@@ -42,8 +42,8 @@ class Budget:
         raise TimeoutError("run budget exceeded")
 
 
-def run_module(name: str, session: Session, prev: dict, budget_left: float) -> Result:
-    res = Result(module=name)
+def run_module(name: str, session: Session, prev: dict, budget_left: float, doc: dict | None = None) -> Result:
+    res = Result(module=name, doc=json.loads(json.dumps(doc)) if doc is not None else None)
     t0 = time.monotonic()
     calls0 = session.calls
     try:
@@ -83,7 +83,7 @@ def main(argv=None) -> int:
     try:
         with Budget(a.max_seconds):
             for name in names:
-                res = run_module(name, session, prev, a.max_seconds - (time.monotonic() - t_start))
+                res = run_module(name, session, prev, a.max_seconds - (time.monotonic() - t_start), doc=data)
                 try:
                     assemble.apply(data, res)
                 except assemble.OwnershipError as e:

@@ -88,7 +88,7 @@ def assign_ids(rows: list[dict], listing: list[dict], aliases: dict) -> dict[str
     out: dict[str, str] = {}
     for c in listing:
         name = ours.match(c["name"])
-        if not name or name in out:
+        if not name or name in out or name not in by_name:        # an alias can name a row that is not among these
             continue
         a, b = _date(by_name[name].get("open")), _date(c.get("open"))
         if a and b and abs((a - b).days) <= MAX_OPEN_DATE_GAP_DAYS:
@@ -98,7 +98,7 @@ def assign_ids(rows: list[dict], listing: list[dict], aliases: dict) -> dict[str
     return out
 
 
-def row_patch(row: dict, rec: dict, today: dt.date, now: dt.datetime) -> dict:
+def row_patch(row: dict, rec: dict, today: dt.date, now: dt.datetime, gmp_before=None) -> dict:
     """Fields for one board row. A value is written only when the record has one; nothing is ever blanked."""
     p: dict = {"igId": rec["igId"], "igFetchedAt": now.replace(microsecond=0).isoformat()}
     for ours, theirs in (("allotment", "allotment"), ("listing", "listing"), ("issueSizeCr", "issueSizeCr"), ("freshCr", "freshCr"),
@@ -113,7 +113,7 @@ def row_patch(row: dict, rec: dict, today: dt.date, now: dt.datetime) -> dict:
                            p.get("listing") or row.get("listing"), today)
     g = rec.get("gmp")
     if g and status != "Listed":                                   # after listing a grey-market quote is history
-        p["gmp"], p["gmpTrend"], p["gmpAsOf"] = g["value"], trend(g["value"], row.get("gmp")), g.get("asOf")
+        p["gmp"], p["gmpTrend"], p["gmpAsOf"] = g["value"], trend(g["value"], gmp_before if gmp_before is not None else row.get("gmp")), g.get("asOf")
         band = p.get("bandHigh") or row.get("bandHigh")
         p["gmpPct"] = g["pct"] if g.get("pct") is not None else round(100 * g["value"] / band, 2) if band else None
     if rec.get("sub"):
@@ -179,7 +179,9 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None,
     now = now or dt.datetime.now(IST)
     t = today or now.date()
     aliases = load_aliases(ALIASES_DIR)
-    board = [(k, r) for k in BOARDS for r in (prev.get(k) or []) if isinstance(r, dict) and r.get("name")]
+    doc = res.doc or prev                                  # today's board: a listing calendar created this run is already there
+    board = [(k, r) for k in BOARDS for r in (doc.get(k) or []) if isinstance(r, dict) and r.get("name")]
+    was = {r["name"]: r.get("gmp") for k in BOARDS for r in (prev.get(k) or []) if isinstance(r, dict) and r.get("name")}
     live = [(k, r) for k, r in board if not settled(r, t)]
     if not live:
         res.notes.append("every listing on the board is settled; nothing to fetch")
@@ -224,7 +226,7 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None,
             last = SourceChanged("investorgain", f"asked for id {ids[row['name']]}, the record says {rec['igId']}")
             failed.append(row["name"])
             continue
-        patches.setdefault(key, {})[row["name"]] = row_patch(row, rec, t, now)
+        patches.setdefault(key, {})[row["name"]] = row_patch(row, rec, t, now, was.get(row["name"], row.get("gmp")))
         booked += upsert_anchor(anchors, on_file, row["name"], rec)
         got += 1
 

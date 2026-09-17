@@ -35,7 +35,8 @@ except ImportError:  # pragma: no cover
 log = logging.getLogger("collector.subscription")
 IST = ZoneInfo("Asia/Kolkata")
 MODULE = "subscription"
-CLOSED_GRACE_DAYS = 3
+CLOSED_GRACE_DAYS = 1              # the evening after the close carries the final print; after that the per-IPO record has it
+#                                    (was 3: a dozen 4-5 s NSE calls per run for books that no longer move)
 CHITTORGARH_URL = "https://www.chittorgarh.com/report/ipo-subscription-status-live-bidding-data-bse-nse/21/"
 CATEGORIES = ("qib", "nii", "retail", "employee", "shareholder", "total")
 SUB_BUCKET_MARKERS = ("bid amount", "above", "below", "more than", "less than", "upto", "up to", "10 lakh",
@@ -268,7 +269,7 @@ def _as_of(update_time) -> str:
 
 def run(session: Session, prev: dict, res: Result, today: dt.date | None = None) -> Result:
     t = today or dt.datetime.now(IST).date()
-    rows = candidates(prev, t)
+    rows = candidates(res.doc or prev, t)                  # today's board: a row calendar made this run has its symbol already
     if not rows:
         res.notes.append("no open or recently closed issues on the board")
         return res.won("none", _now_iso())
@@ -279,6 +280,8 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
     last: SourceError | None = None
     failed = []
     for row in rows:
+        if not row.get("symbol") and not row.get("bseIpoNo"):
+            continue                                   # no handle to ask an exchange with; the per-IPO record covers it
         try:
             src, sub = fetch_row(session, row, chit, nse_blocked)
         except SourceError as e:
@@ -287,6 +290,10 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
             log.info("subscription %s", e.detail)
             continue
         if not has_values(sub):
+            continue
+        # An exchange's page goes blank once an issue has closed (BSE SME, seen live 18 Sep 2026: all zeros where the
+        # book had been 11.87x). This module runs last so that the exchanges win — but never with nothing.
+        if not (sub.get("total") or 0) > 0 and ((row.get("sub") or {}).get("total") or 0) > 0:
             continue
         for k in ("employee", "shareholder"):     # keep an optional category from earlier today if this source lacks it
             old = (row.get("sub") or {}).get(k)

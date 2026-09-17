@@ -38,9 +38,17 @@ class FakeSession:
     """Same method names as collector.http.Session. nse_json answers by path (+symbol for ipo-detail),
     bse_json by path, get_text by URL substring. A value that is an Exception is raised."""
 
-    def __init__(self, nse: dict | None = None, bse: dict | None = None, html: dict | None = None):
-        self.nse, self.bse, self.html = nse or {}, bse or {}, html or {}
+    def __init__(self, nse: dict | None = None, bse: dict | None = None, html: dict | None = None, ig=None):
+        self.nse, self.bse, self.html, self.ig = nse or {}, bse or {}, html or {}, ig
         self.calls: list[str] = []
+
+    def get_json(self, url, *, source=None, headers=None, params=None, **kw):
+        if "investorgain" not in url:
+            return self.get_text(url, source=source)
+        self.calls.append("ig:" + url.rsplit("/", 1)[1])
+        if self.ig is None:
+            raise SourceDown(source or "investorgain", "HTTP 503", url, 503)
+        return self._answer(self.ig)
 
     @staticmethod
     def _answer(val):
@@ -74,8 +82,6 @@ class FakeSession:
                 return self._answer(v)
         raise SourceDown(source, "HTTP 404", url, 404)
 
-    def get_json(self, url, *, source, headers=None, params=None):
-        return self.get_text(url, source=source)
 
     def post_text(self, url, data, *, source, headers=None):
         raise SourceDown(source, "not wired", url)
@@ -355,7 +361,7 @@ def test_nse_blocked_bse_wins():
     prev = prev_board()
     res = run(FakeSession(nse=nse_blocked(), bse=bse_ok()), prev)
     assert res.ok and res.source == "bse"
-    assert [t["source"] for t in res.tried] == ["nse", "bse"] and res.tried[0]["kind"] == "blocked"
+    assert [t["source"] for t in res.tried] == ["investorgain", "nse", "bse"] and res.tried[1]["kind"] == "blocked"
     mb, sme = by_name(res.replace["mainboard"]), by_name(res.replace["sme"])
     assert "Sona Selection India" in mb, "BSE's 'SONA SELECTION INDIA LTD' must map to the board spelling"
     sona = mb["Sona Selection India"]
@@ -383,7 +389,7 @@ def test_both_fail_keeps_previous_rows():
     res = run(FakeSession(nse=nse_blocked(), bse={"/GetPublicIssue_par_updated/w": SourceDown("bse", "timeout")},
                           html={"IPOIssues_new.aspx": text("bse", "IPOIssues_new-empty.html")}), prev)
     assert not res.ok and res.error["kind"] in ("changed", "down", "blocked")
-    assert [t["source"] for t in res.tried][:2] == ["nse", "bse"] and not any(t["ok"] for t in res.tried)
+    assert [t["source"] for t in res.tried][:3] == ["investorgain", "nse", "bse"] and not any(t["ok"] for t in res.tried)
     assemble.apply(data, res)
     assert data == prev, "a failed calendar leaves mainboard/sme/lot/expected exactly as they were"
 
@@ -394,8 +400,8 @@ def test_empty_lists_everywhere_is_source_changed_not_success():
     res = run(FakeSession(nse={"/api/ipo-current-issue": empty, "/api/all-upcoming-issues": empty,
                                "/api/public-past-issues": empty}), prev)
     assert not res.ok
-    assert res.tried[0]["source"] == "nse" and res.tried[0]["kind"] == "changed"
-    assert "empty" in res.tried[0]["detail"]
+    assert res.tried[1]["source"] == "nse" and res.tried[1]["kind"] == "changed"
+    assert "empty" in res.tried[1]["detail"]
 
 
 def test_nse_upcoming_empty_is_tolerated_when_current_has_rows():
@@ -477,3 +483,73 @@ def test_nse_sme_detail_uses_its_own_labels():
     raw = json.loads((pathlib.Path(__file__).parent.parent / "data/fixtures/nse/ipo-detail-KHERIAAUTO-sme.json").read_text())
     detail = {"dataList": raw["issueInfo"]["dataList"]}
     assert nse_ipo.detail_lot(detail) | {"issueSizeCr": None} == {"lotSize": 1200, "issueSizeCr": None, "bandLow": 96.0, "bandHigh": 101.0}
+
+
+# ------------------------------------------------------------------------------------------
+# InvestorGain's list is the calendar. Every fixture below is a real response from the same day (17-18 Sep 2026).
+# ------------------------------------------------------------------------------------------
+def _live(name):
+    import json
+    import pathlib
+    root = pathlib.Path(__file__).resolve().parent.parent / "data/fixtures"
+    return json.loads((root / name).read_text())
+
+
+def live_session():
+    return FakeSession(ig=_live("investorgain/list-read.json"),
+                       nse={"/api/ipo-current-issue": _live("live-2026-09-17/nse_ipo-current-issue.json"),
+                            "/api/all-upcoming-issues": _live("live-2026-09-17/nse_all-upcoming-issues.json")},
+                       bse={"/GetPublicIssue_par_updated/w": _live("live-2026-09-17/bse_issues.json")})
+
+
+NSE_ROW = "NSE (National Stock Exchange of India)"
+
+
+def live_prev():
+    return {"expected": [], "lot": {}, "sme": [], "mainboard": [
+        {"name": NSE_ROW, "slug": "nse", "type": "Mainboard", "status": "Upcoming", "open": "2026-09-17", "close": "2026-09-21",
+         "gmp": 160, "sources": ["db era"]},                                                     # known only by a nickname
+        {"name": "Kanohar Electricals", "igId": "2119", "type": "Mainboard", "status": "Listed", "symbol": "KANOHAR",
+         "open": "2026-09-08", "close": "2026-09-10", "listing": "2026-09-17", "lotSize": 23, "bandHigh": 632.0},   # the list forgot it at listing
+        {"name": "Long Closed Never Listed", "type": "BSE SME", "status": "Closed", "open": "2026-08-20", "close": "2026-08-24"}]}
+
+
+def test_investorgain_list_is_the_calendar_and_the_exchanges_enrich_it():
+    s = live_session()
+    res = run(s, live_prev(), today=dt.date(2026, 9, 18))
+    assert res.ok and res.source == "investorgain", res.error
+    assert not any("past-issues" in c or "ipo-detail" in c for c in s.calls), "no past-issues download, no per-row detail calls"
+    rows = res.replace["mainboard"] + res.replace["sme"]
+    names = [r["name"] for r in rows]
+    assert len(names) == len(set(names)), "one row per issue, however many sources spell it"
+    mb, sme = by_name(res.replace["mainboard"]), by_name(res.replace["sme"])
+
+    nse = mb[NSE_ROW]                                           # the list says "NSE", NSE says "National Stock Exchange of India Limited"
+    assert (nse["igId"], nse["symbol"], nse["bseIpoNo"], nse["status"]) == ("2305", "NSE", "7977", "Open")
+    assert nse["gmp"] == 160 and nse["slug"] == "nse", "our row, carried forward, not a new one"
+
+    assert mb["A-One Steels"]["status"] == "Upcoming" and mb["A-One Steels"]["igId"] == "1611", "known days before NSE or BSE list it"
+    assert mb["Hero Motors"]["symbol"] == "HEROMOTORS" and mb["Hero Motors"]["bseIpoNo"] == "7971"
+    assert mb["Jindal Supreme"]["symbol"] == "JSIPL", "'Jindal Supreme (India) Limited' on NSE is the list's 'Jindal Supreme'"
+
+    shakti = sme["Shakti Polytarp"]                             # a BSE SME issue that closed yesterday: the old calendar dropped these
+    assert (shakti["type"], shakti["status"], shakti["bseIpoNo"]) == ("BSE SME", "Closed", "7967")
+    assert sme["Kheria Autocomp"]["type"] == "NSE SME" and sme["Kheria Autocomp"]["symbol"] == "KHERIAAUTO"
+
+    assert mb["Kanohar Electricals"]["status"] == "Listed" and mb["Kanohar Electricals"]["lotSize"] == 23, "carried: the list drops an issue when it lists"
+    assert "Long Closed Never Listed" not in sme and "Long Closed Never Listed" not in mb
+    assert all(r.get("sub") is None or "total" not in (r["sub"] or {}) or r["name"] == NSE_ROW for r in rows), \
+        "NSE's list total counts NSE bids only (0.29x when the book was 0.43x): it is not used"
+    assert any("investorgain list=31" in n for n in res.notes)
+
+
+def test_a_lookalike_name_with_another_opening_date_is_a_different_issue():
+    prev = live_prev()
+    prev["mainboard"].append({"name": "Sona Selection India", "type": "Mainboard", "status": "Closed", "gmp": 18,
+                              "open": "2026-09-08", "close": "2026-09-10"})       # spelled almost like the list's "Sonaselection India"
+    res = run(live_session(), prev, today=dt.date(2026, 9, 18))
+    assert res.source == "investorgain"
+    mb = by_name(res.replace["mainboard"])
+    new, old = mb["Sonaselection India"], mb["Sona Selection India"]
+    assert (new["igId"], new["open"], new["gmp"]) == ("2059", "2026-09-17", None), "its own row: nothing inherited from the lookalike"
+    assert (old["open"], old["gmp"], old.get("igId")) == ("2026-09-08", 18, None), "and the lookalike keeps its own dates"

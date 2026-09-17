@@ -71,6 +71,17 @@ opening date, and carries `igId` from then on. MODULE ORDER IS THE FALLBACK LOGI
 overwrite its copies when they answer; its copies stand when they do not). It is a private, undocumented API whose
 v1 vanished in July 2026 — if it goes, `details` fails, rows keep what they had, and the NSE/BSE modules carry the
 board. `anchorInvestorData` is always empty: who took a book exists only as a PDF letter, which no run reads.
+THE CALENDAR IS THE SAME SOURCE: `calendar`'s chain is investorgain -> nse -> bse. InvestorGain's `list-read` is the
+board (every upcoming / open / closed-not-yet-listed issue on both exchanges, SME included, days before NSE or BSE
+list it, each with a stable id); NSE + BSE lists only enrich it with symbol, series and BSE issue number (what
+`subscription` needs to ask them for the live book). The list forgets an issue the moment it lists, so rows it has
+dropped are carried from the previous board until the normal expiry. A row is matched by id, else by name AND opening
+date (a lookalike name with other dates is another issue). `Result.doc` gives a module today's board as assembled so
+far, so a listing born in this run gets its record and its subscription in the same run (`details` and
+`subscription` read it; `prev` remains yesterday's document, used for trends and carry-forward).
+Two traps met on the way: `Matcher.match` returns an alias target even when that row is not in the list being
+searched (always `.get`, never index); and the exchanges answer all zeros for a closed issue, so `subscription`
+never replaces a positive book with a zero one. A GMP of "0" with no sauda rate behind it is "no quote".
 Hari, 18 Sep: the companies on the board are sample material for getting the METHOD right — do not spend effort
 curating or preserving individual legacy rows; make every future listing fill itself.
 

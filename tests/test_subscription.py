@@ -125,9 +125,10 @@ def test_candidates_open_and_recently_closed_only():
     prev = prev_board()
     names = [r["name"] for r in subscription.candidates(prev, TODAY)]
     assert names == ["Sona Selection India", "Vidya Wires Limited"]
-    # Anlon closed 10 Sep (7 days ago) and listed: excluded; on 12 Sep it would still count
-    names = [r["name"] for r in subscription.candidates(prev, dt.date(2026, 9, 12))]
-    assert "Anlon Healthcare Limited" in names
+    # Anlon closed 10 Sep (7 days ago) and listed: excluded. The day after the close still counts (the final print);
+    # from then on the book is final and the per-IPO record carries it, so the exchanges are not asked again
+    assert "Anlon Healthcare Limited" in [r["name"] for r in subscription.candidates(prev, dt.date(2026, 9, 11))]
+    assert "Anlon Healthcare Limited" not in [r["name"] for r in subscription.candidates(prev, dt.date(2026, 9, 12))]
 
 
 def test_happy_path_nse():
@@ -247,3 +248,26 @@ def test_bse_category_demand_json_live_shape():
         bse_issues.parse_category_demand({"Table": []})
     with pytest.raises(SourceChanged):
         bse_issues.parse_category_demand({"Table": [{"unexpected": 1}]})
+
+
+def test_a_blank_exchange_page_never_zeroes_a_book_we_already_have():
+    """Live, 18 Sep 2026: after a BSE SME issue closed, BSE answered with zeros and they overwrote 11.87x."""
+    import copy
+    import json
+    import pathlib
+    live = json.loads((pathlib.Path(__file__).parent.parent / "data/fixtures/live-2026-09-17/bse_CatDem-7977.json").read_text())
+    blank = copy.deepcopy(live)
+    for r in blank["Table"][1:]:
+        r["col4"], r["col5"] = "0", "0.0000"
+
+    class S:
+        def bse_json(self, path, params=None, *, source="bse"):
+            return blank
+
+    row = {"name": "Shakti Polytarp", "type": "BSE SME", "status": "Closed", "open": "2026-09-15", "close": "2026-09-17",
+           "bseIpoNo": "7967", "sub": {"qib": 49.22, "nii": 5.43, "retail": 4.12, "total": 11.87}}
+    res = subscription.run(S(), {"mainboard": [], "sme": [row]}, Result(module="subscription"), today=dt.date(2026, 9, 18))
+    assert "Shakti Polytarp" not in (res.rows.get("sme") or {})
+    fresh = dict(row, sub=None)
+    res = subscription.run(S(), {"mainboard": [], "sme": [fresh]}, Result(module="subscription"), today=dt.date(2026, 9, 18))
+    assert (res.rows.get("sme") or {}).get("Shakti Polytarp", {}).get("sub", {}).get("total") == 0.0, "with nothing on file, the exchange's zero stands"

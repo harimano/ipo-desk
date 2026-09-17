@@ -147,3 +147,23 @@ def test_failure_changes_nothing():
     for bad in ({}, {"ipoList": []}, {"ipoList": [{"nothing": 1}]}):
         with pytest.raises(SourceChanged):
             ig.parse_ipo_list(bad)
+
+
+def test_an_alias_for_a_row_outside_the_list_being_matched_is_not_a_crash():
+    """Live, 18 Sep 2026: NSE's row already had its id, so it was not among the rows still to identify — and the
+    alias "NSE" -> that row made the lookup blow up, leaving 17 brand-new listings bare."""
+    doc = prev()
+    doc["mainboard"][0]["igId"] = "2305"
+    doc["mainboard"].append({"name": "A-One Steels", "type": "Mainboard", "status": "Upcoming", "open": "2026-09-24", "close": "2026-09-28"})
+    s = FakeSession()
+    res = run(s, doc)
+    assert res.ok and "list" in s.calls
+    assert details.assign_ids([doc["mainboard"][2]], ig.parse_ipo_list(LIST), {"NSE": NSE}) == {"A-One Steels": "1611"}
+
+
+def test_a_zero_gmp_with_no_trade_behind_it_is_no_quote():
+    raw = copy.deepcopy(RECORDS["2305"])
+    raw["gmpData"] = [{**raw["gmpData"][0], "gmp": "0", "subject_to_sauda": "-", "est_profit": "", "gmp_active_record_flag": "1"}]
+    assert ig.normalise_detail(raw)["gmp"] is None
+    raw["gmpData"][0].update(subject_to_sauda="9100", est_profit="0")
+    assert ig.normalise_detail(raw)["gmp"]["value"] == 0.0, "a traded premium of zero is still a quote"

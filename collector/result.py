@@ -29,6 +29,8 @@ class Result:
     merge: dict = field(default_factory=dict)         # key -> {subkey: value} shallow merge
     notes: list[str] = field(default_factory=list)    # human-readable, goes to integrity.checks note
     unresolved: list[str] = field(default_factory=list)  # items for meta.unresolved (merged, never replaced)
+    doc: dict | None = None              # the document as assembled SO FAR in this run (a copy; read-only). `prev` is
+                                         # yesterday's; this is today's board, so a listing born this run is visible at once
 
     def fail(self, err: SourceError | Exception, source: str | None = None) -> "Result":
         self.ok = False
