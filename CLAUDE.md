@@ -14,8 +14,11 @@ work it top to bottom.
 ## State of play (updated 17 Sep 2026)
 
 Live at https://harimano.github.io/ipo-desk/ from https://github.com/harimano/ipo-desk. The collector
-completes 9/9 modules from GitHub Actions runners (16/17 sources reachable there; only ipopremium
-403s), so the cron stays on Actions. `collect.yml` runs 06:45 and 18:15 IST.
+completes 10/10 modules from GitHub Actions runners (16/17 sources reachable there; only ipopremium
+403s), so the cron stays on Actions. `collect.yml` runs full at 06:45 and 18:15 IST, and a light
+intraday pass (subscription + gmp, only while an issue is open) every 30 min 10:00-17:30 IST on weekdays;
+intraday commits amend one rolling commit a day on the data branch. `collector/alerts.py` runs after the
+commit (dry run until `NTFY_TOPIC` or `TELEGRAM_*` secrets exist).
 
 **Where things live**
 - `main` — code, research sheets, `data/aliases.json`, fixtures. Never collector output.
@@ -41,7 +44,8 @@ symbols `calendar` wrote on the previous run.
 FII/DII, nsearchives CSVs, Yahoo, RSS, all eight scrip codes in `parents.json`.
 **Known broken or unproven**: the chittorgarh subscription fallback (site moved to Next.js; parser finds
 no table); ipopremium (403, leave it); Angel One (no secrets set yet — Hari adds them himself);
-`anchors`, `offers`, `expected`, `flows.monthly/rotation` are still carried forward (BUILD-PLAN Tier 2).
+`anchors`, `expected`, `investors` (except bulkDeals), `flows.monthly/rotation` and the text of `quota` rows
+are still carried forward from the db era (BUILD-PLAN Tier 2); `offers` is live from BSE since 17 Sep.
 
 ## Rules for working here
 
