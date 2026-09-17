@@ -13,7 +13,7 @@ What it does each run, from `prev` (never mutated):
     deduped by name, newest listing first, within 28 days. The board row itself is left alone —
     calendar owns the board and drops it.
   * new listings -> prepend {name, issue, gmpImplied (issue + prev gmp), listing} to `listedPerf`
-    (mainboard only, rolling 40) and append {name, qib, ret} to `comps` when the row had a QIB print.
+    (mainboard only, rolling 400) and append {name, qib, ret} to `comps` when the row had a QIB print.
   * `priceHistory`: one [date, close] point per name per day for every name on the board, in `recent`,
     or in `prev["lot"]`; a date already present is never appended twice.
 
@@ -39,7 +39,7 @@ IST = ZoneInfo("Asia/Kolkata")
 BOARDS = ("mainboard", "sme")
 RECENT_DAYS = 28
 LOOKBACK_DAYS = 45          # enough candles to cover the oldest `recent` listing
-LISTED_PERF_ROWS = 40
+LISTED_PERF_ROWS = 400        # the ipo-radar seed is history the page charts; keep it
 _DROP_WORDS = re.compile(r"\b(limited|ltd|ipo|mainboard|sme|nse|bse)\b")
 
 

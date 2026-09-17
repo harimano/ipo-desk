@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Deterministic daily collector for the India IPO Command Center. Writes data/latest.json; a static site reads it."
 requires-python = ">=3.11"
 dependencies = [
-  "httpx[http2]>=0.27",
+  "httpx[http2,brotli]>=0.27",
   "selectolax>=0.3.21",
   "nse[server]>=4.0.1",
   "bse>=3.3",

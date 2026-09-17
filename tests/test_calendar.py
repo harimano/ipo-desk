@@ -318,10 +318,10 @@ def test_happy_path_nse():
     assert sona["lotSize"] == 150 and sona["issueSizeCr"] == 450.0
 
     # upcoming: new row, lot size from ipo-detail, status Upcoming
-    assert mb["Kabra Jewels Limited"]["status"] == "Upcoming"
-    assert mb["Kabra Jewels Limited"]["lotSize"] == 117
-    assert mb["Tejas Cargo Logistics Limited"]["status"] == "Upcoming"
-    assert mb["Tejas Cargo Logistics Limited"]["slug"] == "tejas-cargo-logistics-limited"
+    assert mb["Kabra Jewels"]["status"] == "Upcoming"
+    assert mb["Kabra Jewels"]["lotSize"] == 117
+    assert mb["Tejas Cargo Logistics"]["status"] == "Upcoming"
+    assert mb["Tejas Cargo Logistics"]["slug"] == "tejas-cargo-logistics"
 
     # listed yesterday: stays one day, keeps its listingPrice; listed long ago: gone
     assert mb["Anlon Healthcare Limited"]["status"] == "Listed"
@@ -336,8 +336,8 @@ def test_happy_path_nse():
     # lot + expected
     lot = res.replace["lot"]
     assert lot["Sona Selection India"] == {"shares": 150, "price": 100.0, "listDate": "2026-09-22"}
-    assert lot["Kabra Jewels Limited"]["shares"] == 117 and lot["Vidya Wires Limited"]["shares"] == 2000
-    assert "Gone Corp Limited" not in lot
+    assert lot["Kabra Jewels"]["shares"] == 117 and lot["Vidya Wires Limited"]["shares"] == 2000
+    assert "Gone Corp Limited" in lot          # lot is never pruned: the Book keys off it
     assert res.replace["expected"] == prev["expected"]
     assert set(res.replace) == {"mainboard", "sme", "lot", "expected"}
     assert res.notes and "open" in res.notes[0]
@@ -363,7 +363,7 @@ def test_nse_blocked_bse_wins():
     assert sona["lotSize"] == 150 and sona["symbol"] == "SONASEL" and sona["gmp"] == 18   # carried forward
     assert "BSE public issues (api)" in sona["sources"] and "NSE ipo-current-issue" in sona["sources"]
     assert sme["Vidya Wires Limited"]["type"] == "NSE SME", "exchange label is not rewritten by a BSE day"
-    assert mb["Kabra Jewels Limited"]["status"] == "Upcoming" and mb["Kabra Jewels Limited"]["bseIpoNo"] == "7984"
+    assert mb["Kabra Jewels"]["status"] == "Upcoming" and mb["Kabra Jewels"]["bseIpoNo"] == "7984"
     assert "Anlon Healthcare Limited" not in mb, "BSE list has no past issues; a Closed row without today's source drops"
     assert res.unresolved and "BSE" in res.unresolved[0]
 
@@ -404,7 +404,7 @@ def test_nse_upcoming_empty_is_tolerated_when_current_has_rows():
     n["/api/all-upcoming-issues"] = load("nse", "empty-list.json")
     res = run(FakeSession(nse=n), prev_board())
     assert res.ok and res.source == "nse"
-    assert "Tejas Cargo Logistics Limited" not in by_name(res.replace["mainboard"])
+    assert "Tejas Cargo Logistics" not in by_name(res.replace["mainboard"])
 
 
 def test_name_matching_helper():
@@ -434,4 +434,20 @@ def test_detail_block_does_not_sink_the_calendar():
     assert res.ok and res.source == "nse"
     mb = by_name(res.replace["mainboard"])
     assert mb["Sona Selection India"]["lotSize"] == 150, "lot carried from prev when ipo-detail is blocked"
-    assert mb["Kabra Jewels Limited"]["lotSize"] is None
+    assert mb["Kabra Jewels"]["lotSize"] is None
+
+
+def test_names_matcher_rules():
+    from collector.names import Matcher, display_name
+    rows = [{"name": "NSE (National Stock Exchange of India)"}, {"name": "Coal India"},
+            {"name": "Hero FinCorp", "symbol": "HEROFIN"}, {"name": "Asset Reconstruction Company (India)"}]
+    m = Matcher(rows, {"Sonaselection India Limited": "Sona Selection India"})
+    assert m.match("National Stock Exchange of India Limited") == "NSE (National Stock Exchange of India)"
+    assert m.match("Asset Reconstruction Company (India) Ltd") == "Asset Reconstruction Company (India)"
+    assert m.match("Totally Different Name Ltd", symbol="herofin") == "Hero FinCorp"      # symbol beats spelling
+    assert m.match("Sonaselection India Limited") == "Sona Selection India"               # alias, row not on board yet
+    assert m.match("Bharat Coking Coal India Limited") is None                             # subset must not match
+    assert m.match("Hero Motors Limited") is None
+    assert display_name("Hero Motors Limited") == "Hero Motors"
+    assert display_name("Jindal Supreme (India) Limited") == "Jindal Supreme (India)"
+    assert display_name("Kabra Jewels Pvt. Ltd.") == "Kabra Jewels"

@@ -9,7 +9,8 @@ const DAY = 86400000;
 let asOf = new Date(DATA.meta.asOf);
 let today = new Date(asOf.getFullYear(), asOf.getMonth(), asOf.getDate());
 const iso = dt => dt.toISOString().slice(0, 10);
-const d = s => s ? new Date(s + "T00:00:00") : null;
+const d = s => s ? new Date(String(s).slice(0, 10) + "T00:00:00") : null;   // date part only: values may be ISO datetimes
+const fmtT = s => { const m = /T(\d{2}:\d{2})/.exec(String(s || "")); return m ? ", " + m[1] : ""; };
 const days = s => { const x = d(s); return x ? Math.round((x - today) / DAY) : null; };
 const fmtD = s => { const x = d(s); return x ? x.toLocaleDateString("en-IN", { day: "numeric", month: "short" }) : "—"; };
 const fmtDY = s => { const x = d(s); return x ? x.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) : "—"; };
@@ -207,7 +208,7 @@ function boardRow(b) {
     <td class="r num">${c ? inr0(c) : "—"}</td>
     <td class="r num">${b.status === "Listed" ? `<span class="${cls(b.listingGainPct)}">${inr(b.listingPrice)} · ${pct(b.listingGainPct, true)}</span>` : b.gmp != null ? `<span class="${cls(b.gmp)}">${inr(b.gmp)} · ${pct(b.gmpPct, true)}</span> ${b.gmpTrend === "up" ? "▲" : b.gmpTrend === "down" ? "▼" : ""}<div class="dt">est. ${inr(est)}</div>` : "—"}</td>
     <td class="r num ${cls(g)}">${g != null && b.status !== "Listed" ? sgn(g) : isSme && b.sub && b.sub.total != null ? smeScoreCell(b) : "—"}</td>
-    <td style="min-width:200px">${b.sub && b.sub.total != null ? (isSme ? subBar("Total", b.sub.total) : subBar("QIB", b.sub.qib) + subBar("NII", b.sub.nii) + subBar("Retail", b.sub.retail) + subBar("Total", b.sub.total)) + `<div class="dt">${b.sub.retail != null ? "retail odds " + odds(b.sub.retail) : ""}${b.sub.asOf ? " · as of " + fmtD(b.sub.asOf) : ""}</div>` : `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`}</td></tr>`;
+    <td style="min-width:200px">${b.sub && b.sub.total != null ? (isSme ? subBar("Total", b.sub.total) : subBar("QIB", b.sub.qib) + subBar("NII", b.sub.nii) + subBar("Retail", b.sub.retail) + subBar("Total", b.sub.total)) + `<div class="dt">${b.sub.retail != null ? "retail odds " + odds(b.sub.retail) : ""}${b.sub.asOf ? " · as of " + fmtD(b.sub.asOf) + fmtT(b.sub.asOf) : ""}</div>` : `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`}</td></tr>`;
 }
 function renderBoard() {
   const order = { Open: 0, Closed: 1, Upcoming: 2, Listed: 3 };

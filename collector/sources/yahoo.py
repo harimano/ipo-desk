@@ -62,9 +62,9 @@ def _rows(sub) -> list[list]:
     for idx, close in sub["Close"].items():
         if _is_nan(close):
             continue
-        o = None if opens is None or _is_nan(opens.loc[idx]) else float(opens.loc[idx])
+        o = None if opens is None or _is_nan(opens.loc[idx]) else round(float(opens.loc[idx]), 2)
         date = str(getattr(idx, "date", lambda: idx)())[:10]
-        out.append([date, o, float(close)])
+        out.append([date, o, round(float(close), 2)])
     return out
 
 

@@ -12,59 +12,40 @@ Rules enforced here:
   * status is derived from dates only (DATA-SCHEMA.md): Upcoming -> Open -> Closed -> Listed.
   * A row that listed more than one day ago leaves the board (listings owns `recent`).
   * `expected` is copied from prev unchanged — the collector does not research the pipeline.
-  * `lot{name: {shares, price, listDate}}` is rebuilt from the board; names no longer on the board
-    are dropped from lot as well.
+  * `lot{name: {shares, price, listDate}}` is updated from the board and never pruned — the viewer's
+    applications and holdings key off it long after a name has left the board.
 """
 from __future__ import annotations
 
 import datetime as dt
 import logging
+import pathlib
 import re
 from zoneinfo import ZoneInfo
 
 from ..errors import SourceBlocked, SourceChanged, SourceError
 from ..http import Session
+from ..names import Matcher, display_name, load_aliases, norm_name  # noqa: F401  (norm_name re-exported)
 from ..result import Result, try_chain
 from ..sources import bse_issues, nse_ipo
 
 log = logging.getLogger("collector.calendar")
 IST = ZoneInfo("Asia/Kolkata")
+ALIASES_DIR = pathlib.Path(__file__).resolve().parents[2] / "data"   # human-kept config, not collector output
 MODULE = "calendar"
 PAST_WINDOW_DAYS = 45
 LISTED_GRACE_DAYS = 1           # a Listed row stays this many days past its listing date
 CARRY_FIELDS = ("gmp", "gmpPct", "gmpTrend", "sub", "listingPrice", "listingGainPct", "currentPrice",
                 "sources", "shareholderQuota", "slug", "allotment", "listing", "lotSize", "issueSizeCr",
                 "freshCr", "ofsCr", "bandLow", "bandHigh", "symbol", "series", "bseIpoNo", "bseScripCode")
-_STRIP = re.compile(r"\b(limited|ltd\.?|ipo|pvt\.?|private|india)\b|[^a-z0-9 ]", re.I)
 
 
 # ---------------------------------------------------------------------------------------------
 # name matching
 # ---------------------------------------------------------------------------------------------
-def norm_name(s: str) -> str:
-    s = (s or "").lower().replace("&", " and ")
-    s = _STRIP.sub(" ", s)
-    return re.sub(r"\s+", " ", s).strip()
-
-
-def match_name(name: str, existing: list[str]) -> str | None:
+def match_name(name: str, existing: list[str], symbol: str | None = None) -> str | None:
     """Return the spelling already on the board for `name`, or None if it is genuinely new."""
-    if name in existing:
-        return name
-    n = norm_name(name)
-    if not n:
-        return None
-    by_norm = {}
-    for e in existing:
-        by_norm.setdefault(norm_name(e), e)
-    if n in by_norm:
-        return by_norm[n]
-    # one side may drop a trailing word ("Sona Selection India" vs "Sona Selection India Limited" is already
-    # equal after norm; this handles "Kabra Jewels" vs "Kabra Jewels and Co")
-    for en, e in by_norm.items():
-        if len(n) >= 8 and len(en) >= 8 and (n.startswith(en) or en.startswith(n)):
-            return e
-    return None
+    return Matcher([{"name": e} for e in existing]).match(name, symbol)
 
 
 def slug(s: str) -> str:
@@ -117,19 +98,20 @@ def _dedupe(rows: list[dict]) -> list[dict]:
 def build_board(rows: list[dict], prev: dict, today: dt.date, exchange: str) -> tuple[list, list, dict]:
     """Internal rows -> (mainboard, sme, lot). Applies name matching + carry-forward from prev."""
     prev_rows = [r for r in (prev.get("mainboard") or []) + (prev.get("sme") or []) if isinstance(r, dict)]
-    existing = [r["name"] for r in prev_rows if r.get("name")]
+    matcher = Matcher(prev_rows, load_aliases(ALIASES_DIR))
     prev_by_name = {r["name"]: r for r in prev_rows if r.get("name")}
     prev_lot = prev.get("lot") or {}
     cutoff = (today - dt.timedelta(days=LISTED_GRACE_DAYS)).isoformat()
 
-    mainboard, sme, lot = [], [], {}
+    mainboard, sme = [], []
+    lot = {k: dict(v) for k, v in prev_lot.items() if isinstance(v, dict)}   # never dropped: the Book keys off it
     for r in _dedupe(rows):
         if r.get("withdrawn"):
             continue
         status = derive_status(r.get("open"), r.get("close"), r.get("listing"), today)
         if status == "Listed" and r["listing"] < cutoff:
             continue
-        name = match_name(r["name"], existing) or r["name"]
+        name = matcher.match(r["name"], r.get("symbol")) or display_name(r["name"])
         old = prev_by_name.get(name, {})
         row = {
             "name": name,

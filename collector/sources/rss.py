@@ -11,6 +11,7 @@ Items are filtered to primary-market keywords, deduped by URL, newest first.
 """
 from __future__ import annotations
 
+import calendar
 import datetime as dt
 import logging
 import re
@@ -40,7 +41,7 @@ def _when(entry) -> str | None:
         t = entry.get(key)
         if t:
             try:
-                return dt.datetime.fromtimestamp(time.mktime(t), tz=dt.timezone.utc).astimezone(IST).isoformat()
+                return dt.datetime.fromtimestamp(calendar.timegm(t), tz=dt.timezone.utc).astimezone(IST).isoformat()
             except (OverflowError, ValueError):
                 continue
     for key in ("published", "updated"):
