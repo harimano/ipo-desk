@@ -17,6 +17,7 @@ concurrency: { group: collect, cancel-in-progress: false }
 
 permissions:
   contents: write
+  actions: write        # to dispatch deploy.yml: a push made with GITHUB_TOKEN does not trigger workflows
 
 jobs:
   collect:
@@ -54,6 +55,7 @@ jobs:
         run: python site/build.py
 
       - name: Commit as the collector bot
+        id: commit
         run: |
           git config user.name  "ipo-desk-bot"
           git config user.email "ipo-desk-bot@users.noreply.github.com"
@@ -61,6 +63,12 @@ jobs:
           if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
           git commit -m "collect: $(date -u +'%Y-%m-%d %H:%M UTC')"
           git push
+          echo "pushed=1" >> "$GITHUB_OUTPUT"
+
+      - name: Publish — dispatch the deploy workflow for the commit just pushed
+        if: steps.commit.outputs.pushed == '1'
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh workflow run deploy.yml --ref main
 
       - uses: actions/upload-artifact@v4
         if: always()
