@@ -1,5 +1,6 @@
 name: deploy
-# Every push to main: (1) the guard — latest.json may only change under the bot's name;
+# Every push to main, and after every collect: (1) the guard — the document comes from the data branch
+# and only the bot writes there;
 # (2) the validator must pass on what is about to go live; (3) publish to Pages.
 on:
   push:
@@ -19,17 +20,21 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-        with: { fetch-depth: 2 }
-      - name: latest.json is the collector's alone
+      - uses: actions/checkout@v4
+        with: { ref: data, path: _data, fetch-depth: 1 }
+      - name: The document is the collector's alone
         run: |
-          if git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -qx "data/latest.json"; then
-            author="$(git log -1 --format=%an)"
-            if [ "$author" != "ipo-desk-bot" ]; then
-              echo "::error::data/latest.json changed in a commit by '$author'. Only the collector bot may write it."
-              echo "Research goes in data/research/, clause readings in data/quota-reviews/, the sweep in data/investors.json."
-              exit 1
-            fi
+          if git ls-files --error-unmatch data/latest.json >/dev/null 2>&1 || [ -n "$(git ls-files data/history)" ]; then
+            echo "::error::data/latest.json or data/history is tracked on main. Collector output lives on the data branch only."
+            exit 1
           fi
+          author="$(git -C _data log -1 --format=%an)"
+          if [ "$author" != "ipo-desk-bot" ]; then
+            echo "::error::the data branch's last commit is by '$author'. Only the collector bot may write it."
+            echo "Research goes in data/research/, clause readings in data/quota-reviews/, the sweep in data/investors.json — all on main."
+            exit 1
+          fi
+          cp _data/latest.json data/latest.json
           echo "guard ok"
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
@@ -61,17 +66,14 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: { ref: data, path: _data, fetch-depth: 1 }
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - name: Rebuild the page (in case only research changed)
-        run: python site/build.py
-      - name: Assemble the site
+      - name: Build _site — page, split data files, research
         run: |
-          mkdir -p _site/data
-          cp index.html _site/
-          cp data/latest.json _site/data/
-          cp -r data/research _site/data/ 2>/dev/null || true
-          cp -r data/quota-reviews _site/data/ 2>/dev/null || true
+          cp _data/latest.json data/latest.json
+          python site/build.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with: { path: _site }

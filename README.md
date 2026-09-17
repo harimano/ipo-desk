@@ -10,10 +10,10 @@ screen.
   NSE ─┐          │  read previous latest.json
   BSE ─┤          │  run 9 modules, each primary → fallback, each fails alone
  SEBI ─┼──────────┤  validate.py — the gate; red = nothing committed
-  GMP ─┤          │  write data/latest.json + data/history/<date>.json
- …   ─┘          │  rebuild index.html with a fresh fallback snapshot
+  GMP ─┤          │  write latest.json + history/<date>.json
+ …   ─┘          │  commit them to the `data` branch, dispatch deploy
                   ▼
-        git commit as ipo-desk-bot ──▶ deploy.yml ──▶ GitHub Pages
+   data branch (ipo-desk-bot) ──▶ deploy.yml ──▶ _site/ ──▶ GitHub Pages
                                         │
    Claude ──▶ data/research/ ───────────┤  guard: latest.json may only change
    Claude ──▶ data/quota-reviews/ ──────┤  under the bot's name
@@ -24,13 +24,13 @@ screen.
 
 | path | what | who writes it |
 |---|---|---|
-| `data/latest.json` | the whole DATA document the page renders | the collector, only |
-| `data/history/YYYY-MM-DD.json` | daily restore points (45 days, Sundays forever) | the collector |
+| `latest.json` on the `data` branch | the whole DATA document the page renders (gitignored on `main`; `scripts/pull_data.sh` fetches it) | the collector, only |
+| `history/YYYY-MM-DD.json` on the `data` branch | daily restore points (45 days, Sundays forever) | the collector |
 | `data/research/<slug>.json` | per-IPO research sheets (`kind: current`) and quota-parent sheets (`kind: sheet`) | Claude, on request |
 | `data/quota-reviews/<slug>.json` | what a DRHP's shareholder-reservation clause says: `quota`, `quotaPct`, `confidence`, `source` | Claude, after reading a flagged PDF |
 | `data/investors.json` | superinvestor holdings, moves, portfolios | the Monday sweep (Claude + Trendlyne) |
 | `data/seed/` | ipo-radar's 2005–2026 dataset, reshaped; merged once at migration | — |
-| `index.html` | the page, rebuilt every run | `site/build.py` |
+| `_site/` | the published site: page + the document split into hashed parts (`collector/layout.py`); never committed | `site/build.py` |
 | `site/src/` | `inner.html`, `app.js` (render), `boot.js` (fetch + refresh) | humans |
 | `collector/` | the collector | humans |
 
@@ -42,7 +42,8 @@ python -m collector                      # full run against ./data
 python -m collector --only gmp,calendar  # some modules
 python -m collector --dry-run            # assemble, print integrity, write nothing
 python scripts/validate.py data/latest.json --prev <previous> --max-age-hours 2
-python site/build.py                     # -> index.html
+scripts/pull_data.sh                     # live document from the data branch -> ./data
+python site/build.py                     # -> _site/ (page + split data files)
 pytest                                   # 170 offline tests against fixtures
 python tests/render_check.py             # headless: boots, fetches, upgrades, no errors
 python scripts/reachability.py           # which sources answer THIS machine
@@ -70,8 +71,8 @@ reason this repo exists.
    a 403; the whole run has a SIGALRM budget. A blocked source fails in seconds.
 6. **Row names are stable.** Stars, applications and lot bookkeeping in the viewer's browser key
    off `name`. Sources are matched to existing names by normalisation; the board's spelling wins.
-7. **`latest.json` is the bot's alone.** `deploy.yml` fails a push that changes it under any
-   other author.
+7. **`latest.json` is the bot's alone.** It lives on the `data` branch; `deploy.yml` fails if main tracks it or if
+   the data branch's last commit has any other author.
 
 ## Sources, primary → fallback
 

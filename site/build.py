@@ -1,7 +1,8 @@
-"""Build site/index.html from its parts.
+"""Build the whole publishable site into _site/ — what Pages serves and what a local preview serves.
 
-  python3 site/build.py            # reads site/src/{inner.html,app.js,boot.js}, data/latest.json
-                                   # writes index.html at the repo root (data/ sits beside it)
+  python site/build.py             # reads site/src/{inner.html,app.js,boot.js} and data/
+                                   # writes _site/index.html, _site/data/{meta,board,...}.json (collector/layout.py),
+                                   #        _site/data/latest.json, _site/data/research/, _site/data/quota-reviews/
 
 The page is: chart.js tag + inner markup + <script>FALLBACK + app.js + boot.js</script>.
 FALLBACK is the small snapshot (meta, mainboard, sme, quota, lot) taken from data/latest.json at
@@ -12,9 +13,14 @@ from __future__ import annotations
 
 import json
 import pathlib
+import shutil
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+from collector import layout  # noqa: E402
+
+SITE = ROOT / "_site"
 SRC = ROOT / "site" / "src"
 FALLBACK_KEYS = ["meta", "mainboard", "sme", "quota", "lot"]
 
@@ -52,10 +58,27 @@ def main() -> int:
     fb_js = "const FALLBACK = " + json.dumps(fb, ensure_ascii=False, separators=(",", ":")) + ";\n"
     script = "<script>\n" + fb_js + app + boot + "</script>\n"
     html = HEAD + CHARTJS + "</head>\n<body>\n" + inner + script + "</body>\n</html>\n"
-    out = ROOT / "index.html"          # repo root: Pages serves it with data/ alongside
+    SITE.mkdir(exist_ok=True)
+    out = SITE / "index.html"
     out.write_text(html, encoding="utf8")
-    kb = lambda n: f"{n / 1024:.1f} KB"
+    kb = lambda n: f"{n / 1024:.1f} KB"  # noqa: E731
     print(f"fallback {kb(len(fb_js))}  render {kb(len(app) + len(boot))}  -> {out.relative_to(ROOT)} {kb(out.stat().st_size)}")
+
+    data_out = SITE / "data"
+    if data_out.exists():
+        shutil.rmtree(data_out)
+    data_out.mkdir()
+    if latest_path.exists():
+        parts = layout.split(data)
+        if layout.join(parts) != data:
+            raise SystemExit("layout split/join did not round-trip — refusing to publish")
+        for name, body in parts.items():
+            (data_out / name).write_bytes(body)
+        shutil.copy(latest_path, data_out / "latest.json")     # the whole document, for people and for old tabs
+        print("layout   " + ", ".join(f"{n} {kb(len(b))}" for n, b in parts.items()))
+    for d in ("research", "quota-reviews"):
+        if (ROOT / "data" / d).is_dir():
+            shutil.copytree(ROOT / "data" / d, data_out / d)
     return 0
 
 

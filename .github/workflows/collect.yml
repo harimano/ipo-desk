@@ -33,8 +33,16 @@ jobs:
       - name: Install
         run: pip install -e ".[dev]"
 
-      - name: Keep the live document as the delta baseline
-        run: cp data/latest.json /tmp/prev_latest.json
+      # Collector output lives on the orphan `data` branch, never on main: ~1 MB of history a day stays
+      # off the branch humans work on. It is laid over ./data for the run and committed back below.
+      - uses: actions/checkout@v4
+        with: { ref: data, path: _data, fetch-depth: 1 }
+
+      - name: Lay the live document over ./data — it is the previous run and the delta baseline
+        run: |
+          cp _data/latest.json data/latest.json
+          mkdir -p data/history && cp -R _data/history/. data/history/ 2>/dev/null || true
+          cp _data/latest.json /tmp/prev_latest.json
 
       - name: Collect
         env:
@@ -51,18 +59,21 @@ jobs:
       - name: Gate — the validator must pass or nothing is committed
         run: python scripts/validate.py data/latest.json --prev /tmp/prev_latest.json --max-age-hours 2
 
-      - name: Build the page with a fresh fallback snapshot
+      - name: Build the site — proves the document renders into a page before it is committed
         run: python site/build.py
 
-      - name: Commit as the collector bot
+      - name: Commit to the data branch as the collector bot
         id: commit
         run: |
+          cp data/latest.json _data/latest.json
+          rm -rf _data/history && mkdir -p _data/history && cp -R data/history/. _data/history/
+          cd _data
           git config user.name  "ipo-desk-bot"
           git config user.email "ipo-desk-bot@users.noreply.github.com"
-          git add data/latest.json data/history
+          git add -A latest.json history
           if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
           git commit -m "collect: $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git push
+          git push origin data
           echo "pushed=1" >> "$GITHUB_OUTPUT"
 
       - name: Publish — dispatch the deploy workflow for the commit just pushed
