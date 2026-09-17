@@ -8,6 +8,8 @@ seven rules the code enforces. `docs/MODULE-CONTRACT.md` is how a module is writ
 `docs/mined/` holds the notes taken from the reference repos (endpoints, response shapes, parser
 patterns) — check there before guessing at a field name. `docs/project/tooling-survey.md` is why each
 source was chosen; `docs/project/legacy-briefing-rules.md` has the stage-two alert rules.
+`docs/BUILD-PLAN.md` is the tiered list of what to fix, what to rebuild better, and what to add —
+work it top to bottom.
 
 ## Where this was built, and what that means
 
