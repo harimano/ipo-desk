@@ -60,6 +60,17 @@ into data is research-layer work (`data/research/`, by pull request), never a co
 The page follows the same rule: it renders fields the collector wrote and should not parse sentences (the anchor
 bars used to regex "₹X Cr from N investors — a, b, c" out of prose).
 
+**The richest source found so far (18 Sep 2026) — not yet wired in.** InvestorGain's backend has a complete
+per-IPO record: `GET https://webnodejs.investorgain.com/cloud/v2/ipo/ipo-detail-read/<id>` (ids from
+`cloud/v2/ipo/list-read`, or `~id` in report 331). One call, ~280 fields: NSE symbol, BSE code, ISIN; open / close /
+allotment / refund / credit / listing dates; anchor bid date and both lock-in expiries; band (lower/upper/final),
+lot, retail/sHNI/bHNI quantities; total / fresh / OFS in shares and rupees; shares offered per category including
+`shares_offered_anchor_investor` (x final price = anchor book); day-by-day subscription by category
+(`biddingData`); GMP history (`gmpData`); `listing_price`; P/E, market cap, ROE, ROCE, D/E, EPS, margins, promoter
+holding pre/post; DRHP / RHP / prospectus links; broker recommendations; lead managers; registrar. Fixtures:
+`data/fixtures/investorgain/ipo-detail-*.json`. It is a private, undocumented API (v1 was retired July 2026), so
+the NSE/BSE modules stay as the fallback chain. `anchorInvestorData` is empty: investor lists are still PDF-only.
+
 **Lessons from first contact — check these first when a module says "ok" but the page looks old**
 - An "ok" module can be reading the wrong thing: SEBI's `nextValue` is zero-based (page=1 was page two, a month
   old), and real SEBI titles never say "DRHP" (the register a row is on is its meaning).
