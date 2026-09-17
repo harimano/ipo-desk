@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-17T23:24:45+05:30",
+  "asOf": "2026-09-17T23:36:10+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "17 Sep 2026, 23:24 IST",
+  "label": "17 Sep 2026, 23:36 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -115,18 +115,6 @@
    "window": "Not announced"
   },
   {
-   "name": "Hero Motors",
-   "note": "Earlier DRHP (Sep 2025) was for ~₹1,200 Cr; current size not verified.",
-   "parent": null,
-   "sizeCr": null,
-   "sizeText": null,
-   "sources": [
-    "https://www.businesstoday.in/markets/ipo-corner/story/nse-ipo-to-headline-september-ipo-rush-nearly-20-issues-to-hit-d-st-to-raise-upto-rs-45000-crore-551727-2026-08-27"
-   ],
-   "stage": "Listed by Business Today among September candidates in the ₹4,500–5,000 Cr group",
-   "window": "September 2026 (candidate)"
-  },
-  {
    "name": "Garuda Aerospace",
    "note": "100% OFS; BRLMs IIFL Capital, Axis Capital, ICICI Securities, SBI Capital.",
    "parent": null,
@@ -146,10 +134,18 @@
    "sizeCr": null,
    "sizeText": null,
    "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/sep-2026/aragen-life-sciences-limited-drhp_104157.html",
     "https://www.businesstoday.in/markets/ipo-corner/story/aragen-life-sciences-filed-drhp-with-sebi-to-launch-its-ipo-check-all-key-details-551765-2026-08-27"
    ],
    "stage": "DRHP filed 27 Aug 2026",
-   "window": "Not announced"
+   "window": "Not announced",
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-09-01",
+    "title": "ARAGEN LIFE SCIENCES LIMITED - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/aragen-life-sciences-limited-drhp_104157.html"
+   }
   },
   {
    "name": "boAt / Imagine Marketing",
@@ -182,10 +178,18 @@
    "sizeCr": null,
    "sizeText": null,
    "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/aug-2026/avaada-electro-limited-udrhp_104034.html",
     "https://ipowatch.in/mainboard-drhp-filed-ipo/"
    ],
    "stage": "DRHP filed Oct 2025; no 2026 update located",
-   "window": null
+   "window": null,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-08-25",
+    "title": "Avaada Electro Limited - Draft Abridged Prospectus.",
+    "url": "https://www.sebi.gov.in/filings/public-issues/aug-2026/avaada-electro-limited-udrhp_104034.html"
+   }
   },
   {
    "name": "Zepto",
@@ -234,6 +238,246 @@
    ],
    "stage": "DRHP filed 30 Oct 2025",
    "window": null
+  },
+  {
+   "name": "Iberia Pharmaceuticals India",
+   "window": null,
+   "stage": "DRHP filed 17 Sep 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 17 Sep",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/sep-2026/iberia-pharmaceuticals-india-limited-drhp_104542.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-09-17",
+    "title": "IBERIA PHARMACEUTICALS INDIA LIMITED- Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/iberia-pharmaceuticals-india-limited-drhp_104542.html"
+   }
+  },
+  {
+   "name": "Maharashtra Oil Extractions",
+   "window": null,
+   "stage": "DRHP filed 15 Sep 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 15 Sep",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/sep-2026/maharashtra-oil-extractions-limited-drhp_104503.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-09-15",
+    "title": "Maharashtra Oil Extractions Limited - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/maharashtra-oil-extractions-limited-drhp_104503.html"
+   }
+  },
+  {
+   "name": "M K C Agro Fresh",
+   "window": null,
+   "stage": "DRHP filed 11 Sep 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 11 Sep",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/sep-2026/m-k-c-agro-fresh-limited-drhp_104430.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-09-11",
+    "title": "M K C AGRO FRESH LIMITED - Draft Abridged prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/m-k-c-agro-fresh-limited-drhp_104430.html"
+   }
+  },
+  {
+   "name": "Nopaperforms Solutions",
+   "window": null,
+   "stage": "DRHP filed 11 Sep 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 11 Sep",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/sep-2026/nopaperforms-solutions-limited-udrhp-1_104427.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-09-11",
+    "title": "NOPAPERFORMS SOLUTIONS LIMITED - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/nopaperforms-solutions-limited-udrhp-1_104427.html"
+   }
+  },
+  {
+   "name": "Torrent Gas",
+   "window": null,
+   "stage": "DRHP filed 9 Sep 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 9 Sep",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/sep-2026/torrent-gas-limited-udrhp-i_104350.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-09-09",
+    "title": "Torrent Gas Limited - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/torrent-gas-limited-udrhp-i_104350.html"
+   }
+  },
+  {
+   "name": "India Exposition Mart",
+   "window": null,
+   "stage": "DRHP filed 4 Sep 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 4 Sep",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/sep-2026/india-exposition-mart-limited_104273.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": null,
+    "date": "2026-09-04",
+    "title": "India Exposition Mart Limited",
+    "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/india-exposition-mart-limited_104273.html"
+   }
+  },
+  {
+   "name": "Kataria Dhulchand Pannalal Jewellers",
+   "window": null,
+   "stage": "DRHP filed 1 Sep 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 1 Sep",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/sep-2026/kataria-dhulchand-pannalal-jewellers-limited-drhp_104178.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-09-01",
+    "title": "Kataria Dhulchand Pannalal Jewellers Limited - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/kataria-dhulchand-pannalal-jewellers-limited-drhp_104178.html"
+   }
+  },
+  {
+   "name": "Sembcorp Green Infra",
+   "window": null,
+   "stage": "DRHP filed 1 Sep 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 1 Sep",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/sep-2026/sembcorp-green-infra-limited-drhp_104162.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-09-01",
+    "title": "Sembcorp Green Infra Limited - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/sembcorp-green-infra-limited-drhp_104162.html"
+   }
+  },
+  {
+   "name": "Atomberg Technologies",
+   "window": null,
+   "stage": "DRHP filed 27 Aug 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 27 Aug",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/aug-2026/atomberg-technologies-limited-drhp_104037.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-08-27",
+    "title": "ATOMBERG TECHNOLOGIES LIMITED - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/aug-2026/atomberg-technologies-limited-drhp_104037.html"
+   }
+  },
+  {
+   "name": "M P Steel (India)",
+   "window": null,
+   "stage": "DRHP filed 25 Aug 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 25 Aug",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/aug-2026/m-p-steel-india-limited-drhp_103990.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-08-25",
+    "title": "M P STEEL (INDIA) LIMITED - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/aug-2026/m-p-steel-india-limited-drhp_103990.html"
+   }
+  },
+  {
+   "name": "Nobel Hygiene",
+   "window": null,
+   "stage": "DRHP filed 25 Aug 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 25 Aug",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/aug-2026/nobel-hygiene-limited-drhp_103938.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-08-25",
+    "title": "Nobel Hygiene Limited - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/aug-2026/nobel-hygiene-limited-drhp_103938.html"
+   }
+  },
+  {
+   "name": "Jay Jagdamba",
+   "window": null,
+   "stage": "DRHP filed 25 Aug 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 25 Aug",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/aug-2026/jay-jagdamba-limited-udrhp_103937.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-08-25",
+    "title": "JAY JAGDAMBA LIMITED - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/aug-2026/jay-jagdamba-limited-udrhp_103937.html"
+   }
   }
  ],
  "lot": {
@@ -1158,9 +1402,9 @@
    "issueSizeCr": 210.0,
    "freshCr": 210,
    "ofsCr": 0,
-   "gmp": 8.5,
-   "gmpPct": 6.07,
-   "gmpTrend": "flat",
+   "gmp": 6.0,
+   "gmpPct": 4.29,
+   "gmpTrend": "down",
    "sub": {
     "qib": 17.76,
     "nii": 18.03,
@@ -1197,9 +1441,9 @@
    "issueSizeCr": 91.96,
    "freshCr": 92.5,
    "ofsCr": null,
-   "gmp": 2.25,
-   "gmpPct": 5.23,
-   "gmpTrend": "flat",
+   "gmp": 2.0,
+   "gmpPct": 4.65,
+   "gmpTrend": "down",
    "sub": {
     "qib": 10.94,
     "nii": 63.09,
@@ -1312,9 +1556,9 @@
    "issueSizeCr": 372.86,
    "freshCr": null,
    "ofsCr": null,
-   "gmp": 137.0,
-   "gmpPct": 32.31,
-   "gmpTrend": "flat",
+   "gmp": 133.0,
+   "gmpPct": 31.37,
+   "gmpTrend": "down",
    "sub": {
     "qib": 0.23,
     "nii": 9.91,
@@ -7719,14 +7963,14 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-17T23:24:45+05:30",
+  "asOf": "2026-09-17T23:36:10+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-17T23:24:17+05:30",
-    "elapsed": 50.04,
+    "asOf": "2026-09-17T23:35:47+05:30",
+    "elapsed": 45.16,
     "calls": 15,
     "note": "nse current=7 upcoming=7 past=50 detail=10 +bse=11: 17 mainboard, 10 sme; 9 open, 5 upcoming"
    },
@@ -7734,8 +7978,8 @@
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-17T23:24:22+05:30",
-    "elapsed": 4.84,
+    "asOf": "2026-09-17T23:35:56+05:30",
+    "elapsed": 9.35,
     "calls": 14,
     "note": "9/11 rows patched via nse; no subscription for: Shakti Polytarp, Vama Wovenfab"
    },
@@ -7744,16 +7988,16 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "17-Sep 9:34",
-    "elapsed": 1.28,
+    "elapsed": 0.14,
     "calls": 1,
-    "note": "gmp: 14 board rows patched via investorgain; 14 active, 9 of them matched; gmp: 6 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); NSE (₹142, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹11, investorgain); Varmora Granito (₹10, investorgain)"
+    "note": "gmp: 14 board rows patched via investorgain; 14 active, 9 of them matched; gmp: 6 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); NSE (₹145, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹9, investorgain); Varmora Granito (₹10, investorgain)"
    },
    {
     "area": "listings",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 11.1,
+    "elapsed": 6.78,
     "calls": 0,
     "note": "20 names priced, 4 moved to recent, 0 history points"
    },
@@ -7762,7 +8006,7 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 1.12,
+    "elapsed": 0.54,
     "calls": 0,
     "note": "5/5 parent prices"
    },
@@ -7771,25 +8015,25 @@
     "method": "bse_ann:ok, sebi:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 5.78,
+    "elapsed": 4.09,
     "calls": 10,
-    "note": "bse_ann: 8/8 parents answered, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; 0 rows patched, 33 kept previous stage"
+    "note": "bse_ann: 8/8 parents answered, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; expected: 25 names; 12 new from the DRHP register, 0 moved to RHP filed, 1 left for the board; 1 rows patched, 32 kept previous stage"
    },
    {
     "area": "offers",
     "method": "bse:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.95,
+    "elapsed": 0.88,
     "calls": 1,
-    "note": "bse rows=12: 11 rights, 12 buybacks, 0 ofs, 1 ncd; 6 refreshed, 6 new, 3 closed windows dropped"
+    "note": "bse rows=12: 11 rights, 12 buybacks, 0 ofs, 1 ncd; 12 refreshed, 0 new, 0 closed windows dropped"
    },
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.42,
+    "elapsed": 0.17,
     "calls": 1,
     "note": "2026-09-17 already in history; FII -3,209 / DII +3,618 Cr"
    },
@@ -7798,7 +8042,7 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.63,
+    "elapsed": 0.66,
     "calls": 2,
     "note": "bulk.csv: 212 deals; block.csv: 4 deals; 0 tracked-investor deals of 216; 13 patterns"
    },
@@ -7807,7 +8051,7 @@
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-09-17T21:03:04+05:30",
-    "elapsed": 1.03,
+    "elapsed": 0.99,
     "calls": 3,
     "note": "business-standard: 6/35 primary-market items; economic-times: 14/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 20 fresh, 25 kept"
    },
@@ -7821,7 +8065,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "77s, 47 calls, 10/10 modules ok"
+    "note": "69s, 47 calls, 10/10 modules ok"
    }
   ],
   "discrepancies": [
@@ -10656,7 +10900,13 @@
    ],
    "stage": "DRHP filed",
    "stageDate": "2026-09-01",
-   "ticker": "COALINDIA"
+   "ticker": "COALINDIA",
+   "needsReview": {
+    "source": "sebi",
+    "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/mahanadi-coalfields-ltd-drhp_104290.html",
+    "headline": "Mahanadi Coalfields Ltd. - Draft Abridged Prospectus",
+    "date": "2026-09-04"
+   }
   },
   {
    "bucket": "approved",
