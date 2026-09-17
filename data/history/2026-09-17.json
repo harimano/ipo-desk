@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-17T22:24:01+05:30",
+  "asOf": "2026-09-17T22:37:37+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "17 Sep 2026, 22:24 IST",
+  "label": "17 Sep 2026, 22:37 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -7492,14 +7492,14 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-17T22:24:01+05:30",
+  "asOf": "2026-09-17T22:37:37+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-17T22:23:20+05:30",
-    "elapsed": 52.41,
+    "asOf": "2026-09-17T22:37:19+05:30",
+    "elapsed": 19.47,
     "calls": 14,
     "note": "nse current=7 upcoming=7 past=50 detail=10: 17 mainboard, 4 sme; 7 open, 1 upcoming"
    },
@@ -7507,8 +7507,8 @@
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-17T22:23:23+05:30",
-    "elapsed": 3.47,
+    "asOf": "2026-09-17T22:37:22+05:30",
+    "elapsed": 2.99,
     "calls": 9,
     "note": "9/9 rows patched via nse"
    },
@@ -7517,25 +7517,25 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "17-Sep 9:34",
-    "elapsed": 0.36,
+    "elapsed": 1.04,
     "calls": 1,
-    "note": "gmp: 11 board rows patched via investorgain; 8 active, 6 of them matched; gmp: 8 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); NSE (₹146, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹9, investorgain); Robokidz Eduventures (₹51, investorgain); Shakti Polytarp (₹6, investorgain); Vama Wovenfab (₹3, investorgain)"
+    "note": "gmp: 11 board rows patched via investorgain; 8 active, 6 of them matched; gmp: 9 GMP-site names not on the board: A-One Steels (₹55, investorgain); Maharaja & Speedex India (₹28, investorgain); NSE (₹145, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹9, investorgain); Robokidz Eduventures (₹51, investorgain); Shakti Polytarp (₹6, investorgain); Vama Wovenfab (₹3, investorgain) …"
    },
    {
     "area": "listings",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 30.86,
+    "elapsed": 6.5,
     "calls": 0,
-    "note": "20 names priced, 4 moved to recent, 1 history points"
+    "note": "20 names priced, 4 moved to recent, 0 history points"
    },
    {
     "area": "parents",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 1.28,
+    "elapsed": 0.77,
     "calls": 0,
     "note": "5/5 parent prices"
    },
@@ -7544,7 +7544,7 @@
     "method": "bse_ann:ok, sebi:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 3.19,
+    "elapsed": 4.77,
     "calls": 10,
     "note": "bse_ann: 8/8 parents answered, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; 0 rows patched, 33 kept previous stage"
    },
@@ -7553,7 +7553,7 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.29,
+    "elapsed": 0.15,
     "calls": 1,
     "note": "2026-09-17 already in history; FII -3,209 / DII +3,618 Cr"
    },
@@ -7562,7 +7562,7 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 0.43,
+    "elapsed": 0.76,
     "calls": 2,
     "note": "bulk.csv: 212 deals; block.csv: 4 deals; 0 tracked-investor deals of 216; 13 patterns"
    },
@@ -7571,7 +7571,7 @@
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-09-17T21:03:04+05:30",
-    "elapsed": 1.13,
+    "elapsed": 0.92,
     "calls": 3,
     "note": "business-standard: 6/35 primary-market items; economic-times: 14/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 20 fresh, 25 kept"
    },
@@ -7579,13 +7579,13 @@
     "area": "research layer",
     "method": "data/research, quota-reviews, investors.json",
     "status": "ok",
-    "note": "research: 17 files overlaid; quota-reviews: 0 rows updated; investors.json overlaid (sweep-owned)"
+    "note": "research: 17 files overlaid; investors.json overlaid (sweep-owned)"
    },
    {
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "93s, 40 calls, 9/9 modules ok"
+    "note": "37s, 40 calls, 9/9 modules ok"
    }
   ],
   "discrepancies": [
