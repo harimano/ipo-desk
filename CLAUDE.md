@@ -5,6 +5,9 @@ on GitHub Actions writes `data/latest.json`; a static page reads it; Claude cont
 into its own directories and is never in the daily path. `README.md` has the architecture and the
 seven rules the code enforces. `docs/MODULE-CONTRACT.md` is how a module is written.
 `docs/DATA-SCHEMA.md` is the document shape. Do not change the schema — the page renders it.
+`docs/mined/` holds the notes taken from the reference repos (endpoints, response shapes, parser
+patterns) — check there before guessing at a field name. `docs/project/tooling-survey.md` is why each
+source was chosen; `docs/project/legacy-briefing-rules.md` has the stage-two alert rules.
 
 ## Where this was built, and what that means
 
