@@ -44,8 +44,18 @@ symbols `calendar` wrote on the previous run.
 FII/DII, nsearchives CSVs, Yahoo, RSS, all eight scrip codes in `parents.json`.
 **Known broken or unproven**: the chittorgarh subscription fallback (site moved to Next.js; parser finds
 no table); ipopremium (403, leave it); Angel One (no secrets set yet — Hari adds them himself);
-`anchors`, `expected`, `investors` (except bulkDeals), `flows.monthly/rotation` and the text of `quota` rows
-are still carried forward from the db era (BUILD-PLAN Tier 2); `offers` is live from BSE since 17 Sep.
+`anchors`, the sweep-owned parts of `investors` (moves, holdings, portfolios — the retired Monday sweep), `flows.monthly/rotation`
+and the descriptive text of `quota` rows are still carried forward from the db era (BUILD-PLAN Tier 2/3).
+Live since 17 Sep: `offers` (BSE list), `expected` (SEBI registers, built inside `filings`), `investors.prices`
+(the `parents` module), sheet `parentPrice`.
+
+**Lessons from first contact — check these first when a module says "ok" but the page looks old**
+- An "ok" module can be reading the wrong thing: SEBI's `nextValue` is zero-based (page=1 was page two, a month
+  old), and real SEBI titles never say "DRHP" (the register a row is on is its meaning).
+- Anything overlaid after the modules (`data/research`, `data/investors.json`) silently undoes a module's write to
+  the same key. Give the collector its own key (`investors.prices`) or let the newer `asOf` win (`parentPrice`).
+- A workflow's push does not trigger other workflows; the page's built-in snapshot shares an `asOf` with the first
+  fetch after every deploy. Both looked like "it works" until someone opened the Research tab.
 
 ## Rules for working here
 
