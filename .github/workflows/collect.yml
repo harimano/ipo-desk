@@ -81,6 +81,19 @@ jobs:
         env: { GH_TOKEN: "${{ github.token }}" }
         run: gh workflow run deploy.yml --ref main
 
+      # After the commit and never able to fail the run: a message is a courtesy, the document is the product.
+      # Silent unless a rule became true since the previous document (collector/alerts.py). No secrets = dry run.
+      - name: Alerts
+        if: always() && steps.commit.outputs.pushed == '1'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+          NTFY_TOPIC:         ${{ secrets.NTFY_TOPIC }}
+        run: |
+          if [ -n "$TELEGRAM_BOT_TOKEN$NTFY_TOPIC" ]; then SEND=--send; else SEND=""; fi
+          python -m collector.alerts --prev /tmp/prev_latest.json --new data/latest.json $SEND
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:

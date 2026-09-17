@@ -544,7 +544,7 @@ function renderTape() {
   const F = DATA.flows && DATA.flows.latest; if (F) t.push(`<span class="t"><b>FII</b><span class="${cls(F.fiiNetCr)} num">${sgn(F.fiiNetCr)}</span><b>DII</b><span class="${cls(F.diiNetCr)} num">${sgn(F.diiNetCr)}</span><span class="dim">${fmtD(F.date)}</span></span>`);
   const rec = live.filter(q => q.recordDate).sort((a, b) => a.recordDate.localeCompare(b.recordDate))[0];
   t.push(rec ? `<span class="t"><b>NEXT RECORD DATE</b><span class="down">${esc(rec.name)} · ${fmtD(rec.recordDate)}</span></span>` : `<span class="t"><b>NEXT RECORD DATE</b><span class="amb">Jio — with its RHP</span></span>`);
-  $("#tape").innerHTML = t.join("") + `<span class="asof${stale ? " stale" : ""}">Data ${esc(DATA.meta.label)}${stale ? " · refresh overdue" : ""}</span>`;
+  $("#tape").innerHTML = t.join("") + `<span class="asof${stale ? " stale" : ""}">Data ${esc(DATA.meta.label)}${stale ? " · refresh overdue" : ""}</span><a class="runnow" href="https://github.com/harimano/ipo-desk/actions/workflows/collect.yml" target="_blank" rel="noopener" title="Open the collector on GitHub and press Run workflow. This page then watches for the new data for a few minutes.">Run ↗</a>`;
 }
 
 /* ================= COMMAND BAR ================= */
