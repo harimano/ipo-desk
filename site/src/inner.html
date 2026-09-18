@@ -80,6 +80,7 @@ tr.bx > td { background:var(--surface-2); padding:10px 14px 14px; } tr[data-row]
 .scrolly { max-height:300px; overflow-y:auto; padding-right:6px; scrollbar-width:thin; }
 .spark { display:block; margin-top:4px; color:var(--accent); }
 .chgd { font-weight:700; } .chgd.up { color:var(--up); } .chgd.down { color:var(--down); }
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:8px 32px}.pgrid .hb{grid-template-columns:minmax(200px,52%) 1fr 84px}
 .fstrip{display:flex;flex-direction:column;gap:5px}.fs-row{display:flex;align-items:center;gap:3px}.fs-l{width:30px;font-size:11px;font-weight:700;color:var(--ink-3)}
 .fs-c{flex:1;height:22px;border-radius:4px;opacity:0;animation:fsin .45s ease-out forwards;min-width:6px}.fs-c.up{background:var(--up)}.fs-c.down{background:var(--down)}.fs-c:hover{outline:2px solid var(--ink-3);outline-offset:1px}
 .fs-gap{width:0;height:22px;border-left:2px dashed var(--line-2);margin:0 4px}
@@ -409,7 +410,8 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
         <details class="more" id="flowNoteWrap"><summary>Source note</summary><div class="dim" id="flowNote" style="font-size:12px"></div></details></div></div>
     </div>
 
-    <div class="sec"><div class="sec-h"><h2>Smart money on the board</h2><span class="sub">anchor-book quality for current issues — who wrote the cheques, one day before you decide</span><span class="right legend"><span><i style="background:var(--up)"></i>MF</span><span><i style="background:var(--mint)"></i>Insurance</span><span><i style="background:var(--accent)"></i>Pension / sovereign</span><span><i style="background:var(--lav)"></i>FPI</span><span><i style="background:var(--amber)"></i>AIF</span><span><i style="background:var(--line-2)"></i>Other</span></span></div>
+    <div class="sec"><div class="sec-h"><h2>Smart money on the board</h2><span class="sub">which of the largest anchor investors are in each book — published the evening before an issue opens, before the first bid</span></div>
+      <div class="dt" id="playersNote" style="margin:-4px 0 10px"></div>
       <div class="acards" id="anchorCards"></div>
       <details class="more"><summary>How the anchor score works · past books</summary><div id="anchorHow"></div></details></div>
 

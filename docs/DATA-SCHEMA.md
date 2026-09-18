@@ -36,3 +36,5 @@ records: {igId: {name, fetchedAt, about[], desc[], promoters?, objects?, financi
   - owned by `details`, published in the `research` part. A table is {head[], rows[][]} of cell text (+ title/asOf), parsed from the HTML table
     the per-IPO record carries; gmpHistory: {date, gmp, est, pct, kostakSauda}; bidding: {asOf, qib, nii, bnii, snii, retail, employee?, total, bidCr, retailBidCr}.
     Kept while the row is on the board; a row with no record on file is fetched at once. Board rows also carry `refund` (the unblock day).
+players: {asOf, tracked, of, latestPerInvestor, books{igId: [{id, name, ipos, investedCr, ticketCr}]}, names{igId: row name}, league[]}
+  - owned by `players`; which of the largest anchor investors (InvestorGain 551 / 561) are in the books of unlisted issues on the board.

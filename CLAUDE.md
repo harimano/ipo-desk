@@ -200,6 +200,10 @@ Anchor investors ARE structured, partly: InvestorGain report 551 lists 2,842 anc
 ticket); 561 with the investor id as the LAST path segment (`…/561/1/<m>/<y>/<fy>/0/<id>`) lists that investor's IPOs with our
 igIds — but the feed is capped at the 5 most recent (totalRecords says 150, page 2 repeats page 1): a members' limit, not to
 be worked around. Enough for "which top anchors are in today's open books"; not enough for a per-investor track record.
+`collector/modules/players.py` (owns `players`, pipeline part, full runs only, ~55 calls / 20 s) does exactly that: the 40
+largest anchors by money + 30 by count, each one's latest five turned round into `books{igId: [investor…]}` for unlisted
+issues; `site/src/players.js` renders them in "Smart money on the board" with coverage stated ("18 of the 53 largest").
+A 403 stops it at once. The line above that says anchor names exist only as a PDF letter is true of the per-IPO record, not of 561.
 Page files: `site/src/app.js` is the db-era monolith; NEW screens go in their own file and are pulled into app.js's scope
 by `/* @include name.js */` (site/build.py). First one: `scoreboard.js` (tab 7, "Score": GMP calibration, band tables,
 sell-at-open vs hold-to-close, below-issue-price filter, sortable list — all computed from `listedPerf` + `comps`).

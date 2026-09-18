@@ -20,7 +20,7 @@ from .result import Result
 # Order is the fallback logic: a later module's patch wins. `details` (the fullest record) runs after `gmp` so its
 # fresher quote overwrites the cached report, and before `subscription` / `listings` so the exchanges' live book and
 # the traded listing price overwrite its copies when they answer — and its copies stand when they do not.
-MODULES = ["calendar", "gmp", "details", "subscription", "listings", "history", "evidence", "parents", "filings", "offers", "flows", "deals", "news"]
+MODULES = ["calendar", "gmp", "details", "subscription", "listings", "history", "evidence", "players", "parents", "filings", "offers", "flows", "deals", "news"]
 log = logging.getLogger("collector")
 
 
