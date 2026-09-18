@@ -234,7 +234,7 @@ const bandOf = (v, e) => { for (let i = 0; i < e.length - 1; i++) if (v >= e[i] 
 const median = a => { const s = a.slice().sort((x, y) => x - y), m = s.length >> 1; return s.length ? (s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2) : null; };
 const winLbl = W => W ? `${W.rule}, ${fmtD(W.from)} ${String(W.from).slice(2, 4)} – ${fmtD(W.to)} ${String(W.to).slice(2, 4)}` : "";
 // the gain GMP implies, corrected by the segment's fit, with the 10th–90th percentile of how far past listings landed from it
-const gmpRange = (seg, gmpPct) => { const f = seg && seg.fit && (seg.fit.eve || seg.fit.r377); if (!f || gmpPct == null) return null; const c = f.a + f.b * gmpPct; return { c, lo: c + f.q10, hi: c + f.q90, n: f.n, prov: !!seg.fit.provisional }; };
+const gmpRange = (seg, gmpPct) => { const f = seg && seg.fit && (seg.fit.eve || seg.fit.r377); if (!f || !gmpPct) return null;          /* the fit leaves out GMP = 0 (mostly "no quote"), so it says nothing about one */ const c = f.a + f.b * gmpPct; return { c, lo: c + f.q10, hi: c + f.q90, n: f.n, prov: !!seg.fit.provisional }; };
 // expected value of one application, as % of the money ASBA blocks: (at least 1/retail book) x gain - what the money earns elsewhere meanwhile
 function evOf(b, seg) {
   const r = (b.sub || {}).retail, G = gmpRange(seg, b.gmpPct); if (r == null || !G || b.status === "Listed" || b.status === "Upcoming") return null;
@@ -491,6 +491,25 @@ function anchorScore(a) {
 }
 const watchNames = () => { const I = DATA.investors || {}, l = store.get("ipo-investors", { add: [], remove: [] }) || {}; return [...new Set([...(I.watchlist || (I.portfolios || []).map(p => p.name)), ...(l.add || [])])].filter(n => !(l.remove || []).includes(n)); };
 const anchorChip = name => { const a = anchorFor(name), q = anchorScore(a); if (q.s != null) return `<span class="aq ${q.c}" title="anchor-book quality: ${q.v}">anchors ${q.s}</span>`; return a && a.amountCr ? `<span class="aq na" title="${esc(a.anchor || "")}">anchor ${cr(a.amountCr)}</span>` : ""; };
+// Flow context, computed from the rows the collector fetched (NSE's daily FII / DII cash figures): sums over windows, how
+// often each side bought, how much of FII selling DIIs absorbed, and how mainboard listings did on FII-buy vs FII-sell days.
+// Counting on fetched rows with n shown. It replaced db-era monthly / rotation prose last written by hand in August.
+function flowContext(hist) {
+  const H = hist.filter(r => r && r[0] && r[1] != null && r[2] != null); if (H.length < 3) return `<div class="empty">Not enough sessions on file yet.</div>`;
+  const sum = (rows, i) => rows.reduce((a, r) => a + (r[i] || 0), 0), wins = [5, 10, 20].filter(n => H.length >= n).map(n => [n, H.slice(-n)]);
+  const cell = v => `<td class="r num ${cls(v)}">${sgn(Math.round(v))}</td>`;
+  const tbl = `<div class="tw"><table><thead><tr><th>Sessions on file</th><th class="r">FII net ₹Cr</th><th class="r">DII net ₹Cr</th><th class="r">Together</th><th class="r" title="Sessions in which FIIs were net buyers">FII bought on</th></tr></thead><tbody>${wins.map(([n, rows]) => `<tr><td>last ${n} <span class="dim">since ${fmtD(rows[0][0])}</span></td>${cell(sum(rows, 1))}${cell(sum(rows, 2))}${cell(sum(rows, 1) + sum(rows, 2))}<td class="r num">${rows.filter(r => r[1] > 0).length} of ${n}</td></tr>`).join("")}</tbody></table></div>`;
+  const W = (wins[wins.length - 1] || [H.length, H])[1], f = sum(W, 1), dd = sum(W, 2); let streak = 1; for (let i = H.length - 2; i >= 0 && (H[i][1] > 0) === (H[H.length - 1][1] > 0); i--) streak++;
+  const onDay = {}; H.forEach(r => onDay[r[0]] = r[1]);
+  const L0 = (DATA.listedPerf || []).filter(p => !p.sme && p.issue && p.listing != null && onDay[p.date] != null).map(p => ({ buy: onDay[p.date] > 0, ret: 100 * (p.listing - p.issue) / p.issue }));
+  const side = b1 => { const x = L0.filter(l => l.buy === b1).map(l => l.ret); return x.length ? `<b class="${cls(median(x))}">${pct(median(x), true)}</b> median on ${x.length} listing${x.length === 1 ? "" : "s"}` : "no listings"; };
+  const gaps = []; for (let i = Math.max(1, H.length - 20); i < H.length; i++) if ((d(H[i][0]) - d(H[i - 1][0])) / DAY > 5) gaps.push(`${fmtD(H[i - 1][0])} → ${fmtD(H[i][0])}`);
+  const facts = [`FIIs have been net ${H[H.length - 1][1] > 0 ? "buyers" : "sellers"} for <b>${streak}</b> session${streak === 1 ? "" : "s"} running.`,
+    f < 0 && dd > 0 ? (dd / -f >= 2 ? `Over the last ${W.length} sessions DIIs bought <b>${(dd / -f).toFixed(1)}×</b> what FIIs sold (${inr0(Math.round(dd))} Cr against ${inr0(Math.round(-f))} Cr) — domestic money far more than absorbed the selling.` : `Over the last ${W.length} sessions DIIs bought <b>${Math.round(100 * dd / -f)}%</b> of what FIIs sold${dd > -f ? " — domestic money more than absorbed the selling" : ""}.`) : f > 0 && dd > 0 ? `Both pools were net buyers over the last ${W.length} sessions.` : "",
+    L0.length ? `Mainboard listings on FII-buying days: ${side(true)}; on FII-selling days: ${side(false)}. <span class="dim">Small sample — a pattern to watch, not a rule.</span>` : "",
+    gaps.length ? `<span class="dim">Sessions missing on file: ${gaps.join(", ")} — NSE publishes one day at a time and nothing backfills a day the collector did not run.</span>` : ""].filter(Boolean);
+  return tbl + `<ul class="notes" style="padding:10px 4px 0 20px">${facts.map(x => `<li>${x}</li>`).join("")}</ul>`;
+}
 let mcharts = {}, smeSort = { k: "status", dir: 1 }, mktCompScope = "main";
 const binCls = s => ({ hi: "up", lo: "down", mid: "mid", na: "mid" }[evCls(s)]);
 $("#compScope").addEventListener("click", e => { const b = e.target.closest("button[data-sc]"); if (b) { mktCompScope = b.dataset.sc; renderMarket(); } });
@@ -525,8 +544,13 @@ function renderMarket() {
     $("#compBins").innerHTML = (tb ? tb.map((s, i) => `<div class="bin ${binCls(s)}" title="${evLong(s)}"><div class="v mono">${s.n ? pct(s.med, true) : "—"}</div><div class="l">${edgeLbl(ed, i, "x")} · ${s.n ? s.n + " issues" : "none"}</div></div>`).join("") : `<div class="dim">Evidence not yet computed.</div>`)
       + `<div class="dim" style="grid-column:1/-1;font-size:12px">${segLbl}, all years · median listing gain by total subscription. ${liveP.length ? "Diamonds are today's open " + segLbl + " books at their GMP-implied return — one far above the cloud for its book is froth." : "No open " + segLbl + " book yet."}</div>`;
     // flows
-    const Fh = DATA.flows || {}, H = (Fh.history || []).slice(-20);
-    mcharts.f = new Chart($("#flowsChart2"), { type: "bar", data: { labels: H.map(r => fmtD(r[0])), datasets: [{ label: "FII net ₹Cr", data: H.map(r => r[1]), backgroundColor: H.map(r => r[1] >= 0 ? up : down), borderRadius: 3, maxBarThickness: 18 }, { label: "DII net ₹Cr", data: H.map(r => r[2]), backgroundColor: acc + "99", borderRadius: 3, maxBarThickness: 18 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: text, boxWidth: 10 } } }, scales: { x: { ticks: { color: text }, grid: { color: grid } }, y: { ticks: { color: text }, grid: { color: grid } } } } });
+    const Fh = DATA.flows || {}, H = (Fh.history || []).slice(-20); let run = 0; const cum = H.map(r => (run += (r[1] || 0) + (r[2] || 0)));
+    mcharts.f = new Chart($("#flowsChart2"), { data: { labels: H.map(r => fmtD(r[0])), datasets: [
+        { type: "line", label: "Cumulative FII + DII", data: cum, borderColor: lav, backgroundColor: lav + "22", fill: true, borderWidth: 2, pointRadius: 0, tension: .25, yAxisID: "y1", order: 0 },
+        { type: "bar", label: "FII net", data: H.map(r => r[1]), backgroundColor: H.map(r => r[1] >= 0 ? up : down), borderRadius: 3, maxBarThickness: 16, order: 1 },
+        { type: "bar", label: "DII net", data: H.map(r => r[2]), backgroundColor: acc + "aa", borderRadius: 3, maxBarThickness: 16, order: 1 }] },
+      options: { responsive: true, maintainAspectRatio: false, interaction: { mode: "index", intersect: false }, plugins: { legend: { position: "bottom", labels: { color: text, boxWidth: 10 } }, tooltip: { callbacks: { label: c => `${c.dataset.label}: ${sgn(Math.round(c.raw))} Cr` } } },
+        scales: { x: { type: "category", ticks: { color: text, maxRotation: 0, autoSkip: true, maxTicksLimit: 8 }, grid: { display: false } }, y: { type: "linear", title: { display: true, text: "₹ Cr a day", color: text }, ticks: { color: text }, grid: { color: grid } }, y1: { type: "linear", position: "right", title: { display: true, text: "cumulative ₹ Cr", color: text }, ticks: { color: text }, grid: { display: false } } } } });
   } else { $("#compBins").innerHTML = ""; }
   // anchors — parse "₹X Cr from N investors — a, b, c" strings into bars + a frequency table
   const A = DATA.anchors || [], amt = s => { const m = /₹\s?([\d,.]+)\s*Cr/i.exec(s || ""); return m ? parseFloat(m[1].replace(/,/g, "")) : null; };
@@ -546,7 +570,7 @@ function renderMarket() {
   // page-side score: this used to combine QIB depth, demand ratio and GMP level into one invented 0-100 "Score" and an
   // "institution-backed / mixed signals / retail froth" verdict, which is exactly what the standing rule forbids
   // (evidence and both sides, never a verdict). Rebuilt 19 Sep 2026 to match the Board's own evidence cells.
-  const order = { Open: 0, Upcoming: 1, Closed: 2, Listed: 3 };
+  const order = { Open: 0, Closed: 1, Listed: 2, Upcoming: 3 };          // rows with a book first; unopened issues last
   const sbar = (v, k) => `<div class="tb"><div class="bar"><i class="${k}" style="width:${v == null ? 0 : Math.min(100, Math.log10(1 + v) / Math.log10(301) * 100)}%"></i></div><span class="num">${xx(v)}</span></div>`;
   const cols = [["name", "Issue"], ["status", "Status"], ["gmpPct", "GMP", 1], ["qib", "QIB", 1], ["retail", "Retail", 1], ["total", "Total", 1], ["track", "Track record", 1], ["ev", "EV / app", 1], ["listing", "Listing / est.", 1]];
   const smeSeg = SEG(true);
@@ -559,24 +583,29 @@ function renderMarket() {
     // This is the one grade this screener keeps, because a fluff SME book usually shows up here first; it is real
     // n + a Wilson interval from evidence.segments.sme.bands.qib, not a blend of QIB/demand/GMP invented on the page.
     const Q = evBand(smeSeg, "qib", s.qib, "rows"), qYears = (smeSeg && smeSeg.bands.qib.years || []).join(", ");
+    const lc = lotCost(r), head = `<td><div class="nm"><button data-open="${esc(r.name)}">${esc(r.name)}</button></div><div class="dt">${esc(r.type)}${r.issueSizeCr ? " · " + cr(r.issueSizeCr) : ""}</div></td>`;
+    // before the book opens there is no QIB / retail / total / track record / EV to show: say what IS known in one cell
+    if (r.status === "Upcoming" && s.total == null) return `<tr data-row data-name="${esc(r.name)}">${head}<td><span class="pill upcoming">Upcoming</span><div class="dt">opens ${fmtD(r.open)} · ${rel(days(r.open))}</div></td>
+      <td class="r num">${r.gmpPct ? (G ? `<span class="ev ${evCls(G.s)}" title="GMP ${G.lbl}: ${evLong(G.s)}">${pct(r.gmpPct, true)}</span>` : pct(r.gmpPct, true)) : `<span class="dim">no quote yet</span>`}</td>
+      <td colspan="5"><div class="prebook">${[r.bandHigh != null ? `<span><b>${r.bandLow != null && r.bandLow !== r.bandHigh ? inr(r.bandLow) + "–" : ""}${inr(r.bandHigh)}</b> band</span>` : "", r.lotSize ? `<span><b>${r.lotSize}</b> shares a lot</span>` : "", lc ? `<span><b>${inr0(lc * 2)}</b> minimum application (2 lots)</span>` : "", r.close ? `<span>closes <b>${fmtD(r.close)}</b></span>` : "", r.listing ? `<span>lists <b>${fmtD(r.listing)}</b></span>` : ""].filter(Boolean).join("") || "details awaited"}</div></td>
+      <td class="r num">${r.gmpPct ? `<span class="dim">est.</span> ${pct(r.gmpPct, true)}` : `<span class="dim">—</span>`}</td></tr>`;
     return `<tr data-row data-name="${esc(r.name)}"><td><div class="nm"><button data-open="${esc(r.name)}">${esc(r.name)}</button></div><div class="dt">${esc(r.type)}${r.issueSizeCr ? " · " + cr(r.issueSizeCr) : ""}</div></td>
     <td><span class="pill ${r.status.toLowerCase()}">${r.status}</span><div class="dt">${r.status === "Upcoming" ? "opens " + fmtD(r.open) : r.status === "Open" ? "closes " + fmtD(r.close) : "lists " + fmtD(r.listing)}</div></td>
     <td class="r num">${G ? `<span class="ev ${evCls(G.s)}" title="GMP ${G.lbl}: ${evLong(G.s)}">${pct(r.gmpPct, true)}</span>` : pct(r.gmpPct, true)}</td>
     <td class="r">${sbar(s.qib, "qb")}${Q && Q.s.n ? `<div class="dt"><span class="ev ${evCls(Q.s)}" title="QIB ${Q.lbl}, ${qYears} books only: ${evLong(Q.s)}">${Math.round(Q.s.pos)}% listed positive</span></div>` : s.qib != null ? `<div class="dt dim">too few QIB cases in this band</div>` : ""}</td>
     <td class="r">${sbar(s.retail, "rt")}</td><td class="r">${sbar(s.total, "")}</td>
     <td class="r">${T && T.s.n ? `<span class="ev ${evCls(T.s)}" title="Total book ${T.lbl}, all years: ${evLong(T.s)}">${Math.round(T.s.pos)}%</span>` : `<span class="dim">—</span>`}</td>
-    <td class="r">${E ? `<span class="num ${cls(E.ev)}" title="${colTip.ev} Range ${pct(E.lo, true)} to ${pct(E.hi, true)}.">${pct(E.ev, true)}</span>` : `<span class="dim">${s.retail == null ? "book not open" : "no GMP quote"}</span>`}</td>
+    <td class="r">${E ? `<span class="num ${cls(E.ev)}" title="${colTip.ev} Range ${pct(E.lo, true)} to ${pct(E.hi, true)}.">${pct(E.ev, true)}</span>` : `<span class="dim">${r.status === "Listed" ? "listed" : s.retail == null ? "book not open" : "no GMP quote"}</span>`}</td>
     <td class="r num ${cls(r.listingGainPct != null ? r.listingGainPct : null)}">${r.listingPrice != null ? inr(r.listingPrice) + " · " + pct(r.listingGainPct, true) : r.gmpPct != null ? `<span class="dim">est.</span> ${pct(r.gmpPct, true)}` : "—"}</td></tr>`;
   }).join("") : `<tr><td colspan="9" class="empty">No SME issues on the board.</td></tr>`}</tbody>`;
   // flow kpis + context
   const F = DATA.flows || {}, L = F.latest;
   $("#flowsSub2").textContent = L ? `latest ${fmtD(L.date)}${L.source ? " · " + L.source : ""}` : "";
-  $("#flowKpis").innerHTML = L ? [["FII net", sgn(L.fiiNetCr) + " Cr", cls(L.fiiNetCr)], ["DII net", sgn(L.diiNetCr) + " Cr", cls(L.diiNetCr)], ["Combined", sgn((L.fiiNetCr || 0) + (L.diiNetCr || 0)) + " Cr", cls((L.fiiNetCr || 0) + (L.diiNetCr || 0))]].map(([l, v, c]) => `<div class="kpi card"><div class="lbl">${l} · ${fmtD(L.date)}</div><div class="v mono ${c}">${v}</div></div>`).join("") : "";
-  const M = (F.monthly || []).filter(m => m[1] != null), isCum = m => /cumul|ytd|h1|h2|fy/i.test(m[0]), mmax = Math.max(1, ...M.filter(m => !isCum(m)).map(m => Math.abs(m[1])));
-  $("#flowMonthly").innerHTML = M.length ? `<div class="lbl" style="margin-bottom:6px">FII net · cash market</div>` + M.map(m => `<div class="hb" title="${esc(m[2] || "")}"><div class="n">${esc(m[0])}</div><div class="bar"><i class="${m[1] >= 0 ? "up" : "down"}" style="${m[1] >= 0 ? "left:50%" : "right:50%"};width:${Math.min(50, Math.max(1, Math.abs(m[1]) / mmax * 50))}%${Math.abs(m[1]) > mmax ? ";background:repeating-linear-gradient(45deg,var(--down) 0 4px,var(--down-soft) 4px 8px)" : ""}"></i></div><div class="v num ${cls(m[1])}">${sgn(m[1])}</div></div>`).join("") : `<div class="dim">No monthly context captured.</div>`;
-  const R = F.rotation || {};
-  $("#flowRot").innerHTML = `<div class="col"><div class="lbl down">FII selling</div>${(R.fiiSelling || []).map(x => `<div class="rc sell" title="${esc(x[1])}">${esc(x[0])}</div>`).join("") || "<div class='dim'>—</div>"}</div><div class="col"><div class="lbl up">DII buying</div>${(R.diiBuying || []).map(x => `<div class="rc buy" title="${esc(x[1])}">${esc(x[0])}</div>`).join("") || "<div class='dim'>—</div>"}</div>`;
-  $("#flowNote").textContent = F.note || ""; $("#flowNoteWrap").hidden = !F.note;
+  const P0 = (L && L.previousDay) || {}, gross = (b1, s1) => b1 != null && s1 != null ? `bought ${inr0(b1)} · sold ${inr0(s1)} Cr` : "";
+  $("#flowKpis").innerHTML = L ? [["FII net", L.fiiNetCr, P0.fiiNetCr, gross(L.fiiBuyCr, L.fiiSellCr)], ["DII net", L.diiNetCr, P0.diiNetCr, gross(L.diiBuyCr, L.diiSellCr)], ["Combined", (L.fiiNetCr || 0) + (L.diiNetCr || 0), P0.fiiNetCr != null ? (P0.fiiNetCr || 0) + (P0.diiNetCr || 0) : null, "the two biggest pools together"]]
+    .map(([l, v, was, d2]) => `<div class="kpi card"><div class="lbl">${l} · ${fmtD(L.date)}</div><div class="v mono ${cls(v)}">${sgn(Math.round(v))} Cr</div><div class="d">${was != null ? `previous session ${sgn(Math.round(was))} Cr` : ""}${d2 ? `<br>${d2}` : ""}</div></div>`).join("") : "";
+  $("#flowCtx").innerHTML = flowContext(F.history || []);
+  $("#flowNoteWrap").hidden = true;                     // `flows.note` is db-era prose nobody refreshes; the card's header names the live source
   // ===== smart money: anchor cards =====
   const CATS = [["MF", "c-mf"], ["Insurance", "c-ins"], ["Pension/Sovereign", "c-sov"], ["FPI", "c-fpi"], ["AIF", "c-aif"], ["Other", "c-oth"]];
   const curIss = allIssues().filter(b => b.status === "Open" || b.status === "Upcoming" || (b.status === "Closed" && days(b.listing) >= 0));

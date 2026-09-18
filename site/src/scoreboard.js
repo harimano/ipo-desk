@@ -23,22 +23,32 @@ function openCalls() {
     <div class="tw"><table><thead><tr><th>Issue</th><th>Status</th><th class="r">GMP</th><th class="r" title="How past issues at this book's total-subscription band listed">Book track record</th><th class="r" title="How past issues at this GMP level listed">GMP track record</th><th class="r">EV / app</th></tr></thead>
     <tbody>${body || `<tr><td colspan="6" class="empty">Nothing open right now.</td></tr>`}</tbody></table></div></div>`;
 }
+// GMP calibration. What it has to convey at a glance: (1) where listings actually land for a given GMP — the collector's own
+// fitted line and its 8-in-10 band (evidence.segments[x].fit), not just a y = x ideal; (2) whether the recent market behaves
+// like the old one — the trailing window in full colour, older listings faded; (3) where today's open issues sit on it.
 function calibScatter(R) {
   Object.values(scharts).forEach(c => c.destroy()); scharts = {};
   const el = $("#sbCalib"); if (!el || typeof Chart === "undefined") return;
-  const grid = tok("--chart-grid"), text = tok("--chart-text"), up = tok("--up"), down = tok("--down");
-  const G = R.filter(r => r.g != null && r.open != null);
-  if (!G.length) return;
-  const lo = Math.min(0, ...G.map(r => Math.min(r.g, r.open))), hi = Math.max(10, ...G.map(r => Math.max(r.g, r.open)));
-  const pt = r => ({ x: r.g, y: r.open, name: r.name });
-  scharts.calib = new Chart(el, { data: { datasets: [
-    { type: "line", label: "Perfect calibration", data: [{ x: lo, y: lo }, { x: hi, y: hi }], borderColor: text + "55", borderDash: [5, 4], borderWidth: 1.5, pointRadius: 0 },
-    { type: "scatter", label: "GMP called the direction", data: G.filter(r => (r.g > 0) === (r.open > 0)).map(pt), backgroundColor: up + "cc", pointRadius: 5, pointHoverRadius: 8 },
-    { type: "scatter", label: "GMP missed the direction", data: G.filter(r => (r.g > 0) !== (r.open > 0)).map(pt), backgroundColor: down + "cc", pointRadius: 5, pointHoverRadius: 8 } ] },
-    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: "bottom", labels: { color: text, boxWidth: 10 } },
-      tooltip: { callbacks: { title: it => it[0].raw.name || "", label: c => `GMP implied ${pct(c.raw.x, true)} → listed ${pct(c.raw.y, true)}` } } },
-      scales: { x: { type: "linear", title: { display: true, text: "GMP-implied gain", color: text }, ticks: { color: text, callback: v => v + "%" }, grid: { color: grid } },
-                y: { type: "linear", title: { display: true, text: "Realised listing gain", color: text }, ticks: { color: text, callback: v => v + "%" }, grid: { color: grid } } } } });
+  const grid = tok("--chart-grid"), text = tok("--chart-text"), up = tok("--up"), down = tok("--down"), acc = tok("--accent"), lav = tok("--lav");
+  const isSme = sbScope === "sme", seg = SEG(isSme), f = seg && seg.fit && (seg.fit.eve || seg.fit.r377), from = seg && seg.window ? seg.window.from : null;
+  const G = R.filter(r => r.g != null && r.open != null && r.g !== 0); if (!G.length) return;
+  const q = (arr, p) => { const v = arr.slice().sort((x, y) => x - y); return v[Math.min(v.length - 1, Math.max(0, Math.round(p * (v.length - 1))))]; };
+  const x0 = Math.min(-10, q(G.map(r => r.g), .01)), x1 = Math.max(40, q(G.map(r => r.g), .99)), y0 = Math.min(-20, q(G.map(r => r.open), .01)), y1 = Math.max(40, q(G.map(r => r.open), .99));
+  const pt = r => ({ x: r.g, y: r.open, name: r.name, date: r.date, total: r.total }), recent = r => !from || (r.date || "") >= from, hit = r => (r.g > 0) === (r.open > 0);
+  const line = (k, label, color, dash, w) => ({ type: "line", label, data: [x0, x1].map(x => ({ x, y: f.a + f.b * x + k })), borderColor: color, borderDash: dash, borderWidth: w, pointRadius: 0, order: 1 });
+  const live = (isSme ? sme : board).filter(b => (b.status === "Open" || b.status === "Closed") && b.gmpPct != null && b.gmpPct !== 0 && f).map(b => ({ x: b.gmpPct, y: f.a + f.b * b.gmpPct, name: b.name, live: true, lo: f.a + f.b * b.gmpPct + f.q10, hi: f.a + f.b * b.gmpPct + f.q90 }));
+  const sets = [{ type: "line", label: "If GMP were exact", data: [{ x: x0, y: x0 }, { x: x1, y: x1 }], borderColor: text + "66", borderDash: [4, 4], borderWidth: 1, pointRadius: 0, order: 2 }];
+  if (f) sets.push(line(0, "Where listings actually landed (fit)", acc, [], 2), line(f.q90, "8 in 10 landed inside", acc + "77", [6, 4], 1.2), Object.assign(line(f.q10, "", acc + "77", [6, 4], 1.2), { label: "_lower" }));
+  sets.push({ type: "scatter", label: "Older listings", data: G.filter(r => !recent(r)).map(pt), backgroundColor: text + "40", pointRadius: 3, pointHoverRadius: 6, order: 5 },
+    { type: "scatter", label: "Last 12 months · GMP right on direction", data: G.filter(r => recent(r) && hit(r)).map(pt), backgroundColor: up + "cc", pointRadius: 4.5, pointHoverRadius: 8, order: 4 },
+    { type: "scatter", label: "Last 12 months · GMP wrong on direction", data: G.filter(r => recent(r) && !hit(r)).map(pt), backgroundColor: down + "dd", pointRadius: 4.5, pointHoverRadius: 8, order: 3 });
+  if (live.length) sets.push({ type: "scatter", label: "Open now, at the fit", data: live, backgroundColor: lav, borderColor: tok("--surface"), borderWidth: 1.5, pointStyle: "rectRot", pointRadius: 9, pointHoverRadius: 12, order: 0 });
+  scharts.calib = new Chart(el, { data: { datasets: sets }, options: { responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: "bottom", labels: { color: text, boxWidth: 8, padding: 8, font: { size: 11 }, filter: i => !/^_/.test(i.text) } },
+      tooltip: { filter: c => c.dataset.type === "scatter", callbacks: { title: it => it[0] ? it[0].raw.name || "" : "", label: c => c.raw.live ? [`GMP implies ${pct(c.raw.x, true)}`, `listings like this landed near ${pct(c.raw.y, true)}`, `8 in 10 between ${pct(c.raw.lo, true)} and ${pct(c.raw.hi, true)}`] : [`GMP implied ${pct(c.raw.x, true)} → listed ${pct(c.raw.y, true)}`, `${c.raw.date ? fmtD(c.raw.date) + " " + String(c.raw.date).slice(0, 4) : ""}${c.raw.total != null ? " · book " + c.raw.total + "x" : ""}`] } } },
+    scales: { x: { type: "linear", min: Math.floor(x0 / 10) * 10, max: Math.ceil(x1 / 10) * 10, title: { display: true, text: "What GMP implied", color: text }, ticks: { color: text, callback: v => v + "%" }, grid: { color: grid } },
+              y: { type: "linear", min: Math.floor(y0 / 10) * 10, max: Math.ceil(y1 / 10) * 10, title: { display: true, text: "What the listing did", color: text }, ticks: { color: text, callback: v => v + "%" }, grid: { color: grid } } } } });
+  const note = $("#sbCalibNote"); if (note) note.innerHTML = f ? `Fit over ${f.n} ${isSme ? "SME" : "mainboard"} listings: a listing lands near <b>${f.a >= 0 ? "+" : "−"}${Math.abs(f.a)} + ${f.b} × GMP</b>, typically within <b>${f.sd} points</b>${seg.fit.provisional ? ' <span class="oldtag">provisional</span>' : ""}. The 1% most extreme listings are off the chart; issues with no GMP quote are left out.` : "";
 }
 function hitRateByMonth() {
   const isSme = sbScope === "sme", months = {};
@@ -55,7 +65,7 @@ function hitRateByMonth() {
       <td class="r num">${Math.round(100 * pos / n)}% <span class="dim">${wi[0]}–${wi[1]}</span></td><td class="r num ${cls(median(xs.map(x => x.open)))}">${pct(median(xs.map(x => x.open)), true)}</td></tr>`;
   }).join("");
   return `<div class="card"><div class="ch">Hit rate by month <span class="sub">${isSme ? "SME" : "mainboard"} · last ${keys.length || 0} months with a listing</span></div>
-    <div class="tw" style="max-height:360px;overflow:auto"><table><thead><tr><th>Month</th><th class="r">Issues</th><th class="r" title="GMP and the listing had the same sign">GMP called it</th><th class="r">Listed positive <span class="dim">95%</span></th><th class="r">Median gain</th></tr></thead>
+    <div class="tw" style="max-height:500px;overflow:auto"><table><thead><tr><th>Month</th><th class="r">Issues</th><th class="r" title="GMP and the listing had the same sign">GMP called it</th><th class="r">Listed positive <span class="dim">95%</span></th><th class="r">Median gain</th></tr></thead>
     <tbody>${rows || `<tr><td colspan="5" class="empty">Not enough listings yet.</td></tr>`}</tbody></table></div></div>`;
 }
 function evidenceCards() {
@@ -103,7 +113,7 @@ function renderScore() {
       ${kpi("Held to the close beat the open", p100(held, H.length), `${held} of ${H.length} · after a +30% open: ${p100(bigHeld, big.length)} of ${big.length} · after a 0–10% open: ${p100(flatHeld, flat.length)} of ${flat.length}`)}
       ${kpi("Below issue price now", p100(below, N), `${below} of ${N} listings`)}</div>
     ${evidenceCards()}
-    <div class="sec grid g2"><div class="card"><div class="ch">GMP calibration <span class="sub">${sbScope === "sme" ? "SME" : "mainboard"} · ${sbYear === "all" ? "all years" : sbYear} · on the diagonal = perfectly calibrated</span></div><div class="cb"><div class="chart-wrap" style="height:280px"><canvas id="sbCalib"></canvas></div></div></div>${hitRateByMonth()}</div>
+    <div class="sec grid g2"><div class="card"><div class="ch">GMP calibration <span class="sub">${sbScope === "sme" ? "SME" : "mainboard"} · ${sbYear === "all" ? "all years" : sbYear} · solid line = where listings actually landed, dashed = 8 in 10</span></div><div class="cb"><div class="chart-wrap" style="height:420px"><canvas id="sbCalib"></canvas></div><div class="dt" id="sbCalibNote" style="margin-top:8px"></div></div></div>${hitRateByMonth()}</div>
     <div class="sec grid g2">${bandTbl("Grey-market premium → listing", "g", EDG("gmp"), "%", R)}${bandTbl("Total subscription → listing", "total", EDG("total"), "x", R)}</div>
     <div class="sec grid g2">${bandTbl("QIB subscription → listing <span class='sub'>category books are on file from 2026</span>", "qib", EDG("qib"), "x", R)}${bandTbl("Retail subscription → listing <span class='sub'>from 2026</span>", "retail", EDG("retail"), "x", R)}</div>
     <div class="sec card"><div class="ch">Every listing <span class="sub">${list.length} shown · click a column to sort</span><span class="right"><button class="btn sm${sbBelow ? " primary" : ""}" id="sbBelow">Below issue price${sbBelow ? " ✓" : ""}</button></span></div>

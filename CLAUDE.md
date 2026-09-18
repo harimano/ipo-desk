@@ -183,6 +183,15 @@ with today's evidence-band read and EV, so a viewer can check back after listing
 (implied vs realised, coloured by whether GMP called the direction, diagonal = perfect calibration — needed an explicit
 `type: "linear"` on both scales, since Chart.js defaults to category axes once a chart mixes dataset types without one);
 and hit-rate by month (a page-side explorer over `listedPerf`, segment-only, n + Wilson per month, same as the band tables).
+Market tab, 19 Sep 2026 (Hari: "I need a professional dashboard"): the FII/DII chart carries a cumulative line and KPIs with
+the previous session and gross buy/sell; "Flow context" is now `flowContext()` — window sums, FII buy-day counts, DII
+absorption, mainboard listings on FII-buy vs FII-sell days, and the gaps in the sessions on file — computed from
+`flows.history`; the db-era `flows.monthly` / `rotation` / `note` prose is no longer rendered (still carried in the document).
+The SME screener sorts rows with a book first and gives an unopened issue ONE cell of what is known (band, lot, minimum
+application, dates) instead of six dashes. The GMP calibration chart draws the collector's fit and its 8-in-10 band, fades
+listings older than the window, and marks open issues on the fit. `gmpRange` / EV return nothing for a GMP of 0: the fit
+excludes zeros. Known gap: NSE gives one day of FII/DII at a time, so days the collector did not run (8-16 Sep) stay missing
+until a history source is surveyed.
 Page files: `site/src/app.js` is the db-era monolith; NEW screens go in their own file and are pulled into app.js's scope
 by `/* @include name.js */` (site/build.py). First one: `scoreboard.js` (tab 7, "Score": GMP calibration, band tables,
 sell-at-open vs hold-to-close, below-issue-price filter, sortable list — all computed from `listedPerf` + `comps`).

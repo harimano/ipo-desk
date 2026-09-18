@@ -80,6 +80,7 @@ tr.bx > td { background:var(--surface-2); padding:10px 14px 14px; } tr[data-row]
 .scrolly { max-height:300px; overflow-y:auto; padding-right:6px; scrollbar-width:thin; }
 .spark { display:block; margin-top:4px; color:var(--accent); }
 .chgd { font-weight:700; } .chgd.up { color:var(--up); } .chgd.down { color:var(--down); }
+.prebook{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:12.5px;color:var(--ink-2)}.prebook b{color:var(--ink);font-weight:700}
 .notes{margin:0;padding:10px 14px 12px 30px;font-size:13px;line-height:1.5}.notes li{margin:4px 0}
 .evwarn{margin-top:8px;font-size:12.5px;color:var(--muted,inherit);opacity:.9}.evwarn summary{cursor:pointer}
 .oldtag { font-size:11px; font-weight:700; color:var(--amber); background:var(--amber-soft); padding:1px 7px; border-radius:9px; margin-left:8px; vertical-align:2px; }
@@ -392,10 +393,9 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
     <div class="sec"><div class="sec-h"><h2>SME screener</h2><span class="sub">click a column to sort · QIB conviction, track record and EV are this desk's own SME history, banded by subscription (QIB books are 2026 only)</span><span class="right legend"><span><i style="background:var(--up)"></i>95% range clearly &gt;50% positive</span><span><i style="background:var(--amber)"></i>range straddles 50%</span><span><i style="background:var(--down)"></i>95% range clearly &lt;50%</span></span></div><div class="card tw"><table id="smeScreen" class="srtbl"></table></div></div>
 
     <div class="sec grid g2">
-      <div class="card"><div class="ch">FII / DII daily flows <span class="sub" id="flowsSub2"></span></div><div class="cb"><div id="flowKpis" class="kpis" style="margin-bottom:10px"></div><div class="chart-wrap"><canvas id="flowsChart2"></canvas></div></div></div>
-      <div class="card"><div class="ch">Flow context <span class="sub">monthly FII net · where the money is rotating</span></div><div class="cb">
-        <div class="hbars diverge" id="flowMonthly"></div>
-        <div class="rot" id="flowRot"></div>
+      <div class="card"><div class="ch">FII / DII daily flows <span class="sub" id="flowsSub2"></span></div><div class="cb"><div id="flowKpis" class="kpis" style="margin-bottom:10px"></div><div class="chart-wrap" style="height:280px"><canvas id="flowsChart2"></canvas></div></div></div>
+      <div class="card"><div class="ch">Flow context <span class="sub">what the daily figures add up to · computed from the sessions on file</span></div><div class="cb">
+        <div id="flowCtx"></div>
         <details class="more" id="flowNoteWrap"><summary>Source note</summary><div class="dim" id="flowNote" style="font-size:12px"></div></details></div></div>
     </div>
 
