@@ -9,11 +9,13 @@ GitHub's `workflow_dispatch` for `collect.yml`. The collector still runs on GitH
 1. **GitHub token** — github.com → Settings → Developer settings → Fine-grained tokens → Generate new token.
    Repository access: *Only select repositories* → `ipo-desk`. Permissions → Repository → **Actions: Read and write**.
    Nothing else. Copy the token (starts `github_pat_`).
-2. **Cloudflare** — dash.cloudflare.com (free account) → Workers & Pages → Create → Worker → name it
-   `ipo-desk-trigger` → Deploy → Edit code → paste `worker.js` from this folder → Deploy.
-3. **Settings → Variables and Secrets**: add secret `GITHUB_TOKEN` (the token) and text variable `REPO` =
-   `harimano/ipo-desk`.
-4. **Settings → Triggers → Cron Triggers**: add the four schedules listed at the top of `worker.js`.
+2. **Cloudflare** — dash.cloudflare.com → Workers & Pages → Create → *Import a repository* → pick `ipo-desk`.
+   On the last screen: project name `ipo-desk-trigger`; deploy command `npx wrangler deploy`; open **Advanced
+   settings** and set **Root directory** to `ops/trigger-worker`; UNTICK *Builds for non-production branches* (the
+   `data` branch gets a commit every run and must not trigger builds); leave *Cloudflare Access* off. Deploy.
+   `wrangler.toml` in this folder supplies the code, the four cron triggers and `REPO`.
+3. **Settings → Variables and Secrets** → add a **Secret** named `GITHUB_TOKEN` with the token. (Nothing else.)
+4. Settings → Triggers should already list the four cron schedules from `wrangler.toml`.
 5. Check: the Worker's *Logs* tab after the next trigger time, and the repo's Actions tab — a `collect` run whose
    event is `workflow_dispatch` should appear within a minute of the scheduled time.
 
