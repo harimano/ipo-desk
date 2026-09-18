@@ -290,6 +290,37 @@ def fetch_detail(session, ig_id: str) -> dict:
     return normalise_detail(session.get_json(IPO_DETAIL_URL.format(id=ig_id), source=SOURCE, headers=HEADERS))
 
 
+# ---------------------------------------------------------------------------------------------
+# report 566 — live subscription for every issue of the year in ONE call, with the site's own bid timestamp.
+# The five-minute live loop reads this instead of one slow exchange call per issue.
+# ---------------------------------------------------------------------------------------------
+SUBSCRIPTION_REPORT = 566
+
+
+def parse_subscription_report(data, today: dt.date) -> list[dict]:
+    rows = data.get("reportTableData") if isinstance(data, dict) else None
+    if not isinstance(rows, list) or not rows:
+        raise SourceChanged(SOURCE, f"report 566: reportTableData missing or empty (msg={data.get('msg') if isinstance(data, dict) else None!r})", "report 566")
+    out = []
+    for r in rows:
+        if not isinstance(r, dict) or not r.get("~id") or _num(r.get("Total")) is None:
+            continue
+        stamp = _stamp(f"{strip_tags(r.get('BID Date'))[:-5].strip()} {today.year} {strip_tags(r.get('BID Date'))[-5:]}")   # '18th Sep 17:57' has no year
+        if stamp and stamp[:10] > (today + dt.timedelta(days=2)).isoformat():
+            stamp = str(today.year - 1) + stamp[4:]                                  # a December bid read in January
+        out.append({"igId": str(r["~id"]), "qib": _num(r.get("QIB")), "snii": _num(r.get("SHNI")), "bnii": _num(r.get("BHNI")),
+                    "nii": _num(r.get("NII")), "retail": _num(r.get("RII")), "total": _num(r.get("Total")), "asOf": stamp})
+    if not out:
+        raise SourceChanged(SOURCE, f"report 566: {len(rows)} rows, none with an id and a total (keys: {sorted(rows[0])[:8]})", "report 566")
+    return out
+
+
+def fetch_subscription_report(session, today: dt.date | None = None) -> list[dict]:
+    d = today or dt.datetime.now(IST).date()
+    url = f"https://webnodejs.investorgain.com/cloud/v2/report/data-read/{SUBSCRIPTION_REPORT}/1/{d.month}/{d.year}/{fiscal_year(d)}/0/all"
+    return parse_subscription_report(session.get_json(url, source=SOURCE, headers=HEADERS), d)
+
+
 def as_of(rows: list[dict]) -> str | None:
     """Latest 'Updated-On' stamp across rows, as an ISO date when parseable."""
     stamps = [r.get("updated") for r in rows if r.get("updated")]

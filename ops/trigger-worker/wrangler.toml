@@ -15,4 +15,6 @@ crons = [
   "43 12 * * *",         # 18:13 IST  full
   "7,37 4-11 * * 1-5",   # 09:37-17:07 IST weekdays  intraday
   "7 12 * * 1-5",        # 17:37 IST  intraday
+  "25 3 * * 1-5",        # 08:55 IST  live loop, morning half
+  "35 7 * * 1-5",        # 13:05 IST  live loop, afternoon half
 ]

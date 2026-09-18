@@ -1,0 +1,43 @@
+name: live
+# The market-hours loop: one job stays up and refreshes live.json on the `live` branch every five minutes (three
+# calls a tick). A hosted job may run six hours, so the day is two jobs: 08:55-13:10 and 13:05-17:20 IST. Started by
+# the Cloudflare Worker (ops/trigger-worker); the crons here are the fallback. A new start replaces a running one.
+on:
+  schedule:
+    - cron: "25 3 * * 1-5"     # 08:55 IST
+    - cron: "35 7 * * 1-5"     # 13:05 IST
+  workflow_dispatch:
+    inputs:
+      until:
+        description: "HH:MM IST to stop at (blank = by the clock: 13:10 before 13:00, else 17:20)"
+        required: false
+        default: ""
+
+concurrency: { group: live, cancel-in-progress: true }
+permissions:
+  contents: write
+
+jobs:
+  loop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with: { ref: data, path: _data, fetch-depth: 1 }
+      - name: The live branch — created once, one commit for ever
+        run: |
+          git clone --quiet "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" _live
+          cd _live
+          if git ls-remote --exit-code --heads origin live >/dev/null; then git checkout -q live
+          else git checkout -q --orphan live && git rm -rfq . && echo '{}' > live.json && git add live.json \
+               && git -c user.name=ipo-desk-bot -c user.email=ipo-desk-bot@users.noreply.github.com commit -qm "live: start" && git push -q origin live; fi
+      - uses: actions/setup-python@v7
+        with: { python-version: "3.12", cache: "pip" }
+      - run: pip install -e . >/dev/null
+      - name: Loop
+        run: |
+          UNTIL="${{ github.event.inputs.until }}"
+          if [ -z "$UNTIL" ]; then if [ "$(TZ=Asia/Kolkata date +%H%M)" -lt 1300 ]; then UNTIL=13:10; else UNTIL=17:20; fi; fi
+          echo "looping until $UNTIL IST"
+          python -m collector.live --board _data/latest.json --out _live/live.json --until "$UNTIL" --interval 300 --publish _live

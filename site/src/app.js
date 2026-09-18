@@ -32,6 +32,7 @@ function nextRun() {                                        // the collector's t
       if (at > ist) return (add === 0 ? "" : add === 1 ? "tomorrow " : at.toLocaleDateString("en-IN", { weekday: "short" }) + " ") + String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0"); } }
   return ""; }
 const seenOf = D => { const o = {}; [...(D.mainboard || []), ...(D.sme || [])].forEach(b => { o[b.name] = { g: b.gmp == null ? null : b.gmp, s: b.sub && b.sub.total != null ? b.sub.total : null }; }); return o; };
+let LIVE = null;                                            // {asOf, preopen[], timeline{}} from the five-minute loop
 let CHG = {};                                               // name -> {g:[was, now], s:[was, now]} for this session
 function noteChanges(was, D) { const now = seenOf(D); Object.keys(now).forEach(n => { const a = was[n]; if (!a) return; const c = CHG[n] || {};
   if (a.g != null && now[n].g != null && a.g !== now[n].g) c.g = [a.g, now[n].g]; if (a.s != null && now[n].s != null && a.s !== now[n].s) c.s = [a.s, now[n].s];
@@ -141,7 +142,12 @@ function renderToday() {
   const acts = p => p.acts.map(([k, l], j) => `<button class="btn sm${j === 0 ? " primary" : ""}" data-act="${k}">${esc(l)}${k === "hold" ? " <kbd>h</kbd>" : k === "done" ? " <kbd>d</kbd>" : k === "snooze" ? " <kbd>s</kbd>" : k === "star" ? " <kbd>*</kbd>" : ""}</button>`).join("");
   const nm = p => p.q ? p.q.name : p.b ? p.b.name : "";
   const urgentAll = P.filter(p => p.pri <= 2), top = urgentAll.slice(0, 3), later = [...urgentAll.slice(3), ...P.filter(p => p.pri > 2)];
-  $("#queue").innerHTML = (top.length ? top.map((p, i) => `<div class="card q${i === 0 ? " lead" : ""}" data-row data-id="${esc(p.id)}" data-name="${esc(nm(p))}">
+  const pre = ((LIVE || {}).preopen || []).map(p => { const b = findIssue(p.name) || {}, imp = b.gmpPct;
+    return `<div class="card q lead" data-row data-name="${esc(p.name)}"><div class="l"><div class="tags"><span class="pill now">Lists today</span><span class="lbl">NSE pre-open${p.status === "Close" ? " · final" : " · indicative"}</span></div>
+      <div class="ttl">${esc(p.name)} — ${p.status === "Close" ? "opens at" : "indicating"} ${inr(p.iep)} (${pct(p.pct, true)})</div>
+      <div class="desc">Issue price ${inr(p.base)}${imp != null ? ` · the grey market had implied ${pct(imp, true)}` : ""}${p.qty ? ` · ${Math.round(p.qty / 1e5) / 10} M shares matched` : ""} · ${p.asOf ? "as of " + p.asOf.slice(11, 16) + " IST" : ""}. Trading starts 10:00.</div></div>
+      <div class="r"><div class="big mono ${cls(p.pct)}">${pct(p.pct, true)}</div></div></div>`; }).join("");
+  $("#queue").innerHTML = pre + (top.length ? top.map((p, i) => `<div class="card q${i === 0 ? " lead" : ""}" data-row data-id="${esc(p.id)}" data-name="${esc(nm(p))}">
     <div class="l"><div class="tags"><span class="pill ${p.tag[0]}">${esc(p.tag[1])}</span><span class="lbl">${esc(p.lbl)}</span></div><div class="ttl">${esc(p.ttl)}</div><div class="desc">${p.desc}</div></div>
     <div class="r"><div class="big mono ${p.bigCls || ""}">${esc(p.big || "")}</div><div class="acts">${acts(p)}</div></div></div>`).join("") : `<div class="card empty">Nothing urgent. ${later.length ? "The rest is below." : "Snoozed and done items are in Book."}</div>`)
     + (later.length ? `<div class="card"><div class="ch">Everything else <span class="sub">${later.length} item${later.length > 1 ? "s" : ""}</span></div>${later.map(p => `<div class="q" data-row data-id="${esc(p.id)}" data-name="${esc(nm(p))}" style="padding:10px 18px;border-top:1px solid var(--line)"><div class="l"><div class="tags"><span class="pill ${p.tag[0]}">${esc(p.tag[1])}</span><span class="lbl">${esc(p.lbl)}</span><span style="font-weight:700">${esc(p.ttl)}</span></div><div class="desc" style="font-size:12.5px">${p.desc}</div></div><div class="r"><div class="acts">${acts(p)}</div></div></div>`).join("")}</div>` : "");
@@ -233,6 +239,9 @@ function evidence() {
     both: (qi, gi) => summarise(L.filter(l => qibByName[l.name] != null && bandOf(qibByName[l.name], QIB_EDGES) === qi && bandOf(l.g, GMP_EDGES) === gi).map(l => l.ret)) };
   return EVID;
 }
+const spark = pts => { if (!pts || pts.length < 3) return ""; const v = pts.map(p => p[1]), lo = Math.min(...v), hi = Math.max(...v), W = 150, H = 22;
+  const xy = v.map((y, i) => `${(i / (v.length - 1) * W).toFixed(1)},${(H - 2 - (hi > lo ? (y - lo) / (hi - lo) : .5) * (H - 4)).toFixed(1)}`).join(" ");
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="total subscription through today"><polyline points="${xy}" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><div class="dt">today ${pts[0][0]} → ${pts[pts.length - 1][0]} · ${v[0]}x → ${v[v.length - 1]}x</div>`; };
 const evCls = s => !s || s.n < 5 ? "na" : s.pos >= 85 ? "hi" : s.pos >= 60 ? "mid" : "lo";
 const evTxt = s => !s || s.n < 5 ? "too few past cases" : `${s.pos}% of ${s.n} listed positive · median ${pct(s.med, true)}`;
 const istNow = () => new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000);
@@ -269,7 +278,7 @@ function boardRow(b) {
     <td><div class="nm"><button data-open="${esc(b.name)}">${esc(b.name)}</button></div><div class="dt">${esc(b.type)}${b.issueSizeCr ? " · " + cr(b.issueSizeCr) : ""}${b.shareholderQuota && b.shareholderQuota.parent ? ` · <span class="up">quota via ${esc(b.shareholderQuota.parent)}</span>` : ""}</div></td>
     <td><span class="pill ${b.status.toLowerCase()}">${b.status}</span><div style="margin-top:3px;font-size:12.5px">${when}</div></td>
     <td class="r">${qibCell}</td><td class="r">${gmpCell}</td><td class="r">${oddsCell}</td>
-    <td style="min-width:170px">${S0.total != null && !isSme ? subBar("QIB", S0.qib) + subBar("NII", S0.nii) + subBar("Retail", S0.retail) + subBar("Total", S0.total) + `<div class="dt">${S0.asOf ? (hasTime(S0.asOf) ? ago(S0.asOf) : "as of " + fmtD(S0.asOf)) : ""}</div>` + delta((CHG[b.name] || {}).s, v => v + "x") : S0.total != null ? subBar("Total", S0.total) : `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`}</td>
+    <td style="min-width:170px">${S0.total != null && !isSme ? subBar("QIB", S0.qib) + subBar("NII", S0.nii) + subBar("Retail", S0.retail) + subBar("Total", S0.total) + `<div class="dt">${S0.asOf ? (hasTime(S0.asOf) ? ago(S0.asOf) : "as of " + fmtD(S0.asOf)) : ""}</div>` + delta((CHG[b.name] || {}).s, v => v + "x") + spark(((LIVE || {}).timeline || {})[b.name]) : S0.total != null ? subBar("Total", S0.total) + spark(((LIVE || {}).timeline || {})[b.name]) : `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`}</td>
     <td class="r"><button class="tg" data-more title="details">▾</button></td></tr>
     <tr class="bx" hidden><td></td><td colspan="7">${more}</td></tr>`;
 }
@@ -722,7 +731,8 @@ function oldTags() { const I = DATA.investors || {}, qd = (DATA.quota || []).map
   if ($("#invOld")) $("#invOld").innerHTML = oldTag(I.asOf, 7) ? oldTag(I.asOf, 7).replace("as of", "holdings and moves as of") + ' <span class="dt">prices live</span>' : "";
   if ($("#pipeOld")) $("#pipeOld").innerHTML = qd ? `<span class="dt" style="margin-left:8px">stages tracked every run · last stage change ${fmtD(qd)} · descriptions are hand-written notes</span>` : ""; }
 function liveText() { const el = $("#liveTxt"); if (!el) return; const mins = (Date.now() - new Date(DATA.meta.asOf)) / 60000, nx = nextRun();
-  el.textContent = (mins > 36 * 60 ? "Stale · " : "Live · ") + "updated " + ago(DATA.meta.asOf) + (nx ? " · next " + nx + " IST" : ""); el.parentElement.classList.toggle("stale", mins > 36 * 60); }
+  const lv = LIVE && LIVE.asOf && (Date.now() - new Date(LIVE.asOf)) < 20 * 60000;
+  el.textContent = (mins > 36 * 60 ? "Stale · " : "Live · ") + (lv ? "book " + ago(LIVE.asOf) + " · full run " + ago(DATA.meta.asOf) : "updated " + ago(DATA.meta.asOf)) + (nx ? " · next " + nx + " IST" : ""); el.parentElement.classList.toggle("stale", mins > 36 * 60); }
 setInterval(liveText, 30000);
 const savedTab = store.get("ipo-tab", "today"); show(["today", "pipe", "board", "market", "research", "book"].includes(savedTab) ? savedTab : "today");
 
@@ -741,6 +751,19 @@ return {
       if (screen === "board") drawCharts();
       if (screen === "book") drawPosCharts();
     } catch (err) { console.error(err); return false; }
+    return true;
+  },
+  // live.json (the five-minute loop) laid over the document: only values newer than the ones on the row are taken
+  live(L) {
+    if (!L || !L.rows) return false;
+    const was = seenOf(DATA); let moved = false;
+    [...(DATA.mainboard || []), ...(DATA.sme || [])].forEach(b => { const v = L.rows[b.name]; if (!v) return;
+      if (v.sub && String(v.sub.asOf || "") > String((b.sub || {}).asOf || "")) { b.sub = { ...(b.sub || {}), ...v.sub }; moved = true; }
+      if (v.gmp != null && String(v.gmpAsOf || "") > String(b.gmpAsOf || "") && v.gmp !== b.gmp) { b.gmpTrend = b.gmp == null ? "flat" : v.gmp > b.gmp ? "up" : v.gmp < b.gmp ? "down" : "flat"; b.gmp = v.gmp; b.gmpPct = v.gmpPct != null ? v.gmpPct : b.bandHigh ? Math.round(v.gmp / b.bandHigh * 1e4) / 100 : b.gmpPct; b.gmpAsOf = v.gmpAsOf; moved = true; } });
+    const hadPre = JSON.stringify((LIVE || {}).preopen || []); LIVE = { asOf: L.asOf, preopen: L.preopen || [], timeline: L.timeline || {} };
+    if (!moved && hadPre === JSON.stringify(LIVE.preopen)) { liveText(); return true; }
+    noteChanges(was, DATA); store.set("ipo-seen", seenOf(DATA));
+    try { renderAll(); liveText(); } catch (err) { console.error(err); return false; }
     return true;
   },
   get asOf() { return DATA.meta.asOf; }

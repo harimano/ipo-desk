@@ -96,6 +96,7 @@ async function refresh(reason) {
     else if (changed) {
       if (!window.__ipo.update(DATA)) { setPill("Update failed — still showing the previous data", "done"); return false; }
       onSnapshot = false;
+      liveSeen = null; setTimeout(() => pollLive(true), 0);      // a new document replaced the rows: lay the live file over it again
       setPill(reason === "boot" ? null : "Updated " + label(DATA), "done");
     } else if (reason !== "poll" && reason !== "watch") setPill(reason === "boot" ? null : "Already current", "done");
     const s = staleness(DATA);
@@ -127,6 +128,23 @@ function watchForRun() {
   }, 30000);
 }
 
+/* ---------- live.json: the five-minute loop's file, on the `live` branch. GitHub's API serves it fresh (raw.github…
+   caches for five minutes, so it is only the fallback). 60 unauthenticated calls an hour per visitor: one a minute
+   is inside that, and only in market hours with the tab in view. ---------- */
+const LIVE_API = "https://api.github.com/repos/harimano/ipo-desk/contents/live.json?ref=live";
+const LIVE_RAW = "https://raw.githubusercontent.com/harimano/ipo-desk/live/live.json";
+let liveSeen = null;
+function marketHours() { const n = new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000), m = n.getHours() * 60 + n.getMinutes(); return n.getDay() % 6 !== 0 && m >= 8 * 60 + 50 && m <= 17 * 60 + 40; }
+async function pollLive(force) {
+  if (!window.__ipo || !window.__ipo.live || document.visibilityState !== "visible" || !(force || marketHours())) return;
+  let L = null;
+  try { L = await getJson(LIVE_API, { headers: { Accept: "application/vnd.github.raw+json" }, cache: "no-store" }); }
+  catch (e) { try { L = await getJson(LIVE_RAW + "?t=" + Date.now(), { cache: "no-store" }); } catch (e2) { return; } }
+  if (!L || !L.asOf || L.asOf === liveSeen) return;
+  if ((Date.now() - new Date(L.asOf)) > 6 * 3600000) return;          // yesterday's file says nothing about today
+  liveSeen = L.asOf; window.__ipo.live(L);
+}
+
 /* ---------- 1. render the built-in snapshot at once: never blank, never a spinner ---------- */
 try {
   window.__ipo = __ipoInit(FALLBACK);
@@ -137,6 +155,7 @@ try {
 /* ---------- 2. upgrade to the latest file, then keep it fresh ---------- */
 (async function () {
   await refresh("boot");
+  pollLive(true); setInterval(pollLive, 60000);
   const tape = document.getElementById("tape");
   if (tape) tape.addEventListener("click", e => {
     if (e.target.closest(".asof")) refresh("tap");

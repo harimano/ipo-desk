@@ -10,14 +10,18 @@
 //   43 12 * * *         18:13 IST  full
 //   7,37 4-11 * * 1-5   09:37-17:07 IST weekdays  intraday
 //   7 12 * * 1-5        17:37 IST  intraday
+//   25 3 * * 1-5        08:55 IST  start the live loop (live.yml), morning half
+//   35 7 * * 1-5        13:05 IST  start the live loop, afternoon half
 const FULL = new Set(["13 1 * * *", "43 12 * * *"]);
+const LIVE = new Set(["25 3 * * 1-5", "35 7 * * 1-5"]);
 
 async function dispatch(env, mode) {
-  const r = await fetch(`https://api.github.com/repos/${env.REPO}/actions/workflows/collect.yml/dispatches`, {
+  const live = mode === "live";
+  const r = await fetch(`https://api.github.com/repos/${env.REPO}/actions/workflows/${live ? "live.yml" : "collect.yml"}/dispatches`, {
     method: "POST",
     headers: { Authorization: `Bearer ${env.GITHUB_TOKEN}`, Accept: "application/vnd.github+json",
                "User-Agent": "ipo-desk-trigger", "X-GitHub-Api-Version": "2022-11-28" },
-    body: JSON.stringify({ ref: "main", inputs: { mode } }),
+    body: JSON.stringify(live ? { ref: "main" } : { ref: "main", inputs: { mode } }),
   });
   if (!r.ok) throw new Error(`GitHub answered ${r.status}: ${(await r.text()).slice(0, 200)}`);
   return `dispatched ${mode}`;
@@ -25,7 +29,7 @@ async function dispatch(env, mode) {
 
 export default {
   async scheduled(event, env, ctx) {
-    ctx.waitUntil(dispatch(env, FULL.has(event.cron) ? "full" : "intraday"));
+    ctx.waitUntil(dispatch(env, LIVE.has(event.cron) ? "live" : FULL.has(event.cron) ? "full" : "intraday"));
   },
   // Opening the Worker's URL shows that it is alive; it never triggers a run (that is what the schedule is for).
   async fetch() {
