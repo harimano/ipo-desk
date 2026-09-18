@@ -178,6 +178,11 @@ removed 19 Sep 2026. Its Track record and EV/app columns now read `evidence.segm
 (`evBand`, shared with `boardRow`'s `pick`); GMP is coloured by its own evidence band instead of an arbitrary >50% "froth" cut.
 Hari asked to keep an institutional-conviction grade (a fluff SME book shows up here first) but grounded, not invented:
 the QIB cell now carries `evidence.segments.sme.bands.qib` under the bar — n, Wilson interval, labelled 2026-only.
+Scoreboard (`scoreboard.js`) gained three pieces, 19 Sep 2026: "Open calls" (live, not history — Open/Closed board rows
+with today's evidence-band read and EV, so a viewer can check back after listing day); a GMP calibration scatter
+(implied vs realised, coloured by whether GMP called the direction, diagonal = perfect calibration — needed an explicit
+`type: "linear"` on both scales, since Chart.js defaults to category axes once a chart mixes dataset types without one);
+and hit-rate by month (a page-side explorer over `listedPerf`, segment-only, n + Wilson per month, same as the band tables).
 Page files: `site/src/app.js` is the db-era monolith; NEW screens go in their own file and are pulled into app.js's scope
 by `/* @include name.js */` (site/build.py). First one: `scoreboard.js` (tab 7, "Score": GMP calibration, band tables,
 sell-at-open vs hold-to-close, below-issue-price filter, sortable list — all computed from `listedPerf` + `comps`).
