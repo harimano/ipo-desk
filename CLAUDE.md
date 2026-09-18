@@ -192,6 +192,14 @@ application, dates) instead of six dashes. The GMP calibration chart draws the c
 listings older than the window, and marks open issues on the fit. `gmpRange` / EV return nothing for a GMP of 0: the fit
 excludes zeros. Known gap: NSE gives one day of FII/DII at a time, so days the collector did not run (8-16 Sep) stay missing
 until a history source is surveyed.
+Reserved categories (19 Sep 2026): `evOf(b, seg, cat)` takes "retail" / "shareholder" / "employee"; the Board's EV cell adds a
+line per reserved category the issue has a book for (same fitted gain, that category's own queue, "N× the retail EV"). This is
+Hari's real edge — a shareholder book runs at 2-5x when retail runs at 50x+. Not in the figure: the cost and price risk of
+holding the parent. No history yet: report 566 carries no shareholder column, so there is no evidence band for it.
+Anchor investors ARE structured, partly: InvestorGain report 551 lists 2,842 anchors (IPO count, total invested, average
+ticket); 561 with the investor id as the LAST path segment (`…/561/1/<m>/<y>/<fy>/0/<id>`) lists that investor's IPOs with our
+igIds — but the feed is capped at the 5 most recent (totalRecords says 150, page 2 repeats page 1): a members' limit, not to
+be worked around. Enough for "which top anchors are in today's open books"; not enough for a per-investor track record.
 Page files: `site/src/app.js` is the db-era monolith; NEW screens go in their own file and are pulled into app.js's scope
 by `/* @include name.js */` (site/build.py). First one: `scoreboard.js` (tab 7, "Score": GMP calibration, band tables,
 sell-at-open vs hold-to-close, below-issue-price filter, sortable list — all computed from `listedPerf` + `comps`).
