@@ -6,12 +6,15 @@ name: collect
 #   intraday  every 30 min, 10:00-17:30 IST on weekdays, and only while an issue is open: subscription
 #             GMP and the per-IPO records of open issues, about twenty calls. Overwrites the day's one rolling intraday commit, so the data
 #             branch grows by three commits a day however often this runs.
+# GitHub's scheduler is best-effort: on 18 Sep 2026 it started 2 of ~16 runs, one 4.5 h late. Minutes are kept off
+# :00/:15/:30/:45 (its busiest), and the dependable clock is the Cloudflare Worker in ops/trigger-worker/, which
+# calls workflow_dispatch. These crons stay as the fallback.
 on:
   schedule:
-    - cron: "15 1 * * *"          # 06:45 IST  full
-    - cron: "45 12 * * *"         # 18:15 IST  full
-    - cron: "*/30 4-11 * * 1-5"   # 10:00-17:30 IST weekdays  intraday (04:30 UTC is the first that matters)
-    - cron: "0 12 * * 1-5"        # 17:30 IST  intraday, the 5 pm book
+    - cron: "13 1 * * *"          # 06:43 IST  full
+    - cron: "43 12 * * *"         # 18:13 IST  full
+    - cron: "7,37 4-11 * * 1-5"   # 09:37-17:07 IST weekdays  intraday
+    - cron: "7 12 * * 1-5"        # 17:37 IST  intraday, the 5 pm book
   workflow_dispatch:
     inputs:
       mode:
@@ -47,7 +50,7 @@ jobs:
         id: mode
         run: |
           case "${{ github.event_name }}:${{ github.event.schedule }}" in
-            "schedule:15 1 * * *"|"schedule:45 12 * * *") MODE=full ;;
+            "schedule:13 1 * * *"|"schedule:43 12 * * *") MODE=full ;;
             schedule:*)                                   MODE=intraday ;;
             *)                                            MODE="${{ github.event.inputs.mode || 'full' }}" ;;
           esac
