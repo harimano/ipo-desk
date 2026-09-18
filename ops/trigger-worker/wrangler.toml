@@ -1,7 +1,7 @@
 # Cloudflare Worker config for the ipo-desk trigger. With the repo connected in Cloudflare (Workers Builds) and the
 # root directory set to ops/trigger-worker, `npx wrangler deploy` reads this file: the code, the schedule and REPO
 # all come from here. The one thing that is NOT here is the secret GITHUB_TOKEN — add it in the dashboard.
-name = "ipo-desk-trigger"
+name = "ipo-desk"
 main = "worker.js"
 compatibility_date = "2026-09-01"
 workers_dev = true

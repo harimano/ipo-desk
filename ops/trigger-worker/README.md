@@ -10,7 +10,7 @@ GitHub's `workflow_dispatch` for `collect.yml`. The collector still runs on GitH
    Repository access: *Only select repositories* → `ipo-desk`. Permissions → Repository → **Actions: Read and write**.
    Nothing else. Copy the token (starts `github_pat_`).
 2. **Cloudflare** — dash.cloudflare.com → Workers & Pages → Create → *Import a repository* → pick `ipo-desk`.
-   On the last screen: project name `ipo-desk-trigger`; deploy command `npx wrangler deploy`; open **Advanced
+   On the last screen: project name `ipo-desk` (must equal `name` in wrangler.toml); deploy command `npx wrangler deploy`; open **Advanced
    settings** and set **Root directory** to `ops/trigger-worker`; UNTICK *Builds for non-production branches* (the
    `data` branch gets a commit every run and must not trigger builds); leave *Cloudflare Access* off. Deploy.
    `wrangler.toml` in this folder supplies the code, the four cron triggers and `REPO`.
