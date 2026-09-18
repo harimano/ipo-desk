@@ -172,6 +172,10 @@ same segment only — no match until the book opens; never a listedPerf/comps jo
 on the fetched-facts sheet is hidden (with a one-line note) when nobody has written analysis, matching the quota-sheet path.
 The Market tab's "Comparables" widget (mainboard/SME toggle, `mktCompScope`) also stopped pooling the two segments and now
 reads its bins straight from `evidence.segments[x].bands.total.all` instead of averaging raw `comps` rows on the page.
+The SME screener's "Score" (0-100, an invented blend of QIB depth/demand ratio/GMP level) and "Verdict" pill
+("institution-backed"/"mixed signals"/"retail froth") were the one place on the page still handing out a verdict —
+removed 19 Sep 2026. Its Track record and EV/app columns now read `evidence.segments.sme` the same way the Board does
+(`evBand`, shared with `boardRow`'s `pick`); GMP is coloured by its own evidence band instead of an arbitrary >50% "froth" cut.
 Page files: `site/src/app.js` is the db-era monolith; NEW screens go in their own file and are pulled into app.js's scope
 by `/* @include name.js */` (site/build.py). First one: `scoreboard.js` (tab 7, "Score": GMP calibration, band tables,
 sell-at-open vs hold-to-close, below-issue-price filter, sortable list — all computed from `listedPerf` + `comps`).

@@ -475,16 +475,8 @@ $("#s-book").addEventListener("click", e => { const t = e.target.closest("button
 
 
 /* ================= MARKET ================= */
-function smeScore(r) {
-  const s = r.sub || {}; if (s.qib == null && s.total == null) return null;
-  const q = s.qib != null ? s.qib : s.total, ret = s.retail != null ? s.retail : s.total;
-  const s1 = q < 0.5 ? 10 : q < 1 ? 30 : q < 5 ? 50 : q < 20 ? 65 : q < 60 ? 80 : q < 150 ? 90 : 95;
-  const ratio = q / Math.max(ret || 0.1, 0.1); const s2 = ratio >= 1 ? 90 : ratio >= 0.5 ? 75 : ratio >= 0.1 ? 50 : 20;
-  let s3 = r.gmpPct == null ? 60 : r.gmpPct <= 25 ? 80 : r.gmpPct <= 50 ? 60 : 30; if (q > 50) s3 = Math.min(100, s3 + 15); if (q < 1) s3 = Math.max(0, s3 - 15);
-  return Math.round((s1 + s2 + s3) / 3);
-}
-const smeVerdict = sc => sc == null ? ["pending", "na"] : sc >= 75 ? ["institution-backed", "hi"] : sc >= 55 ? ["mixed signals", "mid"] : ["retail froth", "lo"];
-const smeScoreCell = r => { const sc = smeScore(r), [v, c] = smeVerdict(sc); return `<span class="score ${c}" title="${v}">${sc == null ? "—" : sc}</span>`; };
+// a band's outcome, looked up from the collector's own evidence (never a page-side score): {i, s: {n,pos,lo,hi,med,p10,p90}, lbl}
+const evBand = (seg, key, v, where) => { if (!seg || v == null) return null; const ed = EDG(key), i = bandOf(v, ed); return i >= 0 ? { i, s: seg.bands[key][where][i], lbl: edgeLbl(ed, i, key === "gmp" ? "%" : "x") } : null; };
 const norm2 = s => (s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
 const sameName = (x, y) => { const a = norm2((x || "").replace(/\(.*?\)/g, "").split(" ").slice(0, 2).join(" ")), b = norm2((y || "").replace(/\(.*?\)/g, "").split(" ").slice(0, 2).join(" ")); return a && b && (a.startsWith(b) || b.startsWith(a)); };
 const anchorFor = name => (DATA.anchors || []).find(a => sameName(a.name, name));
@@ -550,13 +542,27 @@ function renderMarket() {
   const fr = Object.entries(freq).map(([n, v]) => ({ n, v })).filter(r => r.v > 1).sort((x, y) => y.v - x.v).slice(0, 8);
   $("#anchorFreq").innerHTML = fr.length ? hbar(fr, fr[0].v, v => v + " books", () => "lav") : `<div class="dim" style="font-size:12.5px">Not enough anchor books captured to rank investors.</div>`;
   $("#anchorNotes").innerHTML = A.map(x => `<div style="margin-bottom:6px"><b>${esc(x.name)}</b> <span class="dim">${esc(x.anchor)}</span></div>`).join("") + ((DATA.investors || {}).anchorActivity || []).map(t => `<div class="dim" style="margin-bottom:6px">${esc(t)}</div>`).join("");
-  // sme screener — sortable table with inline bars
+  // SME screener — sortable table. Track record and EV are the collector's own evidence.segments.sme bands, never a
+  // page-side score: this used to combine QIB depth, demand ratio and GMP level into one invented 0-100 "Score" and an
+  // "institution-backed / mixed signals / retail froth" verdict, which is exactly what the standing rule forbids
+  // (evidence and both sides, never a verdict). Rebuilt 19 Sep 2026 to match the Board's own evidence cells.
   const order = { Open: 0, Upcoming: 1, Closed: 2, Listed: 3 };
   const sbar = (v, k) => `<div class="tb"><div class="bar"><i class="${k}" style="width:${v == null ? 0 : Math.min(100, Math.log10(1 + v) / Math.log10(301) * 100)}%"></i></div><span class="num">${xx(v)}</span></div>`;
-  const cols = [["name", "Issue"], ["status", "Status"], ["gmpPct", "GMP", 1], ["qib", "QIB", 1], ["retail", "Retail", 1], ["total", "Total", 1], ["score", "Score", 1], ["verdict", "Verdict"], ["listing", "Listing / est.", 1]];
-  const val = (r, k) => k === "status" ? order[r.status] : k === "score" ? smeScore(r) : k === "verdict" ? (smeScore(r) == null ? -1 : smeScore(r)) : ["qib", "retail", "total"].includes(k) ? (r.sub || {})[k] : k === "listing" ? (r.listingGainPct != null ? r.listingGainPct : r.gmpPct) : k === "name" ? r.name : r[k];
-  const S2 = sme.slice().sort((x, y) => { const a = val(x, smeSort.k), b = val(y, smeSort.k); const d = a == null && b == null ? 0 : a == null ? 1 : b == null ? -1 : typeof a === "string" ? a.localeCompare(b) * smeSort.dir : (smeSort.k === "status" ? (a - b) : (b - a)) * smeSort.dir; return d || order[x.status] - order[y.status] || (smeScore(y) || 0) - (smeScore(x) || 0); });
-  $("#smeScreen").innerHTML = `<thead><tr>${cols.map(([k, l, r]) => `<th class="${r ? "r" : ""} srt${smeSort.k === k ? " on" : ""}" data-sort="${k}">${l}${smeSort.k === k ? (smeSort.dir === 1 ? " ▾" : " ▴") : ""}</th>`).join("")}</tr></thead><tbody>${S2.length ? S2.map(r => { const sc = smeScore(r), [v, c] = smeVerdict(sc), s = r.sub || {}, froth = r.gmpPct != null && r.gmpPct > 50; return `<tr data-row data-name="${esc(r.name)}"><td><div class="nm"><button data-open="${esc(r.name)}">${esc(r.name)}</button></div><div class="dt">${esc(r.type)}${r.issueSizeCr ? " · " + cr(r.issueSizeCr) : ""}</div></td><td><span class="pill ${r.status.toLowerCase()}">${r.status}</span><div class="dt">${r.status === "Upcoming" ? "opens " + fmtD(r.open) : r.status === "Open" ? "closes " + fmtD(r.close) : "lists " + fmtD(r.listing)}</div></td><td class="r num ${froth ? "down" : cls(r.gmpPct)}">${pct(r.gmpPct, true)}${froth ? `<div><span class="pill now" style="height:18px;font-size:10.5px">froth</span></div>` : ""}</td><td class="r">${sbar(s.qib, "qb")}</td><td class="r">${sbar(s.retail, "rt")}</td><td class="r">${sbar(s.total, "")}</td><td class="r"><span class="score ${c}">${sc == null ? "—" : sc}</span></td><td><span class="pill ${c === "hi" ? "ok" : c === "mid" ? "soon" : c === "lo" ? "now" : "plan"}">${v}</span></td><td class="r num ${cls(r.listingGainPct != null ? r.listingGainPct : null)}">${r.listingPrice != null ? inr(r.listingPrice) + " · " + pct(r.listingGainPct, true) : r.gmpPct != null ? `<span class="dim">est.</span> ${pct(r.gmpPct, true)}` : "—"}</td></tr>`; }).join("") : `<tr><td colspan="9" class="empty">No SME issues on the board.</td></tr>`}</tbody>`;
+  const cols = [["name", "Issue"], ["status", "Status"], ["gmpPct", "GMP", 1], ["qib", "QIB", 1], ["retail", "Retail", 1], ["total", "Total", 1], ["track", "Track record", 1], ["ev", "EV / app", 1], ["listing", "Listing / est.", 1]];
+  const smeSeg = SEG(true);
+  const val = (r, k) => { if (k === "status") return order[r.status]; if (k === "track") { const T = evBand(smeSeg, "total", (r.sub || {}).total, "all"); return T && T.s.n ? T.s.pos : -1; } if (k === "ev") { const E = evOf(r, smeSeg); return E ? E.ev : -999; } if (["qib", "retail", "total"].includes(k)) return (r.sub || {})[k]; if (k === "listing") return r.listingGainPct != null ? r.listingGainPct : r.gmpPct; if (k === "name") return r.name; return r[k]; };
+  const S2 = sme.slice().sort((x, y) => { const a = val(x, smeSort.k), b = val(y, smeSort.k); const d = a == null && b == null ? 0 : a == null ? 1 : b == null ? -1 : typeof a === "string" ? a.localeCompare(b) * smeSort.dir : (smeSort.k === "status" ? (a - b) : (b - a)) * smeSort.dir; return d || order[x.status] - order[y.status] || ((y.sub || {}).total || 0) - ((x.sub || {}).total || 0); });
+  const colTip = { track: "Median listing gain of past SME issues at this book's total-subscription band, all years (evidence.segments.sme).", ev: "Chance of allotment × the gain GMP implies, less the cost of blocked money — see the Board for the full method." };
+  $("#smeScreen").innerHTML = `<thead><tr>${cols.map(([k, l, r]) => `<th class="${r ? "r" : ""} srt${smeSort.k === k ? " on" : ""}" data-sort="${k}" title="${colTip[k] || ""}">${l}${smeSort.k === k ? (smeSort.dir === 1 ? " ▾" : " ▴") : ""}</th>`).join("")}</tr></thead><tbody>${S2.length ? S2.map(r => {
+    const s = r.sub || {}, G = evBand(smeSeg, "gmp", r.gmpPct, "window"), T = evBand(smeSeg, "total", s.total, "all"), E = evOf(r, smeSeg);
+    return `<tr data-row data-name="${esc(r.name)}"><td><div class="nm"><button data-open="${esc(r.name)}">${esc(r.name)}</button></div><div class="dt">${esc(r.type)}${r.issueSizeCr ? " · " + cr(r.issueSizeCr) : ""}</div></td>
+    <td><span class="pill ${r.status.toLowerCase()}">${r.status}</span><div class="dt">${r.status === "Upcoming" ? "opens " + fmtD(r.open) : r.status === "Open" ? "closes " + fmtD(r.close) : "lists " + fmtD(r.listing)}</div></td>
+    <td class="r num">${G ? `<span class="ev ${evCls(G.s)}" title="GMP ${G.lbl}: ${evLong(G.s)}">${pct(r.gmpPct, true)}</span>` : pct(r.gmpPct, true)}</td>
+    <td class="r">${sbar(s.qib, "qb")}</td><td class="r">${sbar(s.retail, "rt")}</td><td class="r">${sbar(s.total, "")}</td>
+    <td class="r">${T && T.s.n ? `<span class="ev ${evCls(T.s)}" title="Total book ${T.lbl}, all years: ${evLong(T.s)}">${Math.round(T.s.pos)}%</span>` : `<span class="dim">—</span>`}</td>
+    <td class="r">${E ? `<span class="num ${cls(E.ev)}" title="${colTip.ev} Range ${pct(E.lo, true)} to ${pct(E.hi, true)}.">${pct(E.ev, true)}</span>` : `<span class="dim">${s.retail == null ? "book not open" : "no GMP quote"}</span>`}</td>
+    <td class="r num ${cls(r.listingGainPct != null ? r.listingGainPct : null)}">${r.listingPrice != null ? inr(r.listingPrice) + " · " + pct(r.listingGainPct, true) : r.gmpPct != null ? `<span class="dim">est.</span> ${pct(r.gmpPct, true)}` : "—"}</td></tr>`;
+  }).join("") : `<tr><td colspan="9" class="empty">No SME issues on the board.</td></tr>`}</tbody>`;
   // flow kpis + context
   const F = DATA.flows || {}, L = F.latest;
   $("#flowsSub2").textContent = L ? `latest ${fmtD(L.date)}${L.source ? " · " + L.source : ""}` : "";
