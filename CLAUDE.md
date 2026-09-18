@@ -9,7 +9,8 @@ seven rules the code enforces. `docs/MODULE-CONTRACT.md` is how a module is writ
 patterns) — check there before guessing at a field name. `docs/project/tooling-survey.md` is why each
 source was chosen; `docs/project/legacy-briefing-rules.md` has the stage-two alert rules.
 `docs/BUILD-PLAN.md` is the tiered list of what to fix, what to rebuild better, and what to add —
-work it top to bottom.
+work it top to bottom. `docs/DASHBOARD-SURVEY.md` (18 Sep) surveys the commercial products, Indian repos and
+global terminals to learn from, maps them onto roadmap A–F, and holds the open front-end stack question (§5).
 
 ## State of play (updated 17 Sep 2026)
 
