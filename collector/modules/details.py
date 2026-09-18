@@ -102,7 +102,7 @@ def row_patch(row: dict, rec: dict, today: dt.date, now: dt.datetime, gmp_before
     """Fields for one board row. A value is written only when the record has one; nothing is ever blanked."""
     p: dict = {"igId": rec["igId"], "igFetchedAt": now.replace(microsecond=0).isoformat()}
     for ours, theirs in (("allotment", "allotment"), ("listing", "listing"), ("issueSizeCr", "issueSizeCr"), ("freshCr", "freshCr"),
-                         ("ofsCr", "ofsCr"), ("isin", "isin"), ("sector", "sector"), ("anchorShares", "anchorShares")):
+                         ("ofsCr", "ofsCr"), ("refund", "refund"), ("isin", "isin"), ("sector", "sector"), ("anchorShares", "anchorShares")):
         if rec.get(theirs) not in (None, ""):
             p[ours] = rec[theirs]
     for ours, theirs in (("open", "open"), ("close", "close"), ("bandLow", "bandLow"), ("bandHigh", "bandHigh"), ("lotSize", "lotSize"),
@@ -208,7 +208,10 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None,
     on_file = Matcher(anchors, aliases)
     patches: dict[str, dict[str, dict]] = {}
     got, failed, skipped, booked, last = 0, [], 0, 0, None
-    todo = sorted(((k, r) for k, r in live if r["name"] in ids and due(r, t, now)),
+    # the sheet behind each listing (`records`, keyed by id): kept while its row is on the board, fetched at once when missing
+    on_board = {str(r["igId"]) for _, r in board if r.get("igId")} | set(ids.values())
+    records = {i: v for i, v in (prev.get("records") or {}).items() if i in on_board and isinstance(v, dict)}
+    todo = sorted(((k, r) for k, r in live if r["name"] in ids and (due(r, t, now) or ids[r["name"]] not in records)),
                   key=lambda kr: (derive_status(kr[1].get("open"), kr[1].get("close"), kr[1].get("listing"), t) != "Open", kr[1].get("open") or ""))
     for key, row in todo:
         if got + len(failed) >= MAX_DETAIL_CALLS:
@@ -231,6 +234,8 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None,
             continue
         patches.setdefault(key, {})[row["name"]] = row_patch(row, rec, t, now, was.get(row["name"], row.get("gmp")))
         booked += upsert_anchor(anchors, on_file, row["name"], rec)
+        if rec.get("sheet"):
+            records[rec["igId"]] = {"name": row["name"], "fetchedAt": now.replace(microsecond=0).isoformat(), **rec["sheet"]}
         got += 1
 
     if not got:
@@ -247,6 +252,7 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None,
     kept.sort(key=lambda a: a.get("date") or "", reverse=True)
     res.rows = patches
     res.replace["anchors"] = kept
+    res.replace["records"] = records
     res.notes.append(f"{got} records fetched for {len(ids)} identified listings ({len(live) - len(ids)} without an id); "
                      f"{booked} anchor books updated, {len(kept)} on file")
     if failed:

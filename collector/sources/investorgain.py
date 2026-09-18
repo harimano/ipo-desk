@@ -208,6 +208,66 @@ def _drop_empty(d: dict) -> dict:
     return {k: v for k, v in d.items() if v not in (None, "", [], {})}
 
 
+# ---- the sheet: what the Research screen shows for a listing nobody has written up ----------------------------------
+# The record carries its tables as HTML fragments inside the JSON. They are parsed as tables (head + rows of cell text),
+# never as prose; a fragment that has a <table> which yields no rows means the markup moved: SourceChanged.
+def _table(fragment, what: str) -> dict | None:
+    if not fragment or "<table" not in str(fragment):
+        return None
+    t = HTMLParser(str(fragment)).css_first("table")
+    cells = lambda tr, sel: [clean(c.text(separator=" ")).lstrip("−- ").strip() if sel == "td" else clean(c.text(separator=" ")) for c in tr.css(sel)]  # noqa: E731
+    head = next((cells(tr, "th") for tr in t.css("tr") if tr.css("th")), [])
+    rows = [r for r in (cells(tr, "td") for tr in t.css("tr")) if any(r)]
+    if not rows:
+        raise SourceChanged(SOURCE, f"ipo-detail-read: the {what} table has no rows", IPO_DETAIL_URL)
+    return {"head": head, "rows": rows}
+
+
+def _paras(fragment, limit: int = 10) -> list[str]:
+    if not fragment:
+        return []
+    tree = HTMLParser(str(fragment))
+    out = [clean(n.text(separator=" ")) for n in tree.css("p, li") if not n.css("p, li")]
+    out = [x for x in out if x] or [x for x in [clean(tree.text(separator=" "))] if x]
+    return out[:limit]
+
+
+def _kpi_period(g, sfx: str) -> dict:
+    return _drop_empty({"asOf": _day(g("kpi_as_of_date" + sfx)), "roe": _num(g("kpi_roe" + sfx)), "roce": _num(g("kpi_roce" + sfx)),
+                        "ronw": _num(g("kpi_ronw" + sfx)), "patMargin": _num(g("kpi_pat_margin" + sfx)),
+                        "ebitdaMargin": _num(g("kpi_ebitda" + sfx)), "debtEquity": _num(g("kpi_debt_equity" + sfx))})
+
+
+def build_sheet(raw: dict, ipo: dict) -> dict:
+    g = ipo.get
+    fin = _table(g("financial"), "financials")
+    if fin:
+        fin["title"] = next(iter(_paras(HTMLParser(str(g("financial"))).css_first("h2").html if HTMLParser(str(g("financial"))).css_first("h2") else "")), None)
+        fin["asOf"] = _day(g("latest_financial_dt"))
+    peers = _table(g("peer_analysis"), "peer comparison")
+    if peers:
+        peers["asOf"] = _day(g("peer_group_date"))
+    gmp_hist = [_drop_empty({"date": _day(q.get("gmp_date")), "gmp": _num(q.get("gmp")), "est": _num(q.get("estimated_listing_price")),
+                             "pct": _num(q.get("gmp_percent_calc")), "kostakSauda": clean(str(q.get("sub2") or "")) or None})
+                for q in (raw.get("gmpData") or []) if isinstance(q, dict) and _num(q.get("gmp")) is not None]
+    bids = (raw.get("biddingData") or {}).get("ipoBiddingData") if isinstance(raw.get("biddingData"), dict) else None
+    bidding = [_drop_empty({"asOf": _stamp(b.get("bid_date")), "qib": _num(b.get("qib")), "nii": _num(b.get("nii")), "bnii": _num(b.get("nii_big")),
+                            "snii": _num(b.get("nii_small")), "retail": _num(b.get("rii")), "employee": _num(b.get("emp")) or None,
+                            "total": _num(b.get("total")), "bidCr": _num(b.get("total_bid_amt")), "retailBidCr": _num(b.get("rii_bid_amt"))})
+               for b in (bids or []) if isinstance(b, dict)]
+    return _drop_empty({
+        "about": _paras(g("about_company")), "desc": _paras(g("company_desc"), 6), "promoters": " ".join(_paras(g("promoters"), 3)) or None,
+        "objects": _table(g("issue_objects"), "issue objects"), "financials": fin, "peers": peers,
+        "reservation": _table(g("ipo_reservation_desc"), "reservation"),
+        "kpiPeriods": [k for k in (_kpi_period(g, ""), _kpi_period(g, "_2")) if len(k) > 1],
+        "holding": _drop_empty({"promoterPre": _num(g("promoter_shareholding_pre_issue")), "promoterPost": _num(g("promoter_shareholding_post_issue")),
+                                "sharesPre": _num(g("total_shareholding_pre_issue")), "sharesPost": _num(g("total_shareholding_post_issue"))}),
+        "gmpHistory": gmp_hist, "bidding": bidding,
+        "company": _drop_empty({"address": ", ".join(x for x in (clean(str(g(f"address_{i}") or "")).strip(", ") for i in (1, 2, 3)) if x) or None,
+                                "website": strip_tags(g("website")) or None, "process": strip_tags(g("issue_process_type_desc")) or None}),
+    })
+
+
 def normalise_detail(raw) -> dict:
     """The record, flat and typed. Only fields the desk uses; prose (objects, company text) is left behind."""
     url = IPO_DETAIL_URL
@@ -282,6 +342,7 @@ def normalise_detail(raw) -> dict:
                                                    "prospectus": strip_tags(g("final_prospectus")),
                                                    "anchorLetter": strip_tags(g("anchor_investor_url")),
                                                    "allotment": strip_tags(g("ipo_allotment_url"))})}),
+        "sheet": build_sheet(raw, ipo),
         "updated": _stamp(g("last_updated")),
     }
 

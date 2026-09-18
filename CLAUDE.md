@@ -161,6 +161,12 @@ E provenance, conflict flags, source health -> D quota planner -> F alerts with 
 Data worth adding: subscription timeline per run, BSE retail application counts (true allotment odds), listing-day
 open/high/close, price around anchor lock-in expiry.
 
+**The sheet behind every listing (`records{igId}`, owned by `details`, in the `research` part, since 19 Sep 2026).** The per-IPO
+record carries its tables as HTML fragments inside the JSON; `investorgain.build_sheet` parses them AS TABLES ({head, rows}) —
+financials, peers, issue objects, reservation (with max allottees per category) — plus typed rows for GMP by day, the book
+by day, ratios for two periods, holding, company. A fragment with a <table> and no rows raises SourceChanged; a field the
+record lacks is left out. `site/src/research.js` renders it under any written sheet. The saved 2305 / 2119 fixtures were
+trimmed to 120 chars per field — `ipo-detail-2057-JINDAL-full.json` is the untrimmed one to test tables against.
 Page files: `site/src/app.js` is the db-era monolith; NEW screens go in their own file and are pulled into app.js's scope
 by `/* @include name.js */` (site/build.py). First one: `scoreboard.js` (tab 7, "Score": GMP calibration, band tables,
 sell-at-open vs hold-to-close, below-issue-price filter, sortable list — all computed from `listedPerf` + `comps`).

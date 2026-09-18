@@ -121,8 +121,9 @@ def test_politeness_open_every_run_others_every_six_hours_settled_never():
     doc = prev()
     doc["mainboard"][0]["igId"] = "2305"
     doc["mainboard"][1]["igFetchedAt"] = (NOW - dt.timedelta(hours=1)).isoformat()
+    doc["records"] = {"2119": {"name": "Kanohar Electricals", "about": ["on file"]}}
     s = FakeSession()
-    assert run(s, doc).ok and s.calls == ["detail:2305"], "ids on file: no list call; Kanohar was fetched an hour ago"
+    assert run(s, doc).ok and s.calls == ["detail:2305"], "ids on file: no list call; Kanohar was fetched an hour ago and has its sheet"
     doc["mainboard"][1]["igFetchedAt"] = (NOW - dt.timedelta(hours=7)).isoformat()
     s = FakeSession()
     run(s, doc)
@@ -168,3 +169,50 @@ def test_a_zero_gmp_with_no_trade_behind_it_is_no_quote():
     assert ig.normalise_detail(raw)["gmp"] is None
     raw["gmpData"][0].update(subject_to_sauda="9100", est_profit="0")
     assert ig.normalise_detail(raw)["gmp"]["value"] == 0.0, "a traded premium of zero is still a quote"
+
+
+# ---- the sheet behind a listing (`records`): real, untrimmed response recorded 18 Sep 2026 --------------------------------
+FULL = json.loads((FX / "ipo-detail-2057-JINDAL-full.json").read_text())
+
+
+def test_the_sheet_is_tables_and_typed_rows_never_prose_to_parse():
+    sh = ig.normalise_detail(FULL)["sheet"]
+    assert sh["financials"]["head"][0] == "Period Ended" and ["Total Income", "191.09", "675.94", "604.74", "650.88"] in sh["financials"]["rows"]
+    assert sh["peers"]["asOf"] == "2026-03-31" and any(r[0] == "Vibhor Steel Tubes Ltd" and r[2] == "23.06" for r in sh["peers"]["rows"])
+    assert sh["objects"]["rows"][0][1].startswith("Repayment") and sh["objects"]["rows"][-1][1:] == ["Total", "71.00"]
+    retail = next(r for r in sh["reservation"]["rows"] if r[0] == "Retail")
+    assert retail[-1] == "29,191" and sh["reservation"]["head"][-1] == "Max Allottees"
+    assert any(r[0] == "Anchor Investor" for r in sh["reservation"]["rows"]), "the nested rows lose their indent marks"
+    assert sh["promoters"] == "Abhishek Jindal, Sonam Jindal" and sh["about"] and sh["company"]["website"].startswith("https://")
+    assert [k["asOf"] for k in sh["kpiPeriods"]] == ["2026-03-31", "2026-06-30"] and sh["holding"]["promoterPost"] == 73.68
+    g = sh["gmpHistory"][0]
+    assert (g["date"], g["gmp"], g["kostakSauda"]) == ("2026-09-18", 26.5, "3200/44800")
+    b = sh["bidding"][-1]
+    assert (b["qib"], b["snii"], b["retail"], b["total"]) == (126.41, 372.15, 141.75, 177.03) and b["asOf"].startswith("2026-09-18T16:07")
+    nse = ig.normalise_detail(RECORDS["2305"])["sheet"]
+    assert "promoters" not in nse and "objects" not in nse, "a pure OFS with no promoter: the fields are left out, never blanked"
+
+
+def test_a_table_that_lost_its_rows_is_a_changed_source():
+    raw = copy.deepcopy(FULL)
+    raw["ipoData"][0]["financial"] = "<div><table class='fin'><thead><tr><th>Period Ended</th></tr></thead><tbody></tbody></table></div>"
+    with pytest.raises(SourceChanged):
+        ig.normalise_detail(raw)
+
+
+def test_records_are_kept_for_rows_on_the_board_and_fetched_at_once_when_missing():
+    before = prev()
+    before["records"] = {"2119": {"name": "Kanohar Electricals", "about": ["kept"]}, "999": {"name": "gone from the board"}}
+    res = run(doc=before)
+    recs = res.replace["records"]
+    assert set(recs) == {"2305", "2119"}, "a record whose row has left the board is dropped"
+    assert recs["2305"]["name"] == NSE and recs["2305"]["bidding"] and recs["2305"]["fetchedAt"].startswith("2026-09-18")
+    data = copy.deepcopy(before)
+    assemble.apply(data, res)
+    assert "sheet" not in data["mainboard"][0] and data["records"]["2305"]["gmpHistory"], "the sheet lives in `records`, not on the row"
+
+    fresh = prev()
+    fresh["mainboard"][0].update({"igId": "2305", "status": "Closed", "close": "2026-09-17", "igFetchedAt": "2026-09-18T06:00:00+05:30"})
+    s = FakeSession()
+    res = run(s, fresh)
+    assert "detail:2305" in s.calls, "fetched an hour ago, but no sheet on file: due now"

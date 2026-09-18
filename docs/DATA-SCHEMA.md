@@ -32,3 +32,7 @@ lot{name}: {shares, price, listDate}; priceHistory{name}: [[date, price]]
 offers: {asOf, rights[], buybacks[], ofs[], ncd[]}
 
 Status transitions by date: Upcoming -> Open (open <= today <= close) -> Closed (close < today < listing) -> Listed (listing <= today).
+records: {igId: {name, fetchedAt, about[], desc[], promoters?, objects?, financials?, peers?, reservation?, kpiPeriods[], holding{}, gmpHistory[], bidding[], company{}}}
+  - owned by `details`, published in the `research` part. A table is {head[], rows[][]} of cell text (+ title/asOf), parsed from the HTML table
+    the per-IPO record carries; gmpHistory: {date, gmp, est, pct, kostakSauda}; bidding: {asOf, qib, nii, bnii, snii, retail, employee?, total, bidCr, retailBidCr}.
+    Kept while the row is on the board; a row with no record on file is fetched at once. Board rows also carry `refund` (the unblock day).
