@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-18T19:41:53+05:30",
+  "asOf": "2026-09-18T21:48:15+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "18 Sep 2026, 19:41 IST",
+  "label": "18 Sep 2026, 21:48 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -39,8 +39,6 @@
   ],
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
-   "[gmp] gmp: no grey-market print found for open issue Hero Motors",
-   "[gmp] gmp: no grey-market print found for open issue Axiom Gas Engineering",
    "[listings] listings: no NSE symbol on row 'Amtech Esters' — cannot price",
    "[listings] listings: no NSE symbol on row 'Infrax Renewable' — cannot price",
    "[listings] listings: no NSE symbol on row 'Pranav Constructions' — cannot price",
@@ -62,7 +60,8 @@
    "[listings] listings: no NSE symbol on row 'Shankesh Jewellers' — cannot price",
    "[listings] listings: no NSE symbol on row 'Horizon Industrial Parks' — cannot price",
    "[listings] listings: no NSE symbol on row 'Lalithaa Jewellery Mart' — cannot price",
-   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics"
+   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
+   "[gmp] gmp: no grey-market print found for open issue Axiom Gas Engineering"
   ]
  },
  "expected": [
@@ -1569,10 +1568,10 @@
    "igId": "1688",
    "bseIpoNo": "7971",
    "bseScripCode": "4823",
-   "igFetchedAt": "2026-09-18T19:40:29+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Auto Components & Equipments",
    "anchorShares": 35714284,
-   "gmpAsOf": "2026-09-18T19:02:00+05:30",
+   "gmpAsOf": "2026-09-18T17:37:00+05:30",
    "facts": {
     "sector": "Auto Components & Equipments",
     "listingAt": "BSE, NSE",
@@ -1615,7 +1614,7 @@
     "asOf": "2026-09-17T18:10:00+05:30"
    },
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-18T19:02:00+05:30"
+   "gmpEveAsOf": "2026-09-18T17:37:00+05:30"
   },
   {
    "name": "Jindal Supreme (India)",
@@ -1632,9 +1631,9 @@
    "issueSizeCr": 124.88,
    "freshCr": 99.89,
    "ofsCr": 24.99,
-   "gmp": 26.0,
-   "gmpPct": 27.96,
-   "gmpTrend": "down",
+   "gmp": 31.0,
+   "gmpPct": 33.33,
+   "gmpTrend": "up",
    "sub": {
     "qib": 126.41,
     "nii": 327.99,
@@ -1655,10 +1654,10 @@
    "igId": "2057",
    "bseIpoNo": "7976",
    "bseScripCode": "4826",
-   "igFetchedAt": "2026-09-18T19:40:29+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Iron & Steel Products",
    "anchorShares": 4028400,
-   "gmpAsOf": "2026-09-18T19:02:00+05:30",
+   "gmpAsOf": "2026-09-18T17:37:00+05:30",
    "facts": {
     "sector": "Iron & Steel Products",
     "listingAt": "BSE, NSE",
@@ -1698,8 +1697,8 @@
     },
     "asOf": "2026-09-16T18:10:00+05:30"
    },
-   "gmpEve": 26.0,
-   "gmpEveAsOf": "2026-09-18T19:02:00+05:30"
+   "gmpEve": 31.0,
+   "gmpEveAsOf": "2026-09-18T17:37:00+05:30"
   },
   {
    "name": "SS Retail",
@@ -1716,9 +1715,9 @@
    "issueSizeCr": 500.0,
    "freshCr": 360.0,
    "ofsCr": 140.0,
-   "gmp": 145.0,
-   "gmpPct": 34.2,
-   "gmpTrend": "up",
+   "gmp": 142.0,
+   "gmpPct": 33.49,
+   "gmpTrend": "down",
    "sub": {
     "qib": 203.61,
     "nii": 143.32,
@@ -1740,10 +1739,10 @@
    "igId": "2076",
    "bseIpoNo": "7975",
    "bseScripCode": "4828",
-   "igFetchedAt": "2026-09-18T19:40:29+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Diversified Retail",
    "anchorShares": 3452829,
-   "gmpAsOf": "2026-09-18T19:02:00+05:30",
+   "gmpAsOf": "2026-09-18T17:37:00+05:30",
    "facts": {
     "sector": "Diversified Retail",
     "listingAt": "BSE, NSE",
@@ -1784,8 +1783,8 @@
     },
     "asOf": "2026-09-17T18:10:00+05:30"
    },
-   "gmpEve": 145.0,
-   "gmpEveAsOf": "2026-09-18T19:02:00+05:30"
+   "gmpEve": 142.0,
+   "gmpEveAsOf": "2026-09-18T17:37:00+05:30"
   },
   {
    "name": "NSE (National Stock Exchange of India)",
@@ -1802,8 +1801,8 @@
    "issueSizeCr": 22561.57,
    "freshCr": 0,
    "ofsCr": 22561.57,
-   "gmp": 115.0,
-   "gmpPct": 6.44,
+   "gmp": 121.0,
+   "gmpPct": 6.78,
    "gmpTrend": "up",
    "sub": {
     "qib": 1.53,
@@ -1829,10 +1828,10 @@
    "igId": "2305",
    "bseIpoNo": "7977",
    "bseScripCode": "4827",
-   "igFetchedAt": "2026-09-18T19:40:29+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Exchange and Data Platform",
    "anchorShares": 37793739,
-   "gmpAsOf": "2026-09-18T19:02:00+05:30",
+   "gmpAsOf": "2026-09-18T17:37:00+05:30",
    "facts": {
     "sector": "Exchange and Data Platform",
     "listingAt": "BSE",
@@ -1875,8 +1874,8 @@
     },
     "asOf": "2026-09-17T17:21:00+05:30"
    },
-   "gmpEve": 115.0,
-   "gmpEveAsOf": "2026-09-18T19:02:00+05:30"
+   "gmpEve": 121.0,
+   "gmpEveAsOf": "2026-09-18T17:37:00+05:30"
   },
   {
    "name": "Sonaselection India",
@@ -1916,10 +1915,10 @@
    "igId": "2059",
    "bseIpoNo": "7973",
    "bseScripCode": "4824",
-   "igFetchedAt": "2026-09-18T19:40:29+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Other Textile Products",
    "anchorShares": 4290000,
-   "gmpAsOf": "2026-09-18T19:02:00+05:30",
+   "gmpAsOf": "2026-09-18T17:37:00+05:30",
    "facts": {
     "sector": "Other Textile Products",
     "listingAt": "BSE, NSE",
@@ -1960,7 +1959,7 @@
     "asOf": "2026-09-17T05:03:00+05:30"
    },
    "gmpEve": 2.0,
-   "gmpEveAsOf": "2026-09-18T19:02:00+05:30"
+   "gmpEveAsOf": "2026-09-18T17:37:00+05:30"
   },
   {
    "name": "Varmora Granito",
@@ -1977,9 +1976,9 @@
    "issueSizeCr": 708.02,
    "freshCr": 320.0,
    "ofsCr": 388.02,
-   "gmp": 15.0,
-   "gmpPct": 10.14,
-   "gmpTrend": "flat",
+   "gmp": 13.0,
+   "gmpPct": 8.78,
+   "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2044,9 +2043,9 @@
    "issueSizeCr": 150.71,
    "freshCr": 132.62,
    "ofsCr": 18.09,
-   "gmp": 9.0,
-   "gmpPct": 6.72,
-   "gmpTrend": "flat",
+   "gmp": 30.0,
+   "gmpPct": 22.39,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2060,39 +2059,42 @@
    "igId": "2268",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T14:21:02+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Industrial Products",
    "anchorShares": 0,
-   "gmpAsOf": "2026-09-18T13:56:00+05:30",
+   "gmpAsOf": "2026-09-18T21:02:00+05:30",
    "facts": {
     "sector": "Industrial Products",
     "listingAt": "BSE, NSE",
     "kpis": {
-     "asOf": "2025-03-31",
-     "roe": 18.97,
-     "roce": 17.06,
-     "debtEquity": 0.63,
-     "ronw": 18.94,
-     "patMargin": 13.55,
-     "ebitdaMargin": 23.17,
-     "pb": 4.52,
-     "eps": 5.2,
-     "epsPost": 4.75,
-     "pe": 25.77,
-     "pePost": 28.21,
+     "asOf": "2026-03-31",
+     "roe": 22.54,
+     "roce": 19.01,
+     "debtEquity": 0.41,
+     "ronw": 22.51,
+     "patMargin": 18.69,
+     "ebitdaMargin": 27.66,
+     "pb": 3.64,
+     "eps": 7.49,
+     "epsPost": 5.84,
+     "pe": 17.89,
+     "pePost": 22.95,
      "mcapCr": 600.43,
-     "promoterPre": 51.3,
-     "promoterPost": 36.96
+     "promoterPre": 96.1,
+     "promoterPost": 71.86
     },
     "registrar": "Bigshare Services Pvt.Ltd.",
     "leadManagers": [
      "Choice Capital Advisors Pvt.Ltd."
     ],
     "docs": {
-     "drhp": "https://www.bseindia.com/corporates/download/327156/IPO%20Prior/AIILDRHP_20260331221847.pdf"
+     "drhp": "https://www.bseindia.com/corporates/download/327156/IPO%20Prior/AIILDRHP_20260331221847.pdf",
+     "rhp": "https://adroitindustries.com/Assets/pdf/Red_Herring_Prospectus.pdf"
     },
-    "asOf": "2026-09-18T09:09:00+05:30"
-   }
+    "asOf": "2026-09-18T15:58:00+05:30"
+   },
+   "gmpEve": 30.0,
+   "gmpEveAsOf": "2026-09-18T21:02:00+05:30"
   },
   {
    "name": "ArMee Infotech",
@@ -2125,7 +2127,7 @@
    "igId": "1667",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T14:21:02+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Computers Hardware & Equipments",
    "anchorShares": 0,
    "facts": {
@@ -2159,7 +2161,9 @@
     },
     "asOf": "2026-09-18T07:51:00+05:30"
    },
-   "gmpAsOf": "2026-09-18T13:57:00+05:30"
+   "gmpAsOf": "2026-09-18T21:01:00+05:30",
+   "gmpEve": 0.0,
+   "gmpEveAsOf": "2026-09-18T21:01:00+05:30"
   },
   {
    "name": "Elevate Campuses",
@@ -2192,7 +2196,7 @@
    "igId": "1917",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T14:21:02+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Real Estate Investment Trusts (REITs)",
    "anchorShares": 0,
    "facts": {
@@ -2225,7 +2229,9 @@
     },
     "asOf": "2026-09-18T08:15:00+05:30"
    },
-   "gmpAsOf": "2026-09-18T13:59:00+05:30"
+   "gmpAsOf": "2026-09-18T21:02:00+05:30",
+   "gmpEve": 15.0,
+   "gmpEveAsOf": "2026-09-18T21:02:00+05:30"
   },
   {
    "name": "Swastika Infra",
@@ -2258,10 +2264,10 @@
    "igId": "1708",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T14:21:02+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Multi Utilities",
    "anchorShares": 0,
-   "gmpAsOf": "2026-09-18T14:02:00+05:30",
+   "gmpAsOf": "2026-09-18T21:02:00+05:30",
    "facts": {
     "sector": "Multi Utilities",
     "listingAt": "BSE, NSE",
@@ -2274,9 +2280,9 @@
      "patMargin": 8.23,
      "ebitdaMargin": 14.07,
      "pb": 3.21,
-     "eps": 15.25,
+     "eps": 15.7,
      "epsPost": 12.14,
-     "pe": 12.13,
+     "pe": 11.78,
      "pePost": 15.24,
      "mcapCr": 631.22,
      "promoterPre": 76.51,
@@ -2291,8 +2297,10 @@
      "drhp": "https://www.sebi.gov.in/filings/public-issues/apr-2025/swastika-infra-limited_93170.html",
      "rhp": "https://www.sebi.gov.in/filings/public-issues/sep-2026/swastika-infra-ltd-rhp_104573.html"
     },
-    "asOf": "2026-09-18T11:34:00+05:30"
-   }
+    "asOf": "2026-09-18T15:59:00+05:30"
+   },
+   "gmpEve": 5.0,
+   "gmpEveAsOf": "2026-09-18T21:02:00+05:30"
   },
   {
    "name": "A-One Steels",
@@ -2309,8 +2317,8 @@
    "issueSizeCr": 405.0,
    "freshCr": 355.0,
    "ofsCr": 50.0,
-   "gmp": 58.0,
-   "gmpPct": 14.32,
+   "gmp": 60.0,
+   "gmpPct": 14.81,
    "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": null,
@@ -2325,10 +2333,10 @@
    "igId": "1611",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T14:21:02+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Iron & Steel Products",
    "anchorShares": 0,
-   "gmpAsOf": "2026-09-18T14:02:00+05:30",
+   "gmpAsOf": "2026-09-18T21:02:00+05:30",
    "facts": {
     "sector": "Iron & Steel Products",
     "listingAt": "BSE, NSE",
@@ -2358,7 +2366,9 @@
      "rhp": "https://www.chittorgarh.net/reports/ipo_notes/va20260912_rhp_project-ace_final.pdf"
     },
     "asOf": "2026-09-17T08:30:00+05:30"
-   }
+   },
+   "gmpEve": 60.0,
+   "gmpEveAsOf": "2026-09-18T21:02:00+05:30"
   }
  ],
  "offers": {
@@ -3900,7 +3910,7 @@
     "nii": 0.26,
     "retail": 0.58,
     "total": 0.41,
-    "asOf": "2026-09-18T18:56:00+05:30"
+    "asOf": "2026-09-18T17:52:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3915,7 +3925,7 @@
    "igId": "2016",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T19:40:29+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Auto Components & Equipments",
    "anchorShares": 1310400,
    "gmpAsOf": "2026-09-18T19:02:00+05:30",
@@ -3972,10 +3982,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.02,
-    "nii": 19.69,
-    "retail": 31.4,
-    "total": 19.93,
-    "asOf": "2026-09-18T18:56:00+05:30"
+    "nii": 19.66,
+    "retail": 31.19,
+    "total": 19.82,
+    "asOf": "2026-09-18T17:41:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3990,10 +4000,10 @@
    "igId": "2211",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T19:40:29+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Industrial Products",
    "anchorShares": 1024800,
-   "gmpAsOf": "2026-09-18T19:02:00+05:30",
+   "gmpAsOf": "2026-09-18T17:37:00+05:30",
    "facts": {
     "sector": "Industrial Products",
     "listingAt": "NSE SME",
@@ -4026,7 +4036,7 @@
     "asOf": "2026-09-18T05:02:00+05:30"
    },
    "gmpEve": 45.0,
-   "gmpEveAsOf": "2026-09-18T19:02:00+05:30"
+   "gmpEveAsOf": "2026-09-18T17:37:00+05:30"
   },
   {
    "name": "Axiom Gas Engineering",
@@ -4051,7 +4061,7 @@
     "nii": 0.55,
     "retail": 0.64,
     "total": 0.62,
-    "asOf": "2026-09-18T18:57:00+05:30"
+    "asOf": "2026-09-18T17:42:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4067,10 +4077,10 @@
    "igId": "1682",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T19:40:29+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "LPG/CNG/PNG/LNG Supplier",
    "anchorShares": 1070400,
-   "gmpAsOf": "2026-09-18T19:01:00+05:30",
+   "gmpAsOf": "2026-09-18T17:36:00+05:30",
    "facts": {
     "sector": "LPG/CNG/PNG/LNG Supplier",
     "listingAt": "NSE SME",
@@ -4103,7 +4113,7 @@
     "asOf": "2026-09-18T05:04:00+05:30"
    },
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-18T19:01:00+05:30"
+   "gmpEveAsOf": "2026-09-18T17:36:00+05:30"
   },
   {
    "name": "FX Multitech",
@@ -4469,7 +4479,7 @@
    "igId": "2008",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T14:21:02+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Digital Entertainment",
    "anchorShares": 0,
    "facts": {
@@ -4509,7 +4519,7 @@
    "bandLow": 109.0,
    "bandHigh": 115.0,
    "lotSize": 1200,
-   "issueSizeCr": 44.23,
+   "issueSizeCr": 41.95,
    "freshCr": 41.95,
    "ofsCr": null,
    "gmp": 0.0,
@@ -4528,10 +4538,10 @@
    "igId": "1982",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T14:21:02+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Logistics Solution Provider",
    "anchorShares": 0,
-   "gmpAsOf": "2026-09-18T13:57:00+05:30",
+   "gmpAsOf": "2026-09-18T20:59:00+05:30",
    "facts": {
     "sector": "Logistics Solution Provider",
     "listingAt": "NSE SME",
@@ -4559,7 +4569,9 @@
      "drhp": "https://nsearchives.nseindia.com/emerge/corporates/content/Registration_26092025175940_DRHP.pdf"
     },
     "asOf": "2026-09-18T08:49:00+05:30"
-   }
+   },
+   "gmpEve": 0.0,
+   "gmpEveAsOf": "2026-09-18T20:59:00+05:30"
   },
   {
    "name": "S.K.Offset",
@@ -4592,10 +4604,10 @@
    "igId": "2304",
    "bseIpoNo": "7984",
    "bseScripCode": "4836",
-   "igFetchedAt": "2026-09-18T14:21:02+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Packaging",
    "anchorShares": 540000,
-   "gmpAsOf": "2026-09-18T13:57:00+05:30",
+   "gmpAsOf": "2026-09-18T20:53:00+05:30",
    "facts": {
     "sector": "Packaging",
     "listingAt": "BSE SME",
@@ -4625,7 +4637,9 @@
      "rhp": "https://www.skoffset.com/investors/IPO-Documents/RHP.pdf"
     },
     "asOf": "2026-09-14T09:04:00+05:30"
-   }
+   },
+   "gmpEve": 0.0,
+   "gmpEveAsOf": "2026-09-18T20:53:00+05:30"
   },
   {
    "name": "Sai Urja Indo",
@@ -4658,10 +4672,10 @@
    "igId": "1924",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T14:21:02+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Other Consumer Services",
    "anchorShares": 586800,
-   "gmpAsOf": "2026-09-18T13:54:00+05:30",
+   "gmpAsOf": "2026-09-18T20:56:00+05:30",
    "facts": {
     "sector": "Other Consumer Services",
     "listingAt": "BSE SME",
@@ -4691,7 +4705,9 @@
      "rhp": "https://www.chittorgarh.net/reports/ipo_notes/rhp_sai-urja.pdf"
     },
     "asOf": "2026-09-17T17:30:00+05:30"
-   }
+   },
+   "gmpEve": 0.0,
+   "gmpEveAsOf": "2026-09-18T20:56:00+05:30"
   },
   {
    "name": "Unitec Fibres",
@@ -4724,7 +4740,7 @@
    "igId": "2326",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T14:21:02+05:30",
+   "igFetchedAt": "2026-09-18T21:47:19+05:30",
    "sector": "Petrochemicals",
    "anchorShares": 1107200,
    "gmpAsOf": "2026-09-18T13:57:00+05:30",
@@ -34408,124 +34424,34 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-18T19:41:53+05:30",
+  "asOf": "2026-09-18T21:48:15+05:30",
   "checks": [
    {
-    "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-09-18T19:40:28+05:30",
-    "elapsed": 2.81,
-    "calls": 5,
-    "note": "investorgain list=30 carried=12 +nse=15 +bse=11 exchange-only=0: 19 mainboard, 23 sme; 8 open, 16 upcoming"
-   },
-   {
     "area": "gmp",
-    "method": "investorgain:ok",
+    "method": "investorgain:ok, ipowatch:ok",
     "status": "ok",
     "asOf": "18-Sep 9:37",
-    "elapsed": 1.08,
-    "calls": 1,
-    "note": "gmp: 26 board rows patched via investorgain; 24 active, 12 of them matched; gmp: 6 GMP-site names not on the board: Amtech Esters (₹16, investorgain); Glass Wall Systems (₹39, investorgain); Kanohar Electricals (₹182, investorgain); Pranav Constructions (₹53, investorgain); Prasol Chemicals (₹-13, investorgain); Qualiance International (₹81, investorgain)"
+    "elapsed": 2.05,
+    "calls": 2,
+    "note": "gmp: 26 board rows patched via investorgain+ipowatch; 24 active, 12 of them matched; gmp: 6 GMP-site names not on the board: Amtech Esters (₹16, investorgain); Glass Wall Systems (₹39, investorgain); Kanohar Electricals (₹182, investorgain); Pranav Constructions (₹53, investorgain); Prasol Chemicals (₹-13, investorgain); Qualiance International (₹81, investorgain)"
    },
    {
     "area": "details",
     "method": "investorgain-list:ok, investorgain:ok",
     "status": "ok",
-    "asOf": "2026-09-18T19:40:29+05:30",
-    "elapsed": 10.46,
-    "calls": 9,
-    "note": "8 records fetched for 35 identified listings (7 without an id); 0 anchor books updated, 53 on file"
+    "asOf": "2026-09-18T21:47:19+05:30",
+    "elapsed": 11.42,
+    "calls": 19,
+    "note": "18 records fetched for 35 identified listings (7 without an id); 0 anchor books updated, 53 on file"
    },
    {
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-18T19:41:10+05:30",
-    "elapsed": 31.0,
-    "calls": 11,
+    "asOf": "2026-09-18T21:48:15+05:30",
+    "elapsed": 44.52,
+    "calls": 12,
     "note": "5/11 rows patched via nse"
-   },
-   {
-    "area": "listings",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-09-18",
-    "elapsed": 17.23,
-    "calls": 0,
-    "note": "17 names priced, 6 moved to recent, 0 history points"
-   },
-   {
-    "area": "history",
-    "method": "investorgain-566:ok, investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-09-18",
-    "elapsed": 4.02,
-    "calls": 2,
-    "note": "1323 listings since 2022 (944 SME); fetched 2026: 220; QIB on file for 80 of 379 mainboard issues"
-   },
-   {
-    "area": "evidence",
-    "method": "computed:ok",
-    "status": "ok",
-    "asOf": "2026-09-18",
-    "elapsed": 0.04,
-    "calls": 0,
-    "note": "1323 listings; windows: mainboard 131, SME 238; 5 warnings"
-   },
-   {
-    "area": "parents",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-09-18",
-    "elapsed": 11.16,
-    "calls": 0,
-    "note": "5/5 parent prices; 27/32 investor stocks priced"
-   },
-   {
-    "area": "filings",
-    "method": "bse_ann:ok, sebi:ok",
-    "status": "ok",
-    "asOf": "2026-09-18",
-    "elapsed": 5.4,
-    "calls": 10,
-    "note": "bse_ann: 8/8 parents answered, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; expected: 26 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; 0 rows patched, 33 kept previous stage"
-   },
-   {
-    "area": "offers",
-    "method": "bse:ok",
-    "status": "ok",
-    "asOf": "2026-09-18",
-    "elapsed": 1.25,
-    "calls": 1,
-    "note": "bse rows=10: 11 rights, 12 buybacks, 0 ofs, 2 ncd; 10 refreshed, 0 new, 0 closed windows dropped"
-   },
-   {
-    "area": "flows",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-09-18",
-    "elapsed": 0.54,
-    "calls": 1,
-    "note": "2026-09-18 already in history; FII +600 / DII +1,020 Cr"
-   },
-   {
-    "area": "deals",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-09-18",
-    "elapsed": 0.76,
-    "calls": 2,
-    "note": "bulk.csv: 225 deals; block.csv: 5 deals; 0 tracked-investor deals of 230; 13 patterns"
-   },
-   {
-    "area": "news",
-    "method": "rss:ok",
-    "status": "ok",
-    "asOf": "2026-09-18T18:08:31+05:30",
-    "elapsed": 2.48,
-    "calls": 3,
-    "note": "business-standard: 7/35 primary-market items; economic-times: 5/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 12 fresh, 25 kept"
    },
    {
     "area": "research layer",
@@ -34537,7 +34463,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "88s, 45 calls, 13/13 modules ok"
+    "note": "58s, 33 calls, 3/3 modules ok"
    }
   ],
   "discrepancies": [
