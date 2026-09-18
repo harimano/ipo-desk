@@ -148,6 +148,11 @@ E provenance, conflict flags, source health -> D quota planner -> F alerts with 
 Data worth adding: subscription timeline per run, BSE retail application counts (true allotment odds), listing-day
 open/high/close, price around anchor lock-in expiry.
 
+Page files: `site/src/app.js` is the db-era monolith; NEW screens go in their own file and are pulled into app.js's scope
+by `/* @include name.js */` (site/build.py). First one: `scoreboard.js` (tab 7, "Score": GMP calibration, band tables,
+sell-at-open vs hold-to-close, below-issue-price filter, sortable list — all computed from `listedPerf` + `comps`).
+No React / Node: decided 19 Sep 2026 (stay vanilla, modularise as we touch things).
+
 ## Rules for working here
 
 - Never edit `latest.json` by hand, never commit it or `data/history/` on `main`, and never push to the

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import json
 import pathlib
+import re
 import shutil
 import sys
 
@@ -42,6 +43,8 @@ HEAD = """<!DOCTYPE html>
 def main() -> int:
     inner = (SRC / "inner.html").read_text(encoding="utf8")
     app = (SRC / "app.js").read_text(encoding="utf8")
+    # new screens live in their own files; `/* @include name.js */` inside app.js pulls one into its scope
+    app = re.sub(r"/\* @include ([\w.-]+) \*/", lambda m: (SRC / m.group(1)).read_text(encoding="utf8"), app)
     boot = (SRC / "boot.js").read_text(encoding="utf8")
     latest_path = ROOT / "data" / "latest.json"
     if not latest_path.exists():

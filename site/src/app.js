@@ -34,7 +34,8 @@ function nextRun() {                                        // the collector's t
 const seenOf = D => { const o = {}; [...(D.mainboard || []), ...(D.sme || [])].forEach(b => { o[b.name] = { g: b.gmp == null ? null : b.gmp, s: b.sub && b.sub.total != null ? b.sub.total : null }; }); return o; };
 let LIVE = null;                                            // {asOf, preopen[], timeline{}} from the five-minute loop
 let CHG = {};                                               // name -> {g:[was, now], s:[was, now]} for this session
-function noteChanges(was, D) { const now = seenOf(D); Object.keys(now).forEach(n => { const a = was[n]; if (!a) return; const c = CHG[n] || {};
+let NEWN = [];
+function noteChanges(was, D) { const now = seenOf(D); if (Object.keys(was).length) Object.keys(now).forEach(n => { if (!was[n] && !NEWN.includes(n)) NEWN.push(n); }); Object.keys(now).forEach(n => { const a = was[n]; if (!a) return; const c = CHG[n] || {};
   if (a.g != null && now[n].g != null && a.g !== now[n].g) c.g = [a.g, now[n].g]; if (a.s != null && now[n].s != null && a.s !== now[n].s) c.s = [a.s, now[n].s];
   if (c.g || c.s) CHG[n] = c; }); }
 const delta = (pair, fmt) => pair ? `<div class="dt chgd ${pair[1] > pair[0] ? "up" : "down"}">${pair[1] > pair[0] ? "▲" : "▼"} from ${fmt(pair[0])}</div>` : "";
@@ -104,7 +105,7 @@ let screen = "today";
 function show(id) {
   screen = id; $$("#nav button").forEach(b => b.setAttribute("aria-selected", String(b.dataset.s === id)));
   $$(".screen").forEach(p => p.hidden = p.id !== "s-" + id);
-  store.set("ipo-tab", id); cursor = -1; if (id === "board") drawCharts(); if (id === "market") renderMarket(); if (id === "book") drawPosCharts(); window.scrollTo(0, 0);
+  store.set("ipo-tab", id); cursor = -1; if (id === "board") drawCharts(); if (id === "market") renderMarket(); if (id === "book") drawPosCharts(); if (id === "score") renderScore(); window.scrollTo(0, 0);
 }
 $("#nav").addEventListener("click", e => { const b = e.target.closest("button[data-s]"); if (b) show(b.dataset.s); });
 
@@ -147,7 +148,9 @@ function renderToday() {
       <div class="ttl">${esc(p.name)} — ${p.status === "Close" ? "opens at" : "indicating"} ${inr(p.iep)} (${pct(p.pct, true)})</div>
       <div class="desc">Issue price ${inr(p.base)}${imp != null ? ` · the grey market had implied ${pct(imp, true)}` : ""}${p.qty ? ` · ${Math.round(p.qty / 1e5) / 10} M shares matched` : ""} · ${p.asOf ? "as of " + p.asOf.slice(11, 16) + " IST" : ""}. Trading starts 10:00.</div></div>
       <div class="r"><div class="big mono ${cls(p.pct)}">${pct(p.pct, true)}</div></div></div>`; }).join("");
-  $("#queue").innerHTML = pre + (top.length ? top.map((p, i) => `<div class="card q${i === 0 ? " lead" : ""}" data-row data-id="${esc(p.id)}" data-name="${esc(nm(p))}">
+  const moves = Object.entries(CHG).flatMap(([n, c]) => [c.s ? `${esc(n)} book ${c.s[0]}x → <b>${c.s[1]}x</b>` : null, c.g ? `${esc(n)} GMP ${inr(c.g[0])} → <b class="${c.g[1] > c.g[0] ? "up" : "down"}">${inr(c.g[1])}</b>` : null]).filter(Boolean);
+  const since = moves.length || NEWN.length ? `<div class="card" style="padding:10px 16px;margin-bottom:12px"><span class="lbl">Since you last looked</span> &nbsp;<span style="font-size:13px">${[...moves.slice(0, 6), NEWN.length ? "new on the board: " + NEWN.slice(0, 6).map(esc).join(", ") + (NEWN.length > 6 ? ` +${NEWN.length - 6}` : "") : null].filter(Boolean).join(" · ")}${moves.length > 6 ? ` · +${moves.length - 6} more` : ""}</span></div>` : "";
+  $("#queue").innerHTML = since + pre + (top.length ? top.map((p, i) => `<div class="card q${i === 0 ? " lead" : ""}" data-row data-id="${esc(p.id)}" data-name="${esc(nm(p))}">
     <div class="l"><div class="tags"><span class="pill ${p.tag[0]}">${esc(p.tag[1])}</span><span class="lbl">${esc(p.lbl)}</span></div><div class="ttl">${esc(p.ttl)}</div><div class="desc">${p.desc}</div></div>
     <div class="r"><div class="big mono ${p.bigCls || ""}">${esc(p.big || "")}</div><div class="acts">${acts(p)}</div></div></div>`).join("") : `<div class="card empty">Nothing urgent. ${later.length ? "The rest is below." : "Snoozed and done items are in Book."}</div>`)
     + (later.length ? `<div class="card"><div class="ch">Everything else <span class="sub">${later.length} item${later.length > 1 ? "s" : ""}</span></div>${later.map(p => `<div class="q" data-row data-id="${esc(p.id)}" data-name="${esc(nm(p))}" style="padding:10px 18px;border-top:1px solid var(--line)"><div class="l"><div class="tags"><span class="pill ${p.tag[0]}">${esc(p.tag[1])}</span><span class="lbl">${esc(p.lbl)}</span><span style="font-weight:700">${esc(p.ttl)}</span></div><div class="desc" style="font-size:12.5px">${p.desc}</div></div><div class="r"><div class="acts">${acts(p)}</div></div></div>`).join("")}</div>` : "");
@@ -223,7 +226,7 @@ let bfilter = "now";
 const subBar = (l, v) => { const w = v == null ? 0 : Math.min(100, Math.log10(1 + v) / Math.log10(301) * 100); return `<div class="sb"><span class="l">${l}</span><span class="bar"><i class="${v == null ? "" : v < 1 ? "lo" : v >= 10 ? "hi" : ""}" style="width:${w}%"></i></span><span class="n num">${xx(v)}</span></div>`; };
 // ---- evidence: what this desk's own history says about a signal. Facts with their sample size, never a verdict. ----
 const QIB_EDGES = [0, 5, 20, 50, 100, Infinity], GMP_EDGES = [-Infinity, 0.01, 10, 30, Infinity];
-const edgeLbl = (e, i, u) => e[i] === -Infinity || (e[i] === 0 && u === "x") ? `under ${e[i + 1]}${u}` : e[i + 1] === Infinity ? `over ${e[i]}${u}` : `${e[i]}–${e[i + 1]}${u}`;
+const edgeLbl = (e, i, u) => e[i] === -Infinity ? "zero or below" : (e[i] === 0 && u === "x") ? `under ${e[i + 1]}${u}` : e[i + 1] === Infinity ? `over ${e[i]}${u}` : `${e[i]}–${e[i + 1]}${u}`;
 const bandOf = (v, e) => { for (let i = 0; i < e.length - 1; i++) if (v >= e[i] && v < e[i + 1]) return i; return -1; };
 const median = a => { const s = a.slice().sort((x, y) => x - y), m = s.length >> 1; return s.length ? (s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2) : null; };
 const summarise = rets => rets.length ? { n: rets.length, pos: Math.round(100 * rets.filter(r => r > 0).length / rets.length), med: median(rets) } : null;
@@ -234,23 +237,24 @@ function evidence() {
   const L = (DATA.listedPerf || []).filter(p => p.issue && p.gmpImplied && p.listing).map(p => ({ name: p.name, sme: !!p.sme, g: 100 * (p.gmpImplied - p.issue) / p.issue, ret: 100 * (p.listing - p.issue) / p.issue }));
   const qibByName = {}; C.forEach(c => { if (typeof c.qib === "number") qibByName[c.name] = c.qib; });
   const bands = (rows, key, edges) => edges.slice(0, -1).map((_, i) => summarise(rows.filter(r => typeof r[key] === "number" && bandOf(r[key], edges) === i).map(r => r.ret)));
-  const side = sme => { const c = C.filter(x => !!x.sme === sme), l = L.filter(x => x.sme === sme);
+  const yr = String(new Date(DATA.meta.asOf).getFullYear()), yearOf = {}; (DATA.listedPerf || []).forEach(p => yearOf[p.name] = String(p.date || "").slice(0, 4));
+  const side = (sme, only) => { const c = C.filter(x => !!x.sme === sme && (!only || String(x.year) === only)), l = L.filter(x => x.sme === sme && (!only || yearOf[x.name] === only));
     return { qib: bands(c, "qib", QIB_EDGES), total: bands(c, "total", QIB_EDGES), gmp: bands(l, "g", GMP_EDGES),
       both: (qi, gi) => summarise(l.filter(x => qibByName[x.name] != null && bandOf(qibByName[x.name], QIB_EDGES) === qi && bandOf(x.g, GMP_EDGES) === gi).map(x => x.ret)),
       totalGmp: (ti, gi) => { const tot = {}; c.forEach(x => { if (typeof x.total === "number") tot[x.name] = x.total; }); return summarise(l.filter(x => tot[x.name] != null && bandOf(tot[x.name], QIB_EDGES) === ti && bandOf(x.g, GMP_EDGES) === gi).map(x => x.ret)); } }; };
   const years = C.map(c => c.year).filter(Boolean);
-  EVID = { key: (DATA.comps || []).length + ":" + (DATA.listedPerf || []).length, main: side(false), sme: side(true), span: years.length ? Math.min(...years) + "–" + String(Math.max(...years)).slice(2) : "" };
+  EVID = { key: (DATA.comps || []).length + ":" + (DATA.listedPerf || []).length, main: side(false), sme: side(true), mainY: side(false, yr), smeY: side(true, yr), yr, span: years.length ? Math.min(...years) + "–" + String(Math.max(...years)).slice(2) : "" };
   return EVID;
 }
 const spark = pts => { if (!pts || pts.length < 3) return ""; const v = pts.map(p => p[1]), lo = Math.min(...v), hi = Math.max(...v), W = 150, H = 22;
   const xy = v.map((y, i) => `${(i / (v.length - 1) * W).toFixed(1)},${(H - 2 - (hi > lo ? (y - lo) / (hi - lo) : .5) * (H - 4)).toFixed(1)}`).join(" ");
   return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="total subscription through today"><polyline points="${xy}" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><div class="dt">today ${pts[0][0]} → ${pts[pts.length - 1][0]} · ${v[0]}x → ${v[v.length - 1]}x</div>`; };
 const evCls = s => !s || s.n < 5 ? "na" : s.pos >= 85 ? "hi" : s.pos >= 60 ? "mid" : "lo";
-const evTxt = s => !s || s.n < 5 ? "too few past cases" : `${s.pos}% of ${s.n} listed positive · median ${pct(s.med, true)}`;
+const evTxt = (s, y, yr) => !s || s.n < 5 ? "too few past cases" : `${s.pos}% of ${s.n} listed positive · median ${pct(s.med, true)}` + (y && y.n >= 5 && y.n < s.n ? ` · ${yr}: ${y.pos}% of ${y.n}` : "");
 const istNow = () => new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000);
 
 function boardRow(b) {
-  const isSme = /SME/i.test(b.type), g = expGain(b), c = lotCost(b), est = b.bandHigh != null && b.gmp != null ? b.bandHigh + b.gmp : null, EV = evidence(), E = isSme ? EV.sme : EV.main;
+  const isSme = /SME/i.test(b.type), g = expGain(b), c = lotCost(b), est = b.bandHigh != null && b.gmp != null ? b.bandHigh + b.gmp : null, EV = evidence(), E = isSme ? EV.sme : EV.main, EY = isSme ? EV.smeY : EV.mainY;
   const lastDay = b.status === "Open" && days(b.close) === 0, late = istNow().getHours() >= 14;
   const when = b.status === "Upcoming" ? `Opens ${fmtD(b.open)}${b.close ? "–" + fmtD(b.close) : ""}`
     : b.status === "Open" ? (lastDay ? `<b class="down">Closes today, 5 pm</b><div class="dt">${late ? "the book is close to final" : "QIBs bid late — the picture firms after 2 pm"}</div>` : `Closes ${fmtD(b.close)} · ${rel(days(b.close))}<div class="dt">QIBs bid on the last afternoon — early QIB figures say little</div>`)
@@ -263,9 +267,9 @@ function boardRow(b) {
   const qibCell = (isSme ? S0.total : S0.qib) == null ? `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`
     : early ? `<span class="num dim">${isSme ? S0.total : S0.qib}x</span><div class="dt">${isSme ? "total" : "QIB"} so far — too early to read</div>`
     : useQib ? `<span class="ev ${evCls(E.qib[qi])} num" title="Final QIB book ${edgeLbl(QIB_EDGES, qi, "x")}: ${evTxt(E.qib[qi])}">${S0.qib}x</span><div class="dt">QIB · ${evTxt(E.qib[qi])}</div>`
-    : `<span class="ev ${evCls(totalEv)} num" title="Final total book ${edgeLbl(QIB_EDGES, ti, "x")} (${isSme ? "SME" : "mainboard"}, ${EV.span}): ${evTxt(totalEv)}">${S0.total}x</span><div class="dt">total book · ${evTxt(totalEv)}</div>`;
+    : `<span class="ev ${evCls(totalEv)} num" title="Final total book ${edgeLbl(QIB_EDGES, ti, "x")} (${isSme ? "SME" : "mainboard"}, ${EV.span}): ${evTxt(totalEv)}">${S0.total}x</span><div class="dt">total book · ${evTxt(totalEv, EY.total[ti], EV.yr)}</div>`;
   const gmpCell = b.status === "Listed" ? `<span class="${cls(b.listingGainPct)}">${inr(b.listingPrice)} · ${pct(b.listingGainPct, true)}</span><div class="dt">listing</div>`
-    : b.gmp != null ? `<span class="ev ${evCls(E.gmp[gi])} num" title="GMP ${edgeLbl(GMP_EDGES, gi, "%")}: ${evTxt(E.gmp[gi])}">${pct(b.gmpPct, true)}</span> <span class="dim">${inr(b.gmp)}</span> ${b.gmpTrend === "up" ? "▲" : b.gmpTrend === "down" ? "▼" : ""}${delta((CHG[b.name] || {}).g, inr)}<div class="dt">${evTxt(E.gmp[gi])}${hasTime(b.gmpAsOf) ? " · " + ago(b.gmpAsOf) : ""}</div>`
+    : b.gmp != null ? `<span class="ev ${evCls(E.gmp[gi])} num" title="GMP ${edgeLbl(GMP_EDGES, gi, "%")}: ${evTxt(E.gmp[gi])}">${pct(b.gmpPct, true)}</span> <span class="dim">${inr(b.gmp)}</span> ${b.gmpTrend === "up" ? "▲" : b.gmpTrend === "down" ? "▼" : ""}${delta((CHG[b.name] || {}).g, inr)}<div class="dt">${evTxt(E.gmp[gi], EY.gmp[gi], EV.yr)}${hasTime(b.gmpAsOf) ? " · " + ago(b.gmpAsOf) : ""}</div>`
     : `<span class="dim">no quote</span>`;
   const p1 = S0.retail != null ? Math.min(1, 1 / Math.max(S0.retail, 1e-9)) : null, wg = g != null && p1 != null ? g * p1 : null;
   const oddsCell = b.status === "Listed" || g == null ? `<span class="dim">—</span>`
@@ -695,7 +699,7 @@ document.addEventListener("keydown", e => {
   if (e.metaKey || e.ctrlKey || e.altKey) return;
   const k = e.key;
   if (k === "/") { e.preventDefault(); openCmd(); return; }
-  if (/^[1-6]$/.test(k)) { show(["today", "pipe", "board", "market", "research", "book"][+k - 1]); return; }
+  if (/^[1-7]$/.test(k)) { show(["today", "pipe", "board", "market", "research", "book", "score"][+k - 1]); return; }
   if (k === "j" || k === "ArrowDown") { e.preventDefault(); setCursor(cursor + 1); return; }
   if (k === "k" || k === "ArrowUp") { e.preventDefault(); setCursor(cursor - 1); return; }
   if (k === "Escape") { if (screen === "pipe" && pipeSel) { pipeSel = null; renderPipe(); } cursor = -1; rows().forEach(r => r.classList.remove("cur")); return; }
@@ -711,7 +715,8 @@ document.addEventListener("keydown", e => {
 });
 
 /* ================= BOOT ================= */
-function renderAll() { renderTape(); renderToday(); renderPipe(); renderBoard(); renderBook(); }
+/* @include scoreboard.js */
+function renderAll() { renderTape(); renderToday(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); }
 $("#foot").innerHTML = `${esc(DATA.meta.quotaSourceNote || "")}${DATA.meta.marketNotes && DATA.meta.marketNotes.length ? "<br>" + DATA.meta.marketNotes.map(esc).join("<br>") : ""}${DATA.meta.unresolved && DATA.meta.unresolved.length ? `<br>Unverified this cycle: ${esc(DATA.meta.unresolved.join(", "))}.` : ""}<br>Aggregated public data and analytical synthesis with both sides shown — not investment advice. Nothing here places orders. Press <b>?</b> for keys.`;
 noteChanges(store.get("ipo-seen", {}) || {}, DATA);
 try { renderAll(); renderResearchSelect(); liveText(); oldTags(); } catch (err) { document.querySelector("main").insertAdjacentHTML("afterbegin", `<div class="card" style="padding:14px 18px;border-color:var(--down);margin-bottom:16px"><b class="down">The page hit an error while rendering.</b> <span class="dim">${esc(err && err.message)}</span></div>`); console.error(err); }
@@ -740,7 +745,7 @@ function liveText() { const el = $("#liveTxt"); if (!el) return; const mins = (D
   const lv = LIVE && LIVE.asOf && (Date.now() - new Date(LIVE.asOf)) < 20 * 60000;
   el.textContent = (mins > 36 * 60 ? "Stale · " : "Live · ") + (lv ? "book " + ago(LIVE.asOf) + " · full run " + ago(DATA.meta.asOf) : "updated " + ago(DATA.meta.asOf)) + (nx ? " · next " + nx + " IST" : ""); el.parentElement.classList.toggle("stale", mins > 36 * 60); }
 setInterval(liveText, 30000);
-const savedTab = store.get("ipo-tab", "today"); show(["today", "pipe", "board", "market", "research", "book"].includes(savedTab) ? savedTab : "today");
+const savedTab = store.get("ipo-tab", "today"); show(["today", "pipe", "board", "market", "research", "book", "score"].includes(savedTab) ? savedTab : "today");
 
 /* Swap in freshly fetched data without reloading the page or touching local state
    (starred names, held parents, applications and tasks all live in localStorage). */
