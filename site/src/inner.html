@@ -69,6 +69,13 @@ h2 { font-size:15px; font-weight:800; letter-spacing:-.01em; }
 .tape-in .t { display:inline-flex; gap:6px; align-items:baseline; } .tape-in .t b { color:var(--ink); font-weight:700; }
 .tape-in .asof { margin-left:auto; color:var(--ink-3); }
 .tape-in .asof.stale { color:var(--amber); font-weight:700; }
+.livedot { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--up); margin-right:6px; vertical-align:1px; animation:livepulse 2.4s ease-in-out infinite; }
+.asof.stale .livedot { background:var(--amber); animation:none; }
+@keyframes livepulse { 0%,100% { opacity:1; } 50% { opacity:.35; } }
+tr.moved { animation:movedflash 2.2s ease-out 1; }
+@keyframes movedflash { 0% { background:var(--accent-soft, rgba(120,140,255,.18)); } 100% { background:transparent; } }
+.chgd { font-weight:700; } .chgd.up { color:var(--up); } .chgd.down { color:var(--down); }
+.oldtag { font-size:11px; font-weight:700; color:var(--amber); background:var(--amber-soft); padding:1px 7px; border-radius:9px; margin-left:8px; vertical-align:2px; }
 .tape-in .asof { cursor:pointer; } .tape-in .asof:hover { color:var(--accent); text-decoration:underline; }
 .tape-in .runnow { margin-left:12px; color:var(--ink-3); font-weight:700; text-decoration:none; white-space:nowrap; } .tape-in .runnow:hover { color:var(--accent); }
 #refreshPill { position:fixed; left:50%; bottom:28px; transform:translateX(-50%); z-index:61; height:34px; padding:0 16px; border-radius:17px; font-size:13px; font-weight:700; border:1px solid var(--line-2); background:var(--surface); color:var(--ink); box-shadow:0 4px 16px rgba(0,0,0,.14); }
@@ -330,7 +337,7 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
   </section>
 
   <section class="screen" id="s-pipe" hidden>
-    <div class="sec-h" style="margin-top:0"><h2>Subsidiary-IPO pipeline</h2><span class="sub">buy one parent share the moment the DRHP is filed · ⏎ opens a name · <kbd>*</kbd> star · <kbd>h</kbd> parent held</span>
+    <div class="sec-h" style="margin-top:0"><h2>Subsidiary-IPO pipeline</h2><span id="pipeOld"></span><span class="sub">buy one parent share the moment the DRHP is filed · ⏎ opens a name · <kbd>*</kbd> star · <kbd>h</kbd> parent held</span>
       <span class="right legend"><span><i style="background:var(--accent)"></i>parent not held</span><span><i style="background:var(--up)"></i>covered</span><span><i style="background:var(--down)"></i>approval lapsing</span><span><i style="background:var(--line-2)"></i>no quota / watch</span></span></div>
     <div class="pipe-lanes" id="lanes"></div>
     <div class="sec" id="pipeDetailWrap" hidden><div class="card detail" id="pipeDetail"></div></div>
@@ -387,7 +394,7 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
       <div class="acards" id="anchorCards"></div>
       <details class="more"><summary>How the anchor score works · past books</summary><div id="anchorHow"></div></details></div>
 
-    <div class="sec"><div class="sec-h"><h2>Superinvestors</h2><span class="sub">tracked big-money names · track record = price move since each disclosed buy</span><span class="right legend"><span><i style="background:var(--up)"></i>fresh / add</span><span><i style="background:var(--down)"></i>exit / trim</span><span><i style="background:var(--lav)"></i>other</span></span></div>
+    <div class="sec"><div class="sec-h"><h2>Superinvestors</h2><span id="invOld"></span><span class="sub">tracked big-money names · track record = price move since each disclosed buy</span><span class="right legend"><span><i style="background:var(--up)"></i>fresh / add</span><span><i style="background:var(--down)"></i>exit / trim</span><span><i style="background:var(--lav)"></i>other</span></span></div>
       <div class="wl" id="watchlist"></div>
       <div class="pf" id="portfolios" style="margin-top:12px"></div>
       <div class="grid g2" style="margin-top:16px">

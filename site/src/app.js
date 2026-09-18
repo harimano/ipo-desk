@@ -20,6 +20,24 @@ const cr = n => n == null ? "—" : "₹" + Number(n).toLocaleString("en-IN", { 
 const pct = (n, sign) => n == null ? "—" : ((sign && n > 0) ? "+" : "") + Number(n).toFixed(1) + "%";
 const xx = n => n == null ? "—" : Number(n).toFixed(2) + "x";
 const cls = n => n == null ? "dim" : n > 0 ? "up" : n < 0 ? "down" : "";
+// ---- freshness: how old is a number, when is the next run, what moved since this browser last looked ----------
+const ago = s => { if (!s) return ""; const x = new Date(s); if (isNaN(x)) return ""; const m = Math.max(0, Math.round((Date.now() - x) / 60000));
+  return m < 1 ? "just now" : m < 60 ? m + " min ago" : m < 1440 ? Math.round(m / 60) + " h ago" : x.toLocaleDateString("en-IN", { day: "numeric", month: "short" }); };
+const hasTime = s => /T\d{2}:\d{2}/.test(String(s || ""));
+const RUNS_IST = [[6, 43, 0]].concat([9, 10, 11, 12, 13, 14, 15, 16, 17].flatMap(h => [[h, 7, 1], [h, 37, 1]])).concat([[18, 13, 0]]).filter(r => !(r[0] === 9 && r[1] === 7));   // [h, m, weekdaysOnly]
+function nextRun() {                                        // the collector's timetable, in IST whatever the viewer's zone
+  const ist = new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000);
+  for (let add = 0; add < 4; add++) { const dte = new Date(ist.getFullYear(), ist.getMonth(), ist.getDate() + add), wk = dte.getDay() % 6 !== 0;
+    for (const [h, m, wd] of RUNS_IST) { if (wd && !wk) continue; const at = new Date(dte.getFullYear(), dte.getMonth(), dte.getDate(), h, m);
+      if (at > ist) return (add === 0 ? "" : add === 1 ? "tomorrow " : at.toLocaleDateString("en-IN", { weekday: "short" }) + " ") + String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0"); } }
+  return ""; }
+const seenOf = D => { const o = {}; [...(D.mainboard || []), ...(D.sme || [])].forEach(b => { o[b.name] = { g: b.gmp == null ? null : b.gmp, s: b.sub && b.sub.total != null ? b.sub.total : null }; }); return o; };
+let CHG = {};                                               // name -> {g:[was, now], s:[was, now]} for this session
+function noteChanges(was, D) { const now = seenOf(D); Object.keys(now).forEach(n => { const a = was[n]; if (!a) return; const c = CHG[n] || {};
+  if (a.g != null && now[n].g != null && a.g !== now[n].g) c.g = [a.g, now[n].g]; if (a.s != null && now[n].s != null && a.s !== now[n].s) c.s = [a.s, now[n].s];
+  if (c.g || c.s) CHG[n] = c; }); }
+const delta = (pair, fmt) => pair ? `<div class="dt chgd ${pair[1] > pair[0] ? "up" : "down"}">${pair[1] > pair[0] ? "▲" : "▼"} from ${fmt(pair[0])}</div>` : "";
+const oldTag = (iso, days) => { const x = iso ? new Date(iso) : null; return x && !isNaN(x) && (Date.now() - x) / 864e5 > days ? ` <span class="oldtag" title="not refreshed by the collector since then">as of ${fmtD(iso)}</span>` : ""; };
 const rel = n => n == null ? "" : n === 0 ? "today" : n === 1 ? "tomorrow" : n > 0 ? `in ${n} days` : `${-n} days ago`;
 const sgn = n => n == null ? "—" : (n >= 0 ? "+" : "−") + inr0(Math.abs(n));
 
@@ -201,14 +219,14 @@ function boardRow(b) {
   const isSme = /SME/i.test(b.type), g = expGain(b), c = lotCost(b), est = b.bandHigh != null && b.gmp != null ? b.bandHigh + b.gmp : null;
   const when = b.status === "Upcoming" ? `Opens ${fmtD(b.open)}${b.close ? "–" + fmtD(b.close) : ""}` : b.status === "Open" ? `Closes ${fmtD(b.close)} · <span class="${days(b.close) <= 1 ? "down" : ""}">${rel(days(b.close))}</span>` : b.status === "Closed" ? `Lists ${fmtD(b.listing)} · ${rel(days(b.listing))}` : `Listed ${fmtD(b.listing)}`;
   const band = b.bandLow != null && b.bandHigh != null && b.bandLow !== b.bandHigh ? `${inr(b.bandLow)}–${inr(b.bandHigh)}` : b.bandHigh != null ? inr(b.bandHigh) : "TBA";
-  return `<tr data-row data-name="${esc(b.name)}"><td><button class="tg star${S.interest.has(b.name) ? " on" : ""}" data-star="${esc(b.name)}">★</button></td>
+  return `<tr class="${CHG[b.name] ? "moved" : ""}" data-row data-name="${esc(b.name)}"><td><button class="tg star${S.interest.has(b.name) ? " on" : ""}" data-star="${esc(b.name)}">★</button></td>
     <td><div class="nm"><button data-open="${esc(b.name)}">${esc(b.name)}</button></div><div class="dt">${esc(b.type)}${b.issueSizeCr ? " · " + cr(b.issueSizeCr) : ""}${b.shareholderQuota && b.shareholderQuota.parent ? ` · <span class="up">quota via ${esc(b.shareholderQuota.parent)}</span>` : ""}${b.status !== "Listed" ? " " + anchorChip(b.name) : ""}</div></td>
     <td><span class="pill ${b.status.toLowerCase()}">${b.status}</span><div class="dt" style="margin-top:3px">${when}</div></td>
     <td class="num">${band}<div class="dt">${b.lotSize ? b.lotSize + " sh" : "lot TBA"}</div></td>
     <td class="r num">${c ? inr0(c) : "—"}</td>
-    <td class="r num">${b.status === "Listed" ? `<span class="${cls(b.listingGainPct)}">${inr(b.listingPrice)} · ${pct(b.listingGainPct, true)}</span>` : b.gmp != null ? `<span class="${cls(b.gmp)}">${inr(b.gmp)} · ${pct(b.gmpPct, true)}</span> ${b.gmpTrend === "up" ? "▲" : b.gmpTrend === "down" ? "▼" : ""}<div class="dt">est. ${inr(est)}</div>` : "—"}</td>
+    <td class="r num">${b.status === "Listed" ? `<span class="${cls(b.listingGainPct)}">${inr(b.listingPrice)} · ${pct(b.listingGainPct, true)}</span>` : b.gmp != null ? `<span class="${cls(b.gmp)}">${inr(b.gmp)} · ${pct(b.gmpPct, true)}</span> ${b.gmpTrend === "up" ? "▲" : b.gmpTrend === "down" ? "▼" : ""}<div class="dt">est. ${inr(est)}</div>` : "—"}${b.status !== "Listed" && b.gmp != null ? delta((CHG[b.name] || {}).g, inr) + (hasTime(b.gmpAsOf) ? `<div class="dt">${ago(b.gmpAsOf)}</div>` : "") : ""}</td>
     <td class="r num ${cls(g)}">${g != null && b.status !== "Listed" ? sgn(g) : isSme && b.sub && b.sub.total != null ? smeScoreCell(b) : "—"}</td>
-    <td style="min-width:200px">${b.sub && b.sub.total != null ? (isSme ? subBar("Total", b.sub.total) : subBar("QIB", b.sub.qib) + subBar("NII", b.sub.nii) + subBar("Retail", b.sub.retail) + subBar("Total", b.sub.total)) + `<div class="dt">${b.sub.retail != null ? "retail odds " + odds(b.sub.retail) : ""}${b.sub.asOf ? " · as of " + fmtD(b.sub.asOf) + fmtT(b.sub.asOf) : ""}</div>` : `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`}</td></tr>`;
+    <td style="min-width:200px">${b.sub && b.sub.total != null ? (isSme ? subBar("Total", b.sub.total) : subBar("QIB", b.sub.qib) + subBar("NII", b.sub.nii) + subBar("Retail", b.sub.retail) + subBar("Total", b.sub.total)) + `<div class="dt">${b.sub.retail != null ? "retail odds " + odds(b.sub.retail) : ""}${b.sub.asOf ? " · " + (hasTime(b.sub.asOf) ? ago(b.sub.asOf) : "as of " + fmtD(b.sub.asOf)) : ""}</div>` + delta((CHG[b.name] || {}).s, v => v + "x") : `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`}</td></tr>`;
 }
 function renderBoard() {
   const order = { Open: 0, Closed: 1, Upcoming: 2, Listed: 3 };
@@ -561,7 +579,7 @@ function renderTape() {
   const F = DATA.flows && DATA.flows.latest; if (F) t.push(`<span class="t"><b>FII</b><span class="${cls(F.fiiNetCr)} num">${sgn(F.fiiNetCr)}</span><b>DII</b><span class="${cls(F.diiNetCr)} num">${sgn(F.diiNetCr)}</span><span class="dim">${fmtD(F.date)}</span></span>`);
   const rec = live.filter(q => q.recordDate).sort((a, b) => a.recordDate.localeCompare(b.recordDate))[0];
   t.push(rec ? `<span class="t"><b>NEXT RECORD DATE</b><span class="down">${esc(rec.name)} · ${fmtD(rec.recordDate)}</span></span>` : `<span class="t"><b>NEXT RECORD DATE</b><span class="amb">Jio — with its RHP</span></span>`);
-  $("#tape").innerHTML = t.join("") + `<span class="asof${stale ? " stale" : ""}">Data ${esc(DATA.meta.label)}${stale ? " · refresh overdue" : ""}</span><a class="runnow" href="https://github.com/harimano/ipo-desk/actions/workflows/collect.yml" target="_blank" rel="noopener" title="Open the collector on GitHub and press Run workflow. This page then watches for the new data for a few minutes.">Run ↗</a>`;
+  $("#tape").innerHTML = t.join("") + `<span class="asof${stale ? " stale" : ""}" title="Collector run of ${esc(DATA.meta.label)} — tap to check now"><i class="livedot"></i><span id="liveTxt"></span></span><a class="runnow" href="https://github.com/harimano/ipo-desk/actions/workflows/collect.yml" target="_blank" rel="noopener" title="Open the collector on GitHub and press Run workflow. This page then watches for the new data for a few minutes.">Run ↗</a>`;
 }
 
 /* ================= COMMAND BAR ================= */
@@ -633,7 +651,8 @@ document.addEventListener("keydown", e => {
 /* ================= BOOT ================= */
 function renderAll() { renderTape(); renderToday(); renderPipe(); renderBoard(); renderBook(); }
 $("#foot").innerHTML = `${esc(DATA.meta.quotaSourceNote || "")}${DATA.meta.marketNotes && DATA.meta.marketNotes.length ? "<br>" + DATA.meta.marketNotes.map(esc).join("<br>") : ""}${DATA.meta.unresolved && DATA.meta.unresolved.length ? `<br>Unverified this cycle: ${esc(DATA.meta.unresolved.join(", "))}.` : ""}<br>Aggregated public data and analytical synthesis with both sides shown — not investment advice. Nothing here places orders. Press <b>?</b> for keys.`;
-try { renderAll(); renderResearchSelect(); } catch (err) { document.querySelector("main").insertAdjacentHTML("afterbegin", `<div class="card" style="padding:14px 18px;border-color:var(--down);margin-bottom:16px"><b class="down">The page hit an error while rendering.</b> <span class="dim">${esc(err && err.message)}</span></div>`); console.error(err); }
+noteChanges(store.get("ipo-seen", {}) || {}, DATA);
+try { renderAll(); renderResearchSelect(); liveText(); oldTags(); } catch (err) { document.querySelector("main").insertAdjacentHTML("afterbegin", `<div class="card" style="padding:14px 18px;border-color:var(--down);margin-bottom:16px"><b class="down">The page hit an error while rendering.</b> <span class="dim">${esc(err && err.message)}</span></div>`); console.error(err); }
 // ---- backup / restore: every "ipo-*" key, raw, so legacy shapes round-trip untouched -------------
 const backupKeys = () => { const out = {}; try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && k.startsWith("ipo-")) out[k] = localStorage.getItem(k); } } catch (e) {} return out; };
 const backupDoc = () => ({ app: "ipo-desk", version: 1, exportedAt: new Date().toISOString(), origin: location.origin, keys: backupKeys() });
@@ -652,6 +671,12 @@ $("#bkLoad").onclick = () => $("#bkFile").click();
 $("#bkFile").onchange = e => { const f = e.target.files[0]; if (f) f.text().then(restoreFrom); e.target.value = ""; };
 $("#bkPaste").onclick = () => { const t = prompt("Paste the backup text here"); if (t) restoreFrom(t); };
 
+function oldTags() { const I = DATA.investors || {}, qd = (DATA.quota || []).map(q => q.stageDate).filter(Boolean).sort().pop();
+  if ($("#invOld")) $("#invOld").innerHTML = oldTag(I.asOf, 7) ? oldTag(I.asOf, 7).replace("as of", "holdings and moves as of") + ' <span class="dt">prices live</span>' : "";
+  if ($("#pipeOld")) $("#pipeOld").innerHTML = qd ? `<span class="dt" style="margin-left:8px">stages tracked every run · last stage change ${fmtD(qd)} · descriptions are hand-written notes</span>` : ""; }
+function liveText() { const el = $("#liveTxt"); if (!el) return; const mins = (Date.now() - new Date(DATA.meta.asOf)) / 60000, nx = nextRun();
+  el.textContent = (mins > 36 * 60 ? "Stale · " : "Live · ") + "updated " + ago(DATA.meta.asOf) + (nx ? " · next " + nx + " IST" : ""); el.parentElement.classList.toggle("stale", mins > 36 * 60); }
+setInterval(liveText, 30000);
 const savedTab = store.get("ipo-tab", "today"); show(["today", "pipe", "board", "market", "research", "book"].includes(savedTab) ? savedTab : "today");
 
 /* Swap in freshly fetched data without reloading the page or touching local state
@@ -659,10 +684,12 @@ const savedTab = store.get("ipo-tab", "today"); show(["today", "pipe", "board", 
 return {
   update(next) {
     if (!next || !next.meta) return false;
+    noteChanges(seenOf(DATA), next);
     DATA = next;
+    store.set("ipo-seen", seenOf(DATA));
     recompute();
     try {
-      renderAll(); renderResearchSelect();
+      renderAll(); renderResearchSelect(); liveText(); oldTags();
       if (screen === "market") renderMarket();
       if (screen === "board") drawCharts();
       if (screen === "book") drawPosCharts();

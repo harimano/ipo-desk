@@ -84,7 +84,7 @@ async function refresh(reason) {
   if (busy) return false;
   if (reason === "visible" && Date.now() - lastFetch < REFETCH_THROTTLE) return false;
   busy = true;
-  if (reason !== "boot") setPill("Refreshing…", "busy");
+  if (reason !== "boot" && reason !== "poll" && reason !== "watch") setPill("Refreshing…", "busy");
   try {
     const DATA = await fetchData();
     lastFetch = Date.now();
@@ -97,7 +97,7 @@ async function refresh(reason) {
       if (!window.__ipo.update(DATA)) { setPill("Update failed — still showing the previous data", "done"); return false; }
       onSnapshot = false;
       setPill(reason === "boot" ? null : "Updated " + label(DATA), "done");
-    } else setPill(reason === "boot" ? null : "Already current", "done");
+    } else if (reason !== "poll" && reason !== "watch") setPill(reason === "boot" ? null : "Already current", "done");
     const s = staleness(DATA);
     strip(s ? "disc" : "", s || "");
     return true;
@@ -145,7 +145,8 @@ try {
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") refresh("visible");
   });
-  // a light poll while the tab is open: the collector lands twice a day, so once an hour is plenty
-  setInterval(() => { if (document.visibilityState === "visible") refresh("poll"); }, 3600000);
+  // a light poll while the tab is open: meta.json is ~4 KB and parts are fetched only when their hash moved, so every
+  // two minutes costs next to nothing and a new run shows up on its own (quietly: no pill unless something changed)
+  setInterval(() => { if (document.visibilityState === "visible") refresh("poll"); }, 120000);
 })();
 })();
