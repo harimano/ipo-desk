@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-18T21:48:15+05:30",
+  "asOf": "2026-09-18T22:14:30+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "18 Sep 2026, 21:48 IST",
+  "label": "18 Sep 2026, 22:14 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -39,6 +39,7 @@
   ],
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
+   "[gmp] gmp: no grey-market print found for open issue Axiom Gas Engineering",
    "[listings] listings: no NSE symbol on row 'Amtech Esters' — cannot price",
    "[listings] listings: no NSE symbol on row 'Infrax Renewable' — cannot price",
    "[listings] listings: no NSE symbol on row 'Pranav Constructions' — cannot price",
@@ -60,8 +61,7 @@
    "[listings] listings: no NSE symbol on row 'Shankesh Jewellers' — cannot price",
    "[listings] listings: no NSE symbol on row 'Horizon Industrial Parks' — cannot price",
    "[listings] listings: no NSE symbol on row 'Lalithaa Jewellery Mart' — cannot price",
-   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
-   "[gmp] gmp: no grey-market print found for open issue Axiom Gas Engineering"
+   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics"
   ]
  },
  "expected": [
@@ -1211,8 +1211,8 @@
     "total": 49.57
    },
    "shareholderQuota": null,
-   "listingPrice": 189.0,
-   "listingGainPct": 29.45,
+   "listingPrice": 159.63,
+   "listingGainPct": 9.34,
    "currentPrice": 155.78,
    "sources": [
     "https://ipowatch.in/lcc-projects-ipo/",
@@ -1336,8 +1336,8 @@
     "total": 32.07
    },
    "shareholderQuota": null,
-   "listingPrice": 100.7,
-   "listingGainPct": 24.32,
+   "listingPrice": 94.5,
+   "listingGainPct": 16.67,
    "currentPrice": 97.98,
    "sources": [
     "https://ipowatch.in/steamhouse-india-ipo/",
@@ -1568,10 +1568,10 @@
    "igId": "1688",
    "bseIpoNo": "7971",
    "bseScripCode": "4823",
-   "igFetchedAt": "2026-09-18T21:47:19+05:30",
+   "igFetchedAt": "2026-09-18T22:13:37+05:30",
    "sector": "Auto Components & Equipments",
    "anchorShares": 35714284,
-   "gmpAsOf": "2026-09-18T17:37:00+05:30",
+   "gmpAsOf": "2026-09-18T21:37:00+05:30",
    "facts": {
     "sector": "Auto Components & Equipments",
     "listingAt": "BSE, NSE",
@@ -1614,7 +1614,7 @@
     "asOf": "2026-09-17T18:10:00+05:30"
    },
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-18T17:37:00+05:30"
+   "gmpEveAsOf": "2026-09-18T21:37:00+05:30"
   },
   {
    "name": "Jindal Supreme (India)",
@@ -1631,9 +1631,9 @@
    "issueSizeCr": 124.88,
    "freshCr": 99.89,
    "ofsCr": 24.99,
-   "gmp": 31.0,
-   "gmpPct": 33.33,
-   "gmpTrend": "up",
+   "gmp": 26.0,
+   "gmpPct": 27.96,
+   "gmpTrend": "down",
    "sub": {
     "qib": 126.41,
     "nii": 327.99,
@@ -1654,10 +1654,10 @@
    "igId": "2057",
    "bseIpoNo": "7976",
    "bseScripCode": "4826",
-   "igFetchedAt": "2026-09-18T21:47:19+05:30",
+   "igFetchedAt": "2026-09-18T22:13:37+05:30",
    "sector": "Iron & Steel Products",
    "anchorShares": 4028400,
-   "gmpAsOf": "2026-09-18T17:37:00+05:30",
+   "gmpAsOf": "2026-09-18T19:37:00+05:30",
    "facts": {
     "sector": "Iron & Steel Products",
     "listingAt": "BSE, NSE",
@@ -1697,8 +1697,8 @@
     },
     "asOf": "2026-09-16T18:10:00+05:30"
    },
-   "gmpEve": 31.0,
-   "gmpEveAsOf": "2026-09-18T17:37:00+05:30"
+   "gmpEve": 26.0,
+   "gmpEveAsOf": "2026-09-18T19:37:00+05:30"
   },
   {
    "name": "SS Retail",
@@ -1715,9 +1715,9 @@
    "issueSizeCr": 500.0,
    "freshCr": 360.0,
    "ofsCr": 140.0,
-   "gmp": 142.0,
-   "gmpPct": 33.49,
-   "gmpTrend": "down",
+   "gmp": 145.0,
+   "gmpPct": 34.2,
+   "gmpTrend": "up",
    "sub": {
     "qib": 203.61,
     "nii": 143.32,
@@ -1739,10 +1739,10 @@
    "igId": "2076",
    "bseIpoNo": "7975",
    "bseScripCode": "4828",
-   "igFetchedAt": "2026-09-18T21:47:19+05:30",
+   "igFetchedAt": "2026-09-18T22:13:37+05:30",
    "sector": "Diversified Retail",
    "anchorShares": 3452829,
-   "gmpAsOf": "2026-09-18T17:37:00+05:30",
+   "gmpAsOf": "2026-09-18T21:37:00+05:30",
    "facts": {
     "sector": "Diversified Retail",
     "listingAt": "BSE, NSE",
@@ -1783,8 +1783,8 @@
     },
     "asOf": "2026-09-17T18:10:00+05:30"
    },
-   "gmpEve": 142.0,
-   "gmpEveAsOf": "2026-09-18T17:37:00+05:30"
+   "gmpEve": 145.0,
+   "gmpEveAsOf": "2026-09-18T21:37:00+05:30"
   },
   {
    "name": "NSE (National Stock Exchange of India)",
@@ -1801,9 +1801,9 @@
    "issueSizeCr": 22561.57,
    "freshCr": 0,
    "ofsCr": 22561.57,
-   "gmp": 121.0,
-   "gmpPct": 6.78,
-   "gmpTrend": "up",
+   "gmp": 113.0,
+   "gmpPct": 6.33,
+   "gmpTrend": "down",
    "sub": {
     "qib": 1.53,
     "nii": 1.68,
@@ -1828,10 +1828,10 @@
    "igId": "2305",
    "bseIpoNo": "7977",
    "bseScripCode": "4827",
-   "igFetchedAt": "2026-09-18T21:47:19+05:30",
+   "igFetchedAt": "2026-09-18T22:13:37+05:30",
    "sector": "Exchange and Data Platform",
    "anchorShares": 37793739,
-   "gmpAsOf": "2026-09-18T17:37:00+05:30",
+   "gmpAsOf": "2026-09-18T21:37:00+05:30",
    "facts": {
     "sector": "Exchange and Data Platform",
     "listingAt": "BSE",
@@ -1874,8 +1874,8 @@
     },
     "asOf": "2026-09-17T17:21:00+05:30"
    },
-   "gmpEve": 121.0,
-   "gmpEveAsOf": "2026-09-18T17:37:00+05:30"
+   "gmpEve": 113.0,
+   "gmpEveAsOf": "2026-09-18T21:37:00+05:30"
   },
   {
    "name": "Sonaselection India",
@@ -1892,9 +1892,9 @@
    "issueSizeCr": 141.57,
    "freshCr": 141.57,
    "ofsCr": null,
-   "gmp": 2.0,
-   "gmpPct": 2.02,
-   "gmpTrend": "flat",
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "down",
    "sub": {
     "qib": 0.46,
     "nii": 0.6,
@@ -1915,10 +1915,10 @@
    "igId": "2059",
    "bseIpoNo": "7973",
    "bseScripCode": "4824",
-   "igFetchedAt": "2026-09-18T21:47:19+05:30",
+   "igFetchedAt": "2026-09-18T22:13:37+05:30",
    "sector": "Other Textile Products",
    "anchorShares": 4290000,
-   "gmpAsOf": "2026-09-18T17:37:00+05:30",
+   "gmpAsOf": "2026-09-18T21:37:00+05:30",
    "facts": {
     "sector": "Other Textile Products",
     "listingAt": "BSE, NSE",
@@ -1958,8 +1958,8 @@
     },
     "asOf": "2026-09-17T05:03:00+05:30"
    },
-   "gmpEve": 2.0,
-   "gmpEveAsOf": "2026-09-18T17:37:00+05:30"
+   "gmpEve": 0.0,
+   "gmpEveAsOf": "2026-09-18T21:37:00+05:30"
   },
   {
    "name": "Varmora Granito",
@@ -1978,7 +1978,7 @@
    "ofsCr": 388.02,
    "gmp": 13.0,
    "gmpPct": 8.78,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2043,9 +2043,9 @@
    "issueSizeCr": 150.71,
    "freshCr": 132.62,
    "ofsCr": 18.09,
-   "gmp": 30.0,
-   "gmpPct": 22.39,
-   "gmpTrend": "up",
+   "gmp": 8.0,
+   "gmpPct": 5.97,
+   "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2317,9 +2317,9 @@
    "issueSizeCr": 405.0,
    "freshCr": 355.0,
    "ofsCr": 50.0,
-   "gmp": 60.0,
-   "gmpPct": 14.81,
-   "gmpTrend": "up",
+   "gmp": 57.0,
+   "gmpPct": 14.07,
+   "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2447,20 +2447,6 @@
     "bseIpoNo": "7923"
    },
    {
-    "close": "2026-09-25",
-    "cmp": null,
-    "deal": null,
-    "detail": null,
-    "name": "Salem Erode Investments",
-    "open": "2026-09-15",
-    "price": 20.0,
-    "record": "2026-09-03",
-    "status": "open-holders",
-    "terp": null,
-    "url": "https://ipowatch.in/rights-issue-calendar/",
-    "bseIpoNo": "7972"
-   },
-   {
     "close": "2026-09-29",
     "cmp": null,
     "deal": "1 rights share for every 1 held",
@@ -2478,6 +2464,20 @@
     "terp": null,
     "url": "https://ipowatch.in/manoj-jewellers-rights-issue-2026/",
     "bseIpoNo": "7924"
+   },
+   {
+    "close": "2026-10-01",
+    "cmp": null,
+    "deal": null,
+    "detail": null,
+    "name": "Salem Erode Investments",
+    "open": "2026-09-15",
+    "price": 20.0,
+    "record": "2026-09-03",
+    "status": "open-holders",
+    "terp": null,
+    "url": "https://ipowatch.in/rights-issue-calendar/",
+    "bseIpoNo": "7972"
    },
    {
     "name": "Indrayani Biotech",
@@ -2786,12 +2786,12 @@
    "symbol": "KARAMTARA"
   },
   {
-   "closeDay1": 170.1,
-   "closeDay1GainPct": 16.51,
-   "gainPct": 29.45,
+   "closeDay1": 155.78,
+   "closeDay1GainPct": 6.7,
+   "gainPct": 9.34,
    "issuePrice": 146.0,
    "listingDate": "2026-09-17",
-   "listingPrice": 189.0,
+   "listingPrice": 159.63,
    "name": "LCC Projects",
    "sources": [
     "https://ipowatch.in/lcc-projects-ipo/",
@@ -2838,12 +2838,12 @@
    "symbol": "RENTOMOJO"
   },
   {
-   "closeDay1": 97.98,
-   "closeDay1GainPct": 20.96,
-   "gainPct": 24.32,
+   "closeDay1": 102.55,
+   "closeDay1GainPct": 26.6,
+   "gainPct": 16.67,
    "issuePrice": 81.0,
    "listingDate": "2026-09-17",
-   "listingPrice": 100.7,
+   "listingPrice": 94.5,
    "name": "Steamhouse India",
    "sources": [
     "https://ipowatch.in/steamhouse-india-ipo/",
@@ -3910,7 +3910,7 @@
     "nii": 0.26,
     "retail": 0.58,
     "total": 0.41,
-    "asOf": "2026-09-18T17:52:00+05:30"
+    "asOf": "2026-09-18T18:56:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3925,10 +3925,10 @@
    "igId": "2016",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T21:47:19+05:30",
+   "igFetchedAt": "2026-09-18T22:13:37+05:30",
    "sector": "Auto Components & Equipments",
    "anchorShares": 1310400,
-   "gmpAsOf": "2026-09-18T19:02:00+05:30",
+   "gmpAsOf": "2026-09-18T21:37:00+05:30",
    "facts": {
     "sector": "Auto Components & Equipments",
     "listingAt": "NSE SME",
@@ -3960,7 +3960,7 @@
     "asOf": "2026-09-18T04:36:00+05:30"
    },
    "gmpEve": 10.0,
-   "gmpEveAsOf": "2026-09-18T19:02:00+05:30"
+   "gmpEveAsOf": "2026-09-18T21:37:00+05:30"
   },
   {
    "name": "SpectraA Technology Solutions",
@@ -3982,10 +3982,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.02,
-    "nii": 19.66,
-    "retail": 31.19,
-    "total": 19.82,
-    "asOf": "2026-09-18T17:41:00+05:30"
+    "nii": 19.69,
+    "retail": 31.4,
+    "total": 19.93,
+    "asOf": "2026-09-18T18:56:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4000,10 +4000,10 @@
    "igId": "2211",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T21:47:19+05:30",
+   "igFetchedAt": "2026-09-18T22:13:37+05:30",
    "sector": "Industrial Products",
    "anchorShares": 1024800,
-   "gmpAsOf": "2026-09-18T17:37:00+05:30",
+   "gmpAsOf": "2026-09-18T21:37:00+05:30",
    "facts": {
     "sector": "Industrial Products",
     "listingAt": "NSE SME",
@@ -4036,7 +4036,7 @@
     "asOf": "2026-09-18T05:02:00+05:30"
    },
    "gmpEve": 45.0,
-   "gmpEveAsOf": "2026-09-18T17:37:00+05:30"
+   "gmpEveAsOf": "2026-09-18T21:37:00+05:30"
   },
   {
    "name": "Axiom Gas Engineering",
@@ -4061,7 +4061,7 @@
     "nii": 0.55,
     "retail": 0.64,
     "total": 0.62,
-    "asOf": "2026-09-18T17:42:00+05:30"
+    "asOf": "2026-09-18T18:57:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4077,10 +4077,10 @@
    "igId": "1682",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-18T21:47:19+05:30",
+   "igFetchedAt": "2026-09-18T22:13:37+05:30",
    "sector": "LPG/CNG/PNG/LNG Supplier",
    "anchorShares": 1070400,
-   "gmpAsOf": "2026-09-18T17:36:00+05:30",
+   "gmpAsOf": "2026-09-18T21:36:00+05:30",
    "facts": {
     "sector": "LPG/CNG/PNG/LNG Supplier",
     "listingAt": "NSE SME",
@@ -4113,7 +4113,7 @@
     "asOf": "2026-09-18T05:04:00+05:30"
    },
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-18T17:36:00+05:30"
+   "gmpEveAsOf": "2026-09-18T21:36:00+05:30"
   },
   {
    "name": "FX Multitech",
@@ -4519,7 +4519,7 @@
    "bandLow": 109.0,
    "bandHigh": 115.0,
    "lotSize": 1200,
-   "issueSizeCr": 41.95,
+   "issueSizeCr": 44.23,
    "freshCr": 41.95,
    "ofsCr": null,
    "gmp": 0.0,
@@ -4783,7 +4783,7 @@
    "sme": true,
    "total": 32.41,
    "ret": 34.41,
-   "retClose": null,
+   "retClose": 41.13,
    "qib": 48.82,
    "nii": 40.32,
    "retail": 19.65,
@@ -4797,7 +4797,7 @@
    "sme": true,
    "total": 2.07,
    "ret": 0.22,
-   "retClose": null,
+   "retClose": 0.86,
    "qib": 5.37,
    "nii": 1.07,
    "retail": 0.62,
@@ -4811,7 +4811,7 @@
    "sme": true,
    "total": 47.43,
    "ret": 0.0,
-   "retClose": null,
+   "retClose": 4.98,
    "qib": 70.51,
    "nii": 60.46,
    "retail": 28.66,
@@ -4825,7 +4825,7 @@
    "sme": true,
    "total": 1.4,
    "ret": -7.89,
-   "retClose": null,
+   "retClose": -12.46,
    "nii": 0.39,
    "retail": 2.42
   },
@@ -4836,7 +4836,7 @@
    "sme": false,
    "total": 14.6,
    "ret": 10.0,
-   "retClose": null,
+   "retClose": 4.5,
    "qib": 19.13,
    "nii": 19.41,
    "retail": 9.95,
@@ -17892,8 +17892,8 @@
    "gmp": 28.0,
    "gmpImplied": 214.0,
    "listing": 250.0,
-   "close1": null,
-   "ltp": 0.0
+   "close1": 262.5,
+   "ltp": 262.5
   },
   {
    "name": "Om Galaxy",
@@ -17904,8 +17904,8 @@
    "gmp": 0.0,
    "gmpImplied": 90.0,
    "listing": 90.2,
-   "close1": null,
-   "ltp": 0.0
+   "close1": 90.77,
+   "ltp": 90.77
   },
   {
    "name": "Raksan Transformers",
@@ -17916,8 +17916,8 @@
    "gmp": 12.0,
    "gmpImplied": 285.0,
    "listing": 273.0,
-   "close1": null,
-   "ltp": 0.0
+   "close1": 286.6,
+   "ltp": 286.6
   },
   {
    "name": "Panchatv Bharat",
@@ -17928,8 +17928,8 @@
    "gmp": 3.0,
    "gmpImplied": 143.0,
    "listing": 128.95,
-   "close1": null,
-   "ltp": 0.0
+   "close1": 122.55,
+   "ltp": 122.55
   },
   {
    "name": "Veegaland Developers",
@@ -17940,8 +17940,8 @@
    "gmp": 8.0,
    "gmpImplied": 148.0,
    "listing": 154.0,
-   "close1": null,
-   "ltp": 0.0
+   "close1": 146.3,
+   "ltp": 146.3
   },
   {
    "name": "Infrax Renewable",
@@ -17953,7 +17953,7 @@
    "gmpImplied": 104.0,
    "listing": 104.0,
    "close1": 105.5,
-   "ltp": 105.5
+   "ltp": 105.0
   },
   {
    "name": "Rentomojo",
@@ -17965,7 +17965,7 @@
    "gmpImplied": 491.0,
    "listing": 482.45,
    "close1": 534.25,
-   "ltp": 534.25
+   "ltp": 512.75
   },
   {
    "name": "Vinod Texworld",
@@ -17977,7 +17977,7 @@
    "gmpImplied": 95.0,
    "listing": 94.0,
    "close1": 89.3,
-   "ltp": 89.3
+   "ltp": 84.85
   },
   {
    "name": "Asset Reconstruction",
@@ -17989,7 +17989,7 @@
    "gmpImplied": 151.0,
    "listing": 139.0,
    "close1": 137.02,
-   "ltp": 137.02
+   "ltp": 136.37
   },
   {
    "name": "Manipal Payment and Identity Solutions",
@@ -18001,7 +18001,7 @@
    "gmpImplied": 333.0,
    "listing": 330.0,
    "close1": 345.75,
-   "ltp": 345.15
+   "ltp": 341.35
   },
   {
    "name": "Steamhouse",
@@ -18013,7 +18013,7 @@
    "gmpImplied": 94.5,
    "listing": 94.5,
    "close1": 102.55,
-   "ltp": 102.55
+   "ltp": 97.98
   },
   {
    "name": "Amtech Esters",
@@ -18025,7 +18025,7 @@
    "gmpImplied": 91.0,
    "listing": 100.0,
    "close1": 105.0,
-   "ltp": 105.0
+   "ltp": 110.25
   },
   {
    "name": "LCC Projects",
@@ -18037,7 +18037,7 @@
    "gmpImplied": 182.0,
    "listing": 189.0,
    "close1": 170.1,
-   "ltp": 170.1
+   "ltp": 155.78
   },
   {
    "name": "Karamtara Engineering",
@@ -18049,7 +18049,7 @@
    "gmpImplied": 300.0,
    "listing": 320.0,
    "close1": 352.0,
-   "ltp": 352.0
+   "ltp": 355.55
   },
   {
    "name": "Kanohar Electricals",
@@ -18061,7 +18061,7 @@
    "gmpImplied": 814.0,
    "listing": 685.5,
    "close1": 751.5,
-   "ltp": 817.0
+   "ltp": 786.8
   },
   {
    "name": "Prasol Chemicals",
@@ -18073,7 +18073,7 @@
    "gmpImplied": 663.0,
    "listing": 610.0,
    "close1": 672.05,
-   "ltp": 678.8
+   "ltp": 703.4
   },
   {
    "name": "Glass Wall Systems",
@@ -18085,7 +18085,7 @@
    "gmpImplied": 221.0,
    "listing": 194.0,
    "close1": 215.35,
-   "ltp": 257.82
+   "ltp": 269.51
   },
   {
    "name": "Apana Logistics",
@@ -18097,7 +18097,7 @@
    "gmpImplied": 60.0,
    "listing": 60.0,
    "close1": 57.0,
-   "ltp": 51.45
+   "ltp": 48.88
   },
   {
    "name": "Pranav Constructions",
@@ -18109,7 +18109,7 @@
    "gmpImplied": 177.0,
    "listing": 165.0,
    "close1": 132.0,
-   "ltp": 111.16
+   "ltp": 107.55
   },
   {
    "name": "Qualiance International",
@@ -18121,7 +18121,7 @@
    "gmpImplied": 208.0,
    "listing": 224.9,
    "close1": 236.1,
-   "ltp": 202.45
+   "ltp": 192.35
   },
   {
    "name": "Fly-Hi Maritime",
@@ -18133,7 +18133,7 @@
    "gmpImplied": 103.0,
    "listing": 81.6,
    "close1": 77.55,
-   "ltp": 57.1
+   "ltp": 54.25
   },
   {
    "name": "Deepa Jewellers",
@@ -18145,7 +18145,7 @@
    "gmpImplied": 202.0,
    "listing": 221.0,
    "close1": 194.37,
-   "ltp": 173.34
+   "ltp": 188.31
   },
   {
    "name": "Rays of Belief",
@@ -18157,7 +18157,7 @@
    "gmpImplied": 254.0,
    "listing": 239.0,
    "close1": 228.34,
-   "ltp": 216.04
+   "ltp": 223.73
   },
   {
    "name": "Farm Peace",
@@ -18181,7 +18181,7 @@
    "gmpImplied": 148.0,
    "listing": 140.0,
    "close1": 147.0,
-   "ltp": 148.6
+   "ltp": 156.0
   },
   {
    "name": "Shanti Inorganics",
@@ -18193,7 +18193,7 @@
    "gmpImplied": 138.0,
    "listing": 157.7,
    "close1": 165.55,
-   "ltp": 176.1
+   "ltp": 181.3
   },
   {
    "name": "Phychem Technologies",
@@ -18205,7 +18205,7 @@
    "gmpImplied": 55.0,
    "listing": 56.0,
    "close1": 58.8,
-   "ltp": 43.85
+   "ltp": 45.94
   },
   {
    "name": "Purple Style Labs",
@@ -18217,7 +18217,7 @@
    "gmpImplied": 565.0,
    "listing": 535.0,
    "close1": 568.55,
-   "ltp": 554.5
+   "ltp": 546.45
   },
   {
    "name": "Complete Sports and Management",
@@ -18229,7 +18229,7 @@
    "gmpImplied": 135.0,
    "listing": 139.0,
    "close1": 145.95,
-   "ltp": 143.35
+   "ltp": 145.0
   },
   {
    "name": "Paluck Technologies",
@@ -18241,7 +18241,7 @@
    "gmpImplied": 57.0,
    "listing": 46.8,
    "close1": 49.14,
-   "ltp": 46.0
+   "ltp": 47.4
   },
   {
    "name": "Priority Jewels",
@@ -18253,7 +18253,7 @@
    "gmpImplied": 228.0,
    "listing": 230.0,
    "close1": 241.5,
-   "ltp": 221.17
+   "ltp": 232.06
   },
   {
    "name": "ESDS Software Solution",
@@ -18265,7 +18265,7 @@
    "gmpImplied": 740.0,
    "listing": 757.0,
    "close1": 908.4,
-   "ltp": 1646.85
+   "ltp": 1564.55
   },
   {
    "name": "Kwick Forensic Solutions",
@@ -18277,7 +18277,7 @@
    "gmpImplied": 168.0,
    "listing": 150.0,
    "close1": 157.5,
-   "ltp": 139.38
+   "ltp": 147.77
   },
   {
    "name": "Lumino Industries",
@@ -18289,7 +18289,7 @@
    "gmpImplied": 120.0,
    "listing": 110.0,
    "close1": 110.39,
-   "ltp": 107.14
+   "ltp": 111.52
   },
   {
    "name": "Sumax Engineering",
@@ -18301,7 +18301,7 @@
    "gmpImplied": 123.0,
    "listing": 111.0,
    "close1": 110.45,
-   "ltp": 119.5
+   "ltp": 114.5
   },
   {
    "name": "Annu Projects",
@@ -18313,7 +18313,7 @@
    "gmpImplied": 92.0,
    "listing": 72.0,
    "close1": 77.9,
-   "ltp": 49.28
+   "ltp": 50.46
   },
   {
    "name": "Symbiotec Pharmalab",
@@ -18325,7 +18325,7 @@
    "gmpImplied": 1173.0,
    "listing": 988.0,
    "close1": 1097.7,
-   "ltp": 1045.6
+   "ltp": 1095.1
   },
   {
    "name": "Madhur Knit",
@@ -18337,7 +18337,7 @@
    "gmpImplied": 102.0,
    "listing": 100.0,
    "close1": 95.0,
-   "ltp": 46.9
+   "ltp": 51.1
   },
   {
    "name": "Hy-Tech Engineers",
@@ -18349,7 +18349,7 @@
    "gmpImplied": 92.0,
    "listing": 75.0,
    "close1": 78.75,
-   "ltp": 72.09
+   "ltp": 76.65
   },
   {
    "name": "ABH Healthcare",
@@ -18361,7 +18361,7 @@
    "gmpImplied": 102.0,
    "listing": 99.0,
    "close1": 94.05,
-   "ltp": 39.8
+   "ltp": 43.75
   },
   {
    "name": "Skyways Air",
@@ -18373,7 +18373,7 @@
    "gmpImplied": 171.0,
    "listing": 124.0,
    "close1": 125.65,
-   "ltp": 117.98
+   "ltp": 124.43
   },
   {
    "name": "Augmont Enterprises",
@@ -18385,7 +18385,7 @@
    "gmpImplied": 1078.0,
    "listing": 961.0,
    "close1": 908.15,
-   "ltp": 811.1
+   "ltp": 874.35
   },
   {
    "name": "Tempsens Instruments (India)",
@@ -18397,7 +18397,7 @@
    "gmpImplied": 630.0,
    "listing": 634.0,
    "close1": 586.8,
-   "ltp": 541.55
+   "ltp": 531.6
   },
   {
    "name": "Dhanwel Hybrid Seeds",
@@ -18409,7 +18409,7 @@
    "gmpImplied": 100.0,
    "listing": 99.0,
    "close1": 94.05,
-   "ltp": 44.0
+   "ltp": 48.4
   },
   {
    "name": "Mopshop Distribution",
@@ -18421,7 +18421,7 @@
    "gmpImplied": 139.0,
    "listing": 137.0,
    "close1": 130.15,
-   "ltp": 51.45
+   "ltp": 48.9
   },
   {
    "name": "Gaja Alternative Asset Management",
@@ -18433,7 +18433,7 @@
    "gmpImplied": 178.5,
    "listing": 185.0,
    "close1": 168.7,
-   "ltp": 145.03
+   "ltp": 142.5
   },
   {
    "name": "Shankesh Jewellers",
@@ -18445,7 +18445,7 @@
    "gmpImplied": 95.75,
    "listing": 103.3,
    "close1": 95.03,
-   "ltp": 88.96
+   "ltp": 93.06
   },
   {
    "name": "Sunshine Pictures",
@@ -18457,7 +18457,7 @@
    "gmpImplied": 410.0,
    "listing": 395.9,
    "close1": 369.2,
-   "ltp": 394.0
+   "ltp": 398.3
   },
   {
    "name": "Horizon Industrial Parks",
@@ -18469,7 +18469,7 @@
    "gmpImplied": 61.5,
    "listing": 60.25,
    "close1": 58.16,
-   "ltp": 52.17
+   "ltp": 54.23
   },
   {
    "name": "Fascinate Textiles",
@@ -18481,7 +18481,7 @@
    "gmpImplied": 151.0,
    "listing": 120.8,
    "close1": 114.8,
-   "ltp": 45.6
+   "ltp": 47.85
   },
   {
    "name": "Lalithaa Jewellery Mart",
@@ -18493,7 +18493,7 @@
    "gmpImplied": 275.0,
    "listing": 265.0,
    "close1": 248.44,
-   "ltp": 290.4
+   "ltp": 304.9
   },
   {
    "name": "Technocrats Plasma Systems",
@@ -18505,7 +18505,7 @@
    "gmpImplied": 202.0,
    "listing": 230.0,
    "close1": 241.5,
-   "ltp": 368.75
+   "ltp": 368.0
   },
   {
    "name": "ENS Enterprises",
@@ -18517,7 +18517,7 @@
    "gmpImplied": 97.0,
    "listing": 96.0,
    "close1": 100.8,
-   "ltp": 101.3
+   "ltp": 102.5
   },
   {
    "name": "Skytech Infinite Platform",
@@ -18529,7 +18529,7 @@
    "gmpImplied": 78.0,
    "listing": 74.0,
    "close1": 70.3,
-   "ltp": 24.0
+   "ltp": 25.2
   },
   {
    "name": "Credent Connect",
@@ -18541,7 +18541,7 @@
    "gmpImplied": 281.0,
    "listing": 359.1,
    "close1": 377.05,
-   "ltp": 333.0
+   "ltp": 357.7
   },
   {
    "name": "Q&T Foods",
@@ -18553,7 +18553,7 @@
    "gmpImplied": 116.0,
    "listing": 115.0,
    "close1": 109.25,
-   "ltp": 33.41
+   "ltp": 35.08
   },
   {
    "name": "Pramodini Medicare",
@@ -18565,7 +18565,7 @@
    "gmpImplied": 118.0,
    "listing": 120.0,
    "close1": 121.65,
-   "ltp": 115.6
+   "ltp": 118.2
   },
   {
    "name": "Behari Lal Engineering",
@@ -18577,7 +18577,7 @@
    "gmpImplied": 418.0,
    "listing": 465.0,
    "close1": 502.55,
-   "ltp": 436.1
+   "ltp": 440.4
   },
   {
    "name": "Shiprocket",
@@ -18589,7 +18589,7 @@
    "gmpImplied": 132.0,
    "listing": 131.0,
    "close1": 143.5,
-   "ltp": 120.93
+   "ltp": 121.59
   },
   {
    "name": "Sham Foam",
@@ -18601,7 +18601,7 @@
    "gmpImplied": 131.5,
    "listing": 104.0,
    "close1": 98.8,
-   "ltp": 57.05
+   "ltp": 57.0
   },
   {
    "name": "Milky Mist Dairy Food",
@@ -18613,7 +18613,7 @@
    "gmpImplied": 159.7,
    "listing": 165.0,
    "close1": 181.5,
-   "ltp": 274.76
+   "ltp": 274.07
   },
   {
    "name": "Dhoot Transmission",
@@ -18625,7 +18625,7 @@
    "gmpImplied": 1133.0,
    "listing": 1200.0,
    "close1": 1187.5,
-   "ltp": 1579.8
+   "ltp": 1590.7
   },
   {
    "name": "Molbio Diagnostics",
@@ -18637,7 +18637,7 @@
    "gmpImplied": 923.0,
    "listing": 980.0,
    "close1": 1041.7,
-   "ltp": 1285.3
+   "ltp": 1288.3
   },
   {
    "name": "Optimystix Entertainment",
@@ -18649,7 +18649,7 @@
    "gmpImplied": 175.0,
    "listing": 180.0,
    "close1": 189.0,
-   "ltp": 139.0
+   "ltp": 139.45
   },
   {
    "name": "LEAP India",
@@ -18661,7 +18661,7 @@
    "gmpImplied": 172.0,
    "listing": 165.9,
    "close1": 145.1,
-   "ltp": 136.31
+   "ltp": 140.47
   },
   {
    "name": "Technocraft Ventures",
@@ -18673,7 +18673,7 @@
    "gmpImplied": 254.0,
    "listing": 284.0,
    "close1": 311.15,
-   "ltp": 439.15
+   "ltp": 440.8
   },
   {
    "name": "LAPL Automotive",
@@ -18685,7 +18685,7 @@
    "gmpImplied": 144.0,
    "listing": 135.0,
    "close1": 128.29,
-   "ltp": 105.0
+   "ltp": 104.9
   },
   {
    "name": "G.V. Electricals",
@@ -18697,7 +18697,7 @@
    "gmpImplied": 155.0,
    "listing": 158.0,
    "close1": 165.9,
-   "ltp": 139.8
+   "ltp": 134.35
   },
   {
    "name": "Ardee Industries",
@@ -18709,7 +18709,7 @@
    "gmpImplied": 70.0,
    "listing": 72.0,
    "close1": 67.13,
-   "ltp": 48.97
+   "ltp": 49.28
   },
   {
    "name": "Aegeus Technologies",
@@ -18721,7 +18721,7 @@
    "gmpImplied": 117.0,
    "listing": 124.5,
    "close1": 130.7,
-   "ltp": 135.0
+   "ltp": 137.2
   },
   {
    "name": "Anawil Wire & Engineering",
@@ -18733,7 +18733,7 @@
    "gmpImplied": 328.0,
    "listing": 329.65,
    "close1": 346.1,
-   "ltp": 430.4
+   "ltp": 445.4
   },
   {
    "name": "Fusion Klassroom Edutech",
@@ -18757,7 +18757,7 @@
    "gmpImplied": 109.0,
    "listing": 110.0,
    "close1": 111.68,
-   "ltp": 117.7
+   "ltp": 115.5
   },
   {
    "name": "MV Electrosystems",
@@ -18769,7 +18769,7 @@
    "gmpImplied": 534.0,
    "listing": 520.0,
    "close1": 624.0,
-   "ltp": 796.0
+   "ltp": 832.75
   },
   {
    "name": "Oneindig Technologies",
@@ -18781,7 +18781,7 @@
    "gmpImplied": 103.0,
    "listing": 120.0,
    "close1": 126.0,
-   "ltp": 137.65
+   "ltp": 138.0
   },
   {
    "name": "Juniper Green Energy",
@@ -18793,7 +18793,7 @@
    "gmpImplied": 248.0,
    "listing": 245.0,
    "close1": 259.71,
-   "ltp": 257.2
+   "ltp": 265.15
   },
   {
    "name": "Manipal Health Enterprises",
@@ -18805,7 +18805,7 @@
    "gmpImplied": 597.0,
    "listing": 652.0,
    "close1": 666.95,
-   "ltp": 721.55
+   "ltp": 738.95
   },
   {
    "name": "H.R. Hygiene Products",
@@ -18817,7 +18817,7 @@
    "gmpImplied": 89.0,
    "listing": 90.0,
    "close1": 87.97,
-   "ltp": 58.0
+   "ltp": 58.06
   },
   {
    "name": "Poojaa Precision Engg.",
@@ -18829,7 +18829,7 @@
    "gmpImplied": 501.0,
    "listing": 470.0,
    "close1": 493.5,
-   "ltp": 680.3
+   "ltp": 705.95
   },
   {
    "name": "Propshop Events & Exhibitions",
@@ -18841,7 +18841,7 @@
    "gmpImplied": 69.0,
    "listing": 55.2,
    "close1": 57.15,
-   "ltp": 71.7
+   "ltp": 74.5
   },
   {
    "name": "Advance Technoforge",
@@ -18853,7 +18853,7 @@
    "gmpImplied": 99.0,
    "listing": 94.0,
    "close1": 89.3,
-   "ltp": 60.0
+   "ltp": 58.8
   },
   {
    "name": "Cube Highways Trust InvIT",
@@ -18865,7 +18865,7 @@
    "gmpImplied": 153.75,
    "listing": 155.0,
    "close1": 156.96,
-   "ltp": 156.49
+   "ltp": 156.36
   },
   {
    "name": "Silverstorm Parks & Resorts",
@@ -18877,7 +18877,7 @@
    "gmpImplied": 138.0,
    "listing": 132.9,
    "close1": 126.55,
-   "ltp": 128.0
+   "ltp": 129.05
   },
   {
    "name": "Xtranet Technologies",
@@ -18889,7 +18889,7 @@
    "gmpImplied": 141.5,
    "listing": 136.0,
    "close1": 129.2,
-   "ltp": 302.42
+   "ltp": 312.16
   },
   {
    "name": "Lohia Corp",
@@ -18901,7 +18901,7 @@
    "gmpImplied": 442.0,
    "listing": 461.0,
    "close1": 494.65,
-   "ltp": 524.95
+   "ltp": 538.6
   },
   {
    "name": "Indo-MIM",
@@ -18913,7 +18913,7 @@
    "gmpImplied": 669.0,
    "listing": 700.0,
    "close1": 741.8,
-   "ltp": 993.2
+   "ltp": 1055.9
   },
   {
    "name": "Shree Balaji Mala",
@@ -18925,7 +18925,7 @@
    "gmpImplied": 126.0,
    "listing": 133.0,
    "close1": 126.35,
-   "ltp": 51.89
+   "ltp": 55.0
   },
   {
    "name": "Metalic Technoforge",
@@ -18937,7 +18937,7 @@
    "gmpImplied": 83.0,
    "listing": 87.0,
    "close1": 83.05,
-   "ltp": 136.85
+   "ltp": 143.65
   },
   {
    "name": "Gulf Lloyds",
@@ -18949,7 +18949,7 @@
    "gmpImplied": 101.0,
    "listing": 100.0,
    "close1": 95.0,
-   "ltp": 31.55
+   "ltp": 32.35
   },
   {
    "name": "Caliber Mining",
@@ -18961,7 +18961,7 @@
    "gmpImplied": 484.0,
    "listing": 500.25,
    "close1": 528.5,
-   "ltp": 482.7
+   "ltp": 477.7
   },
   {
    "name": "Sotefin Bharat",
@@ -18973,7 +18973,7 @@
    "gmpImplied": 189.5,
    "listing": 205.0,
    "close1": 215.25,
-   "ltp": 282.25
+   "ltp": 284.05
   },
   {
    "name": "SBI Funds Management",
@@ -18985,7 +18985,7 @@
    "gmpImplied": 639.0,
    "listing": 613.3,
    "close1": 609.9,
-   "ltp": 540.95
+   "ltp": 561.35
   },
   {
    "name": "Millworks Technologies",
@@ -18997,7 +18997,7 @@
    "gmpImplied": 726.0,
    "listing": 628.9,
    "close1": 660.3,
-   "ltp": 1201.3
+   "ltp": 1235.25
   },
   {
    "name": "Alpine Texworld",
@@ -19009,7 +19009,7 @@
    "gmpImplied": 106.0,
    "listing": 105.0,
    "close1": 99.75,
-   "ltp": 52.9
+   "ltp": 52.66
   },
   {
    "name": "Devson Catalyst",
@@ -19021,7 +19021,7 @@
    "gmpImplied": 167.0,
    "listing": 196.15,
    "close1": 205.95,
-   "ltp": 330.7
+   "ltp": 332.45
   },
   {
    "name": "Happy Steels",
@@ -19033,7 +19033,7 @@
    "gmpImplied": 76.0,
    "listing": 68.0,
    "close1": 68.5,
-   "ltp": 77.7
+   "ltp": 79.9
   },
   {
    "name": "Laser Power & Infra",
@@ -19045,7 +19045,7 @@
    "gmpImplied": 253.0,
    "listing": 250.0,
    "close1": 262.85,
-   "ltp": 269.0
+   "ltp": 280.75
   },
   {
    "name": "Kusumgar",
@@ -19057,7 +19057,7 @@
    "gmpImplied": 580.0,
    "listing": 569.0,
    "close1": 604.45,
-   "ltp": 551.5
+   "ltp": 591.2
   },
   {
    "name": "IC Electricals",
@@ -19069,7 +19069,7 @@
    "gmpImplied": 146.0,
    "listing": 166.0,
    "close1": 174.3,
-   "ltp": 121.5
+   "ltp": 124.2
   },
   {
    "name": "Knack Packaging",
@@ -19081,7 +19081,7 @@
    "gmpImplied": 183.0,
    "listing": 188.0,
    "close1": 182.98,
-   "ltp": 184.16
+   "ltp": 182.6
   },
   {
    "name": "Kratikal Tech",
@@ -19093,7 +19093,7 @@
    "gmpImplied": 213.0,
    "listing": 192.0,
    "close1": 182.4,
-   "ltp": 159.6
+   "ltp": 160.3
   },
   {
    "name": "Vinit Mobile",
@@ -19105,7 +19105,7 @@
    "gmpImplied": 158.0,
    "listing": 158.0,
    "close1": 147.25,
-   "ltp": 59.55
+   "ltp": 60.2
   },
   {
    "name": "Sampark India Logistics",
@@ -19117,7 +19117,7 @@
    "gmpImplied": 86.5,
    "listing": 89.0,
    "close1": 93.45,
-   "ltp": 102.78
+   "ltp": 106.25
   },
   {
    "name": "Seemax Resources",
@@ -19129,7 +19129,7 @@
    "gmpImplied": 141.0,
    "listing": 112.8,
    "close1": 107.2,
-   "ltp": 55.05
+   "ltp": 56.5
   },
   {
    "name": "Atharva Polyplast",
@@ -19141,7 +19141,7 @@
    "gmpImplied": 70.0,
    "listing": 69.0,
    "close1": 72.45,
-   "ltp": 102.99
+   "ltp": 108.13
   },
   {
    "name": "Teja Engineering Industries",
@@ -19153,7 +19153,7 @@
    "gmpImplied": 256.0,
    "listing": 418.0,
    "close1": 438.9,
-   "ltp": 224.4
+   "ltp": 235.0
   },
   {
    "name": "Adon Agro Commodities",
@@ -19165,7 +19165,7 @@
    "gmpImplied": 70.0,
    "listing": 78.25,
    "close1": 82.16,
-   "ltp": 103.0
+   "ltp": 101.0
   },
   {
    "name": "Aastha Spintex",
@@ -19177,7 +19177,7 @@
    "gmpImplied": 141.0,
    "listing": 130.0,
    "close1": 136.49,
-   "ltp": 76.78
+   "ltp": 76.25
   },
   {
    "name": "Crazy Snacks",
@@ -19189,7 +19189,7 @@
    "gmpImplied": 42.0,
    "listing": 44.0,
    "close1": 45.67,
-   "ltp": 58.0
+   "ltp": 57.9
   },
   {
    "name": "CSM Technologies",
@@ -19201,7 +19201,7 @@
    "gmpImplied": 113.0,
    "listing": 113.0,
    "close1": 107.35,
-   "ltp": 102.64
+   "ltp": 109.85
   },
   {
    "name": "Jivial Industries",
@@ -19225,7 +19225,7 @@
    "gmpImplied": 187.5,
    "listing": 190.0,
    "close1": 179.46,
-   "ltp": 266.17
+   "ltp": 290.85
   },
   {
    "name": "Riyaasat Lifestyle",
@@ -19249,7 +19249,7 @@
    "gmpImplied": 757.0,
    "listing": 500.0,
    "close1": 668.1,
-   "ltp": 109.68
+   "ltp": 115.15
   },
   {
    "name": "Shreedhar Spinners",
@@ -19261,7 +19261,7 @@
    "gmpImplied": 53.0,
    "listing": 54.4,
    "close1": 57.1,
-   "ltp": 153.35
+   "ltp": 161.0
   },
   {
    "name": "Anubhav Plast",
@@ -19273,7 +19273,7 @@
    "gmpImplied": 80.0,
    "listing": 80.0,
    "close1": 76.0,
-   "ltp": 39.9
+   "ltp": 40.55
   },
   {
    "name": "Turtlemint Fintech Solutions",
@@ -19285,7 +19285,7 @@
    "gmpImplied": 147.0,
    "listing": 134.9,
    "close1": 135.4,
-   "ltp": 131.67
+   "ltp": 134.12
   },
   {
    "name": "Avience Biomedicals",
@@ -19297,7 +19297,7 @@
    "gmpImplied": 353.0,
    "listing": 395.2,
    "close1": 414.95,
-   "ltp": 334.8
+   "ltp": 342.4
   },
   {
    "name": "Clay Craft",
@@ -19309,7 +19309,7 @@
    "gmpImplied": 238.0,
    "listing": 211.0,
    "close1": 221.55,
-   "ltp": 147.6
+   "ltp": 166.7
   },
   {
    "name": "Diksha Polymers",
@@ -19333,7 +19333,7 @@
    "gmpImplied": 321.0,
    "listing": 257.0,
    "close1": 244.15,
-   "ltp": 87.95
+   "ltp": 85.48
   },
   {
    "name": "Leapfrog Engineering",
@@ -19345,7 +19345,7 @@
    "gmpImplied": 23.0,
    "listing": 22.0,
    "close1": 23.1,
-   "ltp": 21.7
+   "ltp": 21.0
   },
   {
    "name": "Horizon Reclaim (India)",
@@ -19357,7 +19357,7 @@
    "gmpImplied": 178.0,
    "listing": 151.0,
    "close1": 147.3,
-   "ltp": 124.15
+   "ltp": 138.4
   },
   {
    "name": "Susan Electricals India",
@@ -19369,7 +19369,7 @@
    "gmpImplied": 170.0,
    "listing": 186.0,
    "close1": 195.3,
-   "ltp": 299.45
+   "ltp": 314.4
   },
   {
    "name": "Utkal Speciality",
@@ -19381,7 +19381,7 @@
    "gmpImplied": 66.0,
    "listing": 66.0,
    "close1": 62.7,
-   "ltp": 46.1
+   "ltp": 48.1
   },
   {
    "name": "Genxai Analytics",
@@ -19393,7 +19393,7 @@
    "gmpImplied": 117.0,
    "listing": 92.8,
    "close1": 97.4,
-   "ltp": 75.3
+   "ltp": 76.5
   },
   {
    "name": "Hexagon Nutrition",
@@ -19405,7 +19405,7 @@
    "gmpImplied": 47.75,
    "listing": 48.25,
    "close1": 53.19,
-   "ltp": 64.29
+   "ltp": 66.26
   },
   {
    "name": "UHM Vacation",
@@ -19417,7 +19417,7 @@
    "gmpImplied": 166.0,
    "listing": 132.8,
    "close1": 126.2,
-   "ltp": 30.6
+   "ltp": 30.97
   },
   {
    "name": "Vahh Chemicals",
@@ -19429,7 +19429,7 @@
    "gmpImplied": 65.25,
    "listing": 70.0,
    "close1": 66.5,
-   "ltp": 49.11
+   "ltp": 54.9
   },
   {
    "name": "CMR Green Technologies",
@@ -19441,7 +19441,7 @@
    "gmpImplied": 258.5,
    "listing": 268.0,
    "close1": 247.9,
-   "ltp": 213.26
+   "ltp": 231.87
   },
   {
    "name": "Merritronix",
@@ -19453,7 +19453,7 @@
    "gmpImplied": 217.0,
    "listing": 283.1,
    "close1": 297.25,
-   "ltp": 380.5
+   "ltp": 399.3
   },
   {
    "name": "SMR Jewels",
@@ -19465,7 +19465,7 @@
    "gmpImplied": 128.0,
    "listing": 102.95,
    "close1": 103.05,
-   "ltp": 96.0
+   "ltp": 95.0
   },
   {
    "name": "Aureate Tradde",
@@ -19477,7 +19477,7 @@
    "gmpImplied": 71.0,
    "listing": 70.0,
    "close1": 66.5,
-   "ltp": 37.94
+   "ltp": 38.0
   },
   {
    "name": "Rajnandini Fashion India",
@@ -19489,7 +19489,7 @@
    "gmpImplied": 69.0,
    "listing": 63.0,
    "close1": 60.57,
-   "ltp": 29.2
+   "ltp": 27.0
   },
   {
    "name": "Yaashvi Jewellers",
@@ -19501,7 +19501,7 @@
    "gmpImplied": 83.0,
    "listing": 83.0,
    "close1": 87.05,
-   "ltp": 73.75
+   "ltp": 71.28
   },
   {
    "name": "Harikanta Overseas",
@@ -19513,7 +19513,7 @@
    "gmpImplied": 91.0,
    "listing": 79.75,
    "close1": 75.77,
-   "ltp": 63.66
+   "ltp": 63.5
   },
   {
    "name": "M R Maniveni",
@@ -19537,7 +19537,7 @@
    "gmpImplied": 455.0,
    "listing": 452.0,
    "close1": 474.6,
-   "ltp": 722.1
+   "ltp": 696.95
   },
   {
    "name": "Autofurnish",
@@ -19549,7 +19549,7 @@
    "gmpImplied": 41.0,
    "listing": 43.0,
    "close1": 45.15,
-   "ltp": 90.88
+   "ltp": 93.5
   },
   {
    "name": "Bio Medica Laboratories",
@@ -19561,7 +19561,7 @@
    "gmpImplied": 130.0,
    "listing": 111.2,
    "close1": 115.8,
-   "ltp": 152.05
+   "ltp": 157.0
   },
   {
    "name": "Vegorama Punjabi Angithi",
@@ -19573,7 +19573,7 @@
    "gmpImplied": 86.0,
    "listing": 118.1,
    "close1": 124.0,
-   "ltp": 212.0
+   "ltp": 222.6
   },
   {
    "name": "Teamtech Formwork Solutions",
@@ -19585,7 +19585,7 @@
    "gmpImplied": 68.0,
    "listing": 75.0,
    "close1": 72.75,
-   "ltp": 125.65
+   "ltp": 131.9
   },
   {
    "name": "NFP Sampoorna Foods",
@@ -19597,7 +19597,7 @@
    "gmpImplied": 55.0,
    "listing": 54.5,
    "close1": 51.8,
-   "ltp": 20.4
+   "ltp": 21.5
   },
   {
    "name": "RFBL Flexi Pack",
@@ -19609,7 +19609,7 @@
    "gmpImplied": 51.5,
    "listing": 52.5,
    "close1": 55.1,
-   "ltp": 80.35
+   "ltp": 84.3
   },
   {
    "name": "Goldline Pharmaceutical",
@@ -19621,7 +19621,7 @@
    "gmpImplied": 58.0,
    "listing": 59.75,
    "close1": 56.77,
-   "ltp": 36.6
+   "ltp": 34.9
   },
   {
    "name": "Simca Advertising",
@@ -19633,7 +19633,7 @@
    "gmpImplied": 185.0,
    "listing": 156.0,
    "close1": 163.8,
-   "ltp": 263.9
+   "ltp": 269.5
   },
   {
    "name": "Bagmane REIT",
@@ -19645,7 +19645,7 @@
    "gmpImplied": 104.0,
    "listing": 103.5,
    "close1": 103.66,
-   "ltp": 109.89
+   "ltp": 107.49
   },
   {
    "name": "Recode Studios",
@@ -19657,7 +19657,7 @@
    "gmpImplied": 201.0,
    "listing": 213.1,
    "close1": 223.75,
-   "ltp": 356.0
+   "ltp": 360.0
   },
   {
    "name": "Value 360 Communications",
@@ -19669,7 +19669,7 @@
    "gmpImplied": 98.0,
    "listing": 78.4,
    "close1": 82.3,
-   "ltp": 69.1
+   "ltp": 65.55
   },
   {
    "name": "OnEMI Technology",
@@ -19681,7 +19681,7 @@
    "gmpImplied": 189.0,
    "listing": 190.0,
    "close1": 208.63,
-   "ltp": 359.95
+   "ltp": 356.05
   },
   {
    "name": "Amba Auto Sales & Services",
@@ -19693,7 +19693,7 @@
    "gmpImplied": 135.0,
    "listing": 134.5,
    "close1": 135.15,
-   "ltp": 98.35
+   "ltp": 96.0
   },
   {
    "name": "Adisoft Technologies",
@@ -19705,7 +19705,7 @@
    "gmpImplied": 193.0,
    "listing": 205.0,
    "close1": 215.25,
-   "ltp": 228.85
+   "ltp": 231.5
   },
   {
    "name": "Citius Transnet InvIT",
@@ -19717,7 +19717,7 @@
    "gmpImplied": 103.5,
    "listing": 104.6,
    "close1": 106.23,
-   "ltp": 115.5
+   "ltp": 115.83
   },
   {
    "name": "Propshare Celestia",
@@ -19741,7 +19741,7 @@
    "gmpImplied": 101.75,
    "listing": 108.0,
    "close1": 109.94,
-   "ltp": 109.65
+   "ltp": 110.0
   },
   {
    "name": "Om Power Transmission",
@@ -19753,7 +19753,7 @@
    "gmpImplied": 177.0,
    "listing": 178.0,
    "close1": 193.38,
-   "ltp": 166.7
+   "ltp": 172.37
   },
   {
    "name": "Emiac Technologies",
@@ -19765,7 +19765,7 @@
    "gmpImplied": 98.0,
    "listing": 107.8,
    "close1": 108.79,
-   "ltp": 95.0
+   "ltp": 98.0
   },
   {
    "name": "Safety Controls",
@@ -19777,7 +19777,7 @@
    "gmpImplied": 80.0,
    "listing": 83.0,
    "close1": 78.99,
-   "ltp": 68.2
+   "ltp": 65.12
   },
   {
    "name": "Vivid Electromech",
@@ -19789,7 +19789,7 @@
    "gmpImplied": 555.0,
    "listing": 565.0,
    "close1": 563.05,
-   "ltp": 1892.8
+   "ltp": 1869.3
   },
   {
    "name": "Highness Microelectronics",
@@ -19801,7 +19801,7 @@
    "gmpImplied": 147.0,
    "listing": 125.0,
    "close1": 129.75,
-   "ltp": 211.0
+   "ltp": 215.2
   },
   {
    "name": "Sai Parenteral's",
@@ -19813,7 +19813,7 @@
    "gmpImplied": 392.0,
    "listing": 400.0,
    "close1": 406.4,
-   "ltp": 510.25
+   "ltp": 510.75
   },
   {
    "name": "Powerica",
@@ -19825,7 +19825,7 @@
    "gmpImplied": 402.0,
    "listing": 366.0,
    "close1": 390.0,
-   "ltp": 556.7
+   "ltp": 576.3
   },
   {
    "name": "Amir Chand Jagdish Kumar",
@@ -19837,7 +19837,7 @@
    "gmpImplied": 215.5,
    "listing": 200.0,
    "close1": 180.0,
-   "ltp": 193.15
+   "ltp": 200.55
   },
   {
    "name": "Tipco Engineering",
@@ -19849,7 +19849,7 @@
    "gmpImplied": 89.0,
    "listing": 89.25,
    "close1": 84.79,
-   "ltp": 277.25
+   "ltp": 291.1
   },
   {
    "name": "Central Mine Planning",
@@ -19861,7 +19861,7 @@
    "gmpImplied": 177.0,
    "listing": 160.0,
    "close1": 154.06,
-   "ltp": 205.69
+   "ltp": 214.58
   },
   {
    "name": "Speciality Medicines",
@@ -19885,7 +19885,7 @@
    "gmpImplied": 146.0,
    "listing": 146.0,
    "close1": 146.65,
-   "ltp": 205.95
+   "ltp": 204.0
   },
   {
    "name": "Raajmarg Infra Investment Trust",
@@ -19897,7 +19897,7 @@
    "gmpImplied": 3.5,
    "listing": 107.0,
    "close1": 106.83,
-   "ltp": 119.98
+   "ltp": 119.99
   },
   {
    "name": "GSP Crop Science",
@@ -19909,7 +19909,7 @@
    "gmpImplied": 322.0,
    "listing": 328.0,
    "close1": 356.25,
-   "ltp": 484.05
+   "ltp": 482.1
   },
   {
    "name": "Innovision",
@@ -19921,7 +19921,7 @@
    "gmpImplied": 427.0,
    "listing": 467.7,
    "close1": 374.2,
-   "ltp": 254.45
+   "ltp": 253.1
   },
   {
    "name": "Rajputana Stainless",
@@ -19933,7 +19933,7 @@
    "gmpImplied": 125.0,
    "listing": 122.0,
    "close1": 113.03,
-   "ltp": 180.63
+   "ltp": 181.21
   },
   {
    "name": "Apsis Aerocom",
@@ -19945,7 +19945,7 @@
    "gmpImplied": 136.0,
    "listing": 153.0,
    "close1": 160.65,
-   "ltp": 576.35
+   "ltp": 564.85
   },
   {
    "name": "Srinibas Pradhan Constructions",
@@ -19957,7 +19957,7 @@
    "gmpImplied": 98.0,
    "listing": 100.05,
    "close1": 104.4,
-   "ltp": 170.0
+   "ltp": 181.35
   },
   {
    "name": "Elfin Agro India",
@@ -19969,7 +19969,7 @@
    "gmpImplied": 47.0,
    "listing": 47.3,
    "close1": 47.6,
-   "ltp": 91.0
+   "ltp": 90.0
   },
   {
    "name": "SEDEMAC Mechatronics",
@@ -19981,7 +19981,7 @@
    "gmpImplied": 1352.0,
    "listing": 1535.0,
    "close1": 1452.1,
-   "ltp": 3110.6
+   "ltp": 3147.8
   },
   {
    "name": "Acetech E-Commerce",
@@ -20005,7 +20005,7 @@
    "gmpImplied": 72.0,
    "listing": 70.0,
    "close1": 66.5,
-   "ltp": 58.0
+   "ltp": 52.15
   },
   {
    "name": "Yaap Digital",
@@ -20017,7 +20017,7 @@
    "gmpImplied": 145.0,
    "listing": 127.0,
    "close1": 133.35,
-   "ltp": 125.1
+   "ltp": 126.3
   },
   {
    "name": "Omnitech Engineering",
@@ -20029,7 +20029,7 @@
    "gmpImplied": 227.0,
    "listing": 202.0,
    "close1": 205.15,
-   "ltp": 568.65
+   "ltp": 556.15
   },
   {
    "name": "PNGS Reva Diamond Jewellery",
@@ -20041,7 +20041,7 @@
    "gmpImplied": 366.0,
    "listing": 375.0,
    "close1": 413.95,
-   "ltp": 489.4
+   "ltp": 495.75
   },
   {
    "name": "Accord Transformer & Switchgear",
@@ -20053,7 +20053,7 @@
    "gmpImplied": 50.0,
    "listing": 50.0,
    "close1": 52.5,
-   "ltp": 63.87
+   "ltp": 64.25
   },
   {
    "name": "Mobilise App",
@@ -20065,7 +20065,7 @@
    "gmpImplied": 84.0,
    "listing": 64.1,
    "close1": 67.3,
-   "ltp": 113.6
+   "ltp": 108.95
   },
   {
    "name": "Clean Max Enviro Energy Solutions",
@@ -20077,7 +20077,7 @@
    "gmpImplied": 1018.0,
    "listing": 960.0,
    "close1": 867.9,
-   "ltp": 1291.1
+   "ltp": 1279.4
   },
   {
    "name": "Shree Ram Twistex",
@@ -20089,7 +20089,7 @@
    "gmpImplied": 76.0,
    "listing": 68.0,
    "close1": 73.45,
-   "ltp": 37.98
+   "ltp": 38.02
   },
   {
    "name": "Kiaasa Retail",
@@ -20101,7 +20101,7 @@
    "gmpImplied": 127.0,
    "listing": 123.0,
    "close1": 116.85,
-   "ltp": 30.0
+   "ltp": 30.98
   },
   {
    "name": "Manilam Industries",
@@ -20113,7 +20113,7 @@
    "gmpImplied": 69.0,
    "listing": 55.2,
    "close1": 52.45,
-   "ltp": 39.9
+   "ltp": 40.0
   },
   {
    "name": "Gaudium IVF",
@@ -20125,7 +20125,7 @@
    "gmpImplied": 79.0,
    "listing": 83.0,
    "close1": 80.48,
-   "ltp": 114.79
+   "ltp": 116.22
   },
   {
    "name": "Yashhtej Industries (India)",
@@ -20137,7 +20137,7 @@
    "gmpImplied": 110.0,
    "listing": 88.0,
    "close1": 83.6,
-   "ltp": 49.2
+   "ltp": 49.26
   },
   {
    "name": "Fractal Industries",
@@ -20161,7 +20161,7 @@
    "gmpImplied": 119.0,
    "listing": 120.0,
    "close1": 114.0,
-   "ltp": 119.3
+   "ltp": 117.0
   },
   {
    "name": "Fractal Analytics",
@@ -20173,7 +20173,7 @@
    "gmpImplied": 872.0,
    "listing": 876.0,
    "close1": 847.4,
-   "ltp": 750.75
+   "ltp": 764.35
   },
   {
    "name": "Aye Finance",
@@ -20185,7 +20185,7 @@
    "gmpImplied": 127.0,
    "listing": 129.0,
    "close1": 128.91,
-   "ltp": 180.98
+   "ltp": 185.72
   },
   {
    "name": "PAN HR Solutions",
@@ -20209,7 +20209,7 @@
    "gmpImplied": 109.0,
    "listing": 111.0,
    "close1": 105.5,
-   "ltp": 46.9
+   "ltp": 45.75
   },
   {
    "name": "Grover Jewells",
@@ -20221,7 +20221,7 @@
    "gmpImplied": 88.0,
    "listing": 96.0,
    "close1": 100.8,
-   "ltp": 292.05
+   "ltp": 303.4
   },
   {
    "name": "Brandman Retail",
@@ -20233,7 +20233,7 @@
    "gmpImplied": 193.0,
    "listing": 178.5,
    "close1": 192.15,
-   "ltp": 164.0
+   "ltp": 162.2
   },
   {
    "name": "CKK Retail Mart",
@@ -20245,7 +20245,7 @@
    "gmpImplied": 163.0,
    "listing": 163.0,
    "close1": 171.15,
-   "ltp": 170.2
+   "ltp": 170.6
   },
   {
    "name": "Accretion Nutraveda",
@@ -20269,7 +20269,7 @@
    "gmpImplied": 144.0,
    "listing": 144.0,
    "close1": 150.3,
-   "ltp": 319.6
+   "ltp": 304.0
   },
   {
    "name": "Kanishk Aluminium India",
@@ -20281,7 +20281,7 @@
    "gmpImplied": 73.0,
    "listing": 58.4,
    "close1": 55.48,
-   "ltp": 24.0
+   "ltp": 22.8
   },
   {
    "name": "Kasturi Metal Composite",
@@ -20305,7 +20305,7 @@
    "gmpImplied": 70.0,
    "listing": 65.0,
    "close1": 68.25,
-   "ltp": 111.0
+   "ltp": 110.85
   },
   {
    "name": "Shayona Engineering",
@@ -20329,7 +20329,7 @@
    "gmpImplied": 157.5,
    "listing": 172.1,
    "close1": 180.7,
-   "ltp": 317.3
+   "ltp": 312.2
   },
   {
    "name": "Digilogic Systems",
@@ -20341,7 +20341,7 @@
    "gmpImplied": 104.0,
    "listing": 83.2,
    "close1": 79.05,
-   "ltp": 183.55
+   "ltp": 180.0
   },
   {
    "name": "Shadowfax Technologies",
@@ -20353,7 +20353,7 @@
    "gmpImplied": 120.5,
    "listing": 112.6,
    "close1": 109.98,
-   "ltp": 251.65
+   "ltp": 251.55
   },
   {
    "name": "Aritas Vinyl",
@@ -20377,7 +20377,7 @@
    "gmpImplied": 57.0,
    "listing": 45.6,
    "close1": 43.35,
-   "ltp": 16.6
+   "ltp": 15.85
   },
   {
    "name": "Amagi Media Labs",
@@ -20389,7 +20389,7 @@
    "gmpImplied": 360.0,
    "listing": 318.0,
    "close1": 348.25,
-   "ltp": 574.35
+   "ltp": 569.5
   },
   {
    "name": "Narmadesh Brass Industries",
@@ -20413,7 +20413,7 @@
    "gmpImplied": 159.0,
    "listing": 149.0,
    "close1": 154.8,
-   "ltp": 495.95
+   "ltp": 520.2
   },
   {
    "name": "GRE Renew Enertech",
@@ -20425,7 +20425,7 @@
    "gmpImplied": 106.0,
    "listing": 96.0,
    "close1": 91.2,
-   "ltp": 185.75
+   "ltp": 183.5
   },
   {
    "name": "Avana Electrosystems",
@@ -20437,7 +20437,7 @@
    "gmpImplied": 69.5,
    "listing": 77.5,
    "close1": 80.3,
-   "ltp": 137.0
+   "ltp": 140.0
   },
   {
    "name": "Defrail Technologies",
@@ -20449,7 +20449,7 @@
    "gmpImplied": 91.0,
    "listing": 95.0,
    "close1": 90.25,
-   "ltp": 69.95
+   "ltp": 68.0
   },
   {
    "name": "Bharat Coking Coal",
@@ -20461,7 +20461,7 @@
    "gmpImplied": 41.5,
    "listing": 45.0,
    "close1": 40.66,
-   "ltp": 32.14
+   "ltp": 32.69
   },
   {
    "name": "Victory Electric Vehicles",
@@ -20473,7 +20473,7 @@
    "gmpImplied": 41.0,
    "listing": 34.45,
    "close1": 32.75,
-   "ltp": 14.6
+   "ltp": 14.9
   },
   {
    "name": "Yajur Fibres",
@@ -20485,7 +20485,7 @@
    "gmpImplied": 174.0,
    "listing": 139.2,
    "close1": 132.25,
-   "ltp": 39.45
+   "ltp": 40.19
   },
   {
    "name": "Gabion Technologies",
@@ -20497,7 +20497,7 @@
    "gmpImplied": 112.0,
    "listing": 89.0,
    "close1": 93.41,
-   "ltp": 137.35
+   "ltp": 137.05
   },
   {
    "name": "Modern Diagnostic",
@@ -20509,7 +20509,7 @@
    "gmpImplied": 104.0,
    "listing": 99.5,
    "close1": 94.99,
-   "ltp": 83.95
+   "ltp": 83.0
   },
   {
    "name": "E to E Transportation Infrastructure",
@@ -20521,7 +20521,7 @@
    "gmpImplied": 336.0,
    "listing": 330.6,
    "close1": 327.8,
-   "ltp": 346.45
+   "ltp": 344.65
   },
   {
    "name": "Dhara Rail Projects",
@@ -34424,14 +34424,23 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-18T21:48:15+05:30",
+  "asOf": "2026-09-18T22:14:30+05:30",
   "checks": [
+   {
+    "area": "calendar",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-09-18T22:13:35+05:30",
+    "elapsed": 2.48,
+    "calls": 5,
+    "note": "investorgain list=30 carried=12 +nse=15 +bse=11 exchange-only=0: 19 mainboard, 23 sme; 8 open, 16 upcoming"
+   },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:ok",
     "status": "ok",
     "asOf": "18-Sep 9:37",
-    "elapsed": 2.05,
+    "elapsed": 1.36,
     "calls": 2,
     "note": "gmp: 26 board rows patched via investorgain+ipowatch; 24 active, 12 of them matched; gmp: 6 GMP-site names not on the board: Amtech Esters (₹16, investorgain); Glass Wall Systems (₹39, investorgain); Kanohar Electricals (₹182, investorgain); Pranav Constructions (₹53, investorgain); Prasol Chemicals (₹-13, investorgain); Qualiance International (₹81, investorgain)"
    },
@@ -34439,19 +34448,100 @@
     "area": "details",
     "method": "investorgain-list:ok, investorgain:ok",
     "status": "ok",
-    "asOf": "2026-09-18T21:47:19+05:30",
-    "elapsed": 11.42,
-    "calls": 19,
-    "note": "18 records fetched for 35 identified listings (7 without an id); 0 anchor books updated, 53 on file"
+    "asOf": "2026-09-18T22:13:37+05:30",
+    "elapsed": 6.95,
+    "calls": 9,
+    "note": "8 records fetched for 35 identified listings (7 without an id); 0 anchor books updated, 53 on file"
    },
    {
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-18T21:48:15+05:30",
-    "elapsed": 44.52,
-    "calls": 12,
+    "asOf": "2026-09-18T22:14:03+05:30",
+    "elapsed": 19.36,
+    "calls": 11,
     "note": "5/11 rows patched via nse"
+   },
+   {
+    "area": "listings",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-09-18",
+    "elapsed": 10.84,
+    "calls": 0,
+    "note": "17 names priced, 6 moved to recent, 0 history points"
+   },
+   {
+    "area": "history",
+    "method": "investorgain-566:ok, investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-09-18",
+    "elapsed": 1.28,
+    "calls": 2,
+    "note": "1323 listings since 2022 (944 SME); fetched 2026: 220; QIB on file for 80 of 379 mainboard issues"
+   },
+   {
+    "area": "evidence",
+    "method": "computed:ok",
+    "status": "ok",
+    "asOf": "2026-09-18",
+    "elapsed": 0.03,
+    "calls": 0,
+    "note": "1323 listings; windows: mainboard 131, SME 238; 5 warnings"
+   },
+   {
+    "area": "parents",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-09-18",
+    "elapsed": 8.05,
+    "calls": 0,
+    "note": "5/5 parent prices; 27/32 investor stocks priced"
+   },
+   {
+    "area": "filings",
+    "method": "bse_ann:ok, sebi:ok",
+    "status": "ok",
+    "asOf": "2026-09-18",
+    "elapsed": 4.19,
+    "calls": 10,
+    "note": "bse_ann: 8/8 parents answered, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; expected: 26 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; 0 rows patched, 33 kept previous stage"
+   },
+   {
+    "area": "offers",
+    "method": "bse:ok",
+    "status": "ok",
+    "asOf": "2026-09-18",
+    "elapsed": 1.03,
+    "calls": 1,
+    "note": "bse rows=11: 11 rights, 12 buybacks, 0 ofs, 2 ncd; 11 refreshed, 0 new, 0 closed windows dropped"
+   },
+   {
+    "area": "flows",
+    "method": "nse:ok",
+    "status": "ok",
+    "asOf": "2026-09-18",
+    "elapsed": 0.54,
+    "calls": 1,
+    "note": "2026-09-18 already in history; FII +600 / DII +1,020 Cr"
+   },
+   {
+    "area": "deals",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-09-18",
+    "elapsed": 0.34,
+    "calls": 2,
+    "note": "bulk.csv: 225 deals; block.csv: 5 deals; 0 tracked-investor deals of 230; 13 patterns"
+   },
+   {
+    "area": "news",
+    "method": "rss:ok",
+    "status": "ok",
+    "asOf": "2026-09-18T18:08:31+05:30",
+    "elapsed": 0.94,
+    "calls": 3,
+    "note": "business-standard: 7/35 primary-market items; economic-times: 4/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 11 fresh, 25 kept"
    },
    {
     "area": "research layer",
@@ -34463,7 +34553,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "58s, 33 calls, 3/3 modules ok"
+    "note": "58s, 46 calls, 13/13 modules ok"
    }
   ],
   "discrepancies": [
