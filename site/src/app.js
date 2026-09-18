@@ -201,6 +201,7 @@ function renderPipe() {
   const L = [["awaited", "DRHP awaited", live.filter(q => q.bucket === "awaited")], ["drhp", "DRHP filed", live.filter(q => q.bucket === "drhp")], ["approved", "SEBI approved", live.filter(q => q.bucket === "approved")],
     ["rhp", "RHP · record date", live.filter(q => q.recordDate)], ["done", "Listed 2026", Q.filter(q => q.bucket === "done").sort((a, b) => (b.listingDate || "").localeCompare(a.listingDate || ""))]];
   $("#lanes").innerHTML = L.map(([k, t, rows]) => `<div class="pipe-lane"><div class="lh"><h2 style="font-size:13px">${t}</h2><span class="n mono">${rows.length}</span></div><div class="body">${rows.length ? rows.map(q => `<button class="chip ${q.bucket === "done" ? "cov" : covClass(q)}${pipeSel === q.name ? " cur" : ""}" data-row data-name="${esc(q.name)}">${esc(q.name)}${S.interest.has(q.name) ? '<span class="mk">★</span>' : ""}<small>${esc(q.ticker || q.parent)}${q.bucket === "done" ? ` · ${pct(q.listingGainPct, true)} · quota ${q.quotaPct != null ? q.quotaPct + "%" : "?"}` : q.sizeCr ? " · " + cr(q.sizeCr) : ""}${q.recordDate ? " · record " + fmtD(q.recordDate) : q.bucket === "approved" && q.lapse && days(q.lapse) <= 45 ? " · lapses " + fmtD(q.lapse) : q.stageDate && q.bucket !== "done" ? " · " + fmtD(q.stageDate) : ""}${held(q.parent) && q.bucket !== "done" ? " · held ✓" : ""}</small></button>`).join("") : `<div class="dim" style="font-size:12px;padding:6px 2px">${k === "rhp" ? "No record dates announced. Jio's arrives with its RHP." : "—"}</div>`}</div></div>`).join("");
+  renderQuotaPlanner();
   $("#c-pipe").textContent = live.filter(q => (q.bucket === "approved" || q.bucket === "drhp") && q.quota !== false && !held(q.parent)).length || "";
   const q = Q.find(z => z.name === pipeSel);
   $("#pipeDetailWrap").hidden = !q;
@@ -754,6 +755,7 @@ document.addEventListener("keydown", e => {
 });
 
 /* ================= BOOT ================= */
+/* @include quota.js */
 /* @include players.js */
 /* @include research.js */
 /* @include scoreboard.js */

@@ -204,6 +204,10 @@ be worked around. Enough for "which top anchors are in today's open books"; not 
 largest anchors by money + 30 by count, each one's latest five turned round into `books{igId: [investor…]}` for unlisted
 issues; `site/src/players.js` renders them in "Smart money on the board" with coverage stated ("18 of the 53 largest").
 A 403 stops it at once. The line above that says anchor names exist only as a PDF letter is true of the per-IPO record, not of 561.
+Quota planner (roadmap D, 19 Sep 2026): `site/src/quota.js` on the Pipeline tab — per live quota IPO: the parent to hold, what ONE
+share costs, stage, record date ("buy by" = record date - 2 days) and approval lapse, soonest first; KPIs for parents covered
+and the rupees to cover the rest. `parents.quota_parents()` prices every live quota row's `ticker` in the same batch into
+`investors.prices[parent]` (20 of 21 priced; Tata Motors' ticker changed with the demerger). "Held" is localStorage `ipo-holdings`.
 Page files: `site/src/app.js` is the db-era monolith; NEW screens go in their own file and are pulled into app.js's scope
 by `/* @include name.js */` (site/build.py). First one: `scoreboard.js` (tab 7, "Score": GMP calibration, band tables,
 sell-at-open vs hold-to-close, below-issue-price filter, sortable list — all computed from `listedPerf` + `comps`).

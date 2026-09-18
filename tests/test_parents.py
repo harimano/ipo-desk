@@ -131,3 +131,15 @@ def test_investor_symbols_are_remembered_and_the_list_is_only_fetched_for_new_na
     prev["investors"]["prices"]["Asian Energy"] = {"symbol": "ASIANENE"}
     assert parents.resolve_symbols(S(), prev, Result(module="parents")) == {"Asian Energy": "ASIANENE", "Beta Drugs": "BETA"}
     assert S.calls == 0, "every name already resolved: no fetch"
+
+
+def test_every_live_quota_parent_is_priced_in_the_same_batch(no_angel, monkeypatch):
+    monkeypatch.setattr(yahoo, "_download", lambda tickers, days: yahoo_frame(BARS, tickers))
+    prev = make_prev()
+    prev["quota"] = [{"name": "SBI Funds Management", "parent": "SBI", "ticker": "SBIN.NS", "bucket": "drhp"},
+                     {"name": "Old Listing", "parent": "Gone Co", "ticker": "RELIANCE", "bucket": "done"},
+                     {"name": "No Ticker", "parent": "Mystery", "bucket": "awaited"}]
+    assert parents.quota_parents(prev) == {"SBI": "SBIN"}, "live rows with a ticker only; .NS stripped"
+    res = parents.run(FakeSession(), prev, Result(module="parents"))
+    assert res.ok and res.merge["investors"]["prices"]["SBI"] == {"symbol": "SBIN", "value": 815.3, "asOf": "2026-09-16"}
+    assert res.merge["sheets"]["Jio Platforms"]["parentPrice"]["value"] == 2955.9, "the sheets' own prices are untouched by it"

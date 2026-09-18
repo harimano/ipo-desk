@@ -38,6 +38,17 @@ def _tickers(prev: dict) -> dict[str, str]:
     return out
 
 
+def quota_parents(prev: dict) -> dict[str, str]:
+    """parent name -> NSE symbol for every live quota row that names its ticker. The quota planner needs what ONE share of
+    each parent costs, and only five parents have a research sheet; these ride in the same batch and land in
+    `investors.prices[parent]` like any other stock the collector prices."""
+    out = {}
+    for q in prev.get("quota") or []:
+        if isinstance(q, dict) and q.get("bucket") not in ("done", "dropped") and isinstance(q.get("parent"), str) and isinstance(q.get("ticker"), str) and q["ticker"].strip():
+            out[q["parent"]] = q["ticker"].strip().upper().removesuffix(".NS")
+    return out
+
+
 def investor_stocks(prev: dict) -> list[str]:
     inv = prev.get("investors") or {}
     names = [r.get("stock") for k in ("moves", "recentListings") for r in (inv.get(k) or []) if isinstance(r, dict)]
@@ -135,5 +146,6 @@ def run(session: Session, prev: dict, res: Result) -> Result:
     except Exception as e:                       # best effort, always: parent prices come first
         log.warning("investor symbol resolution failed: %s", e)
         stocks = {}
+    stocks = {**quota_parents(prev), **stocks}
     return try_chain(res, [("angelone", lambda: _from_angelone(session, tickers, stocks, res)),
                            ("yahoo", lambda: _from_yahoo(session, tickers, stocks, res))])
