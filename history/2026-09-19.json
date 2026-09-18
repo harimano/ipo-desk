@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-19T00:11:13+05:30",
+  "asOf": "2026-09-19T00:23:58+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "19 Sep 2026, 00:11 IST",
+  "label": "19 Sep 2026, 00:23 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -42,6 +42,7 @@
    "[gmp] gmp: no grey-market print found for open issue Axiom Gas Engineering",
    "[listings] listings: no NSE symbol on row 'Amtech Esters' — cannot price",
    "[listings] listings: no NSE symbol on row 'Infrax Renewable' — cannot price",
+   "[listings] listings: no NSE symbol on row 'Vinod Texworld' — cannot price",
    "[listings] listings: no NSE symbol on row 'Pranav Constructions' — cannot price",
    "[listings] listings: no NSE symbol on row 'Apana Logistics' — cannot price",
    "[listings] listings: no NSE symbol on row 'Qualiance International' — cannot price",
@@ -1207,7 +1208,7 @@
    "ofsCr": 33.0,
    "gmp": 1.6,
    "gmpPct": 3.72,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 11.22,
     "nii": 66.58,
@@ -1291,7 +1292,7 @@
    "ofsCr": 400.0,
    "gmp": 6.0,
    "gmpPct": 7.14,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 1.49,
     "nii": 9.86,
@@ -1378,7 +1379,7 @@
    "ofsCr": 24.99,
    "gmp": 26.5,
    "gmpPct": 28.49,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 126.41,
     "nii": 327.99,
@@ -1550,7 +1551,7 @@
    "ofsCr": 22561.57,
    "gmp": 111.0,
    "gmpPct": 6.22,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 1.53,
     "nii": 1.68,
@@ -1575,7 +1576,7 @@
    "igId": "2305",
    "bseIpoNo": "7977",
    "bseScripCode": "4827",
-   "igFetchedAt": "2026-09-19T00:09:44+05:30",
+   "igFetchedAt": "2026-09-19T00:22:14+05:30",
    "sector": "Exchange and Data Platform",
    "anchorShares": 37793739,
    "gmpAsOf": "2026-09-18T23:37:00+05:30",
@@ -1663,10 +1664,10 @@
    "igId": "2059",
    "bseIpoNo": "7973",
    "bseScripCode": "4824",
-   "igFetchedAt": "2026-09-19T00:09:44+05:30",
+   "igFetchedAt": "2026-09-19T00:22:14+05:30",
    "sector": "Other Textile Products",
    "anchorShares": 4290000,
-   "gmpAsOf": "2026-09-18T23:02:00+05:30",
+   "gmpAsOf": "2026-09-18T23:37:00+05:30",
    "facts": {
     "sector": "Other Textile Products",
     "listingAt": "BSE, NSE",
@@ -1707,7 +1708,7 @@
     "asOf": "2026-09-17T05:03:00+05:30"
    },
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-18T23:02:00+05:30",
+   "gmpEveAsOf": "2026-09-18T23:37:00+05:30",
    "refund": "2026-09-23"
   },
   {
@@ -1797,7 +1798,7 @@
    "ofsCr": 18.09,
    "gmp": 37.0,
    "gmpPct": 27.61,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2075,7 +2076,7 @@
    "ofsCr": 50.0,
    "gmp": 60.0,
    "gmpPct": 14.81,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3655,7 +3656,7 @@
    "ofsCr": null,
    "gmp": 7.0,
    "gmpPct": 6.93,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 0.23,
     "nii": 0.26,
@@ -3676,10 +3677,10 @@
    "igId": "2016",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-19T00:09:44+05:30",
+   "igFetchedAt": "2026-09-19T00:22:14+05:30",
    "sector": "Auto Components & Equipments",
    "anchorShares": 1310400,
-   "gmpAsOf": "2026-09-18T23:02:00+05:30",
+   "gmpAsOf": "2026-09-18T23:37:00+05:30",
    "facts": {
     "sector": "Auto Components & Equipments",
     "listingAt": "NSE SME",
@@ -3711,7 +3712,7 @@
     "asOf": "2026-09-18T04:36:00+05:30"
    },
    "gmpEve": 7.0,
-   "gmpEveAsOf": "2026-09-18T23:02:00+05:30",
+   "gmpEveAsOf": "2026-09-18T23:37:00+05:30",
    "refund": "2026-09-23"
   },
   {
@@ -3752,7 +3753,7 @@
    "igId": "2211",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-19T00:09:44+05:30",
+   "igFetchedAt": "2026-09-19T00:22:14+05:30",
    "sector": "Industrial Products",
    "anchorShares": 1024800,
    "gmpAsOf": "2026-09-18T23:37:00+05:30",
@@ -3830,10 +3831,10 @@
    "igId": "1682",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-19T00:09:44+05:30",
+   "igFetchedAt": "2026-09-19T00:22:14+05:30",
    "sector": "LPG/CNG/PNG/LNG Supplier",
    "anchorShares": 1070400,
-   "gmpAsOf": "2026-09-18T22:54:00+05:30",
+   "gmpAsOf": "2026-09-18T23:30:00+05:30",
    "facts": {
     "sector": "LPG/CNG/PNG/LNG Supplier",
     "listingAt": "NSE SME",
@@ -3866,7 +3867,7 @@
     "asOf": "2026-09-18T05:04:00+05:30"
    },
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-18T22:54:00+05:30",
+   "gmpEveAsOf": "2026-09-18T23:30:00+05:30",
    "refund": "2026-09-24"
   },
   {
@@ -4286,7 +4287,7 @@
    "bandLow": 109.0,
    "bandHigh": 115.0,
    "lotSize": 1200,
-   "issueSizeCr": 41.95,
+   "issueSizeCr": 44.23,
    "freshCr": 41.95,
    "ofsCr": null,
    "gmp": 0.0,
@@ -34197,41 +34198,41 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-19T00:11:13+05:30",
+  "asOf": "2026-09-19T00:23:58+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-09-19T00:09:43+05:30",
-    "elapsed": 2.16,
+    "asOf": "2026-09-19T00:22:12+05:30",
+    "elapsed": 3.4,
     "calls": 5,
-    "note": "investorgain list=30 carried=12 +nse=12 +bse=8 exchange-only=0: 13 mainboard, 22 sme; 5 open, 16 upcoming"
+    "note": "investorgain list=30 carried=5 +nse=12 +bse=8 exchange-only=0: 13 mainboard, 22 sme; 5 open, 16 upcoming"
    },
    {
     "area": "gmp",
-    "method": "investorgain:ok, ipowatch:ok",
+    "method": "investorgain:ok, ipowatch:ok, ipopremium:blocked",
     "status": "ok",
     "asOf": "18-Sep 9:37",
-    "elapsed": 1.64,
-    "calls": 2,
-    "note": "gmp: 27 board rows patched via investorgain+ipowatch; 24 active, 13 of them matched; gmp: 6 GMP-site names not on the board: Amtech Esters (₹16, investorgain); Glass Wall Systems (₹39, investorgain); Kanohar Electricals (₹182, investorgain); Pranav Constructions (₹53, investorgain); Prasol Chemicals (₹-13, investorgain); Qualiance International (₹81, investorgain); mainboard: 6 patched names not on the board: Asset Reconstruction Company (India), Karamtara Engineering, LCC Projects, Manipal Payment & Identity Solutions, Rentomojo; sme: 1 patched names not on the board: Vinod Texworld"
+    "elapsed": 2.74,
+    "calls": 3,
+    "note": "gmp: 20 board rows patched via investorgain+ipowatch; 21 active, 10 of them matched; gmp: 13 GMP-site names not on the board: Amtech Esters (₹16, investorgain); Asset Reconstruction (₹12, investorgain); Glass Wall Systems (₹39, investorgain); Kanohar Electricals (₹182, investorgain); Karamtara Engineering (₹46, investorgain); LCC Projects (₹36, investorgain); Manipal Payment and Identity Solutions (₹-6, investorgain); Pranav Constructions (₹53, investorgain) …"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-09-19T00:09:44+05:30",
-    "elapsed": 5.03,
-    "calls": 15,
-    "note": "15 records fetched for 35 identified listings (0 without an id); 0 anchor books updated, 53 on file"
+    "asOf": "2026-09-19T00:22:14+05:30",
+    "elapsed": 6.09,
+    "calls": 5,
+    "note": "5 records fetched for 35 identified listings (0 without an id); 0 anchor books updated, 53 on file"
    },
    {
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-19T00:10:23+05:30",
-    "elapsed": 33.84,
+    "asOf": "2026-09-19T00:22:41+05:30",
+    "elapsed": 20.21,
     "calls": 8,
     "note": "5/8 rows patched via nse"
    },
@@ -34240,16 +34241,16 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-18",
-    "elapsed": 12.14,
+    "elapsed": 16.62,
     "calls": 0,
-    "note": "18 names priced, 7 moved to recent, 0 history points; mainboard: 6 patched names not on the board: Asset Reconstruction Company (India), Karamtara Engineering, LCC Projects, Manipal Payment & Identity Solutions, Rentomojo"
+    "note": "12 names priced, 1 moved to recent, 0 history points"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-09-19",
-    "elapsed": 0.45,
+    "elapsed": 2.85,
     "calls": 2,
     "note": "1323 listings since 2022 (944 SME); fetched 2026: 220; QIB on file for 80 of 379 mainboard issues"
    },
@@ -34258,7 +34259,7 @@
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-09-19",
-    "elapsed": 0.03,
+    "elapsed": 0.02,
     "calls": 0,
     "note": "1323 listings; windows: mainboard 131, SME 237; 5 warnings"
    },
@@ -34267,7 +34268,7 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-09-19",
-    "elapsed": 18.71,
+    "elapsed": 28.07,
     "calls": 54,
     "note": "53 of 2842 anchor investors read (0 failed); names found for 3 of 30 unlisted issues"
    },
@@ -34276,16 +34277,16 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-09-17",
-    "elapsed": 8.14,
+    "elapsed": 22.04,
     "calls": 0,
-    "note": "5/5 parent prices; 27/32 investor stocks priced"
+    "note": "5/5 parent prices; 47/53 investor stocks priced"
    },
    {
     "area": "filings",
     "method": "bse_ann:ok, sebi:ok",
     "status": "ok",
     "asOf": "2026-09-19",
-    "elapsed": 6.43,
+    "elapsed": 4.46,
     "calls": 10,
     "note": "bse_ann: 8/8 parents answered, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; expected: 26 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; 0 rows patched, 33 kept previous stage"
    },
@@ -34294,7 +34295,7 @@
     "method": "bse:ok",
     "status": "ok",
     "asOf": "2026-09-19",
-    "elapsed": 0.83,
+    "elapsed": 0.87,
     "calls": 1,
     "note": "bse rows=9: 11 rights, 12 buybacks, 0 ofs, 2 ncd; 9 refreshed, 0 new, 0 closed windows dropped"
    },
@@ -34303,7 +34304,7 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-09-18",
-    "elapsed": 0.5,
+    "elapsed": 0.36,
     "calls": 1,
     "note": "2026-09-18 already in history; FII +600 / DII +1,020 Cr"
    },
@@ -34312,7 +34313,7 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-09-18",
-    "elapsed": 0.49,
+    "elapsed": 0.72,
     "calls": 2,
     "note": "bulk.csv: 225 deals; block.csv: 5 deals; 0 tracked-investor deals of 230; 13 patterns"
    },
@@ -34321,7 +34322,7 @@
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-09-18T18:08:31+05:30",
-    "elapsed": 1.63,
+    "elapsed": 0.68,
     "calls": 3,
     "note": "business-standard: 7/35 primary-market items; economic-times: 4/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 11 fresh, 25 kept"
    },
@@ -34335,7 +34336,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "92s, 103 calls, 14/14 modules ok"
+    "note": "109s, 94 calls, 14/14 modules ok"
    }
   ],
   "discrepancies": [
@@ -36063,6 +36064,111 @@
    "Madhusudan Kela"
   ],
   "prices": {
+   "Reliance Industries": {
+    "symbol": "RELIANCE",
+    "value": 1243.9,
+    "asOf": "2026-09-17"
+   },
+   "Edelweiss Financial Services": {
+    "symbol": "EDELWEISS",
+    "value": 126.74,
+    "asOf": "2026-09-16"
+   },
+   "Coal India": {
+    "symbol": "COALINDIA",
+    "value": 418.0,
+    "asOf": "2026-09-17"
+   },
+   "Hero MotoCorp": {
+    "symbol": "HEROMOTOCO",
+    "value": 5325.0,
+    "asOf": "2026-09-17"
+   },
+   "IEX": {
+    "symbol": "IEX",
+    "value": 113.4,
+    "asOf": "2026-09-17"
+   },
+   "Prestige Estates": {
+    "symbol": "PRESTIGE",
+    "value": 1424.0,
+    "asOf": "2026-09-16"
+   },
+   "SIS Limited": {
+    "symbol": "SIS",
+    "value": 419.8,
+    "asOf": "2026-09-17"
+   },
+   "NLC India": {
+    "symbol": "NLCINDIA",
+    "value": 262.3,
+    "asOf": "2026-09-17"
+   },
+   "Amber Enterprises": {
+    "symbol": "AMBER",
+    "value": 6930.0,
+    "asOf": "2026-09-16"
+   },
+   "SJVN": {
+    "symbol": "SJVN",
+    "value": 64.75,
+    "asOf": "2026-09-17"
+   },
+   "Tata Motors": {
+    "symbol": "TATAMOTORS",
+    "value": null,
+    "asOf": null
+   },
+   "LIC": {
+    "symbol": "LICI",
+    "value": 400.0,
+    "asOf": "2026-09-17"
+   },
+   "NHPC": {
+    "symbol": "NHPC",
+    "value": 75.2,
+    "asOf": "2026-09-17"
+   },
+   "ONGC": {
+    "symbol": "ONGC",
+    "value": 232.43,
+    "asOf": "2026-09-17"
+   },
+   "HDFC Bank": {
+    "symbol": "HDFCBANK",
+    "value": 713.0,
+    "asOf": "2026-09-17"
+   },
+   "Kotak Mahindra Bank": {
+    "symbol": "KOTAKBANK",
+    "value": 416.5,
+    "asOf": "2026-09-17"
+   },
+   "Axis Bank": {
+    "symbol": "AXISBANK",
+    "value": 1240.0,
+    "asOf": "2026-09-17"
+   },
+   "Bajaj Finserv": {
+    "symbol": "BAJAJFINSV",
+    "value": 1837.0,
+    "asOf": "2026-09-16"
+   },
+   "Info Edge": {
+    "symbol": "NAUKRI",
+    "value": 1256.0,
+    "asOf": "2026-09-16"
+   },
+   "Bajaj Hindusthan Sugar": {
+    "symbol": "BAJAJHIND",
+    "value": 19.38,
+    "asOf": "2026-09-17"
+   },
+   "Gretex Corporate Services": {
+    "symbol": "GRETEX",
+    "value": 225.0,
+    "asOf": "2026-09-16"
+   },
    "Asian Energy": {
     "symbol": "ASIANENE",
     "value": 486.2,
@@ -45000,7 +45106,7 @@
   },
   "2305": {
    "name": "NSE (National Stock Exchange of India)",
-   "fetchedAt": "2026-09-19T00:09:44+05:30",
+   "fetchedAt": "2026-09-19T00:22:14+05:30",
    "about": [
     "Incorporated in November 1992, National Stock Exchange of India Limited (NSE) is India's largest stock exchange and one of the world's leading multi-asset exchange platforms. NSE provides a vertically integrated ecosystem comprising trading, clearing, settlement, listing, market data, index services, and regulatory oversight across multiple asset classes, including equities, derivatives, currency derivatives, commodities, debt securities, and mutual funds. NSE has consistently maintained its leadership position in India in cash market turnover, equity derivatives trading, and currency derivatives trading. As of March 31, 2026, the exchange served over 253 million registered investor accounts, 129 million unique investors, 1,325 trading members, and 2,978 listed companies, with a total listed market capitalization of approximately ₹411 trillion. During Fiscal 2026, over ₹20.3 trillion was mobilized through its platform. The exchange operates on a highly scalable and resilient technology infrastructure that supports high-frequency trading, real-time market data dissemination, risk management, surveillance, and regulatory compliance. NSE plays a critical role in India's capital market ecosystem by promoting transparency, investor protection, efficient price discovery, and broad-based financial inclusion across more than 99% of Indian postal codes. As of March 31, 2026, NSE had 1,974 full-time employees, while its subsidiaries employed an additional 907 employees across technology, operations, risk management, compliance, and business functions. Key Strengths Largest stock exchange in India across key trading segments. Leading global multi-asset exchange by equity derivatives trading volumes. Strong brand built on trust, transparency, and market integrity. Vertically integrated business model covering trading, clearing, settlement, and market data services. Advanced technology platform designed for scale, resilience, and security. Well-positioned to benefit from India's growing capital markets and investor participation. Strong network effects driven by investors, listed companies, and intermediaries. Comprehensive product offerings across multiple asset classes. Consistent profitability, cash generation, and financial performance. Experienced management team with strong governance and regulatory expertise."
    ],
@@ -45279,7 +45385,7 @@
   },
   "2059": {
    "name": "Sonaselection India",
-   "fetchedAt": "2026-09-19T00:09:44+05:30",
+   "fetchedAt": "2026-09-19T00:22:14+05:30",
    "about": [
     "Incorporated in February 2022, Sonaselection India Limited is an integrated fabric manufacturing and processing company engaged in the production of value-added products. The company specialises in the manufacturing of 100% cotton fabric, cotton lycra (stretch) 262 fabric, cotton blends, polyester blends, and in the processing of fabric, including 100% cotton, cotton blends, polyester-viscose (P/V) and polyester fabric. The company convert raw textiles into finished, high‑quality fabrics. The company's model enables us to offer a diversified product portfolio, maintain consistent quality, support innovation in fabric development and provide its customers with reliable, cost‑efficient and timely solutions, thereby positioning us as a preferred partner for brands seeking consistency, innovation and faster delivery timelines. By employing a flexible workforce model, the company optimises manufacturing efficiency, scales production based on demand fluctuations, and maintains cost-effectiveness without compromising on quality or delivery timelines. Effectiveness without compromising on quality and delivery timelines. As of October 31, 2025, the company had 844 employees. Competitive Strength: Strategically located manufacturing facility with modern technologies to support our product portfolio. Integrated business model combining manufacturing and job work activities. Strong standing relationships with customers with a high retention rate. Experienced Promoters supported by a professional management team with domain knowledge."
    ],
@@ -45560,7 +45666,7 @@
   },
   "2016": {
    "name": "Kheria Autocomp",
-   "fetchedAt": "2026-09-19T00:09:44+05:30",
+   "fetchedAt": "2026-09-19T00:22:14+05:30",
    "about": [
     "Incorporated in 2009, Kheria Autocomp Ltd. is an auto ancillary unit engaged in the business of plastic injection moulding, specializing in the manufacture and sub-assembly operations of plastic components, primarily for the automotive sector. The Company operates as a Tier-II supplier, producing moulded plastic components as per specifications for Tier-I vendors who supply to Original Equipment Manufacturers (OEMs) in the passenger vehicle categories. Its product range is supplied for both internal combustion engine and electric vehicles (EVs), including interior cabin trims, exterior plastic parts, under-hood components, and heating, ventilation and air-conditioning (HVAC) ducts. This positioning allows the Company to cater to the growing demand for sustainable and future-oriented mobility solutions within the EV ecosystem. The Company’s manufacturing facility is located within the Tata Vendor Park at Sanand, Gujarat, covering an area of approximately 3 acres. The facility is equipped with 30 injection moulding machines with capacities ranging from 120 tons to 1,700 tons. The Company also demonstrates a commitment to sustainability, having installed a 636 kW solar power system and four groundwater recharge wells at its site. As of August 31, 2025, the Company had a team of approximately 113 employees."
    ],
@@ -45844,7 +45950,7 @@
   },
   "2211": {
    "name": "SpectraA Technology Solutions",
-   "fetchedAt": "2026-09-19T00:09:44+05:30",
+   "fetchedAt": "2026-09-19T00:22:14+05:30",
    "about": [
     "Incorporated in 2009, Spectraa Technology Solutions Limited is engaged in providing IT and technology solutions to businesses across various industries. Spectraa Technology Solutions focuses on delivering customized, technology-driven solutions and caters to a range of clients through its expertise in innovation, automation, and digital services. The company prodvides engineering, designing, fabrication, installation, commissioning and decommissioning greenfield and brownfield projects across various industries which include, Breweries (Craft and Microbreweries), Distilleries, Food and Beverages, Malt Spirit and Blending, Extraction Plants, FMCG (Fast Moving Consumer Goods) and Pharmaceuticals. The company have two manufacturing facilities located at Bengaluru and Jaipur with an aggregate built up area of 33,214.75 square feet. Competitive Strengths: Geographical Advantage of two manufacturing facilities In-house Product Fabrication Diversified and Sustainable Order Book Quality Control and Compliance Experienced Leadership and Skilled Team"
    ],
@@ -46138,7 +46244,7 @@
   },
   "1682": {
    "name": "Axiom Gas Engineering",
-   "fetchedAt": "2026-09-19T00:09:44+05:30",
+   "fetchedAt": "2026-09-19T00:22:14+05:30",
    "about": [
     "Established in 2007, Axiom Gas Engineering Limited specialises in green energy engineering solutions. The company offers Auto LPG, CNG, and LNG solutions, catering to retail and industrial sectors with a commitment to quality, innovation, and environmental sustainability. As of June 30, 2024, the company operated 18 Auto LPG Dispensing Stations in Telangana, Maharashtra, and Karnataka. Operating under the brand name \" PrimeFuel ,\" AGEL manages Auto LPG Dispensing Stations across multiple states in India. The company has demonstrated strong financial growth, with increasing revenues and profits. The company offers the following services:- Gas and Pipe Engineering : Designs, implements, and maintains efficient gas systems for various industrial and commercial needs. Turnkey Services: Provides turnkey services for LPG/CNG retail, bottling, and bulk installations from concept to completion. Statutory Testing and Certification : Testing and Certification for hydrocarbon equipment, ensuring compliance with safety standards. Technical Consultancy : Provide expert guidance on hydrocarbon equipment design and optimization. Maintenance Operation and Training : Provides maintenance and training programs to enhance gas system longevity and performance. Manufacturing Pressure Vessels Through Third-Party Collaboration. Specializing in Industrial and Commercial LPG solutions. As of December 2024, the company has 21 permanent employees. Competitive Strength: Expertise in Executing Projects in Challenging Geographical Locations. Cost Optimization Strategies Without Compromising Safety Standards. Innovation in Developing and Implementing Cost-Effective Technical Solutions. Leveraging Global Engineering Resources to Deliver Superior Value. Commitment to Delivering Sustainable Projects with Excellence in Health Safety and Environment. Rapid Deployment Capabilities to Minimize Turnaround Times. Cost-Effective Establishment of New Auto LPG Dispensing Stations (ALDS)."
    ],
