@@ -16,3 +16,16 @@ def test_census_counts_collections_not_the_shape_of_whichever_row_came_last():
     assert not any(k.startswith("/mainboard[]/facts") for k in a)
     lost = validate.census({"mainboard": [dict(rich, sources=[]), dict(thin, sources=[])], "lot": {}})
     assert lost["/mainboard[]/sources"] == 0 and lost["/lot"] == 0, "a real loss inside rows, or of a top-level dict, still shows"
+
+
+def test_rows_that_age_off_the_board_on_schedule_are_not_a_loss():
+    rows = lambda n, listing: [{"name": f"co{i}-{listing}", "status": "Listed", "listing": listing, "sources": ["a", "b", "c"]} for i in range(n)]  # noqa: E731
+    live = [{"name": f"open{i}", "status": "Open", "listing": "2026-09-24", "sources": ["a"]} for i in range(13)]
+    prev = {"meta": {"asOf": "2026-09-18T22:48:00+05:30"}, "mainboard": rows(6, "2026-09-17") + live, "sme": []}
+    new = {"meta": {"asOf": "2026-09-19T00:07:00+05:30"}, "mainboard": live, "sme": []}
+    kept = validate.retire_due(prev, new)
+    assert len(kept["mainboard"]) == 13 and len(prev["mainboard"]) == 19, "due rows are left out of the comparison; prev is not mutated"
+    assert validate.census(kept) == validate.census(new), "the six that listed on the 17th left on schedule: no loss anywhere"
+    early = {"meta": new["meta"], "mainboard": live[:6], "sme": []}                      # rows vanishing BEFORE their time still count
+    assert validate.census(validate.retire_due(prev, early))["/mainboard"] == 13 and validate.census(early)["/mainboard"] == 6
+    assert validate.retire_due(prev, {"meta": {}}) is prev, "no date to reason from: compare everything"

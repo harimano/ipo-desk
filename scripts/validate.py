@@ -63,6 +63,25 @@ def walk_dates(o, where):
             walk_dates(x, where)
 
 
+LISTED_GRACE_DAYS = 1      # collector/modules/calendar.py: a Listed row leaves the board this many days after its listing date
+
+
+def retire_due(prev: dict, new: dict) -> dict:
+    """`prev` without the board rows the calendar is SUPPOSED to retire by the new document's date.
+
+    Six mainboard issues listed on 17 Sep 2026 and all left the board on the 19th: 19 -> 13 rows, "32% loss", and a good
+    run was refused. A row ageing out on schedule is not a loss; a row vanishing before its time still is, and still counts."""
+    day = str((new.get("meta") or {}).get("asOf") or "")[:10]
+    try:
+        cutoff = (dt.date.fromisoformat(day) - dt.timedelta(days=LISTED_GRACE_DAYS)).isoformat()
+    except ValueError:
+        return prev
+    out = dict(prev)
+    for k in ("mainboard", "sme"):
+        out[k] = [r for r in prev.get(k) or [] if not (isinstance(r, dict) and r.get("listing") and str(r["listing"])[:10] < cutoff)]
+    return out
+
+
 def census(o, path="", acc=None, in_row=False):
     """Count every collection so a loss anywhere in the tree is visible.
 
@@ -173,7 +192,7 @@ def main() -> int:
                 err(f"--prev {a.prev!r} does not parse ({e}). The delta check DID NOT RUN.")
                 prev = None
             if prev is not None:
-                old_c, new_c = census(prev), census(data)
+                old_c, new_c = census(retire_due(prev, data)), census(data)
                 compared = 0
                 for path, old in old_c.items():
                     # /meta/unresolved is a to-do list the collector rebuilds each run; it shrinking is the goal
