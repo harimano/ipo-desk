@@ -1,8 +1,8 @@
 /* ================= RESEARCH — the fetched sheet behind every listing =================
-   Included into app.js by site/build.py (`@include research.js`); shares its helpers ($, esc, kvs, pct, inr, cls, fmtD, ago, x).
-   `records[igId]` is written by collector/modules/details.py from the per-IPO record: tables arrive as {head, rows} and are
-   rendered as tables; nothing here reads a sentence for a number. A hand-written research sheet, when one exists, still leads —
-   these cards fill what nobody has written up. */
+   Included into app.js by site/build.py (`@include research.js`); shares its helpers ($, esc, kvs, pct, inr, cls, fmtD, ago, x,
+   EDG, SEG, bandOf, edgeLbl, evLong). `records[igId]` is written by collector/modules/details.py from the per-IPO record: tables
+   arrive as {head, rows} and are rendered as tables; nothing here reads a sentence for a number. A hand-written research sheet,
+   when one exists, still leads — these cards fill what nobody has written up. */
 const recordOf = b => b && b.igId != null ? (DATA.records || {})[String(b.igId)] || null : null;
 const recTbl = t => { if (!t || !t.rows || !t.rows.length) return ""; const isNum = c => c === "" || c === "NA" || /^[₹\d,.\-−+%x ()]+$/.test(c), n = Math.max(...t.rows.map(r => r.length)), right = Array.from({ length: n }, (_, i) => i > 0 && t.rows.every(r => isNum(r[i] || "")));
   return `<div class="tw"><table>${t.head && t.head.length ? `<thead><tr>${t.head.map((h, i) => `<th class="${right[i] ? "r" : ""}">${esc(h)}</th>`).join("")}</tr></thead>` : ""}<tbody>${t.rows.map(r => { const tot = r.some(c => c === "Total"); return `<tr${tot ? ' style="font-weight:700"' : ""}>${r.map((c, i) => `<td class="${right[i] ? "r num" : ""}">${esc(c) || '<span class="dim">—</span>'}</td>`).join("")}</tr>`; }).join("")}</tbody></table></div>`; };
@@ -10,6 +10,21 @@ function gmpChart(h) {
   const p = (h || []).filter(q => q.date && typeof q.gmp === "number").slice().sort((a, b) => a.date < b.date ? -1 : 1); if (p.length < 2) return "";
   const v = p.map(q => q.gmp), lo = Math.min(0, ...v), hi = Math.max(...v, 1), W = 520, H = 90, X = i => 8 + i / (p.length - 1) * (W - 16), Y = y => H - 14 - (y - lo) / (hi - lo || 1) * (H - 28);
   return `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="grey-market premium by day" style="color:var(--accent)"><line x1="8" x2="${W - 8}" y1="${Y(0)}" y2="${Y(0)}" stroke="currentColor" stroke-opacity=".25" stroke-dasharray="3 3"/><polyline points="${p.map((q, i) => X(i).toFixed(1) + "," + Y(q.gmp).toFixed(1)).join(" ")}" fill="none" stroke="currentColor" stroke-width="2"/>${p.map((q, i) => `<circle cx="${X(i).toFixed(1)}" cy="${Y(q.gmp).toFixed(1)}" r="2.5" fill="currentColor"><title>${fmtD(q.date)}: ${inr(q.gmp)}</title></circle>`).join("")}</svg>`;
+}
+// "Issues like this one": matched on TOTAL subscription (the evidence engine's primary band — every year has it), within
+// the SAME segment (mainboard and SME are never pooled). No match until the book is open: a GMP-only match would need a
+// listedPerf join the evidence module already does server-side, and duplicating that here is not this page's job.
+function comparablesCard(b) {
+  if (!b) return "";
+  const isSme = /SME/i.test(b.type), segLbl = isSme ? "SME" : "mainboard", ed = EDG("total"), v = b.sub && b.sub.total != null ? b.sub.total : null;
+  if (v == null) return `<div class="sec card"><div class="ch">Issues like this one</div><div class="cb dim">Once the book opens, past ${segLbl} issues at the same total subscription line up here.</div></div>`;
+  const i = bandOf(v, ed), dateOf = {}; (DATA.listedPerf || []).forEach(p => { if (p.igId) dateOf[p.igId] = p.date; });
+  const rows = (DATA.comps || []).filter(c => !!c.sme === isSme && String(c.igId) !== String(b.igId) && typeof c.total === "number" && bandOf(c.total, ed) === i)
+    .map(c => ({ ...c, date: dateOf[c.igId] })).sort((x, y) => (y.date || String(y.year)).localeCompare(x.date || String(x.year))).slice(0, 10);
+  const seg = SEG(isSme), s = seg ? seg.bands.total.all[i] : null;
+  return `<div class="sec card"><div class="ch">Issues like this one <span class="sub">${segLbl} · total subscription ${edgeLbl(ed, i, "x")} · book so far ${v}x</span></div>
+    ${s ? `<div class="dt" style="padding:0 2px 10px">${evLong(s)}</div>` : ""}
+    <div class="tw"><table><thead><tr><th>IPO</th><th>Listed</th><th class="r">Total</th><th class="r">Return</th></tr></thead><tbody>${rows.length ? rows.map(c => `<tr><td class="nm">${esc(c.name)}</td><td class="dt">${c.date ? fmtD(c.date) + " " + String(c.date).slice(2, 4) : c.year}</td><td class="r num">${c.total}x</td><td class="r num ${cls(c.ret)}">${pct(c.ret, true)}</td></tr>`).join("") : `<tr><td colspan="4" class="empty">No past ${segLbl} issue has landed in this band yet.</td></tr>`}</tbody></table></div></div>`;
 }
 function recordCards(b) {
   const R = recordOf(b); if (!R) return "";

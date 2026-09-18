@@ -167,6 +167,11 @@ financials, peers, issue objects, reservation (with max allottees per category) 
 by day, ratios for two periods, holding, company. A fragment with a <table> and no rows raises SourceChanged; a field the
 record lacks is left out. `site/src/research.js` renders it under any written sheet. The saved 2305 / 2119 fixtures were
 trimmed to 120 chars per field — `ipo-detail-2057-JINDAL-full.json` is the untrimmed one to test tables against.
+Also on `research.js`: "Issues like this one" (a live sheet's total-subscription band, `EDG`/`bandOf`/`SEG`, matched within the
+same segment only — no match until the book opens; never a listedPerf/comps join done again on the page). And "For"/"Against"
+on the fetched-facts sheet is hidden (with a one-line note) when nobody has written analysis, matching the quota-sheet path.
+The Market tab's "Comparables" widget (mainboard/SME toggle, `mktCompScope`) also stopped pooling the two segments and now
+reads its bins straight from `evidence.segments[x].bands.total.all` instead of averaging raw `comps` rows on the page.
 Page files: `site/src/app.js` is the db-era monolith; NEW screens go in their own file and are pulled into app.js's scope
 by `/* @include name.js */` (site/build.py). First one: `scoreboard.js` (tab 7, "Score": GMP calibration, band tables,
 sell-at-open vs hold-to-close, below-issue-price filter, sortable list — all computed from `listedPerf` + `comps`).
