@@ -112,6 +112,21 @@ curating or preserving individual legacy rows; make every future listing fill it
    cut each screen to what matters today -> remove or automate the db-era sections -> measure InvestorGain-vs-NSE
    subscription lag and drop the slow NSE calls if it is minutes.
 
+## Product roadmap (agreed with Hari, 18 Sep 2026) — a decision desk, not a data page
+
+Hari applies for himself only for now (father's and mother's accounts later: model accounts as a field, default "Me").
+A. Decision-first Board: QIB and GMP shown against their own track record (from `comps` / `listedPerf`: QIB >100x ->
+   97% listed positive, <5x -> 43%), probability-weighted gain (gain x allotment odds) instead of the headline gain,
+   a decision clock (QIBs bid late: the picture firms after 2 pm on the last day), details behind a row expand.
+   Today capped at three actions. Standing rule: evidence and both sides, never "apply" / "skip".
+B. Signal scoreboard: snapshot each issue's signals at close, log the outcome at listing, keep the hit-rate.
+C. Capital timeline (ASBA blocks per day across overlapping issues) and full application lifecycle in the Book
+   (applied -> allotment -> listing -> sold/held, P&L per account). Needs login + a small store for cross-device.
+D. Quota eligibility planner (cost to qualify, last buy date, held or not).  E. Provenance on hover + source-health
+   strip.  F. More alerts, weekly digest.  Later: embedded charts, live prices (NSE quote API).
+Data worth adding: subscription timeline per run, BSE retail application counts (true allotment odds), listing-day
+open/high/close, price around anchor lock-in expiry.
+
 ## Rules for working here
 
 - Never edit `latest.json` by hand, never commit it or `data/history/` on `main`, and never push to the
