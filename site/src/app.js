@@ -496,19 +496,25 @@ const anchorChip = name => { const a = anchorFor(name), q = anchorScore(a); if (
 // Counting on fetched rows with n shown. It replaced db-era monthly / rotation prose last written by hand in August.
 function flowContext(hist) {
   const H = hist.filter(r => r && r[0] && r[1] != null && r[2] != null); if (H.length < 3) return `<div class="empty">Not enough sessions on file yet.</div>`;
-  const sum = (rows, i) => rows.reduce((a, r) => a + (r[i] || 0), 0), wins = [5, 10, 20].filter(n => H.length >= n).map(n => [n, H.slice(-n)]);
-  const cell = v => `<td class="r num ${cls(v)}">${sgn(Math.round(v))}</td>`;
-  const tbl = `<div class="tw"><table><thead><tr><th>Sessions on file</th><th class="r">FII net ₹Cr</th><th class="r">DII net ₹Cr</th><th class="r">Together</th><th class="r" title="Sessions in which FIIs were net buyers">FII bought on</th></tr></thead><tbody>${wins.map(([n, rows]) => `<tr><td>last ${n} <span class="dim">since ${fmtD(rows[0][0])}</span></td>${cell(sum(rows, 1))}${cell(sum(rows, 2))}${cell(sum(rows, 1) + sum(rows, 2))}<td class="r num">${rows.filter(r => r[1] > 0).length} of ${n}</td></tr>`).join("")}</tbody></table></div>`;
-  const W = (wins[wins.length - 1] || [H.length, H])[1], f = sum(W, 1), dd = sum(W, 2); let streak = 1; for (let i = H.length - 2; i >= 0 && (H[i][1] > 0) === (H[H.length - 1][1] > 0); i--) streak++;
+  const sum = (rows, i) => rows.reduce((a, r) => a + (r[i] || 0), 0), wins = [5, 10, 20].filter(n => H.length >= n).map(n => [n, H.slice(-n)]), S20 = H.slice(-20);
+  // 1. the session strip: one cell a day, colour = bought / sold, strength = size; a dashed gap where days are missing on file
+  const mx = Math.max(1, ...S20.map(r => Math.max(Math.abs(r[1]), Math.abs(r[2]))));
+  const cellRow = (i, lbl) => `<div class="fs-row"><span class="fs-l">${lbl}</span>${S20.map((r, k) => { const gap = k && (d(r[0]) - d(S20[k - 1][0])) / DAY > 5; return `${gap ? '<i class="fs-gap" title="sessions missing on file"></i>' : ""}<i class="fs-c ${r[i] >= 0 ? "up" : "down"}" style="--o:${(0.25 + 0.75 * Math.abs(r[i]) / mx).toFixed(2)};animation-delay:${k * 25}ms" title="${fmtD(r[0])}: ${lbl} ${sgn(Math.round(r[i]))} Cr"></i>`; }).join("")}</div>`;
+  let streak = 1; for (let i = H.length - 2; i >= 0 && (H[i][1] > 0) === (H[H.length - 1][1] > 0); i--) streak++;
+  const strip = `<div class="lbl" style="margin-bottom:6px">Last ${S20.length} sessions on file · ${fmtD(S20[0][0])} → ${fmtD(S20[S20.length - 1][0])}</div><div class="fstrip">${cellRow(1, "FII")}${cellRow(2, "DII")}</div>
+    <div class="dt" style="margin-top:6px">green bought · red sold · stronger colour = bigger day. FIIs have been net ${H[H.length - 1][1] > 0 ? "buyers" : "sellers"} for <b>${streak}</b> session${streak === 1 ? "" : "s"} running.</div>`;
+  // 2. tug of war: what each pool did over 5 / 10 / 20 sessions, pulling left (sold) or right (bought) from the centre line
+  const wmx = Math.max(1, ...wins.map(([, rows]) => Math.max(Math.abs(sum(rows, 1)), Math.abs(sum(rows, 2)))));
+  const pull = (v, c) => `<div class="tug-bar"><i class="${c} ${v >= 0 ? "pos" : "neg"}" style="width:${Math.max(1, Math.abs(v) / wmx * 50).toFixed(1)}%"></i></div>`;
+  const tug = `<div class="lbl" style="margin:16px 0 6px">Who pulled harder · ₹ Cr, sold ← → bought</div><div class="tug">${wins.map(([n, rows]) => { const f = sum(rows, 1), dd = sum(rows, 2); return `<div class="tug-row"><div class="tug-l">last ${n}<small>${rows.filter(r => r[1] > 0).length} of ${n} days FIIs bought</small></div><div class="tug-bars">${pull(f, f >= 0 ? "up" : "down")}${pull(dd, "acc")}</div><div class="tug-v num"><span class="${cls(f)}">FII ${sgn(Math.round(f))}</span><span class="acc">DII ${sgn(Math.round(dd))}</span></div></div>`; }).join("")}</div>`;
+  const W = (wins[wins.length - 1] || [H.length, H])[1], f = sum(W, 1), dd = sum(W, 2);
+  const absorb = f < 0 && dd > 0 ? `<div class="dt" style="margin-top:6px">Over ${W.length} sessions domestic funds bought <b>${dd / -f >= 2 ? (dd / -f).toFixed(1) + "×" : Math.round(100 * dd / -f) + "% of"}</b> what FIIs sold.</div>` : "";
+  // 3. did it matter for listings? mainboard listing gains on FII-buy days vs FII-sell days, with n
   const onDay = {}; H.forEach(r => onDay[r[0]] = r[1]);
   const L0 = (DATA.listedPerf || []).filter(p => !p.sme && p.issue && p.listing != null && onDay[p.date] != null).map(p => ({ buy: onDay[p.date] > 0, ret: 100 * (p.listing - p.issue) / p.issue }));
-  const side = b1 => { const x = L0.filter(l => l.buy === b1).map(l => l.ret); return x.length ? `<b class="${cls(median(x))}">${pct(median(x), true)}</b> median on ${x.length} listing${x.length === 1 ? "" : "s"}` : "no listings"; };
-  const gaps = []; for (let i = Math.max(1, H.length - 20); i < H.length; i++) if ((d(H[i][0]) - d(H[i - 1][0])) / DAY > 5) gaps.push(`${fmtD(H[i - 1][0])} → ${fmtD(H[i][0])}`);
-  const facts = [`FIIs have been net ${H[H.length - 1][1] > 0 ? "buyers" : "sellers"} for <b>${streak}</b> session${streak === 1 ? "" : "s"} running.`,
-    f < 0 && dd > 0 ? (dd / -f >= 2 ? `Over the last ${W.length} sessions DIIs bought <b>${(dd / -f).toFixed(1)}×</b> what FIIs sold (${inr0(Math.round(dd))} Cr against ${inr0(Math.round(-f))} Cr) — domestic money far more than absorbed the selling.` : `Over the last ${W.length} sessions DIIs bought <b>${Math.round(100 * dd / -f)}%</b> of what FIIs sold${dd > -f ? " — domestic money more than absorbed the selling" : ""}.`) : f > 0 && dd > 0 ? `Both pools were net buyers over the last ${W.length} sessions.` : "",
-    L0.length ? `Mainboard listings on FII-buying days: ${side(true)}; on FII-selling days: ${side(false)}. <span class="dim">Small sample — a pattern to watch, not a rule.</span>` : "",
-    gaps.length ? `<span class="dim">Sessions missing on file: ${gaps.join(", ")} — NSE publishes one day at a time and nothing backfills a day the collector did not run.</span>` : ""].filter(Boolean);
-  return tbl + `<ul class="notes" style="padding:10px 4px 0 20px">${facts.map(x => `<li>${x}</li>`).join("")}</ul>`;
+  const sides = [["FII-buying days", true], ["FII-selling days", false]].map(([l, b1]) => { const x = L0.filter(v => v.buy === b1).map(v => v.ret); return { l, n: x.length, m: x.length ? median(x) : null }; }), lmx = Math.max(1, ...sides.map(x => Math.abs(x.m || 0)));
+  const lst = L0.length ? `<div class="lbl" style="margin:16px 0 6px">Mainboard listings on those days · median gain</div><div class="hbars">${sides.map(x => `<div class="hb"><div class="n">${x.l}<small>${x.n} listing${x.n === 1 ? "" : "s"}</small></div><div class="bar"><i class="${(x.m || 0) >= 0 ? "up" : "down"} grow" style="left:0;width:${x.m == null ? 0 : Math.max(2, Math.abs(x.m) / lmx * 100)}%"></i></div><div class="v num ${cls(x.m)}">${x.m == null ? "—" : pct(x.m, true)}</div></div>`).join("")}</div><div class="dt" style="margin-top:6px">A small sample — a pattern to watch, not a rule.</div>` : "";
+  return strip + tug + absorb + lst;
 }
 let mcharts = {}, smeSort = { k: "status", dir: 1 }, mktCompScope = "main";
 const binCls = s => ({ hi: "up", lo: "down", mid: "mid", na: "mid" }[evCls(s)]);
