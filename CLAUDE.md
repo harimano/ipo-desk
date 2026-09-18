@@ -124,6 +124,23 @@ C. Capital timeline (ASBA blocks per day across overlapping issues) and full app
    (applied -> allotment -> listing -> sold/held, P&L per account). Needs login + a small store for cross-device.
 D. Quota eligibility planner (cost to qualify, last buy date, held or not).  E. Provenance on hover + source-health
    strip.  F. More alerts, weekly digest.  Later: embedded charts, live prices (NSE quote API).
+Survey of the reference dashboards, 18 Sep 2026 (live sites + roadmaps): ipo-radar = RHP-PDF score vs listing scatter,
+per-IPO report pages, 6/12/24-month horizons, but its live figures are wrong or blank; IPO-Tracker = 1,370-IPO archive,
+filters, CSV, compare, calendar, per-cell provenance, but most cells read "Under review"; oriz = one stale GMP row.
+None has: a working live book, evidence-calibrated signals, odds-weighted gain, capital planning, or the pre-open.
+Verified sources for what comes next (all JSON, all probed live):
+  - InvestorGain report 377 (220 IPOs of 2026 incl. SME: sub, GMP at close, est. price, listing open, day close, LTP),
+    566 (235 IPOs: QIB / sHNI / bHNI / NII / RII / total, P/E), 421, 486 (LTP) -> this year's evidence, SME included,
+    and a scoreboard with back-history on day one; 607 (retail size, RETAIL ALLOTTEES, allot date, FUND REUSE) and
+    554 (calendar by day: open / close / BOA / UNBLOCK / listing) -> capital planner; per-IPO `peer-comparison-read`,
+    `ipoRecommendationData` (broker tally), `ipo-allotment-read` (registrar link).
+  - NSE `/api/special-preopen-listing`: listing-day 9:00-9:45 indicative price + order book (Veegaland: IEP 154 = +10%,
+    where it listed; GMP had said +6%). NSE `quote-equity` 403s — do not use; Yahoo covers prices.
+ipo-radar and IPO-Tracker state NO LICENCE: take ideas, never code or data. `data/seed/` came from ipo-radar's dataset —
+replace it with history built from InvestorGain 377/566 plus our own runs, then delete the seed (public repo).
+Build order after A: A2 five-minute market-hours loop + live.json + pre-open watcher -> B history import, evidence for
+SME and "this year", scoreboard, sell-at-open-vs-hold -> C calendar + capital planner + compare + per-IPO URLs ->
+E provenance, conflict flags, source health -> D quota planner -> F alerts with deep links, digest, broker tally, peers.
 Data worth adding: subscription timeline per run, BSE retail application counts (true allotment odds), listing-day
 open/high/close, price around anchor lock-in expiry.
 
