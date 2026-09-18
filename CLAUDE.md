@@ -142,8 +142,19 @@ Verified sources for what comes next (all JSON, all probed live):
 ipo-radar and IPO-Tracker state NO LICENCE: take ideas, never code or data. The seed that came from ipo-radar's dataset
 was deleted on 19 Sep 2026: `history` (collector/modules/history.py) now builds `listedPerf` and `comps` from InvestorGain
 report 377 (2022 onward, 1,323 listings, SME included) and 566 (this year's category books; older years keep only the
-total, so QIB evidence starts with 2026 and grows). The Board bands mainboard and SME separately and falls back from
-QIB to the total book when a QIB band has under five cases.
+total, so QIB evidence starts with 2026 and grows).
+**Statistics are the collector's, not the page's (`collector/modules/evidence.py`, owns `evidence`, since 19 Sep 2026).**
+Runs after `history`, no network. Per segment (mainboard and SME are NEVER pooled): a trailing window named on screen
+(last 12 months, else last 100 listings) with all-years as the secondary figure; total-subscription bands primary, QIB /
+retail bands labelled with the years they cover; every band carries n, a Wilson 95% interval, median and p10-p90 — a thin
+band widens, it is never hidden; a GMP fit (a, b, residual q10/q90) the page turns into "8 in 10 listed between"; expected
+value per retail application by retail-book band (chance x gain - cost of blocked money, median and spread); and
+`evidence.warnings[]`, which the Board and Scoreboard render. The chance of allotment is a LOWER BOUND (1 / retail book;
+true chance = k / book, k = lots per application >= 1, which no feed publishes) and the page says "at least 1 in N".
+The GMP fit is PROVISIONAL: report 377's GMP is stamped on listing morning. `details` writes the last pre-listing-day quote
+to the row as `gmpEve`; `history` freezes it into `listedPerf`; at 30 rows in a segment `evidence` publishes both fits
+side by side — never switch silently. The page's only arithmetic is an open issue's EV (its inputs move with live.json).
+The Scoreboard's band tables are an explorer over rows by year, counted in the page with the same n + Wilson rule.
 Build order after A: A2 five-minute market-hours loop + live.json + pre-open watcher -> B history import, evidence for
 SME and "this year", scoreboard, sell-at-open-vs-hold -> C calendar + capital planner + compare + per-IPO URLs ->
 E provenance, conflict flags, source health -> D quota planner -> F alerts with deep links, digest, broker tally, peers.

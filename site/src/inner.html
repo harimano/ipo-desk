@@ -80,6 +80,8 @@ tr.bx > td { background:var(--surface-2); padding:10px 14px 14px; } tr[data-row]
 .scrolly { max-height:300px; overflow-y:auto; padding-right:6px; scrollbar-width:thin; }
 .spark { display:block; margin-top:4px; color:var(--accent); }
 .chgd { font-weight:700; } .chgd.up { color:var(--up); } .chgd.down { color:var(--down); }
+.notes{margin:0;padding:10px 14px 12px 30px;font-size:13px;line-height:1.5}.notes li{margin:4px 0}
+.evwarn{margin-top:8px;font-size:12.5px;color:var(--muted,inherit);opacity:.9}.evwarn summary{cursor:pointer}
 .oldtag { font-size:11px; font-weight:700; color:var(--amber); background:var(--amber-soft); padding:1px 7px; border-radius:9px; margin-left:8px; vertical-align:2px; }
 .tape-in .asof { cursor:pointer; } .tape-in .asof:hover { color:var(--accent); text-decoration:underline; }
 .tape-in .runnow { margin-left:12px; color:var(--ink-3); font-weight:700; text-decoration:none; white-space:nowrap; } .tape-in .runnow:hover { color:var(--accent); }
@@ -355,6 +357,7 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
     <div class="sec-h" style="margin-top:0"><h2>Board</h2><span class="sub">each signal is shown with how past issues in the same band listed (this desk's own history) · analysis, not advice · click a row for details</span>
       <div class="filters right" id="bfilters"><button data-f="now" aria-pressed="true">Now</button><button data-f="all">All</button><button data-f="Open">Open</button><button data-f="Upcoming">Upcoming</button><button data-f="Closed">Closed</button><button data-f="sme">SME</button></div></div>
     <div class="card tw"><table id="board"></table></div>
+    <details id="evWarn" class="evwarn" hidden></details>
     <div class="sec grid g2">
       <div class="card planner"><div class="ch">₹2 lakh shareholder-quota planner <span class="sub">one application per PAN per category</span></div><div class="cb" id="planner"></div></div>
       <div class="card"><div class="ch">Recent listings <span class="sub">issue vs listing price</span></div><div class="cb"><div class="chart-wrap"><canvas id="recentChart"></canvas></div></div></div>

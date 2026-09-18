@@ -11,7 +11,7 @@ dataset that states no licence; it is now built from fetched reports and nothing
                Category books exist for the current year only; they are kept on file as years pass, so QIB
                evidence starts with 2026 and grows. Total subscription covers every year.
 
-    listedPerf[]  {name, igId, date, sme, issue, gmp, gmpImplied, listing, close1, ltp}     newest first
+    listedPerf[]  {name, igId, date, sme, issue, gmp, gmpImplied, listing, close1, ltp, gmpEve?, gmpEveAsOf?}     newest first
     comps[]       {name, igId, year, sme, total, qib?, nii?, retail?, snii?, bnii?, ret, retClose}
                   ret = listing open vs issue, in %: "listed positive" means exactly this.
 
@@ -37,9 +37,13 @@ def _pct(a, b) -> float | None:
     return round(100 * (a - b) / b, 2) if a is not None and b else None
 
 
-def build(perf: list[dict], cats: dict[str, dict], books: dict[str, dict]) -> tuple[list[dict], list[dict]]:
+def build(perf: list[dict], cats: dict[str, dict], books: dict[str, dict], eve: dict[str, dict] | None = None) -> tuple[list[dict], list[dict]]:
     perf = sorted({p["igId"]: p for p in perf}.values(), key=lambda p: (p["date"], p["igId"]), reverse=True)
     listed = [{k: p.get(k) for k in ("name", "igId", "date", "sme", "issue", "gmp", "gmpImplied", "listing", "close1", "ltp")} for p in perf]
+    for row in listed:                                  # the desk's own evening-before GMP: set once, never revised
+        e = (eve or {}).get(row["igId"])
+        if e and e.get("gmpEve") is not None and e["gmpEveAsOf"][:10] < row["date"]:
+            row["gmpEve"], row["gmpEveAsOf"] = e["gmpEve"], e["gmpEveAsOf"]
     comps = []
     for p in perf:
         c = {"name": p["name"], "igId": p["igId"], "year": int(p["date"][:4]), "sme": p["sme"], "total": p.get("total"),
@@ -94,7 +98,10 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
     # a finished year's category book cannot be fetched again (report 566 is this year only; older per-IPO records
     # keep just the total — checked 19 Sep 2026), so what is on file for those issues is kept
     books = {i: {k: c.get(k) for k in ("qib", "nii", "retail", "snii", "bnii")} for i, c in old_by.items() if c.get("qib") is not None}
-    listed, comps = build(perf, cats, books)
+    eve = {r["igId"]: r for k in ("mainboard", "sme") for r in ((res.doc or prev).get(k) or [])
+           if isinstance(r, dict) and r.get("igId") and r.get("gmpEve") is not None and r.get("gmpEveAsOf")}
+    eve.update({p["igId"]: p for p in old_perf if p.get("gmpEve") is not None and p.get("gmpEveAsOf")})     # frozen wins
+    listed, comps = build(perf, cats, books, eve)
     res.replace["listedPerf"], res.replace["comps"] = listed, comps
     main = [c for c in comps if not c["sme"]]
     res.notes.append(f"{len(listed)} listings since {FIRST_YEAR} ({len(listed) - len(main)} SME); fetched {', '.join(fetched)}; "

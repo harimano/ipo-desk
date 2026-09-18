@@ -116,6 +116,9 @@ def row_patch(row: dict, rec: dict, today: dt.date, now: dt.datetime, gmp_before
         p["gmp"], p["gmpTrend"], p["gmpAsOf"] = g["value"], trend(g["value"], gmp_before if gmp_before is not None else row.get("gmp")), g.get("asOf")
         band = p.get("bandHigh") or row.get("bandHigh")
         p["gmpPct"] = g["pct"] if g.get("pct") is not None else round(100 * g["value"] / band, 2) if band else None
+        lists = p.get("listing") or row.get("listing")
+        if g.get("asOf") and lists and g["asOf"][:10] < lists:     # the last quote stamped before listing day: `history` freezes it
+            p["gmpEve"], p["gmpEveAsOf"] = g["value"], g["asOf"]   # as the desk's own evening-before GMP (the look-ahead check)
     if rec.get("sub"):
         p["sub"] = dict(rec["sub"])
     price = rec.get("priceFinal") or p.get("bandHigh") or row.get("bandHigh")

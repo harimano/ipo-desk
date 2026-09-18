@@ -83,6 +83,7 @@ def test_every_placeholder_is_filled_and_the_exchange_keeps_what_it_gave():
     assert nse["igId"] == "2305" and (nse["allotment"], nse["listing"]) == ("2026-09-22", "2026-09-24")
     assert (nse["issueSizeCr"], nse["ofsCr"], nse["anchorShares"]) == (22561.57, 22561.57, 37793739)
     assert (nse["gmp"], nse["gmpTrend"], nse["gmpAsOf"]) == (142.0, "down", "2026-09-17T23:37:00+05:30")
+    assert (nse["gmpEve"], nse["gmpEveAsOf"]) == (142.0, "2026-09-17T23:37:00+05:30"), "the last quote before listing day, kept for `history` to freeze"
     assert nse["sub"]["total"] == 0.43 and nse["facts"]["kpis"]["pe"] == 42.89
     assert "isin" not in nse, "no ISIN before listing: a field the record lacks is left out, never blanked"
     assert not {"bandHigh", "bandLow", "lotSize", "symbol", "open", "close"} & set(nse), "the exchange's own values are not overwritten"

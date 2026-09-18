@@ -14,7 +14,7 @@ from __future__ import annotations
 
 TOP_LEVEL = [
     "meta", "mainboard", "sme", "recent", "expected", "offers", "lot",
-    "comps", "listedPerf", "priceHistory", "flows", "news",
+    "comps", "listedPerf", "evidence", "priceHistory", "flows", "news",
     "integrity", "investors", "anchors", "quota", "current", "sheets",
 ]
 
@@ -26,7 +26,7 @@ SUB_CATEGORIES = ("qib", "nii", "retail", "employee", "shareholder", "total")
 # the assembler rejects.
 OWNERS: dict[str, str] = {
     "mainboard": "calendar", "sme": "calendar", "lot": "calendar", "expected": "filings",
-    "recent": "listings", "listedPerf": "history", "comps": "history", "priceHistory": "listings",
+    "recent": "listings", "listedPerf": "history", "comps": "history", "evidence": "evidence", "priceHistory": "listings",
     "flows": "flows", "news": "news", "quota": "filings", "integrity": "integrity", "meta": "integrity",
     # carried forward from the previous latest.json, refreshed by other layers:
     "offers": "offers", "anchors": "details", "investors": "carry", "current": "research", "sheets": "research",
@@ -71,6 +71,7 @@ def empty_data() -> dict:
         d[k] = {}
     d["meta"] = {"asOf": None, "label": None, "unresolved": [], "awaitingData": [], "newFindings": [],
                  "marketNotes": [], "quotaSourceNote": None}
+    d["evidence"] = {"asOf": None, "segments": {}, "warnings": []}
     d["offers"] = {"asOf": None, "rights": [], "buybacks": [], "ofs": [], "ncd": []}
     d["flows"] = {"latest": None, "history": [], "monthly": [], "rotation": {"fiiSelling": [], "diiBuying": []}, "note": None}
     d["investors"] = {"asOf": None, "watchlist": [], "portfolios": [], "moves": [], "holdings": [],

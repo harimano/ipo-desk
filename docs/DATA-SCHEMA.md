@@ -16,6 +16,10 @@ mainboard[] / sme[]: {name, slug, type "Mainboard"|"NSE SME"|"BSE SME", status, 
 recent[]: {name, type, listingDate, issuePrice, listingPrice, gainPct, closeDay1, closeDay1GainPct, sources[]}  - last ~4 weeks
 listedPerf[]: {name, issue, gmpImplied, listing}  - rolling ~40 mainboard listings, newest first. Prepend each new listing.
 comps[]: {name, qib, ret}  - listed issues: final QIB subscription vs listing-day return %. Append each listing that had a QIB print.
+evidence: {asOf, rfAnnual, minN, edges{total,qib,retail,gmp}, segments{main,sme}, warnings[{code,text}]}  - owned by the `evidence` module; the page quotes it.
+  segment: {n, window{rule,from,to,n}, byYear, bands{total{window,all}, gmp{window,all}, qib{rows,years}, retail{rows,years}}, ev{rows,years,blockDays}, fit{r377, eve, r377OnSameRows?, provisional, eveRows}}
+  band: {n, pos, lo, hi, med, p10, p90} (pos/lo/hi in %, Wilson 95%); ev row adds {oddsMed, evMed, evP10, evP90, evMean}; fit: {n, a, b, r2, sd, q10, q90}. A null edge is an open end.
+listedPerf[] rows may carry gmpEve, gmpEveAsOf: the desk's own last GMP stamped before listing day, frozen once.
 anchors[]: {name, anchor, date, amountCr, issueSizeCr, count, topTierShare, investors[{name, cat, amountCr, pct}], sources[], note}
 flows: {latest{date, fiiNetCr, diiNetCr, previousDay, source}, history[[date, fii, dii], ...] (<= 40 rows, append),
         monthly[[label, fiiNetCr, sentence]] (last 3), rotation{fiiSelling[[sector, evidence]], diiBuying[[sector, evidence]]}, note}

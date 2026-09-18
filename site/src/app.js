@@ -96,7 +96,8 @@ function recompute() {
 const covClass = q => q.quota === false ? "noq" : q.bucket === "approved" && q.lapse && days(q.lapse) >= 0 && days(q.lapse) <= 45 && !held(q.parent) ? "risk" : held(q.parent) ? "cov" : q.bucket === "awaited" ? "noq" : "unc";
 const lotCost = b => b.lotSize && b.bandHigh ? b.lotSize * b.bandHigh : null;
 const expGain = b => b.lotSize && b.gmp != null ? b.lotSize * b.gmp : null;
-const odds = v => v == null ? "—" : v <= 1 ? "full allotment likely" : "~1 in " + (v < 10 ? v.toFixed(1) : Math.round(v));
+// a LOWER BOUND: lots bid / lots offered overstates the number of applications (many bid more than one lot); nobody publishes the count
+const odds = v => v == null ? "—" : v <= 1 ? "full allotment likely" : "at least 1 in " + (v < 10 ? v.toFixed(1) : Math.round(v));
 const quotaPill = q => q.quota === true ? `<span class="pill yes">quota ✓${q.quotaPct ? " " + q.quotaPct + "%" : ""}</span>` : q.quota === false ? `<span class="pill no">no quota</span>` : `<span class="pill unk">quota ?</span>`;
 const toast = m => { const t = $("#toast"); t.textContent = m; t.hidden = false; clearTimeout(toast.h); toast.h = setTimeout(() => t.hidden = true, 1800); };
 
@@ -222,75 +223,73 @@ $("#pipeDetail").addEventListener("click", e => {
 });
 
 /* ================= BOARD ================= */
-let bfilter = "now";
+let bfilter = "now", bsort = null;
 const subBar = (l, v) => { const w = v == null ? 0 : Math.min(100, Math.log10(1 + v) / Math.log10(301) * 100); return `<div class="sb"><span class="l">${l}</span><span class="bar"><i class="${v == null ? "" : v < 1 ? "lo" : v >= 10 ? "hi" : ""}" style="width:${w}%"></i></span><span class="n num">${xx(v)}</span></div>`; };
-// ---- evidence: what this desk's own history says about a signal. Facts with their sample size, never a verdict. ----
-const QIB_EDGES = [0, 5, 20, 50, 100, Infinity], GMP_EDGES = [-Infinity, 0.01, 10, 30, Infinity];
+// ---- evidence: computed once per run by collector/modules/evidence.py; the page quotes it and does no statistics. The one sum
+// made here is an open issue's expected value, because its inputs (retail book, GMP) move every five minutes with the live overlay. ----
+const EVD = () => DATA.evidence || {}, SEG = isSme => (EVD().segments || {})[isSme ? "sme" : "main"] || null;
+const EDG = k => ((EVD().edges || {})[k] || []).map((x, i) => x == null ? (i ? Infinity : -Infinity) : x);
 const edgeLbl = (e, i, u) => e[i] === -Infinity ? "zero or below" : (e[i] === 0 && u === "x") ? `under ${e[i + 1]}${u}` : e[i + 1] === Infinity ? `over ${e[i]}${u}` : `${e[i]}–${e[i + 1]}${u}`;
 const bandOf = (v, e) => { for (let i = 0; i < e.length - 1; i++) if (v >= e[i] && v < e[i + 1]) return i; return -1; };
 const median = a => { const s = a.slice().sort((x, y) => x - y), m = s.length >> 1; return s.length ? (s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2) : null; };
-const summarise = rets => rets.length ? { n: rets.length, pos: Math.round(100 * rets.filter(r => r > 0).length / rets.length), med: median(rets) } : null;
-let EVID = null;
-function evidence() {
-  if (EVID && EVID.key === (DATA.comps || []).length + ":" + (DATA.listedPerf || []).length) return EVID;
-  const C = (DATA.comps || []).filter(c => typeof c.ret === "number");
-  const L = (DATA.listedPerf || []).filter(p => p.issue && p.gmpImplied && p.listing).map(p => ({ name: p.name, sme: !!p.sme, g: 100 * (p.gmpImplied - p.issue) / p.issue, ret: 100 * (p.listing - p.issue) / p.issue }));
-  const qibByName = {}; C.forEach(c => { if (typeof c.qib === "number") qibByName[c.name] = c.qib; });
-  const bands = (rows, key, edges) => edges.slice(0, -1).map((_, i) => summarise(rows.filter(r => typeof r[key] === "number" && bandOf(r[key], edges) === i).map(r => r.ret)));
-  const yr = String(new Date(DATA.meta.asOf).getFullYear()), yearOf = {}; (DATA.listedPerf || []).forEach(p => yearOf[p.name] = String(p.date || "").slice(0, 4));
-  const side = (sme, only) => { const c = C.filter(x => !!x.sme === sme && (!only || String(x.year) === only)), l = L.filter(x => x.sme === sme && (!only || yearOf[x.name] === only));
-    return { qib: bands(c, "qib", QIB_EDGES), total: bands(c, "total", QIB_EDGES), gmp: bands(l, "g", GMP_EDGES),
-      both: (qi, gi) => summarise(l.filter(x => qibByName[x.name] != null && bandOf(qibByName[x.name], QIB_EDGES) === qi && bandOf(x.g, GMP_EDGES) === gi).map(x => x.ret)),
-      totalGmp: (ti, gi) => { const tot = {}; c.forEach(x => { if (typeof x.total === "number") tot[x.name] = x.total; }); return summarise(l.filter(x => tot[x.name] != null && bandOf(tot[x.name], QIB_EDGES) === ti && bandOf(x.g, GMP_EDGES) === gi).map(x => x.ret)); } }; };
-  const years = C.map(c => c.year).filter(Boolean);
-  EVID = { key: (DATA.comps || []).length + ":" + (DATA.listedPerf || []).length, main: side(false), sme: side(true), mainY: side(false, yr), smeY: side(true, yr), yr, span: years.length ? Math.min(...years) + "–" + String(Math.max(...years)).slice(2) : "" };
-  return EVID;
+const winLbl = W => W ? `${W.rule}, ${fmtD(W.from)} ${String(W.from).slice(2, 4)} – ${fmtD(W.to)} ${String(W.to).slice(2, 4)}` : "";
+// the gain GMP implies, corrected by the segment's fit, with the 10th–90th percentile of how far past listings landed from it
+const gmpRange = (seg, gmpPct) => { const f = seg && seg.fit && (seg.fit.eve || seg.fit.r377); if (!f || gmpPct == null) return null; const c = f.a + f.b * gmpPct; return { c, lo: c + f.q10, hi: c + f.q90, n: f.n, prov: !!seg.fit.provisional }; };
+// expected value of one application, as % of the money ASBA blocks: (at least 1/retail book) x gain - what the money earns elsewhere meanwhile
+function evOf(b, seg) {
+  const r = (b.sub || {}).retail, G = gmpRange(seg, b.gmpPct); if (r == null || !G || b.status === "Listed" || b.status === "Upcoming") return null;
+  const p = Math.min(1, 1 / Math.max(r, 1e-9)), from = b.status === "Open" ? today : d(b.close), to = d(b.allotment) ? new Date(d(b.allotment).getTime() + DAY) : null;
+  const blocked = Math.max(1, from && to ? Math.round((to - from) / DAY) : 5), cost = 100 * (EVD().rfAnnual || 0) * blocked / 365;
+  return { p, blocked, cost, ev: p * G.c - cost, lo: p * G.lo - cost, hi: p * G.hi - cost, prov: G.prov };
 }
 const spark = pts => { if (!pts || pts.length < 3) return ""; const v = pts.map(p => p[1]), lo = Math.min(...v), hi = Math.max(...v), W = 150, H = 22;
   const xy = v.map((y, i) => `${(i / (v.length - 1) * W).toFixed(1)},${(H - 2 - (hi > lo ? (y - lo) / (hi - lo) : .5) * (H - 4)).toFixed(1)}`).join(" ");
   return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="total subscription through today"><polyline points="${xy}" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><div class="dt">today ${pts[0][0]} → ${pts[pts.length - 1][0]} · ${v[0]}x → ${v[v.length - 1]}x</div>`; };
-const evCls = s => !s || s.n < 5 ? "na" : s.pos >= 85 ? "hi" : s.pos >= 60 ? "mid" : "lo";
-const evTxt = (s, y, yr) => !s || s.n < 5 ? "too few past cases" : `${s.pos}% of ${s.n} listed positive · median ${pct(s.med, true)}` + (y && y.n >= 5 && y.n < s.n ? ` · ${yr}: ${y.pos}% of ${y.n}` : "");
+// coloured by the INTERVAL, not the point: green only when even the low end of the 95% range is a clear majority
+const evCls = s => !s || !s.n ? "na" : s.lo >= 60 ? "hi" : s.hi <= 50 ? "lo" : "mid";
+const evTxt = s => !s || !s.n ? "no past cases in this band" : `${Math.round(s.pos)}% of ${s.n} listed positive (95% range ${Math.round(s.lo)}–${Math.round(s.hi)}%) · median ${pct(s.med, true)}${s.n < (EVD().minN || 30) ? " · thin" : ""}`;
+const evShort = s => !s || !s.n ? "no past cases" : `${Math.round(s.pos)}% of ${s.n} up <span title="95% range: with ${s.n} cases the true rate could be anywhere in here">(${Math.round(s.lo)}–${Math.round(s.hi)}%)</span> · median ${pct(s.med, true)}${s.n < (EVD().minN || 30) ? " · thin" : ""}`;
+const evLong = s => !s || !s.n ? "no past cases" : `${evTxt(s)} · 1 in 10 did worse than ${pct(s.p10, true)}, 1 in 10 better than ${pct(s.p90, true)}`;
 const istNow = () => new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000);
 
 function boardRow(b) {
-  const isSme = /SME/i.test(b.type), g = expGain(b), c = lotCost(b), est = b.bandHigh != null && b.gmp != null ? b.bandHigh + b.gmp : null, EV = evidence(), E = isSme ? EV.sme : EV.main, EY = isSme ? EV.smeY : EV.mainY;
+  const isSme = /SME/i.test(b.type), g = expGain(b), c = lotCost(b), seg = SEG(isSme), B = seg ? seg.bands : null, segLbl = isSme ? "SME" : "mainboard", W = seg ? winLbl(seg.window) : "";
   const lastDay = b.status === "Open" && days(b.close) === 0, late = istNow().getHours() >= 14;
   const when = b.status === "Upcoming" ? `Opens ${fmtD(b.open)}${b.close ? "–" + fmtD(b.close) : ""}`
     : b.status === "Open" ? (lastDay ? `<b class="down">Closes today, 5 pm</b><div class="dt">${late ? "the book is close to final" : "QIBs bid late — the picture firms after 2 pm"}</div>` : `Closes ${fmtD(b.close)} · ${rel(days(b.close))}<div class="dt">QIBs bid on the last afternoon — early QIB figures say little</div>`)
     : b.status === "Closed" ? `Allotment ${fmtD(b.allotment)}<div class="dt">lists ${fmtD(b.listing)} · ${rel(days(b.listing))}</div>` : `Listed ${fmtD(b.listing)}`;
   const band = b.bandLow != null && b.bandHigh != null && b.bandLow !== b.bandHigh ? `${inr(b.bandLow)}–${inr(b.bandHigh)}` : b.bandHigh != null ? inr(b.bandHigh) : "TBA";
-  const S0 = b.sub || {}, qi = S0.qib != null ? bandOf(S0.qib, QIB_EDGES) : -1, gi = b.gmpPct != null ? bandOf(b.gmpPct, GMP_EDGES) : -1;
-  const early = b.status === "Open" && !(lastDay && late);
-  const ti = S0.total != null ? bandOf(S0.total, QIB_EDGES) : -1;
-  const totalEv = ti >= 0 ? E.total[ti] : null, useQib = !isSme && S0.qib != null && qi >= 0 && E.qib[qi] && E.qib[qi].n >= 5;
-  const qibCell = (isSme ? S0.total : S0.qib) == null ? `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`
-    : early ? `<span class="num dim">${isSme ? S0.total : S0.qib}x</span><div class="dt">${isSme ? "total" : "QIB"} so far — too early to read</div>`
-    : useQib ? `<span class="ev ${evCls(E.qib[qi])} num" title="Final QIB book ${edgeLbl(QIB_EDGES, qi, "x")}: ${evTxt(E.qib[qi])}">${S0.qib}x</span><div class="dt">QIB · ${evTxt(E.qib[qi])}</div>`
-    : `<span class="ev ${evCls(totalEv)} num" title="Final total book ${edgeLbl(QIB_EDGES, ti, "x")} (${isSme ? "SME" : "mainboard"}, ${EV.span}): ${evTxt(totalEv)}">${S0.total}x</span><div class="dt">total book · ${evTxt(totalEv, EY.total[ti], EV.yr)}</div>`;
+  const S0 = b.sub || {}, early = b.status === "Open" && !(lastDay && late);
+  const pick = (key, v, where) => { const i = B && v != null ? bandOf(v, EDG(key)) : -1; return i >= 0 ? { i, s: B[key][where][i], lbl: edgeLbl(EDG(key), i, key === "gmp" ? "%" : "x") } : null; };
+  const T = pick("total", S0.total, "window"), TA = pick("total", S0.total, "all"), QB = !isSme ? pick("qib", S0.qib, "rows") : null, GB = pick("gmp", b.gmpPct, "window"), GA = pick("gmp", b.gmpPct, "all");
+  const catYears = B ? (B.qib.years || []).join(", ") : "";
+  const bookCell = S0.total == null ? `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`
+    : early ? `<span class="num dim">${S0.total}x</span><div class="dt">total so far — too early to read</div>`
+    : `<span class="ev ${evCls(T && T.s)} num" title="Final total book ${T ? T.lbl : ""} · ${segLbl}, ${W}: ${evLong(T && T.s)}">${S0.total}x</span><div class="dt">${evShort(T && T.s)}</div>${QB ? `<div class="dt">QIB ${S0.qib}x, ${catYears} only: ${evShort(QB.s)}</div>` : ""}`;
+  const R = b.status !== "Listed" ? gmpRange(seg, b.gmpPct) : null;
   const gmpCell = b.status === "Listed" ? `<span class="${cls(b.listingGainPct)}">${inr(b.listingPrice)} · ${pct(b.listingGainPct, true)}</span><div class="dt">listing</div>`
-    : b.gmp != null ? `<span class="ev ${evCls(E.gmp[gi])} num" title="GMP ${edgeLbl(GMP_EDGES, gi, "%")}: ${evTxt(E.gmp[gi])}">${pct(b.gmpPct, true)}</span> <span class="dim">${inr(b.gmp)}</span> ${b.gmpTrend === "up" ? "▲" : b.gmpTrend === "down" ? "▼" : ""}${delta((CHG[b.name] || {}).g, inr)}<div class="dt">${evTxt(E.gmp[gi], EY.gmp[gi], EV.yr)}${hasTime(b.gmpAsOf) ? " · " + ago(b.gmpAsOf) : ""}</div>`
+    : b.gmp != null ? `<span class="ev ${evCls(GB && GB.s)} num" title="GMP ${GB ? GB.lbl : ""} · ${segLbl}, ${W}: ${evLong(GB && GB.s)}">${pct(b.gmpPct, true)}</span> <span class="dim">${inr(b.gmp)}</span> ${b.gmpTrend === "up" ? "▲" : b.gmpTrend === "down" ? "▼" : ""}${delta((CHG[b.name] || {}).g, inr)}<div class="dt">${evShort(GB && GB.s)}${hasTime(b.gmpAsOf) ? " · " + ago(b.gmpAsOf) : ""}</div>${R ? `<div class="dt" title="From ${R.n} ${segLbl} listings: where 8 in 10 landed around what their GMP implied.${R.prov ? " Provisional: fitted on the source's listing-morning GMP; the desk's own evening-before record is still too short to confirm it." : ""}">8 in 10 like this listed ${pct(R.lo, true)} to ${pct(R.hi, true)}${R.prov ? ' <span class="oldtag">provisional</span>' : ""}</div>` : ""}`
     : `<span class="dim">no quote</span>`;
-  const p1 = S0.retail != null ? Math.min(1, 1 / Math.max(S0.retail, 1e-9)) : null, wg = g != null && p1 != null ? g * p1 : null;
-  const oddsCell = b.status === "Listed" || g == null ? `<span class="dim">—</span>`
-    : p1 == null ? `<span class="num ${cls(g)}">${sgn(g)}</span><div class="dt">if allotted · odds once the book opens</div>`
-    : `<span class="num ${cls(wg)}" title="Headline ${sgn(g)} per lot × ${Math.round(p1 * 100)}% chance of allotment at ${S0.retail}x retail">≈ ${sgn(Math.round(wg))}</span><div class="dt">${odds(S0.retail)} · ${sgn(g)} if allotted</div>`;
-  const both = gi >= 0 && !early ? (useQib ? E.both(qi, gi) : ti >= 0 ? E.totalGmp(ti, gi) : null) : null;
+  const gainCell = b.status === "Listed" || g == null ? `<span class="dim">—</span>` : `<span class="num ${cls(g)}">${sgn(g)}</span><div class="dt">per lot, if allotted${c ? " · " + inr0(c) + " blocked" : ""}</div>`;
+  const E1 = evOf(b, seg);
+  const evCell = b.status === "Listed" ? `<span class="dim">—</span>` : !E1 ? `<span class="dim">—</span><div class="dt">${S0.retail == null ? "once the retail book opens" : "needs a GMP quote"}</div>`
+    : `<span class="num ${early ? "dim" : cls(E1.ev)}" title="Chance of allotment (at least ${Math.round(E1.p * 1000) / 10}%) × the gain GMP implies, less ${E1.cost.toFixed(2)}% for money blocked ${E1.blocked} days at ${Math.round((EVD().rfAnnual || 0) * 100)}% a year. Range uses where 8 in 10 past listings landed. The chance is a LOWER BOUND: retail applicants bid more than one lot on average, so there are fewer applications than lots bid — nobody publishes the count.">${pct(E1.ev, true)}</span>${c ? ` <span class="dim">≈ ${sgn(Math.round(E1.ev * c / 100))}</span>` : ""}<div class="dt">of money blocked · ${pct(E1.lo, true)} to ${pct(E1.hi, true)}</div><div class="dt">${odds(S0.retail)}${early ? " <b>at the book so far</b> — retail fills on the last day, and this falls as it does" : ""}</div>`;
   const A1 = anchorFor(b.name), K = (b.facts || {}).kpis || {};
   const more = kvs([["Band · lot", `${band} · ${b.lotSize ? b.lotSize + " shares" : "lot TBA"}`], ["Funds per lot", c ? inr0(c) : null], ["Issue size", b.issueSizeCr ? cr(b.issueSizeCr) + (b.freshCr != null || b.ofsCr != null ? ` <span class="dt">fresh ${b.freshCr != null ? cr(b.freshCr) : "—"} · OFS ${b.ofsCr != null ? cr(b.ofsCr) : "—"}</span>` : "") : null],
     ["Dates", [b.open && "opens " + fmtD(b.open), b.close && "closes " + fmtD(b.close), b.allotment && "allotment " + fmtD(b.allotment), b.listing && "lists " + fmtD(b.listing)].filter(Boolean).join(" · ")],
     ["Anchor book", A1 && A1.amountCr ? `${cr(A1.amountCr)}${A1.issueSizeCr ? " · " + Math.round(A1.amountCr / A1.issueSizeCr * 100) + "% of issue" : ""}${A1.lockIn30 ? " · lock-in ends " + fmtD(A1.lockIn30) + " / " + fmtD(A1.lockIn90) : ""}` : null],
     ["Valuation", K.pe != null ? `P/E ${K.pe}x → ${K.pePost != null ? K.pePost + "x" : "—"} post issue${K.mcapCr != null ? " · mcap " + cr(K.mcapCr) : ""}${K.roe != null ? " · ROE " + K.roe + "%" : ""}` : null],
-    [`Issues with this ${useQib ? "QIB" : "total book"} and GMP profile`, both ? evTxt(both) + ` <span class="dt">${isSme ? "SME" : "mainboard"} listings ${EV.span}</span>` : null],
-    ["Total book, all years", totalEv && useQib ? `${S0.total}x · ${evTxt(totalEv)}` : null],
-    ["GMP estimate", est != null ? `lists near ${inr(est)} if the grey market is right (it called the direction 4 times in 5, the size within 10 points 2 times in 3)` : null]]);
+    ["Total book, all years", TA && TA.s && TA.s.n && !early ? `${TA.lbl} · ${evLong(TA.s)} <span class="dt">${segLbl}, every listing since 2022 — an average of different markets</span>` : null],
+    ["GMP, all years", GA && GA.s && GA.s.n ? `${GA.lbl} · ${evLong(GA.s)}` : null],
+    ["Window", seg ? `${seg.window.n} ${segLbl} listings · ${W}` : null],
+    ["GMP estimate", R && b.bandHigh != null ? `lists near ${inr(b.bandHigh * (1 + R.c / 100))}; 8 in 10 comparable listings landed between ${inr(b.bandHigh * (1 + R.lo / 100))} and ${inr(b.bandHigh * (1 + R.hi / 100))}${R.prov ? " (provisional)" : ""}` : null]]);
   return `<tr class="${CHG[b.name] ? "moved" : ""}" data-row data-name="${esc(b.name)}"><td><button class="tg star${S.interest.has(b.name) ? " on" : ""}" data-star="${esc(b.name)}">★</button></td>
     <td><div class="nm"><button data-open="${esc(b.name)}">${esc(b.name)}</button></div><div class="dt">${esc(b.type)}${b.issueSizeCr ? " · " + cr(b.issueSizeCr) : ""}${b.shareholderQuota && b.shareholderQuota.parent ? ` · <span class="up">quota via ${esc(b.shareholderQuota.parent)}</span>` : ""}</div></td>
     <td><span class="pill ${b.status.toLowerCase()}">${b.status}</span><div style="margin-top:3px;font-size:12.5px">${when}</div></td>
-    <td class="r">${qibCell}</td><td class="r">${gmpCell}</td><td class="r">${oddsCell}</td>
+    <td class="r">${bookCell}</td><td class="r">${gmpCell}</td><td class="r">${gainCell}</td><td class="r">${evCell}</td>
     <td style="min-width:170px">${S0.total != null && !isSme ? subBar("QIB", S0.qib) + subBar("NII", S0.nii) + subBar("Retail", S0.retail) + subBar("Total", S0.total) + `<div class="dt">${S0.asOf ? (hasTime(S0.asOf) ? ago(S0.asOf) : "as of " + fmtD(S0.asOf)) : ""}</div>` + delta((CHG[b.name] || {}).s, v => v + "x") + spark(((LIVE || {}).timeline || {})[b.name]) : S0.total != null ? subBar("Total", S0.total) + spark(((LIVE || {}).timeline || {})[b.name]) : `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`}</td>
     <td class="r"><button class="tg" data-more title="details">▾</button></td></tr>
-    <tr class="bx" hidden><td></td><td colspan="7">${more}</td></tr>`;
+    <tr class="bx" hidden><td></td><td colspan="8">${more}</td></tr>`;
 }
 function renderBoard() {
   const order = { Open: 0, Closed: 1, Upcoming: 2, Listed: 3 };
@@ -298,8 +297,11 @@ function renderBoard() {
   const soon = b => b.status === "Open" || (b.status === "Upcoming" && days(b.open) <= 3) || (b.status === "Closed" && days(b.listing) != null && days(b.listing) <= 3) || (b.status === "Listed" && days(b.listing) === 0);
   let rows = bfilter === "sme" ? sme.slice() : bfilter === "all" ? board.slice() : bfilter === "now" ? board.filter(soon) : board.filter(b => b.status === bfilter);
   rows.sort(srt);
+  if (bsort) { const val = b => bsort === "ev" ? (evOf(b, SEG(/SME/i.test(b.type))) || {}).ev : expGain(b); rows.sort((x, y) => { const a = val(x), c = val(y); return (a == null) - (c == null) || c - a; }); }
   $$("#bfilters button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.f === bfilter)));
-  $("#board").innerHTML = `<thead><tr><th></th><th>IPO</th><th>When</th><th class="r" title="Final QIB subscription, against how past issues in the same band listed">QIB · track record</th><th class="r" title="Grey-market premium, against how past issues in the same band listed">GMP · track record</th><th class="r" title="GMP gain per lot × the chance of getting a lot at the current retail book">Odds-weighted gain</th><th>Book</th><th></th></tr></thead><tbody>${rows.map(boardRow).join("") || `<tr><td colspan="8" class="empty">Nothing here.</td></tr>`}</tbody>`;
+  const W0 = SEG(false), sortTh = (k, l, t) => `<th class="r" data-bsort="${k}" style="cursor:pointer" title="${t} Click to sort.">${l}${bsort === k ? " ▼" : ""}</th>`;
+  $("#board").innerHTML = `<thead><tr><th></th><th>IPO</th><th>When</th><th class="r" title="Final total subscription, against how issues in the same band listed — same segment, ${W0 ? winLbl(W0.window) : ""}">Book · track record</th><th class="r" title="Grey-market premium, against how issues in the same band listed, and where 8 in 10 landed around it">GMP · track record</th>${sortTh("gain", "If allotted", "GMP × lot size: what one lot gains if the grey market is right.")}${sortTh("ev", "EV per application", "Chance of allotment × gain, less the cost of blocked money — as % of the money blocked. The hottest books have the biggest pop and often the worst expected value.")}<th>Book</th><th></th></tr></thead><tbody>${rows.map(boardRow).join("") || `<tr><td colspan="9" class="empty">Nothing here.</td></tr>`}</tbody>`;
+  const EW = (EVD().warnings || []), ew = $("#evWarn"); if (ew) { ew.hidden = !EW.length; ew.innerHTML = `<summary>Track records are for the same segment over ${W0 ? winLbl(W0.window) : "the trailing window"} · ${EW.length} caveat${EW.length === 1 ? "" : "s"} on the evidence</summary><ul class="notes">${EW.map(w => `<li>${esc(w.text)}</li>`).join("")}</ul>`; }
   $("#c-board").textContent = board.filter(b => b.status === "Open").length || "";
   const R = (DATA.recent || []).slice().sort((a, b) => (b.listingDate || "").localeCompare(a.listingDate || ""));
   $("#recent").innerHTML = `<thead><tr><th>IPO</th><th>Listed</th><th class="r">Issue</th><th class="r">Listing</th><th class="r">Gain</th><th class="r">Day-1 close</th></tr></thead><tbody>` + R.map(r => `<tr><td class="nm">${esc(r.name)}</td><td>${fmtD(r.listingDate)}</td><td class="r num">${inr(r.issuePrice)}</td><td class="r num">${inr(r.listingPrice)}</td><td class="r num ${cls(r.gainPct)}">${pct(r.gainPct, true)}</td><td class="r num ${cls(r.closeDay1GainPct)}">${r.closeDay1 != null ? inr(r.closeDay1) + " · " + pct(r.closeDay1GainPct, true) : "—"}</td></tr>`).join("") + "</tbody>";
@@ -317,6 +319,7 @@ function renderBoard() {
 }
 $("#offers").addEventListener("click", e => { if (e.target.closest("a")) return; const r = e.target.closest("tr[data-od]"); if (!r) return; const d = document.getElementById(r.dataset.od); if (d) d.hidden = !d.hidden; });
 $("#board").addEventListener("click", e => { if (e.target.closest("[data-star],[data-open],a")) return; const r = e.target.closest("tr[data-row]"); if (r && r.nextElementSibling && r.nextElementSibling.classList.contains("bx")) r.nextElementSibling.hidden = !r.nextElementSibling.hidden; });
+$("#board").addEventListener("click", e => { const th = e.target.closest("th[data-bsort]"); if (th) { bsort = bsort === th.dataset.bsort ? null : th.dataset.bsort; renderBoard(); } });
 $("#bfilters").addEventListener("click", e => { const b = e.target.closest("button[data-f]"); if (b) { bfilter = b.dataset.f; renderBoard(); } });
 $("#board").addEventListener("click", e => { const s = e.target.closest("[data-star]"); if (s) { S.interest.has(s.dataset.star) ? S.interest.delete(s.dataset.star) : S.interest.add(s.dataset.star); save(); renderAll(); return; } const o = e.target.closest("[data-open]"); if (o) openSheet(o.dataset.open); });
 

@@ -28,7 +28,7 @@ GROUPS: dict[str, tuple[str, ...]] = {
     "pipeline":  ("quota", "expected", "offers", "anchors"),
     "investors": ("investors",),
     "research":  ("current", "sheets"),
-    "history":   ("listedPerf", "comps"),
+    "history":   ("listedPerf", "comps", "evidence"),
 }
 
 
