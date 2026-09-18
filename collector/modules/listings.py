@@ -1,4 +1,4 @@
-"""listings — owns `recent`, `listedPerf`, `comps`, `priceHistory`; row-patches `listingPrice`,
+"""listings — owns `recent`, `priceHistory` (`listedPerf` and `comps` belong to `history`); row-patches `listingPrice`,
 `listingGainPct`, `currentPrice` into `mainboard` / `sme`.
 
 Price chain: angelone (SmartAPI daily candles) -> yahoo (yfinance .NS). One source prices every name in
@@ -39,7 +39,6 @@ IST = ZoneInfo("Asia/Kolkata")
 BOARDS = ("mainboard", "sme")
 RECENT_DAYS = 28
 LOOKBACK_DAYS = 45          # enough candles to cover the oldest `recent` listing
-LISTED_PERF_ROWS = 400        # the ipo-radar seed is history the page charts; keep it
 _DROP_WORDS = re.compile(r"\b(limited|ltd|ipo|mainboard|sme|nse|bse)\b")
 
 
@@ -259,25 +258,6 @@ def _build(prev: dict, res: Result, today: dt.date, bars: dict[str, list[list]],
     recent_out = [r for r in merged.values() if (_date(r.get("listingDate")) or cutoff) >= cutoff]
     recent_out.sort(key=lambda r: r.get("listingDate") or "", reverse=True)
 
-    # ---- listedPerf / comps ---------------------------------------------------------------------
-    listed_perf = copy.deepcopy(prev.get("listedPerf") or [])
-    comps = copy.deepcopy(prev.get("comps") or [])
-    perf_names = {r.get("name") for r in listed_perf if isinstance(r, dict)}
-    comp_names = {r.get("name") for r in comps if isinstance(r, dict)}
-    for row, issue, listing_price, close_day1 in new_listings:
-        name = row["name"]
-        if row.get("type") == "Mainboard" and name not in perf_names and issue and listing_price:
-            gmp = row.get("gmp")
-            implied = round(issue + float(gmp), 2) if isinstance(gmp, (int, float)) else None
-            listed_perf.insert(0, {"name": name, "issue": issue, "gmpImplied": implied, "listing": listing_price})
-            perf_names.add(name)
-        qib = (row.get("sub") or {}).get("qib") if isinstance(row.get("sub"), dict) else None
-        ret = _pct(close_day1, issue) if close_day1 else _pct(listing_price, issue)
-        if qib is not None and ret is not None and name not in comp_names:
-            comps.append({"name": name, "qib": qib, "ret": ret})
-            comp_names.add(name)
-    listed_perf = listed_perf[:LISTED_PERF_ROWS]
-
     # ---- priceHistory ---------------------------------------------------------------------------
     history = copy.deepcopy(prev.get("priceHistory") or {})
     names = list(dict.fromkeys([r["name"] for _, r in board] + [r["name"] for r in recent_out] + lot_names))
@@ -300,8 +280,6 @@ def _build(prev: dict, res: Result, today: dt.date, bars: dict[str, list[list]],
         raise SourceChanged(source, "bars came back but matched no board/recent/lot name")
 
     res.replace["recent"] = recent_out
-    res.replace["listedPerf"] = listed_perf
-    res.replace["comps"] = comps
     res.replace["priceHistory"] = history
     res.notes.append(f"{priced} names priced, {len(new_recent)} moved to recent, {appended} history points")
     for name in dict.fromkeys(no_symbol):

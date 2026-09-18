@@ -94,7 +94,7 @@ def test_yahoo_wins_when_angelone_not_configured(no_angel, monkeypatch):
     # ownership: replace only owned keys, rows only mainboard/sme
     data = copy.deepcopy(prev)
     assemble.apply(data, res)
-    assert set(res.replace) == {"recent", "listedPerf", "comps", "priceHistory"}
+    assert set(res.replace) == {"recent", "priceHistory"}          # listedPerf / comps belong to `history`
 
 
 def test_board_row_patch_and_recent_row(no_angel, monkeypatch):
@@ -109,7 +109,6 @@ def test_board_row_patch_and_recent_row(no_angel, monkeypatch):
     assert res.rows["sme"]["SmeOne Ltd"]["listingPrice"] == 101.0
     names = [r["name"] for r in res.replace["recent"]]
     assert "SmeOne Ltd" in names
-    assert all(p["name"] != "SmeOne Ltd" for p in res.replace["listedPerf"])
     # listed today with no bar yet: no patch, not moved, no guess
     assert "Listed Today Ltd" not in res.rows.get("sme", {})
     assert "Listed Today Ltd" not in names
@@ -127,14 +126,6 @@ def test_recent_dedupe_by_name_and_cutoff(no_angel, monkeypatch):
     assert row["gainPct"] == 7.14 and row["closeDay1GainPct"] == 12.36
     assert row["listingDate"] == "2026-09-10" and row["issuePrice"] == 140
 
-
-def test_listed_perf_prepended_and_comps_appended(no_angel, monkeypatch):
-    patch_yahoo(monkeypatch)
-    res = run_module(make_prev())
-    perf = res.replace["listedPerf"]
-    assert perf[0] == {"name": "NewList Industries", "issue": 140.0, "gmpImplied": 160.0, "listing": 150.0}
-    assert perf[1]["name"] == "Earlier Co"
-    assert res.replace["comps"] == [{"name": "NewList Industries", "qib": 88.4, "ret": 12.36}]
 
 
 def test_price_history_no_duplicate_dates(no_angel, monkeypatch):

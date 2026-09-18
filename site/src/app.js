@@ -230,13 +230,16 @@ const summarise = rets => rets.length ? { n: rets.length, pos: Math.round(100 * 
 let EVID = null;
 function evidence() {
   if (EVID && EVID.key === (DATA.comps || []).length + ":" + (DATA.listedPerf || []).length) return EVID;
-  const C = (DATA.comps || []).filter(c => typeof c.qib === "number" && typeof c.ret === "number");
-  const L = (DATA.listedPerf || []).filter(p => p.issue && p.gmpImplied && p.listing).map(p => ({ name: p.name, g: 100 * (p.gmpImplied - p.issue) / p.issue, ret: 100 * (p.listing - p.issue) / p.issue }));
-  const qibByName = {}; C.forEach(c => qibByName[c.name] = c.qib);
-  EVID = { key: C.length + ":" + (DATA.listedPerf || []).length,
-    qib: QIB_EDGES.slice(0, -1).map((_, i) => summarise(C.filter(c => bandOf(c.qib, QIB_EDGES) === i).map(c => c.ret))),
-    gmp: GMP_EDGES.slice(0, -1).map((_, i) => summarise(L.filter(l => bandOf(l.g, GMP_EDGES) === i).map(l => l.ret))),
-    both: (qi, gi) => summarise(L.filter(l => qibByName[l.name] != null && bandOf(qibByName[l.name], QIB_EDGES) === qi && bandOf(l.g, GMP_EDGES) === gi).map(l => l.ret)) };
+  const C = (DATA.comps || []).filter(c => typeof c.ret === "number");
+  const L = (DATA.listedPerf || []).filter(p => p.issue && p.gmpImplied && p.listing).map(p => ({ name: p.name, sme: !!p.sme, g: 100 * (p.gmpImplied - p.issue) / p.issue, ret: 100 * (p.listing - p.issue) / p.issue }));
+  const qibByName = {}; C.forEach(c => { if (typeof c.qib === "number") qibByName[c.name] = c.qib; });
+  const bands = (rows, key, edges) => edges.slice(0, -1).map((_, i) => summarise(rows.filter(r => typeof r[key] === "number" && bandOf(r[key], edges) === i).map(r => r.ret)));
+  const side = sme => { const c = C.filter(x => !!x.sme === sme), l = L.filter(x => x.sme === sme);
+    return { qib: bands(c, "qib", QIB_EDGES), total: bands(c, "total", QIB_EDGES), gmp: bands(l, "g", GMP_EDGES),
+      both: (qi, gi) => summarise(l.filter(x => qibByName[x.name] != null && bandOf(qibByName[x.name], QIB_EDGES) === qi && bandOf(x.g, GMP_EDGES) === gi).map(x => x.ret)),
+      totalGmp: (ti, gi) => { const tot = {}; c.forEach(x => { if (typeof x.total === "number") tot[x.name] = x.total; }); return summarise(l.filter(x => tot[x.name] != null && bandOf(tot[x.name], QIB_EDGES) === ti && bandOf(x.g, GMP_EDGES) === gi).map(x => x.ret)); } }; };
+  const years = C.map(c => c.year).filter(Boolean);
+  EVID = { key: (DATA.comps || []).length + ":" + (DATA.listedPerf || []).length, main: side(false), sme: side(true), span: years.length ? Math.min(...years) + "–" + String(Math.max(...years)).slice(2) : "" };
   return EVID;
 }
 const spark = pts => { if (!pts || pts.length < 3) return ""; const v = pts.map(p => p[1]), lo = Math.min(...v), hi = Math.max(...v), W = 150, H = 22;
@@ -247,7 +250,7 @@ const evTxt = s => !s || s.n < 5 ? "too few past cases" : `${s.pos}% of ${s.n} l
 const istNow = () => new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000);
 
 function boardRow(b) {
-  const isSme = /SME/i.test(b.type), g = expGain(b), c = lotCost(b), est = b.bandHigh != null && b.gmp != null ? b.bandHigh + b.gmp : null, E = evidence();
+  const isSme = /SME/i.test(b.type), g = expGain(b), c = lotCost(b), est = b.bandHigh != null && b.gmp != null ? b.bandHigh + b.gmp : null, EV = evidence(), E = isSme ? EV.sme : EV.main;
   const lastDay = b.status === "Open" && days(b.close) === 0, late = istNow().getHours() >= 14;
   const when = b.status === "Upcoming" ? `Opens ${fmtD(b.open)}${b.close ? "–" + fmtD(b.close) : ""}`
     : b.status === "Open" ? (lastDay ? `<b class="down">Closes today, 5 pm</b><div class="dt">${late ? "the book is close to final" : "QIBs bid late — the picture firms after 2 pm"}</div>` : `Closes ${fmtD(b.close)} · ${rel(days(b.close))}<div class="dt">QIBs bid on the last afternoon — early QIB figures say little</div>`)
@@ -255,24 +258,27 @@ function boardRow(b) {
   const band = b.bandLow != null && b.bandHigh != null && b.bandLow !== b.bandHigh ? `${inr(b.bandLow)}–${inr(b.bandHigh)}` : b.bandHigh != null ? inr(b.bandHigh) : "TBA";
   const S0 = b.sub || {}, qi = S0.qib != null ? bandOf(S0.qib, QIB_EDGES) : -1, gi = b.gmpPct != null ? bandOf(b.gmpPct, GMP_EDGES) : -1;
   const early = b.status === "Open" && !(lastDay && late);
-  const qibCell = isSme ? (S0.total != null ? `<span class="num">${S0.total}x</span><div class="dt">total book${S0.asOf ? " · " + (hasTime(S0.asOf) ? ago(S0.asOf) : fmtD(S0.asOf)) : ""}</div>` : `<span class="dim">—</span>`)
-    : S0.qib == null ? `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`
-    : early ? `<span class="num dim">${S0.qib}x</span><div class="dt">so far — too early to read</div>`
-    : `<span class="ev ${evCls(E.qib[qi])} num" title="Final QIB book ${edgeLbl(QIB_EDGES, qi, "x")}: ${evTxt(E.qib[qi])}">${S0.qib}x</span><div class="dt">${evTxt(E.qib[qi])}</div>`;
+  const ti = S0.total != null ? bandOf(S0.total, QIB_EDGES) : -1;
+  const totalEv = ti >= 0 ? E.total[ti] : null, useQib = !isSme && S0.qib != null && qi >= 0 && E.qib[qi] && E.qib[qi].n >= 5;
+  const qibCell = (isSme ? S0.total : S0.qib) == null ? `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`
+    : early ? `<span class="num dim">${isSme ? S0.total : S0.qib}x</span><div class="dt">${isSme ? "total" : "QIB"} so far — too early to read</div>`
+    : useQib ? `<span class="ev ${evCls(E.qib[qi])} num" title="Final QIB book ${edgeLbl(QIB_EDGES, qi, "x")}: ${evTxt(E.qib[qi])}">${S0.qib}x</span><div class="dt">QIB · ${evTxt(E.qib[qi])}</div>`
+    : `<span class="ev ${evCls(totalEv)} num" title="Final total book ${edgeLbl(QIB_EDGES, ti, "x")} (${isSme ? "SME" : "mainboard"}, ${EV.span}): ${evTxt(totalEv)}">${S0.total}x</span><div class="dt">total book · ${evTxt(totalEv)}</div>`;
   const gmpCell = b.status === "Listed" ? `<span class="${cls(b.listingGainPct)}">${inr(b.listingPrice)} · ${pct(b.listingGainPct, true)}</span><div class="dt">listing</div>`
-    : b.gmp != null ? `<span class="ev ${isSme ? "na" : evCls(E.gmp[gi])} num" title="GMP ${edgeLbl(GMP_EDGES, gi, "%")}: ${evTxt(E.gmp[gi])}">${pct(b.gmpPct, true)}</span> <span class="dim">${inr(b.gmp)}</span> ${b.gmpTrend === "up" ? "▲" : b.gmpTrend === "down" ? "▼" : ""}${delta((CHG[b.name] || {}).g, inr)}<div class="dt">${isSme ? "" : evTxt(E.gmp[gi]) + " · "}${hasTime(b.gmpAsOf) ? ago(b.gmpAsOf) : ""}</div>`
+    : b.gmp != null ? `<span class="ev ${evCls(E.gmp[gi])} num" title="GMP ${edgeLbl(GMP_EDGES, gi, "%")}: ${evTxt(E.gmp[gi])}">${pct(b.gmpPct, true)}</span> <span class="dim">${inr(b.gmp)}</span> ${b.gmpTrend === "up" ? "▲" : b.gmpTrend === "down" ? "▼" : ""}${delta((CHG[b.name] || {}).g, inr)}<div class="dt">${evTxt(E.gmp[gi])}${hasTime(b.gmpAsOf) ? " · " + ago(b.gmpAsOf) : ""}</div>`
     : `<span class="dim">no quote</span>`;
   const p1 = S0.retail != null ? Math.min(1, 1 / Math.max(S0.retail, 1e-9)) : null, wg = g != null && p1 != null ? g * p1 : null;
   const oddsCell = b.status === "Listed" || g == null ? `<span class="dim">—</span>`
     : p1 == null ? `<span class="num ${cls(g)}">${sgn(g)}</span><div class="dt">if allotted · odds once the book opens</div>`
     : `<span class="num ${cls(wg)}" title="Headline ${sgn(g)} per lot × ${Math.round(p1 * 100)}% chance of allotment at ${S0.retail}x retail">≈ ${sgn(Math.round(wg))}</span><div class="dt">${odds(S0.retail)} · ${sgn(g)} if allotted</div>`;
-  const both = !isSme && qi >= 0 && gi >= 0 && !early ? E.both(qi, gi) : null;
+  const both = gi >= 0 && !early ? (useQib ? E.both(qi, gi) : ti >= 0 ? E.totalGmp(ti, gi) : null) : null;
   const A1 = anchorFor(b.name), K = (b.facts || {}).kpis || {};
   const more = kvs([["Band · lot", `${band} · ${b.lotSize ? b.lotSize + " shares" : "lot TBA"}`], ["Funds per lot", c ? inr0(c) : null], ["Issue size", b.issueSizeCr ? cr(b.issueSizeCr) + (b.freshCr != null || b.ofsCr != null ? ` <span class="dt">fresh ${b.freshCr != null ? cr(b.freshCr) : "—"} · OFS ${b.ofsCr != null ? cr(b.ofsCr) : "—"}</span>` : "") : null],
     ["Dates", [b.open && "opens " + fmtD(b.open), b.close && "closes " + fmtD(b.close), b.allotment && "allotment " + fmtD(b.allotment), b.listing && "lists " + fmtD(b.listing)].filter(Boolean).join(" · ")],
     ["Anchor book", A1 && A1.amountCr ? `${cr(A1.amountCr)}${A1.issueSizeCr ? " · " + Math.round(A1.amountCr / A1.issueSizeCr * 100) + "% of issue" : ""}${A1.lockIn30 ? " · lock-in ends " + fmtD(A1.lockIn30) + " / " + fmtD(A1.lockIn90) : ""}` : null],
     ["Valuation", K.pe != null ? `P/E ${K.pe}x → ${K.pePost != null ? K.pePost + "x" : "—"} post issue${K.mcapCr != null ? " · mcap " + cr(K.mcapCr) : ""}${K.roe != null ? " · ROE " + K.roe + "%" : ""}` : null],
-    ["Issues with this QIB and GMP profile", both ? evTxt(both) : null],
+    [`Issues with this ${useQib ? "QIB" : "total book"} and GMP profile`, both ? evTxt(both) + ` <span class="dt">${isSme ? "SME" : "mainboard"} listings ${EV.span}</span>` : null],
+    ["Total book, all years", totalEv && useQib ? `${S0.total}x · ${evTxt(totalEv)}` : null],
     ["GMP estimate", est != null ? `lists near ${inr(est)} if the grey market is right (it called the direction 4 times in 5, the size within 10 points 2 times in 3)` : null]]);
   return `<tr class="${CHG[b.name] ? "moved" : ""}" data-row data-name="${esc(b.name)}"><td><button class="tg star${S.interest.has(b.name) ? " on" : ""}" data-star="${esc(b.name)}">★</button></td>
     <td><div class="nm"><button data-open="${esc(b.name)}">${esc(b.name)}</button></div><div class="dt">${esc(b.type)}${b.issueSizeCr ? " · " + cr(b.issueSizeCr) : ""}${b.shareholderQuota && b.shareholderQuota.parent ? ` · <span class="up">quota via ${esc(b.shareholderQuota.parent)}</span>` : ""}</div></td>

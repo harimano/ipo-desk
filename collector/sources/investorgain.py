@@ -321,6 +321,59 @@ def fetch_subscription_report(session, today: dt.date | None = None) -> list[dic
     return parse_subscription_report(session.get_json(url, source=SOURCE, headers=HEADERS), d)
 
 
+# ---------------------------------------------------------------------------------------------
+# report 377 — "GMP performance tracker": every listing of a calendar year (2022 onward, SME included) with the
+# last grey-market premium, the issue price, and what then happened: listing open, listing-day close, latest price.
+# One call per year; a past year never changes.
+# ---------------------------------------------------------------------------------------------
+PERFORMANCE_REPORT = 377
+_MON3 = {m: i for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
+
+
+def _short_date(v) -> str | None:
+    """'17-Sep-26' -> '2026-09-17'."""
+    m = re.match(r"^(\d{1,2})-([A-Za-z]{3})-(\d{2})$", strip_tags(v))
+    if not m or m.group(2).lower() not in _MON3:
+        return _day(v)
+    return f"20{m.group(3)}-{_MON3[m.group(2).lower()]:02d}-{int(m.group(1)):02d}"
+
+
+def parse_performance_report(data) -> list[dict]:
+    rows = data.get("reportTableData") if isinstance(data, dict) else None
+    if not isinstance(rows, list) or not rows:
+        raise SourceChanged(SOURCE, f"report 377: reportTableData missing or empty (msg={data.get('msg') if isinstance(data, dict) else None!r})", "report 377")
+    out = []
+    for r in rows:
+        if not isinstance(r, dict) or not r.get("~id"):
+            continue
+        issue, listing, date = _num(r.get("IPO Price")), _num(r.get("Listing Price")), _short_date(r.get("Listing Date"))
+        if not issue or not listing or not date:
+            continue                                   # withdrawn, or not listed yet
+        gmp = _num(r.get("GMP"))
+        out.append({"igId": str(r["~id"]), "name": _plain(r.get("IPO")), "date": date, "sme": strip_tags(r.get("~IPO_Category")).upper() == "SME",
+                    "issue": issue, "gmp": gmp, "gmpImplied": _num(r.get("Estimated Price")) or (issue + gmp if gmp is not None else None),
+                    "listing": listing, "close1": _num(r.get("Listing Day Cls Price")), "ltp": _num(r.get("Closing Price (LTP)")),
+                    "total": _num(r.get("Sub")), "sizeCr": _num(r.get("IPO Size"))})
+    if not out:
+        raise SourceChanged(SOURCE, f"report 377: {len(rows)} rows, none with an id, an issue price and a listing price (keys: {sorted(rows[0])[:8]})", "report 377")
+    return out
+
+
+def _plain(fragment) -> str:
+    """The cell's text without its badges: 'Maharaja & Speedex India <span …>SME</span>' -> 'Maharaja & Speedex India'."""
+    if not isinstance(fragment, str):
+        return clean(str(fragment or ""))
+    tree = HTMLParser(fragment)
+    for badge in tree.css("span"):
+        badge.decompose()
+    return clean(tree.text(separator=" "))
+
+
+def fetch_performance_report(session, year: int) -> list[dict]:
+    url = f"https://webnodejs.investorgain.com/cloud/v2/report/data-read/{PERFORMANCE_REPORT}/1/12/{year}/{year}-{(year + 1) % 100:02d}/0/all"
+    return parse_performance_report(session.get_json(url, source=SOURCE, headers=HEADERS))
+
+
 def as_of(rows: list[dict]) -> str | None:
     """Latest 'Updated-On' stamp across rows, as an ISO date when parseable."""
     stamps = [r.get("updated") for r in rows if r.get("updated")]

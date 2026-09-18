@@ -26,7 +26,7 @@ SUB_CATEGORIES = ("qib", "nii", "retail", "employee", "shareholder", "total")
 # the assembler rejects.
 OWNERS: dict[str, str] = {
     "mainboard": "calendar", "sme": "calendar", "lot": "calendar", "expected": "filings",
-    "recent": "listings", "listedPerf": "listings", "comps": "listings", "priceHistory": "listings",
+    "recent": "listings", "listedPerf": "history", "comps": "history", "priceHistory": "listings",
     "flows": "flows", "news": "news", "quota": "filings", "integrity": "integrity", "meta": "integrity",
     # carried forward from the previous latest.json, refreshed by other layers:
     "offers": "offers", "anchors": "details", "investors": "carry", "current": "research", "sheets": "research",

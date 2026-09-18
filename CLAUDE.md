@@ -137,8 +137,11 @@ Verified sources for what comes next (all JSON, all probed live):
     `ipoRecommendationData` (broker tally), `ipo-allotment-read` (registrar link).
   - NSE `/api/special-preopen-listing`: listing-day 9:00-9:45 indicative price + order book (Veegaland: IEP 154 = +10%,
     where it listed; GMP had said +6%). NSE `quote-equity` 403s — do not use; Yahoo covers prices.
-ipo-radar and IPO-Tracker state NO LICENCE: take ideas, never code or data. `data/seed/` came from ipo-radar's dataset —
-replace it with history built from InvestorGain 377/566 plus our own runs, then delete the seed (public repo).
+ipo-radar and IPO-Tracker state NO LICENCE: take ideas, never code or data. The seed that came from ipo-radar's dataset
+was deleted on 19 Sep 2026: `history` (collector/modules/history.py) now builds `listedPerf` and `comps` from InvestorGain
+report 377 (2022 onward, 1,323 listings, SME included) and 566 (this year's category books; older years keep only the
+total, so QIB evidence starts with 2026 and grows). The Board bands mainboard and SME separately and falls back from
+QIB to the total book when a QIB band has under five cases.
 Build order after A: A2 five-minute market-hours loop + live.json + pre-open watcher -> B history import, evidence for
 SME and "this year", scoreboard, sell-at-open-vs-hold -> C calendar + capital planner + compare + per-IPO URLs ->
 E provenance, conflict flags, source health -> D quota planner -> F alerts with deep links, digest, broker tally, peers.
