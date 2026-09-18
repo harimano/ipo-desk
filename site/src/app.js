@@ -555,10 +555,15 @@ function renderMarket() {
   const colTip = { track: "Median listing gain of past SME issues at this book's total-subscription band, all years (evidence.segments.sme).", ev: "Chance of allotment × the gain GMP implies, less the cost of blocked money — see the Board for the full method." };
   $("#smeScreen").innerHTML = `<thead><tr>${cols.map(([k, l, r]) => `<th class="${r ? "r" : ""} srt${smeSort.k === k ? " on" : ""}" data-sort="${k}" title="${colTip[k] || ""}">${l}${smeSort.k === k ? (smeSort.dir === 1 ? " ▾" : " ▴") : ""}</th>`).join("")}</tr></thead><tbody>${S2.length ? S2.map(r => {
     const s = r.sub || {}, G = evBand(smeSeg, "gmp", r.gmpPct, "window"), T = evBand(smeSeg, "total", s.total, "all"), E = evOf(r, smeSeg);
+    // QIB conviction, graded — not scored: how past SME issues at this same QIB-subscription level actually listed.
+    // This is the one grade this screener keeps, because a fluff SME book usually shows up here first; it is real
+    // n + a Wilson interval from evidence.segments.sme.bands.qib, not a blend of QIB/demand/GMP invented on the page.
+    const Q = evBand(smeSeg, "qib", s.qib, "rows"), qYears = (smeSeg && smeSeg.bands.qib.years || []).join(", ");
     return `<tr data-row data-name="${esc(r.name)}"><td><div class="nm"><button data-open="${esc(r.name)}">${esc(r.name)}</button></div><div class="dt">${esc(r.type)}${r.issueSizeCr ? " · " + cr(r.issueSizeCr) : ""}</div></td>
     <td><span class="pill ${r.status.toLowerCase()}">${r.status}</span><div class="dt">${r.status === "Upcoming" ? "opens " + fmtD(r.open) : r.status === "Open" ? "closes " + fmtD(r.close) : "lists " + fmtD(r.listing)}</div></td>
     <td class="r num">${G ? `<span class="ev ${evCls(G.s)}" title="GMP ${G.lbl}: ${evLong(G.s)}">${pct(r.gmpPct, true)}</span>` : pct(r.gmpPct, true)}</td>
-    <td class="r">${sbar(s.qib, "qb")}</td><td class="r">${sbar(s.retail, "rt")}</td><td class="r">${sbar(s.total, "")}</td>
+    <td class="r">${sbar(s.qib, "qb")}${Q && Q.s.n ? `<div class="dt"><span class="ev ${evCls(Q.s)}" title="QIB ${Q.lbl}, ${qYears} books only: ${evLong(Q.s)}">${Math.round(Q.s.pos)}% listed positive</span></div>` : s.qib != null ? `<div class="dt dim">too few QIB cases in this band</div>` : ""}</td>
+    <td class="r">${sbar(s.retail, "rt")}</td><td class="r">${sbar(s.total, "")}</td>
     <td class="r">${T && T.s.n ? `<span class="ev ${evCls(T.s)}" title="Total book ${T.lbl}, all years: ${evLong(T.s)}">${Math.round(T.s.pos)}%</span>` : `<span class="dim">—</span>`}</td>
     <td class="r">${E ? `<span class="num ${cls(E.ev)}" title="${colTip.ev} Range ${pct(E.lo, true)} to ${pct(E.hi, true)}.">${pct(E.ev, true)}</span>` : `<span class="dim">${s.retail == null ? "book not open" : "no GMP quote"}</span>`}</td>
     <td class="r num ${cls(r.listingGainPct != null ? r.listingGainPct : null)}">${r.listingPrice != null ? inr(r.listingPrice) + " · " + pct(r.listingGainPct, true) : r.gmpPct != null ? `<span class="dim">est.</span> ${pct(r.gmpPct, true)}` : "—"}</td></tr>`;

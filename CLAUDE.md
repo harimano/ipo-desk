@@ -176,6 +176,8 @@ The SME screener's "Score" (0-100, an invented blend of QIB depth/demand ratio/G
 ("institution-backed"/"mixed signals"/"retail froth") were the one place on the page still handing out a verdict —
 removed 19 Sep 2026. Its Track record and EV/app columns now read `evidence.segments.sme` the same way the Board does
 (`evBand`, shared with `boardRow`'s `pick`); GMP is coloured by its own evidence band instead of an arbitrary >50% "froth" cut.
+Hari asked to keep an institutional-conviction grade (a fluff SME book shows up here first) but grounded, not invented:
+the QIB cell now carries `evidence.segments.sme.bands.qib` under the bar — n, Wilson interval, labelled 2026-only.
 Page files: `site/src/app.js` is the db-era monolith; NEW screens go in their own file and are pulled into app.js's scope
 by `/* @include name.js */` (site/build.py). First one: `scoreboard.js` (tab 7, "Score": GMP calibration, band tables,
 sell-at-open vs hold-to-close, below-issue-price filter, sortable list — all computed from `listedPerf` + `comps`).
