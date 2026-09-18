@@ -755,6 +755,19 @@ document.addEventListener("keydown", e => {
 });
 
 /* ================= BOOT ================= */
+/* ---------- Market: a sticky section bar. Sections are found, not listed: every .sec-h heading and top-level card title in the
+   screen becomes a button, so a section added later shows up by itself. ---------- */
+(function marketNav() {
+  const nav = $("#mktNav"), scr = $("#s-market"); if (!nav || !scr) return;
+  const heads = [...scr.querySelectorAll(".sec-h h2, [data-nav]")].filter(h => (h.dataset.nav || h.textContent).trim());
+  const label = h => (h.dataset.nav || h.textContent).trim().replace(/^Market /, "").replace(/ on the board$/, "").replace(/^Data /, "");
+  nav.innerHTML = heads.map((h, i) => `<button data-i="${i}">${esc(label(h).replace(/^./, c => c.toUpperCase()))}</button>`).join("");
+  const top = () => 58 + nav.offsetHeight + 10;
+  nav.addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (!b) return; const y = heads[+b.dataset.i].getBoundingClientRect().top + window.scrollY - top(); window.scrollTo({ top: y, behavior: "smooth" }); });
+  let tick = false; window.addEventListener("scroll", () => { if (tick || scr.hidden) return; tick = true; requestAnimationFrame(() => { tick = false;
+    let cur = 0; heads.forEach((h, i) => { if (h.getBoundingClientRect().top - top() <= 48) cur = i; });
+    [...nav.children].forEach((b, i) => b.setAttribute("aria-current", String(i === cur))); const on = nav.children[cur]; if (on && on.scrollIntoView) on.scrollIntoView({ block: "nearest", inline: "nearest" }); }); }, { passive: true });
+})();
 /* @include quota.js */
 /* @include players.js */
 /* @include research.js */
