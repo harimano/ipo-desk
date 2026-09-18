@@ -77,6 +77,7 @@ tr.moved { animation:movedflash 2.2s ease-out 1; }
 .ev { display:inline-block; padding:1px 8px; border-radius:9px; font-weight:700; background:var(--surface-2); }
 .ev.hi { background:var(--up-soft); color:var(--up); } .ev.mid { background:var(--amber-soft); color:var(--amber); } .ev.lo { background:var(--down-soft); color:var(--down); } .ev.na { color:var(--ink-2); }
 tr.bx > td { background:var(--surface-2); padding:10px 14px 14px; } tr[data-row] { cursor:pointer; }
+.scrolly { max-height:300px; overflow-y:auto; padding-right:6px; scrollbar-width:thin; }
 .spark { display:block; margin-top:4px; color:var(--accent); }
 .chgd { font-weight:700; } .chgd.up { color:var(--up); } .chgd.down { color:var(--down); }
 .oldtag { font-size:11px; font-weight:700; color:var(--amber); background:var(--amber-soft); padding:1px 7px; border-radius:9px; margin-left:8px; vertical-align:2px; }
@@ -380,8 +381,8 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
     <div class="sec grid g2">
       <div class="card"><div class="ch">Comparables <span class="sub">does institutional conviction predict the pop?</span></div><div class="cb"><div class="chart-wrap" style="height:280px"><canvas id="compChart"></canvas></div><div class="bins" id="compBins"></div></div></div>
       <div class="card"><div class="ch">Anchor X-ray <span class="sub">who is writing the big cheques</span></div><div class="cb">
-        <div class="lbl" style="margin-bottom:6px">Anchor book size · current issues</div><div class="hbars" id="anchorBars"></div>
-        <div class="lbl" style="margin:14px 0 6px">Most active anchors · Aug–Sep books</div><div class="hbars" id="anchorFreq"></div>
+        <div class="lbl" style="margin-bottom:6px">Anchor book size · current issues</div><div class="hbars scrolly" id="anchorBars"></div>
+        <div class="lbl" style="margin:14px 0 6px">Most active anchors · Aug–Sep books</div><div class="hbars scrolly" id="anchorFreq" style="max-height:220px"></div>
         <details class="more"><summary>Anchor book notes</summary><div id="anchorNotes"></div></details></div></div>
     </div>
 
