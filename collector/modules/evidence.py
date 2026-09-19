@@ -37,7 +37,8 @@ from ..result import Result
 log = logging.getLogger("collector.evidence")
 IST = ZoneInfo("Asia/Kolkata")
 INF = float("inf")
-EDGES = {"total": [0, 2, 10, 50, INF], "qib": [0, 5, 25, 100, INF], "retail": [0, 1, 3, 10, 40, INF], "gmp": [-INF, 0.01, 10, 30, INF]}
+EDGES = {"total": [0, 2, 10, 50, INF], "qib": [0, 5, 25, 100, INF], "retail": [0, 1, 3, 10, 40, INF], "gmp": [-INF, 0.01, 10, 30, INF],
+         "open": [-INF, 0, 10, 30, INF]}       # the listing-day open, as % over issue price: what to expect from holding to the close
 WINDOW_DAYS, WINDOW_MIN_ROWS = 365, 100
 MIN_N = 30                 # below this the page says the band is thin (it still shows it, with its interval)
 MIN_EVE = 30               # own-GMP rows in a segment before the second fit is published
@@ -112,6 +113,19 @@ def ev_bands(rows: list[dict]) -> list[dict]:
     return out
 
 
+def hold_bands(rows: list[dict]) -> list[dict]:
+    """By how the stock OPENED: how often the day-1 close beat the open, and by how much (points of issue price).
+    A fact about listing day for someone who got an allotment — sell at the open, or hold to the close."""
+    e, out = EDGES["open"], []
+    for i in range(len(e) - 1):
+        d = [r["retClose"] - r["ret"] for r in rows if r.get("retClose") is not None and band_index(r["ret"], e) == i]
+        n, k = len(d), sum(1 for x in d if x > 0)
+        lo, hi = wilson(k, n)
+        out.append({"n": n, "held": round(100 * k / n, 1) if n else None, "lo": lo, "hi": hi, "med": round(st.median(d), 1) if n else None,
+                    "p10": None if not n else round(_q(d, 0.1), 1), "p90": None if not n else round(_q(d, 0.9), 1)})
+    return out
+
+
 def window_of(rows: list[dict], today: dt.date) -> tuple[list[dict], dict]:
     cut = (today - dt.timedelta(days=WINDOW_DAYS)).isoformat()
     recent = [r for r in rows if r["date"] >= cut]
@@ -130,7 +144,7 @@ def unified(doc: dict) -> list[dict]:
         if not p or c.get("ret") is None or not p.get("issue"):
             continue
         imp = lambda g: round(100 * g / p["issue"], 2) if g is not None else None  # noqa: E731
-        out.append({"date": p["date"], "year": int(p["date"][:4]), "sme": bool(p.get("sme")), "ret": c["ret"], "total": c.get("total"),
+        out.append({"date": p["date"], "year": int(p["date"][:4]), "sme": bool(p.get("sme")), "ret": c["ret"], "retClose": c.get("retClose"), "total": c.get("total"),
                     "qib": c.get("qib"), "retail": c.get("retail"), "gmp": imp(p.get("gmp")), "gmpEve": imp(p.get("gmpEve"))})
     return out
 
@@ -144,6 +158,7 @@ def segment(rows: list[dict], today: dt.date, label: str, warnings: list[dict]) 
                      "gmp": {"window": bands(win, "gmp"), "all": bands(rows, "gmp")},
                      "qib": {"rows": bands(cat, "qib"), "years": cat_years, "n": sum(1 for r in cat if r.get("qib") is not None)},
                      "retail": {"rows": bands(cat, "retail"), "years": cat_years}},
+           "hold": {"window": hold_bands(win), "all": hold_bands(rows)},
            "ev": {"rows": ev_bands(cat), "years": cat_years, "blockDays": BLOCK_DAYS_HISTORY},
            "fit": {"r377": fit(win, "gmp"), "eve": None, "provisional": True, "eveRows": sum(1 for r in rows if r.get("gmpEve") is not None)}}
     eve_rows = [r for r in rows if r.get("gmpEve") is not None]

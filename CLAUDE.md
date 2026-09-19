@@ -208,6 +208,10 @@ Quota planner (roadmap D, 19 Sep 2026): `site/src/quota.js` on the Pipeline tab 
 share costs, stage, record date ("buy by" = record date - 2 days) and approval lapse, soonest first; KPIs for parents covered
 and the rupees to cover the rest. `parents.quota_parents()` prices every live quota row's `ticker` in the same batch into
 `investors.prices[parent]` (20 of 21 priced; Tata Motors' ticker changed with the demerger). "Held" is localStorage `ipo-holdings`.
+Hold or sell at the open (19 Sep 2026): `evidence.segments[x].hold{window, all}` bands listings by how they OPENED (edges `open`:
+<0, 0-10, 10-30, 30+ % over issue) — share whose day-1 close beat the open (Wilson), median and p10-p90 open-to-close move in
+points of issue price. The Today pre-open card quotes the band the indicative price falls in. First read: mainboard is a coin
+flip in every band; SME is momentum (opened 10%+ -> close beat the open 76% of the time; opened below issue -> 26%).
 Page files: `site/src/app.js` is the db-era monolith; NEW screens go in their own file and are pulled into app.js's scope
 by `/* @include name.js */` (site/build.py). First one: `scoreboard.js` (tab 7, "Score": GMP calibration, band tables,
 sell-at-open vs hold-to-close, below-issue-price filter, sortable list — all computed from `listedPerf` + `comps`).

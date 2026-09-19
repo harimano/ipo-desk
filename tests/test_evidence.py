@@ -118,3 +118,13 @@ def test_the_key_is_owned_published_and_frozen_gmp_survives_a_rebuild():
     row = next(p for p in listed if p["igId"] == k["igId"])
     assert (row["gmpEve"], row["gmpEveAsOf"][:10]) == (44.0, "2026-09-16")
     assert "gmpEve" not in next(p for p in listed if p["igId"] == perf[0]["igId"]), "a quote stamped on listing day is not the evening before"
+
+
+def test_hold_or_sell_is_banded_by_how_the_stock_opened():
+    rows = [{"ret": 40.0, "retClose": 35.0}] * 3 + [{"ret": 40.0, "retClose": 46.0}] + [{"ret": 5.0, "retClose": 7.0}] * 2 + [{"ret": -3.0, "retClose": None}]
+    b = ev.hold_bands(rows)
+    assert (b[3]["n"], b[3]["held"], b[3]["med"]) == (4, 25.0, -5.0), "opened +30% or more: the close beat the open once in four"
+    assert (b[1]["n"], b[1]["held"]) == (2, 100.0) and b[0]["n"] == 0 and b[0]["held"] is None, "no day-1 close on file: not counted"
+    seg = run(doc()).replace["evidence"]["segments"]["main"]
+    assert len(seg["hold"]["window"]) == 4 and sum(x["n"] for x in seg["hold"]["all"]) > 0
+    assert run(doc()).replace["evidence"]["edges"]["open"] == [None, 0, 10, 30, None]

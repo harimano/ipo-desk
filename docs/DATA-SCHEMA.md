@@ -38,3 +38,4 @@ records: {igId: {name, fetchedAt, about[], desc[], promoters?, objects?, financi
     Kept while the row is on the board; a row with no record on file is fetched at once. Board rows also carry `refund` (the unblock day).
 players: {asOf, tracked, of, latestPerInvestor, books{igId: [{id, name, ipos, investedCr, ticketCr}]}, names{igId: row name}, league[]}
   - owned by `players`; which of the largest anchor investors (InvestorGain 551 / 561) are in the books of unlisted issues on the board.
+  evidence segment also carries hold{window[], all[]}: {n, held, lo, hi, med, p10, p90} per `edges.open` band (day-1 close vs the open).
