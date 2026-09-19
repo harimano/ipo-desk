@@ -114,6 +114,7 @@ function renderScore() {
       ${kpi("Below issue price now", p100(below, N), `${below} of ${N} listings`)}</div>
     ${evidenceCards()}
     <div class="sec grid g2"><div class="card"><div class="ch">GMP calibration <span class="sub">${sbScope === "sme" ? "SME" : "mainboard"} · ${sbYear === "all" ? "all years" : sbYear} · solid line = where listings actually landed, dashed = 8 in 10</span></div><div class="cb"><div class="chart-wrap" style="height:420px"><canvas id="sbCalib"></canvas></div><div class="dt" id="sbCalibNote" style="margin-top:8px"></div></div></div>${hitRateByMonth()}</div>
+    ${holdPanel(sbScope === "sme")}
     <div class="sec grid g2">${bandTbl("Grey-market premium → listing", "g", EDG("gmp"), "%", R)}${bandTbl("Total subscription → listing", "total", EDG("total"), "x", R)}</div>
     <div class="sec grid g2">${bandTbl("QIB subscription → listing <span class='sub'>category books are on file from 2026</span>", "qib", EDG("qib"), "x", R)}${bandTbl("Retail subscription → listing <span class='sub'>from 2026</span>", "retail", EDG("retail"), "x", R)}</div>
     <div class="sec card"><div class="ch">Every listing <span class="sub">${list.length} shown · click a column to sort</span><span class="right"><button class="btn sm${sbBelow ? " primary" : ""}" id="sbBelow">Below issue price${sbBelow ? " ✓" : ""}</button></span></div>

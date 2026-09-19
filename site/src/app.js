@@ -145,9 +145,7 @@ function renderToday() {
   const nm = p => p.q ? p.q.name : p.b ? p.b.name : "";
   const urgentAll = P.filter(p => p.pri <= 2), top = urgentAll.slice(0, 3), later = [...urgentAll.slice(3), ...P.filter(p => p.pri > 2)];
   const pre = ((LIVE || {}).preopen || []).map(p => { const b = findIssue(p.name) || {}, imp = b.gmpPct;
-    // hold or sell at the open? the collector's own record for stocks that opened like this one (evidence.segments[x].hold)
-    const hs = SEG(/SME/i.test(b.type || "")), hi9 = hs && hs.hold && p.pct != null ? bandOf(p.pct, EDG("open")) : -1, hb = hi9 >= 0 ? hs.hold.window[hi9] : null;
-    const holdLine = hb && hb.n ? `<div class="desc" style="margin-top:6px"><b>Hold or sell at the open?</b> Of ${hb.n} ${/SME/i.test(b.type || "") ? "SME" : "mainboard"} listings that opened ${edgeLbl(EDG("open"), hi9, "%")} (${winLbl(hs.window)}), the day-1 close beat the open in <b>${Math.round(hb.held)}%</b> <span class="dim">(95% range ${Math.round(hb.lo)}–${Math.round(hb.hi)}%)</span>; the typical move from open to close was <b class="${cls(hb.med)}">${pct(hb.med, true)}</b> of the issue price, 8 in 10 between ${pct(hb.p10, true)} and ${pct(hb.p90, true)}.${hb.n < (EVD().minN || 30) ? " Thin sample." : ""}</div>` : "";
+    const holdLine = holdBlock(/SME/i.test(b.type || ""), p.pct, p.status === "Close" ? "at the opening price" : "at the indicative price");
     return `<div class="card q lead" data-row data-name="${esc(p.name)}"><div class="l"><div class="tags"><span class="pill now">Lists today</span><span class="lbl">NSE pre-open${p.status === "Close" ? " · final" : " · indicative"}</span></div>
       <div class="ttl">${esc(p.name)} — ${p.status === "Close" ? "opens at" : "indicating"} ${inr(p.iep)} (${pct(p.pct, true)})</div>
       <div class="desc">Issue price ${inr(p.base)}${imp != null ? ` · the grey market had implied ${pct(imp, true)}` : ""}${p.qty ? ` · ${Math.round(p.qty / 1e5) / 10} M shares matched` : ""} · ${p.asOf ? "as of " + p.asOf.slice(11, 16) + " IST" : ""}. Trading starts 10:00.</div>${holdLine}</div>
@@ -291,6 +289,7 @@ function boardRow(b) {
     ["Total book, all years", TA && TA.s && TA.s.n && !early ? `${TA.lbl} · ${evLong(TA.s)} <span class="dt">${segLbl}, every listing since 2022 — an average of different markets</span>` : null],
     ["GMP, all years", GA && GA.s && GA.s.n ? `${GA.lbl} · ${evLong(GA.s)}` : null],
     ["Window", seg ? `${seg.window.n} ${segLbl} listings · ${W}` : null],
+    ["On listing day", (b.status === "Closed" || b.status === "Open") && R ? holdBlock(isSme, R.c, `if it opens where GMP implies, ${pct(R.c, true)}`) : null],
     ["GMP estimate", R && b.bandHigh != null ? `lists near ${inr(b.bandHigh * (1 + R.c / 100))}; 8 in 10 comparable listings landed between ${inr(b.bandHigh * (1 + R.lo / 100))} and ${inr(b.bandHigh * (1 + R.hi / 100))}${R.prov ? " (provisional)" : ""}` : null]]);
   return `<tr class="${CHG[b.name] ? "moved" : ""}" data-row data-name="${esc(b.name)}"><td><button class="tg star${S.interest.has(b.name) ? " on" : ""}" data-star="${esc(b.name)}">★</button></td>
     <td><div class="nm"><button data-open="${esc(b.name)}">${esc(b.name)}</button></div><div class="dt">${esc(b.type)}${b.issueSizeCr ? " · " + cr(b.issueSizeCr) : ""}${b.shareholderQuota && b.shareholderQuota.parent ? ` · <span class="up">quota via ${esc(b.shareholderQuota.parent)}</span>` : ""}</div></td>
@@ -771,6 +770,7 @@ document.addEventListener("keydown", e => {
     let cur = 0; heads.forEach((h, i) => { if (h.getBoundingClientRect().top - top() <= 48) cur = i; });
     [...nav.children].forEach((b, i) => b.setAttribute("aria-current", String(i === cur))); const on = nav.children[cur]; if (on && on.scrollIntoView) on.scrollIntoView({ block: "nearest", inline: "nearest" }); }); }, { passive: true });
 })();
+/* @include hold.js */
 /* @include quota.js */
 /* @include players.js */
 /* @include research.js */

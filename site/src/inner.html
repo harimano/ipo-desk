@@ -84,6 +84,13 @@ tr.bx > td { background:var(--surface-2); padding:10px 14px 14px; } tr[data-row]
 .subnav{position:sticky;top:58px;z-index:15;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin:-8px -6px 14px;padding:8px 6px;background:var(--paper);border-bottom:1px solid var(--line)}
 .subnav::-webkit-scrollbar{display:none}.subnav button{height:28px;padding:0 12px;border-radius:14px;font-size:12.5px;font-weight:700;color:var(--ink-2);white-space:nowrap}
 .subnav button:hover{background:var(--surface-2)}.subnav button[aria-current="true"]{background:var(--accent-soft);color:var(--accent)}
+.hm{position:relative;height:14px;border-radius:7px;background:var(--surface-2);min-width:120px;flex:1}.hm-mid{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--ink-3)}
+.hm-w{position:absolute;top:4px;height:6px;border-radius:3px;opacity:.55;transform-origin:center;animation:tugx .7s cubic-bezier(.2,.8,.2,1) both}.hm-w.up{background:var(--up)}.hm-w.down{background:var(--down)}.hm-w.mid{background:var(--amber)}
+.hm-d{position:absolute;top:1px;width:12px;height:12px;margin-left:-6px;border-radius:50%;border:2px solid var(--surface)}.hm-d.up{background:var(--up)}.hm-d.down{background:var(--down)}.hm-d.mid{background:var(--amber)}
+.hm-t{position:absolute;top:-1px;bottom:-1px;width:3px;margin-left:-1px;border-radius:2px;background:var(--ink)}
+.holdb{margin-top:10px;padding:10px 12px;border-radius:var(--r-sm);background:var(--surface-2);font-size:12.5px}.holdb .hm{background:var(--surface)}.holdb-h{margin-bottom:8px}
+.holdb-r{display:grid;grid-template-columns:140px 1fr 150px;gap:12px;align-items:center;margin:6px 0}.holdb-l{color:var(--ink-2);font-weight:600}.holdb-r .num{text-align:right}
+@media (max-width:640px){.holdb-r{grid-template-columns:1fr;gap:4px}.holdb-r .num{text-align:left}}
 .fstrip{display:flex;flex-direction:column;gap:5px}.fs-row{display:flex;align-items:center;gap:3px}.fs-l{width:30px;font-size:11px;font-weight:700;color:var(--ink-3)}
 .fs-c{flex:1;height:22px;border-radius:4px;opacity:0;animation:fsin .45s ease-out forwards;min-width:6px}.fs-c.up{background:var(--up)}.fs-c.down{background:var(--down)}.fs-c:hover{outline:2px solid var(--ink-3);outline-offset:1px}
 .fs-gap{width:0;height:22px;border-left:2px dashed var(--line-2);margin:0 4px}
