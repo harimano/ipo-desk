@@ -264,7 +264,7 @@ function boardRow(b) {
     : b.status === "Closed" ? `Allotment ${fmtD(b.allotment)}<div class="dt">lists ${fmtD(b.listing)} · ${rel(days(b.listing))}</div>` : `Listed ${fmtD(b.listing)}`;
   const band = b.bandLow != null && b.bandHigh != null && b.bandLow !== b.bandHigh ? `${inr(b.bandLow)}–${inr(b.bandHigh)}` : b.bandHigh != null ? inr(b.bandHigh) : "TBA";
   const S0 = b.sub || {}, early = b.status === "Open" && !(lastDay && late);
-  const pick = (key, v, where) => { const i = B && v != null ? bandOf(v, EDG(key)) : -1; return i >= 0 ? { i, s: B[key][where][i], lbl: edgeLbl(EDG(key), i, key === "gmp" ? "%" : "x") } : null; };
+  const pick = (key, v, where) => evBand(seg, key, v, where);
   const T = pick("total", S0.total, "window"), TA = pick("total", S0.total, "all"), QB = !isSme ? pick("qib", S0.qib, "rows") : null, GB = pick("gmp", b.gmpPct, "window"), GA = pick("gmp", b.gmpPct, "all");
   const catYears = B ? (B.qib.years || []).join(", ") : "";
   const bookCell = S0.total == null ? `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`
@@ -433,7 +433,11 @@ function renderSheet() {
     ${comparablesCard(b)}
     ${rec.claude && ((rec.claude.bull || []).length || (rec.claude.bear || []).length) ? "" : `<div class="sec dt">No written analysis for this issue yet — everything above is fetched, not an opinion.</div>`}
     <div class="sec grid g2"${rec.claude && ((rec.claude.bull || []).length || (rec.claude.bear || []).length) ? "" : " hidden"}><div class="card"><div class="ch up">For</div><div class="cb">${li(rec.claude && rec.claude.bull)}</div></div><div class="card"><div class="ch down">Against</div><div class="cb">${li(rec.claude && rec.claude.bear)}</div></div></div>
-    <div class="sec grid g2"><div class="card"><div class="ch">Governance flags</div><div class="cb">${r.governance && r.governance.flags && r.governance.flags.length ? r.governance.flags.map(f => `<div class="flag">${esc(Array.isArray(f) ? f[1] : f)}</div>`).join("") : "<span class='dim'>—</span>"}</div></div><div class="card"><div class="ch">Street view</div><div class="cb">${rec.experts && rec.experts.length ? `<table><tbody>${rec.experts.map(e => `<tr><td class="nm">${esc(e[0])}</td><td>${esc(e[1])}<div class="dt">${esc(e[2] || "")}</div></td></tr>`).join("")}</tbody></table>` : "<span class='dim'>—</span>"}</div></div></div>
+    ${(() => { const flags = (r.governance && r.governance.flags) || [], ex = rec.experts && rec.experts.length ? rec.experts.map(e => [e[0], e[1], e[2]]) : (F.recs || []).map(v => [v.who, v.view || "—", v.date ? fmtD(v.date) : "", v.url]);
+      if (!flags.length && !ex.length) return "";
+      const tally = {}; ex.forEach(e => { const k = /subscribe|apply|buy|positive/i.test(e[1]) ? "positive" : /avoid|sell|negative/i.test(e[1]) ? "negative" : /neutral|may apply|long term|risk/i.test(e[1]) ? "neutral / conditional" : "other"; tally[k] = (tally[k] || 0) + 1; });
+      return `<div class="sec grid g2">${flags.length ? `<div class="card"><div class="ch">Governance flags</div><div class="cb">${flags.map(f => `<div class="flag">${esc(Array.isArray(f) ? f[1] : f)}</div>`).join("")}</div></div>` : ""}
+        ${ex.length ? `<div class="card"><div class="ch">Street view <span class="sub">${ex.length} broker view${ex.length === 1 ? "" : "s"}${rec.experts && rec.experts.length ? "" : " · fetched"} · ${Object.entries(tally).map(([k, n]) => n + " " + k).join(" · ")}</span></div><div class="cb"><table><tbody>${ex.map(e => `<tr><td class="nm">${e[3] && /^https?:/.test(e[3]) ? `<a href="${esc(e[3])}" target="_blank" rel="noopener">${esc(e[0])}</a>` : esc(e[0])}</td><td>${esc(e[1])}<div class="dt">${esc(e[2] || "")}</div></td></tr>`).join("")}</tbody></table></div></div>` : ""}</div>`; })()}
     ${r.company && r.company.about ? `<div class="sec card"><div class="ch">Company</div><div class="cb prose">${esc(r.company.about)}${r.company.facts ? "<div style='margin-top:8px'>" + kvs(r.company.facts.map(f => [f[0], esc(f[1])])) + "</div>" : ""}</div></div>` : ""}
     ${r.allotment ? `<div class="sec card"><div class="ch">Allotment</div><div class="cb prose">${esc(r.allotment)}</div></div>` : ""}
     ${rec.claude && rec.claude.take ? `<div class="sec card"><div class="ch">Synthesis</div><div class="cb prose">${esc(rec.claude.take)}</div></div>` : ""}
@@ -608,7 +612,8 @@ function renderMarket() {
   const PL = playerCards(curIss); { const pn = $("#playersNote"); if (pn) pn.textContent = playersNote(); }
   const pending = curIss.filter(b => !PL.named.has(b.name));
   $("#anchorCards").innerHTML = (PL.html + (pending.length ? `<div class="card acard pend" style="grid-column:1/-1;display:block"><div class="lbl" style="margin-bottom:6px">None of the largest anchors seen in these books · size and lock-in dates</div><div class="chips" style="margin-top:0">${pending.map(b => { const A1 = anchorFor(b.name), f = A1 ? [A1.amountCr ? cr(A1.amountCr) : null, A1.amountCr && A1.issueSizeCr ? Math.round(A1.amountCr / A1.issueSizeCr * 100) + "% of issue" : null, A1.lockIn30 ? "lock-in ends " + fmtD(A1.lockIn30) + " / " + fmtD(A1.lockIn90) : null].filter(Boolean).join(" · ") : ""; return `<span class="chip-i" data-row data-name="${esc(b.name)}"><b>${esc(b.name)}</b>${f ? " " + f : " · no anchor book on file"}</span>`; }).join("")}</div></div>` : "")) || `<div class="empty">No current issues.</div>`;
-  // ===== superinvestors =====
+  // ===== superinvestors ===== (bulk deals are live; the rest is the retired sweep's snapshot and sits in a closed archive)
+  { const sn = $("#invSnap"); if (sn) sn.textContent = (DATA.investors || {}).asOf ? "of " + fmtDY(DATA.investors.asOf) : ""; }
   const I = DATA.investors || {}, worthOf = s => { const m = /([\d,.]+)\s*(Cr|crore)/i.exec(s || ""); return m ? parseFloat(m[1].replace(/,/g, "")) : null; };
   const isBuy = t => /fresh|add|buy|bought|raised|bulk buy/i.test(t) && !/exit|trim|sold/i.test(t), isSell = t => /exit|trim|sold|sell|cut|reduced|below/i.test(t);
   const dir = t => { const m = /([\d.]+)\s*%?\s*(?:→|->|to)\s*([\d.]+)/.exec(t); if (m) return +m[2] > +m[1] ? "up" : "down"; return isBuy(t) ? "up" : isSell(t) ? "down" : ""; };
@@ -764,9 +769,11 @@ document.addEventListener("keydown", e => {
   const heads = [...scr.querySelectorAll(".sec-h h2, [data-nav]")].filter(h => (h.dataset.nav || h.textContent).trim());
   const label = h => (h.dataset.nav || h.textContent).trim().replace(/^Market /, "").replace(/ on the board$/, "").replace(/^Data /, "");
   nav.innerHTML = heads.map((h, i) => `<button data-i="${i}">${esc(label(h).replace(/^./, c => c.toUpperCase()))}</button>`).join("");
-  const top = () => 58 + nav.offsetHeight + 10;
+  const hdrH = () => ($(".hdr") || {}).offsetHeight || 58, fit = () => { nav.style.top = hdrH() + "px"; };
+  fit(); window.addEventListener("resize", fit); if (window.ResizeObserver && $(".hdr")) new ResizeObserver(fit).observe($(".hdr"));   // the header wraps on a phone
+  const top = () => hdrH() + nav.offsetHeight + 10;
   nav.addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (!b) return; const y = heads[+b.dataset.i].getBoundingClientRect().top + window.scrollY - top(); window.scrollTo({ top: y, behavior: "smooth" }); });
-  let tick = false; window.addEventListener("scroll", () => { if (tick || scr.hidden) return; tick = true; requestAnimationFrame(() => { tick = false;
+  let tick = false; window.addEventListener("scroll", () => { if (tick || scr.hidden) return; tick = true; requestAnimationFrame(() => { tick = false; fit();
     let cur = 0; heads.forEach((h, i) => { if (h.getBoundingClientRect().top - top() <= 48) cur = i; });
     [...nav.children].forEach((b, i) => b.setAttribute("aria-current", String(i === cur))); const on = nav.children[cur]; if (on && on.scrollIntoView) on.scrollIntoView({ block: "nearest", inline: "nearest" }); }); }, { passive: true });
 })();
