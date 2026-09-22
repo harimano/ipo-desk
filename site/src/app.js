@@ -612,6 +612,7 @@ function renderMarket() {
   const WL = watchNames();
   const PL = playerCards(curIss); { const pn = $("#playersNote"); if (pn) pn.textContent = playersNote(); }
   $("#anchorCards").innerHTML = PL.html || `<div class="empty">No current issues.</div>`;
+  renderRecords();
   // ===== superinvestors ===== (bulk deals are live; the rest is the retired sweep's snapshot and sits in a closed archive)
   { const sn = $("#invSnap"); if (sn) sn.textContent = (DATA.investors || {}).asOf ? "of " + fmtDY(DATA.investors.asOf) : ""; }
   const I = DATA.investors || {}, worthOf = s => { const m = /([\d,.]+)\s*(Cr|crore)/i.exec(s || ""); return m ? parseFloat(m[1].replace(/,/g, "")) : null; };
@@ -784,6 +785,7 @@ document.addEventListener("keydown", e => {
 /* @include deals.js */
 /* @include names.js */
 /* @include lockin.js */
+/* @include records.js */
 /* @include research.js */
 /* @include scoreboard.js */
 function renderAll() { renderTape(); renderToday(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); }

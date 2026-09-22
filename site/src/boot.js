@@ -55,7 +55,7 @@ async function fetchSplit() {
     if (parts[name] && parts[name].hash === hash) return;
     parts[name] = { hash, body: await getJson(DATA_DIR + name + ".json?h=" + hash) };
   }));
-  const D = { meta: head.meta, integrity: head.integrity };
+  const D = { meta: head.meta, integrity: head.integrity, lazy: head.lazy || {} };   // lazy: parts a screen fetches on demand (books.json)
   names.forEach(name => Object.assign(D, parts[name].body));
   return D;
 }
