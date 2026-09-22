@@ -26,7 +26,7 @@ def test_split_round_trips_and_hashes_track_content():
     doc2["mainboard"][0]["gmp"] = 7
     files2 = json.loads(layout.split(doc2)["meta.json"])["files"]
     assert files2["board"]["hash"] != files["board"]["hash"]
-    assert all(files2[g]["hash"] == files[g]["hash"] for g in layout.GROUPS if g != "board")
+    assert all(files2[g]["hash"] == files[g]["hash"] for g in layout.GROUPS if g != "board" and g not in layout.LAZY)
 
 
 def test_unknown_top_level_key_is_refused_not_dropped():
@@ -42,3 +42,11 @@ def test_seed_document_round_trips():
         pytest.skip("no local data/latest.json")
     doc = json.loads(p.read_text(encoding="utf8"))
     assert layout.join(layout.split(doc)) == doc
+
+
+def test_the_books_part_is_written_but_not_listed_for_boot():
+    from collector import schema
+    d = schema.empty_data(); d["meta"] = {"asOf": "2026-09-22T06:43:00+05:30", "label": "x"}; d["integrity"] = {}
+    parts = layout.split(d); head = json.loads(parts["meta.json"])
+    assert "books.json" in parts and "books" in head["lazy"] and "books" not in head["files"]
+    assert layout.join(parts) == d

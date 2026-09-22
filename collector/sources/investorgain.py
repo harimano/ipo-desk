@@ -223,6 +223,65 @@ def _table(fragment, what: str) -> dict | None:
     return {"head": head, "rows": rows}
 
 
+# ---- the anchor book: who took the anchor allocation, parsed AS a table ---------------------------------------------
+# `ipoData[0].anchor_investor_detail` is an HTML fragment: a sentence "A total of N shares at a price of Rs P", a
+# key/value table (Bid Date, Price, % of QIBs, Shares Locked 30/90 Days) and the allocation table
+# (# | Anchor | Shares Allotted | Amt (Rs cr.) | % Allocated | % Allotment of Issue) with a totals row. Some records
+# carry only the first two names (a limit of the free feed, cause unknown): `complete` says whether the rows account
+# for the whole book (their % Allocated sums to ~100), so a partial book is never mistaken for a small one.
+_TOTAL_RE = re.compile(r"A total of ([\d,]+) shares? at a price of Rs\.? ?([\d,.]+)", re.I)
+
+
+def _long_date(v) -> str | None:
+    """'Sep 15, 2026' -> ISO."""
+    try:
+        return dt.datetime.strptime(clean(str(v or "")), "%b %d, %Y").date().isoformat()
+    except ValueError:
+        return None
+
+
+def parse_anchor_book(fragment) -> dict | None:
+    """{bidDate, price, pctQib, locked30, locked90, totalShares, rows[{name, shares, amtCr, pctAlloc, pctIssue}], complete}
+    or None when the record has no anchor table (no anchor round, or the feed left it out)."""
+    if not fragment or "<table" not in str(fragment):
+        return None
+    tree = HTMLParser(str(fragment))
+    text = clean(tree.text(separator=" "))
+    m = _TOTAL_RE.search(text)
+    out = {"bidDate": None, "price": _num(m.group(2)) if m else None, "pctQib": None, "locked30": None, "locked90": None,
+           "totalShares": _num(m.group(1)) if m else None, "rows": [], "complete": None}
+    for tr in tree.css("tr"):
+        cells = [clean(td.text(separator=" ")) for td in tr.css("td")]
+        cells = [c for c in cells if c != ""]
+        if not cells:
+            continue
+        label = cells[0].lower()
+        if len(cells) == 2 and not re.match(r"^\d+$", cells[0]):
+            if label.startswith("bid date"):
+                out["bidDate"] = _day(cells[1]) or _short_date(cells[1]) or _long_date(cells[1])
+            elif label == "price":
+                out["price"] = out["price"] or _num(cells[1])
+            elif label.startswith("% of qib"):
+                out["pctQib"] = _num(cells[1])
+            elif "locked" in label and "30" in label:
+                out["locked30"] = _num(cells[1])
+            elif "locked" in label and "90" in label:
+                out["locked90"] = _num(cells[1])
+            continue
+        if re.match(r"^\d+$", cells[0]) and len(cells) >= 3:
+            nums = [_num(c) for c in cells[2:6]] + [None] * 4
+            out["rows"].append({"name": cells[1], "shares": nums[0], "amtCr": nums[1], "pctAlloc": nums[2], "pctIssue": nums[3]})
+    if not out["rows"]:
+        raise SourceChanged(SOURCE, "ipo-detail-read: the anchor table has no investor rows", IPO_DETAIL_URL)
+    alloc = [r["pctAlloc"] for r in out["rows"] if r["pctAlloc"] is not None]
+    shares = [r["shares"] for r in out["rows"] if r["shares"] is not None]
+    if alloc and len(alloc) == len(out["rows"]):
+        out["complete"] = abs(sum(alloc) - 100) <= 1.5
+    elif out["totalShares"] and shares and len(shares) == len(out["rows"]):
+        out["complete"] = abs(sum(shares) - out["totalShares"]) / out["totalShares"] <= 0.015
+    return out
+
+
 def _paras(fragment, limit: int = 10) -> list[str]:
     if not fragment:
         return []

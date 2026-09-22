@@ -54,3 +54,8 @@ tape: {asOf, dates[], noFile[], names{name: symbol}, n} — owned by `tape`: whi
 evidence.lockins: {rows[{name, sme, date, base, after, ret}], days} — the price move over the first 5 trading days after an anchor's
   30-day lock opened, frozen once written (outlives the 90-day price cap); `segments[x].lockin` = summarise(rows of that segment)
   + since + days. Started 22 Sep 2026.
+
+anchorBooks: {asOf, n, books{igId: {name, sme, listedOn, bidDate, price, totalShares, pctQib, locked30, locked90, complete, rows[{name, key,
+  shares, amtCr, pctAlloc, pctIssue}], fetchedOn}}, none{igId: triedOn}} — owned by `anchorbook`, its own part (`books.json`): every IPO's
+  anchor allocation since 2022 from InvestorGain's record (HTML table parsed as a table), frozen once fetched. `complete` = the rows
+  account for the whole book (some records carry only the first two names). `key` = investor name normalised (`anchorbook.investor_key`).

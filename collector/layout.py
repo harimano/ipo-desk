@@ -29,7 +29,11 @@ GROUPS: dict[str, tuple[str, ...]] = {
     "investors": ("investors",),
     "research":  ("current", "sheets", "records"),
     "history":   ("listedPerf", "comps", "evidence"),
+    "books":     ("anchorBooks",),            # every IPO's anchor allocation since 2022: large, changes only when a book is added
 }
+# Parts the page does not need at boot: written like the others, listed under meta.lazy (hash, bytes) instead of
+# meta.files, so boot.js leaves them alone and a screen fetches one on demand. The books part will be a few MB.
+LAZY = {"books"}
 
 
 def _dump(obj) -> bytes:
@@ -56,12 +60,14 @@ def split(doc: dict) -> dict[str, bytes]:
         raise ValueError(f"document has top-level keys the layout does not publish: {extra}")
     out: dict[str, bytes] = {}
     files: dict[str, dict] = {}
+    lazy: dict[str, dict] = {}
     for name, keys in GROUPS.items():
         body = _dump({k: doc[k] for k in keys if k in doc})
         out[f"{name}.json"] = body
-        files[name] = {"hash": hashlib.sha256(body).hexdigest()[:16], "bytes": len(body), "keys": list(keys)}
+        (lazy if name in LAZY else files)[name] = {"hash": hashlib.sha256(body).hexdigest()[:16], "bytes": len(body), "keys": list(keys)}
     head = {k: doc[k] for k in META_KEYS if k in doc}
     head["files"] = files
+    head["lazy"] = lazy
     out["meta.json"] = _dump(head)
     return out
 
@@ -69,7 +75,7 @@ def split(doc: dict) -> dict[str, bytes]:
 def join(parts: dict[str, bytes]) -> dict:
     """Inverse of split(): what the page reassembles. Used by the tests to prove nothing is lost."""
     head = json.loads(parts["meta.json"])
-    files = head.pop("files")
+    files = {**head.pop("files"), **head.pop("lazy", {})}
     doc = dict(head)
     for name in files:
         doc.update(json.loads(parts[f"{name}.json"]))
