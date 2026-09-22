@@ -29,7 +29,7 @@ GROUPS: dict[str, tuple[str, ...]] = {
     "investors": ("investors",),
     "research":  ("current", "sheets", "records"),
     "history":   ("listedPerf", "comps", "evidence"),
-    "books":     ("anchorBooks",),            # every IPO's anchor allocation since 2022: large, changes only when a book is added
+    "books":     ("anchorBooks", "trackRecords"),            # every IPO's anchor allocation since 2022: large, changes only when a book is added
 }
 # Parts the page does not need at boot: written like the others, listed under meta.lazy (hash, bytes) instead of
 # meta.files, so boot.js leaves them alone and a screen fetches one on demand. The books part will be a few MB.

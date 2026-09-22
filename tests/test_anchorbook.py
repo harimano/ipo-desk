@@ -73,7 +73,7 @@ def test_books_are_fetched_newest_first_frozen_and_never_refetched():
     assert j["rows"][1]["key"] == "CRAFT EMERGING MARKET FUND PCC CITADEL CAPITAL FUND" and j["fetchedOn"] == "2026-09-22"
     assert A["books"]["1599"]["complete"] is False
     data = schema.empty_data(); assemble.apply(data, res); layout.check_groups()
-    assert data["anchorBooks"]["n"] == 2 and "books" in layout.GROUPS and layout.GROUPS["books"] == ("anchorBooks",)
+    assert data["anchorBooks"]["n"] == 2 and "books" in layout.GROUPS and "anchorBooks" in layout.GROUPS["books"]
     # next run: nothing to fetch except the young 'none' after two weeks
     s2 = S()
     res2 = run(s2, prev={"anchorBooks": A})

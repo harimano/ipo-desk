@@ -91,6 +91,11 @@ document as assembled so far; `prev` is yesterday's.
   listing of this year with a symbol (board `symbol`, else deals' `listingSymbols`); backfills 6 days a run, then 1 call a day;
   `tape.noFile` remembers holidays; today's file only after 18:30 IST. `evidence.lockins` freezes the 5-day move after each
   30-day anchor unlock from that path (`segments[x].lockin`, n + Wilson, since 22 Sep 2026).
+- `anchorbook` (40 records a run, newest first, ~a month to backfill 1,300): every IPO's anchor allocation table from the IG
+  record → `anchorBooks` (own lazy part `books.json`, NOT fetched at boot; `complete` marks feed-truncated books).
+  `evidence` turns it into `trackRecords` (same part): per investor, per segment, listed-up share + Wilson, median gain,
+  day-one close, 5/30-day moves from the tape, lead-anchor subset; `minRows` on screen. Rule 3 applies: rates with
+  intervals, sorted by n — no score, no verdict.
 - `parents` prices sheet parents AND every live quota row's `ticker` into `investors.prices[parent]` (the quota planner).
 - `subscription` never replaces a positive book with an all-zero one (exchanges answer zeros after close). A GMP of "0"
   with no trade behind it is "no quote". `validate.py`'s loss check ignores rows due to retire (listing + 1 day).

@@ -59,3 +59,8 @@ anchorBooks: {asOf, n, books{igId: {name, sme, listedOn, bidDate, price, totalSh
   shares, amtCr, pctAlloc, pctIssue}], fetchedOn}}, none{igId: triedOn}} — owned by `anchorbook`, its own part (`books.json`): every IPO's
   anchor allocation since 2022 from InvestorGain's record (HTML table parsed as a table), frozen once fetched. `complete` = the rows
   account for the whole book (some records carry only the first two names). `key` = investor name normalised (`anchorbook.investor_key`).
+trackRecords: {asOf, booksOn, withOutcome, investors, minRows, lead, rows[{key, name, cr, n, main{n,pos,lo,hi,med,p10,p90, close1{}, d5{}, d30{}, lead{}},
+  sme{same}, ipos[{igId, name, sme, date, lead, amtCr, ret}]}]} — owned by `evidence`, in the lazy `books` part: every anchor investor with
+  minRows+ anchored IPOs that have a listing outcome (comps.ret), per segment: share listed up with Wilson, median gain, the day-one close,
+  5- and 30-trading-day moves from priceHistory where the path exists (own n each), and the same over the IPOs where the investor was one
+  of the first `lead` names by allocation. Sorted by n then share up. No score.

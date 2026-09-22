@@ -173,6 +173,64 @@ def lockin_summary(rows: list[dict], is_sme: bool) -> dict:
     return s
 
 
+# ---- track records: every anchor investor, by what the IPOs they anchored did -------------------------------------
+TR_MIN_ROWS = 2            # an investor enters the record with this many anchored IPOs on file (the page states n either way)
+TR_LEAD = 2                # the first TR_LEAD names of a book by allocation are its lead anchors (present even in partial books)
+TR_KEEP_IPOS = 8
+
+
+def _path_move(series: list, listed_on: str, after: int) -> float | None:
+    """% move from the listing-day close to the `after`-th close later, from priceHistory; None until the path is there."""
+    pts = sorted((p for p in series or [] if isinstance(p, list) and len(p) == 2 and p[1] and str(p[0])[:10] >= listed_on), key=lambda p: str(p[0]))
+    if len(pts) <= after:
+        return None
+    return round(100 * (pts[after][1] - pts[0][1]) / pts[0][1], 1)
+
+
+def track_records(doc: dict) -> dict:
+    """{asOf?, booksOn, withOutcome, minRows, lead, rows[{key, name, cr, main{...}, sme{...}, ipos[]}]}. Per investor and per
+    segment: n anchored IPOs with a listing outcome, share listed up with its Wilson interval, median listing gain, the
+    day-one close, the 5- and 30-trading-day moves where the path exists (each with its own n), and the same for the IPOs
+    where the investor was a lead anchor. Never pooled. Sorted by n, then share up. No score."""
+    books = ((doc.get("anchorBooks") or {}).get("books") or {})
+    comps = {str(c["igId"]): c for c in doc.get("comps") or [] if isinstance(c, dict) and c.get("igId") and c.get("ret") is not None}
+    ph = doc.get("priceHistory") or {}
+    per: dict[str, dict] = {}
+    with_outcome = 0
+    for ig_id, b in books.items():
+        c = comps.get(str(ig_id))
+        if not c or not isinstance(b, dict):
+            continue
+        with_outcome += 1
+        d5, d30 = _path_move(ph.get(b.get("name")), b.get("listedOn") or "", 5), _path_move(ph.get(b.get("name")), b.get("listedOn") or "", 30)
+        rows = sorted((r for r in b.get("rows") or [] if isinstance(r, dict) and r.get("key")), key=lambda r: -(r.get("pctAlloc") or 0))
+        for i, r in enumerate(rows):
+            inv = per.setdefault(r["key"], {"key": r["key"], "names": {}, "cr": 0.0, "hits": []})
+            inv["names"][r["name"]] = inv["names"].get(r["name"], 0) + 1
+            inv["cr"] += r.get("amtCr") or 0
+            inv["hits"].append({"igId": str(ig_id), "name": b.get("name"), "sme": bool(b.get("sme")), "date": b.get("listedOn"), "lead": i < TR_LEAD,
+                                "amtCr": r.get("amtCr"), "ret": c["ret"], "retClose": c.get("retClose"), "d5": d5, "d30": d30})
+
+    def seg(hits: list[dict]) -> dict:
+        s = summarise([h["ret"] for h in hits])
+        s["close1"] = summarise([h["retClose"] for h in hits if h.get("retClose") is not None])
+        s["d5"] = summarise([h["d5"] for h in hits if h.get("d5") is not None])
+        s["d30"] = summarise([h["d30"] for h in hits if h.get("d30") is not None])
+        s["lead"] = summarise([h["ret"] for h in hits if h["lead"]])
+        return s
+    out = []
+    for inv in per.values():
+        if len(inv["hits"]) < TR_MIN_ROWS:
+            continue
+        main, sme = [h for h in inv["hits"] if not h["sme"]], [h for h in inv["hits"] if h["sme"]]
+        latest = sorted(inv["hits"], key=lambda h: h["date"] or "", reverse=True)[:TR_KEEP_IPOS]
+        out.append({"key": inv["key"], "name": max(inv["names"], key=inv["names"].get), "cr": round(inv["cr"], 1), "n": len(inv["hits"]),
+                    "main": seg(main) if main else None, "sme": seg(sme) if sme else None,
+                    "ipos": [{k: h[k] for k in ("igId", "name", "sme", "date", "lead", "amtCr", "ret")} for h in latest]})
+    out.sort(key=lambda r: (-r["n"], -(max((r["main"] or {}).get("pos") or 0, (r["sme"] or {}).get("pos") or 0))))
+    return {"booksOn": len(books), "withOutcome": with_outcome, "investors": len(per), "minRows": TR_MIN_ROWS, "lead": TR_LEAD, "rows": out}
+
+
 def window_of(rows: list[dict], today: dt.date) -> tuple[list[dict], dict]:
     cut = (today - dt.timedelta(days=WINDOW_DAYS)).isoformat()
     recent = [r for r in rows if r["date"] >= cut]
@@ -257,6 +315,9 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
                                "lockins": {"rows": lockins, "days": LOCKIN_AFTER}, "warnings": warnings}
     for key, is_sme in (("main", False), ("sme", True)):
         res.replace["evidence"]["segments"][key]["lockin"] = lockin_summary(lockins, is_sme)
+    tr = track_records(doc)
+    res.replace["trackRecords"] = {"asOf": t.isoformat(), **tr}
+    res.notes[:0] = [f"track records: {tr['withOutcome']} of {tr['booksOn']} anchor books have an outcome; {len(tr['rows'])} of {tr['investors']} investors with {TR_MIN_ROWS}+"]
     res.notes.append(f"{len(rows)} listings; windows: mainboard {res.replace['evidence']['segments']['main']['window']['n']}, "
                      f"SME {res.replace['evidence']['segments']['sme']['window']['n']}; {len(warnings)} warnings")
     return res.won("computed", t.isoformat())

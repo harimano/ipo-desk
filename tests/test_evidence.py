@@ -163,3 +163,34 @@ def test_lock_in_outcomes_accrue_from_the_price_path_and_are_frozen():
     prev = {"evidence": res.replace["evidence"]}
     res2 = ev.run(None, prev, Result(module="evidence", doc=d2), today=TODAY)
     assert res2.replace["evidence"]["lockins"]["rows"] == L["rows"]
+
+
+def test_track_records_come_from_anchor_books_joined_to_outcomes_never_pooled():
+    d = doc()
+    main = [c for c in d["comps"] if c.get("ret") is not None and not next(p for p in d["listedPerf"] if p["igId"] == c["igId"]).get("sme")][:3]
+    sme = [c for c in d["comps"] if c.get("ret") is not None and next(p for p in d["listedPerf"] if p["igId"] == c["igId"]).get("sme")][:1]
+    nm = {c["igId"]: c["name"] for c in main + sme}
+    row = lambda key, alloc, amt: {"name": key.title(), "key": key, "shares": 1, "amtCr": amt, "pctAlloc": alloc, "pctIssue": 1}
+    d["anchorBooks"] = {"books": {
+        str(main[0]["igId"]): {"name": nm[main[0]["igId"]], "sme": False, "listedOn": "2026-09-01", "complete": True, "rows": [row("FUND A", 40, 10), row("FUND B", 30, 8), row("FUND C", 30, 8)]},
+        str(main[1]["igId"]): {"name": nm[main[1]["igId"]], "sme": False, "listedOn": "2026-09-02", "complete": False, "rows": [row("FUND A", 50, 20), row("FUND D", 50, 20)]},
+        str(main[2]["igId"]): {"name": nm[main[2]["igId"]], "sme": False, "listedOn": "2026-09-03", "complete": True, "rows": [row("FUND C", 100, 5)]},
+        str(sme[0]["igId"]): {"name": nm[sme[0]["igId"]], "sme": True, "listedOn": "2026-09-04", "complete": True, "rows": [row("FUND A", 100, 2)]},
+        "99999": {"name": "No Outcome Yet", "sme": False, "listedOn": "2026-09-20", "complete": True, "rows": [row("FUND A", 100, 9)]},
+    }}
+    days = ["2026-09-01", "2026-09-02", "2026-09-03", "2026-09-04", "2026-09-07", "2026-09-08", "2026-09-09"]
+    d["priceHistory"] = {nm[main[0]["igId"]]: [[x, 100.0 + i * 2] for i, x in enumerate(days)]}
+    res = run(d)
+    T = res.replace["trackRecords"]
+    assert T["booksOn"] == 5 and T["withOutcome"] == 4 and T["investors"] == 4 and T["minRows"] == 2
+    A = next(r for r in T["rows"] if r["key"] == "FUND A")
+    assert A["n"] == 3 and A["cr"] == 32.0 and A["main"]["n"] == 2 and A["sme"]["n"] == 1, "mainboard and SME kept apart; the book with no outcome is not counted"
+    assert A["main"]["lead"]["n"] == 2 and A["main"]["d5"]["n"] == 1 and A["main"]["d5"]["med"] == 10.0 and A["main"]["d30"]["n"] == 0
+    assert A["main"]["lo"] is not None and A["main"]["hi"] is not None and set(A["main"]) >= {"n", "pos", "lo", "hi", "med", "close1", "d5", "d30", "lead"}
+    C = next(r for r in T["rows"] if r["key"] == "FUND C")
+    assert C["main"]["lead"]["n"] == 1, "third name of a book is not a lead anchor"
+    assert not any(r["key"] in ("FUND B", "FUND D") for r in T["rows"]), "one IPO is not a record"
+    assert [r["n"] for r in T["rows"]] == sorted((r["n"] for r in T["rows"]), reverse=True) and len(A["ipos"]) == 3
+    from collector import assemble, layout, schema
+    data = schema.empty_data(); assemble.apply(data, res); layout.check_groups()
+    assert "trackRecords" in layout.GROUPS["books"]
