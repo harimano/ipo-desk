@@ -164,7 +164,7 @@ REC_MIN_N, REC_MIN_POS = 5, 70     # an anchor "with a record": this many IPOs o
 
 def _records(doc: dict, today: dt.date):
     """A strong-record anchor is in a book that has not listed yet. The record is the collector's (evidence.trackRecords):
-    per investor, per segment, with n and its interval; the line carries them. Rank sits with the lock-ins."""
+    per investor, per segment, with n and its interval; the line carries them. Ranked above "opens tomorrow": it is the edge."""
     from .modules.anchorbook import investor_key
     rows = {r["key"]: r for r in ((doc.get("trackRecords") or {}).get("rows") or []) if isinstance(r, dict) and r.get("key")}
     if not rows:
@@ -181,7 +181,7 @@ def _records(doc: dict, today: dt.date):
                 s = r and r.get("sme" if seg == "sme" else "main")
                 if not s or (s.get("n") or 0) < REC_MIN_N or (s.get("pos") or 0) < REC_MIN_POS:
                     continue
-                yield Alert(f"rec:{b['name']}:{r['key']}", 520,
+                yield Alert(f"rec:{b['name']}:{r['key']}", 380,
                             f"{r['name']} is in the {b['name']} book — {s['n']} {'SME' if seg == 'sme' else 'mainboard'} IPOs anchored, "
                             f"{s['pos']:.0f}% listed up ({s['lo']:.0f}–{s['hi']:.0f}%), median {s['med']:+g}%")
 
