@@ -291,7 +291,16 @@ details.more { margin-top:12px; } details.more summary { cursor:pointer; font-si
 .ynames { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:10px; } .yn { padding:10px 12px; border:1px solid var(--line); border-radius:var(--r-sm); font-size:12.5px; display:flex; flex-direction:column; gap:4px; } .yn.quiet { border-style:dashed; }
 .yn .ynh { display:flex; align-items:center; gap:6px; } .yn .ynh b { font-size:13px; flex:1; } .yn b { font-weight:700; }
 .hb.two .bar::before { content:""; position:absolute; left:50%; top:-2px; bottom:-2px; width:1px; background:var(--line-2); } .hb.two .bar i.s { right:50%; left:auto; border-radius:4px 0 0 4px; } .hb.two .bar i.b { left:50%; border-radius:0 4px 4px 0; }
-.hb .n.wrap { white-space:normal; } #ldClients td.num, #ldTable td.num { white-space:nowrap; }
+.hb .n.wrap { white-space:normal; } #ldClients td.num, #ldHolders td.num, .ldd td.num { white-space:nowrap; }
+.ldgrid { display:grid; grid-template-columns:repeat(auto-fill, minmax(360px, 1fr)); gap:12px; }
+.ldc { border:1px solid var(--line); border-radius:var(--r-sm); padding:12px 14px; display:flex; flex-direction:column; gap:5px; font-size:12.5px; background:var(--surface); }
+.ldc.mine { border-color:var(--up); box-shadow:inset 3px 0 0 var(--up); }
+.ldc .ldh { display:flex; align-items:center; gap:6px; flex-wrap:wrap; } .ldc .ldh b { font-size:14px; cursor:pointer; } .ldc .ldh b:hover { color:var(--accent); }
+.ldc .ldp { font-size:12.5px; } .ldc .ldp b { font-size:14px; }
+.ldc .hb { grid-template-columns:auto 1fr 76px; margin:2px 0; } .ldc .hb .n { font-size:11px; }
+.ldc details.ldd { margin-top:4px; } .ldc details.ldd summary { cursor:pointer; font-size:12px; font-weight:700; color:var(--ink-2); list-style:none; } .ldc details.ldd summary::-webkit-details-marker { display:none; }
+.ldc details.ldd .tw { margin-top:6px; max-height:320px; overflow:auto; } .ldc details.ldd table { font-size:12px; }
+@media (max-width:640px) { .ldgrid { grid-template-columns:1fr; } }
 @media (max-width:640px) { .arow { grid-template-columns:1fr; gap:4px; } }
 .c-mf { background:var(--up); } .c-ins { background:var(--mint); } .c-sov { background:var(--accent); } .c-fpi { background:var(--lav); } .c-aif { background:var(--amber); } .c-oth { background:var(--line-2); }
 .wl { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
@@ -442,10 +451,10 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
 
     <div class="sec"><div class="sec-h"><h2>Superinvestors</h2><span id="invOld"></span><span class="sub">who is trading this year's listings, and what tracked big-money names did — from the exchanges' deal files</span><span class="right legend"><span><i style="background:var(--up)"></i>fresh / add</span><span><i style="background:var(--down)"></i>exit / trim</span><span><i style="background:var(--lav)"></i>other</span></span></div>
       <div class="card" style="margin-bottom:14px"><div class="ch">Your names <span class="sub">the investors you follow, wherever the collector sees them today — anchor books, anchor letters, deal files</span></div><div class="cb"><div class="wl" id="watchlist"></div><div id="yourNames" style="margin-top:12px"></div><div class="dt" style="margin-top:10px">Press + beside any anchor or client on this tab to follow it. Names stay in this browser; the sweep's own list is marked.</div></div></div>
-      <div class="card" style="margin-bottom:14px"><div class="ch">Deals in this year's listings <span class="sub" id="ldSub">every bulk and block deal on NSE in a stock that listed this year · last 60 days</span><span class="right filters" id="ldFilters"><button data-ld-sc="all" aria-pressed="true">All</button><button data-ld-sc="main" aria-pressed="false">Mainboard</button><button data-ld-sc="sme" aria-pressed="false">SME</button><button data-ld-side="all" aria-pressed="true">Both</button><button data-ld-side="BUY" aria-pressed="false">Buys</button><button data-ld-side="SELL" aria-pressed="false">Sells</button></span></div><div class="tw"><table id="ldTable"></table></div><div class="dt" id="ldNote" style="padding:8px 14px 10px"></div></div>
+      <div class="card" style="margin-bottom:14px"><div class="ch">Deals in this year's listings <span class="sub" id="ldSub">every bulk and block deal on NSE in a stock that listed this year · last 60 days</span><span class="right filters" id="ldFilters"><button data-ld-sc="all" aria-pressed="true">All</button><button data-ld-sc="main" aria-pressed="false">Mainboard</button><button data-ld-sc="sme" aria-pressed="false">SME</button><button data-ld-mine="1" aria-pressed="false" title="only listings you hold or starred">Mine</button></span></div><div class="cb"><div class="ldgrid" id="ldStocks"></div><div class="dt" id="ldNote" style="margin-top:10px"></div></div></div>
       <div class="grid g2" style="margin-bottom:14px">
-        <div class="card"><div class="ch">Net by stock <span class="sub">bought minus sold · last 30 days</span></div><div class="cb hbars stack" id="ldNet"></div></div>
-        <div class="card"><div class="ch">Repeat clients <span class="sub">names in two or more deals · counts, not a track record</span></div><div class="tw"><table id="ldClients"></table></div></div>
+        <div class="card"><div class="ch">Money that stayed <span class="sub">names still net long after their deals · a fact about the tape</span></div><div class="tw"><table id="ldHolders"></table></div></div>
+        <div class="card"><div class="ch">Repeat clients <span class="sub">names in two or more deals · what they did, not a track record</span></div><div class="tw"><table id="ldClients"></table></div></div>
       </div>
       <div class="card"><div class="ch">Bulk &amp; block deals by your names <span class="sub" id="bulkSub">any stock · last 45 days · the exchanges' files are matched against the names above every run</span></div><div class="tw"><table id="bulkDeals"></table></div></div>
       <details class="more" style="margin-top:14px"><summary>Portfolio snapshot <span id="invSnap"></span> — a hand-made survey, not refreshed by the collector</summary>
