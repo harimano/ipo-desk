@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-22T14:19:17+05:30",
+  "asOf": "2026-09-22T15:09:02+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "22 Sep 2026, 14:19 IST",
+  "label": "22 Sep 2026, 15:09 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -39,12 +39,6 @@
   ],
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
-   "[gmp] gmp: no grey-market print found for open issue Axiom Gas Engineering",
-   "[gmp] gmp: no grey-market print found for open issue FX Multitech",
-   "[gmp] gmp: no grey-market print found for open issue Vivekanand Cotspin",
-   "[gmp] gmp: no grey-market print found for open issue Anand Seamless",
-   "[gmp] gmp: no grey-market print found for open issue Himalaya Nutravedics India",
-   "[details] no InvestorGain record matched (name + opening date): Coreintegra Consulting Services",
    "[listings] listings: no NSE symbol on row 'Amtech Esters' — cannot price",
    "[listings] listings: no NSE symbol on row 'Infrax Renewable' — cannot price",
    "[listings] listings: no NSE symbol on row 'Vinod Texworld' — cannot price",
@@ -65,7 +59,13 @@
    "[listings] listings: no NSE symbol on row 'Gaja Alternative Asset Management' — cannot price",
    "[listings] listings: no NSE symbol on row 'Sunshine Pictures' — cannot price",
    "[listings] listings: no NSE symbol on row 'Shankesh Jewellers' — cannot price",
-   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics"
+   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
+   "[gmp] gmp: no grey-market print found for open issue Axiom Gas Engineering",
+   "[gmp] gmp: no grey-market print found for open issue FX Multitech",
+   "[gmp] gmp: no grey-market print found for open issue Vivekanand Cotspin",
+   "[gmp] gmp: no grey-market print found for open issue Anand Seamless",
+   "[gmp] gmp: no grey-market print found for open issue Himalaya Nutravedics India",
+   "[details] no InvestorGain record matched (name + opening date): Coreintegra Consulting Services"
   ]
  },
  "expected": [
@@ -1505,9 +1505,9 @@
    "issueSizeCr": 500.0,
    "freshCr": 360.0,
    "ofsCr": 140.0,
-   "gmp": 148.0,
-   "gmpPct": 34.91,
-   "gmpTrend": "up",
+   "gmp": 135.0,
+   "gmpPct": 31.84,
+   "gmpTrend": "down",
    "sub": {
     "qib": 214.22,
     "nii": 150.33,
@@ -1594,9 +1594,9 @@
    "issueSizeCr": 22561.57,
    "freshCr": 0,
    "ofsCr": 22561.57,
-   "gmp": 66.0,
-   "gmpPct": 3.7,
-   "gmpTrend": "up",
+   "gmp": 51.0,
+   "gmpPct": 2.86,
+   "gmpTrend": "down",
    "sub": {
     "qib": 12.68,
     "nii": 6.55,
@@ -1764,15 +1764,15 @@
    "issueSizeCr": 708.02,
    "freshCr": 320.0,
    "ofsCr": 388.02,
-   "gmp": 5.0,
-   "gmpPct": 3.38,
-   "gmpTrend": "down",
+   "gmp": 6.0,
+   "gmpPct": 4.05,
+   "gmpTrend": "up",
    "sub": {
     "qib": 0.0,
-    "nii": 0.03,
-    "retail": 0.16,
-    "total": 0.09,
-    "asOf": "2026-09-22T14:12:00+05:30"
+    "nii": 0.04,
+    "retail": 0.17,
+    "total": 0.1,
+    "asOf": "2026-09-22T15:06:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -1786,10 +1786,10 @@
    "igId": "1852",
    "bseIpoNo": "7986",
    "bseScripCode": "4837",
-   "igFetchedAt": "2026-09-22T14:16:41+05:30",
+   "igFetchedAt": "2026-09-22T15:07:44+05:30",
    "sector": "Ceramics",
    "anchorShares": 14351775,
-   "gmpAsOf": "2026-09-22T11:02:00+05:30",
+   "gmpAsOf": "2026-09-22T14:37:00+05:30",
    "facts": {
     "sector": "Ceramics",
     "listingAt": "BSE, NSE",
@@ -1831,8 +1831,8 @@
     "asOf": "2026-09-22T04:55:00+05:30"
    },
    "refund": "2026-09-28",
-   "gmpEve": 5.0,
-   "gmpEveAsOf": "2026-09-22T11:02:00+05:30"
+   "gmpEve": 6.0,
+   "gmpEveAsOf": "2026-09-22T14:37:00+05:30"
   },
   {
    "name": "Adroit Industries",
@@ -1849,9 +1849,9 @@
    "issueSizeCr": 150.71,
    "freshCr": 132.62,
    "ofsCr": 18.09,
-   "gmp": 32.0,
-   "gmpPct": 23.88,
-   "gmpTrend": "up",
+   "gmp": 26.0,
+   "gmpPct": 19.4,
+   "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -1988,9 +1988,9 @@
    "issueSizeCr": 2100.0,
    "freshCr": 2100.0,
    "ofsCr": null,
-   "gmp": 14.0,
-   "gmpPct": 3.87,
-   "gmpTrend": "up",
+   "gmp": 10.0,
+   "gmpPct": 2.76,
+   "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2057,9 +2057,9 @@
    "issueSizeCr": 160.88,
    "freshCr": 128.5,
    "ofsCr": 32.38,
-   "gmp": 9.5,
-   "gmpPct": 5.14,
-   "gmpTrend": "up",
+   "gmp": 3.0,
+   "gmpPct": 1.62,
+   "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2127,9 +2127,9 @@
    "issueSizeCr": 405.0,
    "freshCr": 355.0,
    "ofsCr": 50.0,
-   "gmp": 60.0,
-   "gmpPct": 14.81,
-   "gmpTrend": "up",
+   "gmp": 58.0,
+   "gmpPct": 14.32,
+   "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2196,9 +2196,9 @@
    "issueSizeCr": 1091.68,
    "freshCr": 750.0,
    "ofsCr": 341.68,
-   "gmp": 8.0,
-   "gmpPct": 23.53,
-   "gmpTrend": "down",
+   "gmp": 8.2,
+   "gmpPct": 24.12,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3854,11 +3854,11 @@
    "gmpPct": 0.0,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 0.8,
-    "nii": 0.86,
-    "retail": 1.24,
-    "total": 1.03,
-    "asOf": "2026-09-22T11:11:00+05:30"
+    "qib": 1.06,
+    "nii": 0.94,
+    "retail": 1.67,
+    "total": 1.28,
+    "asOf": "2026-09-22T14:51:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3874,10 +3874,10 @@
    "igId": "1682",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-22T14:16:41+05:30",
+   "igFetchedAt": "2026-09-22T15:07:44+05:30",
    "sector": "LPG/CNG/PNG/LNG Supplier",
    "anchorShares": 1070400,
-   "gmpAsOf": "2026-09-22T11:02:00+05:30",
+   "gmpAsOf": "2026-09-22T10:30:00+05:30",
    "facts": {
     "sector": "LPG/CNG/PNG/LNG Supplier",
     "listingAt": "NSE SME",
@@ -3910,7 +3910,7 @@
     "asOf": "2026-09-18T05:04:00+05:30"
    },
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-22T11:02:00+05:30",
+   "gmpEveAsOf": "2026-09-22T10:30:00+05:30",
    "refund": "2026-09-24"
   },
   {
@@ -3933,10 +3933,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.91,
-    "retail": 0.12,
-    "total": 0.26,
-    "asOf": "2026-09-22T11:11:00+05:30"
+    "nii": 1.26,
+    "retail": 0.17,
+    "total": 0.36,
+    "asOf": "2026-09-22T14:51:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3951,10 +3951,10 @@
    "igId": "1589",
    "bseIpoNo": "7980",
    "bseScripCode": "4831",
-   "igFetchedAt": "2026-09-22T14:16:41+05:30",
+   "igFetchedAt": "2026-09-22T15:07:44+05:30",
    "sector": "Other Consumer Services",
    "anchorShares": 1102800,
-   "gmpAsOf": "2026-09-22T11:01:00+05:30",
+   "gmpAsOf": "2026-09-22T10:35:00+05:30",
    "facts": {
     "sector": "Other Consumer Services",
     "listingAt": "BSE SME",
@@ -3988,7 +3988,7 @@
    },
    "refund": "2026-09-25",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-22T11:01:00+05:30"
+   "gmpEveAsOf": "2026-09-22T10:35:00+05:30"
   },
   {
    "name": "Robokidz Eduventures",
@@ -4009,11 +4009,11 @@
    "gmpPct": 51.89,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 0.07,
-    "nii": 25.74,
-    "retail": 34.68,
-    "total": 22.91,
-    "asOf": "2026-09-22T11:11:00+05:30"
+    "qib": 0.37,
+    "nii": 68.24,
+    "retail": 72.66,
+    "total": 51.13,
+    "asOf": "2026-09-22T14:41:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4028,10 +4028,10 @@
    "igId": "2359",
    "bseIpoNo": "7982",
    "bseScripCode": "4833",
-   "igFetchedAt": "2026-09-22T14:16:41+05:30",
+   "igFetchedAt": "2026-09-22T15:07:44+05:30",
    "sector": "Education",
    "anchorShares": 828000,
-   "gmpAsOf": "2026-09-22T11:02:00+05:30",
+   "gmpAsOf": "2026-09-22T14:37:00+05:30",
    "facts": {
     "sector": "Education",
     "listingAt": "BSE SME",
@@ -4065,7 +4065,7 @@
    },
    "refund": "2026-09-25",
    "gmpEve": 55.0,
-   "gmpEveAsOf": "2026-09-22T11:02:00+05:30"
+   "gmpEveAsOf": "2026-09-22T14:37:00+05:30"
   },
   {
    "name": "Vivekanand Cotspin",
@@ -4087,10 +4087,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.29,
-    "retail": 0.12,
-    "total": 0.12,
-    "asOf": "2026-09-22T11:11:00+05:30"
+    "nii": 0.3,
+    "retail": 0.17,
+    "total": 0.15,
+    "asOf": "2026-09-22T14:51:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4105,10 +4105,10 @@
    "igId": "1636",
    "bseIpoNo": "7981",
    "bseScripCode": "4832",
-   "igFetchedAt": "2026-09-22T14:16:41+05:30",
+   "igFetchedAt": "2026-09-22T15:07:44+05:30",
    "sector": "Other Textile Products",
    "anchorShares": 1710000,
-   "gmpAsOf": "2026-09-22T10:58:00+05:30",
+   "gmpAsOf": "2026-09-22T10:33:00+05:30",
    "facts": {
     "sector": "Other Textile Products",
     "listingAt": "BSE SME",
@@ -4142,7 +4142,7 @@
    },
    "refund": "2026-09-25",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-22T10:58:00+05:30"
+   "gmpEveAsOf": "2026-09-22T10:33:00+05:30"
   },
   {
    "name": "Anand Seamless",
@@ -4164,10 +4164,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.01,
-    "retail": 0.02,
-    "total": 0.01,
-    "asOf": "2026-09-22T11:12:00+05:30"
+    "nii": 0.5,
+    "retail": 0.03,
+    "total": 0.27,
+    "asOf": "2026-09-22T14:41:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4181,10 +4181,10 @@
    "igId": "2269",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-22T14:16:41+05:30",
+   "igFetchedAt": "2026-09-22T15:07:44+05:30",
    "sector": "Iron & Steel Products",
    "anchorShares": 0,
-   "gmpAsOf": "2026-09-22T11:01:00+05:30",
+   "gmpAsOf": "2026-09-22T14:29:00+05:30",
    "facts": {
     "sector": "Iron & Steel Products",
     "listingAt": "BSE SME",
@@ -4216,7 +4216,7 @@
    },
    "refund": "2026-09-28",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-22T11:01:00+05:30"
+   "gmpEveAsOf": "2026-09-22T14:29:00+05:30"
   },
   {
    "name": "Himalaya Nutravedics India",
@@ -4238,10 +4238,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.04,
-    "retail": 0.05,
-    "total": 0.03,
-    "asOf": "2026-09-22T11:11:00+05:30"
+    "nii": 0.07,
+    "retail": 0.13,
+    "total": 0.08,
+    "asOf": "2026-09-22T14:51:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4256,10 +4256,10 @@
    "igId": "2230",
    "bseIpoNo": "7983",
    "bseScripCode": "4834",
-   "igFetchedAt": "2026-09-22T14:16:41+05:30",
+   "igFetchedAt": "2026-09-22T15:07:44+05:30",
    "sector": "Other Food Products",
    "anchorShares": 710400,
-   "gmpAsOf": "2026-09-22T11:02:00+05:30",
+   "gmpAsOf": "2026-09-22T10:34:00+05:30",
    "facts": {
     "sector": "Other Food Products",
     "listingAt": "BSE SME",
@@ -4293,7 +4293,7 @@
    },
    "refund": "2026-09-28",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-22T11:02:00+05:30"
+   "gmpEveAsOf": "2026-09-22T10:34:00+05:30"
   },
   {
    "name": "Core Integra Consulting",
@@ -4823,7 +4823,7 @@
    "ofsCr": null,
    "gmp": 14.0,
    "gmpPct": 21.88,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -34919,32 +34919,23 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-22T14:19:17+05:30",
+  "asOf": "2026-09-22T15:09:02+05:30",
   "checks": [
-   {
-    "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-09-22T14:16:39+05:30",
-    "elapsed": 3.21,
-    "calls": 5,
-    "note": "investorgain list=37 carried=7 +nse=12 +bse=12 exchange-only=0: 17 mainboard, 27 sme; 7 open, 24 upcoming"
-   },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:ok, ipopremium:blocked",
     "status": "ok",
     "asOf": "22-Sep 9:37",
-    "elapsed": 1.91,
+    "elapsed": 3.23,
     "calls": 3,
-    "note": "gmp: 19 board rows patched via investorgain+ipowatch; 31 active, 9 of them matched; gmp: 6 GMP-site names not on the board: Maharaja & Speedex India (₹28, investorgain); Manipal Payment and Identity Solutions (₹-6, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹12, investorgain); Veegaland Developers (₹8, investorgain); Vinod Texworld (₹1, investorgain)"
+    "note": "gmp: 21 board rows patched via investorgain+ipowatch; 31 active, 11 of them matched; gmp: 6 GMP-site names not on the board: Maharaja & Speedex India (₹28, investorgain); Manipal Payment and Identity Solutions (₹-6, investorgain); Panchatv Bharat (₹3, investorgain); Raksan Transformers (₹12, investorgain); Veegaland Developers (₹8, investorgain); Vinod Texworld (₹1, investorgain)"
    },
    {
     "area": "details",
     "method": "investorgain-list:ok, investorgain:ok",
     "status": "ok",
-    "asOf": "2026-09-22T14:16:41+05:30",
-    "elapsed": 2.52,
+    "asOf": "2026-09-22T15:07:44+05:30",
+    "elapsed": 35.89,
     "calls": 8,
     "note": "7 records fetched for 43 identified listings (1 without an id); 0 anchor books updated, 61 on file"
    },
@@ -34952,100 +34943,10 @@
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-22T14:17:28+05:30",
-    "elapsed": 45.2,
-    "calls": 11,
+    "asOf": "2026-09-22T15:09:02+05:30",
+    "elapsed": 42.42,
+    "calls": 12,
     "note": "3/11 rows patched via nse"
-   },
-   {
-    "area": "listings",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-09-22",
-    "elapsed": 20.06,
-    "calls": 0,
-    "note": "13 names priced, 1 moved to recent, 0 history points"
-   },
-   {
-    "area": "history",
-    "method": "investorgain:changed",
-    "status": "stale",
-    "asOf": null,
-    "elapsed": 1.32,
-    "calls": 1,
-    "note": "kept previous — report 377: 226 rows, none with an id, an issue price and a listing price (keys: ['Closing Price (LTP)', 'Est Price', 'GMP', 'IPO', 'Listing Day Close', 'Listing Dt', 'Listing Price', 'Price'])"
-   },
-   {
-    "area": "evidence",
-    "method": "computed:ok",
-    "status": "ok",
-    "asOf": "2026-09-22",
-    "elapsed": 0.05,
-    "calls": 0,
-    "note": "1323 listings; windows: mainboard 131, SME 236; 5 warnings"
-   },
-   {
-    "area": "players",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-09-22",
-    "elapsed": 63.2,
-    "calls": 54,
-    "note": "53 of 2840 anchor investors read (0 failed); names found for 3 of 37 unlisted issues"
-   },
-   {
-    "area": "parents",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-09-22",
-    "elapsed": 15.58,
-    "calls": 0,
-    "note": "5/5 parent prices; 47/53 investor stocks priced"
-   },
-   {
-    "area": "filings",
-    "method": "bse_ann:ok, sebi:ok",
-    "status": "ok",
-    "asOf": "2026-09-22",
-    "elapsed": 5.02,
-    "calls": 10,
-    "note": "bse_ann: 8/8 parents answered, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; expected: 28 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; 0 rows patched, 33 kept previous stage"
-   },
-   {
-    "area": "offers",
-    "method": "bse:ok",
-    "status": "ok",
-    "asOf": "2026-09-22",
-    "elapsed": 0.46,
-    "calls": 1,
-    "note": "bse rows=8: 9 rights, 10 buybacks, 0 ofs, 2 ncd; 8 refreshed, 0 new, 0 closed windows dropped"
-   },
-   {
-    "area": "flows",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-09-21",
-    "elapsed": 0.34,
-    "calls": 1,
-    "note": "2026-09-21 already in history; FII -576 / DII +2,797 Cr"
-   },
-   {
-    "area": "deals",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-09-21",
-    "elapsed": 0.93,
-    "calls": 2,
-    "note": "bulk.csv: 217 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 217; 13 patterns; listing deals: 88 of today's 217 deals are in this year's listings (10 stocks); 88 kept over 60 days; 132 of 226 listings have an NSE symbol, 94 without one (BSE-only, or not on NSE's list yet)"
-   },
-   {
-    "area": "news",
-    "method": "rss:ok",
-    "status": "ok",
-    "asOf": "2026-09-22T14:03:38+05:30",
-    "elapsed": 1.66,
-    "calls": 3,
-    "note": "business-standard: 6/35 primary-market items; economic-times: 7/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 13 fresh, 25 kept"
    },
    {
     "area": "research layer",
@@ -35057,7 +34958,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "162s, 99 calls, 13/14 modules ok"
+    "note": "82s, 23 calls, 3/3 modules ok"
    }
   ],
   "discrepancies": [
@@ -49825,7 +49726,7 @@
   },
   "1682": {
    "name": "Axiom Gas Engineering",
-   "fetchedAt": "2026-09-22T14:16:41+05:30",
+   "fetchedAt": "2026-09-22T15:07:44+05:30",
    "about": [
     "Established in 2007, Axiom Gas Engineering Limited specialises in green energy engineering solutions. The company offers Auto LPG, CNG, and LNG solutions, catering to retail and industrial sectors with a commitment to quality, innovation, and environmental sustainability. As of June 30, 2024, the company operated 18 Auto LPG Dispensing Stations in Telangana, Maharashtra, and Karnataka. Operating under the brand name \" PrimeFuel ,\" AGEL manages Auto LPG Dispensing Stations across multiple states in India. The company has demonstrated strong financial growth, with increasing revenues and profits. The company offers the following services:- Gas and Pipe Engineering : Designs, implements, and maintains efficient gas systems for various industrial and commercial needs. Turnkey Services: Provides turnkey services for LPG/CNG retail, bottling, and bulk installations from concept to completion. Statutory Testing and Certification : Testing and Certification for hydrocarbon equipment, ensuring compliance with safety standards. Technical Consultancy : Provide expert guidance on hydrocarbon equipment design and optimization. Maintenance Operation and Training : Provides maintenance and training programs to enhance gas system longevity and performance. Manufacturing Pressure Vessels Through Third-Party Collaboration. Specializing in Industrial and Commercial LPG solutions. As of December 2024, the company has 21 permanent employees. Competitive Strength: Expertise in Executing Projects in Challenging Geographical Locations. Cost Optimization Strategies Without Compromising Safety Standards. Innovation in Developing and Implementing Cost-Effective Technical Solutions. Leveraging Global Engineering Resources to Deliver Superior Value. Commitment to Delivering Sustainable Projects with Excellence in Health Safety and Environment. Rapid Deployment Capabilities to Minimize Turnaround Times. Cost-Effective Establishment of New Auto LPG Dispensing Stations (ALDS)."
    ],
@@ -50048,15 +49949,6 @@
     "sharesPre": 25946000.0,
     "sharesPost": 35344000.0
    },
-   "gmpHistory": [
-    {
-     "date": "2026-09-22",
-     "gmp": 0.0,
-     "est": 54.0,
-     "pct": 0.0,
-     "kostakSauda": "--"
-    }
-   ],
    "bidding": [
     {
      "asOf": "2026-09-18T18:57:00+05:30",
@@ -50081,15 +49973,15 @@
      "retailBidCr": 19.96
     },
     {
-     "asOf": "2026-09-22T11:11:00+05:30",
-     "qib": 0.8,
-     "nii": 0.86,
-     "bnii": 0.92,
-     "snii": 0.75,
-     "retail": 1.24,
-     "total": 1.03,
-     "bidCr": 43.69,
-     "retailBidCr": 23.98
+     "asOf": "2026-09-22T14:51:00+05:30",
+     "qib": 1.06,
+     "nii": 0.94,
+     "bnii": 1.02,
+     "snii": 0.79,
+     "retail": 1.67,
+     "total": 1.28,
+     "bidCr": 54.35,
+     "retailBidCr": 32.12
     }
    ],
    "company": {
@@ -51888,7 +51780,7 @@
   },
   "1589": {
    "name": "FX Multitech",
-   "fetchedAt": "2026-09-22T14:16:41+05:30",
+   "fetchedAt": "2026-09-22T15:07:44+05:30",
    "about": [
     "Incorporated in 2008, FX Multitech Limited is engaged in the distribution and export of a diverse portfolio of products, primarily catering to the HVAC (Heating, Ventilation, and Air Conditioning) and Industrial Refrigeration Industry. The company in the manufacturing and trading sector, focusing on delivering specialized products and solutions tailored to industrial, commercial, and infrastructure-related customer requirements. As a distributor, the company source and supply technologically advanced products from globally recognized manufacturers, ensuring that the customers receive the best solutions for their specific requirements. The company emphasizes quality control, efficient production processes, and timely delivery, catering to diverse client needs while maintaining compliance with industry standards and evolving market expectations. FX Multitech Limited aims to strengthen its market presence through operational efficiency, product diversification, and long-term customer relationships, supporting sustainable growth in competitive domestic and international markets. Product Portfolio: Compressors Refrigeration & Air-Conditioning Controls Industrial Refrigeration Controls Variable Frequency Drives and Automation Refrigerants and Ancillary Products Competitive Strengths: Relationship with global supplier Wide and Established Distribution Network Diversified product portfolio across multiple Industries Customer relationships led by Technical Expertise Efficient Operations and Supply Chain Management"
    ],
@@ -52071,15 +51963,6 @@
     "sharesPre": 10807600.0,
     "sharesPost": 14359600.0
    },
-   "gmpHistory": [
-    {
-     "date": "2026-09-22",
-     "gmp": 0.0,
-     "est": 116.0,
-     "pct": 0.0,
-     "kostakSauda": "--"
-    }
-   ],
    "bidding": [
     {
      "asOf": "2026-09-21T17:07:00+05:30",
@@ -52093,15 +51976,15 @@
      "retailBidCr": 1.0
     },
     {
-     "asOf": "2026-09-22T11:11:00+05:30",
+     "asOf": "2026-09-22T14:51:00+05:30",
      "qib": 0.0,
-     "nii": 0.91,
-     "bnii": 1.3,
-     "snii": 0.15,
-     "retail": 0.12,
-     "total": 0.26,
-     "bidCr": 7.7,
-     "retailBidCr": 1.78
+     "nii": 1.26,
+     "bnii": 1.77,
+     "snii": 0.25,
+     "retail": 0.17,
+     "total": 0.36,
+     "bidCr": 10.72,
+     "retailBidCr": 2.56
     }
    ],
    "company": {
@@ -52112,7 +51995,7 @@
   },
   "2359": {
    "name": "Robokidz Eduventures",
-   "fetchedAt": "2026-09-22T14:16:41+05:30",
+   "fetchedAt": "2026-09-22T15:07:44+05:30",
    "about": [
     "Robokidz Eduventures Limited, incorporated in December 2014, provides technology-enabled learning and skill development solutions for K–12 students in areas such as Robotics, Artificial Intelligence (AI), Coding, Electronics and STEM education . The company offers educational laboratory setup projects, subscription-based learning services and other educational solutions for institutions. Its offerings include technology-enabled learning infrastructure, educational kits, curriculum, digital platforms, teacher training and technical support . Through its integrated approach to STEM and experiential learning , Robokidz Eduventures supports educational institutions in providing hands-on learning opportunities and developing students' technical skills, logical reasoning, scientific aptitude and problem-solving abilities ."
    ],
@@ -52354,15 +52237,15 @@
      "retailBidCr": 152.64
     },
     {
-     "asOf": "2026-09-22T11:11:00+05:30",
-     "qib": 0.07,
-     "nii": 25.74,
-     "bnii": 25.4,
-     "snii": 26.43,
-     "retail": 34.68,
-     "total": 22.91,
-     "bidCr": 471.72,
-     "retailBidCr": 357.33
+     "asOf": "2026-09-22T14:41:00+05:30",
+     "qib": 0.37,
+     "nii": 68.24,
+     "bnii": 72.69,
+     "snii": 59.32,
+     "retail": 72.66,
+     "total": 51.13,
+     "bidCr": 1052.89,
+     "retailBidCr": 748.65
     }
    ],
    "company": {
@@ -52373,7 +52256,7 @@
   },
   "1636": {
    "name": "Vivekanand Cotspin",
-   "fetchedAt": "2026-09-22T14:16:41+05:30",
+   "fetchedAt": "2026-09-22T15:07:44+05:30",
    "about": [
     "Incorporated in July 2015, Vivekanand Cotspin Limited processes cotton and manufactures yarn through ginning and spinning, including trading. The company's products include cotton bales, seeds, and yarn. The company operates in two primary areas: cotton ginning and spinning. The company focuses on spinning clean cotton fibres into yarn. The company focuses on cotton yarn, offering carded and combed options for domestic and international markets. Vivekanand Cotspin caters to various industries needing high-quality yarn for fabric production and exporting beyond India. It operates spinning mills with efficient machinery to uphold quality control. The company’s manufacturing facility is located in Rangpurda, Kadi, within the Mahesana District of Gujarat, close to the fertile cotton-growing regions of Maharashtra and Saurashtra in Gujarat. The company has established an annual production capacity of approximately 4,550.51 tons of cotton yarn and 8,000 tons of cotton bales. As of September 30, 2024, the Company has 144 employees on payroll. Competitive Strength Establishing the Spinning Unit has achieved forward integration into the cotton textile industry. Cost-effective production and timely fulfilment of orders. Scalable model to optimize production, strengthen supplier relationships, and achieve economies of scale. Emphasizing high-quality yarn is crucial for attracting and retaining customers in the competitive textile industry. Experienced Promoters."
    ],
@@ -52592,15 +52475,6 @@
     "sharesPre": 16250000.0,
     "sharesPost": 22250000.0
    },
-   "gmpHistory": [
-    {
-     "date": "2026-09-22",
-     "gmp": 0.0,
-     "est": 37.0,
-     "pct": 0.0,
-     "kostakSauda": "--"
-    }
-   ],
    "bidding": [
     {
      "asOf": "2026-09-21T17:07:00+05:30",
@@ -52614,15 +52488,15 @@
      "retailBidCr": 0.36
     },
     {
-     "asOf": "2026-09-22T11:11:00+05:30",
+     "asOf": "2026-09-22T14:51:00+05:30",
      "qib": 0.0,
-     "nii": 0.29,
+     "nii": 0.3,
      "bnii": 0.31,
-     "snii": 0.25,
-     "retail": 0.12,
-     "total": 0.12,
-     "bidCr": 1.8,
-     "retailBidCr": 0.89
+     "snii": 0.29,
+     "retail": 0.17,
+     "total": 0.15,
+     "bidCr": 2.24,
+     "retailBidCr": 1.29
     }
    ],
    "company": {
@@ -52633,7 +52507,7 @@
   },
   "1852": {
    "name": "Varmora Granito",
-   "fetchedAt": "2026-09-22T14:16:41+05:30",
+   "fetchedAt": "2026-09-22T15:07:44+05:30",
    "about": [
     "Incorporated in 2003, Varmora Granito Limited is engaged in the business of manufacturing and marketing ceramic and vitrified tiles. The company’s product portfolio includes a wide range of tiles across formats such as glazed vitrified tiles (GVT), polished vitrified tiles (PVT), and ceramic tiles. The company distributes its products through a multi-channel network comprising: Business-to-Consumer (B2C) channels: 286 exclusive brand outlets (EBOs) and over 2,000 multi-brand outlets (MBOs) Business-to-Business (B2B) channels: Builders, contractors, developers, and government procurement As of March 31, 2025, the company’s distribution network covered 949 cities across 27 states and union territories in India. The product portfolio included more than 3,500 stock-keeping units (SKUs) as of March 31, 2025. Manufacturing Facilities As of March 31, 2025, the company operated nine manufacturing facilities, all located in the Morbi industrial cluster in Gujarat. Export Operations As of March 31, 2025, the company exported products to over 100 countries, supported by a dedicated export team comprising 47 personnel. Employees The company employed 1,156 permanent employees as of March 31, 2025."
    ],
@@ -52864,10 +52738,10 @@
    "gmpHistory": [
     {
      "date": "2026-09-22",
-     "gmp": 5.0,
-     "est": 153.0,
-     "pct": 3.38,
-     "kostakSauda": "400/5600"
+     "gmp": 6.0,
+     "est": 154.0,
+     "pct": 4.05,
+     "kostakSauda": "500/7000"
     },
     {
      "date": "2026-09-21",
@@ -52907,15 +52781,15 @@
    ],
    "bidding": [
     {
-     "asOf": "2026-09-22T11:11:00+05:30",
+     "asOf": "2026-09-22T14:51:00+05:30",
      "qib": 0.0,
-     "nii": 0.02,
-     "bnii": 0.0,
-     "snii": 0.04,
-     "retail": 0.08,
-     "total": 0.05,
-     "bidCr": 22.36,
-     "retailBidCr": 20.72
+     "nii": 0.04,
+     "bnii": 0.01,
+     "snii": 0.1,
+     "retail": 0.17,
+     "total": 0.09,
+     "bidCr": 47.04,
+     "retailBidCr": 42.84
     }
    ],
    "company": {
@@ -52926,7 +52800,7 @@
   },
   "2269": {
    "name": "Anand Seamless",
-   "fetchedAt": "2026-09-22T14:16:41+05:30",
+   "fetchedAt": "2026-09-22T15:07:44+05:30",
    "about": [
     "Anand Seamless Limited is engaged in the production of seamless tubes, pipes, and finned tubes used in industrial applications. The company operates in the iron and steel manufacturing sector. The company specializes in manufacturing carbon steel and alloy steel seamless tubes, heat exchanger tubes, U-tubes, and various types of finned tubes. These products are widely used in industries such as oil & gas, petrochemicals, power plants, and process industries. Anand Seamless Limited focuses on quality-driven manufacturing with certifications like ISO and approvals from agencies such as IBR and Engineers India Limited. It serves both domestic and international clients, including major PSUs and global energy companies, positioning itself as a reliable supplier in the industrial engineering sector. Product Portfolio: Seamless Tubes and Pipes Finned Tubes Competitive Strengths: Diversified Product Range International Accreditations and product approvals Extensive and Effective Quality Control Customer Diversification Experienced and Qualified Team"
    ],
@@ -53158,15 +53032,15 @@
    ],
    "bidding": [
     {
-     "asOf": "2026-09-22T11:12:00+05:30",
+     "asOf": "2026-09-22T14:41:00+05:30",
      "qib": 0.0,
-     "nii": 0.01,
+     "nii": 0.5,
      "bnii": 0.0,
      "snii": 0.0,
-     "retail": 0.02,
-     "total": 0.01,
-     "bidCr": 0.26,
-     "retailBidCr": 0.18
+     "retail": 0.03,
+     "total": 0.27,
+     "bidCr": 6.43,
+     "retailBidCr": 0.41
     }
    ],
    "company": {
@@ -53177,7 +53051,7 @@
   },
   "2230": {
    "name": "Himalaya Nutravedics India",
-   "fetchedAt": "2026-09-22T14:16:41+05:30",
+   "fetchedAt": "2026-09-22T15:07:44+05:30",
    "about": [
     "Himalaya Nutravedics India Ltd is engaged in the manufacturing, marketing, and distribution of Ayurvedic and nutraceutical formulations in India. In addition to its own branded products, the company also undertakes third-party contract manufacturing for other Ayurvedic and nutraceutical companies. It offers a diversified product portfolio that includes classical Ayurvedic formulations based on traditional texts, proprietary Ayurvedic products, and nutraceutical supplements. These are available in multiple dosage forms such as soft gelatin capsules, hard gelatin capsules, tablets, liquid orals, and medicated oils. The company operates through a hybrid business model, balancing its own-brand formulations with contract manufacturing services. It has an integrated in-house manufacturing facility located in Hyderabad, Telangana. As of September 2025, its products are distributed across multiple states in India, with a strong revenue presence in Telangana, Andhra Pradesh, Kerala, Gujarat, and Uttar Pradesh. Its product portfolio spans a wide range of wellness and therapeutic segments, including digestive health, immunity, metabolic health, musculoskeletal and joint care, reproductive health, respiratory wellness, pain management, and general well-being. These formulations are designed to support general wellness, nutritional supplementation, and lifestyle-related health needs, in line with applicable regulatory standards. Competitive Strengths: Integrated multi-dosage manufacturing capability Doctor acceptance supported by product performance rather than mass advertising Long-standing relationships with suppliers and customers Geographic expansion achieved over a relatively short operating history Broad therapeutic coverage across ayurvedic and nutraceutical segment"
    ],
@@ -53396,26 +53270,17 @@
     "sharesPre": 6306720.0,
     "sharesPost": 8806320.0
    },
-   "gmpHistory": [
-    {
-     "date": "2026-09-22",
-     "gmp": 0.0,
-     "est": 106.0,
-     "pct": 0.0,
-     "kostakSauda": "--"
-    }
-   ],
    "bidding": [
     {
-     "asOf": "2026-09-22T11:11:00+05:30",
+     "asOf": "2026-09-22T14:51:00+05:30",
      "qib": 0.0,
-     "nii": 0.04,
+     "nii": 0.07,
      "bnii": 0.0,
-     "snii": 0.12,
-     "retail": 0.05,
-     "total": 0.03,
-     "bidCr": 0.59,
-     "retailBidCr": 0.43
+     "snii": 0.21,
+     "retail": 0.13,
+     "total": 0.08,
+     "bidCr": 1.44,
+     "retailBidCr": 1.17
     }
    ],
    "company": {
