@@ -11,7 +11,7 @@ newest first.
   priceHistory[name] += [date, close]   for every listing of this year with an NSE symbol (board `symbol`, else the
                                         deals module's `investors.listingSymbols` cache), never a date twice.
 
-Runs right after `listings` so `evidence` (later in the same run) sees today's path. Symbols for names off the board
+Runs after `history` (so today's `listedPerf.bseCode` is there) and before `evidence` (which reads the path in the same run). Symbols for names off the board
 come from the deals module's cache in prev — a day behind for a brand-new listing, which is fine.
 
 Each run fetches at most FETCH_PER_RUN missing weekdays of the last LOOKBACK_DAYS, newest first, so a fresh install

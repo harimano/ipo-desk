@@ -62,7 +62,7 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
 ## The collector
 
 `MODULES` order IS the fallback logic (a later patch wins):
-`calendar, gmp, details, subscription, listings, tape, history, anchorbook, evidence, players, parents, filings, offers, flows, deals, news`.
+`calendar, gmp, details, subscription, listings, history, tape, anchorbook, evidence, players, parents, filings, offers, flows, deals, news`.
 Ownership is enforced by `schema.OWNERS` / `ROW_PATCHERS`; a failed module changes nothing. `Result.doc` is today's
 document as assembled so far; `prev` is yesterday's.
 
