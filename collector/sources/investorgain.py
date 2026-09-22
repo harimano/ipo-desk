@@ -479,7 +479,8 @@ def parse_performance_report(data) -> list[dict]:
         out.append({"igId": str(r["~id"]), "name": _plain(r.get("IPO")), "date": date, "sme": sme,
                     "issue": issue, "gmp": gmp, "gmpImplied": _num(pick(r, "Estimated Price", "Est Price")) or (issue + gmp if gmp is not None else None),
                     "listing": listing, "close1": _num(pick(r, "Listing Day Cls Price", "Listing Day Close")), "ltp": _num(r.get("Closing Price (LTP)")),
-                    "total": _num(r.get("Sub")), "sizeCr": _num(pick(r, "IPO Size", "Size"))})
+                    "total": _num(r.get("Sub")), "sizeCr": _num(pick(r, "IPO Size", "Size")),
+                    "bseCode": (re.search(r"\b(\d{6})\b", str(r.get("Symbol") or "")) or [None, None])[1]})   # 'KARAMTARA, 544917' or '544931'
     if not out:
         raise SourceChanged(SOURCE, f"report 377: {len(rows)} rows, none with an id, an issue price and a listing price (keys: {sorted(rows[0])[:8]})", "report 377")
     return out

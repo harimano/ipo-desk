@@ -35,7 +35,7 @@ from ..errors import SourceError
 from ..http import Session
 from ..names import Matcher, load_aliases
 from ..result import Result, try_chain
-from ..sources import nse_symbols, nsearchives
+from ..sources import bse_deals, nse_symbols, nsearchives
 
 log = logging.getLogger("collector.deals")
 
@@ -131,15 +131,15 @@ def _num(v) -> float | None:
 
 
 def this_years_listings(doc: dict, today: dt.date) -> dict[str, dict]:
-    """name -> {listedOn, issuePrice, sme, symbol|None} for every listing dated this year. `listedPerf` (the
-    history module's record) is the base; a board row that has already listed adds its NSE symbol."""
+    """name -> {listedOn, issuePrice, sme, symbol|None, bseCode|None} for every listing dated this year. `listedPerf` (the
+    history module's record) is the base; a board row that has already listed adds its NSE symbol and BSE code."""
     jan1 = f"{today.year}-01-01"
     out: dict[str, dict] = {}
     for r in doc.get("listedPerf") or []:
         if not isinstance(r, dict) or not r.get("name") or str(r.get("date") or "") < jan1:
             continue
         out[r["name"]] = {"listedOn": str(r["date"])[:10], "issuePrice": _num(r.get("issue")),
-                          "sme": bool(r.get("sme")), "symbol": None}
+                          "sme": bool(r.get("sme")), "symbol": None, "bseCode": str(r["bseCode"]) if r.get("bseCode") else None}
     for seg in ("mainboard", "sme"):
         for r in doc.get(seg) or []:
             if not isinstance(r, dict) or not r.get("name") or r.get("status") != "Listed":
@@ -148,9 +148,11 @@ def this_years_listings(doc: dict, today: dt.date) -> dict[str, dict]:
             if not listed or listed < jan1:
                 continue
             row = out.setdefault(r["name"], {"listedOn": listed, "issuePrice": _num(r.get("bandHigh")),
-                                             "sme": seg == "sme", "symbol": None})
+                                             "sme": seg == "sme", "symbol": None, "bseCode": None})
             if r.get("symbol"):
                 row["symbol"] = str(r["symbol"]).upper()
+            if r.get("bseScripCode") and not row.get("bseCode"):
+                row["bseCode"] = str(r["bseScripCode"])
     return out
 
 
@@ -200,7 +202,7 @@ def resolve_listing_symbols(session: Session, prev: dict, listings: dict[str, di
     return cache
 
 
-def listing_row(deal: dict, kind: str, name: str, info: dict) -> dict:
+def listing_row(deal: dict, kind: str, name: str, info: dict, exchange: str = "NSE") -> dict:
     qty, price = deal.get("qty"), deal.get("price")
     issue = info.get("issuePrice")
     try:
@@ -211,14 +213,14 @@ def listing_row(deal: dict, kind: str, name: str, info: dict) -> dict:
         "date": deal.get("date"), "symbol": deal.get("symbol"), "stock": name, "client": deal.get("client"),
         "side": deal.get("side"), "qty": qty, "price": price,
         "valueCr": round(qty * price / 1e7, 2) if qty and price else None,
-        "exchange": "NSE", "kind": kind, "sme": bool(info.get("sme")),
+        "exchange": exchange, "kind": kind, "sme": bool(info.get("sme")),
         "listedOn": info.get("listedOn"), "daysSinceListing": since, "issuePrice": issue,
         "vsIssuePct": round((price - issue) / issue * 100, 1) if price and issue else None,
     }
 
 
 def _lkey(r: dict) -> tuple:
-    return (str(r.get("date") or ""), str(r.get("symbol") or "").upper(), str(r.get("client") or "").strip().lower(),
+    return (str(r.get("date") or ""), str(r.get("exchange") or "NSE"), str(r.get("symbol") or "").upper(), str(r.get("client") or "").strip().lower(),
             str(r.get("side") or "").upper(), r.get("qty"))
 
 
@@ -236,6 +238,23 @@ def merge_listing_deals(prev_rows: list[dict], new_rows: list[dict], today: dt.d
     return out
 
 
+def bse_listing_deals(session: Session, listings: dict[str, dict], res: Result) -> list[dict]:
+    """The same cut of BSE's bulk + block files, matched by scrip code. Best effort: a BSE fault is a note, never a failure
+    of the NSE cut. This is what reaches the SME listings that trade only on BSE."""
+    by_code = {r["bseCode"]: (n, r) for n, r in listings.items() if r.get("bseCode")}
+    rows: list[dict] = []
+    for kind, fetch in (("bulk", bse_deals.bulk_deals), ("block", bse_deals.block_deals)):
+        try:
+            got = fetch(session)
+        except SourceError as e:
+            res.notes.append(f"BSE {kind}: {e.kind} — {e.detail[:60]}")
+            continue
+        hits = [listing_row(d, kind, *by_code[d["symbol"]], exchange="BSE") for d in got if d.get("symbol") in by_code]
+        res.notes.append(f"BSE {kind}: {len(got)} deals, {len(hits)} in this year's listings")
+        rows += hits
+    return rows
+
+
 def listing_deals(session: Session, prev: dict, doc: dict, deals: list[tuple[str, dict]], today: dt.date,
                   res: Result) -> dict:
     """{listingDeals, listingSymbols} for res.merge['investors']."""
@@ -243,13 +262,15 @@ def listing_deals(session: Session, prev: dict, doc: dict, deals: list[tuple[str
     cache = resolve_listing_symbols(session, prev, listings, today, res)
     by_symbol = {r["symbol"]: (n, r) for n, r in listings.items() if r["symbol"]}
     rows = [listing_row(d, kind, *by_symbol[d["symbol"]]) for kind, d in deals if d.get("symbol") in by_symbol]
+    rows += bse_listing_deals(session, listings, res)
     prev_rows = (prev.get("investors") or {}).get("listingDeals") or []
     merged = merge_listing_deals(prev_rows, rows, today)
-    unresolved = [n for n, r in listings.items() if not r["symbol"]]
+    unresolved = [n for n, r in listings.items() if not r["symbol"] and not r.get("bseCode")]
     res.notes.append(f"listing deals: {len(rows)} of today's {len(deals)} deals are in this year's listings "
                      f"({len(set(r['symbol'] for r in rows))} stocks); {len(merged)} kept over {LISTING_KEEP_DAYS} days; "
                      f"{len(by_symbol)} of {len(listings)} listings have an NSE symbol"
-                     + (f", {len(unresolved)} without one (BSE-only, or not on NSE's list yet)" if unresolved else ""))
+                     + f"; {sum(1 for r in listings.values() if r.get('bseCode'))} with a BSE code"
+                     + (f", {len(unresolved)} with neither" if unresolved else ""))
     return {"listingDeals": merged, "listingSymbols": cache}
 
 

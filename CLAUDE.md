@@ -85,11 +85,13 @@ document as assembled so far; `prev` is yesterday's.
 - `deals`: NSE's daily bulk + block files, two cuts — tracked names (`investors.bulkDeals`, 45 days; ~2 hits a month) and
   EVERY deal in one of this year's listings (`investors.listingDeals`, 60 days, `sme` on each row). Symbols come from board
   rows, else NSE's equity lists via `names.Matcher`, cached in `investors.listingSymbols`; a fuzzy hit listed before this
-  year is rejected. BSE-only SME listings never resolve — the note says how many. Most rows are prop desks round-tripping
-  on day one; the page's net-by-stock bar is what makes that visible.
+  year is rejected. BSE's own bulk + block APIs (`sources/bse_deals.py`, found in the site's network calls) add the BSE
+  SME board by scrip code (`listedPerf.bseCode` from report 377's Symbol column; rows carry `exchange`). Most rows are
+  prop desks round-tripping on day one; the page's sold│bought bar is what makes that visible.
 - `tape`: one NSE bhavcopy per trading day (nsearchives zip, SME series included) → a close a day in `priceHistory` for EVERY
   listing of this year with a symbol (board `symbol`, else deals' `listingSymbols`); backfills 6 days a run, then 1 call a day;
-  `tape.noFile` remembers holidays; today's file only after 18:30 IST. `evidence.lockins` freezes the 5-day move after each
+  `tape.noFile` remembers holidays; today's file only after 18:30 IST. A second leg reads BSE's bhavcopy for listings with a
+  BSE code and no NSE symbol (`tape.bse`), so the BSE SME board has a price path too. `evidence.lockins` freezes the 5-day move after each
   30-day anchor unlock from that path (`segments[x].lockin`, n + Wilson, since 22 Sep 2026).
 - `anchorbook` (80 records a run, newest first, ~10 days to backfill 1,300): every IPO's anchor allocation table from the IG
   record → `anchorBooks` (own lazy part `books.json`, NOT fetched at boot; `complete` marks feed-truncated books).

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import copy
 import datetime as dt
+import pathlib
 
 import pytest
 
@@ -192,7 +193,7 @@ def run_listing(prev=None, doc=None, sess=None):
 def test_this_years_listings_come_from_listedperf_and_the_board():
     L = deals.this_years_listings(listing_doc(), dt.date(2026, 9, 21))
     assert "Old Listing" not in L and "Not Yet" not in L
-    assert L["Veegaland Developers"] == {"listedOn": "2026-09-18", "issuePrice": 140.0, "sme": False, "symbol": "VEEGALAND"}
+    assert L["Veegaland Developers"] == {"listedOn": "2026-09-18", "issuePrice": 140.0, "sme": False, "symbol": "VEEGALAND", "bseCode": None}
     assert L["Maharaja & Speedex India"]["sme"] is True and L["Maharaja & Speedex India"]["symbol"] == "SPEEDEX"
     assert L["Glass Wall Systems"]["symbol"] is None and L["Glass Wall Systems"]["issuePrice"] == 182.0
 
@@ -290,3 +291,23 @@ def test_caps_trim_listing_deals():
     data["investors"]["listingDeals"] = [{"date": "2026-09-20", "symbol": "A"}, {"date": "2026-06-01", "symbol": "B"}]
     assemble.enforce_caps(data)
     assert [r["symbol"] for r in data["investors"]["listingDeals"]] == ["A"]
+
+
+def test_bse_deals_reach_the_listings_that_trade_only_on_bse():
+    import json
+    bfx = pathlib.Path(__file__).resolve().parent.parent / "data/fixtures/bse"
+    d = listing_doc()
+    d["listedPerf"].append({"name": "Adon Agro Commodities", "date": "2026-09-10", "sme": True, "issue": 100.0, "bseCode": "544809"})
+    sess = live_session()
+    sess.json_ = {"/BulkDeal_Beta/w": json.loads((bfx / "bulk-deals-2026-09-22.json").read_text()), "/BlockDeal_Beta/w": json.loads((bfx / "block-deals-2026-09-22.json").read_text())}
+    res = deals.run(sess, {"investors": {"watchlist": [], "bulkDeals": []}}, Result(module="deals", doc=d))
+    rows = res.merge["investors"]["listingDeals"]
+    adon = [r for r in rows if r["stock"] == "Adon Agro Commodities"]
+    assert len(adon) == 3 and all(r["exchange"] == "BSE" and r["symbol"] == "544809" and r["sme"] is True and r["kind"] == "bulk" for r in adon)
+    assert adon[0]["vsIssuePct"] is not None and adon[0]["daysSinceListing"] == 12
+    assert any(r["exchange"] == "NSE" for r in rows), "the NSE cut is untouched"
+    assert any("BSE bulk: 40 deals, 3 in this year's listings" in n for n in res.notes)
+    # BSE down is a note, never a failure of the NSE cut
+    sess2 = live_session(); sess2.json_ = {"/BulkDeal_Beta/w": blocked("bse"), "/BlockDeal_Beta/w": blocked("bse")}
+    res2 = deals.run(sess2, {"investors": {"watchlist": [], "bulkDeals": []}}, Result(module="deals", doc=d))
+    assert res2.ok and any("BSE bulk: blocked" in n for n in res2.notes) and any(r["exchange"] == "NSE" for r in res2.merge["investors"]["listingDeals"])

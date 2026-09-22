@@ -32,6 +32,10 @@ class S:
         if self.blocked:
             raise SourceBlocked(source, "HTTP 403", url, 403)
         ymd = url.split("_F_0000")[0][-8:]
+        if "BhavCopy_BSE" in url:                                     # BSE: a CSV for 22 Sep, an HTML page otherwise
+            if ymd == "20260922":
+                return (FX.parent / "bse/bhavcopy-2026-09-22.csv").read_bytes()
+            return b"<!DOCTYPE html><html>no file</html>"
         if ymd in self.have:
             return zipped(CSV.replace("2026-09-21", f"{ymd[:4]}-{ymd[4:6]}-{ymd[6:]}"))
         raise SourceDown(source, "HTTP 404", url, 404)
@@ -41,7 +45,7 @@ def doc():
     return {"mainboard": [{"name": "Glass Wall Systems", "symbol": "GLASSWALL", "status": "Listed", "listing": "2026-09-16"},
                           {"name": "Not Yet", "symbol": "NOTYET", "status": "Closed", "listing": "2026-09-25"}],
             "sme": [{"name": "Vinod Texworld", "symbol": "VINOD", "status": "Listed", "listing": "2026-09-17"}],
-            "listedPerf": [{"name": "Sunshine Pictures", "date": "2026-08-25", "sme": False}, {"name": "Some BSE SME", "date": "2026-09-10", "sme": True},
+            "listedPerf": [{"name": "Sunshine Pictures", "date": "2026-08-25", "sme": False}, {"name": "Some BSE SME", "date": "2026-09-10", "sme": True, "bseCode": "544931"},
                            {"name": "Old One", "date": "2025-11-01", "sme": False}],
             "investors": {"listingSymbols": {"Sunshine Pictures": {"symbol": "SUNSHINE", "triedOn": "2026-09-22"}, "Some BSE SME": {"symbol": None, "triedOn": "2026-09-22"},
                                              "Old One": {"symbol": "OLDONE", "triedOn": "2026-09-22"}}},
@@ -68,7 +72,7 @@ def test_one_file_fills_every_listing_and_never_a_date_twice():
     s = S()
     res = run(s)
     assert res.ok and res.source == "nsearchives"
-    assert len(s.calls) == tape.FETCH_PER_RUN, "newest first, six missing weekdays tried"
+    assert len([u for u in s.calls if "BhavCopy_NSE" in u]) == tape.FETCH_PER_RUN, "newest first, six missing weekdays tried"
     assert tape.KEEP_DATES > tape.LOOKBACK_DAYS, "a date read once must stay remembered for the whole lookback"
     ph = res.merge["priceHistory"]
     assert ph["Vinod Texworld"] == [["2026-09-21", 80.65]] and ph["Sunshine Pictures"] == [["2026-09-21", 430.1]]
@@ -86,7 +90,8 @@ def test_steady_state_costs_one_call_and_remembers_holidays():
                      [d for d in tape.weekdays_back(dt.date(2026, 9, 8), tape.LOOKBACK_DAYS, dt.datetime(2026, 9, 8, 20, 0, tzinfo=IST))], "names": {}}}
     s = S(have=("20260922",))
     res = run(s, prev, when=dt.datetime(2026, 9, 22, 18, 45, tzinfo=IST))
-    assert res.ok and len(s.calls) == 1 and s.calls[0].endswith("20260922_F_0000.csv.zip")
+    nse = [u for u in s.calls if "BhavCopy_NSE" in u]
+    assert res.ok and len(nse) == 1 and nse[0].endswith("20260922_F_0000.csv.zip")
     assert res.replace["tape"]["dates"][-1] == "2026-09-22"
 
 
@@ -98,3 +103,13 @@ def test_a_403_fails_the_module_and_nothing_is_written():
 def test_no_symbols_is_a_failure_not_an_empty_success():
     res = tape.run(S(), {}, Result(module="tape", doc={"mainboard": [], "sme": [], "listedPerf": []}), now=dt.datetime(2026, 9, 22, 14, 0, tzinfo=IST))
     assert not res.ok
+
+
+def test_bse_only_listings_are_priced_from_bse_file_by_scrip_code():
+    s = S(have=("20260921",))
+    res = run(s, when=dt.datetime(2026, 9, 22, 18, 45, tzinfo=IST))
+    assert res.ok
+    t = res.replace["tape"]
+    assert t["bse"]["names"] == {"Some BSE SME": "544931"} and t["bse"]["dates"] == ["2026-09-22"] and "2026-09-21" in t["bse"]["noFile"]
+    assert res.merge["priceHistory"]["Some BSE SME"] == [["2026-09-22", 323.95]]
+    assert "Some BSE SME" not in t["names"], "never in the NSE leg"

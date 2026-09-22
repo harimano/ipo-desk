@@ -39,7 +39,7 @@ def _pct(a, b) -> float | None:
 
 def build(perf: list[dict], cats: dict[str, dict], books: dict[str, dict], eve: dict[str, dict] | None = None) -> tuple[list[dict], list[dict]]:
     perf = sorted({p["igId"]: p for p in perf}.values(), key=lambda p: (p["date"], p["igId"]), reverse=True)
-    listed = [{k: p.get(k) for k in ("name", "igId", "date", "sme", "issue", "gmp", "gmpImplied", "listing", "close1", "ltp")} for p in perf]
+    listed = [{k: p.get(k) for k in ("name", "igId", "date", "sme", "issue", "gmp", "gmpImplied", "listing", "close1", "ltp", "bseCode")} for p in perf]
     for row in listed:                                  # the desk's own evening-before GMP: set once, never revised
         e = (eve or {}).get(row["igId"])
         if e and e.get("gmpEve") is not None and e["gmpEveAsOf"][:10] < row["date"]:

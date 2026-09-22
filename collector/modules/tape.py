@@ -30,7 +30,7 @@ from zoneinfo import ZoneInfo
 from ..errors import SourceBlocked, SourceChanged, SourceDown, SourceError
 from ..http import Session
 from ..result import Result
-from ..sources import nsearchives
+from ..sources import bse_deals, nsearchives
 
 log = logging.getLogger("collector.tape")
 IST = ZoneInfo("Asia/Kolkata")
@@ -38,6 +38,20 @@ LOOKBACK_DAYS = 270        # back to the start of the year: every 2026 listing's
 FETCH_PER_RUN = 6
 KEEP_DATES = LOOKBACK_DAYS + 7   # a date read once is never read again, even after the price cap trims its closes
 FILE_READY = dt.time(18, 30)
+
+
+def bse_only_names(doc: dict, today: dt.date, nse_names: dict[str, str]) -> dict[str, str]:
+    """name -> BSE scrip code for this year's listings that have no NSE symbol (the BSE SME board)."""
+    jan1 = f"{today.year}-01-01"
+    out: dict[str, str] = {}
+    for p in doc.get("listedPerf") or []:
+        if isinstance(p, dict) and p.get("name") and p.get("bseCode") and str(p.get("date") or "") >= jan1 and p["name"] not in nse_names:
+            out[p["name"]] = str(p["bseCode"])
+    for k in ("mainboard", "sme"):
+        for r in doc.get(k) or []:
+            if isinstance(r, dict) and r.get("name") and r.get("bseScripCode") and r.get("status") == "Listed" and r["name"] not in nse_names and r["name"] not in out:
+                out[r["name"]] = str(r["bseScripCode"])
+    return out
 
 
 def this_years_names(doc: dict, today: dt.date) -> dict[str, str]:
@@ -76,6 +90,45 @@ def missing_dates(prev_tape: dict, today: dt.date, now: dt.datetime) -> list[str
     return [d for d in weekdays_back(today, LOOKBACK_DAYS, now) if d not in have][:FETCH_PER_RUN]
 
 
+def fill(session: Session, fetch, names: dict[str, str], prev_tape: dict, doc: dict, today: dt.date, now: dt.datetime, res: Result,
+         label: str) -> tuple[dict, list[str], list[str], int, int]:
+    """One exchange's leg: read the missing days' files, add closes for `names`. Returns (series touched, dates, noFile, fetched, added)."""
+    todo = missing_dates(prev_tape, today, now)
+    dates, no_file = list(prev_tape.get("dates") or []), list(prev_tape.get("noFile") or [])
+    history: dict = {}
+    touched: set[str] = set()
+    fetched = added = 0
+    for date in todo:
+        d = dt.date.fromisoformat(date)
+        try:
+            day = fetch(session, d)
+            res.calls += 1
+        except SourceBlocked as e:
+            if not fetched and label == "NSE":
+                raise
+            res.notes.append(f"{label} bhavcopy {date}: blocked after {fetched} file(s); stopping")
+            break
+        except SourceDown as e:
+            res.calls += 1
+            if e.status == 404 and d < today:
+                no_file.append(date)
+                continue
+            res.notes.append(f"{label} bhavcopy {date}: {e.kind} {e.status or ''} — left for the next run")
+            continue
+        except SourceChanged as e:
+            res.notes.append(f"{label} bhavcopy {date}: {e.detail[:60]}")
+            continue
+        fetched += 1
+        if not history:
+            history = copy.deepcopy({n: s for n, s in (doc.get("priceHistory") or {}).items() if n in names})
+        added += apply_day(history, names, day, date)
+        touched |= {n for n, sym in names.items() if sym in day}
+        dates.append(date)
+    cutoff = (today - dt.timedelta(days=KEEP_DATES)).isoformat()
+    return ({n: history[n] for n in touched if history.get(n)}, sorted({x for x in dates if x >= cutoff}),
+            sorted({x for x in no_file if x >= cutoff}), fetched, added)
+
+
 def apply_day(history: dict, names: dict[str, str], day: dict[str, dict], date: str) -> int:
     added = 0
     for name, sym in names.items():
@@ -99,45 +152,25 @@ def run(session: Session, prev: dict, res: Result, now: dt.datetime | None = Non
     names = this_years_names(doc, today)
     if not names:
         return res.fail(SourceChanged("tape", "no listing of this year has an NSE symbol on file — deals/listingSymbols not run yet?"))
-    todo = missing_dates(prev_tape, today, now)
-    dates, no_file = list(prev_tape.get("dates") or []), list(prev_tape.get("noFile") or [])
-    history: dict = {}
-    touched: set[str] = set()
-    fetched = added = 0
-    for date in todo:
-        d = dt.date.fromisoformat(date)
+    bse_names = bse_only_names(doc, today, names)
+    try:
+        series, dates, no_file, fetched, added = fill(session, nsearchives.bhavcopy, names, prev_tape, doc, today, now, res, "NSE")
+    except SourceBlocked as e:                            # a 403 on the first NSE file: nothing read, prev kept
+        return res.fail(e)
+    prev_bse = prev_tape.get("bse") if isinstance(prev_tape.get("bse"), dict) else {}
+    bse_series: dict = {}
+    b_dates, b_no, b_fetched, b_added = list(prev_bse.get("dates") or []), list(prev_bse.get("noFile") or []), 0, 0
+    if bse_names:
         try:
-            day = nsearchives.bhavcopy(session, d)
-            res.calls += 1
-        except SourceBlocked as e:
-            if not fetched:
-                return res.fail(e)
-            res.notes.append(f"bhavcopy {date}: blocked after {fetched} file(s); stopping")
-            break
-        except SourceDown as e:
-            res.calls += 1
-            if e.status == 404 and d < today:
-                no_file.append(date)
-                continue
-            res.notes.append(f"bhavcopy {date}: {e.kind} {e.status or ''} — left for the next run")
-            continue
-        except SourceChanged as e:
-            res.notes.append(f"bhavcopy {date}: {e.detail[:60]}")
-            continue
-        fetched += 1
-        if not history:
-            history = copy.deepcopy({n: s for n, s in (doc.get("priceHistory") or {}).items() if n in names})
-        added += apply_day(history, names, day, date)
-        touched |= {n for n, sym in names.items() if sym in day}
-        dates.append(date)
-    cutoff = (today - dt.timedelta(days=KEEP_DATES)).isoformat()
-    dates = sorted({d for d in dates if d >= cutoff})
-    no_file = sorted({d for d in no_file if d >= cutoff})
-    if fetched:
-        res.merge["priceHistory"] = {n: history[n] for n in touched if history.get(n)}
+            bse_series, b_dates, b_no, b_fetched, b_added = fill(session, bse_deals.bhavcopy, bse_names, prev_bse, doc, today, now, res, "BSE")
+        except SourceError as e:                          # BSE is best effort beside NSE
+            res.notes.append(f"BSE bhavcopy: {e.kind} — {e.detail[:60]}")
+    if fetched or b_fetched:
+        res.merge["priceHistory"] = {**series, **bse_series}
     res.replace["tape"] = {"asOf": now.replace(microsecond=0).isoformat(), "dates": dates, "noFile": no_file,
-                           "names": names, "n": len(names)}
+                           "names": names, "n": len(names), "bse": {"dates": b_dates, "noFile": b_no, "names": bse_names, "n": len(bse_names)}}
     left = len([d for d in weekdays_back(today, LOOKBACK_DAYS, now) if d not in set(dates) | set(no_file)])
-    res.notes.append(f"{len(names)} listings with a symbol; {fetched} bhavcopy file(s) read, {added} closes added; "
-                     f"{len(dates)} trading days on file, {left} still to fill")
+    res.notes.append(f"{len(names)} listings with an NSE symbol; {fetched} NSE file(s) read, {added} closes added; "
+                     f"{len(dates)} trading days on file, {left} still to fill · {len(bse_names)} BSE-only listings; "
+                     f"{b_fetched} BSE file(s) read, {b_added} closes added, {len(b_dates)} days on file")
     return res.won("nsearchives", dates[-1] if dates else None)

@@ -34,7 +34,7 @@ def test_real_report_parses_to_typed_rows():
     rows = ig.parse_performance_report(PERF)
     k = next(r for r in rows if r["name"] == "Karamtara Engineering")
     assert k == {"igId": "1622", "name": "Karamtara Engineering", "date": "2026-09-17", "sme": False, "issue": 254.0, "gmp": 46.0,
-                 "gmpImplied": 300.0, "listing": 320.0, "close1": 352.0, "ltp": 352.0, "total": 66.01, "sizeCr": 875.0}
+                 "gmpImplied": 300.0, "listing": 320.0, "close1": 352.0, "ltp": 352.0, "total": 66.01, "sizeCr": 875.0, "bseCode": "544917"}
     assert any(r["sme"] for r in rows) and all(r["date"][:4] == "2026" for r in rows)
     for bad in ({}, {"msg": "API not found"}, {"reportTableData": [{"IPO": "x"}]}):
         with pytest.raises(SourceChanged):

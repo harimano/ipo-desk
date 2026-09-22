@@ -70,3 +70,6 @@ trackRecords.dealRows[{client, key, stock, sme, date, side net buyer|net seller,
   until d20 exists, then frozen (outlives the 60-day tape). `deals` summarises per client key, per segment, per side, with n and Wilson.
 trackRecords.bookMoves{igId: {d5, d30}} — each anchored IPO's move from the listing-day close over 5 / 30 trading days, written the first
   run the path is long enough and kept from prev after (the 90-day price cap trims priceHistory; this does not move).
+listedPerf[].bseCode — the BSE scrip code from report 377's Symbol column ('KARAMTARA, 544917' or '544931'); investors.listingDeals[].exchange
+  is NSE or BSE and `symbol` is the NSE symbol or the BSE scrip code accordingly. tape.bse{dates, noFile, names{name: code}, n} — the BSE
+  leg of the tape: listings with a BSE code and no NSE symbol, priced from BSE's bhavcopy (keyed by FinInstrmId).

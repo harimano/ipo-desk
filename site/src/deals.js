@@ -45,6 +45,8 @@ function ldSpark(name, rows, A1) {
   return `<svg class="ldspark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-label="price since listing"><path d="${path}" fill="none" stroke="var(--accent)" stroke-width="1.5"/>${locks}${marks}</svg><div class="dt" style="display:flex;justify-content:space-between"><span>${fmtD(ph[0][0])} ${inr(ys[0])}</span><span>${ph.length} closes</span><span>${fmtD(ph[ph.length - 1][0])} ${inr(ys[ys.length - 1])}</span></div>`;
 }
 
+const lastClose = name => { const ph = (DATA.priceHistory || {})[name] || []; const last = ph.filter(x => Array.isArray(x) && x[1] != null).sort((a, b) => String(a[0]).localeCompare(String(b[0]))).pop(); return last ? last[1] : null; };   // the tape's latest close when the report has no LTP yet (a listing on its first day)
+
 function renderListingDeals() {
   const host = $("#ldStocks"); if (!host) return;
   const I = DATA.investors || {}, all = I.listingDeals;
@@ -64,7 +66,7 @@ function renderListingDeals() {
     const last = s.rows.reduce((m, r) => r.date > m ? r.date : m, ""), p = perf.get(s.stock) || {};
     return { ...s, pairs, b, s: sl, net: b - sl, last, n: s.rows.length, names: new Set(s.rows.map(r => r.client)).size,
       rt: pairs.filter(x => x.beh === "round-trip").length, nb: pairs.filter(x => x.beh === "net buyer"), ns: pairs.filter(x => x.beh === "net seller").length,
-      stayed: pairs.filter(x => x.beh === "net buyer").reduce((a, x) => a + x.net, 0), ltp: p.ltp, open: p.listing, mine: mine(s.stock) }; })
+      stayed: pairs.filter(x => x.beh === "net buyer").reduce((a, x) => a + x.net, 0), ltp: p.ltp || lastClose(s.stock), open: p.listing, mine: mine(s.stock) }; })
     .sort((x, y) => y.last.localeCompare(x.last) || y.n - x.n);
   const mx = Math.max(1, ...stocks.map(s => Math.max(s.b, s.s)));
   const empty = all == null ? "The collector has not written this yet — it fills on the next full run."
@@ -83,9 +85,9 @@ function renderListingDeals() {
       ${(() => { const D = {}; s.rows.forEach(r => { D[r.date] = (D[r.date] || 0) + (r.side === "BUY" ? 1 : -1) * (r.valueCr || 0); }); const ds = Object.keys(D).sort(); return ds.length > 1 ? `<div class="dt">by day: ${ds.map(d => `${fmtD(d)} <span class="num ${cls(Math.abs(D[d]) < 0.5 ? 0 : D[d])}">${ldSigned(D[d])}</span>`).join(" · ")}</div>` : ""; })()}
       <details class="ldd"><summary>all ${s.n} deals ▾</summary><div class="tw"><table><thead><tr><th>Date</th><th>Client</th><th>Side</th><th class="r">Qty</th><th class="r">Price</th><th class="r">vs issue</th><th class="r">Value</th></tr></thead><tbody>${s.rows.map(r => `<tr><td class="dt" style="white-space:nowrap">${fmtD(r.date)}</td><td class="dt${follows(r.client) ? " up" : ""}" title="${esc(r.client)}">${esc(short(r.client).slice(0, 30))} ${fb(r.client)}</td><td><span class="pill ${r.side === "BUY" ? "ok" : "now"}">${esc(r.side)}</span></td><td class="r num">${r.qty ? Number(r.qty).toLocaleString("en-IN") : "—"}</td><td class="r num">${r.price ? inr(r.price) : "—"}</td><td class="r num ${cls(r.vsIssuePct)}">${r.vsIssuePct == null ? "—" : pct(r.vsIssuePct, true)}</td><td class="r num">${r.valueCr != null ? cr(r.valueCr) : "—"}</td></tr>`).join("")}</tbody></table></div></details>
     </div>`; }).join("") || `<div class="empty">${empty}</div>`;
-  const noSym = Object.values(I.listingSymbols || {}).filter(v => v && !v.symbol).length;
   const sub = $("#ldSub"); if (sub) sub.textContent = `${stocks.length} stock${stocks.length === 1 ? "" : "s"} · ${rows.length} deal${rows.length === 1 ? "" : "s"} · last 60 days${latest ? ` · latest ${fmtD(latest)}` : ""}`;
-  const note = $("#ldNote"); if (note) note.textContent = all && all.length ? `NSE's bulk and block files only${noSym ? `: ${noSym} of this year's listings trade only on BSE and cannot appear here` : ""}. Round-trip = a name bought and sold within 20% of the same quantity, usually the same day. "Stayed" adds up what net buyers are still long after their deals — a fact about the tape, not about the stock.` : "";
+  const bse = rows.filter(r => r.exchange === "BSE").length;
+  const note = $("#ldNote"); if (note) note.textContent = all && all.length ? `NSE's and BSE's bulk and block files${bse ? ` (${bse} of these deals are BSE's)` : ""}; a listing that trades on both may show a deal on each. Round-trip = a name bought and sold within 20% of the same quantity, usually the same day. "Stayed" adds up what net buyers are still long after their deals — a fact about the tape, not about the stock.` : "";
   // ---- 2. money that stayed
   const pairs = ldPairs(rows), stayed = pairs.filter(p => p.beh === "net buyer" && p.net >= 0.5).sort((x, y) => y.net - x.net).slice(0, 20);
   const H = $("#ldHolders"); if (H) H.innerHTML = `<thead><tr><th>Name</th><th>Stock</th><th class="r">Net long</th><th class="r">Bought / sold</th><th>Last</th></tr></thead><tbody>${stayed.map(p => `<tr><td class="nm${follows(p.client) ? " up" : ""}" title="${esc(p.client)}">${esc(short(p.client).slice(0, 28))} ${fb(p.client)}</td><td class="dt" data-row data-name="${esc(p.stock)}">${esc(p.stock)} ${segPill(p.sme)}</td><td class="r num up">${cr(p.net)}</td><td class="r num dt">${cr(p.cb)} / ${cr(p.cs)}</td><td class="dt" style="white-space:nowrap">${fmtD(p.last)}${p.last === latest ? ` <span class="pill now" style="height:16px;font-size:10px">new</span>` : ""}</td></tr>`).join("") || `<tr><td colspan="5" class="empty">No name is net long after its deals under this filter.</td></tr>`}</tbody>`;
