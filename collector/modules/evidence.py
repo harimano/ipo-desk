@@ -231,6 +231,78 @@ def track_records(doc: dict) -> dict:
     return {"booksOn": len(books), "withOutcome": with_outcome, "investors": len(per), "minRows": TR_MIN_ROWS, "lead": TR_LEAD, "rows": out}
 
 
+# ---- deal records: the names on the bulk/block tape of this year's listings, by what the stock did after -----------
+DEAL_AFTER = (5, 20)        # trading days after the deal day; a row is complete once the longer move is on file
+DEAL_ROUNDTRIP = 0.8        # bought and sold within 20% of the same quantity that day = a round-trip: no position, no record
+DEAL_MIN_CR = 0.5
+
+
+def _close_move(series: list, date: str, after: int) -> float | None:
+    """% move from the deal day's close to the `after`-th close later; None until the path is there."""
+    pts = sorted((p for p in series or [] if isinstance(p, list) and len(p) == 2 and p[1]), key=lambda p: str(p[0]))
+    idx = next((i for i, p in enumerate(pts) if str(p[0])[:10] >= date), None)
+    if idx is None or str(pts[idx][0])[:10] != date or len(pts) <= idx + after:
+        return None
+    return round(100 * (pts[idx + after][1] - pts[idx][1]) / pts[idx][1], 1)
+
+
+def deal_outcomes(doc: dict, prev_rows: list[dict], today: dt.date) -> list[dict]:
+    """Per (client, stock, day) on the listing-deals tape with a net position: what the stock did over the next 5 and 20
+    trading days. {client, key, stock, sme, date, side net buyer|net seller, netCr, d5, d20, done}. A row is upserted
+    until d20 is on file (`done`), then frozen and carried from prev — the tape keeps 60 days, the record keeps all."""
+    from .anchorbook import investor_key
+    out = {(r.get("client"), r.get("stock"), r.get("date")): r for r in prev_rows if isinstance(r, dict) and r.get("client") and r.get("stock") and r.get("date")}
+    ph = doc.get("priceHistory") or {}
+    days: dict[tuple, dict] = {}
+    for r in ((doc.get("investors") or {}).get("listingDeals") or []):
+        if not isinstance(r, dict) or not r.get("client") or not r.get("stock") or not r.get("date"):
+            continue
+        k = (r["client"], r["stock"], str(r["date"])[:10])
+        d = days.setdefault(k, {"qb": 0.0, "qs": 0.0, "cb": 0.0, "cs": 0.0, "sme": bool(r.get("sme"))})
+        if r.get("side") == "BUY":
+            d["qb"] += r.get("qty") or 0; d["cb"] += r.get("valueCr") or 0
+        else:
+            d["qs"] += r.get("qty") or 0; d["cs"] += r.get("valueCr") or 0
+    for (client, stock, date), d in days.items():
+        if out.get((client, stock, date), {}).get("done"):
+            continue
+        lo, hi = min(d["qb"], d["qs"]), max(d["qb"], d["qs"])
+        if not hi or (lo and lo / hi >= DEAL_ROUNDTRIP) or abs(d["cb"] - d["cs"]) < DEAL_MIN_CR:
+            continue
+        d5, d20 = _close_move(ph.get(stock), date, DEAL_AFTER[0]), _close_move(ph.get(stock), date, DEAL_AFTER[1])
+        if d5 is None and d20 is None:
+            continue
+        out[(client, stock, date)] = {"client": client, "key": investor_key(client), "stock": stock, "sme": d["sme"], "date": date,
+                                      "side": "net buyer" if d["qb"] > d["qs"] else "net seller", "netCr": round(d["cb"] - d["cs"], 2),
+                                      "d5": d5, "d20": d20, "done": d20 is not None}
+    return sorted(out.values(), key=lambda r: (r["date"], r["stock"], r["client"]))
+
+
+def deal_records(rows: list[dict]) -> list[dict]:
+    """Per client key, per segment, per side: n days with a position, and the 5- / 20-day moves after (n, share up, Wilson,
+    median). Names with fewer than 2 positions are left out; the page states n either way."""
+    per: dict[str, dict] = {}
+    for r in rows:
+        inv = per.setdefault(r["key"], {"key": r["key"], "names": {}, "rows": []})
+        inv["names"][r["client"]] = inv["names"].get(r["client"], 0) + 1
+        inv["rows"].append(r)
+    out = []
+    for inv in per.values():
+        if len(inv["rows"]) < 2:
+            continue
+        rec = {"key": inv["key"], "name": max(inv["names"], key=inv["names"].get), "n": len(inv["rows"])}
+        for seg, is_sme in (("main", False), ("sme", True)):
+            for side, lbl in (("net buyer", "buys"), ("net seller", "sells")):
+                sel = [r for r in inv["rows"] if r["sme"] == is_sme and r["side"] == side]
+                if sel:
+                    rec.setdefault(seg, {})[lbl] = {"n": len(sel), "d5": summarise([r["d5"] for r in sel if r.get("d5") is not None]),
+                                                   "d20": summarise([r["d20"] for r in sel if r.get("d20") is not None]),
+                                                   "netCr": round(sum(r["netCr"] for r in sel), 1)}
+        out.append(rec)
+    out.sort(key=lambda r: -r["n"])
+    return out
+
+
 def window_of(rows: list[dict], today: dt.date) -> tuple[list[dict], dict]:
     cut = (today - dt.timedelta(days=WINDOW_DAYS)).isoformat()
     recent = [r for r in rows if r["date"] >= cut]
@@ -316,7 +388,9 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
     for key, is_sme in (("main", False), ("sme", True)):
         res.replace["evidence"]["segments"][key]["lockin"] = lockin_summary(lockins, is_sme)
     tr = track_records(doc)
-    res.replace["trackRecords"] = {"asOf": t.isoformat(), **tr}
+    deals = deal_outcomes(doc, ((prev.get("trackRecords") or {}).get("dealRows") or []), t)
+    res.replace["trackRecords"] = {"asOf": t.isoformat(), **tr, "dealRows": deals, "deals": deal_records(deals),
+                                   "dealAfter": list(DEAL_AFTER)}
     res.notes[:0] = [f"track records: {tr['withOutcome']} of {tr['booksOn']} anchor books have an outcome; {len(tr['rows'])} of {tr['investors']} investors with {TR_MIN_ROWS}+"]
     res.notes.append(f"{len(rows)} listings; windows: mainboard {res.replace['evidence']['segments']['main']['window']['n']}, "
                      f"SME {res.replace['evidence']['segments']['sme']['window']['n']}; {len(warnings)} warnings")

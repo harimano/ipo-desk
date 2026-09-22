@@ -194,3 +194,36 @@ def test_track_records_come_from_anchor_books_joined_to_outcomes_never_pooled():
     from collector import assemble, layout, schema
     data = schema.empty_data(); assemble.apply(data, res); layout.check_groups()
     assert "trackRecords" in layout.GROUPS["books"]
+
+
+def test_deal_names_get_a_record_from_the_tape_and_the_price_path():
+    d = doc()
+    days = [f"2026-09-{x:02d}" for x in (1, 2, 3, 4, 7, 8, 9, 10, 11, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 28, 29, 30)]
+    d["priceHistory"] = {"Stock A": [[x, 100.0 + i] for i, x in enumerate(days)], "Stock B": [[x, 50.0 - i] for i, x in enumerate(days)]}
+    deal = lambda c, s, date, side, qty, cr, sme=False: {"client": c, "stock": s, "date": date, "side": side, "qty": qty, "valueCr": cr, "sme": sme}
+    d["investors"] = {"listingDeals": [
+        deal("PLUTUS WEALTH MANAGEMENT LLP", "Stock A", "2026-09-01", "BUY", 1000, 10), deal("PLUTUS WEALTH MANAGEMENT LLP", "Stock A", "2026-09-01", "SELL", 950, 9.6),   # round-trip
+        deal("DILIP R DOSHI", "Stock A", "2026-09-01", "BUY", 1000, 10),                       # net buyer, +5 and +20 on file
+        deal("DILIP R DOSHI", "Stock B", "2026-09-02", "BUY", 1000, 5),                        # net buyer, stock falls
+        deal("DILIP R DOSHI", "Stock A", "2026-09-18", "BUY", 100, 1),                         # too recent for +20: d5 only, not done
+        deal("HRTI PRIVATE LIMITED", "Stock B", "2026-09-03", "SELL", 3000, 15), deal("HRTI PRIVATE LIMITED", "Stock B", "2026-09-03", "BUY", 100, 0.5),
+        deal("TINY", "Stock A", "2026-09-01", "BUY", 10, 0.1),                                 # below the crore floor
+    ]}
+    res = run(d)
+    T = res.replace["trackRecords"]
+    rows = {(r["client"], r["stock"], r["date"]): r for r in T["dealRows"]}
+    assert ("PLUTUS WEALTH MANAGEMENT LLP", "Stock A", "2026-09-01") not in rows and ("TINY", "Stock A", "2026-09-01") not in rows
+    a = rows[("DILIP R DOSHI", "Stock A", "2026-09-01")]
+    assert a["side"] == "net buyer" and a["key"] == "DILIP R DOSHI" and a["d5"] == 5.0 and a["d20"] == 20.0 and a["done"] and a["netCr"] == 10.0
+    late = rows[("DILIP R DOSHI", "Stock A", "2026-09-18")]
+    assert late["d5"] is not None and late["d20"] is None and not late["done"]
+    h = rows[("HRTI PRIVATE LIMITED", "Stock B", "2026-09-03")]
+    assert h["side"] == "net seller" and h["d5"] == round(100 * (43 - 48) / 48, 1), "3 Sep close 48, five closes later 43"
+    D = {r["key"]: r for r in T["deals"]}
+    assert D["DILIP R DOSHI"]["n"] == 3 and D["DILIP R DOSHI"]["main"]["buys"]["n"] == 3 and D["DILIP R DOSHI"]["main"]["buys"]["d20"]["n"] == 2
+    assert D["DILIP R DOSHI"]["main"]["buys"]["d20"]["pos"] == 50.0 and D["DILIP R DOSHI"]["main"]["buys"]["d20"]["lo"] is not None
+    assert "HRTI" not in D and T["dealAfter"] == [5, 20], "one position is not a record"
+    # frozen: a done row survives the tape's 60-day window and an empty price path
+    d2 = dict(d); d2["investors"] = {"listingDeals": []}; d2["priceHistory"] = {}
+    res2 = ev.run(None, {"trackRecords": T}, Result(module="evidence", doc=d2), today=TODAY)
+    assert any(r["done"] for r in res2.replace["trackRecords"]["dealRows"]) and len(res2.replace["trackRecords"]["dealRows"]) == len(T["dealRows"])

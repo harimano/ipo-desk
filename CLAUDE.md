@@ -95,7 +95,8 @@ document as assembled so far; `prev` is yesterday's.
   record → `anchorBooks` (own lazy part `books.json`, NOT fetched at boot; `complete` marks feed-truncated books).
   `evidence` turns it into `trackRecords` (same part): per investor, per segment, listed-up share + Wilson, median gain,
   day-one close, 5/30-day moves from the tape, lead-anchor subset; `minRows` on screen. Rule 3 applies: rates with
-  intervals, sorted by n — no score, no verdict.
+  intervals, sorted by n — no score, no verdict. Same key: `dealRows` / `deals` = the tape's names (net buyer / net seller
+  per client × stock × day) and the stock's 5- / 20-day move after, frozen once the 20-day move exists — accrues from 22 Sep 2026.
 - `parents` prices sheet parents AND every live quota row's `ticker` into `investors.prices[parent]` (the quota planner).
 - `subscription` never replaces a positive book with an all-zero one (exchanges answer zeros after close). A GMP of "0"
   with no trade behind it is "no quote". `validate.py`'s loss check ignores rows due to retire (listing + 1 day).

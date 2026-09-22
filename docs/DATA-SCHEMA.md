@@ -64,3 +64,7 @@ trackRecords: {asOf, booksOn, withOutcome, investors, minRows, lead, rows[{key, 
   minRows+ anchored IPOs that have a listing outcome (comps.ret), per segment: share listed up with Wilson, median gain, the day-one close,
   5- and 30-trading-day moves from priceHistory where the path exists (own n each), and the same over the IPOs where the investor was one
   of the first `lead` names by allocation. Sorted by n then share up. No score.
+trackRecords.dealRows[{client, key, stock, sme, date, side net buyer|net seller, netCr, d5, d20, done}] and trackRecords.deals[{key, name, n,
+  main{buys{n, d5{}, d20{}, netCr}, sells{}}, sme{}}] — owned by `evidence`: every (client, stock, day) on the listing-deals tape with a net
+  position (round-trips and < 0.5 Cr excluded), the stock's move over the next 5 / 20 trading days from priceHistory; a row is upserted
+  until d20 exists, then frozen (outlives the 60-day tape). `deals` summarises per client key, per segment, per side, with n and Wilson.
