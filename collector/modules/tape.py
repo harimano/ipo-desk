@@ -11,6 +11,9 @@ newest first.
   priceHistory[name] += [date, close]   for every listing of this year with an NSE symbol (board `symbol`, else the
                                         deals module's `investors.listingSymbols` cache), never a date twice.
 
+Runs right after `listings` so `evidence` (later in the same run) sees today's path. Symbols for names off the board
+come from the deals module's cache in prev — a day behind for a brand-new listing, which is fine.
+
 Each run fetches at most FETCH_PER_RUN missing weekdays of the last LOOKBACK_DAYS, newest first, so a fresh install
 backfills over a dozen runs and a steady state costs one call. Today's file is only tried after 18:30 IST (published
 around six); a 404 before that is "not yet", not a holiday. A 404 on a past weekday is remembered as noFile. A 403
