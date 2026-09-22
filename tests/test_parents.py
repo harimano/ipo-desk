@@ -102,7 +102,7 @@ def test_nse_equity_lists_parse_both_header_spellings():
     fx = pathlib.Path(__file__).resolve().parent.parent / "data/fixtures/live-2026-09-17"
     main = nse_symbols.parse((fx / "EQUITY_L.csv").read_text() * 3)      # the fixture keeps 39 rows; the floor is 50
     sme = nse_symbols.parse((fx / "SME_EQUITY_L.csv").read_text() * 3)
-    assert main[0] == {"symbol": "20MICRONS", "name": "20 Microns Limited"} and sme[0]["symbol"] == "VINOD"
+    assert main[0] == {"symbol": "20MICRONS", "name": "20 Microns Limited", "listedOn": "2008-10-06"} and sme[0]["symbol"] == "VINOD"
     for bad in ("", "A,B\n1,2\n", "SYMBOL,NAME OF COMPANY\nX,Y\n"):
         with pytest.raises(SourceChanged):
             nse_symbols.parse(bad)

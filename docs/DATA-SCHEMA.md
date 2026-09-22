@@ -24,6 +24,11 @@ anchors[]: {name, anchor, date, amountCr, issueSizeCr, count, topTierShare, inve
 flows: {latest{date, fiiNetCr, diiNetCr, previousDay, source}, history[[date, fii, dii], ...] (<= 40 rows, append),
         monthly[[label, fiiNetCr, sentence]] (last 3), rotation{fiiSelling[[sector, evidence]], diiBuying[[sector, evidence]]}, note}
 investors: {asOf, watchlist[], portfolios[], moves[], holdings[], bulkDeals[{date, investor, vehicle, stock, side BUY|SELL, qty, price, valueCr, exchange, source}], insiders[], recentListings[], anchorActivity[], notes[]}
+  - `listingDeals[]` (owned by `deals`, 60 days, newest first): every NSE bulk/block deal whose stock listed this year, whoever the client —
+    {date, symbol, stock (the board / listedPerf name), client, side BUY|SELL, qty, price, valueCr, exchange, kind bulk|block, sme,
+    listedOn, daysSinceListing, issuePrice, vsIssuePct}. `sme` on every row: never pooled. Deduped on date+symbol+client+side+qty.
+  - `listingSymbols{name: {symbol|null, triedOn}}` (owned by `deals`): this year's listings' NSE symbols, remembered so NSE's equity
+    lists are fetched only for new names; null = no NSE symbol (BSE-only), retried weekly while the listing is under 90 days old.
 expected[]: {name, window, stage, sizeCr, sizeText, note, parent, sources[]}
 news[]: {title, url, date}
 integrity: {asOf, checks[{area, method, status, note, asOf?, elapsed?, calls?}], discrepancies[]}

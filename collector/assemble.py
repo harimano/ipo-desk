@@ -185,6 +185,8 @@ def enforce_caps(data: dict) -> None:
     inv = data.get("investors") or {}
     cut = _cutoff(c["investors.bulkDeals.days"])
     inv["bulkDeals"] = [d for d in inv.get("bulkDeals", []) if (d.get("date") or "9999") >= cut]
+    cut = _cutoff(c["investors.listingDeals.days"])
+    inv["listingDeals"] = [d for d in inv.get("listingDeals", []) if (d.get("date") or "9999") >= cut]
     cut = _cutoff(c["investors.moves.days"])
     inv["moves"] = [d for d in inv.get("moves", []) if (d.get("disclosedDate") or "9999") >= cut]
     cut = _cutoff(c["priceHistory.days"])

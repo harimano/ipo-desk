@@ -640,6 +640,7 @@ function renderMarket() {
   $$("#portfolios .tgl").forEach(b => b.onclick = () => { const p = b.closest(".p"); p.classList.toggle("open"); b.textContent = p.classList.contains("open") ? "Hide ▴" : "Read the quarter ▾"; });
   // bulk deals + insiders
   $("#bulkDeals").innerHTML = `<thead><tr><th>Date</th><th>Investor</th><th>Stock</th><th>Side</th><th class="r">Qty</th><th class="r">Price</th><th class="r">Value</th></tr></thead><tbody>${deals.slice().sort((x, y) => (y.date || "").localeCompare(x.date || "")).map(d => `<tr><td class="dt" style="white-space:nowrap">${fmtD(d.date)}</td><td class="nm">${esc(d.inv)}<div class="dt">${esc((d.vehicle || "").slice(0, 40))}</div></td><td>${d.source ? `<a href="${esc(d.source)}" target="_blank" rel="noopener">${esc(d.stock)}</a>` : esc(d.stock)}</td><td><span class="pill ${d.side === "BUY" ? "ok" : "now"}">${esc(d.side)}</span></td><td class="r num">${d.qty ? d.qty.toLocaleString("en-IN") : "—"}</td><td class="r num">${d.price ? inr(d.price) : "—"}</td><td class="r num">${d.valueCr ? cr(d.valueCr) : "—"}</td></tr>`).join("") || `<tr><td colspan="7" class="empty">No bulk or block deals by tracked names in the window.</td></tr>`}</tbody>`;
+  renderListingDeals();
   $("#insiders").innerHTML = `<thead><tr><th>Parent</th><th>Who</th><th>Action</th><th class="r">Value</th><th>Note</th></tr></thead><tbody>${(I.insiders || []).slice().sort((x, y) => (y.date || "").localeCompare(x.date || "")).map(x => `<tr><td class="nm">${esc(x.parent)}<div class="dt">${fmtD(x.date)}</div></td><td class="dt">${esc(x.who)}<div>${esc(x.role || "")}</div></td><td><span class="pill ${x.side === "BUY" ? "ok" : x.side === "SELL" || x.side === "OFS" ? "now" : "soon"}">${esc(x.side)}</span></td><td class="r num" style="white-space:nowrap">${x.valueCr ? cr(x.valueCr) : "—"}</td><td class="dt" title="${esc(x.note || "")}">${esc((x.note || "").replace(/^OUTSIDE 60-day window \(context only\)\.\s*/i, "").slice(0, 150))}${(x.note || "").length > 150 ? "…" : ""}${/OUTSIDE 60-day/i.test(x.note || "") ? ` <span class="pill plan" style="height:17px;font-size:10.5px">context</span>` : ""}${x.source ? ` <a href="${esc(x.source)}" target="_blank" rel="noopener">↗</a>` : ""}</td></tr>`).join("") || `<tr><td colspan="5" class="empty">No insider or promoter actions found in the quota parents.</td></tr>`}</tbody>`;
   // overlap + sector tilt
   const HD = (I.holdings || []).map(h => ({ ...h, inv: invOf(h.investor) })).filter(h => WL.includes(h.inv));
@@ -780,6 +781,7 @@ document.addEventListener("keydown", e => {
 /* @include hold.js */
 /* @include quota.js */
 /* @include players.js */
+/* @include deals.js */
 /* @include research.js */
 /* @include scoreboard.js */
 function renderAll() { renderTape(); renderToday(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); }

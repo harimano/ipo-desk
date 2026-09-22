@@ -80,6 +80,11 @@ document as assembled so far; `prev` is yesterday's.
   `hold` (day-1 close vs the open, by how it opened); `warnings[]`, rendered on the page. The fit excludes GMP = 0.
 - `players`: the 40 largest anchors by money + 30 by count, each one's latest five, turned round into `books{igId}` for
   unlisted issues. Enough for "who is in today's books"; NOT enough for a track record, so none is shown.
+- `deals`: NSE's daily bulk + block files, two cuts — tracked names (`investors.bulkDeals`, 45 days; ~2 hits a month) and
+  EVERY deal in one of this year's listings (`investors.listingDeals`, 60 days, `sme` on each row). Symbols come from board
+  rows, else NSE's equity lists via `names.Matcher`, cached in `investors.listingSymbols`; a fuzzy hit listed before this
+  year is rejected. BSE-only SME listings never resolve — the note says how many. Most rows are prop desks round-tripping
+  on day one; the page's net-by-stock bar is what makes that visible.
 - `parents` prices sheet parents AND every live quota row's `ticker` into `investors.prices[parent]` (the quota planner).
 - `subscription` never replaces a positive book with an all-zero one (exchanges answer zeros after close). A GMP of "0"
   with no trade behind it is "no quote". `validate.py`'s loss check ignores rows due to retire (listing + 1 day).
@@ -93,7 +98,7 @@ document as assembled so far; `prev` is yesterday's.
 `app.js` is the db-era monolith (closure `window.__ipoInit`; nothing inside is a global — inspect charts with
 `Chart.getChart(id)`). New screens go in their own file, pulled in by `/* @include name.js */`:
 `research.js` (fetched sheet, "issues like this one") · `players.js` (Smart money on the board) · `quota.js` (quota
-planner, Pipeline tab) · `hold.js` (hold-or-sell meter: Today, Board row, Scoreboard) · `scoreboard.js` (Open calls, GMP
+planner, Pipeline tab) · `hold.js` (hold-or-sell meter: Today, Board row, Scoreboard) · `deals.js` (Market > Superinvestors: deals in this year's listings — table with segment / side filters, net by stock, repeat clients; counts only) · `scoreboard.js` (Open calls, GMP
 calibration with the collector's fit, hit-rate by month, band explorer). Shared evidence helpers in `app.js`: `EVD`, `SEG`,
 `EDG`, `bandOf`, `edgeLbl`, `evBand`, `evCls` (coloured by the INTERVAL), `evOf(b, seg, cat)` — `cat` = retail / shareholder /
 employee; the reserved-category EV beside the retail one is Hari's real edge. Chart.js needs explicit `type:"linear"` scales

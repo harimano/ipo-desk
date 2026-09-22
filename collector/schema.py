@@ -42,7 +42,7 @@ ROW_PATCHERS: dict[str, set[str]] = {
 # Modules that shallow-merge INTO a dict another layer owns.
 MERGE_PATCHERS: dict[str, set[str]] = {
     "parents": {"sheets", "investors"},     # sheets: only parentPrice; investors: only `prices`
-    "deals": {"investors"},    # only bulkDeals
+    "deals": {"investors"},    # only bulkDeals, listingDeals, listingSymbols
 }
 
 # Row keys are stable identifiers the site's localStorage (stars, applications) depends on.
@@ -52,6 +52,7 @@ ROW_KEY = "name"
 CAPS = {
     "meta.newFindings": 10,
     "investors.bulkDeals.days": 45,
+    "investors.listingDeals.days": 60,
     "investors.moves.days": 90,
     "priceHistory.days": 90,
     "flows.history.rows": 40,
@@ -76,6 +77,7 @@ def empty_data() -> dict:
     d["offers"] = {"asOf": None, "rights": [], "buybacks": [], "ofs": [], "ncd": []}
     d["flows"] = {"latest": None, "history": [], "monthly": [], "rotation": {"fiiSelling": [], "diiBuying": []}, "note": None}
     d["investors"] = {"asOf": None, "watchlist": [], "portfolios": [], "moves": [], "holdings": [],
-                      "bulkDeals": [], "insiders": [], "recentListings": [], "anchorActivity": [], "notes": []}
+                      "bulkDeals": [], "listingDeals": [], "listingSymbols": {}, "insiders": [], "recentListings": [],
+                      "anchorActivity": [], "notes": []}
     d["integrity"] = {"asOf": None, "checks": [], "discrepancies": []}
     return d

@@ -431,7 +431,12 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
       <div class="acards" id="anchorCards"></div>
       </div>
 
-    <div class="sec"><div class="sec-h"><h2>Superinvestors</h2><span id="invOld"></span><span class="sub">what tracked big-money names did in the market — from the exchanges' deal files</span><span class="right legend"><span><i style="background:var(--up)"></i>fresh / add</span><span><i style="background:var(--down)"></i>exit / trim</span><span><i style="background:var(--lav)"></i>other</span></span></div>
+    <div class="sec"><div class="sec-h"><h2>Superinvestors</h2><span id="invOld"></span><span class="sub">who is trading this year's listings, and what tracked big-money names did — from the exchanges' deal files</span><span class="right legend"><span><i style="background:var(--up)"></i>fresh / add</span><span><i style="background:var(--down)"></i>exit / trim</span><span><i style="background:var(--lav)"></i>other</span></span></div>
+      <div class="card" style="margin-bottom:14px"><div class="ch">Deals in this year's listings <span class="sub" id="ldSub">every bulk and block deal on NSE in a stock that listed this year · last 60 days</span><span class="right filters" id="ldFilters"><button data-ld-sc="all" aria-pressed="true">All</button><button data-ld-sc="main" aria-pressed="false">Mainboard</button><button data-ld-sc="sme" aria-pressed="false">SME</button><button data-ld-side="all" aria-pressed="true">Both</button><button data-ld-side="BUY" aria-pressed="false">Buys</button><button data-ld-side="SELL" aria-pressed="false">Sells</button></span></div><div class="tw"><table id="ldTable"></table></div><div class="dt" id="ldNote" style="padding:8px 14px 10px"></div></div>
+      <div class="grid g2" style="margin-bottom:14px">
+        <div class="card"><div class="ch">Net by stock <span class="sub">bought minus sold · last 30 days</span></div><div class="cb hbars stack" id="ldNet"></div></div>
+        <div class="card"><div class="ch">Repeat clients <span class="sub">names in two or more deals · counts, not a track record</span></div><div class="tw"><table id="ldClients"></table></div></div>
+      </div>
       <div class="grid g2">
         <div class="card"><div class="ch">Bulk &amp; block deals <span class="sub" id="bulkSub">tracked names · last 45 days</span></div><div class="tw"><table id="bulkDeals"></table></div></div>
         <div class="card"><div class="ch">Tracked names</div><div class="cb"><div class="wl" id="watchlist"></div><div class="dt" style="margin-top:8px">The exchanges' bulk and block deal files are matched against these names every run. Add or remove names here; the list stays in this browser.</div></div></div>
