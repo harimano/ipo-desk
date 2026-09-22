@@ -68,3 +68,5 @@ trackRecords.dealRows[{client, key, stock, sme, date, side net buyer|net seller,
   main{buys{n, d5{}, d20{}, netCr}, sells{}}, sme{}}] — owned by `evidence`: every (client, stock, day) on the listing-deals tape with a net
   position (round-trips and < 0.5 Cr excluded), the stock's move over the next 5 / 20 trading days from priceHistory; a row is upserted
   until d20 exists, then frozen (outlives the 60-day tape). `deals` summarises per client key, per segment, per side, with n and Wilson.
+trackRecords.bookMoves{igId: {d5, d30}} — each anchored IPO's move from the listing-day close over 5 / 30 trading days, written the first
+  run the path is long enough and kept from prev after (the 90-day price cap trims priceHistory; this does not move).

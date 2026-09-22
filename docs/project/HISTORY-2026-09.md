@@ -241,3 +241,28 @@ Alerts (`collector/notify.py` has Telegram/ntfy senders from oriz-ipo, unwired):
 rules in the old SKILL doc — record date within 30 days, IPO opens/closes tomorrow, quota stage
 change — at the end of a run and send. Then a login (Cloudflare Access), then in-page AI via a
 Worker holding the API key.
+
+## 22 Sep 2026 — the edge: trackers that accrue, and investor track records
+
+Hari: "this whole section is useless … I need to be able to track something", then "I need a real edge". In one day:
+
+- **Deals in this year's listings** (`deals` module second cut, `investors.listingDeals`; page `deals.js`): every NSE bulk/block
+  deal whose stock listed this year, as one tracker card per stock (price path with deal-day dots and lock-in lines, round-trip /
+  net buyer / net seller counts per client×stock, sold│bought bar), Money that stayed, Repeat clients. 90 of 220 listings are
+  BSE-only and cannot appear; the note says so. Lesson: the flat 80-row table was unreadable; group by stock, fold the rows.
+- **Anchors on the board** replaced the ranked-by-lifetime-money bars (which said nothing about the issue in front of you).
+  **Your names** matches followed investors against anchor books, anchor letters, both deal files. `+` beside any name follows it.
+- **Tape** module: one NSE bhavcopy a day → a close a day for every listing of this year (132 names), backfilling 6 files a run,
+  270 days; 14 Sep 2026 is a genuine no-file day. `evidence.lockins` freezes the 5-day move after each 30-day anchor unlock.
+- **Anchor lock-ins** card (30/90-day expiries, free-to-sell crore, sales on the tape since), and the Today queue carries
+  lock-ins, the day's deals and followed names for held/starred listings only.
+- **Investor track records**: `anchorbook` collects every IPO's anchor allocation table from InvestorGain's record (structured
+  HTML table; some records carry only the first two names → `complete:false`), 40 a run back to 2022, into the lazy `books.json`
+  part (boot does not fetch it; `records.js` fetches on demand). `evidence.trackRecords`: per investor, per segment, listed-up
+  share + Wilson, median pop, day-one close, 5/30-day moves (frozen in `bookMoves`), lead-anchor subset. "Today's books read
+  against the record" and a Today card when a 5+/70%+ anchor is in an unlisted book. Deal names get `dealRows`/`deals` (5/20-day
+  moves after a net position; fills from ~29 Sep).
+- Validator: a retired row's Research record leaves with it (four listings retiring together had blocked every full run for two
+  days — the board froze with issues "Open" a day after they closed).
+- Surveyed and rejected: NSE's deal-history API (70 rows a call, first day only); NSE anchor letters (zip/PDF, rule 1);
+  a sparkline before the tape had points. `names.Matcher` fuzzy hits must NOT go into aliases.json (would rename board rows).
