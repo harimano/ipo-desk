@@ -1,18 +1,33 @@
-/* ================= PLAYERS — which of the largest anchor investors are in today's books =================
-   Included into app.js (`@include players.js`); shares esc, cr, fmtD, anchorFor, inr0. `players` is written by
-   collector/modules/players.py: the N largest anchors' latest five IPOs, turned round into books for unlisted issues.
-   Coverage is always stated ("18 of the 53 largest"): a book with no names is not an empty book, it is one the big
-   funds are not in — which is itself worth knowing the evening before an issue opens. No track record: the feed does
-   not give enough history for one, so none is shown. */
+/* ================= ANCHORS ON THE BOARD — one line per current issue =================
+   Included into app.js (`@include players.js`); shares $, esc, cr, fmtD, days, anchorFor, SEG, EDG, bandOf, edgeLbl, evShort,
+   follows. `players` is written by collector/modules/players.py: the N largest anchors' latest five IPOs, turned round
+   into books for unlisted issues, and `frozen{igId}` — each issue's line-up the day it listed. `evidence.segments[x].anchors`
+   bands those frozen line-ups against the listing outcome (n + Wilson; accruing since Sep 2026, thin and said so).
+   No per-investor track record: the feed does not give enough history for one, so none is shown. */
+function anchorEvidence(b, large) {
+  const seg = SEG(!!b.sme), A = seg && seg.anchors; if (!A || !A.n || large == null) return "";     // nothing frozen yet: the note says so once
+  const ed = EDG("anchors"), i = bandOf(large, ed); if (i < 0) return "";
+  const s = A.rows[i], lbl = edgeLbl(ed, i, "");
+  return `<span class="dt" title="${b.sme ? "SME" : "Mainboard"} listings since ${fmtD(A.since)} whose line-up was frozen the day they listed: ${A.n} on file">past ${b.sme ? "SME" : "mainboard"} books with ${esc(lbl)} large anchors: ${evShort(s)}</span>`;
+}
 function playerCards(curIss) {
-  const P = DATA.players || {}, B = P.books || {}; if (!P.tracked) return { html: "", named: new Set() };
-  const named = new Set(), rows = curIss.filter(b => b.igId != null && B[String(b.igId)]);
-  const html = rows.map(b => { named.add(b.name); const L = B[String(b.igId)], A1 = anchorFor(b.name), mx = Math.max(1, ...L.map(x => x.investedCr || 0));
-    return `<div class="card acard pcard" style="display:block;grid-column:1/-1" data-row data-name="${esc(b.name)}"><div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><div class="nm">${esc(b.name)}</div><span class="pill ${b.status.toLowerCase()}">${b.status}</span>
-      <span class="dt">${A1 && A1.amountCr ? `anchor book ${cr(A1.amountCr)}${A1.issueSizeCr ? " · " + Math.round(A1.amountCr / A1.issueSizeCr * 100) + "% of the issue" : ""}${A1.lockIn30 ? " · lock-in ends " + fmtD(A1.lockIn30) + " / " + fmtD(A1.lockIn90) : ""}` : ""}</span></div>
-      <div class="dt" style="margin:6px 0 8px"><b style="color:var(--ink)">${L.length} of the ${P.tracked} largest anchor investors</b> are in this book · bar = what each has put into IPO anchor books over time</div>
-      <div class="hbars pgrid">${L.slice(0, 12).map(x => `<div class="hb"><div class="n" title="${esc(x.name)}">${esc(x.name)}<small>${x.ipos} IPOs · average cheque ${x.ticketCr != null ? cr(x.ticketCr) : "—"}</small></div><div class="bar"><i class="lav grow" style="left:0;width:${Math.max(2, (x.investedCr || 0) / mx * 100).toFixed(1)}%"></i></div><div class="v num">${x.investedCr != null ? cr(x.investedCr) : "—"}</div></div>`).join("")}</div>
-      ${L.length > 12 ? `<div class="dt" style="margin-top:6px">and ${L.length - 12} more: ${L.slice(12).map(x => esc(x.name)).join(" · ")}</div>` : ""}</div>`; }).join("");
+  const P = DATA.players || {}, B = P.books || {}, covered = new Set(P.covered || []);
+  const named = new Set(), rows = curIss.slice().sort((x, y) => (x.open || "").localeCompare(y.open || ""));
+  const html = rows.map(b => {
+    // `covered` names the issues looked up (from 22 Sep 2026); an older document looked up every unlisted issue
+    const id = b.igId != null ? String(b.igId) : null, L = id && B[id] ? B[id] : null, looked = !!L || (id && (P.covered ? covered.has(id) : true));
+    if (L) named.add(b.name);
+    const A1 = anchorFor(b.name), size = A1 && A1.amountCr ? `${cr(A1.amountCr)}${A1.issueSizeCr ? ` · ${Math.round(A1.amountCr / A1.issueSizeCr * 100)}% of the issue` : ""}` : "";
+    const lock = A1 && A1.lockIn30 ? `lock-in ends ${fmtD(A1.lockIn30)} / ${fmtD(A1.lockIn90)}` : "";
+    const mine = L ? L.filter(x => follows(x.name)) : [];
+    // an Upcoming issue's anchor book is allotted the day before it opens: until then there is no book to be in
+    const notYet = !L && b.status === "Upcoming" && !(A1 && A1.amountCr) && !(A1 && A1.date && days(A1.date) < 0);
+    const large = L ? L.length : looked && !notYet ? 0 : null;
+    const who = L ? `<details class="who"><summary>${L.length} of the ${P.tracked} largest anchors are in · who</summary><div class="chips" style="margin-top:6px">${L.map(x => `<span class="${follows(x.name) ? "ok" : ""}">${esc(x.name)}<small class="dim"> ${x.ipos} IPOs</small><button class="fbtn" data-follow="${esc(x.name)}" title="${follows(x.name) ? "Following" : "Follow this name"}">${follows(x.name) ? "✓" : "+"}</button></span>`).join("")}</div></details>`
+      : notYet ? `<span class="dt">anchor book not published yet${A1 && A1.date ? ` · bid ${days(A1.date) === 0 ? "today" : fmtD(A1.date)}` : ""}</span>`
+      : looked ? `<span class="dt">none of the ${P.tracked} largest anchors in this book</span>` : `<span class="dt">line-up not read yet</span>`;
+    return `<div class="arow" data-row data-name="${esc(b.name)}"><div class="an"><b>${esc(b.name)}</b> <span class="pill ${b.status.toLowerCase()}">${esc(b.status)}</span>${b.sme ? ` <span class="pill plan" style="height:17px;font-size:10.5px">SME</span>` : ""}<div class="dt">${[size, lock].filter(Boolean).join(" · ") || (notYet ? "" : "no anchor book on file")}</div></div>
+      <div class="aw">${who}${mine.length ? `<div class="dt" style="color:var(--up)">your names: ${mine.map(x => esc(x.name)).join(" · ")}</div>` : ""}${anchorEvidence(b, large)}</div></div>`; }).join("");
   return { html, named };
 }
-const playersNote = () => { const P = DATA.players || {}; return P.tracked ? `Names come from the ${P.tracked} largest of ${(P.of || 0).toLocaleString("en-IN")} anchor investors on file (their latest ${P.latestPerInvestor || 5} IPOs each), read ${fmtD(P.asOf)}. A book with no name here is one the biggest funds are not in — small SME books are usually taken by local funds.` : ""; };
+const playersNote = () => { const P = DATA.players || {}, A = (SEG(false) || {}).anchors; return P.tracked ? `Names come from the ${P.tracked} largest of ${(P.of || 0).toLocaleString("en-IN")} anchor investors on file (their latest ${P.latestPerInvestor} IPOs each; ${P.asOf ? "read " + fmtD(P.asOf) : ""}). A book with none of them is a book the big funds skipped. Each line-up is frozen the day the issue lists${A && A.n ? `; ${A.n} mainboard line-ups on file since ${fmtD(A.since)}` : "; the record starts now, so the past-books line reads thin for a while"}.` : "Anchor names are not on file yet."; };

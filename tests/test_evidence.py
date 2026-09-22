@@ -128,3 +128,17 @@ def test_hold_or_sell_is_banded_by_how_the_stock_opened():
     seg = run(doc()).replace["evidence"]["segments"]["main"]
     assert len(seg["hold"]["window"]) == 4 and sum(x["n"] for x in seg["hold"]["all"]) > 0
     assert run(doc()).replace["evidence"]["edges"]["open"] == [None, 0, 10, 30, None]
+
+
+def test_anchor_line_ups_are_banded_from_the_frozen_record_only():
+    d = doc()
+    res = run(d)
+    a = res.replace["evidence"]["segments"]["main"]["anchors"]
+    assert a["n"] == 0 and a["since"] is None and all(b["n"] == 0 for b in a["rows"]), "nothing frozen: every band empty, none hidden"
+    ids = [c["igId"] for c in d["comps"] if c.get("ret") is not None and not next(p for p in d["listedPerf"] if p["igId"] == c["igId"]).get("sme")][:5]
+    d["players"] = {"frozen": {str(i): {"large": k, "listedOn": "2026-09-20"} for k, i in enumerate(ids)}}
+    a = run(d).replace["evidence"]["segments"]["main"]["anchors"]
+    assert a["n"] == 5 and [b["n"] for b in a["rows"]] == [1, 2, 2, 0], "bands: none · 1–2 · 3–5 · 6+"
+    assert all(b["lo"] is not None and b["hi"] is not None for b in a["rows"] if b["n"]), "a thin band carries its interval"
+    assert res.replace["evidence"]["edges"]["anchors"] == [0, 1, 3, 6, None]
+    assert run(d).replace["evidence"]["segments"]["sme"]["anchors"]["n"] == 0, "never pooled"

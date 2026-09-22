@@ -82,3 +82,32 @@ def test_nothing_unlisted_means_nothing_fetched():
     s = S()
     res = players.run(s, {}, Result(module="players", doc={"mainboard": [{"name": "Old Co", "igId": "1", "status": "Listed"}], "sme": []}), today=TODAY)
     assert res.ok and s.calls == [] and res.replace == {}
+
+
+def test_a_line_up_is_frozen_the_day_its_issue_lists_and_never_rewritten():
+    s = S()
+    res = run(s)
+    p = res.replace["players"]
+    assert p["frozen"] == {} and p["covered"] == ["2305"], "nothing has listed yet; NSE was looked up"
+    prev = {"players": p}
+    # next run: NSE has listed (still on the board a day), a second unlisted issue appears
+    d = {"mainboard": [{"name": NSE, "igId": "2305", "status": "Listed", "listing": "2026-09-24"},
+                       {"name": "New Co", "igId": "2400", "status": "Open"}], "sme": [], "listedPerf": []}
+    res2 = players.run(S(), prev, Result(module="players", doc=d), today=dt.date(2026, 9, 24))
+    f = res2.replace["players"]["frozen"]
+    assert set(f) == {"2305"} and f["2305"]["listedOn"] == "2026-09-24" and f["2305"]["large"] == p["tracked"] and f["2305"]["sme"] is False
+    assert f["2305"]["names"][0] == p["books"]["2305"][0]["name"] and f["2305"]["of"] == p["tracked"]
+    assert res2.replace["players"]["covered"] == ["2400"]
+    # an issue that was looked up and had NO book freezes as a real zero once it lists; a frozen entry is never touched
+    prev2 = {"players": {**res2.replace["players"], "books": {}, "names": {}}}
+    d2 = {"mainboard": [], "sme": [{"name": "New Co", "igId": "2400", "status": "Listed", "listing": "2026-09-30"}],
+          "listedPerf": [{"name": NSE, "igId": "2305", "date": "2026-09-24", "sme": False}]}
+    res3 = players.run(S(), prev2, Result(module="players", doc=d2), today=dt.date(2026, 9, 30))
+    f3 = res3.replace["players"]["frozen"]
+    assert res3.ok and f3["2305"] == f["2305"] and f3["2400"] == {"name": "New Co", "sme": True, "listedOn": "2026-09-30", "large": 0,
+                                                                    "of": p["tracked"], "names": [], "frozenOn": "2026-09-30"}
+    assert res3.replace["players"]["covered"] == [], "nothing unlisted, yet the freeze still landed"
+    # a withdrawn issue (off the board, never in listedPerf) is not frozen
+    d3 = {"mainboard": [], "sme": [], "listedPerf": []}
+    prev3 = {"players": {**p, "covered": ["2305", "9999"], "books": {}}}
+    assert "9999" not in players.freeze(prev3["players"], d3, dt.date(2026, 10, 1))

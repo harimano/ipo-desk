@@ -284,6 +284,13 @@ details.more { margin-top:12px; } details.more summary { cursor:pointer; font-si
 .acard .cat i { display:block; height:100%; }
 .acard .who { margin-top:8px; display:flex; flex-wrap:wrap; gap:4px; } .acard .who span { font-size:11px; padding:1px 7px; border-radius:9px; background:var(--surface-2); color:var(--ink-2); } .acard .who span.tt { background:var(--up-soft); color:var(--up); } .acard .who span.tk { background:var(--lav-soft); color:var(--lav); font-weight:700; }
 .acard.pend { border-style:dashed; } .acard.pend .ring { --rc:var(--ink-3); }
+.arow { display:grid; grid-template-columns:minmax(220px, 34%) 1fr; gap:6px 16px; padding:10px 0; border-bottom:1px solid var(--line); align-items:start; } .arow:last-child { border-bottom:0; }
+.arow .an b { font-size:13.5px; } .arow .dt { font-size:11.5px; color:var(--ink-3); } .arow .aw { display:flex; flex-direction:column; gap:3px; font-size:12.5px; }
+.arow details.who summary { cursor:pointer; font-weight:700; color:var(--ink-2); list-style:none; } .arow details.who summary::-webkit-details-marker { display:none; } .arow details.who summary::after { content:" ▾"; color:var(--ink-3); } .arow details.who[open] summary::after { content:" ▴"; }
+.fbtn { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:9px; font-size:12px; font-weight:800; color:var(--accent); background:var(--surface-2); margin-left:2px; cursor:pointer; } .fbtn:hover { background:var(--accent); color:var(--accent-ink); }
+.ynames { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:10px; } .yn { padding:10px 12px; border:1px solid var(--line); border-radius:var(--r-sm); font-size:12.5px; display:flex; flex-direction:column; gap:4px; } .yn.quiet { border-style:dashed; }
+.yn .ynh { display:flex; align-items:center; gap:6px; } .yn .ynh b { font-size:13px; flex:1; } .yn b { font-weight:700; }
+@media (max-width:640px) { .arow { grid-template-columns:1fr; gap:4px; } }
 .c-mf { background:var(--up); } .c-ins { background:var(--mint); } .c-sov { background:var(--accent); } .c-fpi { background:var(--lav); } .c-aif { background:var(--amber); } .c-oth { background:var(--line-2); }
 .wl { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
 .wl .chip-i { display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 6px 0 10px; border-radius:14px; background:var(--lav-soft); color:var(--lav); font-size:12px; font-weight:700; }
@@ -426,21 +433,19 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
         <details class="more" id="flowNoteWrap"><summary>Source note</summary><div class="dim" id="flowNote" style="font-size:12px"></div></details></div></div>
     </div>
 
-    <div class="sec"><div class="sec-h"><h2>Smart money on the board</h2><span class="sub">which of the largest anchor investors are in each book — published the evening before an issue opens, before the first bid</span></div>
+    <div class="sec"><div class="sec-h"><h2>Anchors on the board</h2><span class="sub">one line per current issue: the anchor book, how many of the largest anchors are in, and what past books like it did at listing</span></div>
       <div class="dt" id="playersNote" style="margin:-4px 0 10px"></div>
-      <div class="acards" id="anchorCards"></div>
+      <div class="card" style="padding:4px 16px" id="anchorCards"></div>
       </div>
 
     <div class="sec"><div class="sec-h"><h2>Superinvestors</h2><span id="invOld"></span><span class="sub">who is trading this year's listings, and what tracked big-money names did — from the exchanges' deal files</span><span class="right legend"><span><i style="background:var(--up)"></i>fresh / add</span><span><i style="background:var(--down)"></i>exit / trim</span><span><i style="background:var(--lav)"></i>other</span></span></div>
+      <div class="card" style="margin-bottom:14px"><div class="ch">Your names <span class="sub">the investors you follow, wherever the collector sees them today — anchor books, anchor letters, deal files</span></div><div class="cb"><div class="wl" id="watchlist"></div><div class="ynames" id="yourNames" style="margin-top:12px"></div><div class="dt" style="margin-top:10px">Press + beside any anchor or client on this tab to follow it. Names stay in this browser; the sweep's own list is marked.</div></div></div>
       <div class="card" style="margin-bottom:14px"><div class="ch">Deals in this year's listings <span class="sub" id="ldSub">every bulk and block deal on NSE in a stock that listed this year · last 60 days</span><span class="right filters" id="ldFilters"><button data-ld-sc="all" aria-pressed="true">All</button><button data-ld-sc="main" aria-pressed="false">Mainboard</button><button data-ld-sc="sme" aria-pressed="false">SME</button><button data-ld-side="all" aria-pressed="true">Both</button><button data-ld-side="BUY" aria-pressed="false">Buys</button><button data-ld-side="SELL" aria-pressed="false">Sells</button></span></div><div class="tw"><table id="ldTable"></table></div><div class="dt" id="ldNote" style="padding:8px 14px 10px"></div></div>
       <div class="grid g2" style="margin-bottom:14px">
         <div class="card"><div class="ch">Net by stock <span class="sub">bought minus sold · last 30 days</span></div><div class="cb hbars stack" id="ldNet"></div></div>
         <div class="card"><div class="ch">Repeat clients <span class="sub">names in two or more deals · counts, not a track record</span></div><div class="tw"><table id="ldClients"></table></div></div>
       </div>
-      <div class="grid g2">
-        <div class="card"><div class="ch">Bulk &amp; block deals <span class="sub" id="bulkSub">tracked names · last 45 days</span></div><div class="tw"><table id="bulkDeals"></table></div></div>
-        <div class="card"><div class="ch">Tracked names</div><div class="cb"><div class="wl" id="watchlist"></div><div class="dt" style="margin-top:8px">The exchanges' bulk and block deal files are matched against these names every run. Add or remove names here; the list stays in this browser.</div></div></div>
-      </div>
+      <div class="card"><div class="ch">Bulk &amp; block deals by your names <span class="sub" id="bulkSub">any stock · last 45 days · the exchanges' files are matched against the names above every run</span></div><div class="tw"><table id="bulkDeals"></table></div></div>
       <details class="more" style="margin-top:14px"><summary>Portfolio snapshot <span id="invSnap"></span> — a hand-made survey, not refreshed by the collector</summary>
       <div class="pf" id="portfolios" style="margin-top:12px"></div>
       <div class="grid g2" style="margin-top:16px">

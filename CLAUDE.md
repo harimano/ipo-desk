@@ -79,7 +79,9 @@ document as assembled so far; `prev` is yesterday's.
   segment both fits are published side by side, never switched silently; EV per retail application by retail-book band;
   `hold` (day-1 close vs the open, by how it opened); `warnings[]`, rendered on the page. The fit excludes GMP = 0.
 - `players`: the 40 largest anchors by money + 30 by count, each one's latest five, turned round into `books{igId}` for
-  unlisted issues. Enough for "who is in today's books"; NOT enough for a track record, so none is shown.
+  unlisted issues. Enough for "who is in today's books"; NOT enough for a per-investor track record, so none is shown.
+  `frozen{igId}` = each issue's line-up the day it lists (never rewritten; `covered[]` makes "no book" a real zero);
+  `evidence.segments[x].anchors` bands those against the outcome — accruing since 22 Sep 2026, thin and said so.
 - `deals`: NSE's daily bulk + block files, two cuts — tracked names (`investors.bulkDeals`, 45 days; ~2 hits a month) and
   EVERY deal in one of this year's listings (`investors.listingDeals`, 60 days, `sme` on each row). Symbols come from board
   rows, else NSE's equity lists via `names.Matcher`, cached in `investors.listingSymbols`; a fuzzy hit listed before this
@@ -97,8 +99,9 @@ document as assembled so far; `prev` is yesterday's.
 
 `app.js` is the db-era monolith (closure `window.__ipoInit`; nothing inside is a global — inspect charts with
 `Chart.getChart(id)`). New screens go in their own file, pulled in by `/* @include name.js */`:
-`research.js` (fetched sheet, "issues like this one") · `players.js` (Smart money on the board) · `quota.js` (quota
-planner, Pipeline tab) · `hold.js` (hold-or-sell meter: Today, Board row, Scoreboard) · `deals.js` (Market > Superinvestors: deals in this year's listings — table with segment / side filters, net by stock, repeat clients; counts only) · `scoreboard.js` (Open calls, GMP
+`research.js` (fetched sheet, "issues like this one") · `players.js` (Anchors on the board: one line per current issue, line-up behind a `who` expander, past-books line from the anchors band) · `quota.js` (quota
+planner, Pipeline tab) · `hold.js` (hold-or-sell meter: Today, Board row, Scoreboard) · `deals.js` (Market > Superinvestors: deals in this year's listings — table with segment / side filters, net by stock, repeat clients; counts only) ·
+`names.js` (Your names: the followed investors matched by normalised substring against anchor books, anchor letters and both deal files; `follows()`, `+` buttons via `[data-follow]`) · `scoreboard.js` (Open calls, GMP
 calibration with the collector's fit, hit-rate by month, band explorer). Shared evidence helpers in `app.js`: `EVD`, `SEG`,
 `EDG`, `bandOf`, `edgeLbl`, `evBand`, `evCls` (coloured by the INTERVAL), `evOf(b, seg, cat)` — `cat` = retail / shareholder /
 employee; the reserved-category EV beside the retail one is Hari's real edge. Chart.js needs explicit `type:"linear"` scales

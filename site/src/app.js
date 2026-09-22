@@ -610,8 +610,7 @@ function renderMarket() {
   const curIss = allIssues().filter(b => b.status === "Open" || b.status === "Upcoming" || (b.status === "Closed" && days(b.listing) >= 0));
   const WL = watchNames();
   const PL = playerCards(curIss); { const pn = $("#playersNote"); if (pn) pn.textContent = playersNote(); }
-  const pending = curIss.filter(b => !PL.named.has(b.name));
-  $("#anchorCards").innerHTML = (PL.html + (pending.length ? `<div class="card acard pend" style="grid-column:1/-1;display:block"><div class="lbl" style="margin-bottom:6px">None of the largest anchors seen in these books · size and lock-in dates</div><div class="chips" style="margin-top:0">${pending.map(b => { const A1 = anchorFor(b.name), f = A1 ? [A1.amountCr ? cr(A1.amountCr) : null, A1.amountCr && A1.issueSizeCr ? Math.round(A1.amountCr / A1.issueSizeCr * 100) + "% of issue" : null, A1.lockIn30 ? "lock-in ends " + fmtD(A1.lockIn30) + " / " + fmtD(A1.lockIn90) : null].filter(Boolean).join(" · ") : ""; return `<span class="chip-i" data-row data-name="${esc(b.name)}"><b>${esc(b.name)}</b>${f ? " " + f : " · no anchor book on file"}</span>`; }).join("")}</div></div>` : "")) || `<div class="empty">No current issues.</div>`;
+  $("#anchorCards").innerHTML = PL.html || `<div class="empty">No current issues.</div>`;
   // ===== superinvestors ===== (bulk deals are live; the rest is the retired sweep's snapshot and sits in a closed archive)
   { const sn = $("#invSnap"); if (sn) sn.textContent = (DATA.investors || {}).asOf ? "of " + fmtDY(DATA.investors.asOf) : ""; }
   const I = DATA.investors || {}, worthOf = s => { const m = /([\d,.]+)\s*(Cr|crore)/i.exec(s || ""); return m ? parseFloat(m[1].replace(/,/g, "")) : null; };
@@ -640,7 +639,7 @@ function renderMarket() {
   $$("#portfolios .tgl").forEach(b => b.onclick = () => { const p = b.closest(".p"); p.classList.toggle("open"); b.textContent = p.classList.contains("open") ? "Hide ▴" : "Read the quarter ▾"; });
   // bulk deals + insiders
   $("#bulkDeals").innerHTML = `<thead><tr><th>Date</th><th>Investor</th><th>Stock</th><th>Side</th><th class="r">Qty</th><th class="r">Price</th><th class="r">Value</th></tr></thead><tbody>${deals.slice().sort((x, y) => (y.date || "").localeCompare(x.date || "")).map(d => `<tr><td class="dt" style="white-space:nowrap">${fmtD(d.date)}</td><td class="nm">${esc(d.inv)}<div class="dt">${esc((d.vehicle || "").slice(0, 40))}</div></td><td>${d.source ? `<a href="${esc(d.source)}" target="_blank" rel="noopener">${esc(d.stock)}</a>` : esc(d.stock)}</td><td><span class="pill ${d.side === "BUY" ? "ok" : "now"}">${esc(d.side)}</span></td><td class="r num">${d.qty ? d.qty.toLocaleString("en-IN") : "—"}</td><td class="r num">${d.price ? inr(d.price) : "—"}</td><td class="r num">${d.valueCr ? cr(d.valueCr) : "—"}</td></tr>`).join("") || `<tr><td colspan="7" class="empty">No bulk or block deals by tracked names in the window.</td></tr>`}</tbody>`;
-  renderListingDeals();
+  renderListingDeals(); renderYourNames();
   $("#insiders").innerHTML = `<thead><tr><th>Parent</th><th>Who</th><th>Action</th><th class="r">Value</th><th>Note</th></tr></thead><tbody>${(I.insiders || []).slice().sort((x, y) => (y.date || "").localeCompare(x.date || "")).map(x => `<tr><td class="nm">${esc(x.parent)}<div class="dt">${fmtD(x.date)}</div></td><td class="dt">${esc(x.who)}<div>${esc(x.role || "")}</div></td><td><span class="pill ${x.side === "BUY" ? "ok" : x.side === "SELL" || x.side === "OFS" ? "now" : "soon"}">${esc(x.side)}</span></td><td class="r num" style="white-space:nowrap">${x.valueCr ? cr(x.valueCr) : "—"}</td><td class="dt" title="${esc(x.note || "")}">${esc((x.note || "").replace(/^OUTSIDE 60-day window \(context only\)\.\s*/i, "").slice(0, 150))}${(x.note || "").length > 150 ? "…" : ""}${/OUTSIDE 60-day/i.test(x.note || "") ? ` <span class="pill plan" style="height:17px;font-size:10.5px">context</span>` : ""}${x.source ? ` <a href="${esc(x.source)}" target="_blank" rel="noopener">↗</a>` : ""}</td></tr>`).join("") || `<tr><td colspan="5" class="empty">No insider or promoter actions found in the quota parents.</td></tr>`}</tbody>`;
   // overlap + sector tilt
   const HD = (I.holdings || []).map(h => ({ ...h, inv: invOf(h.investor) })).filter(h => WL.includes(h.inv));
@@ -782,6 +781,7 @@ document.addEventListener("keydown", e => {
 /* @include quota.js */
 /* @include players.js */
 /* @include deals.js */
+/* @include names.js */
 /* @include research.js */
 /* @include scoreboard.js */
 function renderAll() { renderTape(); renderToday(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); }

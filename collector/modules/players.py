@@ -13,6 +13,11 @@ largest anchors"; a small SME book taken by local funds will rightly show none.
 
 Runs in full runs only (about 55 calls, 20 s). A 403 stops the module at once; a failed investor is skipped and counted.
 Rows kept from `prev` for listings still on the board when their investor could not be read today.
+
+`frozen{igId}` is the accrual for a track record that CAN be built: the moment an issue lists, its line-up as last read
+(how many of the tracked anchors were in, and who) is frozen with the listing date and never touched again. `covered[]`
+names every unlisted issue looked up in a run, so "no book" freezes as a genuine zero and not as "never looked".
+`evidence` joins frozen with the listing outcome, by segment, with n and an interval — thin at first, and said so.
 """
 from __future__ import annotations
 
@@ -69,13 +74,46 @@ def tracked(investors: list[dict]) -> list[dict]:
     return out
 
 
+def freeze(prev_players: dict, doc: dict, today: dt.date) -> dict:
+    """prev's `frozen` plus every issue prev had looked up (`covered`, or a book) that has now listed or left the board:
+    {igId: {name, sme, listedOn, large, of, names[]}}. A frozen entry is never rewritten."""
+    out = {k: v for k, v in (prev_players.get("frozen") or {}).items() if isinstance(v, dict)}
+    books, names = prev_players.get("books") or {}, prev_players.get("names") or {}
+    candidates = set(prev_players.get("covered") or []) | set(books)
+    if not candidates:
+        return out
+    rows = {str(r["igId"]): (r, k == "sme") for k in BOARDS for r in (doc.get(k) or []) if isinstance(r, dict) and r.get("igId")}
+    perf = {str(r["igId"]): r for r in (doc.get("listedPerf") or []) if isinstance(r, dict) and r.get("igId")}
+    for i in candidates:
+        if i in out:
+            continue
+        row, sme = rows.get(i, (None, None))
+        if row is not None and row.get("status") != "Listed":
+            continue                                        # still on the way: nothing to freeze yet
+        p = perf.get(i)
+        if row is None and p is None:
+            continue                                        # withdrawn or unknown: no outcome will ever join it
+        listed_on = (row or {}).get("listing") or (p or {}).get("date")
+        if not listed_on:
+            continue
+        book = books.get(i) or []
+        out[i] = {"name": (row or {}).get("name") or (p or {}).get("name") or names.get(i), "sme": bool(sme if row else p.get("sme")),
+                  "listedOn": str(listed_on)[:10], "large": len(book), "of": prev_players.get("tracked"),
+                  "names": [b.get("name") for b in book if isinstance(b, dict)], "frozenOn": today.isoformat()}
+    return out
+
+
 def run(session: Session, prev: dict, res: Result, today: dt.date | None = None) -> Result:
     t = today or dt.datetime.now(IST).date()
     doc = res.doc or prev
     live = {str(r["igId"]): r["name"] for k in BOARDS for r in (doc.get(k) or [])
             if isinstance(r, dict) and r.get("igId") and r.get("name") and r.get("status") != "Listed"}
+    prev_players = prev.get("players") or {}
+    frozen = freeze(prev_players, doc, t)
     if not live:
         res.notes.append("no unlisted issue on the board; nothing to look up")
+        if frozen != (prev_players.get("frozen") or {}):
+            res.replace["players"] = {**prev_players, "frozen": frozen, "covered": []}
         return res.won("none", t.isoformat())
     fy = ig.fiscal_year(t)
     try:
@@ -103,7 +141,8 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
     for rows in books.values():
         rows.sort(key=lambda r: -(r["investedCr"] or 0))
     res.replace["players"] = {"asOf": t.isoformat(), "tracked": len(watch), "of": len(investors), "latestPerInvestor": 5,
-                              "books": books, "names": {i: live[i] for i in books},
+                              "books": books, "names": {i: live[i] for i in books}, "frozen": frozen,
+                              "covered": sorted(live) if not failed else sorted(set(books) | {i for i in live if i in old}),
                               "league": [{k: r[k] for k in ("id", "name", "ipos", "investedCr", "ticketCr")} for r in watch[:25]]}
     res.notes.append(f"{len(watch)} of {len(investors)} anchor investors read ({failed} failed); names found for {len(books)} of {len(live)} unlisted issues")
     return res.won("investorgain", t.isoformat())

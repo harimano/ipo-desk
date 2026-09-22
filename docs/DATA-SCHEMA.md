@@ -43,4 +43,7 @@ records: {igId: {name, fetchedAt, about[], desc[], promoters?, objects?, financi
     Kept while the row is on the board; a row with no record on file is fetched at once. Board rows also carry `refund` (the unblock day).
 players: {asOf, tracked, of, latestPerInvestor, books{igId: [{id, name, ipos, investedCr, ticketCr}]}, names{igId: row name}, league[]}
   - owned by `players`; which of the largest anchor investors (InvestorGain 551 / 561) are in the books of unlisted issues on the board.
+    `covered[]` = the igIds looked up this run; `frozen{igId: {name, sme, listedOn, large, of, names[], frozenOn}}` = each issue's line-up
+    the day it listed, never rewritten (accruing since 22 Sep 2026). `evidence.segments[x].anchors` = {rows[4] by `large` band
+    (edges 0,1,3,6), n, since, of} — listing outcomes of frozen line-ups, with Wilson; thin for months and shown as such.
   evidence segment also carries hold{window[], all[]}: {n, held, lo, hi, med, p10, p90} per `edges.open` band (day-1 close vs the open).

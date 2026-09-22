@@ -38,7 +38,8 @@ log = logging.getLogger("collector.evidence")
 IST = ZoneInfo("Asia/Kolkata")
 INF = float("inf")
 EDGES = {"total": [0, 2, 10, 50, INF], "qib": [0, 5, 25, 100, INF], "retail": [0, 1, 3, 10, 40, INF], "gmp": [-INF, 0.01, 10, 30, INF],
-         "open": [-INF, 0, 10, 30, INF]}       # the listing-day open, as % over issue price: what to expect from holding to the close
+         "open": [-INF, 0, 10, 30, INF],       # the listing-day open, as % over issue price: what to expect from holding to the close
+         "anchors": [0, 1, 3, 6, INF]}          # how many of the tracked largest anchors were in the book (players.frozen), accruing since Sep 2026
 WINDOW_DAYS, WINDOW_MIN_ROWS = 365, 100
 MIN_N = 30                 # below this the page says the band is thin (it still shows it, with its interval)
 MIN_EVE = 30               # own-GMP rows in a segment before the second fit is published
@@ -126,6 +127,14 @@ def hold_bands(rows: list[dict]) -> list[dict]:
     return out
 
 
+def anchors_bands(rows: list[dict]) -> dict:
+    """By how many of the tracked largest anchors were in the book when it listed. The desk only began freezing line-ups
+    in September 2026, so this rests on the listings since then: n is tiny for months and the interval says so."""
+    sel = [r for r in rows if r.get("anchors") is not None]
+    return {"rows": bands(sel, "anchors"), "n": len(sel), "since": min((r["date"] for r in sel), default=None),
+            "of": max((r.get("anchorsOf") or 0 for r in sel), default=None)}
+
+
 def window_of(rows: list[dict], today: dt.date) -> tuple[list[dict], dict]:
     cut = (today - dt.timedelta(days=WINDOW_DAYS)).isoformat()
     recent = [r for r in rows if r["date"] >= cut]
@@ -138,6 +147,7 @@ def window_of(rows: list[dict], today: dt.date) -> tuple[list[dict], dict]:
 
 def unified(doc: dict) -> list[dict]:
     perf = {p["igId"]: p for p in doc.get("listedPerf") or [] if isinstance(p, dict) and p.get("igId") and p.get("date")}
+    frozen = (doc.get("players") or {}).get("frozen") or {}
     out = []
     for c in doc.get("comps") or []:
         p = perf.get(c.get("igId")) if isinstance(c, dict) else None
@@ -145,7 +155,8 @@ def unified(doc: dict) -> list[dict]:
             continue
         imp = lambda g: round(100 * g / p["issue"], 2) if g is not None else None  # noqa: E731
         out.append({"date": p["date"], "year": int(p["date"][:4]), "sme": bool(p.get("sme")), "ret": c["ret"], "retClose": c.get("retClose"), "total": c.get("total"),
-                    "qib": c.get("qib"), "retail": c.get("retail"), "gmp": imp(p.get("gmp")), "gmpEve": imp(p.get("gmpEve"))})
+                    "qib": c.get("qib"), "retail": c.get("retail"), "gmp": imp(p.get("gmp")), "gmpEve": imp(p.get("gmpEve")),
+                    "anchors": (frozen.get(str(c["igId"])) or {}).get("large"), "anchorsOf": (frozen.get(str(c["igId"])) or {}).get("of")})
     return out
 
 
@@ -160,6 +171,7 @@ def segment(rows: list[dict], today: dt.date, label: str, warnings: list[dict]) 
                      "retail": {"rows": bands(cat, "retail"), "years": cat_years}},
            "hold": {"window": hold_bands(win), "all": hold_bands(rows)},
            "ev": {"rows": ev_bands(cat), "years": cat_years, "blockDays": BLOCK_DAYS_HISTORY},
+           "anchors": anchors_bands(rows),
            "fit": {"r377": fit(win, "gmp"), "eve": None, "provisional": True, "eveRows": sum(1 for r in rows if r.get("gmpEve") is not None)}}
     eve_rows = [r for r in rows if r.get("gmpEve") is not None]
     if len(eve_rows) >= MIN_EVE:
