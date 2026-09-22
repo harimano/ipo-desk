@@ -23,6 +23,7 @@ from __future__ import annotations
 import datetime as dt
 import logging
 import re
+import time
 from zoneinfo import ZoneInfo
 
 from ..errors import SourceBlocked, SourceChanged, SourceError
@@ -32,7 +33,9 @@ from ..sources import investorgain as ig
 
 log = logging.getLogger("collector.anchorbook")
 IST = ZoneInfo("Asia/Kolkata")
-PER_RUN = 80
+PER_RUN = 40
+BUDGET_SECONDS = 150       # a slow InvestorGain evening must not eat the run: stop fetching, keep what came
+MAX_CONSECUTIVE_FAILURES = 3
 RETRY_NONE_DAYS = 14
 YOUNG_DAYS = 45
 
@@ -86,9 +89,16 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
     none = dict(prev_books.get("none") or {})
     listings = listings_on_file(doc)
     todo = due(prev_books, listings, t)
-    got = empty = failed = 0
+    got = empty = failed = streak = 0
     last_err: SourceError | None = None
+    t0 = time.monotonic()
     for r in todo:
+        if time.monotonic() - t0 > BUDGET_SECONDS:
+            res.notes.append(f"stopped after {BUDGET_SECONDS}s with {got + empty} of {len(todo)} records read; the rest next run")
+            break
+        if streak >= MAX_CONSECUTIVE_FAILURES:
+            res.notes.append(f"{streak} records failed in a row; stopping for this run")
+            break
         try:
             raw = session.get_json(ig.IPO_DETAIL_URL.format(id=r["igId"]), source=ig.SOURCE, headers=ig.HEADERS)
             res.calls += 1
@@ -100,8 +110,9 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
             res.notes.append(f"blocked after {got + empty} records; stopping")
             break
         except SourceError as e:
-            failed, last_err = failed + 1, e
+            failed, last_err, streak = failed + 1, e, streak + 1
             continue
+        streak = 0
         if book is None:
             none[r["igId"]] = t.isoformat()
             empty += 1

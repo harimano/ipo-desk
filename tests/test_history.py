@@ -73,3 +73,15 @@ def test_failure_changes_nothing():
     assert not res.ok and res.replace == {}
     res = history.run(S(subs=down), {}, Result(module="history"), today=TODAY)       # categories down: totals still land
     assert res.ok and any("category subscription unavailable" in n for n in res.notes)
+
+
+def test_report_377_is_read_in_its_september_2026_shape_too():
+    import json, pathlib
+    from collector.sources import investorgain as ig
+    fx = pathlib.Path(__file__).resolve().parent.parent / "data/fixtures/investorgain"
+    rows = ig.parse_performance_report(json.loads((fx / "report-377-gmp-performance-2026-09-22.json").read_text()))
+    assert len(rows) >= 15
+    v = next(r for r in rows if r["name"] == "Vama Wovenfab")
+    assert v["igId"] == "1969" and v["sme"] is True and v["date"] == "2026-09-22" and v["issue"] == 341.0 and v["listing"] == 341.0 and v["gmp"] == 3.0
+    assert v["gmpImplied"] == 344.0 and v["sizeCr"] == 49.54 and v["total"] == 2.53
+    assert any(not r["sme"] for r in rows), "mainboard rows have no badge and read as mainboard"

@@ -462,18 +462,24 @@ def parse_performance_report(data) -> list[dict]:
     rows = data.get("reportTableData") if isinstance(data, dict) else None
     if not isinstance(rows, list) or not rows:
         raise SourceChanged(SOURCE, f"report 377: reportTableData missing or empty (msg={data.get('msg') if isinstance(data, dict) else None!r})", "report 377")
+    # 22 Sep 2026: the report renamed its columns ("IPO Price" -> "Price", "Listing Date" -> "Listing Dt", "Estimated Price" ->
+    # "Est Price", "Listing Day Cls Price" -> "Listing Day Close", "IPO Size" -> "Size") and dropped ~IPO_Category — the SME
+    # badge now sits inside the IPO cell. Both spellings are read; a row is SME when either says so.
     out = []
+    pick = lambda r, *ks: next((r.get(k) for k in ks if r.get(k) not in (None, "")), None)  # noqa: E731
     for r in rows:
         if not isinstance(r, dict) or not r.get("~id"):
             continue
-        issue, listing, date = _num(r.get("IPO Price")), _num(r.get("Listing Price")), _short_date(r.get("Listing Date"))
+        issue, listing = _num(pick(r, "IPO Price", "Price")), _num(pick(r, "Listing Price"))
+        date = _short_date(pick(r, "Listing Date", "Listing Dt"))
         if not issue or not listing or not date:
             continue                                   # withdrawn, or not listed yet
         gmp = _num(r.get("GMP"))
-        out.append({"igId": str(r["~id"]), "name": _plain(r.get("IPO")), "date": date, "sme": strip_tags(r.get("~IPO_Category")).upper() == "SME",
-                    "issue": issue, "gmp": gmp, "gmpImplied": _num(r.get("Estimated Price")) or (issue + gmp if gmp is not None else None),
-                    "listing": listing, "close1": _num(r.get("Listing Day Cls Price")), "ltp": _num(r.get("Closing Price (LTP)")),
-                    "total": _num(r.get("Sub")), "sizeCr": _num(r.get("IPO Size"))})
+        sme = strip_tags(r.get("~IPO_Category")).upper() == "SME" or bool(re.search(r">\s*SME\s*<", str(r.get("IPO") or "")))
+        out.append({"igId": str(r["~id"]), "name": _plain(r.get("IPO")), "date": date, "sme": sme,
+                    "issue": issue, "gmp": gmp, "gmpImplied": _num(pick(r, "Estimated Price", "Est Price")) or (issue + gmp if gmp is not None else None),
+                    "listing": listing, "close1": _num(pick(r, "Listing Day Cls Price", "Listing Day Close")), "ltp": _num(r.get("Closing Price (LTP)")),
+                    "total": _num(r.get("Sub")), "sizeCr": _num(pick(r, "IPO Size", "Size"))})
     if not out:
         raise SourceChanged(SOURCE, f"report 377: {len(rows)} rows, none with an id, an issue price and a listing price (keys: {sorted(rows[0])[:8]})", "report 377")
     return out

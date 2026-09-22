@@ -89,3 +89,11 @@ def test_a_403_stops_at_once_and_a_bad_record_is_skipped():
     res = run(S(fail=["2057"]))
     assert res.ok and "1599" in res.replace["anchorBooks"]["books"] and "2057" not in res.replace["anchorBooks"]["books"]
     assert any("1 failed" in n for n in res.notes)
+
+
+def test_three_failures_in_a_row_stop_the_run_and_keep_what_came():
+    s = S(fail=["3000", "1599", "2900"])                # newest first: 2057 ok, then three failures, then one never tried
+    d = doc(); d["listedPerf"].append({"igId": "2800", "name": "Oldest", "date": "2024-06-01", "sme": False})
+    res = run(s, d=d)
+    assert res.ok and "2057" in res.replace["anchorBooks"]["books"] and any("failed in a row" in n for n in res.notes)
+    assert [u.rsplit("/", 1)[1] for u in s.calls] == ["2057", "3000", "1599", "2900"] and anchorbook.BUDGET_SECONDS <= 300
