@@ -15,7 +15,8 @@ Runs right after `listings` so `evidence` (later in the same run) sees today's p
 come from the deals module's cache in prev — a day behind for a brand-new listing, which is fine.
 
 Each run fetches at most FETCH_PER_RUN missing weekdays of the last LOOKBACK_DAYS, newest first, so a fresh install
-backfills over a dozen runs and a steady state costs one call. Today's file is only tried after 18:30 IST (published
+backfills over a few weeks and a steady state costs one call. The price cap (priceHistory.days) trims old closes at the
+end of the run; evidence freezes what it needs from a path in the same run, and tape.dates remembers the file was read. Today's file is only tried after 18:30 IST (published
 around six); a 404 before that is "not yet", not a holiday. A 404 on a past weekday is remembered as noFile. A 403
 fails the module (prev kept); nothing is guessed. `history` keeps caps: priceHistory.days trims the series.
 """
@@ -33,9 +34,9 @@ from ..sources import nsearchives
 
 log = logging.getLogger("collector.tape")
 IST = ZoneInfo("Asia/Kolkata")
-LOOKBACK_DAYS = 60
+LOOKBACK_DAYS = 270        # back to the start of the year: every 2026 listing's path from its listing day
 FETCH_PER_RUN = 6
-KEEP_DATES = 90
+KEEP_DATES = LOOKBACK_DAYS + 7   # a date read once is never read again, even after the price cap trims its closes
 FILE_READY = dt.time(18, 30)
 
 

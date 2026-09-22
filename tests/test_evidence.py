@@ -227,3 +227,22 @@ def test_deal_names_get_a_record_from_the_tape_and_the_price_path():
     d2 = dict(d); d2["investors"] = {"listingDeals": []}; d2["priceHistory"] = {}
     res2 = ev.run(None, {"trackRecords": T}, Result(module="evidence", doc=d2), today=TODAY)
     assert any(r["done"] for r in res2.replace["trackRecords"]["dealRows"]) and len(res2.replace["trackRecords"]["dealRows"]) == len(T["dealRows"])
+
+
+def test_book_moves_are_frozen_once_seen_and_survive_the_price_cap():
+    d = doc()
+    ids = [c["igId"] for c in d["comps"] if c.get("ret") is not None and not next(p for p in d["listedPerf"] if p["igId"] == c["igId"]).get("sme")][:2]
+    name = next(p["name"] for p in d["listedPerf"] if p["igId"] == ids[0])
+    row = {"name": "FUND A", "key": "FUND A", "shares": 1, "amtCr": 1, "pctAlloc": 100, "pctIssue": 1}
+    d["anchorBooks"] = {"books": {str(ids[0]): {"name": name, "sme": False, "listedOn": "2026-09-01", "complete": True, "rows": [row]},
+                                  str(ids[1]): {"name": "Other", "sme": False, "listedOn": "2026-09-01", "complete": True, "rows": [row]}}}
+    days = [f"2026-09-{x:02d}" for x in (1, 2, 3, 4, 7, 8, 9)]
+    d["priceHistory"] = {name: [[x, 100.0 + i] for i, x in enumerate(days)]}
+    res = run(d)
+    M = res.replace["trackRecords"]["bookMoves"]
+    assert M[str(ids[0])] == {"d5": 5.0} and str(ids[1]) not in M, "d30 not on file yet; no path, no entry"
+    d2 = dict(d); d2["priceHistory"] = {}                            # the cap has trimmed the path
+    res2 = ev.run(None, {"trackRecords": res.replace["trackRecords"]}, Result(module="evidence", doc=d2), today=TODAY)
+    assert res2.replace["trackRecords"]["bookMoves"][str(ids[0])] == {"d5": 5.0}
+    A = next(r for r in res2.replace["trackRecords"]["rows"] if r["key"] == "FUND A")
+    assert A["main"]["d5"]["n"] == 1 and A["main"]["d5"]["med"] == 5.0

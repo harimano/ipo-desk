@@ -69,6 +69,7 @@ def test_one_file_fills_every_listing_and_never_a_date_twice():
     res = run(s)
     assert res.ok and res.source == "nsearchives"
     assert len(s.calls) == tape.FETCH_PER_RUN, "newest first, six missing weekdays tried"
+    assert tape.KEEP_DATES > tape.LOOKBACK_DAYS, "a date read once must stay remembered for the whole lookback"
     ph = res.merge["priceHistory"]
     assert ph["Vinod Texworld"] == [["2026-09-21", 80.65]] and ph["Sunshine Pictures"] == [["2026-09-21", 430.1]]
     assert ph["Glass Wall Systems"] == [["2026-09-16", 194.0], ["2026-09-21", 301.29]], "21 Sep already on file: kept, not duplicated"
@@ -82,7 +83,7 @@ def test_one_file_fills_every_listing_and_never_a_date_twice():
 
 def test_steady_state_costs_one_call_and_remembers_holidays():
     prev = {"tape": {"dates": ["2026-09-21"], "noFile": ["2026-09-18", "2026-09-17", "2026-09-16", "2026-09-15", "2026-09-14", "2026-09-11", "2026-09-10", "2026-09-09"] +
-                     [d for d in tape.weekdays_back(dt.date(2026, 9, 8), 60, dt.datetime(2026, 9, 8, 20, 0, tzinfo=IST))], "names": {}}}
+                     [d for d in tape.weekdays_back(dt.date(2026, 9, 8), tape.LOOKBACK_DAYS, dt.datetime(2026, 9, 8, 20, 0, tzinfo=IST))], "names": {}}}
     s = S(have=("20260922",))
     res = run(s, prev, when=dt.datetime(2026, 9, 22, 18, 45, tzinfo=IST))
     assert res.ok and len(s.calls) == 1 and s.calls[0].endswith("20260922_F_0000.csv.zip")

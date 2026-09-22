@@ -64,5 +64,19 @@ function trackerQueueItems() {
         ttl: `${names.length === 1 ? names[0] : names.length + " names you follow"} on the tape in ${[...new Set(mine.map(r => r.stock))].join(", ")}`,
         desc: ldPairs(mine).map(x => `${esc(x.client)}: ${x.beh} in ${esc(x.stock)} (${cr(x.cb)} bought / ${cr(x.cs)} sold)`).join(" · "), acts: [["done", "Seen"]] }); }
   }
+  // an anchor with a record worth knowing about is in a book that has not listed: n and the rate are the filter, stated on
+  // the card, not a verdict. The record lives in the lazy books part; the queue re-renders once it is loaded.
+  const REC_N = 5, REC_POS = 70;
+  const T = recBooks && recBooks.trackRecords;
+  if (!T && (DATA.lazy || {}).books) loadBooks().then(b => { if (b && typeof renderToday === "function") renderToday(); });
+  if (T) { const byKey = new Map((T.rows || []).map(r => [r.key, r])), B = (DATA.players || {}).books || {};
+    allIssues().filter(b => b.status !== "Listed").forEach(b => { const A1 = anchorFor(b.name);
+      const names = [...new Set([...(A1 && A1.investors || []).map(x => x.name), ...((b.igId != null && B[String(b.igId)]) || []).map(x => x.name)])];
+      const strong = names.map(n => byKey.get(recKey(n))).filter(Boolean).map(r => ({ r, s: r[b.sme ? "sme" : "main"] })).filter(h => h.s && h.s.n >= REC_N && h.s.pos >= REC_POS).sort((x, y) => y.s.n - x.s.n);
+      if (!strong.length) return;
+      P.push({ id: `rec:${b.name}`, pri: b.status === "Open" ? 2 : 4, tag: [b.status === "Open" ? "soon" : "plan", `${strong.length} strong-record anchor${strong.length === 1 ? "" : "s"}`], lbl: `Anchor record · ${b.status}${b.sme ? " · SME" : ""}`, b: { name: b.name },
+        ttl: `${b.name} — ${strong.slice(0, 2).map(h => h.r.name.length > 30 ? h.r.name.slice(0, 29) + "…" : h.r.name).join(" and ")}${strong.length > 2 ? ` and ${strong.length - 2} more` : ""} in the anchor book`,
+        desc: `${strong.slice(0, 3).map(h => `${esc(h.r.name)}: ${h.s.n} ${b.sme ? "SME" : "mainboard"} IPOs anchored, <b>${Math.round(h.s.pos)}%</b> listed up (95% range ${Math.round(h.s.lo)}–${Math.round(h.s.hi)}), median ${pct(h.s.med, true)}`).join(" · ")}. Filter: ${REC_N}+ IPOs on file and ${REC_POS}%+ listed up — a record, not a forecast; ${names.length} anchor names known for this book.`,
+        acts: [["done", "Seen"], ["snooze", "Snooze"]] }); }); }
   return P;
 }

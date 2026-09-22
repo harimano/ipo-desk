@@ -187,14 +187,34 @@ def _path_move(series: list, listed_on: str, after: int) -> float | None:
     return round(100 * (pts[after][1] - pts[0][1]) / pts[0][1], 1)
 
 
-def track_records(doc: dict) -> dict:
+def book_moves(doc: dict, prev_moves: dict) -> dict:
+    """{igId: {d5, d30}} — each anchored IPO's move from the listing-day close over 5 and 30 trading days, taken from
+    priceHistory the first run the path is long enough and kept from prev after (the 90-day price cap would otherwise
+    erase it). A value is written once; a missing one is retried while the path grows."""
+    out = {k: dict(v) for k, v in (prev_moves or {}).items() if isinstance(v, dict)}
+    ph = doc.get("priceHistory") or {}
+    for ig_id, b in (((doc.get("anchorBooks") or {}).get("books") or {})).items():
+        if not isinstance(b, dict) or not b.get("listedOn"):
+            continue
+        cur = out.setdefault(str(ig_id), {})
+        for k, n in (("d5", 5), ("d30", 30)):
+            if cur.get(k) is None:
+                v = _path_move(ph.get(b.get("name")), b["listedOn"], n)
+                if v is not None:
+                    cur[k] = v
+        if not cur:
+            out.pop(str(ig_id), None)
+    return out
+
+
+def track_records(doc: dict, moves: dict | None = None) -> dict:
     """{asOf?, booksOn, withOutcome, minRows, lead, rows[{key, name, cr, main{...}, sme{...}, ipos[]}]}. Per investor and per
     segment: n anchored IPOs with a listing outcome, share listed up with its Wilson interval, median listing gain, the
     day-one close, the 5- and 30-trading-day moves where the path exists (each with its own n), and the same for the IPOs
     where the investor was a lead anchor. Never pooled. Sorted by n, then share up. No score."""
     books = ((doc.get("anchorBooks") or {}).get("books") or {})
     comps = {str(c["igId"]): c for c in doc.get("comps") or [] if isinstance(c, dict) and c.get("igId") and c.get("ret") is not None}
-    ph = doc.get("priceHistory") or {}
+    moves = moves if moves is not None else book_moves(doc, {})
     per: dict[str, dict] = {}
     with_outcome = 0
     for ig_id, b in books.items():
@@ -202,7 +222,8 @@ def track_records(doc: dict) -> dict:
         if not c or not isinstance(b, dict):
             continue
         with_outcome += 1
-        d5, d30 = _path_move(ph.get(b.get("name")), b.get("listedOn") or "", 5), _path_move(ph.get(b.get("name")), b.get("listedOn") or "", 30)
+        mv = moves.get(str(ig_id)) or {}
+        d5, d30 = mv.get("d5"), mv.get("d30")
         rows = sorted((r for r in b.get("rows") or [] if isinstance(r, dict) and r.get("key")), key=lambda r: -(r.get("pctAlloc") or 0))
         for i, r in enumerate(rows):
             inv = per.setdefault(r["key"], {"key": r["key"], "names": {}, "cr": 0.0, "hits": []})
@@ -387,9 +408,11 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
                                "lockins": {"rows": lockins, "days": LOCKIN_AFTER}, "warnings": warnings}
     for key, is_sme in (("main", False), ("sme", True)):
         res.replace["evidence"]["segments"][key]["lockin"] = lockin_summary(lockins, is_sme)
-    tr = track_records(doc)
-    deals = deal_outcomes(doc, ((prev.get("trackRecords") or {}).get("dealRows") or []), t)
-    res.replace["trackRecords"] = {"asOf": t.isoformat(), **tr, "dealRows": deals, "deals": deal_records(deals),
+    prev_tr = prev.get("trackRecords") or {}
+    moves = book_moves(doc, prev_tr.get("bookMoves") or {})
+    tr = track_records(doc, moves)
+    deals = deal_outcomes(doc, prev_tr.get("dealRows") or [], t)
+    res.replace["trackRecords"] = {"asOf": t.isoformat(), **tr, "bookMoves": moves, "dealRows": deals, "deals": deal_records(deals),
                                    "dealAfter": list(DEAL_AFTER)}
     res.notes[:0] = [f"track records: {tr['withOutcome']} of {tr['booksOn']} anchor books have an outcome; {len(tr['rows'])} of {tr['investors']} investors with {TR_MIN_ROWS}+"]
     res.notes.append(f"{len(rows)} listings; windows: mainboard {res.replace['evidence']['segments']['main']['window']['n']}, "
