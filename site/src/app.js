@@ -625,7 +625,7 @@ function renderMarket() {
   const moves = (I.moves || []).map(m => { const x = { ...m, ...livePx(m) }; return { ...x, inv: invOf(m.investor), r: ret(x), k: kind(m) }; });
   const deals = (I.bulkDeals || []).map(d => ({ ...d, inv: invOf(d.investor) }));
   const lst = store.get("ipo-investors", { add: [], remove: [] }) || { add: [], remove: [] };
-  $("#watchlist").innerHTML = WL.map(w => `<span class="chip-i${(I.watchlist || []).includes(w) ? "" : " local"}" title="${(I.watchlist || []).includes(w) ? "tracked by the daily sweep" : "added here — ask Claude to add to the sweep"}">${esc(w)}<button data-rm="${esc(w)}" title="Remove">✕</button></span>`).join("") + `<input type="text" id="wlIn" placeholder="Add an investor…"><button class="btn sm" id="wlAdd">Add</button>`;
+  $("#watchlist").innerHTML = `<input type="text" id="wlIn" placeholder="Add an investor…"><button class="btn sm" id="wlAdd">Add</button>`;
   $("#wlAdd").onclick = () => { const v = $("#wlIn").value.trim(); if (!v) return; lst.add = [...new Set([...(lst.add || []), v])]; lst.remove = (lst.remove || []).filter(x => x !== v); store.set("ipo-investors", lst); toast(`${v} added — tell Claude to include them in the morning sweep`); renderMarket(); };
   $("#wlIn").onkeydown = e => { if (e.key === "Enter") $("#wlAdd").click(); };
   $$("#watchlist [data-rm]").forEach(b => b.onclick = () => { const v = b.dataset.rm; lst.add = (lst.add || []).filter(x => x !== v); if ((I.watchlist || []).includes(v)) lst.remove = [...new Set([...(lst.remove || []), v])]; store.set("ipo-investors", lst); renderMarket(); });

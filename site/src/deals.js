@@ -5,7 +5,7 @@
    and SME are never pooled in a number: the segment filter picks one, and "All" only lists rows side by side. */
 let ldScope = "all", ldSide = "all";
 const LD_NET_DAYS = 30, LD_ROWS = 80;
-const ldSigned = v => Math.abs(v) < 0.5 ? "0 Cr" : (v > 0 ? "+" : "−") + cr(Math.abs(v)).replace("₹", "");
+const ldSigned = v => Math.abs(v) < 0.5 ? "net 0" : (v > 0 ? "+" : "−") + cr(Math.abs(v));
 { const f = $("#ldFilters"); if (f) f.addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return;
   if (b.dataset.ldSc) ldScope = b.dataset.ldSc; else if (b.dataset.ldSide) ldSide = b.dataset.ldSide; renderListingDeals(); }); }
 
@@ -37,8 +37,10 @@ function renderListingDeals() {
   scoped.filter(r => (r.date || "") >= cutoff).forEach(r => { const s = byStock[r.stock] = byStock[r.stock] || { stock: r.stock, sme: r.sme, b: 0, s: 0, n: 0, clients: new Set() };
     if (r.valueCr) { if (r.side === "BUY") s.b += r.valueCr; else s.s += r.valueCr; } s.n++; s.clients.add(r.client); });
   const net = Object.values(byStock).map(s => ({ ...s, net: s.b - s.s })).sort((x, y) => Math.abs(y.net) - Math.abs(x.net));
-  const mx = Math.max(1, ...net.map(s => Math.abs(s.net)));
-  const N = $("#ldNet"); if (N) N.innerHTML = net.length ? net.map(s => `<div class="hb"><div class="n" title="${esc(s.stock)}">${esc(s.stock)}<small>${s.n} deals · ${s.clients.size} names · bought ${cr(s.b)} · sold ${cr(s.s)}</small></div><div class="bar"><i class="${s.net > 0 ? "up" : s.net < 0 ? "down" : ""}" style="width:${Math.max(2, Math.abs(s.net) / mx * 100)}%"></i></div><div class="v num ${cls(Math.abs(s.net) < 0.5 ? 0 : s.net)}">${ldSigned(s.net)}</div></div>`).join("")
+  const mx = Math.max(1, ...net.map(s => Math.max(s.b, s.s)));
+  // sold grows left from the centre, bought grows right: a desk that round-trips shows as two equal arms and a net near zero
+  const N = $("#ldNet"); if (N) N.innerHTML = net.length ? net.map(s => `<div class="hb two"><div class="n wrap" title="bought ${cr(s.b)} · sold ${cr(s.s)}">${esc(s.stock)}<small>${s.n} deals · ${s.clients.size} names</small></div><div class="bar"><i class="s down" style="width:${s.s / mx * 50}%"></i><i class="b up" style="width:${s.b / mx * 50}%"></i></div><div class="v num ${cls(Math.abs(s.net) < 0.5 ? 0 : s.net)}" title="bought ${cr(s.b)} · sold ${cr(s.s)}">${ldSigned(s.net)}</div></div>`).join("")
+      + `<div class="dt" style="margin-top:4px"><i style="display:inline-block;width:10px;height:8px;border-radius:2px;background:var(--down);vertical-align:middle"></i> sold ← centre → bought <i style="display:inline-block;width:10px;height:8px;border-radius:2px;background:var(--up);vertical-align:middle"></i> · largest arm ${cr(mx)}</div>`
     : `<div class="dim" style="font-size:12.5px">No deal in the last ${LD_NET_DAYS} days.</div>`;
   // repeat clients — counts only
   const byClient = {};

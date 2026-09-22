@@ -31,8 +31,13 @@ function renderYourNames() {
     if (deals.length) lines.push(`<div><b>${deals.length} deal${deals.length > 1 ? "s" : ""} in this year's listings</b> (60 days): bought ${cr(b)} · sold ${cr(s)} · ${stocks.slice(0, 5).map(esc).join(", ")}${stocks.length > 5 ? ` +${stocks.length - 5}` : ""}</div>`);
     if (bulk.length) lines.push(`<div><b>${bulk.length} bulk / block deal${bulk.length > 1 ? "s" : ""}</b> (45 days): ${bulk.slice(0, 4).map(d => `${d.side === "BUY" ? "bought" : "sold"} ${esc(d.stock)}${d.valueCr ? ` ${cr(d.valueCr)}` : ""} ${fmtD(d.date)}`).join(" · ")}</div>`);
     const local = !(I.watchlist || []).includes(w);
-    return `<div class="yn${lines.length ? "" : " quiet"}"><div class="ynh"><b>${esc(w)}</b>${local ? `<span class="pill plan" style="height:17px;font-size:10.5px" title="added in this browser">mine</span>` : ""}<button class="fbtn" data-follow="${esc(w)}" title="Unfollow">✕</button></div>${lines.join("") || `<div class="dt">not in any current anchor book, anchor letter or deal file today</div>`}</div>`;
+    const tag = local ? `<span class="pill plan" style="height:17px;font-size:10.5px" title="added in this browser">mine</span>` : "";
+    if (!lines.length) return { quiet: `<span class="chip-i${local ? " local" : ""}">${esc(w)}<button data-follow="${esc(w)}" title="Unfollow">✕</button></span>` };
+    return { card: `<div class="yn"><div class="ynh"><b>${esc(w)}</b>${tag}<button class="fbtn" data-follow="${esc(w)}" title="Unfollow">✕</button></div>${lines.join("")}</div>` };
   });
-  host.innerHTML = cards.join("") || `<div class="dt">No names yet. Press + beside any anchor in a book below, or beside a client in the deals table, and it appears here with everything the collector sees it doing.</div>`;
+  const active = cards.filter(c => c.card).map(c => c.card), quiet = cards.filter(c => c.quiet).map(c => c.quiet);
+  host.innerHTML = (active.length ? `<div class="ynames">${active.join("")}</div>` : "")
+    + (quiet.length ? `<div class="wl" style="margin-top:${active.length ? 10 : 0}px"><span class="dt" style="margin-right:4px">Nothing today for</span>${quiet.join("")}</div>` : "")
+    + (!WL.length ? `<div class="dt">No names yet. Press + beside any anchor in a book below, or beside a client in the deals table, and it appears here with everything the collector sees it doing.</div>` : "");
 }
 { const m = $("#s-market"); if (m) m.addEventListener("click", e => { const f = e.target.closest("[data-follow]"); if (f) { e.preventDefault(); e.stopPropagation(); toggleFollow(f.dataset.follow); } }); }
