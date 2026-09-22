@@ -266,3 +266,8 @@ Hari: "this whole section is useless … I need to be able to track something", 
   days — the board froze with issues "Open" a day after they closed).
 - Surveyed and rejected: NSE's deal-history API (70 rows a call, first day only); NSE anchor letters (zip/PDF, rule 1);
   a sparkline before the tape had points. `names.Matcher` fuzzy hits must NOT go into aliases.json (would rename board rows).
+- **Evening, same day**: InvestorGain renamed report 377's columns mid-day (history kept prev, parser reads both now); a slow
+  InvestorGain evening plus an 80-record anchor backfill ran into the job's 20-minute limit (backfill is 40/run, 150 s budget,
+  3-failure stop). **BSE coverage**: `sources/bse_deals.py` (bulk/block APIs found in the site's network calls; bhavcopy by
+  scrip code), `listedPerf.bseCode` from report 377's Symbol, deals rows carry `exchange`, tape has a `bse` leg — the 90
+  BSE-only SME listings now have deals and a price path.
