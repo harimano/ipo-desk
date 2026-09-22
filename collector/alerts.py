@@ -159,9 +159,36 @@ def _lockins(doc: dict, today: dt.date):
                 yield Alert(f"lockin:{a['name']}:{key}:{d}", 550, f"{a['name']}: lock-in on {what} ends {_in((d - today).days)}{size}")
 
 
+REC_MIN_N, REC_MIN_POS = 5, 70     # an anchor "with a record": this many IPOs on file and this share listed up (stated in the line)
+
+
+def _records(doc: dict, today: dt.date):
+    """A strong-record anchor is in a book that has not listed yet. The record is the collector's (evidence.trackRecords):
+    per investor, per segment, with n and its interval; the line carries them. Rank sits with the lock-ins."""
+    from .modules.anchorbook import investor_key
+    rows = {r["key"]: r for r in ((doc.get("trackRecords") or {}).get("rows") or []) if isinstance(r, dict) and r.get("key")}
+    if not rows:
+        return
+    books = ((doc.get("players") or {}).get("books") or {})
+    letters = {a["name"]: [str((i or {}).get("name") or "") for i in a.get("investors") or []] for a in _rows(doc, "anchors")}
+    for seg in ("mainboard", "sme"):
+        for b in _rows(doc, seg):
+            if b.get("status") not in ("Open", "Upcoming", "Closed"):
+                continue
+            names = set(letters.get(b["name"]) or []) | {str(x.get("name") or "") for x in (books.get(str(b.get("igId"))) or []) if isinstance(x, dict)}
+            for nm in sorted(n for n in names if n):
+                r = rows.get(investor_key(nm))
+                s = r and r.get("sme" if seg == "sme" else "main")
+                if not s or (s.get("n") or 0) < REC_MIN_N or (s.get("pos") or 0) < REC_MIN_POS:
+                    continue
+                yield Alert(f"rec:{b['name']}:{r['key']}", 520,
+                            f"{r['name']} is in the {b['name']} book — {s['n']} {'SME' if seg == 'sme' else 'mainboard'} IPOs anchored, "
+                            f"{s['pos']:.0f}% listed up ({s['lo']:.0f}–{s['hi']:.0f}%), median {s['med']:+g}%")
+
+
 def _all(doc: dict, today: dt.date) -> dict[str, Alert]:
     out: dict[str, Alert] = {}
-    for a in (*_quota_dates(doc, today), *_quota_stages(doc), *_board(doc, today), *_lockins(doc, today),
+    for a in (*_quota_dates(doc, today), *_quota_stages(doc), *_board(doc, today), *_lockins(doc, today), *_records(doc, today),
               *_investors(doc, today)):
         out.setdefault(a.key, a)
     return out

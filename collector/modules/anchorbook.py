@@ -32,7 +32,7 @@ from ..sources import investorgain as ig
 
 log = logging.getLogger("collector.anchorbook")
 IST = ZoneInfo("Asia/Kolkata")
-PER_RUN = 40
+PER_RUN = 80
 RETRY_NONE_DAYS = 14
 YOUNG_DAYS = 45
 

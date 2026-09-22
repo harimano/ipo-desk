@@ -92,3 +92,22 @@ def test_anchor_lock_in_speaks_once_the_day_before_for_mainboard_names():
     assert [x.line for x in evaluate(at(19), at(20))] == ["Hero Motors: lock-in on half the anchor book ends tomorrow (₹300 Cr book)"]
     assert evaluate(at(20), at(21)) == [], "said once: the day itself does not repeat it"
     assert [x.line for x in evaluate(at(18), at(21))] == ["Hero Motors: lock-in on half the anchor book ends today (₹300 Cr book)"]
+
+
+def test_a_strong_record_anchor_in_an_unlisted_book_speaks_once_with_its_n_and_range():
+    rec = {"key": "EDELWEISS RECENTLY LISTED IPO FUND", "name": "EDELWEISS RECENTLY LISTED IPO FUND", "n": 11,
+           "main": {"n": 11, "pos": 81.8, "lo": 52.3, "hi": 94.9, "med": 19.4}, "sme": None}
+    weak = {"key": "SMALL FUND", "name": "SMALL FUND", "n": 3, "main": {"n": 3, "pos": 100.0, "lo": 43.8, "hi": 100.0, "med": 5.0}, "sme": None}
+    kw = dict(mainboard=[{"name": "NSE", "igId": "2305", "status": "Closed", "open": "2026-09-17", "close": "2026-09-21", "listing": "2026-09-24"},
+                         {"name": "Old Co", "igId": "1", "status": "Listed", "listing": "2026-09-10"}],
+              anchors=[{"name": "NSE", "investors": [{"name": "Edelweiss Recently Listed IPO Fund"}, {"name": "Small Fund"}]},
+                       {"name": "Old Co", "investors": [{"name": "Edelweiss Recently Listed IPO Fund"}]}],
+              players={"books": {"2305": [{"name": "SMALL FUND"}]}},
+              trackRecords={"rows": [rec, weak]})
+    prev = doc("2026-09-21T18:15:00+05:30", **{**kw, "trackRecords": {"rows": []}})
+    new = doc("2026-09-22T06:45:00+05:30", **kw)
+    out = evaluate(prev, new)
+    lines = [a.line for a in out if a.key.startswith("rec:")]
+    assert lines == ["EDELWEISS RECENTLY LISTED IPO FUND is in the NSE book — 11 mainboard IPOs anchored, 82% listed up (52–95%), median +19.4%"], "3 IPOs is not a record; a listed issue is not a book"
+    again = doc("2026-09-22T18:15:00+05:30", **kw)
+    assert not [a for a in evaluate(new, again) if a.key.startswith("rec:")], "spoken once"
