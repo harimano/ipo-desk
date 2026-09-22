@@ -31,3 +31,33 @@ function renderLockins() {
   const more = $("#lockinMore"); if (more) { more.hidden = !far.length; more.innerHTML = far.length ? `<summary>${far.length} more between ${fmtD(far[0].date)} and ${fmtD(far[far.length - 1].date)} ▾</summary><div class="tw"><table>${head}<tbody>${far.map(tr).join("")}</tbody></table></div>` : ""; }
   const sub = $("#lockinSub"); if (sub) sub.textContent = `${rows.filter(r => r.n >= 0).length} opening in the next ${LI_AHEAD} days · ${rows.filter(r => r.n < 0).length} opened in the last ${LI_BACK}`;
 }
+
+/* ---- the trackers on the Today queue: only for listings Hari holds or starred, and for names he follows ---- */
+function trackerQueueItems() {
+  const P = [], mineOf = n => held(n) ? "you hold" : S.interest.has(n) ? "starred" : null;
+  const perf = new Map((DATA.listedPerf || []).map(p => [p.name, p])), deals = (DATA.investors || {}).listingDeals || [];
+  (DATA.anchors || []).forEach(a => { const m = mineOf(a.name); if (!m) return;
+    [["lockIn30", "half", 0.5], ["lockIn90", "the rest", 0.5]].forEach(([k, lbl, share]) => { const d = a[k]; if (!d) return; const n = days(d); if (n < -3 || n > 7) return;
+      const free = a.amountCr != null ? cr(a.amountCr * share) : "an unknown amount", sold = deals.filter(r => r.stock === a.name && r.side === "SELL" && r.date >= d), soldCr = sold.reduce((s, r) => s + (r.valueCr || 0), 0), p = perf.get(a.name) || {};
+      P.push({ id: `lock:${a.name}:${k}`, pri: n <= 0 ? 1 : 2, tag: [n <= 0 ? "now" : "soon", n === 0 ? "Lock-in opens today" : n < 0 ? `Lock-in opened ${rel(n)}` : `Lock-in opens ${rel(n)}`], lbl: `Anchor lock-in · ${m}`,
+        ttl: `${a.name} — ${lbl} of the anchor book (${free}) ${n <= 0 ? "is" : "becomes"} free to sell`, b: { name: a.name },
+        desc: `${a.amountCr ? `Anchor book ${cr(a.amountCr)}${a.issueSizeCr ? `, ${Math.round(a.amountCr / a.issueSizeCr * 100)}% of the issue` : ""}. ` : ""}${p.ltp && p.issue ? `Now ${inr(p.ltp)}, ${pct((p.ltp - p.issue) / p.issue * 100, true)} vs issue. ` : ""}${n <= 0 ? (sold.length ? `On the tape since: <b class="down">${cr(soldCr)}</b> sold in ${sold.length} bulk/block deal${sold.length === 1 ? "" : "s"}.` : "No bulk or block sale on NSE since it opened.") : "Whether anyone sells is the tape's to tell — the Superinvestors tab counts it from that day."}`,
+        acts: [["done", "Seen"], ["snooze", "Snooze"]] }); }); });
+  const latest = deals.reduce((m, r) => r.date > m ? r.date : m, "");
+  if (latest && days(latest) >= -3) {
+    const byStock = {};
+    deals.filter(r => r.date === latest).forEach(r => { (byStock[r.stock] = byStock[r.stock] || []).push(r); });
+    Object.entries(byStock).forEach(([stock, rows]) => { const m = mineOf(stock); if (!m) return;
+      const pairs = ldPairs(rows), stayed = pairs.filter(x => x.beh === "net buyer").reduce((s, x) => s + x.net, 0), left = pairs.filter(x => x.beh === "net seller").reduce((s, x) => s - x.net, 0);
+      P.push({ id: `tape:${stock}:${latest}`, pri: 3, tag: ["soon", `Deals ${days(latest) === 0 ? "today" : fmtD(latest)}`], lbl: `On the tape · ${m}`, b: { name: stock },
+        ttl: `${stock} — ${rows.length} bulk/block deal${rows.length === 1 ? "" : "s"} by ${new Set(rows.map(r => r.client)).size} name${new Set(rows.map(r => r.client)).size === 1 ? "" : "s"}`,
+        desc: `${pairs.filter(x => x.beh === "round-trip").length} round-trip · ${pairs.filter(x => x.beh === "net buyer").length} net buyer · ${pairs.filter(x => x.beh === "net seller").length} net seller. ${stayed >= 0.5 ? `<b class="up">${cr(stayed)} stayed</b>` : "Nothing stayed"}${left >= 0.5 ? ` · <b class="down">${cr(left)} left</b>` : ""}. Names and rows are on the Superinvestors tab.`,
+        acts: [["done", "Seen"], ["snooze", "Snooze"]] }); });
+    const mine = deals.filter(r => r.date === latest && follows(r.client));
+    if (mine.length) { const names = [...new Set(mine.map(r => r.client))];
+      P.push({ id: `names:${latest}`, pri: 3, tag: ["ok", `Your names ${days(latest) === 0 ? "today" : fmtD(latest)}`], lbl: "Followed investors",
+        ttl: `${names.length === 1 ? names[0] : names.length + " names you follow"} on the tape in ${[...new Set(mine.map(r => r.stock))].join(", ")}`,
+        desc: ldPairs(mine).map(x => `${esc(x.client)}: ${x.beh} in ${esc(x.stock)} (${cr(x.cb)} bought / ${cr(x.cs)} sold)`).join(" · "), acts: [["done", "Seen"]] }); }
+  }
+  return P;
+}

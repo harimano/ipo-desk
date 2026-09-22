@@ -134,6 +134,7 @@ function buildQueue() {
     else if (b.status === "Closed" && (star || S.apps.some(a => a.name === b.name))) P.push({ id: "allot:" + b.name, pri: 4, tag: ["ok", "Lists " + rel(days(b.listing))], lbl: "Allotment", ttl: `Check ${b.name} allotment`, desc: `Lists ${fmtDY(b.listing)}${g != null ? ` · expected ${sgn(g)} per lot at GMP ${inr(b.gmp)}` : ""}.`, big: fmtD(b.listing), acts: [["done", "Checked"]], b });
   });
   S.apps.filter(a => a.status === "Allotted — holding").forEach(a => { const b = findIssue(a.name); if (b && b.status === "Listed") P.push({ id: "exit:" + a.name, pri: 3, tag: ["soon", "Listed"], lbl: "Position", ttl: `Decide on ${a.name}`, desc: `Listed ${fmtD(b.listing)} at ${inr(b.listingPrice)} vs your ${inr(a.price)}.`, big: pct(b.listingGainPct, true), bigCls: cls(b.listingGainPct), acts: [["done", "Decided"]] }); });
+  P.push(...trackerQueueItems());                      // lock-ins and the tape, for what Hari holds, starred or follows (lockin.js)
   return P.sort((a, b) => a.pri - b.pri);
 }
 function renderToday() {
