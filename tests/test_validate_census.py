@@ -29,3 +29,13 @@ def test_rows_that_age_off_the_board_on_schedule_are_not_a_loss():
     early = {"meta": new["meta"], "mainboard": live[:6], "sme": []}                      # rows vanishing BEFORE their time still count
     assert validate.census(validate.retire_due(prev, early))["/mainboard"] == 13 and validate.census(early)["/mainboard"] == 6
     assert validate.retire_due(prev, {"meta": {}}) is prev, "no date to reason from: compare everything"
+
+
+def test_a_retired_rows_research_record_leaves_with_it():
+    prev = {"mainboard": [{"name": "Gone", "listing": "2026-09-18", "igId": 2277}, {"name": "Fresh", "listing": "2026-09-21", "igId": "2300"}],
+            "sme": [], "records": {"2277": {"name": "Gone", "financials": {"rows": [1, 2, 3]}}, "2300": {"name": "Fresh"}, "2100": {"name": "No row"}}}
+    new = {"meta": {"asOf": "2026-09-22T06:43:00+05:30"}}
+    kept = validate.retire_due(prev, new)
+    assert [r["name"] for r in kept["mainboard"]] == ["Fresh"]
+    assert set(kept["records"]) == {"2300", "2100"}, "the record of a row that aged off on schedule is not a loss"
+    assert set(prev["records"]) == {"2277", "2300", "2100"}, "prev is never mutated"

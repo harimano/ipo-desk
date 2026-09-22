@@ -77,8 +77,20 @@ def retire_due(prev: dict, new: dict) -> dict:
     except ValueError:
         return prev
     out = dict(prev)
+    gone: set[str] = set()
     for k in ("mainboard", "sme"):
-        out[k] = [r for r in prev.get(k) or [] if not (isinstance(r, dict) and r.get("listing") and str(r["listing"])[:10] < cutoff)]
+        keep = []
+        for r in prev.get(k) or []:
+            if isinstance(r, dict) and r.get("listing") and str(r["listing"])[:10] < cutoff:
+                if r.get("igId") is not None:
+                    gone.add(str(r["igId"]))
+            else:
+                keep.append(r)
+        out[k] = keep
+    # the Research record behind a retired row leaves with it (details keeps records only for rows on the board):
+    # four listings retiring together on 22 Sep 2026 read as 34 "100% loss" errors and blocked every full run
+    if gone and isinstance(prev.get("records"), dict):
+        out["records"] = {i: v for i, v in prev["records"].items() if str(i) not in gone}
     return out
 
 

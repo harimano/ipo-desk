@@ -40,7 +40,7 @@ function noteChanges(was, D) { const now = seenOf(D); if (Object.keys(was).lengt
   if (c.g || c.s) CHG[n] = c; }); }
 const delta = (pair, fmt) => pair ? `<div class="dt chgd ${pair[1] > pair[0] ? "up" : "down"}">${pair[1] > pair[0] ? "▲" : "▼"} from ${fmt(pair[0])}</div>` : "";
 const oldTag = (iso, days) => { const x = iso ? new Date(iso) : null; return x && !isNaN(x) && (Date.now() - x) / 864e5 > days ? ` <span class="oldtag" title="not refreshed by the collector since then">as of ${fmtD(iso)}</span>` : ""; };
-const rel = n => n == null ? "" : n === 0 ? "today" : n === 1 ? "tomorrow" : n > 0 ? `in ${n} days` : `${-n} days ago`;
+const rel = n => n == null ? "" : n === 0 ? "today" : n === 1 ? "tomorrow" : n === -1 ? "yesterday" : n > 0 ? `in ${n} days` : `${-n} days ago`;
 const sgn = n => n == null ? "—" : (n >= 0 ? "+" : "−") + inr0(Math.abs(n));
 
 /* ---------- storage (keys fixed) ---------- */
