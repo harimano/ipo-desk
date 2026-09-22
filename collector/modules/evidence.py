@@ -135,6 +135,44 @@ def anchors_bands(rows: list[dict]) -> dict:
             "of": max((r.get("anchorsOf") or 0 for r in sel), default=None)}
 
 
+LOCKIN_AFTER = 5           # trading days after the 30-day lock-in opens; the move over them is the outcome
+
+
+def lockin_outcomes(doc: dict, prev_rows: list[dict], today: dt.date) -> list[dict]:
+    """What the price did over the first LOCKIN_AFTER trading days after an anchor's 30-day lock opened, for every
+    listing whose price path (tape / listings -> priceHistory) covers it. Rows are frozen once written and carried
+    from prev, so the record outlives the 90-day price cap. {name, sme, date, base, after, ret}. No verdict."""
+    out = {(r.get("name"), r.get("date")): r for r in prev_rows if isinstance(r, dict) and r.get("name") and r.get("date")}
+    ph = doc.get("priceHistory") or {}
+    sme = {r["name"]: bool(r.get("sme")) for r in doc.get("listedPerf") or [] if isinstance(r, dict) and r.get("name")}
+    for k in ("mainboard", "sme"):
+        for r in doc.get(k) or []:
+            if isinstance(r, dict) and r.get("name"):
+                sme.setdefault(r["name"], k == "sme")
+    for a in doc.get("anchors") or []:
+        if not isinstance(a, dict) or not a.get("name") or not a.get("lockIn30"):
+            continue
+        name, date = a["name"], str(a["lockIn30"])[:10]
+        if (name, date) in out or date > today.isoformat():
+            continue
+        series = sorted((p for p in ph.get(name) or [] if isinstance(p, list) and len(p) == 2 and p[1]), key=lambda p: str(p[0]))
+        before = [p for p in series if str(p[0])[:10] < date][-3:]
+        after = [p for p in series if str(p[0])[:10] >= date]
+        if not before or len(after) < LOCKIN_AFTER:
+            continue                                    # not enough path yet: try again on a later run
+        base, end = before[-1][1], after[LOCKIN_AFTER - 1][1]
+        out[(name, date)] = {"name": name, "sme": sme.get(name, False), "date": date, "base": base, "after": end,
+                             "ret": round(100 * (end - base) / base, 1)}
+    return sorted(out.values(), key=lambda r: (r["date"], r["name"]))
+
+
+def lockin_summary(rows: list[dict], is_sme: bool) -> dict:
+    sel = [r for r in rows if bool(r.get("sme")) == is_sme and r.get("ret") is not None]
+    s = summarise([r["ret"] for r in sel])
+    s.update({"since": min((r["date"] for r in sel), default=None), "days": LOCKIN_AFTER})
+    return s
+
+
 def window_of(rows: list[dict], today: dt.date) -> tuple[list[dict], dict]:
     cut = (today - dt.timedelta(days=WINDOW_DAYS)).isoformat()
     recent = [r for r in rows if r["date"] >= cut]
@@ -211,10 +249,14 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
         return res.fail(RuntimeError(f"only {len(rows)} listings with an outcome on file — `history` has not run yet?"))
     warnings: list[dict] = []
     edges = {k: [None if abs(x) == INF else x for x in v] for k, v in EDGES.items()}
+    doc = res.doc or prev
+    lockins = lockin_outcomes(doc, ((prev.get("evidence") or {}).get("lockins") or {}).get("rows") or [], t)
     res.replace["evidence"] = {"asOf": t.isoformat(), "rfAnnual": RF_ANNUAL, "minN": MIN_N, "edges": edges,
                                "segments": {"main": segment([r for r in rows if not r["sme"]], t, "mainboard", warnings),
                                             "sme": segment([r for r in rows if r["sme"]], t, "SME", warnings)},
-                               "warnings": warnings}
+                               "lockins": {"rows": lockins, "days": LOCKIN_AFTER}, "warnings": warnings}
+    for key, is_sme in (("main", False), ("sme", True)):
+        res.replace["evidence"]["segments"][key]["lockin"] = lockin_summary(lockins, is_sme)
     res.notes.append(f"{len(rows)} listings; windows: mainboard {res.replace['evidence']['segments']['main']['window']['n']}, "
                      f"SME {res.replace['evidence']['segments']['sme']['window']['n']}; {len(warnings)} warnings")
     return res.won("computed", t.isoformat())

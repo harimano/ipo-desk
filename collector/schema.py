@@ -15,7 +15,7 @@ from __future__ import annotations
 TOP_LEVEL = [
     "meta", "mainboard", "sme", "recent", "expected", "offers", "lot",
     "comps", "listedPerf", "evidence", "priceHistory", "flows", "news",
-    "integrity", "investors", "anchors", "quota", "current", "sheets", "records", "players",
+    "integrity", "investors", "anchors", "quota", "current", "sheets", "records", "players", "tape",
 ]
 
 STATUSES = {"Open", "Upcoming", "Closed", "Listed"}
@@ -29,7 +29,7 @@ OWNERS: dict[str, str] = {
     "recent": "listings", "listedPerf": "history", "comps": "history", "evidence": "evidence", "priceHistory": "listings",
     "flows": "flows", "news": "news", "quota": "filings", "integrity": "integrity", "meta": "integrity",
     # carried forward from the previous latest.json, refreshed by other layers:
-    "offers": "offers", "anchors": "details", "records": "details", "players": "players", "investors": "carry", "current": "research", "sheets": "research",
+    "offers": "offers", "anchors": "details", "records": "details", "players": "players", "tape": "tape", "investors": "carry", "current": "research", "sheets": "research",
 }
 # Modules that patch FIELDS INTO rows another module produced (by row name).
 ROW_PATCHERS: dict[str, set[str]] = {
@@ -43,6 +43,7 @@ ROW_PATCHERS: dict[str, set[str]] = {
 MERGE_PATCHERS: dict[str, set[str]] = {
     "parents": {"sheets", "investors"},     # sheets: only parentPrice; investors: only `prices`
     "deals": {"investors"},    # only bulkDeals, listingDeals, listingSymbols
+    "tape": {"priceHistory"},  # one series per listing it prices from the bhavcopy (names listings does not price)
 }
 
 # Row keys are stable identifiers the site's localStorage (stars, applications) depends on.
@@ -73,6 +74,7 @@ def empty_data() -> dict:
     d["meta"] = {"asOf": None, "label": None, "unresolved": [], "awaitingData": [], "newFindings": [],
                  "marketNotes": [], "quotaSourceNote": None}
     d["players"] = {"asOf": None, "tracked": 0, "books": {}, "names": {}, "league": []}
+    d["tape"] = {"asOf": None, "dates": [], "noFile": [], "names": {}}
     d["evidence"] = {"asOf": None, "segments": {}, "warnings": []}
     d["offers"] = {"asOf": None, "rights": [], "buybacks": [], "ofs": [], "ncd": []}
     d["flows"] = {"latest": None, "history": [], "monthly": [], "rotation": {"fiiSelling": [], "diiBuying": []}, "note": None}

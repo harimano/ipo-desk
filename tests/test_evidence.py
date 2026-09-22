@@ -142,3 +142,24 @@ def test_anchor_line_ups_are_banded_from_the_frozen_record_only():
     assert all(b["lo"] is not None and b["hi"] is not None for b in a["rows"] if b["n"]), "a thin band carries its interval"
     assert res.replace["evidence"]["edges"]["anchors"] == [0, 1, 3, 6, None]
     assert run(d).replace["evidence"]["segments"]["sme"]["anchors"]["n"] == 0, "never pooled"
+
+
+def test_lock_in_outcomes_accrue_from_the_price_path_and_are_frozen():
+    d = doc()
+    d["anchors"] = [{"name": "A Co", "lockIn30": "2026-09-10"}, {"name": "B Co", "lockIn30": "2026-09-15"}, {"name": "C Co", "lockIn30": "2026-09-30"}]
+    d["mainboard"], d["sme"] = [{"name": "A Co"}], [{"name": "B Co"}]
+    days = ["2026-09-08", "2026-09-09", "2026-09-10", "2026-09-11", "2026-09-14", "2026-09-15", "2026-09-16", "2026-09-17", "2026-09-18"]
+    d["priceHistory"] = {"A Co": [[x, 100.0 + i] for i, x in enumerate(days)], "B Co": [[x, 50.0] for x in days[:6]]}
+    res = run(d)
+    L = res.replace["evidence"]["lockins"]
+    assert L["days"] == 5 and [r["name"] for r in L["rows"]] == ["A Co"], "B has only one close after its lock; C has not opened"
+    a = L["rows"][0]
+    assert a == {"name": "A Co", "sme": False, "date": "2026-09-10", "base": 101.0, "after": 106.0, "ret": 5.0}
+    m = res.replace["evidence"]["segments"]["main"]["lockin"]
+    assert m["n"] == 1 and m["pos"] == 100.0 and m["lo"] is not None and m["since"] == "2026-09-10"
+    assert res.replace["evidence"]["segments"]["sme"]["lockin"]["n"] == 0, "never pooled"
+    # frozen: the price path can vanish (90-day cap) and the row stays; a rewrite is never attempted
+    d2 = dict(d); d2["priceHistory"] = {}
+    prev = {"evidence": res.replace["evidence"]}
+    res2 = ev.run(None, prev, Result(module="evidence", doc=d2), today=TODAY)
+    assert res2.replace["evidence"]["lockins"]["rows"] == L["rows"]

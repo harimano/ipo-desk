@@ -28,6 +28,23 @@ function ldPairs(rows) {
   return Object.values(P).map(p => ({ ...p, net: p.cb - p.cs, beh: ldBehaviour(p) }));
 }
 
+/* price path since listing, from priceHistory (tape: one close a trading day for every listing this year). Marks: deal days
+   (green = net bought that day, red = net sold, grey = round-trip), and the anchor lock-in dates. Drawing, not arithmetic. */
+function ldSpark(name, rows, A1) {
+  const ph = ((DATA.priceHistory || {})[name] || []).filter(p => Array.isArray(p) && p[1] != null).sort((x, y) => String(x[0]).localeCompare(String(y[0])));
+  if (ph.length < 2) return "";
+  const W = 320, H = 44, pad = 3, xs = ph.map(p => new Date(p[0]).getTime()), ys = ph.map(p => p[1]);
+  const x0 = xs[0], x1 = xs[xs.length - 1] || x0 + 1, lo = Math.min(...ys), hi = Math.max(...ys);
+  const X = t => pad + (W - 2 * pad) * (x1 === x0 ? 1 : (t - x0) / (x1 - x0)), Y = v => H - pad - (H - 2 * pad) * (hi === lo ? 0.5 : (v - lo) / (hi - lo));
+  const path = ph.map((p, i) => `${i ? "L" : "M"}${X(xs[i]).toFixed(1)},${Y(ys[i]).toFixed(1)}`).join("");
+  const byDay = {}; rows.forEach(r => { byDay[r.date] = (byDay[r.date] || 0) + (r.side === "BUY" ? 1 : -1) * (r.valueCr || 0); });
+  const marks = Object.entries(byDay).map(([d, net]) => { const t = new Date(d).getTime(); if (t < x0 || t > x1) return ""; const i = ph.findIndex(p => String(p[0]) >= d), y = i >= 0 ? Y(ys[i]) : H / 2;
+    return `<circle cx="${X(t).toFixed(1)}" cy="${y.toFixed(1)}" r="3" fill="var(--${Math.abs(net) < 0.5 ? "ink-3" : net > 0 ? "up" : "down"})"><title>${fmtD(d)}: ${ldSigned(net)}</title></circle>`; }).join("");
+  const locks = A1 ? [["lockIn30", "30-day lock-in opens"], ["lockIn90", "90-day lock-in opens"]].map(([k, l]) => { const d = A1[k]; if (!d) return ""; const t = new Date(d).getTime(); if (t < x0 || t > x1) return "";
+    return `<line x1="${X(t).toFixed(1)}" x2="${X(t).toFixed(1)}" y1="0" y2="${H}" stroke="var(--amber)" stroke-dasharray="2 2"><title>${l} ${fmtD(d)}</title></line>`; }).join("") : "";
+  return `<svg class="ldspark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-label="price since listing"><path d="${path}" fill="none" stroke="var(--accent)" stroke-width="1.5"/>${locks}${marks}</svg><div class="dt" style="display:flex;justify-content:space-between"><span>${fmtD(ph[0][0])} ${inr(ys[0])}</span><span>${ph.length} closes</span><span>${fmtD(ph[ph.length - 1][0])} ${inr(ys[ys.length - 1])}</span></div>`;
+}
+
 function renderListingDeals() {
   const host = $("#ldStocks"); if (!host) return;
   const I = DATA.investors || {}, all = I.listingDeals;
@@ -59,6 +76,7 @@ function renderListingDeals() {
       <div class="ldh"><b data-row data-name="${esc(s.stock)}">${esc(s.stock)}</b>${segPill(s.sme)}${s.mine ? `<span class="pill ok" style="height:17px;font-size:10.5px">${held(s.stock) ? "you hold" : "starred"}</span>` : ""}<span class="dt" style="margin-left:auto">listed ${fmtD(s.listedOn)}${s.listedOn ? ` · day ${-days(s.listedOn)}` : ""}</span></div>
       <div class="ldp">${s.ltp ? `<b class="num">${inr(s.ltp)}</b> now` : "no price on file"}${vs != null ? ` · <span class="num ${cls(vs)}">${pct(vs, true)}</span> vs issue ${inr(s.issue)}` : s.issue ? ` · issue ${inr(s.issue)}` : ""}${op != null ? ` · opened <span class="num ${cls(op)}">${pct(op, true)}</span>` : ""}</div>
       <div class="dt">${s.n} deals · ${s.names} names · <span title="bought and sold within 20% of each other">${s.rt} round-trip</span> · <span class="up">${s.nb.length} net buyer${s.nb.length === 1 ? "" : "s"}</span> · <span class="down">${s.ns} net seller${s.ns === 1 ? "" : "s"}</span></div>
+      ${ldSpark(s.stock, s.rows, anchorFor(s.stock))}
       <div class="hb two"><div class="n" style="font-weight:500;color:var(--ink-3)" title="sold to the left of centre, bought to the right">sold│bought</div><div class="bar" title="sold ${cr(s.s)} · bought ${cr(s.b)}"><i class="s down" style="width:${s.s / mx * 50}%"></i><i class="b up" style="width:${s.b / mx * 50}%"></i></div><div class="v num ${cls(Math.abs(s.net) < 0.5 ? 0 : s.net)}">${ldSigned(s.net)}</div></div>
       <div class="dt">${s.stayed >= 0.5 ? `<b class="up">${cr(s.stayed)} stayed</b> with ${s.nb.length} name${s.nb.length === 1 ? "" : "s"}: ${s.nb.sort((x, y) => y.net - x.net).slice(0, 3).map(x => `${esc(short(x.client))}${fb(x.client)}`).join(", ")}${s.nb.length > 3 ? ` +${s.nb.length - 3}` : ""}` : "nothing stayed — every name that bought also sold"}</div>
       <div class="dt">${s.last === latest ? `<span class="pill now" style="height:17px;font-size:10.5px">new</span> ` : ""}latest ${fmtD(s.last)}: ${dayPairs.slice(0, 3).map(x => `${esc(short(x.client))} <span class="pill ${ldBehCls(x.beh)}" style="height:16px;font-size:10px">${x.beh}</span> ${cr(x.cb + x.cs)}`).join(" · ")}${dayPairs.length > 3 ? ` · +${dayPairs.length - 3} more` : ""}</div>

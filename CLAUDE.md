@@ -62,7 +62,7 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
 ## The collector
 
 `MODULES` order IS the fallback logic (a later patch wins):
-`calendar, gmp, details, subscription, listings, history, evidence, players, parents, filings, offers, flows, deals, news`.
+`calendar, gmp, details, subscription, listings, history, evidence, players, parents, filings, offers, flows, deals, tape, news`.
 Ownership is enforced by `schema.OWNERS` / `ROW_PATCHERS`; a failed module changes nothing. `Result.doc` is today's
 document as assembled so far; `prev` is yesterday's.
 
@@ -87,6 +87,10 @@ document as assembled so far; `prev` is yesterday's.
   rows, else NSE's equity lists via `names.Matcher`, cached in `investors.listingSymbols`; a fuzzy hit listed before this
   year is rejected. BSE-only SME listings never resolve — the note says how many. Most rows are prop desks round-tripping
   on day one; the page's net-by-stock bar is what makes that visible.
+- `tape`: one NSE bhavcopy per trading day (nsearchives zip, SME series included) → a close a day in `priceHistory` for EVERY
+  listing of this year with a symbol (board `symbol`, else deals' `listingSymbols`); backfills 6 days a run, then 1 call a day;
+  `tape.noFile` remembers holidays; today's file only after 18:30 IST. `evidence.lockins` freezes the 5-day move after each
+  30-day anchor unlock from that path (`segments[x].lockin`, n + Wilson, since 22 Sep 2026).
 - `parents` prices sheet parents AND every live quota row's `ticker` into `investors.prices[parent]` (the quota planner).
 - `subscription` never replaces a positive book with an all-zero one (exchanges answer zeros after close). A GMP of "0"
   with no trade behind it is "no quote". `validate.py`'s loss check ignores rows due to retire (listing + 1 day).

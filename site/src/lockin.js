@@ -30,6 +30,11 @@ function renderLockins() {
   host.innerHTML = `${head}<tbody>${near.map(tr).join("") || `<tr><td colspan="6" class="empty">No anchor lock-in opens in the next ${LI_NEAR} days.</td></tr>`}</tbody>`;
   const more = $("#lockinMore"); if (more) { more.hidden = !far.length; more.innerHTML = far.length ? `<summary>${far.length} more between ${fmtD(far[0].date)} and ${fmtD(far[far.length - 1].date)} ▾</summary><div class="tw"><table>${head}<tbody>${far.map(tr).join("")}</tbody></table></div>` : ""; }
   const sub = $("#lockinSub"); if (sub) sub.textContent = `${rows.filter(r => r.n >= 0).length} opening in the next ${LI_AHEAD} days · ${rows.filter(r => r.n < 0).length} opened in the last ${LI_BACK}`;
+  // measured: what the price did over the first five trading days after a 30-day lock opened, per segment, from the
+  // collector's frozen record (evidence.lockins) — n and the interval come with it; nothing on file reads as nothing
+  const ev = $("#lockinEv"); if (ev) { const line = k => { const L = (SEG(k === "sme") || {}).lockin; if (!L || !L.n) return `${k === "sme" ? "SME" : "Mainboard"}: no 30-day unlock with five days of price path on file yet`;
+      return `${k === "sme" ? "SME" : "Mainboard"}: after ${L.n} unlock${L.n === 1 ? "" : "s"} since ${fmtD(L.since)}, the price was up ${L.days} days later in ${Math.round(L.pos)}% of cases (95% range ${Math.round(L.lo)}–${Math.round(L.hi)}%) · median ${pct(L.med, true)} · 10th–90th ${pct(L.p10, true)} to ${pct(L.p90, true)}`; };
+    ev.innerHTML = `<b>Measured, not assumed:</b> ${line("main")} · ${line("sme")}. The record started 22 Sep 2026 and only grows.`; }
 }
 
 /* ---- the trackers on the Today queue: only for listings Hari holds or starred, and for names he follows ---- */

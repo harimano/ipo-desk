@@ -24,7 +24,7 @@ from .schema import TOP_LEVEL
 
 META_KEYS = ("meta", "integrity")
 GROUPS: dict[str, tuple[str, ...]] = {
-    "board":     ("mainboard", "sme", "recent", "lot", "priceHistory", "news", "flows"),
+    "board":     ("mainboard", "sme", "recent", "lot", "priceHistory", "tape", "news", "flows"),
     "pipeline":  ("quota", "expected", "offers", "anchors", "players"),
     "investors": ("investors",),
     "research":  ("current", "sheets", "records"),

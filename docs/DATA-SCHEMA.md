@@ -47,3 +47,10 @@ players: {asOf, tracked, of, latestPerInvestor, books{igId: [{id, name, ipos, in
     the day it listed, never rewritten (accruing since 22 Sep 2026). `evidence.segments[x].anchors` = {rows[4] by `large` band
     (edges 0,1,3,6), n, since, of} — listing outcomes of frozen line-ups, with Wilson; thin for months and shown as such.
   evidence segment also carries hold{window[], all[]}: {n, held, lo, hi, med, p10, p90} per `edges.open` band (day-1 close vs the open).
+
+tape: {asOf, dates[], noFile[], names{name: symbol}, n} — owned by `tape`: which trading days' NSE bhavcopies have been read (last 90),
+  which weekdays had no file (holidays), and which listings of this year were priced from them. `tape` merge-patches `priceHistory`
+  with one [date, close] a trading day for EVERY listing of this year with an NSE symbol (listings prices only the board).
+evidence.lockins: {rows[{name, sme, date, base, after, ret}], days} — the price move over the first 5 trading days after an anchor's
+  30-day lock opened, frozen once written (outlives the 90-day price cap); `segments[x].lockin` = summarise(rows of that segment)
+  + since + days. Started 22 Sep 2026.
