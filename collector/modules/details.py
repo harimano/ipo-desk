@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import datetime as dt
 import logging
+import time
 import pathlib
 from zoneinfo import ZoneInfo
 
@@ -44,6 +45,8 @@ IST = ZoneInfo("Asia/Kolkata")
 ALIASES_DIR = pathlib.Path(__file__).resolve().parents[2] / "data"
 BOARDS = ("mainboard", "sme")
 MAX_DETAIL_CALLS = 25
+BUDGET_SECONDS = 150       # a slow InvestorGain hour must not eat the run (23 Sep 2026: 18 minutes of resets and timeouts, job cancelled)
+MAX_CONSECUTIVE_FAILURES = 3
 STALE_HOURS = 6
 SETTLED_DAYS = 3                      # after listing: the record has said everything it will say
 MAX_OPEN_DATE_GAP_DAYS = 3            # a name match must also agree on the opening date
@@ -213,8 +216,9 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None,
     records = {i: v for i, v in (prev.get("records") or {}).items() if i in on_board and isinstance(v, dict)}
     todo = sorted(((k, r) for k, r in live if r["name"] in ids and (due(r, t, now) or ids[r["name"]] not in records)),
                   key=lambda kr: (derive_status(kr[1].get("open"), kr[1].get("close"), kr[1].get("listing"), t) != "Open", kr[1].get("open") or ""))
+    t0, streak = time.monotonic(), 0
     for key, row in todo:
-        if got + len(failed) >= MAX_DETAIL_CALLS:
+        if got + len(failed) >= MAX_DETAIL_CALLS or time.monotonic() - t0 > BUDGET_SECONDS or streak >= MAX_CONSECUTIVE_FAILURES:
             skipped += 1
             continue
         try:
@@ -226,8 +230,10 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None,
         except SourceError as e:
             last = e
             failed.append(row["name"])
+            streak += 1
             log.info("details %s: %s", row["name"], e.detail)
             continue
+        streak = 0
         if rec["igId"] != ids[row["name"]]:                        # never hang one issue's facts on another
             last = SourceChanged("investorgain", f"asked for id {ids[row['name']]}, the record says {rec['igId']}")
             failed.append(row["name"])

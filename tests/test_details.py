@@ -216,3 +216,11 @@ def test_records_are_kept_for_rows_on_the_board_and_fetched_at_once_when_missing
     s = FakeSession()
     res = run(s, fresh)
     assert "detail:2305" in s.calls, "fetched an hour ago, but no sheet on file: due now"
+
+
+def test_three_failures_in_a_row_stop_the_record_loop_and_the_rest_wait():
+    from collector.modules import details
+    assert details.MAX_CONSECUTIVE_FAILURES == 3 and details.BUDGET_SECONDS <= 300
+    s = FakeSession(records={k: SourceDown("investorgain", "HTTP 503", "u", 503) for k in RECORDS})
+    run(s)
+    assert len([c for c in s.calls if c.startswith("detail:")]) <= 3, "after three failures in a row nothing more is asked"

@@ -39,3 +39,26 @@ def test_a_retired_rows_research_record_leaves_with_it():
     assert [r["name"] for r in kept["mainboard"]] == ["Fresh"]
     assert set(kept["records"]) == {"2300", "2100"}, "the record of a row that aged off on schedule is not a loss"
     assert set(prev["records"]) == {"2277", "2300", "2100"}, "prev is never mutated"
+
+
+def test_a_records_sheet_table_shrinking_and_a_small_nested_list_are_not_a_loss(tmp_path):
+    import json, subprocess, sys
+    base = validate.retire_due  # noqa: F841  (module import check)
+    doc = {k: [] for k in validate.TOP_LEVEL}
+    doc.update({"meta": {"asOf": "2026-09-23T06:43:00+05:30", "label": "x", "unresolved": []}, "lot": {}, "priceHistory": {}, "current": {}, "sheets": {},
+                "flows": {"history": []}, "investors": {}, "integrity": {"checks": []}, "offers": {}})
+    doc["mainboard"] = [{"name": f"co{i}", "status": "Upcoming", "listing": "2026-12-01", "sources": ["a", "b", "c"], "facts": {"recs": [1, 2, 3]}} for i in range(12)]
+    doc["listedPerf"] = [{"name": f"p{i}", "date": "2026-01-01"} for i in range(40)]
+    doc["records"] = {str(i): {"name": f"r{i}", "reservation": {"rows": [[1, 2]] * 8}} for i in range(9)}
+    prev = json.loads(json.dumps(doc))
+    for r in doc["mainboard"][:3]:
+        r["facts"]["recs"] = []                                   # 36 -> 27 across rows: 25% but tiny; must not count
+    for i in range(9):
+        doc["records"][str(i)]["reservation"]["rows"] = [[1, 2]] * 3
+    (tmp_path / "prev.json").write_text(json.dumps(prev)); (tmp_path / "new.json").write_text(json.dumps(doc))
+    out = subprocess.run([sys.executable, str(validate.__file__), str(tmp_path / "new.json"), "--prev", str(tmp_path / "prev.json"), "--max-age-hours", "999999"], capture_output=True, text=True)
+    assert "reservation" not in out.stdout and "facts/recs" not in out.stdout, out.stdout
+    doc["records"] = {}                                           # the number of records still counts
+    (tmp_path / "new.json").write_text(json.dumps(doc))
+    out = subprocess.run([sys.executable, str(validate.__file__), str(tmp_path / "new.json"), "--prev", str(tmp_path / "prev.json"), "--max-age-hours", "999999"], capture_output=True, text=True)
+    assert "latest/records: 9 -> 0" in out.stdout

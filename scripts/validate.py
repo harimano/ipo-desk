@@ -27,6 +27,8 @@ FREE_TEXT = {"dates", "when"}
 MAX_DOC_BYTES = 6 * 1024 * 1024      # a static file; generous, but a runaway is still a bug
 MAX_ITEM_LOSS = 0.30
 MIN_CENSUS = 8
+MIN_CENSUS_NESTED = 24     # a list summed across rows (facts.recs, anchors[].investors) must be this big before a loss counts:
+                           # 23 Sep 2026, three board rows losing their broker-view list read as "9 -> 6, 33% loss" and blocked a run
 
 errors: list[str] = []
 warnings: list[str] = []
@@ -208,8 +210,12 @@ def main() -> int:
                 compared = 0
                 for path, old in old_c.items():
                     # /meta/unresolved is a to-do list the collector rebuilds each run; it shrinking is the goal
+                    # /records/<id>/… is one listing's fetched sheet: its tables shrink when the source re-cuts them
+                    # (a reservation table goes from 8 rows to 3 once the issue closes — 23 Sep 2026, 9 errors, run refused);
+                    # the number of records is still checked at /records.
                     if (old < MIN_CENSUS or path.startswith("/integrity") or path.startswith("/news")
-                            or path == "/meta/unresolved"):
+                            or path == "/meta/unresolved" or path.startswith("/records/")
+                            or ("[]" in path and old < MIN_CENSUS_NESTED)):
                         continue
                     compared += 1
                     new = new_c.get(path, 0)
