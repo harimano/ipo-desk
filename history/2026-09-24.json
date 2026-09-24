@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-24T11:39:43+05:30",
+  "asOf": "2026-09-24T11:59:23+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "24 Sep 2026, 11:39 IST",
+  "label": "24 Sep 2026, 11:59 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -40,6 +40,17 @@
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
    "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
+   "[gmp] gmp: no grey-market print found for open issue Anand Seamless",
+   "[gmp] gmp: no grey-market print found for open issue Himalaya Nutravedics India",
+   "[gmp] gmp: no grey-market print found for open issue Core Integra Consulting",
+   "[gmp] gmp: no grey-market print found for open issue Coreintegra Consulting Services",
+   "[gmp] gmp: no grey-market print found for open issue Liqvd Digital",
+   "[gmp] gmp: no grey-market print found for open issue Pooja Logistics",
+   "[gmp] gmp: no grey-market print found for open issue S.K.Offset",
+   "[gmp] gmp: no grey-market print found for open issue Unitec Fibres",
+   "[gmp] gmp: no grey-market print found for open issue Green Asia Impex",
+   "[gmp] gmp: no grey-market print found for open issue Peshwa Wheat",
+   "[details] no InvestorGain record matched (name + opening date): Coreintegra Consulting Services",
    "[listings] listings: no NSE symbol on row 'Amtech Esters' — cannot price",
    "[listings] listings: no NSE symbol on row 'Infrax Renewable' — cannot price",
    "[listings] listings: no NSE symbol on row 'Vinod Texworld' — cannot price",
@@ -56,18 +67,7 @@
    "[listings] listings: no NSE symbol on row 'Hy-Tech Engineers' — cannot price",
    "[listings] listings: no NSE symbol on row 'Skyways Air Services' — cannot price",
    "[listings] listings: no NSE symbol on row 'Augmont Enterprises' — cannot price",
-   "[listings] listings: no NSE symbol on row 'Tempsens Instruments' — cannot price",
-   "[gmp] gmp: no grey-market print found for open issue Anand Seamless",
-   "[gmp] gmp: no grey-market print found for open issue Himalaya Nutravedics India",
-   "[gmp] gmp: no grey-market print found for open issue Core Integra Consulting",
-   "[gmp] gmp: no grey-market print found for open issue Coreintegra Consulting Services",
-   "[gmp] gmp: no grey-market print found for open issue Liqvd Digital",
-   "[gmp] gmp: no grey-market print found for open issue Pooja Logistics",
-   "[gmp] gmp: no grey-market print found for open issue S.K.Offset",
-   "[gmp] gmp: no grey-market print found for open issue Unitec Fibres",
-   "[gmp] gmp: no grey-market print found for open issue Green Asia Impex",
-   "[gmp] gmp: no grey-market print found for open issue Peshwa Wheat",
-   "[details] no InvestorGain record matched (name + opening date): Coreintegra Consulting Services"
+   "[listings] listings: no NSE symbol on row 'Tempsens Instruments' — cannot price"
   ]
  },
  "expected": [
@@ -1316,7 +1316,7 @@
    "shareholderQuota": null,
    "listingPrice": 82.0,
    "listingGainPct": -2.38,
-   "currentPrice": 98.4,
+   "currentPrice": 118.08,
    "sources": [
     "NSE ipo-current-issue",
     "InvestorGain IPO list"
@@ -1405,9 +1405,9 @@
     "asOf": "2026-09-18T16:07:00+05:30"
    },
    "shareholderQuota": null,
-   "listingPrice": 120.0,
-   "listingGainPct": 29.03,
-   "currentPrice": 126.0,
+   "listingPrice": 132.3,
+   "listingGainPct": 42.26,
+   "currentPrice": 132.3,
    "sources": [
     "NSE ipo-current-issue",
     "InvestorGain IPO list"
@@ -1495,9 +1495,9 @@
     "employee": 2.72
    },
    "shareholderQuota": null,
-   "listingPrice": 624.0,
-   "listingGainPct": 47.17,
-   "currentPrice": 748.8,
+   "listingPrice": 771.95,
+   "listingGainPct": 82.06,
+   "currentPrice": 858.95,
    "sources": [
     "NSE ipo-current-issue",
     "InvestorGain IPO list"
@@ -1563,7 +1563,7 @@
    "name": "NSE (National Stock Exchange of India)",
    "slug": "nse",
    "type": "Mainboard",
-   "status": "Closed",
+   "status": "Listed",
    "open": "2026-09-17",
    "close": "2026-09-21",
    "allotment": "2026-09-22",
@@ -1574,9 +1574,9 @@
    "issueSizeCr": 22561.57,
    "freshCr": 0,
    "ofsCr": 22561.57,
-   "gmp": 40.0,
-   "gmpPct": 2.24,
-   "gmpTrend": "flat",
+   "gmp": 72.0,
+   "gmpPct": 4.03,
+   "gmpTrend": "up",
    "sub": {
     "qib": 12.68,
     "nii": 6.55,
@@ -1659,7 +1659,7 @@
    "name": "Sonaselection India",
    "slug": "sonaselection-india",
    "type": "Mainboard",
-   "status": "Closed",
+   "status": "Listed",
    "open": "2026-09-17",
    "close": "2026-09-21",
    "allotment": "2026-09-22",
@@ -1681,9 +1681,9 @@
     "asOf": "2026-09-21T18:56:00+05:30"
    },
    "shareholderQuota": null,
-   "listingPrice": null,
-   "listingGainPct": null,
-   "currentPrice": null,
+   "listingPrice": 102.31,
+   "listingGainPct": 3.34,
+   "currentPrice": 107.42,
    "sources": [
     "NSE ipo-current-issue",
     "InvestorGain IPO list"
@@ -1764,9 +1764,9 @@
    "sub": {
     "qib": 0.15,
     "nii": 0.22,
-    "retail": 0.54,
-    "total": 0.36,
-    "asOf": "2026-09-24T11:36:00+05:30"
+    "retail": 0.55,
+    "total": 0.37,
+    "asOf": "2026-09-24T11:42:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -1780,10 +1780,10 @@
    "igId": "1852",
    "bseIpoNo": "7986",
    "bseScripCode": "4837",
-   "igFetchedAt": "2026-09-24T11:38:07+05:30",
+   "igFetchedAt": "2026-09-24T11:40:46+05:30",
    "sector": "Ceramics",
    "anchorShares": 14351775,
-   "gmpAsOf": "2026-09-24T09:37:00+05:30",
+   "gmpAsOf": "2026-09-24T11:02:00+05:30",
    "facts": {
     "sector": "Ceramics",
     "listingAt": "BSE, NSE",
@@ -1826,7 +1826,7 @@
    },
    "refund": "2026-09-28",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-24T09:37:00+05:30"
+   "gmpEveAsOf": "2026-09-24T11:02:00+05:30"
   },
   {
    "name": "Adroit Industries",
@@ -1843,15 +1843,15 @@
    "issueSizeCr": 150.71,
    "freshCr": 132.62,
    "ofsCr": 18.09,
-   "gmp": 34.0,
-   "gmpPct": 25.37,
-   "gmpTrend": "flat",
+   "gmp": 35.0,
+   "gmpPct": 26.12,
+   "gmpTrend": "up",
    "sub": {
     "qib": 0.06,
-    "nii": 13.03,
-    "retail": 13.14,
-    "total": 9.38,
-    "asOf": "2026-09-24T11:33:00+05:30"
+    "nii": 13.3,
+    "retail": 13.52,
+    "total": 9.63,
+    "asOf": "2026-09-24T11:42:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -1865,10 +1865,10 @@
    "igId": "2268",
    "bseIpoNo": "7993",
    "bseScripCode": "4844",
-   "igFetchedAt": "2026-09-24T11:38:07+05:30",
+   "igFetchedAt": "2026-09-24T11:40:46+05:30",
    "sector": "Auto Components & Equipments",
    "anchorShares": 3374100,
-   "gmpAsOf": "2026-09-24T09:37:00+05:30",
+   "gmpAsOf": "2026-09-23T19:37:00+05:30",
    "facts": {
     "sector": "Auto Components & Equipments",
     "listingAt": "BSE, NSE",
@@ -1906,10 +1906,10 @@
      "rhp": "https://nsearchives.nseindia.com/content/ipo/RHP_ADROITIND.zip",
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/adroit-industries-ipo-anchor-allocation.pdf"
     },
-    "asOf": "2026-09-23T18:10:00+05:30"
+    "asOf": "2026-09-23T12:22:00+05:30"
    },
-   "gmpEve": 34.0,
-   "gmpEveAsOf": "2026-09-24T09:37:00+05:30",
+   "gmpEve": 35.0,
+   "gmpEveAsOf": "2026-09-23T19:37:00+05:30",
    "refund": "2026-09-29"
   },
   {
@@ -1933,9 +1933,9 @@
    "sub": {
     "qib": 0.93,
     "nii": 0.55,
-    "retail": 0.86,
-    "total": 0.79,
-    "asOf": "2026-09-24T11:36:00+05:30"
+    "retail": 0.88,
+    "total": 0.8,
+    "asOf": "2026-09-24T11:42:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2020,7 +2020,7 @@
     "nii": 0.31,
     "retail": 0.18,
     "total": 0.21,
-    "asOf": "2026-09-24T11:36:00+05:30"
+    "asOf": "2026-09-24T11:42:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2102,9 +2102,9 @@
    "sub": {
     "qib": 0.69,
     "nii": 2.09,
-    "retail": 1.09,
-    "total": 1.19,
-    "asOf": "2026-09-24T11:36:00+05:30"
+    "retail": 1.1,
+    "total": 1.2,
+    "asOf": "2026-09-24T11:42:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2181,16 +2181,16 @@
    "issueSizeCr": 405.0,
    "freshCr": 355.0,
    "ofsCr": 50.0,
-   "gmp": 55.0,
-   "gmpPct": 13.58,
-   "gmpTrend": "flat",
+   "gmp": 51.0,
+   "gmpPct": 12.59,
+   "gmpTrend": "down",
    "sub": {
     "qib": 0.0,
-    "nii": 0.17,
-    "retail": 0.28,
+    "nii": 0.18,
+    "retail": 0.29,
     "total": 0.18,
-    "employee": 0.22,
-    "asOf": "2026-09-24T11:36:00+05:30"
+    "employee": 0.25,
+    "asOf": "2026-09-24T11:42:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2263,10 +2263,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.5,
-    "retail": 0.62,
-    "total": 0.42,
-    "asOf": "2026-09-24T11:36:00+05:30"
+    "nii": 0.53,
+    "retail": 0.65,
+    "total": 0.44,
+    "asOf": "2026-09-24T11:42:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2329,7 +2329,7 @@
    "bandLow": 30.0,
    "bandHigh": 32.0,
    "lotSize": 468,
-   "issueSizeCr": 420.0,
+   "issueSizeCr": 439.13,
    "freshCr": 287.0,
    "ofsCr": 133.0,
    "gmp": 0.0,
@@ -2398,9 +2398,9 @@
    "issueSizeCr": 303.9,
    "freshCr": 290.0,
    "ofsCr": 13.9,
-   "gmp": 24.0,
-   "gmpPct": 17.27,
-   "gmpTrend": "flat",
+   "gmp": 23.0,
+   "gmpPct": 16.55,
+   "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3049,10 +3049,10 @@
    "type": "Mainboard",
    "listingDate": "2026-09-23",
    "issuePrice": 93.0,
-   "listingPrice": 120.0,
-   "gainPct": 29.03,
-   "closeDay1": 126.0,
-   "closeDay1GainPct": 35.48,
+   "listingPrice": 132.3,
+   "gainPct": 42.26,
+   "closeDay1": 132.3,
+   "closeDay1GainPct": 42.26,
    "sources": [
     "NSE ipo-current-issue",
     "InvestorGain IPO list"
@@ -3064,10 +3064,10 @@
    "type": "Mainboard",
    "listingDate": "2026-09-23",
    "issuePrice": 424.0,
-   "listingPrice": 624.0,
-   "gainPct": 47.17,
-   "closeDay1": 748.8,
-   "closeDay1GainPct": 76.6,
+   "listingPrice": 771.95,
+   "gainPct": 82.06,
+   "closeDay1": 858.95,
+   "closeDay1GainPct": 102.58,
    "sources": [
     "NSE ipo-current-issue",
     "InvestorGain IPO list"
@@ -3516,7 +3516,7 @@
    "name": "Kheria Autocomp",
    "slug": "kheria-autocomp",
    "type": "NSE SME",
-   "status": "Closed",
+   "status": "Listed",
    "open": "2026-09-17",
    "close": "2026-09-21",
    "allotment": "2026-09-22",
@@ -3596,7 +3596,7 @@
    "name": "SpectraA Technology Solutions",
    "slug": "spectraa-technology-solutions",
    "type": "NSE SME",
-   "status": "Closed",
+   "status": "Listed",
    "open": "2026-09-17",
    "close": "2026-09-21",
    "allotment": "2026-09-22",
@@ -3607,9 +3607,9 @@
    "issueSizeCr": 42.52,
    "freshCr": 36.26,
    "ofsCr": 4.11,
-   "gmp": 81.0,
-   "gmpPct": 68.64,
-   "gmpTrend": "flat",
+   "gmp": 77.0,
+   "gmpPct": 65.25,
+   "gmpTrend": "down",
    "sub": {
     "qib": 184.55,
     "nii": 441.66,
@@ -4003,10 +4003,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 1.12,
-    "retail": 0.36,
-    "total": 0.74,
-    "asOf": "2026-09-23T17:08:00+05:30"
+    "nii": 1.13,
+    "retail": 0.05,
+    "total": 0.59,
+    "asOf": "2026-09-22T18:57:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4020,10 +4020,10 @@
    "igId": "2269",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-24T11:38:07+05:30",
+   "igFetchedAt": "2026-09-24T11:40:46+05:30",
    "sector": "Iron & Steel Products",
    "anchorShares": 0,
-   "gmpAsOf": "2026-09-24T10:28:00+05:30",
+   "gmpAsOf": "2026-09-22T21:33:00+05:30",
    "facts": {
     "sector": "Iron & Steel Products",
     "listingAt": "BSE SME",
@@ -4055,7 +4055,7 @@
    },
    "refund": "2026-09-28",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-24T10:28:00+05:30"
+   "gmpEveAsOf": "2026-09-22T21:33:00+05:30"
   },
   {
    "name": "Himalaya Nutravedics India",
@@ -4077,10 +4077,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.32,
-    "retail": 0.67,
-    "total": 0.4,
-    "asOf": "2026-09-23T17:08:00+05:30"
+    "nii": 0.14,
+    "retail": 0.16,
+    "total": 0.11,
+    "asOf": "2026-09-22T18:56:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4095,12 +4095,12 @@
    "igId": "2230",
    "bseIpoNo": "7983",
    "bseScripCode": "4834",
-   "igFetchedAt": "2026-09-24T11:38:07+05:30",
-   "sector": "Pharmaceuticals",
+   "igFetchedAt": "2026-09-24T11:40:46+05:30",
+   "sector": "Other Food Products",
    "anchorShares": 710400,
-   "gmpAsOf": "2026-09-24T10:32:00+05:30",
+   "gmpAsOf": "2026-09-22T19:00:00+05:30",
    "facts": {
-    "sector": "Pharmaceuticals",
+    "sector": "Other Food Products",
     "listingAt": "BSE SME",
     "kpis": {
      "asOf": "2026-03-31",
@@ -4128,11 +4128,11 @@
      "rhp": "https://www.bseindia.com/downloads/ipo/RHP_210920262016.zip",
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/himalaya-nutravedics-ipo-anchor-allocation-letter.pdf"
     },
-    "asOf": "2026-09-23T12:32:00+05:30"
+    "asOf": "2026-09-22T05:21:00+05:30"
    },
    "refund": "2026-09-28",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-24T10:32:00+05:30"
+   "gmpEveAsOf": "2026-09-22T19:00:00+05:30"
   },
   {
    "name": "Core Integra Consulting",
@@ -4230,7 +4230,7 @@
     "nii": 0.0,
     "retail": null,
     "total": 0.0,
-    "asOf": "2026-09-24T11:36:00+05:30"
+    "asOf": "2026-09-24T11:42:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4569,7 +4569,7 @@
     "nii": 0.0,
     "retail": null,
     "total": 0.0,
-    "asOf": "2026-09-24T11:36:00+05:30"
+    "asOf": "2026-09-24T11:42:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4644,7 +4644,7 @@
     "nii": null,
     "retail": null,
     "total": 0.0,
-    "asOf": "2026-09-24T11:39:38+05:30"
+    "asOf": "2026-09-24T11:48:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4708,12 +4708,12 @@
    "bandLow": 60.0,
    "bandHigh": 64.0,
    "lotSize": 2000,
-   "issueSizeCr": 17.86,
+   "issueSizeCr": 19.2,
    "freshCr": 17.86,
    "ofsCr": null,
-   "gmp": 8.0,
-   "gmpPct": 12.5,
-   "gmpTrend": "down",
+   "gmp": 10.0,
+   "gmpPct": 15.62,
+   "gmpTrend": "up",
    "sub": {
     "qib": 0.0,
     "nii": 0.27,
@@ -4922,7 +4922,7 @@
    "bandLow": 98.0,
    "bandHigh": 103.0,
    "lotSize": 1200,
-   "issueSizeCr": 64.62,
+   "issueSizeCr": 68.03,
    "freshCr": 57.26,
    "ofsCr": 7.35,
    "gmp": 0.0,
@@ -5449,6 +5449,38 @@
    }
   },
   {
+   "name": "Dove Soft",
+   "slug": "dove-soft",
+   "type": "BSE SME",
+   "status": "Upcoming",
+   "open": "2026-09-30",
+   "close": "2026-10-05",
+   "allotment": null,
+   "listing": null,
+   "bandLow": null,
+   "bandHigh": null,
+   "lotSize": null,
+   "issueSizeCr": null,
+   "freshCr": null,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "1781",
+   "bseIpoNo": null,
+   "bseScripCode": null
+  },
+  {
    "name": "Omara Ventures India",
    "slug": "omara-ventures-india",
    "type": "BSE SME",
@@ -5579,6 +5611,38 @@
     },
     "asOf": "2026-09-23T21:59:00+05:30"
    }
+  },
+  {
+   "name": "Papadmalji Agro Foods",
+   "slug": "papadmalji-agro-foods",
+   "type": "NSE SME",
+   "status": "Upcoming",
+   "open": null,
+   "close": null,
+   "allotment": null,
+   "listing": null,
+   "bandLow": null,
+   "bandHigh": null,
+   "lotSize": null,
+   "issueSizeCr": null,
+   "freshCr": null,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "2077",
+   "bseIpoNo": null,
+   "bseScripCode": null
   }
  ],
  "comps": [
@@ -36164,6 +36228,101 @@
  ],
  "news": [
   {
+   "title": "NSE SME SpectraA Technology Solutions takes flight after blockbuster debut",
+   "url": "https://www.business-standard.com/markets/capital-market-news/nse-sme-spectraa-technology-solutions-takes-flight-after-blockbuster-debut-126092400396_1.html",
+   "date": "2026-09-24T11:50:21+05:30"
+  },
+  {
+   "title": "NSE draws brokerage attention on stock market debut as 3 firms initiate coverage on Day 1",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/nse-draws-brokerage-attention-on-stock-market-debut-as-3-firms-initiate-coverage-on-day-1/articleshow/134453158.cms",
+   "date": "2026-09-24T11:32:10+05:30"
+  },
+  {
+   "title": "NSE stock lists: Macquarie, PL Capital begin coverage; see up to 9% upside",
+   "url": "https://www.business-standard.com/markets/news/nse-stock-lists-macquarie-pl-capital-begin-coverage-see-up-to-9-upside-126092400366_1.html",
+   "date": "2026-09-24T11:28:25+05:30"
+  },
+  {
+   "title": "IPO reality check! Is GMP a useful signal or just market noise? Here’s what experts think",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-reality-check-is-gmp-a-useful-signal-or-just-market-noise-heres-what-experts-think/articleshow/134452734.cms",
+   "date": "2026-09-24T11:25:19+05:30"
+  },
+  {
+   "title": "NSE SME Kheria Autocomp hits the road with premium listing",
+   "url": "https://www.business-standard.com/markets/capital-market-news/nse-sme-kheria-autocomp-hits-the-road-with-premium-listing-126092400352_1.html",
+   "date": "2026-09-24T11:16:16+05:30"
+  },
+  {
+   "title": "IFCI, NIACL witness a 2-month roller-coaster ride amid NSE IPO; what next?",
+   "url": "https://www.business-standard.com/markets/news/ifci-niacl-witness-a-2-month-roller-coaster-ride-amid-nse-ipo-what-next-126092400347_1.html",
+   "date": "2026-09-24T11:15:52+05:30"
+  },
+  {
+   "title": "NSE listing sees India's biggest exchange near bottom of Rs 10,000 crore IPO club",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/nse-listing-sees-indias-biggest-exchange-near-bottom-of-rs-10000-crore-ipo-club/articleshow/134452520.cms",
+   "date": "2026-09-24T11:03:23+05:30"
+  },
+  {
+   "title": "NSE breaks into top 10 BSE market-cap league on debut; beats HUL, Titan",
+   "url": "https://www.business-standard.com/markets/news/nse-breaks-into-top-10-bse-market-cap-league-on-debut-beats-hul-titan-126092400304_1.html",
+   "date": "2026-09-24T10:53:35+05:30"
+  },
+  {
+   "title": "National Stock Exchange of India gains on debut",
+   "url": "https://www.business-standard.com/markets/capital-market-news/national-stock-exchange-of-india-gains-on-debut-126092400322_1.html",
+   "date": "2026-09-24T10:50:08+05:30"
+  },
+  {
+   "title": "NSE becomes 9th most valued company with Rs 4.63 lakh crore m-cap after IPO. Who did it overtake?",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/nse-becomes-9th-most-valued-company-with-rs-4-63-lakh-crore-m-cap-after-ipo-who-did-it-overtake/articleshow/134451835.cms",
+   "date": "2026-09-24T10:23:50+05:30"
+  },
+  {
+   "title": "NSE debut disappoints: Can it deliver long-term gains? Experts weigh in",
+   "url": "https://www.business-standard.com/markets/news/nse-debut-disappoints-can-it-deliver-long-term-gains-experts-weigh-in-126092400294_1.html",
+   "date": "2026-09-24T10:22:06+05:30"
+  },
+  {
+   "title": "NSE's big-bang IPO delivers quiet debut, shares list at nearly 1% premium",
+   "url": "https://www.business-standard.com/markets/news/nse-s-big-bang-ipo-delivers-quiet-debut-shares-list-at-nearly-1-premium-126092400221_1.html",
+   "date": "2026-09-24T10:00:13+05:30"
+  },
+  {
+   "title": "Didn’t get NSE IPO shares? Should you buy on listing, wait for a dip or bet on BSE?",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/didnt-get-nse-ipo-shares-should-you-buy-on-listing-wait-for-a-dip-or-bet-on-bse/articleshow/134451317.cms",
+   "date": "2026-09-24T10:00:02+05:30"
+  },
+  {
+   "title": "NSE shares jump 5% after muted debut, market value swells by Rs 19,290 crore. Why Macquarie, other brokerages are bullish",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/nse-shares-make-muted-debut-list-at-less-than-1-premium-to-ipo-price-should-you-buy-sell-or-hold/articleshow/134451187.cms",
+   "date": "2026-09-24T09:56:11+05:30"
+  },
+  {
+   "title": "IFCI, New India Assurance, other stocks drop up to 3% as NSE makes a muted market debut. What to expect?",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/ifci-new-india-assurance-other-stocks-fall-up-to-3-ahead-of-nses-stock-market-debut-today-what-to-expect/articleshow/134451099.cms",
+   "date": "2026-09-24T09:38:46+05:30"
+  },
+  {
+   "title": "Elevate Campuses IPO Day 2: GMP, subscription status and key details. Should you subscribe?",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/elevate-campuses-ipo-day-2-gmp-subscription-status-and-key-details-should-you-subscribe/articleshow/134450816.cms",
+   "date": "2026-09-24T09:23:00+05:30"
+  },
+  {
+   "title": "BSE shares fall 2% as NSE makes market debut. Here's why Macquarie sees 22% upside",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/bse-shares-in-focus-as-nse-shares-set-to-list-today-macquarie-initiates-outperform-rating-sees-22-upside/articleshow/134450701.cms",
+   "date": "2026-09-24T09:14:56+05:30"
+  },
+  {
+   "title": "Adroit Industries IPO Day 2: GMP at 25%, subscription reaches 5.18 times. Should you subscribe?",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/adroit-industries-ipo-day-2-gmp-at-25-subscription-reaches-5-18-times-should-you-subscribe/articleshow/134450638.cms",
+   "date": "2026-09-24T09:07:45+05:30"
+  },
+  {
+   "title": "Varmora Granito IPO Day 3: Check GMP, subscription status and key details. Should you subscribe?",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/varmora-granito-ipo-day-3-check-gmp-subscription-status-and-key-details-should-you-subscribe/articleshow/134450598.cms",
+   "date": "2026-09-24T09:03:30+05:30"
+  },
+  {
    "title": "Airtel Money eyes London listing via secondary OFS",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/airtel-money-eyes-london-listing-via-secondary-ofs/articleshow/134448872.cms",
    "date": "2026-09-24T06:17:29+05:30"
@@ -36192,101 +36351,6 @@
    "title": "PM Cona Industries files draft papers with Sebi for IPO",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/pm-cona-industries-files-draft-papers-with-sebi-for-ipo/articleshow/134440197.cms",
    "date": "2026-09-23T19:29:02+05:30"
-  },
-  {
-   "title": "Sebi weighs lower margins for longer-term derivatives as F&amp;O losses stay high: Tuhin Kanta Pandey",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-weighs-lower-margins-for-longer-term-derivatives-as-fo-losses-stay-high-tuhin-kanta-pandey/articleshow/134440032.cms",
-   "date": "2026-09-23T19:21:47+05:30"
-  },
-  {
-   "title": "ArMee Infotech IPO subscribed 53% on day 1",
-   "url": "https://www.business-standard.com/markets/capital-market-news/armee-infotech-ipo-subscribed-53-on-day-1-126092301049_1.html",
-   "date": "2026-09-23T17:50:38+05:30"
-  },
-  {
-   "title": "Swastika Infra IPO subscribed 96% on day 1",
-   "url": "https://www.business-standard.com/markets/capital-market-news/swastika-infra-ipo-subscribed-96-on-day-1-126092301048_1.html",
-   "date": "2026-09-23T17:50:30+05:30"
-  },
-  {
-   "title": "Adroit Industries (India) IPO subscribed 5.18 times on day 1",
-   "url": "https://www.business-standard.com/markets/capital-market-news/adroit-industries-india-ipo-subscribed-5-18-times-on-day-1-126092301047_1.html",
-   "date": "2026-09-23T17:50:20+05:30"
-  },
-  {
-   "title": "Elevate Campuses IPO subscribed 20% on day 1",
-   "url": "https://www.business-standard.com/markets/capital-market-news/elevate-campuses-ipo-subscribed-20-on-day-1-126092301046_1.html",
-   "date": "2026-09-23T17:50:11+05:30"
-  },
-  {
-   "title": "Varmora Granito IPO subscribed 27%",
-   "url": "https://www.business-standard.com/markets/capital-market-news/varmora-granito-ipo-subscribed-27-126092301003_1.html",
-   "date": "2026-09-23T17:31:09+05:30"
-  },
-  {
-   "title": "Sebi plans review of merchant banking rules, IPO cost structure soon",
-   "url": "https://www.business-standard.com/markets/news/sebi-plans-review-of-merchant-banking-rules-ipo-cost-structure-soon-126092300881_1.html",
-   "date": "2026-09-23T16:37:07+05:30"
-  },
-  {
-   "title": "NSE IPO: NSE shares to debut on Metropolitan Stock Exchange along with BSE tomorrow",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/nse-ipo-nse-shares-to-debut-on-metropolitan-stock-exchange-along-with-bse-tomorrow/articleshow/134432816.cms",
-   "date": "2026-09-23T16:13:42+05:30"
-  },
-  {
-   "title": "NSE shares to also trade on Metropolitan Stock Exchange after listing",
-   "url": "https://www.business-standard.com/markets/news/nse-shares-to-also-trade-on-metropolitan-stock-exchange-after-listing-126092300806_1.html",
-   "date": "2026-09-23T16:01:31+05:30"
-  },
-  {
-   "title": "Recently listed Manipal Payment zooms 20%; Asset Reconstruction soars 10%",
-   "url": "https://www.business-standard.com/markets/news/recently-listed-manipal-payment-zooms-20-asset-reconstruction-soars-10-126092300702_1.html",
-   "date": "2026-09-23T15:15:28+05:30"
-  },
-  {
-   "title": "Snapdeal IPO: GMP, price band among 10 things to know about AceVector public offer",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/snapdeal-ipo-gmp-price-band-among-10-things-to-know-about-acevector-public-offer/articleshow/134430825.cms",
-   "date": "2026-09-23T14:54:33+05:30"
-  },
-  {
-   "title": "Stocks to buy: Jefferies lists 11 NBFC picks with up to 48% upside potential. Do you own any?",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/stocks-to-buy-jefferies-lists-11-nbfc-picks-with-up-to-48-upside-potential-do-you-own-any/slideshow/134429716.cms",
-   "date": "2026-09-23T13:35:47+05:30"
-  },
-  {
-   "title": "SS Retail shares rally another 6% after bumper listing at 51% premium over IPO price. Buy, sell or hold?",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/ss-retail-shares-rally-another-6-after-bumper-listing-at-51-premium-over-ipo-price-buy-sell-or-hold/articleshow/134428300.cms",
-   "date": "2026-09-23T12:34:54+05:30"
-  },
-  {
-   "title": "Airtel Africa's mobile money arm to file for London IPO",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/airtel-africas-mobile-money-arm-to-file-for-london-ipo/articleshow/134428090.cms",
-   "date": "2026-09-23T12:26:51+05:30"
-  },
-  {
-   "title": "Hero Motors shares hit 20% upper circuit after lackluster debut. Should you buy, sell or hold?",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/hero-motors-shares-rally-20-to-hit-upper-circuit-after-listing-at-2-discount-to-ipo-price-should-you-buy-sell-or-hold/articleshow/134427748.cms",
-   "date": "2026-09-23T12:06:31+05:30"
-  },
-  {
-   "title": "Missed the NSE IPO? Here are 5 of the largest issues in the pipeline to keep on your radar",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/missed-the-nse-ipo-here-are-5-of-the-largest-issues-in-the-pipeline-to-keep-on-your-radar/articleshow/134426046.cms",
-   "date": "2026-09-23T10:20:22+05:30"
-  },
-  {
-   "title": "70% IPOs in September gave a listing bounty for investors. Can NSE beat its weak GMP?",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/70-ipos-in-september-gave-a-listing-bounty-for-investors-can-nse-beat-its-weak-gmp/articleshow/134425464.cms",
-   "date": "2026-09-23T09:36:50+05:30"
-  },
-  {
-   "title": "September sees biggest IPO rush in nearly 30 years as 30 mainboard issues raise Rs 38,785 crore",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/september-sees-biggest-ipo-rush-in-nearly-30-years-as-30-mainboard-issues-raise-rs-38785-crore/articleshow/134423399.cms",
-   "date": "2026-09-23T05:49:17+05:30"
-  },
-  {
-   "title": "Adani Group firms settle Sebi case on governance issues",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/adani-group-settles-legal-issues-with-sebi-pays-rs-1-5-cr-over-alleged-corporate-governance-violations/articleshow/134423213.cms",
-   "date": "2026-09-23T05:11:34+05:30"
   }
  ],
  "priceHistory": {
@@ -36912,6 +36976,10 @@
    [
     "2026-09-23",
     149.76
+   ],
+   [
+    "2026-09-24",
+    152.84
    ]
   ],
   "Augmont Enterprises": [
@@ -37268,6 +37336,14 @@
    [
     "2026-07-31",
     156.88
+   ],
+   [
+    "2026-08-03",
+    156.52
+   ],
+   [
+    "2026-08-04",
+    157.7
    ],
    [
     "2026-08-05",
@@ -37688,6 +37764,10 @@
    [
     "2026-09-23",
     286.41
+   ],
+   [
+    "2026-09-24",
+    274.8
    ]
   ],
   "H.R. Hygiene Products": [
@@ -38330,6 +38410,10 @@
    [
     "2026-09-23",
     907.0
+   ],
+   [
+    "2026-09-24",
+    891.4
    ]
   ],
   "Karamtara Engineering": [
@@ -38356,6 +38440,10 @@
    [
     "2026-09-23",
     361.95
+   ],
+   [
+    "2026-09-24",
+    373.0
    ]
   ],
   "Kwick Forensic Solutions": [
@@ -38554,6 +38642,10 @@
    [
     "2026-09-23",
     146.59
+   ],
+   [
+    "2026-09-24",
+    143.94
    ]
   ],
   "LEAP India": [
@@ -39150,6 +39242,10 @@
    [
     "2026-09-23",
     372.6
+   ],
+   [
+    "2026-09-24",
+    368.05
    ]
   ],
   "Metalic Technoforge": [
@@ -39332,6 +39428,30 @@
    [
     "2026-07-21",
     628.9
+   ],
+   [
+    "2026-07-28",
+    758.95
+   ],
+   [
+    "2026-07-29",
+    747.75
+   ],
+   [
+    "2026-07-30",
+    734.65
+   ],
+   [
+    "2026-07-31",
+    771.35
+   ],
+   [
+    "2026-08-03",
+    809.9
+   ],
+   [
+    "2026-08-04",
+    787.6
    ],
    [
     "2026-08-05",
@@ -39808,6 +39928,10 @@
    [
     "2026-09-23",
     740.9
+   ],
+   [
+    "2026-09-24",
+    733.2
    ]
   ],
   "Priority Jewels": [
@@ -39992,6 +40116,10 @@
    [
     "2026-09-23",
     227.7
+   ],
+   [
+    "2026-09-24",
+    231.61
    ]
   ],
   "Rentomojo": [
@@ -40014,6 +40142,10 @@
    [
     "2026-09-23",
     521.35
+   ],
+   [
+    "2026-09-24",
+    509.7
    ]
   ],
   "SBI Funds Management": [
@@ -40468,6 +40600,30 @@
     215.25
    ],
    [
+    "2026-07-28",
+    210.05
+   ],
+   [
+    "2026-07-29",
+    208.0
+   ],
+   [
+    "2026-07-30",
+    208.6
+   ],
+   [
+    "2026-07-31",
+    205.0
+   ],
+   [
+    "2026-08-03",
+    205.0
+   ],
+   [
+    "2026-08-04",
+    201.6
+   ],
+   [
     "2026-08-05",
     208.15
    ],
@@ -40624,6 +40780,10 @@
    [
     "2026-09-23",
     110.73
+   ],
+   [
+    "2026-09-24",
+    110.79
    ]
   ],
   "Sunshine Pictures": [
@@ -41170,6 +41330,10 @@
    [
     "2026-09-23",
     142.87
+   ],
+   [
+    "2026-09-24",
+    143.25
    ]
   ],
   "Manika Plastech": [
@@ -41184,6 +41348,10 @@
    [
     "2026-09-23",
     42.58
+   ],
+   [
+    "2026-09-24",
+    41.67
    ]
   ],
   "Asset Reconstruction": [
@@ -57884,6 +58052,22 @@
   ],
   "Propshare Celestia": [
    [
+    "2026-07-28",
+    1006600.0
+   ],
+   [
+    "2026-07-30",
+    1006600.0
+   ],
+   [
+    "2026-08-03",
+    1006800.0
+   ],
+   [
+    "2026-08-04",
+    1015000.0
+   ],
+   [
     "2026-08-05",
     1021000.0
    ],
@@ -58214,6 +58398,30 @@
   ],
   "Accord Transformer & Switchgear": [
    [
+    "2026-07-28",
+    58.66
+   ],
+   [
+    "2026-07-29",
+    58.21
+   ],
+   [
+    "2026-07-30",
+    61.46
+   ],
+   [
+    "2026-07-31",
+    60.56
+   ],
+   [
+    "2026-08-03",
+    66.56
+   ],
+   [
+    "2026-08-04",
+    70.28
+   ],
+   [
     "2026-08-05",
     67.66
    ],
@@ -58356,6 +58564,22 @@
   ],
   "Mehul Telecom": [
    [
+    "2026-07-28",
+    92.0
+   ],
+   [
+    "2026-07-29",
+    87.0
+   ],
+   [
+    "2026-07-31",
+    90.9
+   ],
+   [
+    "2026-08-04",
+    89.1
+   ],
+   [
     "2026-08-05",
     94.45
    ],
@@ -58477,6 +58701,30 @@
    ]
   ],
   "Highness Microelectronics": [
+   [
+    "2026-07-28",
+    176.4
+   ],
+   [
+    "2026-07-29",
+    180.35
+   ],
+   [
+    "2026-07-30",
+    176.0
+   ],
+   [
+    "2026-07-31",
+    178.5
+   ],
+   [
+    "2026-08-03",
+    183.0
+   ],
+   [
+    "2026-08-04",
+    181.0
+   ],
    [
     "2026-08-05",
     176.25
@@ -58620,6 +58868,30 @@
   ],
   "Digilogic Systems": [
    [
+    "2026-07-28",
+    118.8
+   ],
+   [
+    "2026-07-29",
+    118.2
+   ],
+   [
+    "2026-07-30",
+    119.5
+   ],
+   [
+    "2026-07-31",
+    116.95
+   ],
+   [
+    "2026-08-03",
+    140.3
+   ],
+   [
+    "2026-08-04",
+    162.05
+   ],
+   [
     "2026-08-05",
     179.35
    ],
@@ -58761,6 +59033,10 @@
    ]
   ],
   "Poojaa Precision Engg.": [
+   [
+    "2026-08-04",
+    493.5
+   ],
    [
     "2026-08-05",
     495.2
@@ -58904,6 +59180,30 @@
   ],
   "Novus Loyalty": [
    [
+    "2026-07-28",
+    127.0
+   ],
+   [
+    "2026-07-29",
+    138.4
+   ],
+   [
+    "2026-07-30",
+    136.05
+   ],
+   [
+    "2026-07-31",
+    139.1
+   ],
+   [
+    "2026-08-03",
+    140.0
+   ],
+   [
+    "2026-08-04",
+    136.0
+   ],
+   [
     "2026-08-05",
     143.4
    ],
@@ -59046,6 +59346,22 @@
   ],
   "Defrail Technologies": [
    [
+    "2026-07-28",
+    70.0
+   ],
+   [
+    "2026-07-30",
+    67.1
+   ],
+   [
+    "2026-08-03",
+    68.4
+   ],
+   [
+    "2026-08-04",
+    69.0
+   ],
+   [
     "2026-08-06",
     69.0
    ],
@@ -59155,6 +59471,30 @@
    ]
   ],
   "Rajnandini Fashion India": [
+   [
+    "2026-07-28",
+    33.51
+   ],
+   [
+    "2026-07-29",
+    34.6
+   ],
+   [
+    "2026-07-30",
+    34.5
+   ],
+   [
+    "2026-07-31",
+    34.1
+   ],
+   [
+    "2026-08-03",
+    38.4
+   ],
+   [
+    "2026-08-04",
+    35.5
+   ],
    [
     "2026-08-05",
     34.73
@@ -59282,6 +59622,30 @@
   ],
   "Seemax Resources": [
    [
+    "2026-07-28",
+    55.3
+   ],
+   [
+    "2026-07-29",
+    58.05
+   ],
+   [
+    "2026-07-30",
+    60.95
+   ],
+   [
+    "2026-07-31",
+    63.95
+   ],
+   [
+    "2026-08-03",
+    67.13
+   ],
+   [
+    "2026-08-04",
+    63.78
+   ],
+   [
     "2026-08-05",
     60.6
    ],
@@ -59387,6 +59751,30 @@
    ]
   ],
   "Modern Diagnostic": [
+   [
+    "2026-07-28",
+    51.0
+   ],
+   [
+    "2026-07-29",
+    52.0
+   ],
+   [
+    "2026-07-30",
+    51.0
+   ],
+   [
+    "2026-07-31",
+    51.0
+   ],
+   [
+    "2026-08-03",
+    48.75
+   ],
+   [
+    "2026-08-04",
+    50.05
+   ],
    [
     "2026-08-05",
     53.85
@@ -59526,6 +59914,30 @@
   ],
   "Hannah Joseph Hospital": [
    [
+    "2026-07-28",
+    112.6
+   ],
+   [
+    "2026-07-29",
+    115.8
+   ],
+   [
+    "2026-07-30",
+    113.3
+   ],
+   [
+    "2026-07-31",
+    107.75
+   ],
+   [
+    "2026-08-03",
+    112.0
+   ],
+   [
+    "2026-08-04",
+    106.5
+   ],
+   [
     "2026-08-05",
     105.05
    ],
@@ -59660,6 +60072,26 @@
   ],
   "Elfin Agro India": [
    [
+    "2026-07-28",
+    82.79
+   ],
+   [
+    "2026-07-30",
+    83.0
+   ],
+   [
+    "2026-07-31",
+    83.0
+   ],
+   [
+    "2026-08-03",
+    85.0
+   ],
+   [
+    "2026-08-04",
+    85.0
+   ],
+   [
     "2026-08-05",
     81.2
    ],
@@ -59789,6 +60221,30 @@
    ]
   ],
   "Horizon Reclaim (India)": [
+   [
+    "2026-07-28",
+    142.0
+   ],
+   [
+    "2026-07-29",
+    139.85
+   ],
+   [
+    "2026-07-30",
+    138.4
+   ],
+   [
+    "2026-07-31",
+    139.4
+   ],
+   [
+    "2026-08-03",
+    143.1
+   ],
+   [
+    "2026-08-04",
+    141.5
+   ],
    [
     "2026-08-05",
     140.85
@@ -59932,6 +60388,30 @@
   ],
   "Kratikal Tech": [
    [
+    "2026-07-28",
+    168.85
+   ],
+   [
+    "2026-07-29",
+    165.4
+   ],
+   [
+    "2026-07-30",
+    160.1
+   ],
+   [
+    "2026-07-31",
+    159.5
+   ],
+   [
+    "2026-08-03",
+    160.8
+   ],
+   [
+    "2026-08-04",
+    154.1
+   ],
+   [
     "2026-08-05",
     155.15
    ],
@@ -60074,6 +60554,30 @@
   ],
   "GRE Renew Enertech": [
    [
+    "2026-07-28",
+    190.0
+   ],
+   [
+    "2026-07-29",
+    187.0
+   ],
+   [
+    "2026-07-30",
+    177.65
+   ],
+   [
+    "2026-07-31",
+    170.2
+   ],
+   [
+    "2026-08-03",
+    175.65
+   ],
+   [
+    "2026-08-04",
+    172.5
+   ],
+   [
     "2026-08-06",
     174.5
    ],
@@ -60191,6 +60695,18 @@
    ]
   ],
   "Silverstorm Parks & Resorts": [
+   [
+    "2026-07-31",
+    126.55
+   ],
+   [
+    "2026-08-03",
+    121.4
+   ],
+   [
+    "2026-08-04",
+    115.4
+   ],
    [
     "2026-08-05",
     117.5
@@ -60428,6 +60944,30 @@
   ],
   "Riyaasat Lifestyle": [
    [
+    "2026-07-28",
+    60.0
+   ],
+   [
+    "2026-07-29",
+    60.0
+   ],
+   [
+    "2026-07-30",
+    60.0
+   ],
+   [
+    "2026-07-31",
+    60.0
+   ],
+   [
+    "2026-08-03",
+    56.51
+   ],
+   [
+    "2026-08-04",
+    59.0
+   ],
+   [
     "2026-08-05",
     61.0
    ],
@@ -60501,6 +61041,30 @@
    ]
   ],
   "Vahh Chemicals": [
+   [
+    "2026-07-28",
+    50.2
+   ],
+   [
+    "2026-07-29",
+    48.34
+   ],
+   [
+    "2026-07-30",
+    48.0
+   ],
+   [
+    "2026-07-31",
+    50.0
+   ],
+   [
+    "2026-08-03",
+    49.5
+   ],
+   [
+    "2026-08-04",
+    50.67
+   ],
    [
     "2026-08-06",
     52.5
@@ -60587,6 +61151,30 @@
    ]
   ],
   "SMR Jewels": [
+   [
+    "2026-07-28",
+    85.7
+   ],
+   [
+    "2026-07-29",
+    87.2
+   ],
+   [
+    "2026-07-30",
+    88.4
+   ],
+   [
+    "2026-07-31",
+    82.1
+   ],
+   [
+    "2026-08-03",
+    87.2
+   ],
+   [
+    "2026-08-04",
+    89.9
+   ],
    [
     "2026-08-05",
     86.5
@@ -60740,6 +61328,30 @@
   ],
   "Merritronix": [
    [
+    "2026-07-28",
+    346.1
+   ],
+   [
+    "2026-07-29",
+    350.3
+   ],
+   [
+    "2026-07-30",
+    344.3
+   ],
+   [
+    "2026-07-31",
+    344.2
+   ],
+   [
+    "2026-08-03",
+    335.5
+   ],
+   [
+    "2026-08-04",
+    336.45
+   ],
+   [
     "2026-08-05",
     366.95
    ],
@@ -60882,6 +61494,30 @@
   ],
   "Sampark India Logistics": [
    [
+    "2026-07-28",
+    95.15
+   ],
+   [
+    "2026-07-29",
+    93.33
+   ],
+   [
+    "2026-07-30",
+    91.0
+   ],
+   [
+    "2026-07-31",
+    94.17
+   ],
+   [
+    "2026-08-03",
+    94.5
+   ],
+   [
+    "2026-08-04",
+    88.85
+   ],
+   [
     "2026-08-05",
     90.7
    ],
@@ -61011,6 +61647,30 @@
    ]
   ],
   "Adon Agro Commodities": [
+   [
+    "2026-07-28",
+    83.33
+   ],
+   [
+    "2026-07-29",
+    81.5
+   ],
+   [
+    "2026-07-30",
+    84.5
+   ],
+   [
+    "2026-07-31",
+    81.34
+   ],
+   [
+    "2026-08-03",
+    79.79
+   ],
+   [
+    "2026-08-04",
+    78.38
+   ],
    [
     "2026-08-05",
     87.01
@@ -61154,6 +61814,30 @@
   ],
   "Atharva Polyplast": [
    [
+    "2026-07-28",
+    76.81
+   ],
+   [
+    "2026-07-29",
+    77.8
+   ],
+   [
+    "2026-07-30",
+    77.29
+   ],
+   [
+    "2026-07-31",
+    78.51
+   ],
+   [
+    "2026-08-03",
+    78.0
+   ],
+   [
+    "2026-08-04",
+    77.3
+   ],
+   [
     "2026-08-05",
     80.06
    ],
@@ -61295,6 +61979,30 @@
    ]
   ],
   "Susan Electricals India": [
+   [
+    "2026-07-28",
+    216.55
+   ],
+   [
+    "2026-07-29",
+    218.8
+   ],
+   [
+    "2026-07-30",
+    214.7
+   ],
+   [
+    "2026-07-31",
+    241.6
+   ],
+   [
+    "2026-08-03",
+    233.65
+   ],
+   [
+    "2026-08-04",
+    228.05
+   ],
    [
     "2026-08-05",
     231.7
@@ -61438,6 +62146,14 @@
   ],
   "Advance Technoforge": [
    [
+    "2026-08-03",
+    89.3
+   ],
+   [
+    "2026-08-04",
+    84.84
+   ],
+   [
     "2026-08-05",
     80.6
    ],
@@ -61580,6 +62296,10 @@
   ],
   "Kanishk Aluminium India": [
    [
+    "2026-07-29",
+    25.5
+   ],
+   [
     "2026-08-05",
     25.5
    ],
@@ -61685,6 +62405,26 @@
    ]
   ],
   "Goldline Pharmaceutical": [
+   [
+    "2026-07-28",
+    37.66
+   ],
+   [
+    "2026-07-30",
+    40.11
+   ],
+   [
+    "2026-07-31",
+    41.26
+   ],
+   [
+    "2026-08-03",
+    41.2
+   ],
+   [
+    "2026-08-04",
+    39.25
+   ],
    [
     "2026-08-05",
     39.0
@@ -61821,6 +62561,30 @@
    ]
   ],
   "Recode Studios": [
+   [
+    "2026-07-28",
+    224.45
+   ],
+   [
+    "2026-07-29",
+    224.75
+   ],
+   [
+    "2026-07-30",
+    224.0
+   ],
+   [
+    "2026-07-31",
+    224.7
+   ],
+   [
+    "2026-08-03",
+    223.35
+   ],
+   [
+    "2026-08-04",
+    225.0
+   ],
    [
     "2026-08-05",
     226.5
@@ -61963,6 +62727,30 @@
    ]
   ],
   "Citius Transnet InvIT": [
+   [
+    "2026-07-28",
+    109.17
+   ],
+   [
+    "2026-07-29",
+    109.85
+   ],
+   [
+    "2026-07-30",
+    109.45
+   ],
+   [
+    "2026-07-31",
+    109.5
+   ],
+   [
+    "2026-08-03",
+    109.69
+   ],
+   [
+    "2026-08-04",
+    109.45
+   ],
    [
     "2026-08-05",
     110.0
@@ -62236,6 +63024,30 @@
   ],
   "UHM Vacation": [
    [
+    "2026-07-28",
+    33.8
+   ],
+   [
+    "2026-07-29",
+    34.54
+   ],
+   [
+    "2026-07-30",
+    33.13
+   ],
+   [
+    "2026-07-31",
+    32.86
+   ],
+   [
+    "2026-08-03",
+    34.5
+   ],
+   [
+    "2026-08-04",
+    36.22
+   ],
+   [
     "2026-08-05",
     38.03
    ],
@@ -62377,6 +63189,30 @@
    ]
   ],
   "Kiaasa Retail": [
+   [
+    "2026-07-28",
+    34.4
+   ],
+   [
+    "2026-07-29",
+    34.05
+   ],
+   [
+    "2026-07-30",
+    32.47
+   ],
+   [
+    "2026-07-31",
+    33.99
+   ],
+   [
+    "2026-08-03",
+    33.38
+   ],
+   [
+    "2026-08-04",
+    33.95
+   ],
    [
     "2026-08-05",
     32.82
@@ -62520,6 +63356,30 @@
   ],
   "Aureate Tradde": [
    [
+    "2026-07-28",
+    33.15
+   ],
+   [
+    "2026-07-29",
+    32.65
+   ],
+   [
+    "2026-07-30",
+    31.5
+   ],
+   [
+    "2026-07-31",
+    31.5
+   ],
+   [
+    "2026-08-03",
+    30.25
+   ],
+   [
+    "2026-08-04",
+    31.76
+   ],
+   [
     "2026-08-05",
     33.34
    ],
@@ -62653,6 +63513,30 @@
    ]
   ],
   "Yaashvi Jewellers": [
+   [
+    "2026-07-28",
+    64.25
+   ],
+   [
+    "2026-07-29",
+    72.35
+   ],
+   [
+    "2026-07-30",
+    73.6
+   ],
+   [
+    "2026-07-31",
+    70.0
+   ],
+   [
+    "2026-08-03",
+    73.0
+   ],
+   [
+    "2026-08-04",
+    72.0
+   ],
    [
     "2026-08-05",
     81.5
@@ -62792,6 +63676,30 @@
   ],
   "Jivial Industries": [
    [
+    "2026-07-28",
+    83.8
+   ],
+   [
+    "2026-07-29",
+    83.0
+   ],
+   [
+    "2026-07-30",
+    79.0
+   ],
+   [
+    "2026-07-31",
+    79.0
+   ],
+   [
+    "2026-08-03",
+    79.0
+   ],
+   [
+    "2026-08-04",
+    79.0
+   ],
+   [
     "2026-08-05",
     79.0
    ],
@@ -62893,6 +63801,30 @@
    ]
   ],
   "Yashhtej Industries (India)": [
+   [
+    "2026-07-28",
+    54.0
+   ],
+   [
+    "2026-07-29",
+    55.0
+   ],
+   [
+    "2026-07-30",
+    56.0
+   ],
+   [
+    "2026-07-31",
+    57.0
+   ],
+   [
+    "2026-08-03",
+    59.85
+   ],
+   [
+    "2026-08-04",
+    62.2
+   ],
    [
     "2026-08-05",
     62.5
@@ -63216,6 +64148,18 @@
   ],
   "Emiac Technologies": [
    [
+    "2026-07-28",
+    96.7
+   ],
+   [
+    "2026-07-29",
+    96.7
+   ],
+   [
+    "2026-08-03",
+    94.0
+   ],
+   [
     "2026-08-05",
     92.75
    ],
@@ -63330,6 +64274,22 @@
   ],
   "Shayona Engineering": [
    [
+    "2026-07-28",
+    141.0
+   ],
+   [
+    "2026-07-29",
+    140.0
+   ],
+   [
+    "2026-07-30",
+    140.0
+   ],
+   [
+    "2026-08-04",
+    138.0
+   ],
+   [
     "2026-08-05",
     134.05
    ],
@@ -63427,6 +64387,30 @@
    ]
   ],
   "Gabion Technologies": [
+   [
+    "2026-07-28",
+    82.48
+   ],
+   [
+    "2026-07-29",
+    82.5
+   ],
+   [
+    "2026-07-30",
+    84.25
+   ],
+   [
+    "2026-07-31",
+    85.0
+   ],
+   [
+    "2026-08-03",
+    83.8
+   ],
+   [
+    "2026-08-04",
+    82.0
+   ],
    [
     "2026-08-05",
     81.7
@@ -63570,6 +64554,30 @@
   ],
   "Tipco Engineering": [
    [
+    "2026-07-28",
+    181.0
+   ],
+   [
+    "2026-07-29",
+    179.55
+   ],
+   [
+    "2026-07-30",
+    172.0
+   ],
+   [
+    "2026-07-31",
+    172.35
+   ],
+   [
+    "2026-08-03",
+    173.5
+   ],
+   [
+    "2026-08-04",
+    171.8
+   ],
+   [
     "2026-08-05",
     169.7
    ],
@@ -63712,6 +64720,18 @@
   ],
   "Shree Balaji Mala": [
    [
+    "2026-07-29",
+    126.35
+   ],
+   [
+    "2026-07-30",
+    120.04
+   ],
+   [
+    "2026-07-31",
+    114.04
+   ],
+   [
     "2026-08-05",
     108.35
    ],
@@ -63845,6 +64865,30 @@
    ]
   ],
   "Safety Controls": [
+   [
+    "2026-07-28",
+    68.01
+   ],
+   [
+    "2026-07-29",
+    69.5
+   ],
+   [
+    "2026-07-30",
+    74.43
+   ],
+   [
+    "2026-07-31",
+    73.89
+   ],
+   [
+    "2026-08-03",
+    75.39
+   ],
+   [
+    "2026-08-04",
+    71.49
+   ],
    [
     "2026-08-05",
     72.0
@@ -63983,6 +65027,30 @@
    ]
   ],
   "Bagmane REIT": [
+   [
+    "2026-07-28",
+    105.05
+   ],
+   [
+    "2026-07-29",
+    104.93
+   ],
+   [
+    "2026-07-30",
+    104.79
+   ],
+   [
+    "2026-07-31",
+    105.29
+   ],
+   [
+    "2026-08-03",
+    105.15
+   ],
+   [
+    "2026-08-04",
+    105.12
+   ],
    [
     "2026-08-05",
     106.56
@@ -64254,6 +65322,30 @@
   ],
   "Anubhav Plast": [
    [
+    "2026-07-28",
+    49.75
+   ],
+   [
+    "2026-07-29",
+    50.0
+   ],
+   [
+    "2026-07-30",
+    50.0
+   ],
+   [
+    "2026-07-31",
+    52.0
+   ],
+   [
+    "2026-08-03",
+    50.25
+   ],
+   [
+    "2026-08-04",
+    51.0
+   ],
+   [
     "2026-08-05",
     51.5
    ],
@@ -64379,6 +65471,30 @@
    ]
   ],
   "Vegorama Punjabi Angithi": [
+   [
+    "2026-07-28",
+    173.0
+   ],
+   [
+    "2026-07-29",
+    168.05
+   ],
+   [
+    "2026-07-30",
+    168.0
+   ],
+   [
+    "2026-07-31",
+    166.05
+   ],
+   [
+    "2026-08-03",
+    191.0
+   ],
+   [
+    "2026-08-04",
+    203.25
+   ],
    [
     "2026-08-05",
     208.35
@@ -64518,6 +65634,30 @@
   ],
   "Aritas Vinyl": [
    [
+    "2026-07-28",
+    13.01
+   ],
+   [
+    "2026-07-29",
+    13.1
+   ],
+   [
+    "2026-07-30",
+    13.48
+   ],
+   [
+    "2026-07-31",
+    12.93
+   ],
+   [
+    "2026-08-03",
+    13.49
+   ],
+   [
+    "2026-08-04",
+    13.35
+   ],
+   [
     "2026-08-05",
     13.7
    ],
@@ -64636,6 +65776,26 @@
   ],
   "M R Maniveni": [
    [
+    "2026-07-29",
+    31.83
+   ],
+   [
+    "2026-07-30",
+    30.0
+   ],
+   [
+    "2026-07-31",
+    31.7
+   ],
+   [
+    "2026-08-03",
+    30.0
+   ],
+   [
+    "2026-08-04",
+    30.0
+   ],
+   [
     "2026-08-05",
     30.0
    ],
@@ -64745,6 +65905,22 @@
    ]
   ],
   "Fractal Industries": [
+   [
+    "2026-07-28",
+    211.8
+   ],
+   [
+    "2026-07-30",
+    214.45
+   ],
+   [
+    "2026-07-31",
+    214.45
+   ],
+   [
+    "2026-08-03",
+    216.5
+   ],
    [
     "2026-08-05",
     210.0
@@ -64938,6 +66114,14 @@
   ],
   "PAN HR Solutions": [
    [
+    "2026-07-30",
+    53.82
+   ],
+   [
+    "2026-08-04",
+    54.0
+   ],
+   [
     "2026-08-06",
     56.7
    ],
@@ -65043,6 +66227,30 @@
    ]
   ],
   "INDO SMC": [
+   [
+    "2026-07-28",
+    447.45
+   ],
+   [
+    "2026-07-29",
+    430.7
+   ],
+   [
+    "2026-07-30",
+    419.55
+   ],
+   [
+    "2026-07-31",
+    440.5
+   ],
+   [
+    "2026-08-03",
+    462.5
+   ],
+   [
+    "2026-08-04",
+    439.45
+   ],
    [
     "2026-08-05",
     441.0
@@ -65209,6 +66417,30 @@
    ]
   ],
   "Devson Catalyst": [
+   [
+    "2026-07-28",
+    210.0
+   ],
+   [
+    "2026-07-29",
+    204.2
+   ],
+   [
+    "2026-07-30",
+    209.7
+   ],
+   [
+    "2026-07-31",
+    227.95
+   ],
+   [
+    "2026-08-03",
+    232.75
+   ],
+   [
+    "2026-08-04",
+    229.25
+   ],
    [
     "2026-08-05",
     243.1
@@ -65516,6 +66748,26 @@
   ],
   "Crazy Snacks": [
    [
+    "2026-07-28",
+    59.01
+   ],
+   [
+    "2026-07-29",
+    59.01
+   ],
+   [
+    "2026-07-31",
+    64.81
+   ],
+   [
+    "2026-08-03",
+    61.25
+   ],
+   [
+    "2026-08-04",
+    64.78
+   ],
+   [
     "2026-08-05",
     64.8
    ],
@@ -65605,6 +66857,30 @@
    ]
   ],
   "Harikanta Overseas": [
+   [
+    "2026-07-28",
+    75.8
+   ],
+   [
+    "2026-07-29",
+    78.95
+   ],
+   [
+    "2026-07-30",
+    73.89
+   ],
+   [
+    "2026-07-31",
+    73.83
+   ],
+   [
+    "2026-08-03",
+    72.19
+   ],
+   [
+    "2026-08-04",
+    71.5
+   ],
    [
     "2026-08-06",
     69.0
@@ -65870,6 +67146,26 @@
   ],
   "Diksha Polymers": [
    [
+    "2026-07-28",
+    119.0
+   ],
+   [
+    "2026-07-29",
+    120.0
+   ],
+   [
+    "2026-07-30",
+    123.5
+   ],
+   [
+    "2026-08-03",
+    123.5
+   ],
+   [
+    "2026-08-04",
+    120.0
+   ],
+   [
     "2026-08-05",
     144.0
    ],
@@ -65959,6 +67255,22 @@
    ]
   ],
   "Kasturi Metal Composite": [
+   [
+    "2026-07-28",
+    50.5
+   ],
+   [
+    "2026-07-31",
+    60.0
+   ],
+   [
+    "2026-08-03",
+    59.08
+   ],
+   [
+    "2026-08-04",
+    53.85
+   ],
    [
     "2026-08-06",
     54.5
@@ -66071,6 +67383,30 @@
    ]
   ],
   "Autofurnish": [
+   [
+    "2026-07-28",
+    58.0
+   ],
+   [
+    "2026-07-29",
+    58.0
+   ],
+   [
+    "2026-07-30",
+    59.0
+   ],
+   [
+    "2026-07-31",
+    59.9
+   ],
+   [
+    "2026-08-03",
+    57.0
+   ],
+   [
+    "2026-08-04",
+    58.0
+   ],
    [
     "2026-08-06",
     58.95
@@ -66209,6 +67545,30 @@
    ]
   ],
   "Raajmarg Infra Investment Trust": [
+   [
+    "2026-07-28",
+    116.5
+   ],
+   [
+    "2026-07-29",
+    117.09
+   ],
+   [
+    "2026-07-30",
+    117.01
+   ],
+   [
+    "2026-07-31",
+    116.84
+   ],
+   [
+    "2026-08-03",
+    116.6
+   ],
+   [
+    "2026-08-04",
+    116.81
+   ],
    [
     "2026-08-05",
     116.08
@@ -66352,6 +67712,30 @@
   ],
   "Liotech Industries": [
    [
+    "2026-07-28",
+    88.9
+   ],
+   [
+    "2026-07-29",
+    93.3
+   ],
+   [
+    "2026-07-30",
+    97.95
+   ],
+   [
+    "2026-07-31",
+    102.8
+   ],
+   [
+    "2026-08-03",
+    107.9
+   ],
+   [
+    "2026-08-04",
+    113.25
+   ],
+   [
     "2026-08-05",
     110.95
    ],
@@ -66494,6 +67878,18 @@
   ],
   "Accretion Nutraveda": [
    [
+    "2026-07-29",
+    283.95
+   ],
+   [
+    "2026-08-03",
+    298.0
+   ],
+   [
+    "2026-08-04",
+    283.5
+   ],
+   [
     "2026-08-05",
     295.0
    ],
@@ -66611,6 +68007,30 @@
    ]
   ],
   "Leapfrog Engineering": [
+   [
+    "2026-07-28",
+    22.35
+   ],
+   [
+    "2026-07-29",
+    22.0
+   ],
+   [
+    "2026-07-30",
+    22.0
+   ],
+   [
+    "2026-07-31",
+    22.0
+   ],
+   [
+    "2026-08-03",
+    22.07
+   ],
+   [
+    "2026-08-04",
+    22.03
+   ],
    [
     "2026-08-05",
     22.54
@@ -66737,6 +68157,30 @@
    ]
   ],
   "Gulf Lloyds": [
+   [
+    "2026-07-28",
+    90.25
+   ],
+   [
+    "2026-07-29",
+    85.74
+   ],
+   [
+    "2026-07-30",
+    81.46
+   ],
+   [
+    "2026-07-31",
+    77.39
+   ],
+   [
+    "2026-08-03",
+    73.53
+   ],
+   [
+    "2026-08-04",
+    69.86
+   ],
    [
     "2026-08-05",
     66.37
@@ -66879,6 +68323,30 @@
    ]
   ],
   "Msafe Equipments": [
+   [
+    "2026-07-28",
+    187.0
+   ],
+   [
+    "2026-07-29",
+    181.2
+   ],
+   [
+    "2026-07-30",
+    190.0
+   ],
+   [
+    "2026-07-31",
+    193.0
+   ],
+   [
+    "2026-08-03",
+    193.7
+   ],
+   [
+    "2026-08-04",
+    199.3
+   ],
    [
     "2026-08-05",
     194.0
@@ -67076,6 +68544,18 @@
   ],
   "Speciality Medicines": [
    [
+    "2026-07-28",
+    187.0
+   ],
+   [
+    "2026-07-31",
+    178.1
+   ],
+   [
+    "2026-08-03",
+    180.9
+   ],
+   [
     "2026-08-05",
     175.0
    ],
@@ -67217,6 +68697,30 @@
    ]
   ],
   "Yajur Fibres": [
+   [
+    "2026-07-28",
+    37.52
+   ],
+   [
+    "2026-07-29",
+    36.42
+   ],
+   [
+    "2026-07-30",
+    36.92
+   ],
+   [
+    "2026-07-31",
+    36.85
+   ],
+   [
+    "2026-08-03",
+    37.35
+   ],
+   [
+    "2026-08-04",
+    37.29
+   ],
    [
     "2026-08-05",
     37.2
@@ -67360,6 +68864,18 @@
   ],
   "Narmadesh Brass Industries": [
    [
+    "2026-07-29",
+    309.75
+   ],
+   [
+    "2026-07-30",
+    309.0
+   ],
+   [
+    "2026-07-31",
+    294.0
+   ],
+   [
     "2026-08-06",
     290.0
    ],
@@ -67416,18 +68932,30 @@
    [
     "2026-09-23",
     98.4
+   ],
+   [
+    "2026-09-24",
+    118.08
    ]
   ],
   "Jindal Supreme (India)": [
    [
     "2026-09-23",
     126.0
+   ],
+   [
+    "2026-09-24",
+    132.3
    ]
   ],
   "SS Retail": [
    [
     "2026-09-23",
     748.8
+   ],
+   [
+    "2026-09-24",
+    858.95
    ]
   ],
   "Jindal Supreme": [
@@ -67435,37 +68963,160 @@
     "2026-09-23",
     127.99
    ]
+  ],
+  "Sonaselection India": [
+   [
+    "2026-09-24",
+    107.42
+   ]
   ]
  },
  "integrity": {
-  "asOf": "2026-09-24T11:39:43+05:30",
+  "asOf": "2026-09-24T11:59:23+05:30",
   "checks": [
+   {
+    "area": "calendar",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-09-24T11:40:22+05:30",
+    "elapsed": 1.41,
+    "calls": 5,
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=41 carried=8 +nse=23 +bse=0 exchange-only=0: 18 mainboard, 31 sme; 18 open, 20 upcoming"
+   },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:ok, ipopremium:blocked",
     "status": "ok",
-    "asOf": "24-Sep 9:37",
-    "elapsed": 3.91,
+    "asOf": "23-Sep 9:37",
+    "elapsed": 23.41,
     "calls": 3,
-    "note": "gmp: 24 board rows patched via investorgain+ipowatch; 36 active, 15 of them matched"
+    "note": "gmp: 24 board rows patched via investorgain+ipowatch; 36 active, 15 of them matched; gmp: 3 GMP-site names not on the board: Manika Plastech (₹1, investorgain); Shakti Polytarp (₹10, investorgain); Vama Wovenfab (₹3, investorgain)"
    },
    {
     "area": "details",
     "method": "investorgain-list:ok, investorgain:ok",
     "status": "ok",
-    "asOf": "2026-09-24T11:38:07+05:30",
-    "elapsed": 6.16,
-    "calls": 18,
-    "note": "17 records fetched for 46 identified listings (1 without an id); 0 anchor books updated, 67 on file"
+    "asOf": "2026-09-24T11:40:46+05:30",
+    "elapsed": 343.65,
+    "calls": 8,
+    "note": "4 records fetched for 48 identified listings (1 without an id); 0 anchor books updated, 67 on file; 15 left for the next run (cap 25)"
    },
    {
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-24T11:39:43+05:30",
-    "elapsed": 90.43,
-    "calls": 22,
+    "asOf": "2026-09-24T11:48:05+05:30",
+    "elapsed": 94.82,
+    "calls": 21,
     "note": "10/21 rows patched via nse"
+   },
+   {
+    "area": "listings",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-09-24",
+    "elapsed": 12.54,
+    "calls": 0,
+    "note": "19 names priced, 3 moved to recent, 16 history points"
+   },
+   {
+    "area": "history",
+    "method": "investorgain:down",
+    "status": "stale",
+    "asOf": null,
+    "elapsed": 408.85,
+    "calls": 4,
+    "note": "kept previous — RemoteProtocolError: <StreamReset stream_id:7, error_code:2, remote_reset:True>"
+   },
+   {
+    "area": "tape",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-09-23",
+    "elapsed": 4.56,
+    "calls": 12,
+    "note": "140 listings with an NSE symbol; 6 NSE file(s) read, 261 closes added; 82 trading days on file, 109 still to fill · 94 BSE-only listings; 6 BSE file(s) read, 351 closes added, 41 days on file"
+   },
+   {
+    "area": "anchorbook",
+    "method": "investorgain:down",
+    "status": "stale",
+    "asOf": null,
+    "elapsed": 214.98,
+    "calls": 4,
+    "note": "stopped after 150s with 0 of 40 records read; the rest next run; kept previous — RemoteProtocolError: <StreamReset stream_id:5, error_code:2, remote_reset:True>"
+   },
+   {
+    "area": "evidence",
+    "method": "computed:ok",
+    "status": "ok",
+    "asOf": "2026-09-24",
+    "elapsed": 0.08,
+    "calls": 0,
+    "note": "track records: 300 of 300 anchor books have an outcome; 550 of 1008 investors with 2+; 1332 listings; windows: mainboard 134, SME 240; 5 warnings"
+   },
+   {
+    "area": "players",
+    "method": "investorgain:down",
+    "status": "stale",
+    "asOf": null,
+    "elapsed": 19.46,
+    "calls": 1,
+    "note": "kept previous — HTTP 522"
+   },
+   {
+    "area": "parents",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-09-24",
+    "elapsed": 10.51,
+    "calls": 0,
+    "note": "5/5 parent prices; 47/53 investor stocks priced"
+   },
+   {
+    "area": "filings",
+    "method": "bse_ann:changed, sebi:ok",
+    "status": "ok",
+    "asOf": "2026-09-24",
+    "elapsed": 4.75,
+    "calls": 10,
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; expected: 29 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; 0 rows patched, 33 kept previous stage"
+   },
+   {
+    "area": "offers",
+    "method": "bse:blocked, bse:blocked",
+    "status": "blocked",
+    "asOf": null,
+    "elapsed": 0.02,
+    "calls": 1,
+    "note": "kept previous — HTTP 403"
+   },
+   {
+    "area": "flows",
+    "method": "nse:ok",
+    "status": "ok",
+    "asOf": "2026-09-23",
+    "elapsed": 0.28,
+    "calls": 1,
+    "note": "2026-09-23 already in history; FII +1,617 / DII +2,341 Cr"
+   },
+   {
+    "area": "deals",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-09-23",
+    "elapsed": 0.89,
+    "calls": 4,
+    "note": "bulk.csv: 250 deals; block.csv: 5 deals; 0 tracked-investor deals of 255; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 84 of today's 255 deals are in this year's listings (10 stocks); 254 kept over 60 days; 139 of 234 listings have an NSE symbol; 179 with a BSE code"
+   },
+   {
+    "area": "news",
+    "method": "rss:ok",
+    "status": "ok",
+    "asOf": "2026-09-24T11:50:21+05:30",
+    "elapsed": 0.8,
+    "calls": 3,
+    "note": "business-standard: 8/35 primary-market items; economic-times: 11/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 19 fresh, 25 kept"
    },
    {
     "area": "research layer",
@@ -67477,7 +69128,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "101s, 43 calls, 3/3 modules ok"
+    "note": "1142s, 77 calls, 12/16 modules ok"
    }
   ],
   "discrepancies": [
@@ -69207,53 +70858,53 @@
   "prices": {
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1248.0,
-    "asOf": "2026-09-23"
+    "value": 1232.1,
+    "asOf": "2026-09-24"
    },
    "Edelweiss Financial Services": {
     "symbol": "EDELWEISS",
-    "value": 142.03,
-    "asOf": "2026-09-23"
+    "value": 140.81,
+    "asOf": "2026-09-24"
    },
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 424.55,
-    "asOf": "2026-09-23"
+    "value": 420.15,
+    "asOf": "2026-09-24"
    },
    "Hero MotoCorp": {
     "symbol": "HEROMOTOCO",
-    "value": 5373.0,
-    "asOf": "2026-09-22"
+    "value": 5353.5,
+    "asOf": "2026-09-24"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 112.9,
-    "asOf": "2026-09-22"
+    "value": 111.91,
+    "asOf": "2026-09-24"
    },
    "Prestige Estates": {
     "symbol": "PRESTIGE",
-    "value": 1479.6,
-    "asOf": "2026-09-22"
+    "value": 1483.8,
+    "asOf": "2026-09-24"
    },
    "SIS Limited": {
     "symbol": "SIS",
-    "value": 424.05,
-    "asOf": "2026-09-22"
+    "value": 421.45,
+    "asOf": "2026-09-24"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 267.0,
-    "asOf": "2026-09-22"
+    "value": 263.45,
+    "asOf": "2026-09-24"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 7000.0,
-    "asOf": "2026-09-22"
+    "value": 7004.0,
+    "asOf": "2026-09-24"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 63.11,
-    "asOf": "2026-09-22"
+    "value": 62.23,
+    "asOf": "2026-09-24"
    },
    "Tata Motors": {
     "symbol": "TATAMOTORS",
@@ -69262,48 +70913,48 @@
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 407.5,
-    "asOf": "2026-09-23"
+    "value": 406.95,
+    "asOf": "2026-09-24"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 76.74,
-    "asOf": "2026-09-23"
+    "value": 76.5,
+    "asOf": "2026-09-24"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 236.9,
-    "asOf": "2026-09-23"
+    "value": 236.05,
+    "asOf": "2026-09-24"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 737.25,
-    "asOf": "2026-09-23"
+    "value": 731.55,
+    "asOf": "2026-09-24"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 412.65,
-    "asOf": "2026-09-22"
+    "value": 406.95,
+    "asOf": "2026-09-24"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1242.7,
-    "asOf": "2026-09-22"
+    "value": 1190.8,
+    "asOf": "2026-09-24"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1846.5,
-    "asOf": "2026-09-23"
+    "value": 1774.7,
+    "asOf": "2026-09-24"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1304.0,
-    "asOf": "2026-09-22"
+    "value": 1243.2,
+    "asOf": "2026-09-24"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 20.52,
-    "asOf": "2026-09-23"
+    "value": 20.01,
+    "asOf": "2026-09-24"
    },
    "Gretex Corporate Services": {
     "symbol": "GRETEX",
@@ -69312,8 +70963,8 @@
    },
    "Asian Energy": {
     "symbol": "ASIANENE",
-    "value": 489.6,
-    "asOf": "2026-09-22"
+    "value": 483.75,
+    "asOf": "2026-09-24"
    },
    "TechEra Engineering": {
     "symbol": "TECHERA",
@@ -69322,133 +70973,133 @@
    },
    "Beta Drugs": {
     "symbol": "BETA",
-    "value": 2105.0,
-    "asOf": "2026-09-22"
+    "value": 2115.3,
+    "asOf": "2026-09-24"
    },
    "Fineotex Chemical": {
     "symbol": "FCL",
-    "value": 57.39,
-    "asOf": "2026-09-22"
+    "value": 56.58,
+    "asOf": "2026-09-24"
    },
    "SG Finserve": {
     "symbol": "SGFIN",
-    "value": 622.15,
-    "asOf": "2026-09-23"
+    "value": 608.9,
+    "asOf": "2026-09-24"
    },
    "Walchandnagar Industries / Jain Resource Recycling": {
     "symbol": "WALCHANNAG",
-    "value": 212.63,
-    "asOf": "2026-09-23"
+    "value": 208.6,
+    "asOf": "2026-09-24"
    },
    "Laxmi India Finance": {
     "symbol": "LAXMIINDIA",
-    "value": 123.73,
-    "asOf": "2026-09-22"
+    "value": 123.26,
+    "asOf": "2026-09-24"
    },
    "Lux Industries": {
     "symbol": "LUXIND",
-    "value": 1186.5,
-    "asOf": "2026-09-23"
+    "value": 1181.6,
+    "asOf": "2026-09-24"
    },
    "J Kumar Infraprojects": {
     "symbol": "JKIL",
-    "value": 478.0,
-    "asOf": "2026-09-22"
+    "value": 478.9,
+    "asOf": "2026-09-24"
    },
    "Intellect Design Arena": {
     "symbol": "INTELLECT",
-    "value": 668.05,
-    "asOf": "2026-09-23"
+    "value": 649.1,
+    "asOf": "2026-09-24"
    },
    "Eimco Elecon (India)": {
     "symbol": "EIMCOELECO",
-    "value": 2256.1,
-    "asOf": "2026-09-22"
+    "value": 2271.4,
+    "asOf": "2026-09-24"
    },
    "Rain Industries": {
     "symbol": "RAIN",
-    "value": 219.54,
-    "asOf": "2026-09-22"
+    "value": 222.6,
+    "asOf": "2026-09-24"
    },
    "Sharda Cropchem": {
     "symbol": "SHARDACROP",
-    "value": 747.35,
-    "asOf": "2026-09-22"
+    "value": 745.2,
+    "asOf": "2026-09-24"
    },
    "Zaggle Prepaid": {
     "symbol": "ZAGGLE",
-    "value": 179.86,
-    "asOf": "2026-09-23"
+    "value": 178.25,
+    "asOf": "2026-09-24"
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 111.35,
-    "asOf": "2026-09-22"
+    "value": 118.67,
+    "asOf": "2026-09-24"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1062.0,
-    "asOf": "2026-09-23"
+    "value": 1044.35,
+    "asOf": "2026-09-24"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 565.65,
-    "asOf": "2026-09-23"
+    "value": 547.0,
+    "asOf": "2026-09-24"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 317.25,
-    "asOf": "2026-09-23"
+    "value": 332.1,
+    "asOf": "2026-09-24"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 127.23,
-    "asOf": "2026-09-23"
+    "value": 123.63,
+    "asOf": "2026-09-24"
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
-    "value": 1770.7,
-    "asOf": "2026-09-23"
+    "value": 1859.2,
+    "asOf": "2026-09-24"
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1615.4,
-    "asOf": "2026-09-23"
+    "value": 1583.8,
+    "asOf": "2026-09-24"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1313.2,
-    "asOf": "2026-09-23"
+    "value": 1280.9,
+    "asOf": "2026-09-24"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 109.9,
-    "asOf": "2026-09-23"
+    "value": 107.99,
+    "asOf": "2026-09-24"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 546.0,
-    "asOf": "2026-09-22"
+    "value": 540.35,
+    "asOf": "2026-09-24"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 504.65,
-    "asOf": "2026-09-23"
+    "value": 506.1,
+    "asOf": "2026-09-24"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1251.9,
-    "asOf": "2026-09-23"
+    "value": 1290.9,
+    "asOf": "2026-09-24"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 469.6,
-    "asOf": "2026-09-23"
+    "value": 446.0,
+    "asOf": "2026-09-24"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 545.75,
-    "asOf": "2026-09-22"
+    "value": 541.0,
+    "asOf": "2026-09-24"
    },
    "Ashutosh Fibre (upcoming)": {
     "symbol": "ASHUTOSH",
@@ -74714,6 +76365,22 @@
    "Jindal Supreme": {
     "symbol": "JSIPL",
     "triedOn": "2026-09-23"
+   },
+   "NSE (National Stock Exchange of India)": {
+    "symbol": "NSE",
+    "triedOn": "2026-09-24"
+   },
+   "Sonaselection India": {
+    "symbol": "SONA",
+    "triedOn": "2026-09-24"
+   },
+   "Kheria Autocomp": {
+    "symbol": "KHERIAAUTO",
+    "triedOn": "2026-09-24"
+   },
+   "SpectraA Technology Solutions": {
+    "symbol": "SPECTRAA",
+    "triedOn": "2026-09-24"
    }
   }
  },
@@ -81387,8 +83054,8 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1248.0,
-    "asOf": "2026-09-23"
+    "value": 1232.1,
+    "asOf": "2026-09-24"
    },
    "parentTicker": "RELIANCE",
    "sources": [
@@ -81440,8 +83107,8 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 142.03,
-    "asOf": "2026-09-23"
+    "value": 140.81,
+    "asOf": "2026-09-24"
    },
    "parentTicker": "EDELWEISS",
    "sources": [
@@ -81595,8 +83262,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 424.55,
-    "asOf": "2026-09-23"
+    "value": 420.15,
+    "asOf": "2026-09-24"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -81724,8 +83391,8 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5373.0,
-    "asOf": "2026-09-22"
+    "value": 5353.5,
+    "asOf": "2026-09-24"
    },
    "parentTicker": "HEROMOTOCO",
    "sources": [
@@ -81839,8 +83506,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 424.55,
-    "asOf": "2026-09-23"
+    "value": 420.15,
+    "asOf": "2026-09-24"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -86323,7 +87990,7 @@
   },
   "1852": {
    "name": "Varmora Granito",
-   "fetchedAt": "2026-09-24T11:38:07+05:30",
+   "fetchedAt": "2026-09-24T11:40:46+05:30",
    "about": [
     "Incorporated in 2003, Varmora Granito Limited is engaged in the business of manufacturing and marketing ceramic and vitrified tiles. The company’s product portfolio includes a wide range of tiles across formats such as glazed vitrified tiles (GVT), polished vitrified tiles (PVT), and ceramic tiles. The company distributes its products through a multi-channel network comprising: Business-to-Consumer (B2C) channels: 286 exclusive brand outlets (EBOs) and over 2,000 multi-brand outlets (MBOs) Business-to-Business (B2B) channels: Builders, contractors, developers, and government procurement As of March 31, 2025, the company’s distribution network covered 949 cities across 27 states and union territories in India. The product portfolio included more than 3,500 stock-keeping units (SKUs) as of March 31, 2025. Manufacturing Facilities As of March 31, 2025, the company operated nine manufacturing facilities, all located in the Morbi industrial cluster in Gujarat. Export Operations As of March 31, 2025, the company exported products to over 100 countries, supported by a dedicated export team comprising 47 personnel. Employees The company employed 1,156 permanent employees as of March 31, 2025."
    ],
@@ -86624,6 +88291,17 @@
      "total": 0.27,
      "bidCr": 135.73,
      "retailBidCr": 102.02
+    },
+    {
+     "asOf": "2026-09-24T11:11:00+05:30",
+     "qib": 0.14,
+     "nii": 0.21,
+     "bnii": 0.15,
+     "snii": 0.32,
+     "retail": 0.53,
+     "total": 0.35,
+     "bidCr": 172.9,
+     "retailBidCr": 130.75
     }
    ],
    "company": {
@@ -86634,7 +88312,7 @@
   },
   "2269": {
    "name": "Anand Seamless",
-   "fetchedAt": "2026-09-24T11:38:07+05:30",
+   "fetchedAt": "2026-09-24T11:40:46+05:30",
    "about": [
     "Anand Seamless Limited is engaged in the production of seamless tubes, pipes, and finned tubes used in industrial applications. The company operates in the iron and steel manufacturing sector. The company specializes in manufacturing carbon steel and alloy steel seamless tubes, heat exchanger tubes, U-tubes, and various types of finned tubes. These products are widely used in industries such as oil & gas, petrochemicals, power plants, and process industries. Anand Seamless Limited focuses on quality-driven manufacturing with certifications like ISO and approvals from agencies such as IBR and Engineers India Limited. It serves both domestic and international clients, including major PSUs and global energy companies, positioning itself as a reliable supplier in the industrial engineering sector. Product Portfolio: Seamless Tubes and Pipes Finned Tubes Competitive Strengths: Diversified Product Range International Accreditations and product approvals Extensive and Effective Quality Control Customer Diversification Experienced and Qualified Team"
    ],
@@ -86855,6 +88533,15 @@
     "sharesPre": 8425458.0,
     "sharesPost": 11969458.0
    },
+   "gmpHistory": [
+    {
+     "date": "2026-09-22",
+     "gmp": 0.0,
+     "est": 72.0,
+     "pct": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
    "bidding": [
     {
      "asOf": "2026-09-22T18:57:00+05:30",
@@ -86866,17 +88553,6 @@
      "total": 0.59,
      "bidCr": 14.31,
      "retailBidCr": 0.58
-    },
-    {
-     "asOf": "2026-09-23T17:08:00+05:30",
-     "qib": 0.0,
-     "nii": 1.12,
-     "bnii": 0.0,
-     "snii": 0.0,
-     "retail": 0.36,
-     "total": 0.74,
-     "bidCr": 17.9,
-     "retailBidCr": 4.35
     }
    ],
    "company": {
@@ -86887,7 +88563,7 @@
   },
   "2230": {
    "name": "Himalaya Nutravedics India",
-   "fetchedAt": "2026-09-24T11:38:07+05:30",
+   "fetchedAt": "2026-09-24T11:40:46+05:30",
    "about": [
     "Himalaya Nutravedics India Ltd is engaged in the manufacturing, marketing, and distribution of Ayurvedic and nutraceutical formulations in India. In addition to its own branded products, the company also undertakes third-party contract manufacturing for other Ayurvedic and nutraceutical companies. It offers a diversified product portfolio that includes classical Ayurvedic formulations based on traditional texts, proprietary Ayurvedic products, and nutraceutical supplements. These are available in multiple dosage forms such as soft gelatin capsules, hard gelatin capsules, tablets, liquid orals, and medicated oils. The company operates through a hybrid business model, balancing its own-brand formulations with contract manufacturing services. It has an integrated in-house manufacturing facility located in Hyderabad, Telangana. As of September 2025, its products are distributed across multiple states in India, with a strong revenue presence in Telangana, Andhra Pradesh, Kerala, Gujarat, and Uttar Pradesh. Its product portfolio spans a wide range of wellness and therapeutic segments, including digestive health, immunity, metabolic health, musculoskeletal and joint care, reproductive health, respiratory wellness, pain management, and general well-being. These formulations are designed to support general wellness, nutritional supplementation, and lifestyle-related health needs, in line with applicable regulatory standards. Competitive Strengths: Integrated multi-dosage manufacturing capability Doctor acceptance supported by product performance rather than mass advertising Long-standing relationships with suppliers and customers Geographic expansion achieved over a relatively short operating history Broad therapeutic coverage across ayurvedic and nutraceutical segment"
    ],
@@ -87106,6 +88782,15 @@
     "sharesPre": 6306720.0,
     "sharesPost": 8806320.0
    },
+   "gmpHistory": [
+    {
+     "date": "2026-09-22",
+     "gmp": 0.0,
+     "est": 106.0,
+     "pct": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
    "bidding": [
     {
      "asOf": "2026-09-22T18:56:00+05:30",
@@ -87117,17 +88802,6 @@
      "total": 0.11,
      "bidCr": 1.95,
      "retailBidCr": 1.42
-    },
-    {
-     "asOf": "2026-09-23T17:08:00+05:30",
-     "qib": 0.0,
-     "nii": 0.32,
-     "bnii": 0.47,
-     "snii": 0.54,
-     "retail": 0.67,
-     "total": 0.4,
-     "bidCr": 7.1,
-     "retailBidCr": 5.88
     }
    ],
    "company": {
@@ -87138,7 +88812,7 @@
   },
   "2268": {
    "name": "Adroit Industries",
-   "fetchedAt": "2026-09-24T11:38:07+05:30",
+   "fetchedAt": "2026-09-24T11:40:46+05:30",
    "about": [
     "Adroit Industries (India) Ltd., incorporated in 1966, is a manufacturer of propeller shafts and torque-transmission components used in vehicles and industrial machinery. The company has a fully integrated manufacturing setup, handling everything from forging and machining to assembly and testing, which helps maintain quality and efficiency. The company offers over 5,000 products to distributors, large component manufacturers, and OEMs. These are mainly used in commercial vehicles, defense, heavy equipment, and industrial machinery. Its manufacturing facilities are located in Madhya Pradesh, India, and are equipped to support large-scale production. Its customer base includes well-known companies such as Godrej & Boyce Manufacturing Company Limited, BEML Limited, VE Commercial Vehicles Limited, Sandvik Mining and Rock Technology India Private Limited, Oilgear India Private Limited, and other industrial and infrastructure players. Adroit has a strong international presence, exporting to over 25 countries across North America, Europe, the Asia-Pacific region, and other regions. It also maintains long-term relationships with reputed customers, supporting steady revenue and repeat business. Competitive Strengths: A large and diversified product portfolio with over 5,000 SKUs Fully integrated manufacturing operations ensure quality control and cost efficiency Strong and long-standing relationships with a diversified customer base High entry barriers supported by technical expertise and validation capabilities Well-established export network across multiple international markets Experienced promoters and management team driving business growth"
    ],
@@ -87364,18 +89038,11 @@
    },
    "gmpHistory": [
     {
-     "date": "2026-09-24",
-     "gmp": 34.0,
-     "est": 168.0,
-     "pct": 25.37,
-     "kostakSauda": "2900/40600"
-    },
-    {
      "date": "2026-09-23",
-     "gmp": 34.0,
-     "est": 168.0,
-     "pct": 25.37,
-     "kostakSauda": "2900/40600"
+     "gmp": 35.0,
+     "est": 169.0,
+     "pct": 26.12,
+     "kostakSauda": "3000/42000"
     },
     {
      "date": "2026-09-22",
@@ -95126,8 +96793,14 @@
   ]
  },
  "tape": {
-  "asOf": "2026-09-24T06:45:59+05:30",
+  "asOf": "2026-09-24T11:55:06+05:30",
   "dates": [
+   "2026-05-29",
+   "2026-06-01",
+   "2026-06-02",
+   "2026-06-03",
+   "2026-06-04",
+   "2026-06-05",
    "2026-06-08",
    "2026-06-09",
    "2026-06-10",
@@ -95213,6 +96886,10 @@
    "Hero Motors": "HEROMOTORS",
    "Jindal Supreme (India)": "JSIPL",
    "SS Retail": "SSRETAIL",
+   "NSE (National Stock Exchange of India)": "NSE",
+   "Sonaselection India": "SONA",
+   "Kheria Autocomp": "KHERIAAUTO",
+   "SpectraA Technology Solutions": "SPECTRAA",
    "Jindal Supreme": "JSIPL",
    "Vama Wovenfab": "VAMAWOVEN",
    "Shakti Polytarp": "SHAKTIPOLY",
@@ -95347,9 +97024,15 @@
    "Victory Electric Vehicles": "VICTORYEV",
    "E to E Transportation Infrastructure": "E2ERAIL"
   },
-  "n": 136,
+  "n": 140,
   "bse": {
    "dates": [
+    "2026-07-28",
+    "2026-07-29",
+    "2026-07-30",
+    "2026-07-31",
+    "2026-08-03",
+    "2026-08-04",
     "2026-08-05",
     "2026-08-06",
     "2026-08-07",
@@ -122582,13 +124265,13 @@
       "p90": 12.7
      },
      "d5": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 2.7,
-      "p10": 0.9,
-      "p90": 4.5
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 0.5,
+      "p10": -18.9,
+      "p90": 4.0
      },
      "d30": {
       "n": 2,
@@ -122636,13 +124319,13 @@
       "p90": 9.7
      },
      "d30": {
-      "n": 11,
-      "pos": 72.7,
-      "lo": 43.4,
-      "hi": 90.3,
-      "med": 25.2,
-      "p10": -28.0,
-      "p90": 63.4
+      "n": 12,
+      "pos": 75.0,
+      "lo": 46.8,
+      "hi": 91.1,
+      "med": 23.2,
+      "p10": -26.7,
+      "p90": 61.4
      },
      "lead": {
       "n": 17,
@@ -123262,13 +124945,13 @@
       "p90": 28.6
      },
      "d5": {
-      "n": 6,
-      "pos": 33.3,
-      "lo": 9.7,
-      "hi": 70.0,
-      "med": -5.9,
-      "p10": -17.2,
-      "p90": 15.3
+      "n": 7,
+      "pos": 28.6,
+      "lo": 8.2,
+      "hi": 64.1,
+      "med": -6.2,
+      "p10": -22.9,
+      "p90": 15.0
      },
      "d30": {
       "n": 0,
@@ -123432,13 +125115,13 @@
       "p90": 48.2
      },
      "d5": {
-      "n": 17,
-      "pos": 64.7,
-      "lo": 41.3,
-      "hi": 82.7,
-      "med": 9.1,
-      "p10": -7.0,
-      "p90": 21.9
+      "n": 18,
+      "pos": 66.7,
+      "lo": 43.7,
+      "hi": 83.7,
+      "med": 7.3,
+      "p10": -6.6,
+      "p90": 21.8
      },
      "d30": {
       "n": 7,
@@ -124150,13 +125833,13 @@
       "p90": 14.9
      },
      "d5": {
-      "n": 2,
+      "n": 3,
       "pos": 0.0,
       "lo": 0.0,
-      "hi": 65.8,
-      "med": -5.8,
-      "p10": -10.1,
-      "p90": -1.4
+      "hi": 56.2,
+      "med": -11.2,
+      "p10": -21.3,
+      "p90": -2.5
      },
      "d30": {
       "n": 1,
@@ -124204,13 +125887,13 @@
       "p90": -1.4
      },
      "d30": {
-      "n": 5,
-      "pos": 40.0,
-      "lo": 11.8,
-      "hi": 76.9,
-      "med": -5.0,
-      "p10": -22.9,
-      "p90": 16.6
+      "n": 6,
+      "pos": 33.3,
+      "lo": 9.7,
+      "hi": 70.0,
+      "med": -4.2,
+      "p10": -21.6,
+      "p90": 14.1
      },
      "lead": {
       "n": 3,
@@ -124660,12 +126343,12 @@
       "p90": 35.3
      },
      "d5": {
-      "n": 15,
-      "pos": 60.0,
-      "lo": 35.7,
-      "hi": 80.2,
-      "med": 0.5,
-      "p10": -7.1,
+      "n": 16,
+      "pos": 62.5,
+      "lo": 38.6,
+      "hi": 81.5,
+      "med": 1.3,
+      "p10": -6.7,
       "p90": 20.6
      },
      "d30": {
@@ -124912,13 +126595,13 @@
       "p90": 35.4
      },
      "d5": {
-      "n": 12,
-      "pos": 66.7,
-      "lo": 39.1,
-      "hi": 86.2,
-      "med": 8.2,
-      "p10": -5.7,
-      "p90": 31.2
+      "n": 14,
+      "pos": 64.3,
+      "lo": 38.8,
+      "hi": 83.7,
+      "med": 4.4,
+      "p10": -8.2,
+      "p90": 28.9
      },
      "d30": {
       "n": 8,
@@ -125926,13 +127609,13 @@
       "p90": 51.5
      },
      "d5": {
-      "n": 9,
-      "pos": 55.6,
-      "lo": 26.7,
-      "hi": 81.1,
-      "med": 1.1,
-      "p10": -9.8,
-      "p90": 21.1
+      "n": 10,
+      "pos": 60.0,
+      "lo": 31.3,
+      "hi": 83.2,
+      "med": 3.3,
+      "p10": -9.4,
+      "p90": 21.0
      },
      "d30": {
       "n": 3,
@@ -126052,13 +127735,13 @@
       "p90": 29.2
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 2.6,
-      "p10": 0.3,
-      "p90": 5.0
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -0.3,
+      "p10": -19.1,
+      "p90": 4.4
      },
      "d30": {
       "n": 2,
@@ -126106,13 +127789,13 @@
       "p90": -4.7
      },
      "d30": {
-      "n": 2,
+      "n": 3,
       "pos": 0.0,
       "lo": 0.0,
-      "hi": 65.8,
-      "med": -24.8,
-      "p10": -33.4,
-      "p90": -16.1
+      "hi": 56.2,
+      "med": -25.9,
+      "p10": -33.6,
+      "p90": -16.4
      },
      "lead": {
       "n": 7,
@@ -126474,13 +128157,13 @@
       "p90": 52.0
      },
      "d5": {
-      "n": 8,
-      "pos": 37.5,
-      "lo": 13.7,
-      "hi": 69.4,
-      "med": -5.3,
-      "p10": -10.1,
-      "p90": 21.3
+      "n": 9,
+      "pos": 44.4,
+      "lo": 18.9,
+      "hi": 73.3,
+      "med": -4.2,
+      "p10": -9.8,
+      "p90": 21.1
      },
      "d30": {
       "n": 5,
@@ -126940,13 +128623,13 @@
       "p90": 52.4
      },
      "d5": {
-      "n": 6,
-      "pos": 66.7,
-      "lo": 30.0,
-      "hi": 90.3,
-      "med": 10.7,
-      "p10": -7.2,
-      "p90": 34.2
+      "n": 7,
+      "pos": 71.4,
+      "lo": 35.9,
+      "hi": 91.8,
+      "med": 5.6,
+      "p10": -6.1,
+      "p90": 31.5
      },
      "d30": {
       "n": 1,
@@ -127542,13 +129225,13 @@
       "p90": 15.1
      },
      "d30": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 11.3,
-      "p10": -7.3,
-      "p90": 37.1
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 15.5,
+      "p10": -4.9,
+      "p90": 36.3
      },
      "lead": {
       "n": 3,
@@ -127954,13 +129637,13 @@
       "p90": 37.5
      },
      "d5": {
-      "n": 8,
-      "pos": 50.0,
-      "lo": 21.5,
-      "hi": 78.5,
-      "med": -0.1,
-      "p10": -4.4,
-      "p90": 20.9
+      "n": 9,
+      "pos": 55.6,
+      "lo": 26.7,
+      "hi": 81.1,
+      "med": 1.1,
+      "p10": -3.7,
+      "p90": 20.7
      },
      "d30": {
       "n": 3,
@@ -128376,13 +130059,13 @@
       "p90": 48.7
      },
      "d5": {
-      "n": 7,
-      "pos": 71.4,
-      "lo": 35.9,
-      "hi": 91.8,
-      "med": 3.3,
-      "p10": -3.8,
-      "p90": 20.5
+      "n": 8,
+      "pos": 75.0,
+      "lo": 40.9,
+      "hi": 92.9,
+      "med": 4.4,
+      "p10": -2.9,
+      "p90": 20.4
      },
      "d30": {
       "n": 5,
@@ -128726,13 +130409,13 @@
       "p90": 4.2
      },
      "d30": {
-      "n": 4,
-      "pos": 50.0,
-      "lo": 15.0,
-      "hi": 85.0,
-      "med": -3.0,
-      "p10": -23.6,
-      "p90": 22.4
+      "n": 6,
+      "pos": 33.3,
+      "lo": 9.7,
+      "hi": 70.0,
+      "med": -8.7,
+      "p10": -26.8,
+      "p90": 18.2
      },
      "lead": {
       "n": 6,
@@ -128842,13 +130525,13 @@
       "p90": 49.2
      },
      "d5": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 20.3,
-      "p10": -8.0,
-      "p90": 21.8
+      "n": 6,
+      "pos": 66.7,
+      "lo": 30.0,
+      "hi": 90.3,
+      "med": 12.9,
+      "p10": -7.8,
+      "p90": 21.6
      },
      "d30": {
       "n": 3,
@@ -128968,13 +130651,13 @@
       "p90": 16.8
      },
      "d5": {
-      "n": 5,
-      "pos": 20.0,
-      "lo": 3.6,
-      "hi": 62.4,
-      "med": -11.2,
-      "p10": -27.5,
-      "p90": 5.7
+      "n": 6,
+      "pos": 16.7,
+      "lo": 3.0,
+      "hi": 56.4,
+      "med": -11.7,
+      "p10": -30.8,
+      "p90": 4.7
      },
      "d30": {
       "n": 2,
@@ -129488,13 +131171,13 @@
       "p90": 7.2
      },
      "d30": {
-      "n": 2,
+      "n": 3,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 26.5,
-      "p10": 8.3,
-      "p90": 44.7
+      "med": 19.6,
+      "p10": 6.9,
+      "p90": 43.4
      },
      "lead": {
       "n": 3,
@@ -129774,13 +131457,13 @@
       "p90": 49.7
      },
      "d5": {
-      "n": 6,
-      "pos": 66.7,
-      "lo": 30.0,
-      "hi": 90.3,
-      "med": 2.2,
-      "p10": -7.3,
-      "p90": 20.6
+      "n": 7,
+      "pos": 71.4,
+      "lo": 35.9,
+      "hi": 91.8,
+      "med": 3.3,
+      "p10": -7.0,
+      "p90": 20.5
      },
      "d30": {
       "n": 3,
@@ -130448,13 +132131,13 @@
       "p90": 33.4
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 0.0,
       "lo": 0.0,
-      "hi": 79.3,
-      "med": -0.3,
-      "p10": -0.3,
-      "p90": -0.3
+      "hi": 65.8,
+      "med": -12.1,
+      "p10": -21.4,
+      "p90": -2.6
      },
      "d30": {
       "n": 1,
@@ -130663,13 +132346,13 @@
       "p90": 85.8
      },
      "d30": {
-      "n": 2,
+      "n": 3,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 53.8,
-      "p10": 35.6,
-      "p90": 72.0
+      "med": 31.1,
+      "p10": 7.7,
+      "p90": 67.4
      },
      "lead": {
       "n": 3,
@@ -131750,13 +133433,13 @@
       "p90": 48.1
      },
      "d5": {
-      "n": 3,
+      "n": 4,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 51.0,
       "hi": 100.0,
-      "med": 9.1,
-      "p10": 2.7,
-      "p90": 10.9
+      "med": 7.3,
+      "p10": 2.5,
+      "p90": 10.6
      },
      "d30": {
       "n": 0,
@@ -132613,13 +134296,13 @@
       "p90": 38.5
      },
      "d5": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 1.1,
-      "p10": -2.0,
-      "p90": 6.0
+      "n": 6,
+      "pos": 66.7,
+      "lo": 30.0,
+      "hi": 90.3,
+      "med": 1.2,
+      "p10": -1.9,
+      "p90": 7.3
      },
      "d30": {
       "n": 1,
@@ -135504,13 +137187,13 @@
       "p90": 46.5
      },
      "d5": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 0.6,
-      "p10": -4.5,
-      "p90": 2.6
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 1.1,
+      "p10": -3.8,
+      "p90": 4.7
      },
      "d30": {
       "n": 2,
@@ -136394,13 +138077,13 @@
       "p90": 23.4
      },
      "d30": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 31.1,
-      "p10": 31.1,
-      "p90": 31.1
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 11.9,
+      "p10": -3.5,
+      "p90": 27.3
      },
      "lead": {
       "n": 1,
@@ -137814,13 +139497,13 @@
       "p90": 34.2
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 6.6,
-      "p10": -5.9,
-      "p90": 19.2
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 5.6,
+      "p10": -6.2,
+      "p90": 19.0
      },
      "d30": {
       "n": 1,
@@ -137913,12 +139596,12 @@
       "p90": 78.5
      },
      "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 20.3,
-      "p10": -5.9,
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 12.9,
+      "p10": -7.1,
       "p90": 20.7
      },
      "d30": {
@@ -138022,13 +139705,13 @@
       "p90": 8.1
      },
      "d30": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -35.5,
-      "p10": -35.5,
-      "p90": -35.5
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -7.9,
+      "p10": -30.0,
+      "p90": 14.1
      },
      "lead": {
       "n": 2,
@@ -140484,13 +142167,13 @@
       "p90": 44.7
      },
      "d5": {
-      "n": 2,
+      "n": 3,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 15.8,
-      "p10": 12.2,
-      "p90": 19.4
+      "med": 11.3,
+      "p10": 6.7,
+      "p90": 18.5
      },
      "d30": {
       "n": 0,
@@ -140574,13 +142257,13 @@
       "p90": 26.5
      },
      "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -0.3,
-      "p10": -7.3,
-      "p90": 2.6
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": 1.5,
+      "p10": -6.5,
+      "p90": 4.9
      },
      "d30": {
       "n": 3,
@@ -140664,13 +142347,13 @@
       "p90": 66.0
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 2.8,
-      "p10": -6.7,
-      "p90": 12.3
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 5.6,
+      "p10": -6.2,
+      "p90": 12.9
      },
      "d30": {
       "n": 2,
@@ -140754,13 +142437,13 @@
       "p90": 70.7
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -4.0,
-      "p10": -8.1,
-      "p90": 0.1
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 1.1,
+      "p10": -7.1,
+      "p90": 4.7
      },
      "d30": {
       "n": 1,
@@ -140844,13 +142527,13 @@
       "p90": 26.5
      },
      "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -5.6,
-      "p10": -11.1,
-      "p90": 1.5
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": -1.1,
+      "p10": -10.4,
+      "p90": 4.9
      },
      "d30": {
       "n": 1,
@@ -140934,13 +142617,13 @@
       "p90": 15.1
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 0.0,
       "lo": 0.0,
-      "hi": 79.3,
-      "med": -11.2,
-      "p10": -11.2,
-      "p90": -11.2
+      "hi": 65.8,
+      "med": -17.5,
+      "p10": -22.5,
+      "p90": -12.5
      },
      "d30": {
       "n": 0,
@@ -144854,13 +146537,13 @@
       "p90": 6.1
      },
      "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -2.2,
+      "p10": -2.2,
+      "p90": -2.2
      },
      "lead": {
       "n": 3,
@@ -144944,13 +146627,13 @@
       "p90": 5.1
      },
      "d30": {
-      "n": 2,
+      "n": 3,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 8.4,
-      "p10": 8.0,
-      "p90": 8.8
+      "med": 7.9,
+      "p10": 4.9,
+      "p90": 8.7
      },
      "lead": {
       "n": 3,
@@ -145124,13 +146807,13 @@
       "p90": 7.8
      },
      "d30": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 28.6,
-      "p10": 8.7,
-      "p90": 35.6
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 16.2,
+      "p10": -4.0,
+      "p90": 34.8
      },
      "lead": {
       "n": 3,
@@ -147267,13 +148950,13 @@
       "p90": 74.0
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.6,
+      "p10": 5.6,
+      "p90": 5.6
      },
      "d30": {
       "n": 0,
@@ -147348,13 +149031,13 @@
       "p90": 27.0
      },
      "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -4.7,
-      "p10": -8.2,
-      "p90": -1.2
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -0.3,
+      "p10": -7.3,
+      "p90": 4.4
      },
      "d30": {
       "n": 2,
@@ -147429,13 +149112,13 @@
       "p90": 35.5
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 7.1,
-      "p10": -3.5,
-      "p90": 17.7
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 5.6,
+      "p10": -3.8,
+      "p90": 17.4
      },
      "d30": {
       "n": 0,
@@ -147510,13 +149193,13 @@
       "p90": 45.6
      },
      "d5": {
-      "n": 2,
+      "n": 3,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 10.7,
-      "p10": 3.0,
-      "p90": 18.4
+      "med": 5.6,
+      "p10": 2.0,
+      "p90": 17.4
      },
      "d30": {
       "n": 0,
@@ -147591,13 +149274,13 @@
       "p90": 30.7
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -5.1,
-      "p10": -11.0,
-      "p90": 0.8
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 2.3,
+      "p10": -9.5,
+      "p90": 4.9
      },
      "d30": {
       "n": 1,
@@ -147672,13 +149355,13 @@
       "p90": 70.8
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 11.3,
-      "p10": 11.3,
-      "p90": 11.3
+      "med": 8.4,
+      "p10": 6.2,
+      "p90": 10.7
      },
      "d30": {
       "n": 0,
@@ -147753,13 +149436,13 @@
       "p90": 29.7
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 3.3,
-      "p10": 3.3,
-      "p90": 3.3
+      "med": 4.4,
+      "p10": 3.5,
+      "p90": 5.4
      },
      "d30": {
       "n": 1,
@@ -147834,13 +149517,13 @@
       "p90": 29.7
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 3.3,
-      "p10": 3.3,
-      "p90": 3.3
+      "med": 4.4,
+      "p10": 3.5,
+      "p90": 5.4
      },
      "d30": {
       "n": 1,
@@ -147915,13 +149598,13 @@
       "p90": 46.3
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 13.1,
-      "p10": 13.1,
-      "p90": 13.1
+      "med": 9.3,
+      "p10": 6.3,
+      "p90": 12.3
      },
      "d30": {
       "n": 0,
@@ -154210,13 +155893,13 @@
       "p90": 35.5
      },
      "d5": {
-      "n": 2,
+      "n": 3,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 15.1,
-      "p10": 10.9,
-      "p90": 19.2
+      "med": 9.8,
+      "p10": 6.4,
+      "p90": 18.2
      },
      "d30": {
       "n": 1,
@@ -157055,13 +158738,13 @@
       "p90": 6.3
      },
      "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 4.2,
+      "p10": 4.2,
+      "p90": 4.2
      },
      "lead": {
       "n": 2,
@@ -157242,13 +158925,13 @@
       "p90": 31.0
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.6,
+      "p10": 5.6,
+      "p90": 5.6
      },
      "d30": {
       "n": 0,
@@ -157314,13 +158997,13 @@
       "p90": 46.4
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 1.1,
-      "p10": 1.1,
-      "p90": 1.1
+      "med": 3.3,
+      "p10": 1.6,
+      "p90": 5.2
      },
      "d30": {
       "n": 0,
@@ -157718,13 +159401,13 @@
       "p90": 16.5
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -23.8,
+      "p10": -23.8,
+      "p90": -23.8
      },
      "d30": {
       "n": 0,
@@ -167396,13 +169079,13 @@
       "p90": -0.3
      },
      "d30": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 4.7,
-      "p10": 4.7,
-      "p90": 4.7
+      "med": 12.2,
+      "p10": 6.2,
+      "p90": 18.1
      },
      "lead": {
       "n": 0,
@@ -172524,13 +174207,13 @@
       "p90": 7.1
      },
      "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -2.2,
+      "p10": -2.2,
+      "p90": -2.2
      },
      "lead": {
       "n": 2,
@@ -173793,7 +175476,8 @@
     "d30": 4.8
    },
    "1834": {
-    "d5": -3.1
+    "d5": -3.1,
+    "d30": 19.6
    },
    "2023": {
     "d5": 4.3,
@@ -173876,7 +175560,8 @@
     "d30": 12.5
    },
    "1583": {
-    "d5": 7.1
+    "d5": 7.1,
+    "d30": -2.2
    },
    "1582": {
     "d5": 4.3,
@@ -173907,13 +175592,16 @@
     "d30": -28.0
    },
    "1901": {
-    "d5": -0.8
+    "d5": -0.8,
+    "d30": -25.9
    },
    "2028": {
-    "d5": -3.7
+    "d5": -3.7,
+    "d30": -7.3
    },
    "2021": {
-    "d5": 0.0
+    "d5": 0.0,
+    "d30": 1.8
    },
    "1720": {
     "d5": 6.0,
@@ -173923,13 +175611,15 @@
     "d5": -13.9
    },
    "1960": {
-    "d5": 6.3
+    "d5": 6.3,
+    "d30": 4.2
    },
    "1705": {
     "d5": -1.9
    },
    "1581": {
-    "d5": -4.2
+    "d5": -4.2,
+    "d30": -3.4
    },
    "2034": {
     "d5": 7.3
@@ -173948,6 +175638,12 @@
    },
    "1879": {
     "d5": 47.6
+   },
+   "2231": {
+    "d5": 5.6
+   },
+   "1648": {
+    "d5": -23.8
    }
   },
   "dealRows": [],
