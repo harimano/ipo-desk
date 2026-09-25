@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-25T19:02:52+05:30",
+  "asOf": "2026-09-25T19:23:52+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "25 Sep 2026, 19:02 IST",
+  "label": "25 Sep 2026, 19:23 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -40,6 +40,18 @@
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
    "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
+   "[gmp] gmp: no grey-market print found for open issue Core Integra Consulting",
+   "[gmp] gmp: no grey-market print found for open issue Coreintegra Consulting Services",
+   "[gmp] gmp: no grey-market print found for open issue Liqvd Digital",
+   "[gmp] gmp: no grey-market print found for open issue Pooja Logistics",
+   "[gmp] gmp: no grey-market print found for open issue S.K.Offset",
+   "[gmp] gmp: no grey-market print found for open issue Unitec Fibres",
+   "[gmp] gmp: no grey-market print found for open issue Green Asia Impex",
+   "[gmp] gmp: no grey-market print found for open issue Peshwa Wheat",
+   "[gmp] gmp: no grey-market print found for open issue Roopa Screen",
+   "[gmp] gmp: no grey-market print found for open issue Himalayan Solar",
+   "[gmp] gmp: no grey-market print found for open issue Sai Urja Indo",
+   "[details] no InvestorGain record matched (name + opening date): Coreintegra Consulting Services",
    "[listings] listings: no NSE symbol on row 'Amtech Esters' — cannot price",
    "[listings] listings: no NSE symbol on row 'Infrax Renewable' — cannot price",
    "[listings] listings: no NSE symbol on row 'Vinod Texworld' — cannot price",
@@ -56,19 +68,7 @@
    "[listings] listings: no NSE symbol on row 'Hy-Tech Engineers' — cannot price",
    "[listings] listings: no NSE symbol on row 'Skyways Air Services' — cannot price",
    "[listings] listings: no NSE symbol on row 'Augmont Enterprises' — cannot price",
-   "[listings] listings: no NSE symbol on row 'Tempsens Instruments' — cannot price",
-   "[gmp] gmp: no grey-market print found for open issue Anand Seamless",
-   "[gmp] gmp: no grey-market print found for open issue Himalaya Nutravedics India",
-   "[gmp] gmp: no grey-market print found for open issue Core Integra Consulting",
-   "[gmp] gmp: no grey-market print found for open issue Coreintegra Consulting Services",
-   "[gmp] gmp: no grey-market print found for open issue Liqvd Digital",
-   "[gmp] gmp: no grey-market print found for open issue Pooja Logistics",
-   "[gmp] gmp: no grey-market print found for open issue S.K.Offset",
-   "[gmp] gmp: no grey-market print found for open issue Unitec Fibres",
-   "[gmp] gmp: no grey-market print found for open issue Green Asia Impex",
-   "[gmp] gmp: no grey-market print found for open issue Peshwa Wheat",
-   "[gmp] gmp: no grey-market print found for open issue Roopa Screen",
-   "[details] no InvestorGain record matched (name + opening date): Coreintegra Consulting Services"
+   "[listings] listings: no NSE symbol on row 'Tempsens Instruments' — cannot price"
   ]
  },
  "expected": [
@@ -1444,7 +1444,7 @@
    "shareholderQuota": null,
    "listingPrice": 102.31,
    "listingGainPct": 3.34,
-   "currentPrice": 107.42,
+   "currentPrice": 102.05,
    "sources": [
     "NSE ipo-current-issue",
     "InvestorGain IPO list"
@@ -1606,13 +1606,13 @@
    "ofsCr": 18.09,
    "gmp": 47.0,
    "gmpPct": 35.07,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 195.04,
     "nii": 332.35,
     "retail": 99.81,
     "total": 176.85,
-    "asOf": "2026-09-25T18:54:00+05:30"
+    "asOf": "2026-09-25T19:00:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -1626,7 +1626,7 @@
    "igId": "2268",
    "bseIpoNo": "7993",
    "bseScripCode": "4844",
-   "igFetchedAt": "2026-09-25T18:59:05+05:30",
+   "igFetchedAt": "2026-09-25T19:09:36+05:30",
    "sector": "Auto Components & Equipments",
    "anchorShares": 3374100,
    "gmpAsOf": "2026-09-25T18:37:00+05:30",
@@ -1688,15 +1688,15 @@
    "issueSizeCr": 300.0,
    "freshCr": 300.0,
    "ofsCr": null,
-   "gmp": 8.0,
-   "gmpPct": 2.13,
-   "gmpTrend": "down",
+   "gmp": 56.0,
+   "gmpPct": 14.93,
+   "gmpTrend": "up",
    "sub": {
     "qib": 2.99,
     "nii": 2.09,
     "retail": 2.47,
     "total": 2.44,
-    "asOf": "2026-09-25T18:54:00+05:30"
+    "asOf": "2026-09-25T19:00:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -1710,7 +1710,7 @@
    "igId": "1667",
    "bseIpoNo": "7992",
    "bseScripCode": "4843",
-   "igFetchedAt": "2026-09-25T18:59:05+05:30",
+   "igFetchedAt": "2026-09-25T19:09:36+05:30",
    "sector": "IT Enabled Services",
    "anchorShares": 1065000,
    "facts": {
@@ -1733,6 +1733,14 @@
      "promoterPre": 92.72,
      "promoterPost": 0.0
     },
+    "recs": [
+     {
+      "who": "Capital Market",
+      "view": "Avoid",
+      "url": "https://www.capitalmarket.com/pub/nim/nimshow.asp?code=93256",
+      "date": "2026-09-22"
+     }
+    ],
     "registrar": "Cameo Corporate Services Ltd.",
     "leadManagers": [
      "Saffron Capital Advisors Pvt.Ltd.",
@@ -1745,9 +1753,9 @@
     },
     "asOf": "2026-09-23T11:54:00+05:30"
    },
-   "gmpAsOf": "2026-09-25T14:37:00+05:30",
-   "gmpEve": 10.0,
-   "gmpEveAsOf": "2026-09-25T14:37:00+05:30",
+   "gmpAsOf": "2026-09-23T15:02:00+05:30",
+   "gmpEve": 56.0,
+   "gmpEveAsOf": "2026-09-23T15:02:00+05:30",
    "refund": "2026-09-29"
   },
   {
@@ -1767,13 +1775,13 @@
    "ofsCr": null,
    "gmp": 0.0,
    "gmpPct": 0.0,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 2.52,
     "nii": 0.84,
     "retail": 1.01,
     "total": 1.79,
-    "asOf": "2026-09-25T18:54:00+05:30"
+    "asOf": "2026-09-25T19:00:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -1787,7 +1795,7 @@
    "igId": "1917",
    "bseIpoNo": "7987",
    "bseScripCode": "4838",
-   "igFetchedAt": "2026-09-25T18:59:05+05:30",
+   "igFetchedAt": "2026-09-25T19:09:36+05:30",
    "sector": "Real Estate Investment Trusts (REITs)",
    "anchorShares": 26104972,
    "facts": {
@@ -1851,13 +1859,13 @@
    "ofsCr": 32.38,
    "gmp": 4.5,
    "gmpPct": 2.43,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 3.22,
     "nii": 18.5,
     "retail": 5.39,
     "total": 7.6,
-    "asOf": "2026-09-25T18:54:00+05:30"
+    "asOf": "2026-09-25T19:00:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -1928,7 +1936,7 @@
    "ofsCr": 50.0,
    "gmp": 51.0,
    "gmpPct": 12.59,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 0.09,
     "nii": 2.07,
@@ -2005,7 +2013,7 @@
    "ofsCr": 341.68,
    "gmp": 14.0,
    "gmpPct": 41.18,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 0.25,
     "nii": 15.41,
@@ -2238,7 +2246,7 @@
    "ofsCr": 232.0,
    "gmp": 70.0,
    "gmpPct": 25.74,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 0.01,
     "nii": 3.47,
@@ -2315,7 +2323,7 @@
    "ofsCr": null,
    "gmp": 25.0,
    "gmpPct": 8.2,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 0.96,
     "nii": 0.28,
@@ -2390,7 +2398,7 @@
    "ofsCr": null,
    "gmp": 24.0,
    "gmpPct": 18.46,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2843,6 +2851,21 @@
   "asOf": "2026-09-23"
  },
  "recent": [
+  {
+   "name": "Sonaselection India",
+   "type": "Mainboard",
+   "listingDate": "2026-09-24",
+   "issuePrice": 99.0,
+   "listingPrice": 102.31,
+   "gainPct": 3.34,
+   "closeDay1": 107.42,
+   "closeDay1GainPct": 8.51,
+   "sources": [
+    "NSE ipo-current-issue",
+    "InvestorGain IPO list"
+   ],
+   "symbol": "SONA"
+  },
   {
    "name": "Hero Motors",
    "type": "Mainboard",
@@ -3338,7 +3361,7 @@
    "bandLow": 96.0,
    "bandHigh": 101.0,
    "lotSize": 1200,
-   "issueSizeCr": 44.12,
+   "issueSizeCr": 46.44,
    "freshCr": 44.12,
    "ofsCr": null,
    "gmp": 3.0,
@@ -3660,7 +3683,7 @@
    "ofsCr": null,
    "gmp": 77.0,
    "gmpPct": 72.64,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 306.73,
     "nii": 1593.0,
@@ -4045,7 +4068,7 @@
     "nii": 0.0,
     "retail": null,
     "total": 0.0,
-    "asOf": "2026-09-25T18:54:00+05:30"
+    "asOf": "2026-09-25T19:00:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4599,7 +4622,7 @@
    "bandLow": 104.0,
    "bandHigh": 110.0,
    "lotSize": 1200,
-   "issueSizeCr": 40.31,
+   "issueSizeCr": 42.44,
    "freshCr": 35.27,
    "ofsCr": 5.04,
    "gmp": 16.0,
@@ -4675,7 +4698,7 @@
    "bandLow": null,
    "bandHigh": 29.0,
    "lotSize": 4000,
-   "issueSizeCr": 10.01,
+   "issueSizeCr": 10.54,
    "freshCr": 10.01,
    "ofsCr": null,
    "gmp": 3.0,
@@ -5763,27 +5786,13 @@
  ],
  "comps": [
   {
-   "name": "Axiom Gas Engineering",
-   "igId": "1682",
-   "year": 2026,
-   "sme": true,
-   "total": 1.39,
-   "ret": 1.39,
-   "retClose": null,
-   "qib": 1.1,
-   "nii": 0.98,
-   "retail": 1.86,
-   "snii": 0.92,
-   "bnii": 1.02
-  },
-  {
    "name": "NSE",
    "igId": "2305",
    "year": 2026,
    "sme": false,
    "total": 5.71,
    "ret": 0.84,
-   "retClose": 1.85,
+   "retClose": null,
    "qib": 12.68,
    "nii": 6.55,
    "retail": 1.39,
@@ -5797,7 +5806,7 @@
    "sme": true,
    "total": 304.06,
    "ret": 90.0,
-   "retClose": 99.49,
+   "retClose": null,
    "qib": 184.55,
    "nii": 441.66,
    "retail": 313.17,
@@ -5811,7 +5820,7 @@
    "sme": false,
    "total": 2.01,
    "ret": 3.34,
-   "retClose": 8.51,
+   "retClose": null,
    "qib": 1.16,
    "nii": 2.0,
    "retail": 2.5,
@@ -5825,7 +5834,7 @@
    "sme": true,
    "total": 2.48,
    "ret": 3.86,
-   "retClose": 2.03,
+   "retClose": null,
    "qib": 1.05,
    "nii": 2.97,
    "retail": 3.08,
@@ -19083,21 +19092,6 @@
  },
  "listedPerf": [
   {
-   "name": "Axiom Gas Engineering",
-   "igId": "1682",
-   "date": "2026-09-25",
-   "sme": true,
-   "issue": 54.0,
-   "gmp": 0.0,
-   "gmpImplied": 54.0,
-   "listing": 54.75,
-   "close1": null,
-   "ltp": 0.0,
-   "bseCode": null,
-   "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-24T19:37:00+05:30"
-  },
-  {
    "name": "NSE",
    "igId": "2305",
    "date": "2026-09-24",
@@ -19106,8 +19100,8 @@
    "gmp": 40.0,
    "gmpImplied": 1825.0,
    "listing": 1800.0,
-   "close1": 1818.0,
-   "ltp": 1818.0,
+   "close1": null,
+   "ltp": 0.0,
    "bseCode": "544937",
    "gmpEve": 47.0,
    "gmpEveAsOf": "2026-09-23T21:37:00+05:30"
@@ -19121,8 +19115,8 @@
    "gmp": 81.0,
    "gmpImplied": 199.0,
    "listing": 224.2,
-   "close1": 235.4,
-   "ltp": 235.4,
+   "close1": null,
+   "ltp": 0.0,
    "bseCode": null,
    "gmpEve": 81.0,
    "gmpEveAsOf": "2026-09-23T21:37:00+05:30"
@@ -19136,8 +19130,8 @@
    "gmp": 0.0,
    "gmpImplied": 99.0,
    "listing": 102.31,
-   "close1": 107.42,
-   "ltp": 107.42,
+   "close1": null,
+   "ltp": 0.0,
    "bseCode": "544938",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-23T21:37:00+05:30"
@@ -19151,8 +19145,8 @@
    "gmp": 3.0,
    "gmpImplied": 104.0,
    "listing": 104.9,
-   "close1": 103.05,
-   "ltp": 103.05,
+   "close1": null,
+   "ltp": 0.0,
    "bseCode": null,
    "gmpEve": 3.0,
    "gmpEveAsOf": "2026-09-23T21:37:00+05:30"
@@ -19167,7 +19161,7 @@
    "gmpImplied": 584.0,
    "listing": 624.0,
    "close1": 765.15,
-   "ltp": 811.8,
+   "ltp": 748.8,
    "bseCode": "544934",
    "gmpEve": 135.0,
    "gmpEveAsOf": "2026-09-22T15:02:00+05:30"
@@ -19182,7 +19176,7 @@
    "gmpImplied": 122.0,
    "listing": 120.0,
    "close1": 127.99,
-   "ltp": 132.3,
+   "ltp": 126.0,
    "bseCode": "544935",
    "gmpEve": 27.0,
    "gmpEveAsOf": "2026-09-22T21:37:00+05:30"
@@ -19197,7 +19191,7 @@
    "gmpImplied": 81.0,
    "listing": 82.0,
    "close1": 98.51,
-   "ltp": 118.08,
+   "ltp": 98.4,
    "bseCode": "544936",
    "gmpEve": -3.0,
    "gmpEveAsOf": "2026-09-22T21:37:00+05:30"
@@ -19212,7 +19206,7 @@
    "gmpImplied": 344.0,
    "listing": 341.0,
    "close1": 323.95,
-   "ltp": 292.45,
+   "ltp": 307.8,
    "bseCode": "544931",
    "gmpEve": 3.0,
    "gmpEveAsOf": "2026-09-21T21:37:00+05:30"
@@ -19227,7 +19221,7 @@
    "gmpImplied": 69.0,
    "listing": 58.9,
    "close1": 57.08,
-   "ltp": 58.39,
+   "ltp": 58.0,
    "bseCode": "544933",
    "gmpEve": 12.0,
    "gmpEveAsOf": "2026-09-21T21:37:00+05:30"
@@ -19242,7 +19236,7 @@
    "gmpImplied": 67.0,
    "listing": 66.99,
    "close1": 63.65,
-   "ltp": 63.13,
+   "ltp": 60.47,
    "bseCode": "544932",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-21T21:35:00+05:30"
@@ -19272,7 +19266,7 @@
    "gmpImplied": 74.0,
    "listing": 74.0,
    "close1": 73.92,
-   "ltp": 72.97,
+   "ltp": 71.61,
    "bseCode": "544928",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-20T15:28:00+05:30"
@@ -19287,7 +19281,7 @@
    "gmpImplied": 44.0,
    "listing": 43.0,
    "close1": 43.14,
-   "ltp": 41.46,
+   "ltp": 42.58,
    "bseCode": "544929",
    "gmpEve": 2.0,
    "gmpEveAsOf": "2026-09-20T15:37:00+05:30"
@@ -19302,7 +19296,7 @@
    "gmpImplied": 214.0,
    "listing": 250.0,
    "close1": 262.5,
-   "ltp": 260.65,
+   "ltp": 248.75,
    "bseCode": "544925"
   },
   {
@@ -19315,7 +19309,7 @@
    "gmpImplied": 90.0,
    "listing": 90.2,
    "close1": 90.77,
-   "ltp": 89.81,
+   "ltp": 89.06,
    "bseCode": "544922"
   },
   {
@@ -19328,7 +19322,7 @@
    "gmpImplied": 285.0,
    "listing": 273.0,
    "close1": 286.6,
-   "ltp": 272.75,
+   "ltp": 265.35,
    "bseCode": "544924"
   },
   {
@@ -19354,7 +19348,7 @@
    "gmpImplied": 148.0,
    "listing": 154.0,
    "close1": 146.3,
-   "ltp": 142.38,
+   "ltp": 142.87,
    "bseCode": "544923"
   },
   {
@@ -19367,7 +19361,7 @@
    "gmpImplied": 104.0,
    "listing": 104.0,
    "close1": 105.5,
-   "ltp": 118.2,
+   "ltp": 112.6,
    "bseCode": "544919"
   },
   {
@@ -19380,7 +19374,7 @@
    "gmpImplied": 491.0,
    "listing": 482.45,
    "close1": 534.25,
-   "ltp": 501.9,
+   "ltp": 521.35,
    "bseCode": "544915"
   },
   {
@@ -19393,7 +19387,7 @@
    "gmpImplied": 95.0,
    "listing": 94.0,
    "close1": 89.3,
-   "ltp": 69.25,
+   "ltp": 72.85,
    "bseCode": null
   },
   {
@@ -19406,7 +19400,7 @@
    "gmpImplied": 151.0,
    "listing": 139.0,
    "close1": 137.02,
-   "ltp": 148.62,
+   "ltp": 149.76,
    "bseCode": null
   },
   {
@@ -19419,7 +19413,7 @@
    "gmpImplied": 333.0,
    "listing": 330.0,
    "close1": 345.75,
-   "ltp": 359.95,
+   "ltp": 372.6,
    "bseCode": "544916"
   },
   {
@@ -19432,7 +19426,7 @@
    "gmpImplied": 94.5,
    "listing": 94.5,
    "close1": 102.55,
-   "ltp": 113.71,
+   "ltp": 110.73,
    "bseCode": "544914"
   },
   {
@@ -19445,7 +19439,7 @@
    "gmpImplied": 91.0,
    "listing": 100.0,
    "close1": 105.0,
-   "ltp": 108.92,
+   "ltp": 110.9,
    "bseCode": "544920"
   },
   {
@@ -19458,7 +19452,7 @@
    "gmpImplied": 182.0,
    "listing": 189.0,
    "close1": 170.1,
-   "ltp": 144.22,
+   "ltp": 146.59,
    "bseCode": null
   },
   {
@@ -19471,7 +19465,7 @@
    "gmpImplied": 300.0,
    "listing": 320.0,
    "close1": 352.0,
-   "ltp": 369.05,
+   "ltp": 361.95,
    "bseCode": "544917"
   },
   {
@@ -19484,7 +19478,7 @@
    "gmpImplied": 814.0,
    "listing": 685.5,
    "close1": 751.5,
-   "ltp": 863.3,
+   "ltp": 907.0,
    "bseCode": "544911"
   },
   {
@@ -19497,7 +19491,7 @@
    "gmpImplied": 663.0,
    "listing": 610.0,
    "close1": 672.05,
-   "ltp": 720.7,
+   "ltp": 740.9,
    "bseCode": "544912"
   },
   {
@@ -19510,7 +19504,7 @@
    "gmpImplied": 221.0,
    "listing": 194.0,
    "close1": 215.35,
-   "ltp": 272.07,
+   "ltp": 286.41,
    "bseCode": "544913"
   },
   {
@@ -19523,7 +19517,7 @@
    "gmpImplied": 60.0,
    "listing": 60.0,
    "close1": 57.0,
-   "ltp": 39.83,
+   "ltp": 41.92,
    "bseCode": "544910"
   },
   {
@@ -19536,7 +19530,7 @@
    "gmpImplied": 177.0,
    "listing": 165.0,
    "close1": 132.0,
-   "ltp": 100.19,
+   "ltp": 105.85,
    "bseCode": "544909"
   },
   {
@@ -19549,7 +19543,7 @@
    "gmpImplied": 208.0,
    "listing": 224.9,
    "close1": 236.1,
-   "ltp": 191.6,
+   "ltp": 182.5,
    "bseCode": null
   },
   {
@@ -19562,7 +19556,7 @@
    "gmpImplied": 103.0,
    "listing": 81.6,
    "close1": 77.55,
-   "ltp": 43.8,
+   "ltp": 48.6,
    "bseCode": "544904"
   },
   {
@@ -19575,7 +19569,7 @@
    "gmpImplied": 202.0,
    "listing": 221.0,
    "close1": 194.37,
-   "ltp": 194.18,
+   "ltp": 196.4,
    "bseCode": "544903"
   },
   {
@@ -19588,7 +19582,7 @@
    "gmpImplied": 254.0,
    "listing": 239.0,
    "close1": 228.34,
-   "ltp": 222.44,
+   "ltp": 227.7,
    "bseCode": "544906"
   },
   {
@@ -19601,7 +19595,7 @@
    "gmpImplied": 118.0,
    "listing": 112.1,
    "close1": 106.5,
-   "ltp": 55.54,
+   "ltp": 69.42,
    "bseCode": "544905"
   },
   {
@@ -19614,7 +19608,7 @@
    "gmpImplied": 148.0,
    "listing": 140.0,
    "close1": 147.0,
-   "ltp": 161.1,
+   "ltp": 161.45,
    "bseCode": null
   },
   {
@@ -19627,7 +19621,7 @@
    "gmpImplied": 138.0,
    "listing": 157.7,
    "close1": 165.55,
-   "ltp": 175.95,
+   "ltp": 181.1,
    "bseCode": null
   },
   {
@@ -19640,7 +19634,7 @@
    "gmpImplied": 55.0,
    "listing": 56.0,
    "close1": 58.8,
-   "ltp": 51.73,
+   "ltp": 46.72,
    "bseCode": "544902"
   },
   {
@@ -19653,7 +19647,7 @@
    "gmpImplied": 565.0,
    "listing": 535.0,
    "close1": 568.55,
-   "ltp": 530.4,
+   "ltp": 549.05,
    "bseCode": "544901"
   },
   {
@@ -19666,7 +19660,7 @@
    "gmpImplied": 135.0,
    "listing": 139.0,
    "close1": 145.95,
-   "ltp": 180.95,
+   "ltp": 185.2,
    "bseCode": "544900"
   },
   {
@@ -19679,7 +19673,7 @@
    "gmpImplied": 57.0,
    "listing": 46.8,
    "close1": 49.14,
-   "ltp": 46.56,
+   "ltp": 45.34,
    "bseCode": "544897"
   },
   {
@@ -19692,7 +19686,7 @@
    "gmpImplied": 228.0,
    "listing": 230.0,
    "close1": 241.5,
-   "ltp": 303.99,
+   "ltp": 263.35,
    "bseCode": "544899"
   },
   {
@@ -19705,7 +19699,7 @@
    "gmpImplied": 740.0,
    "listing": 757.0,
    "close1": 908.4,
-   "ltp": 1853.15,
+   "ltp": 1770.7,
    "bseCode": "544898"
   },
   {
@@ -19718,7 +19712,7 @@
    "gmpImplied": 168.0,
    "listing": 150.0,
    "close1": 157.5,
-   "ltp": 178.93,
+   "ltp": 156.08,
    "bseCode": "544895"
   },
   {
@@ -19731,7 +19725,7 @@
    "gmpImplied": 120.0,
    "listing": 110.0,
    "close1": 110.39,
-   "ltp": 107.22,
+   "ltp": 109.9,
    "bseCode": "544894"
   },
   {
@@ -19744,7 +19738,7 @@
    "gmpImplied": 123.0,
    "listing": 111.0,
    "close1": 110.45,
-   "ltp": 108.5,
+   "ltp": 106.6,
    "bseCode": null
   },
   {
@@ -19757,7 +19751,7 @@
    "gmpImplied": 92.0,
    "listing": 72.0,
    "close1": 77.9,
-   "ltp": 49.8,
+   "ltp": 53.04,
    "bseCode": "544893"
   },
   {
@@ -19770,7 +19764,7 @@
    "gmpImplied": 1173.0,
    "listing": 988.0,
    "close1": 1097.7,
-   "ltp": 1024.05,
+   "ltp": 1062.0,
    "bseCode": "544889"
   },
   {
@@ -19783,7 +19777,7 @@
    "gmpImplied": 102.0,
    "listing": 100.0,
    "close1": 95.0,
-   "ltp": 45.9,
+   "ltp": 45.55,
    "bseCode": null
   },
   {
@@ -19796,7 +19790,7 @@
    "gmpImplied": 92.0,
    "listing": 75.0,
    "close1": 78.75,
-   "ltp": 69.41,
+   "ltp": 71.39,
    "bseCode": "544891"
   },
   {
@@ -19809,7 +19803,7 @@
    "gmpImplied": 102.0,
    "listing": 99.0,
    "close1": 94.05,
-   "ltp": 47.75,
+   "ltp": 50.25,
    "bseCode": null
   },
   {
@@ -19822,7 +19816,7 @@
    "gmpImplied": 171.0,
    "listing": 124.0,
    "close1": 125.65,
-   "ltp": 131.0,
+   "ltp": 129.57,
    "bseCode": "544890"
   },
   {
@@ -19835,7 +19829,7 @@
    "gmpImplied": 1078.0,
    "listing": 961.0,
    "close1": 908.15,
-   "ltp": 864.1,
+   "ltp": 886.3,
    "bseCode": "544888"
   },
   {
@@ -19848,7 +19842,7 @@
    "gmpImplied": 630.0,
    "listing": 634.0,
    "close1": 586.8,
-   "ltp": 543.4,
+   "ltp": 565.65,
    "bseCode": "544886"
   },
   {
@@ -19861,7 +19855,7 @@
    "gmpImplied": 100.0,
    "listing": 99.0,
    "close1": 94.05,
-   "ltp": 53.89,
+   "ltp": 54.67,
    "bseCode": "544884"
   },
   {
@@ -19874,7 +19868,7 @@
    "gmpImplied": 139.0,
    "listing": 137.0,
    "close1": 130.15,
-   "ltp": 44.1,
+   "ltp": 46.4,
    "bseCode": "544883"
   },
   {
@@ -19887,7 +19881,7 @@
    "gmpImplied": 178.5,
    "listing": 185.0,
    "close1": 168.7,
-   "ltp": 145.94,
+   "ltp": 150.04,
    "bseCode": "544885"
   },
   {
@@ -19900,7 +19894,7 @@
    "gmpImplied": 95.75,
    "listing": 103.3,
    "close1": 95.03,
-   "ltp": 91.51,
+   "ltp": 94.32,
    "bseCode": "544882"
   },
   {
@@ -19913,7 +19907,7 @@
    "gmpImplied": 410.0,
    "listing": 395.9,
    "close1": 369.2,
-   "ltp": 436.9,
+   "ltp": 441.45,
    "bseCode": "544881"
   },
   {
@@ -19926,7 +19920,7 @@
    "gmpImplied": 61.5,
    "listing": 60.25,
    "close1": 58.16,
-   "ltp": 51.81,
+   "ltp": 53.28,
    "bseCode": "544880"
   },
   {
@@ -19939,7 +19933,7 @@
    "gmpImplied": 151.0,
    "listing": 120.8,
    "close1": 114.8,
-   "ltp": 58.05,
+   "ltp": 55.3,
    "bseCode": null
   },
   {
@@ -19952,7 +19946,7 @@
    "gmpImplied": 275.0,
    "listing": 265.0,
    "close1": 248.44,
-   "ltp": 370.5,
+   "ltp": 352.9,
    "bseCode": "544879"
   },
   {
@@ -19965,7 +19959,7 @@
    "gmpImplied": 202.0,
    "listing": 230.0,
    "close1": 241.5,
-   "ltp": 382.0,
+   "ltp": 383.25,
    "bseCode": "544877"
   },
   {
@@ -19991,7 +19985,7 @@
    "gmpImplied": 78.0,
    "listing": 74.0,
    "close1": 70.3,
-   "ltp": 30.55,
+   "ltp": 29.1,
    "bseCode": null
   },
   {
@@ -20004,7 +19998,7 @@
    "gmpImplied": 281.0,
    "listing": 359.1,
    "close1": 377.05,
-   "ltp": 385.05,
+   "ltp": 401.7,
    "bseCode": null
   },
   {
@@ -20017,7 +20011,7 @@
    "gmpImplied": 116.0,
    "listing": 115.0,
    "close1": 109.25,
-   "ltp": 38.0,
+   "ltp": 40.0,
    "bseCode": "544872"
   },
   {
@@ -20030,7 +20024,7 @@
    "gmpImplied": 118.0,
    "listing": 120.0,
    "close1": 121.65,
-   "ltp": 114.55,
+   "ltp": 116.2,
    "bseCode": null
   },
   {
@@ -20043,7 +20037,7 @@
    "gmpImplied": 418.0,
    "listing": 465.0,
    "close1": 502.55,
-   "ltp": 447.3,
+   "ltp": 469.6,
    "bseCode": "544870"
   },
   {
@@ -20056,7 +20050,7 @@
    "gmpImplied": 132.0,
    "listing": 131.0,
    "close1": 143.5,
-   "ltp": 120.46,
+   "ltp": 127.23,
    "bseCode": "544871"
   },
   {
@@ -20069,7 +20063,7 @@
    "gmpImplied": 131.5,
    "listing": 104.0,
    "close1": 98.8,
-   "ltp": 76.73,
+   "ltp": 68.0,
    "bseCode": "544869"
   },
   {
@@ -20082,7 +20076,7 @@
    "gmpImplied": 159.7,
    "listing": 165.0,
    "close1": 181.5,
-   "ltp": 309.16,
+   "ltp": 317.25,
    "bseCode": "544868"
   },
   {
@@ -20095,7 +20089,7 @@
    "gmpImplied": 1133.0,
    "listing": 1200.0,
    "close1": 1187.5,
-   "ltp": 1587.6,
+   "ltp": 1615.4,
    "bseCode": "544867"
   },
   {
@@ -20108,7 +20102,7 @@
    "gmpImplied": 923.0,
    "listing": 980.0,
    "close1": 1041.7,
-   "ltp": 1246.2,
+   "ltp": 1313.2,
    "bseCode": "544866"
   },
   {
@@ -20121,7 +20115,7 @@
    "gmpImplied": 175.0,
    "listing": 180.0,
    "close1": 189.0,
-   "ltp": 133.15,
+   "ltp": 136.65,
    "bseCode": null
   },
   {
@@ -20134,7 +20128,7 @@
    "gmpImplied": 172.0,
    "listing": 165.9,
    "close1": 145.1,
-   "ltp": 143.09,
+   "ltp": 148.62,
    "bseCode": "544865"
   },
   {
@@ -20147,7 +20141,7 @@
    "gmpImplied": 254.0,
    "listing": 284.0,
    "close1": 311.15,
-   "ltp": 475.05,
+   "ltp": 475.65,
    "bseCode": "544864"
   },
   {
@@ -20160,7 +20154,7 @@
    "gmpImplied": 144.0,
    "listing": 135.0,
    "close1": 128.29,
-   "ltp": 100.0,
+   "ltp": 103.8,
    "bseCode": "544863"
   },
   {
@@ -20173,7 +20167,7 @@
    "gmpImplied": 155.0,
    "listing": 158.0,
    "close1": 165.9,
-   "ltp": 126.85,
+   "ltp": 129.2,
    "bseCode": "544859"
   },
   {
@@ -20186,7 +20180,7 @@
    "gmpImplied": 70.0,
    "listing": 72.0,
    "close1": 67.13,
-   "ltp": 49.62,
+   "ltp": 52.25,
    "bseCode": "544860"
   },
   {
@@ -20199,7 +20193,7 @@
    "gmpImplied": 117.0,
    "listing": 124.5,
    "close1": 130.7,
-   "ltp": 126.05,
+   "ltp": 133.35,
    "bseCode": "544858"
   },
   {
@@ -20212,7 +20206,7 @@
    "gmpImplied": 328.0,
    "listing": 329.65,
    "close1": 346.1,
-   "ltp": 428.9,
+   "ltp": 440.3,
    "bseCode": null
   },
   {
@@ -20225,7 +20219,7 @@
    "gmpImplied": 159.0,
    "listing": 170.0,
    "close1": 166.75,
-   "ltp": 176.5,
+   "ltp": 170.3,
    "bseCode": "544856"
   },
   {
@@ -20238,7 +20232,7 @@
    "gmpImplied": 109.0,
    "listing": 110.0,
    "close1": 111.68,
-   "ltp": 123.0,
+   "ltp": 122.8,
    "bseCode": "544854"
   },
   {
@@ -20251,7 +20245,7 @@
    "gmpImplied": 534.0,
    "listing": 520.0,
    "close1": 624.0,
-   "ltp": 818.5,
+   "ltp": 871.6,
    "bseCode": "544851"
   },
   {
@@ -20264,7 +20258,7 @@
    "gmpImplied": 103.0,
    "listing": 120.0,
    "close1": 126.0,
-   "ltp": 134.0,
+   "ltp": 138.0,
    "bseCode": "544852"
   },
   {
@@ -20277,7 +20271,7 @@
    "gmpImplied": 248.0,
    "listing": 245.0,
    "close1": 259.71,
-   "ltp": 257.7,
+   "ltp": 267.3,
    "bseCode": "544853"
   },
   {
@@ -20290,7 +20284,7 @@
    "gmpImplied": 597.0,
    "listing": 652.0,
    "close1": 666.95,
-   "ltp": 742.5,
+   "ltp": 760.95,
    "bseCode": "544847"
   },
   {
@@ -20303,7 +20297,7 @@
    "gmpImplied": 89.0,
    "listing": 90.0,
    "close1": 87.97,
-   "ltp": 61.99,
+   "ltp": 61.0,
    "bseCode": "544848"
   },
   {
@@ -20316,7 +20310,7 @@
    "gmpImplied": 501.0,
    "listing": 470.0,
    "close1": 493.5,
-   "ltp": 761.25,
+   "ltp": 790.2,
    "bseCode": "544844"
   },
   {
@@ -20329,7 +20323,7 @@
    "gmpImplied": 69.0,
    "listing": 55.2,
    "close1": 57.15,
-   "ltp": 71.65,
+   "ltp": 73.0,
    "bseCode": null
   },
   {
@@ -20342,7 +20336,7 @@
    "gmpImplied": 99.0,
    "listing": 94.0,
    "close1": 89.3,
-   "ltp": 71.43,
+   "ltp": 68.06,
    "bseCode": "544843"
   },
   {
@@ -20355,7 +20349,7 @@
    "gmpImplied": 153.75,
    "listing": 155.0,
    "close1": 156.96,
-   "ltp": 155.99,
+   "ltp": 156.01,
    "bseCode": "543899"
   },
   {
@@ -20368,7 +20362,7 @@
    "gmpImplied": 138.0,
    "listing": 132.9,
    "close1": 126.55,
-   "ltp": 133.1,
+   "ltp": 134.2,
    "bseCode": "544840"
   },
   {
@@ -20381,7 +20375,7 @@
    "gmpImplied": 141.5,
    "listing": 136.0,
    "close1": 129.2,
-   "ltp": 313.71,
+   "ltp": 317.65,
    "bseCode": "544838"
   },
   {
@@ -20394,7 +20388,7 @@
    "gmpImplied": 442.0,
    "listing": 461.0,
    "close1": 494.65,
-   "ltp": 575.55,
+   "ltp": 577.55,
    "bseCode": "544839"
   },
   {
@@ -20407,7 +20401,7 @@
    "gmpImplied": 669.0,
    "listing": 700.0,
    "close1": 741.8,
-   "ltp": 1311.15,
+   "ltp": 1251.9,
    "bseCode": "544837"
   },
   {
@@ -20420,7 +20414,7 @@
    "gmpImplied": 126.0,
    "listing": 133.0,
    "close1": 126.35,
-   "ltp": 52.85,
+   "ltp": 54.05,
    "bseCode": "544835"
   },
   {
@@ -20433,7 +20427,7 @@
    "gmpImplied": 83.0,
    "listing": 87.0,
    "close1": 83.05,
-   "ltp": 171.7,
+   "ltp": 163.55,
    "bseCode": null
   },
   {
@@ -20446,7 +20440,7 @@
    "gmpImplied": 101.0,
    "listing": 100.0,
    "close1": 95.0,
-   "ltp": 31.47,
+   "ltp": 31.85,
    "bseCode": "544834"
   },
   {
@@ -20459,7 +20453,7 @@
    "gmpImplied": 484.0,
    "listing": 500.25,
    "close1": 528.5,
-   "ltp": 506.25,
+   "ltp": 504.65,
    "bseCode": "544833"
   },
   {
@@ -20472,7 +20466,7 @@
    "gmpImplied": 189.5,
    "listing": 205.0,
    "close1": 215.25,
-   "ltp": 273.65,
+   "ltp": 277.95,
    "bseCode": "544832"
   },
   {
@@ -20485,7 +20479,7 @@
    "gmpImplied": 639.0,
    "listing": 613.3,
    "close1": 609.9,
-   "ltp": 537.6,
+   "ltp": 551.35,
    "bseCode": "544829"
   },
   {
@@ -20498,7 +20492,7 @@
    "gmpImplied": 726.0,
    "listing": 628.9,
    "close1": 660.3,
-   "ltp": 1181.8,
+   "ltp": 1234.15,
    "bseCode": "544826"
   },
   {
@@ -20511,7 +20505,7 @@
    "gmpImplied": 106.0,
    "listing": 105.0,
    "close1": 99.75,
-   "ltp": 50.65,
+   "ltp": 52.44,
    "bseCode": "544825"
   },
   {
@@ -20524,7 +20518,7 @@
    "gmpImplied": 167.0,
    "listing": 196.15,
    "close1": 205.95,
-   "ltp": 319.0,
+   "ltp": 319.35,
    "bseCode": "544823"
   },
   {
@@ -20537,7 +20531,7 @@
    "gmpImplied": 76.0,
    "listing": 68.0,
    "close1": 68.5,
-   "ltp": 78.85,
+   "ltp": 75.4,
    "bseCode": null
   },
   {
@@ -20550,7 +20544,7 @@
    "gmpImplied": 253.0,
    "listing": 250.0,
    "close1": 262.85,
-   "ltp": 274.5,
+   "ltp": 287.4,
    "bseCode": "544822"
   },
   {
@@ -20563,7 +20557,7 @@
    "gmpImplied": 580.0,
    "listing": 569.0,
    "close1": 604.45,
-   "ltp": 620.1,
+   "ltp": 635.1,
    "bseCode": "544821"
   },
   {
@@ -20576,7 +20570,7 @@
    "gmpImplied": 146.0,
    "listing": 166.0,
    "close1": 174.3,
-   "ltp": 129.35,
+   "ltp": 134.75,
    "bseCode": null
   },
   {
@@ -20589,7 +20583,7 @@
    "gmpImplied": 183.0,
    "listing": 188.0,
    "close1": 182.98,
-   "ltp": 182.25,
+   "ltp": 184.25,
    "bseCode": "544814"
   },
   {
@@ -20602,7 +20596,7 @@
    "gmpImplied": 213.0,
    "listing": 192.0,
    "close1": 182.4,
-   "ltp": 175.65,
+   "ltp": 170.0,
    "bseCode": "544811"
   },
   {
@@ -20615,7 +20609,7 @@
    "gmpImplied": 158.0,
    "listing": 158.0,
    "close1": 147.25,
-   "ltp": 57.2,
+   "ltp": 56.6,
    "bseCode": null
   },
   {
@@ -20628,7 +20622,7 @@
    "gmpImplied": 86.5,
    "listing": 89.0,
    "close1": 93.45,
-   "ltp": 109.14,
+   "ltp": 105.0,
    "bseCode": "544810"
   },
   {
@@ -20654,7 +20648,7 @@
    "gmpImplied": 70.0,
    "listing": 69.0,
    "close1": 72.45,
-   "ltp": 120.13,
+   "ltp": 125.16,
    "bseCode": "544812"
   },
   {
@@ -20667,7 +20661,7 @@
    "gmpImplied": 256.0,
    "listing": 418.0,
    "close1": 438.9,
-   "ltp": 215.75,
+   "ltp": 208.15,
    "bseCode": null
   },
   {
@@ -20680,7 +20674,7 @@
    "gmpImplied": 70.0,
    "listing": 78.25,
    "close1": 82.16,
-   "ltp": 90.0,
+   "ltp": 88.28,
    "bseCode": "544809"
   },
   {
@@ -20693,7 +20687,7 @@
    "gmpImplied": 141.0,
    "listing": 130.0,
    "close1": 136.49,
-   "ltp": 80.8,
+   "ltp": 89.77,
    "bseCode": "544808"
   },
   {
@@ -20719,7 +20713,7 @@
    "gmpImplied": 113.0,
    "listing": 113.0,
    "close1": 107.35,
-   "ltp": 101.57,
+   "ltp": 103.93,
    "bseCode": "544806"
   },
   {
@@ -20745,7 +20739,7 @@
    "gmpImplied": 187.5,
    "listing": 190.0,
    "close1": 179.46,
-   "ltp": 275.76,
+   "ltp": 286.1,
    "bseCode": "544803"
   },
   {
@@ -20758,7 +20752,7 @@
    "gmpImplied": 106.0,
    "listing": 84.8,
    "close1": 80.6,
-   "ltp": 57.9,
+   "ltp": 58.0,
    "bseCode": "544804"
   },
   {
@@ -20771,7 +20765,7 @@
    "gmpImplied": 757.0,
    "listing": 500.0,
    "close1": 668.1,
-   "ltp": 107.97,
+   "ltp": 112.97,
    "bseCode": "544802"
   },
   {
@@ -20784,7 +20778,7 @@
    "gmpImplied": 53.0,
    "listing": 54.4,
    "close1": 57.1,
-   "ltp": 170.05,
+   "ltp": 172.1,
    "bseCode": null
   },
   {
@@ -20797,7 +20791,7 @@
    "gmpImplied": 80.0,
    "listing": 80.0,
    "close1": 76.0,
-   "ltp": 42.95,
+   "ltp": 44.27,
    "bseCode": "544800"
   },
   {
@@ -20810,7 +20804,7 @@
    "gmpImplied": 147.0,
    "listing": 134.9,
    "close1": 135.4,
-   "ltp": 109.04,
+   "ltp": 136.3,
    "bseCode": "544799"
   },
   {
@@ -20823,7 +20817,7 @@
    "gmpImplied": 353.0,
    "listing": 395.2,
    "close1": 414.95,
-   "ltp": 338.2,
+   "ltp": 354.45,
    "bseCode": null
   },
   {
@@ -20836,7 +20830,7 @@
    "gmpImplied": 238.0,
    "listing": 211.0,
    "close1": 221.55,
-   "ltp": 159.8,
+   "ltp": 164.95,
    "bseCode": null
   },
   {
@@ -20862,7 +20856,7 @@
    "gmpImplied": 321.0,
    "listing": 257.0,
    "close1": 244.15,
-   "ltp": 103.87,
+   "ltp": 98.93,
    "bseCode": "544796"
   },
   {
@@ -20888,7 +20882,7 @@
    "gmpImplied": 178.0,
    "listing": 151.0,
    "close1": 147.3,
-   "ltp": 136.1,
+   "ltp": 142.1,
    "bseCode": "544794"
   },
   {
@@ -20901,7 +20895,7 @@
    "gmpImplied": 170.0,
    "listing": 186.0,
    "close1": 195.3,
-   "ltp": 298.6,
+   "ltp": 308.5,
    "bseCode": "544793"
   },
   {
@@ -20914,7 +20908,7 @@
    "gmpImplied": 66.0,
    "listing": 66.0,
    "close1": 62.7,
-   "ltp": 50.8,
+   "ltp": 50.25,
    "bseCode": null
   },
   {
@@ -20927,7 +20921,7 @@
    "gmpImplied": 117.0,
    "listing": 92.8,
    "close1": 97.4,
-   "ltp": 72.15,
+   "ltp": 75.4,
    "bseCode": null
   },
   {
@@ -20940,7 +20934,7 @@
    "gmpImplied": 47.75,
    "listing": 48.25,
    "close1": 53.19,
-   "ltp": 64.8,
+   "ltp": 65.68,
    "bseCode": "544785"
   },
   {
@@ -20953,7 +20947,7 @@
    "gmpImplied": 166.0,
    "listing": 132.8,
    "close1": 126.2,
-   "ltp": 33.06,
+   "ltp": 30.5,
    "bseCode": "544779"
   },
   {
@@ -20966,7 +20960,7 @@
    "gmpImplied": 65.25,
    "listing": 70.0,
    "close1": 66.5,
-   "ltp": 51.29,
+   "ltp": 54.9,
    "bseCode": "544778"
   },
   {
@@ -20979,7 +20973,7 @@
    "gmpImplied": 258.5,
    "listing": 268.0,
    "close1": 247.9,
-   "ltp": 220.72,
+   "ltp": 227.73,
    "bseCode": "544777"
   },
   {
@@ -20992,7 +20986,7 @@
    "gmpImplied": 217.0,
    "listing": 283.1,
    "close1": 297.25,
-   "ltp": 377.15,
+   "ltp": 388.15,
    "bseCode": "544773"
   },
   {
@@ -21005,7 +20999,7 @@
    "gmpImplied": 128.0,
    "listing": 102.95,
    "close1": 103.05,
-   "ltp": 96.0,
+   "ltp": 95.0,
    "bseCode": "544774"
   },
   {
@@ -21018,7 +21012,7 @@
    "gmpImplied": 71.0,
    "listing": 70.0,
    "close1": 66.5,
-   "ltp": 47.24,
+   "ltp": 44.22,
    "bseCode": "544772"
   },
   {
@@ -21031,7 +21025,7 @@
    "gmpImplied": 69.0,
    "listing": 63.0,
    "close1": 60.57,
-   "ltp": 25.99,
+   "ltp": 25.0,
    "bseCode": "544771"
   },
   {
@@ -21044,7 +21038,7 @@
    "gmpImplied": 83.0,
    "listing": 83.0,
    "close1": 87.05,
-   "ltp": 82.0,
+   "ltp": 81.08,
    "bseCode": "544770"
   },
   {
@@ -21057,7 +21051,7 @@
    "gmpImplied": 91.0,
    "listing": 79.75,
    "close1": 75.77,
-   "ltp": 65.0,
+   "ltp": 63.5,
    "bseCode": "544769"
   },
   {
@@ -21070,7 +21064,7 @@
    "gmpImplied": 52.0,
    "listing": 42.55,
    "close1": 41.13,
-   "ltp": 24.35,
+   "ltp": 26.99,
    "bseCode": "544768"
   },
   {
@@ -21083,7 +21077,7 @@
    "gmpImplied": 455.0,
    "listing": 452.0,
    "close1": 474.6,
-   "ltp": 674.85,
+   "ltp": 699.55,
    "bseCode": null
   },
   {
@@ -21096,7 +21090,7 @@
    "gmpImplied": 41.0,
    "listing": 43.0,
    "close1": 45.15,
-   "ltp": 104.1,
+   "ltp": 104.7,
    "bseCode": "544767"
   },
   {
@@ -21109,7 +21103,7 @@
    "gmpImplied": 130.0,
    "listing": 111.2,
    "close1": 115.8,
-   "ltp": 168.5,
+   "ltp": 165.95,
    "bseCode": null
   },
   {
@@ -21122,7 +21116,7 @@
    "gmpImplied": 86.0,
    "listing": 118.1,
    "close1": 124.0,
-   "ltp": 244.75,
+   "ltp": 257.6,
    "bseCode": "544765"
   },
   {
@@ -21135,7 +21129,7 @@
    "gmpImplied": 68.0,
    "listing": 75.0,
    "close1": 72.75,
-   "ltp": 138.35,
+   "ltp": 136.0,
    "bseCode": null
   },
   {
@@ -21148,7 +21142,7 @@
    "gmpImplied": 55.0,
    "listing": 54.5,
    "close1": 51.8,
-   "ltp": 22.5,
+   "ltp": 22.75,
    "bseCode": null
   },
   {
@@ -21161,7 +21155,7 @@
    "gmpImplied": 51.5,
    "listing": 52.5,
    "close1": 55.1,
-   "ltp": 101.0,
+   "ltp": 97.5,
    "bseCode": null
   },
   {
@@ -21174,7 +21168,7 @@
    "gmpImplied": 58.0,
    "listing": 59.75,
    "close1": 56.77,
-   "ltp": 32.62,
+   "ltp": 32.35,
    "bseCode": "544759"
   },
   {
@@ -21187,7 +21181,7 @@
    "gmpImplied": 185.0,
    "listing": 156.0,
    "close1": 163.8,
-   "ltp": 279.8,
+   "ltp": 277.25,
    "bseCode": null
   },
   {
@@ -21200,7 +21194,7 @@
    "gmpImplied": 104.0,
    "listing": 103.5,
    "close1": 103.66,
-   "ltp": 109.72,
+   "ltp": 110.29,
    "bseCode": "544758"
   },
   {
@@ -21213,7 +21207,7 @@
    "gmpImplied": 201.0,
    "listing": 213.1,
    "close1": 223.75,
-   "ltp": 417.2,
+   "ltp": 416.7,
    "bseCode": "544755"
   },
   {
@@ -21226,7 +21220,7 @@
    "gmpImplied": 98.0,
    "listing": 78.4,
    "close1": 82.3,
-   "ltp": 56.35,
+   "ltp": 62.05,
    "bseCode": null
   },
   {
@@ -21239,7 +21233,7 @@
    "gmpImplied": 189.0,
    "listing": 190.0,
    "close1": 208.63,
-   "ltp": 337.3,
+   "ltp": 355.15,
    "bseCode": "544754"
   },
   {
@@ -21252,7 +21246,7 @@
    "gmpImplied": 135.0,
    "listing": 134.5,
    "close1": 135.15,
-   "ltp": 98.0,
+   "ltp": 95.9,
    "bseCode": null
   },
   {
@@ -21265,7 +21259,7 @@
    "gmpImplied": 193.0,
    "listing": 205.0,
    "close1": 215.25,
-   "ltp": 251.05,
+   "ltp": 258.35,
    "bseCode": null
   },
   {
@@ -21278,7 +21272,7 @@
    "gmpImplied": 103.5,
    "listing": 104.6,
    "close1": 106.23,
-   "ltp": 117.04,
+   "ltp": 118.0,
    "bseCode": "544753"
   },
   {
@@ -21304,7 +21298,7 @@
    "gmpImplied": 101.75,
    "listing": 108.0,
    "close1": 109.94,
-   "ltp": 108.0,
+   "ltp": 106.9,
    "bseCode": "544751"
   },
   {
@@ -21317,7 +21311,7 @@
    "gmpImplied": 177.0,
    "listing": 178.0,
    "close1": 193.38,
-   "ltp": 166.03,
+   "ltp": 170.39,
    "bseCode": "544750"
   },
   {
@@ -21343,7 +21337,7 @@
    "gmpImplied": 80.0,
    "listing": 83.0,
    "close1": 78.99,
-   "ltp": 65.0,
+   "ltp": 64.5,
    "bseCode": "544746"
   },
   {
@@ -21356,7 +21350,7 @@
    "gmpImplied": 555.0,
    "listing": 565.0,
    "close1": 563.05,
-   "ltp": 1790.0,
+   "ltp": 1763.0,
    "bseCode": null
   },
   {
@@ -21369,7 +21363,7 @@
    "gmpImplied": 147.0,
    "listing": 125.0,
    "close1": 129.75,
-   "ltp": 232.85,
+   "ltp": 228.3,
    "bseCode": "544741"
   },
   {
@@ -21382,7 +21376,7 @@
    "gmpImplied": 392.0,
    "listing": 400.0,
    "close1": 406.4,
-   "ltp": 506.4,
+   "ltp": 509.3,
    "bseCode": "544742"
   },
   {
@@ -21395,7 +21389,7 @@
    "gmpImplied": 402.0,
    "listing": 366.0,
    "close1": 390.0,
-   "ltp": 562.85,
+   "ltp": 570.85,
    "bseCode": "544744"
   },
   {
@@ -21408,7 +21402,7 @@
    "gmpImplied": 215.5,
    "listing": 200.0,
    "close1": 180.0,
-   "ltp": 201.85,
+   "ltp": 205.55,
    "bseCode": "544743"
   },
   {
@@ -21421,7 +21415,7 @@
    "gmpImplied": 89.0,
    "listing": 89.25,
    "close1": 84.79,
-   "ltp": 279.1,
+   "ltp": 289.2,
    "bseCode": "544740"
   },
   {
@@ -21434,7 +21428,7 @@
    "gmpImplied": 177.0,
    "listing": 160.0,
    "close1": 154.06,
-   "ltp": 206.71,
+   "ltp": 213.53,
    "bseCode": "544739"
   },
   {
@@ -21447,7 +21441,7 @@
    "gmpImplied": 124.0,
    "listing": 124.0,
    "close1": 125.9,
-   "ltp": 148.0,
+   "ltp": 147.5,
    "bseCode": "544738"
   },
   {
@@ -21460,7 +21454,7 @@
    "gmpImplied": 146.0,
    "listing": 146.0,
    "close1": 146.65,
-   "ltp": 218.3,
+   "ltp": 217.35,
    "bseCode": "544735"
   },
   {
@@ -21473,7 +21467,7 @@
    "gmpImplied": 3.5,
    "listing": 107.0,
    "close1": 106.83,
-   "ltp": 118.91,
+   "ltp": 119.62,
    "bseCode": "544734"
   },
   {
@@ -21486,7 +21480,7 @@
    "gmpImplied": 322.0,
    "listing": 328.0,
    "close1": 356.25,
-   "ltp": 490.4,
+   "ltp": 488.85,
    "bseCode": "544733"
   },
   {
@@ -21499,7 +21493,7 @@
    "gmpImplied": 427.0,
    "listing": 467.7,
    "close1": 374.2,
-   "ltp": 254.2,
+   "ltp": 257.05,
    "bseCode": "544732"
   },
   {
@@ -21512,7 +21506,7 @@
    "gmpImplied": 125.0,
    "listing": 122.0,
    "close1": 113.03,
-   "ltp": 181.92,
+   "ltp": 184.02,
    "bseCode": "544731"
   },
   {
@@ -21525,7 +21519,7 @@
    "gmpImplied": 136.0,
    "listing": 153.0,
    "close1": 160.65,
-   "ltp": 599.75,
+   "ltp": 588.0,
    "bseCode": null
   },
   {
@@ -21538,7 +21532,7 @@
    "gmpImplied": 98.0,
    "listing": 100.05,
    "close1": 104.4,
-   "ltp": 166.6,
+   "ltp": 165.0,
    "bseCode": null
   },
   {
@@ -21551,7 +21545,7 @@
    "gmpImplied": 47.0,
    "listing": 47.3,
    "close1": 47.6,
-   "ltp": 92.0,
+   "ltp": 92.05,
    "bseCode": "544724"
   },
   {
@@ -21564,7 +21558,7 @@
    "gmpImplied": 1352.0,
    "listing": 1535.0,
    "close1": 1452.1,
-   "ltp": 3313.6,
+   "ltp": 3035.2,
    "bseCode": "544723"
   },
   {
@@ -21577,7 +21571,7 @@
    "gmpImplied": 112.0,
    "listing": 112.0,
    "close1": 117.6,
-   "ltp": 148.0,
+   "ltp": 153.0,
    "bseCode": null
   },
   {
@@ -21590,7 +21584,7 @@
    "gmpImplied": 72.0,
    "listing": 70.0,
    "close1": 66.5,
-   "ltp": 51.2,
+   "ltp": 51.35,
    "bseCode": null
   },
   {
@@ -21603,7 +21597,7 @@
    "gmpImplied": 145.0,
    "listing": 127.0,
    "close1": 133.35,
-   "ltp": 122.5,
+   "ltp": 126.6,
    "bseCode": null
   },
   {
@@ -21616,7 +21610,7 @@
    "gmpImplied": 227.0,
    "listing": 202.0,
    "close1": 205.15,
-   "ltp": 547.85,
+   "ltp": 553.7,
    "bseCode": "544720"
   },
   {
@@ -21629,7 +21623,7 @@
    "gmpImplied": 366.0,
    "listing": 375.0,
    "close1": 413.95,
-   "ltp": 523.85,
+   "ltp": 525.95,
    "bseCode": "544718"
   },
   {
@@ -21642,7 +21636,7 @@
    "gmpImplied": 50.0,
    "listing": 50.0,
    "close1": 52.5,
-   "ltp": 76.66,
+   "ltp": 65.0,
    "bseCode": "544710"
   },
   {
@@ -21668,7 +21662,7 @@
    "gmpImplied": 1018.0,
    "listing": 960.0,
    "close1": 867.9,
-   "ltp": 1385.2,
+   "ltp": 1457.5,
    "bseCode": "544717"
   },
   {
@@ -21681,7 +21675,7 @@
    "gmpImplied": 76.0,
    "listing": 68.0,
    "close1": 73.45,
-   "ltp": 38.38,
+   "ltp": 38.9,
    "bseCode": "544716"
   },
   {
@@ -21694,7 +21688,7 @@
    "gmpImplied": 127.0,
    "listing": 123.0,
    "close1": 116.85,
-   "ltp": 30.16,
+   "ltp": 31.17,
    "bseCode": "544711"
   },
   {
@@ -21720,7 +21714,7 @@
    "gmpImplied": 79.0,
    "listing": 83.0,
    "close1": 80.48,
-   "ltp": 115.85,
+   "ltp": 117.69,
    "bseCode": "544709"
   },
   {
@@ -21759,7 +21753,7 @@
    "gmpImplied": 119.0,
    "listing": 120.0,
    "close1": 114.0,
-   "ltp": 117.0,
+   "ltp": 116.65,
    "bseCode": null
   },
   {
@@ -21772,7 +21766,7 @@
    "gmpImplied": 872.0,
    "listing": 876.0,
    "close1": 847.4,
-   "ltp": 749.25,
+   "ltp": 761.65,
    "bseCode": "544700"
   },
   {
@@ -21785,7 +21779,7 @@
    "gmpImplied": 127.0,
    "listing": 129.0,
    "close1": 128.91,
-   "ltp": 171.99,
+   "ltp": 180.66,
    "bseCode": "544699"
   },
   {
@@ -21798,7 +21792,7 @@
    "gmpImplied": 78.0,
    "listing": 78.35,
    "close1": 78.01,
-   "ltp": 43.99,
+   "ltp": 46.0,
    "bseCode": "544698"
   },
   {
@@ -21811,7 +21805,7 @@
    "gmpImplied": 109.0,
    "listing": 111.0,
    "close1": 105.5,
-   "ltp": 47.6,
+   "ltp": 48.65,
    "bseCode": null
   },
   {
@@ -21824,7 +21818,7 @@
    "gmpImplied": 88.0,
    "listing": 96.0,
    "close1": 100.8,
-   "ltp": 368.55,
+   "ltp": 351.0,
    "bseCode": null
   },
   {
@@ -21837,7 +21831,7 @@
    "gmpImplied": 193.0,
    "listing": 178.5,
    "close1": 192.15,
-   "ltp": 160.6,
+   "ltp": 164.0,
    "bseCode": null
   },
   {
@@ -21850,7 +21844,7 @@
    "gmpImplied": 163.0,
    "listing": 163.0,
    "close1": 171.15,
-   "ltp": 178.35,
+   "ltp": 173.0,
    "bseCode": null
   },
   {
@@ -21863,7 +21857,7 @@
    "gmpImplied": 197.0,
    "listing": 191.0,
    "close1": 191.2,
-   "ltp": 271.75,
+   "ltp": 291.5,
    "bseCode": "544694"
   },
   {
@@ -21876,7 +21870,7 @@
    "gmpImplied": 144.0,
    "listing": 144.0,
    "close1": 150.3,
-   "ltp": 279.0,
+   "ltp": 286.8,
    "bseCode": "544695"
   },
   {
@@ -21889,7 +21883,7 @@
    "gmpImplied": 73.0,
    "listing": 58.4,
    "close1": 55.48,
-   "ltp": 26.38,
+   "ltp": 25.13,
    "bseCode": "544693"
   },
   {
@@ -21902,7 +21896,7 @@
    "gmpImplied": 64.0,
    "listing": 64.0,
    "close1": 63.16,
-   "ltp": 59.36,
+   "ltp": 55.15,
    "bseCode": "544688"
   },
   {
@@ -21915,7 +21909,7 @@
    "gmpImplied": 70.0,
    "listing": 65.0,
    "close1": 68.25,
-   "ltp": 109.0,
+   "ltp": 114.8,
    "bseCode": "544687"
   },
   {
@@ -21928,7 +21922,7 @@
    "gmpImplied": 148.0,
    "listing": 144.0,
    "close1": 151.0,
-   "ltp": 139.65,
+   "ltp": 138.0,
    "bseCode": "544686"
   },
   {
@@ -21941,7 +21935,7 @@
    "gmpImplied": 157.5,
    "listing": 172.1,
    "close1": 180.7,
-   "ltp": 300.3,
+   "ltp": 302.95,
    "bseCode": null
   },
   {
@@ -21954,7 +21948,7 @@
    "gmpImplied": 104.0,
    "listing": 83.2,
    "close1": 79.05,
-   "ltp": 174.25,
+   "ltp": 175.0,
    "bseCode": "544684"
   },
   {
@@ -21967,7 +21961,7 @@
    "gmpImplied": 120.5,
    "listing": 112.6,
    "close1": 109.98,
-   "ltp": 285.8,
+   "ltp": 285.75,
    "bseCode": "544685"
   },
   {
@@ -21993,7 +21987,7 @@
    "gmpImplied": 57.0,
    "listing": 45.6,
    "close1": 43.35,
-   "ltp": 19.15,
+   "ltp": 18.25,
    "bseCode": null
   },
   {
@@ -22006,7 +22000,7 @@
    "gmpImplied": 360.0,
    "listing": 318.0,
    "close1": 348.25,
-   "ltp": 562.15,
+   "ltp": 578.7,
    "bseCode": "544679"
   },
   {
@@ -22032,7 +22026,7 @@
    "gmpImplied": 159.0,
    "listing": 149.0,
    "close1": 154.8,
-   "ltp": 495.1,
+   "ltp": 506.8,
    "bseCode": "544681"
   },
   {
@@ -22045,7 +22039,7 @@
    "gmpImplied": 106.0,
    "listing": 96.0,
    "close1": 91.2,
-   "ltp": 240.5,
+   "ltp": 215.65,
    "bseCode": "544682"
   },
   {
@@ -22058,7 +22052,7 @@
    "gmpImplied": 69.5,
    "listing": 77.5,
    "close1": 80.3,
-   "ltp": 135.9,
+   "ltp": 138.0,
    "bseCode": null
   },
   {
@@ -22071,7 +22065,7 @@
    "gmpImplied": 91.0,
    "listing": 95.0,
    "close1": 90.25,
-   "ltp": 70.0,
+   "ltp": 67.65,
    "bseCode": "544677"
   },
   {
@@ -22084,7 +22078,7 @@
    "gmpImplied": 41.5,
    "listing": 45.0,
    "close1": 40.66,
-   "ltp": 32.13,
+   "ltp": 32.62,
    "bseCode": "544678"
   },
   {
@@ -22097,7 +22091,7 @@
    "gmpImplied": 41.0,
    "listing": 34.45,
    "close1": 32.75,
-   "ltp": 13.85,
+   "ltp": 13.75,
    "bseCode": null
   },
   {
@@ -22110,7 +22104,7 @@
    "gmpImplied": 174.0,
    "listing": 139.2,
    "close1": 132.25,
-   "ltp": 40.0,
+   "ltp": 40.05,
    "bseCode": "544676"
   },
   {
@@ -22123,7 +22117,7 @@
    "gmpImplied": 112.0,
    "listing": 89.0,
    "close1": 93.41,
-   "ltp": 141.0,
+   "ltp": 142.5,
    "bseCode": "544675"
   },
   {
@@ -22136,7 +22130,7 @@
    "gmpImplied": 104.0,
    "listing": 99.5,
    "close1": 94.99,
-   "ltp": 79.95,
+   "ltp": 84.28,
    "bseCode": "544673"
   },
   {
@@ -22149,7 +22143,7 @@
    "gmpImplied": 336.0,
    "listing": 330.6,
    "close1": 327.8,
-   "ltp": 331.55,
+   "ltp": 320.75,
    "bseCode": null
   },
   {
@@ -37302,6 +37296,10 @@
    [
     "2026-09-24",
     152.84
+   ],
+   [
+    "2026-09-25",
+    144.49
    ]
   ],
   "Augmont Enterprises": [
@@ -39744,6 +39742,10 @@
    [
     "2026-09-24",
     368.05
+   ],
+   [
+    "2026-09-25",
+    360.4
    ]
   ],
   "Metalic Technoforge": [
@@ -41430,6 +41432,10 @@
    [
     "2026-09-24",
     110.79
+   ],
+   [
+    "2026-09-25",
+    110.81
    ]
   ],
   "Sunshine Pictures": [
@@ -59390,6 +59396,18 @@
   ],
   "Propshare Celestia": [
    [
+    "2026-07-16",
+    1022011.0
+   ],
+   [
+    "2026-07-20",
+    1016601.0
+   ],
+   [
+    "2026-07-21",
+    1016705.0
+   ],
+   [
     "2026-07-23",
     1017000.0
    ],
@@ -59760,6 +59778,30 @@
   ],
   "Accord Transformer & Switchgear": [
    [
+    "2026-07-14",
+    56.47
+   ],
+   [
+    "2026-07-15",
+    55.75
+   ],
+   [
+    "2026-07-16",
+    55.74
+   ],
+   [
+    "2026-07-17",
+    54.23
+   ],
+   [
+    "2026-07-20",
+    53.8
+   ],
+   [
+    "2026-07-21",
+    52.7
+   ],
+   [
     "2026-07-22",
     52.33
    ],
@@ -59950,6 +59992,26 @@
   ],
   "Mehul Telecom": [
    [
+    "2026-07-14",
+    90.5
+   ],
+   [
+    "2026-07-15",
+    93.83
+   ],
+   [
+    "2026-07-16",
+    94.99
+   ],
+   [
+    "2026-07-20",
+    93.5
+   ],
+   [
+    "2026-07-21",
+    94.1
+   ],
+   [
     "2026-07-22",
     91.0
    ],
@@ -60107,6 +60169,30 @@
    ]
   ],
   "Highness Microelectronics": [
+   [
+    "2026-07-14",
+    190.0
+   ],
+   [
+    "2026-07-15",
+    189.5
+   ],
+   [
+    "2026-07-16",
+    189.9
+   ],
+   [
+    "2026-07-17",
+    180.45
+   ],
+   [
+    "2026-07-20",
+    177.0
+   ],
+   [
+    "2026-07-21",
+    180.45
+   ],
    [
     "2026-07-22",
     171.5
@@ -60297,6 +60383,30 @@
    ]
   ],
   "Digilogic Systems": [
+   [
+    "2026-07-14",
+    121.85
+   ],
+   [
+    "2026-07-15",
+    120.65
+   ],
+   [
+    "2026-07-16",
+    120.0
+   ],
+   [
+    "2026-07-17",
+    119.55
+   ],
+   [
+    "2026-07-20",
+    118.0
+   ],
+   [
+    "2026-07-21",
+    116.9
+   ],
    [
     "2026-07-22",
     115.0
@@ -60642,6 +60752,30 @@
   ],
   "Novus Loyalty": [
    [
+    "2026-07-14",
+    135.0
+   ],
+   [
+    "2026-07-15",
+    128.05
+   ],
+   [
+    "2026-07-16",
+    132.0
+   ],
+   [
+    "2026-07-17",
+    128.5
+   ],
+   [
+    "2026-07-20",
+    133.45
+   ],
+   [
+    "2026-07-21",
+    128.5
+   ],
+   [
     "2026-07-22",
     132.0
    ],
@@ -60832,6 +60966,22 @@
   ],
   "Defrail Technologies": [
    [
+    "2026-07-14",
+    73.92
+   ],
+   [
+    "2026-07-15",
+    70.01
+   ],
+   [
+    "2026-07-17",
+    70.1
+   ],
+   [
+    "2026-07-20",
+    68.6
+   ],
+   [
     "2026-07-22",
     71.0
    ],
@@ -60973,6 +61123,26 @@
    ]
   ],
   "Rajnandini Fashion India": [
+   [
+    "2026-07-14",
+    35.06
+   ],
+   [
+    "2026-07-15",
+    38.0
+   ],
+   [
+    "2026-07-17",
+    40.25
+   ],
+   [
+    "2026-07-20",
+    37.25
+   ],
+   [
+    "2026-07-21",
+    34.87
+   ],
    [
     "2026-07-23",
     34.12
@@ -61144,6 +61314,30 @@
   ],
   "Seemax Resources": [
    [
+    "2026-07-14",
+    83.05
+   ],
+   [
+    "2026-07-15",
+    78.9
+   ],
+   [
+    "2026-07-16",
+    75.0
+   ],
+   [
+    "2026-07-17",
+    71.25
+   ],
+   [
+    "2026-07-20",
+    67.7
+   ],
+   [
+    "2026-07-21",
+    61.35
+   ],
+   [
     "2026-07-22",
     55.25
    ],
@@ -61297,6 +61491,30 @@
    ]
   ],
   "Modern Diagnostic": [
+   [
+    "2026-07-14",
+    50.65
+   ],
+   [
+    "2026-07-15",
+    51.0
+   ],
+   [
+    "2026-07-16",
+    49.0
+   ],
+   [
+    "2026-07-17",
+    49.05
+   ],
+   [
+    "2026-07-20",
+    51.0
+   ],
+   [
+    "2026-07-21",
+    51.0
+   ],
    [
     "2026-07-24",
     52.0
@@ -61471,6 +61689,30 @@
    ]
   ],
   "Hannah Joseph Hospital": [
+   [
+    "2026-07-14",
+    109.6
+   ],
+   [
+    "2026-07-15",
+    109.5
+   ],
+   [
+    "2026-07-16",
+    112.0
+   ],
+   [
+    "2026-07-17",
+    110.0
+   ],
+   [
+    "2026-07-20",
+    109.5
+   ],
+   [
+    "2026-07-21",
+    111.65
+   ],
    [
     "2026-07-22",
     106.15
@@ -61654,6 +61896,30 @@
   ],
   "Elfin Agro India": [
    [
+    "2026-07-14",
+    72.0
+   ],
+   [
+    "2026-07-15",
+    73.0
+   ],
+   [
+    "2026-07-16",
+    76.65
+   ],
+   [
+    "2026-07-17",
+    80.43
+   ],
+   [
+    "2026-07-20",
+    84.2
+   ],
+   [
+    "2026-07-21",
+    83.25
+   ],
+   [
     "2026-07-22",
     79.1
    ],
@@ -61827,6 +62093,30 @@
    ]
   ],
   "Horizon Reclaim (India)": [
+   [
+    "2026-07-14",
+    135.75
+   ],
+   [
+    "2026-07-15",
+    136.5
+   ],
+   [
+    "2026-07-16",
+    147.5
+   ],
+   [
+    "2026-07-17",
+    155.9
+   ],
+   [
+    "2026-07-20",
+    154.8
+   ],
+   [
+    "2026-07-21",
+    149.35
+   ],
    [
     "2026-07-22",
     146.9
@@ -62018,6 +62308,30 @@
   ],
   "Kratikal Tech": [
    [
+    "2026-07-14",
+    180.8
+   ],
+   [
+    "2026-07-15",
+    179.2
+   ],
+   [
+    "2026-07-16",
+    176.0
+   ],
+   [
+    "2026-07-17",
+    171.3
+   ],
+   [
+    "2026-07-20",
+    167.05
+   ],
+   [
+    "2026-07-21",
+    178.0
+   ],
+   [
     "2026-07-22",
     172.55
    ],
@@ -62207,6 +62521,30 @@
    ]
   ],
   "GRE Renew Enertech": [
+   [
+    "2026-07-14",
+    149.1
+   ],
+   [
+    "2026-07-15",
+    145.0
+   ],
+   [
+    "2026-07-16",
+    152.25
+   ],
+   [
+    "2026-07-17",
+    159.85
+   ],
+   [
+    "2026-07-20",
+    167.8
+   ],
+   [
+    "2026-07-21",
+    176.15
+   ],
    [
     "2026-07-22",
     184.95
@@ -62638,6 +62976,30 @@
   ],
   "Riyaasat Lifestyle": [
    [
+    "2026-07-14",
+    55.8
+   ],
+   [
+    "2026-07-15",
+    66.95
+   ],
+   [
+    "2026-07-16",
+    61.75
+   ],
+   [
+    "2026-07-17",
+    60.5
+   ],
+   [
+    "2026-07-20",
+    65.95
+   ],
+   [
+    "2026-07-21",
+    62.0
+   ],
+   [
     "2026-07-23",
     58.7
    ],
@@ -62755,6 +63117,30 @@
    ]
   ],
   "Vahh Chemicals": [
+   [
+    "2026-07-14",
+    57.86
+   ],
+   [
+    "2026-07-15",
+    57.9
+   ],
+   [
+    "2026-07-16",
+    59.0
+   ],
+   [
+    "2026-07-17",
+    58.0
+   ],
+   [
+    "2026-07-20",
+    54.13
+   ],
+   [
+    "2026-07-21",
+    56.66
+   ],
    [
     "2026-07-22",
     52.61
@@ -62885,6 +63271,26 @@
    ]
   ],
   "SMR Jewels": [
+   [
+    "2026-07-14",
+    86.4
+   ],
+   [
+    "2026-07-15",
+    85.25
+   ],
+   [
+    "2026-07-16",
+    85.5
+   ],
+   [
+    "2026-07-20",
+    86.0
+   ],
+   [
+    "2026-07-21",
+    88.0
+   ],
    [
     "2026-07-22",
     88.0
@@ -63090,6 +63496,30 @@
   ],
   "Merritronix": [
    [
+    "2026-07-14",
+    380.4
+   ],
+   [
+    "2026-07-15",
+    390.75
+   ],
+   [
+    "2026-07-16",
+    383.05
+   ],
+   [
+    "2026-07-17",
+    369.8
+   ],
+   [
+    "2026-07-20",
+    357.15
+   ],
+   [
+    "2026-07-21",
+    380.95
+   ],
+   [
     "2026-07-22",
     370.35
    ],
@@ -63280,6 +63710,30 @@
   ],
   "Sampark India Logistics": [
    [
+    "2026-07-14",
+    94.6
+   ],
+   [
+    "2026-07-15",
+    96.09
+   ],
+   [
+    "2026-07-16",
+    97.96
+   ],
+   [
+    "2026-07-17",
+    100.0
+   ],
+   [
+    "2026-07-20",
+    96.0
+   ],
+   [
+    "2026-07-21",
+    95.09
+   ],
+   [
     "2026-07-22",
     95.0
    ],
@@ -63457,6 +63911,30 @@
    ]
   ],
   "Adon Agro Commodities": [
+   [
+    "2026-07-14",
+    85.04
+   ],
+   [
+    "2026-07-15",
+    88.34
+   ],
+   [
+    "2026-07-16",
+    88.14
+   ],
+   [
+    "2026-07-17",
+    86.94
+   ],
+   [
+    "2026-07-20",
+    85.23
+   ],
+   [
+    "2026-07-21",
+    85.04
+   ],
    [
     "2026-07-22",
     83.9
@@ -63648,6 +64126,30 @@
   ],
   "Atharva Polyplast": [
    [
+    "2026-07-14",
+    81.2
+   ],
+   [
+    "2026-07-15",
+    77.42
+   ],
+   [
+    "2026-07-16",
+    78.13
+   ],
+   [
+    "2026-07-17",
+    79.9
+   ],
+   [
+    "2026-07-20",
+    79.21
+   ],
+   [
+    "2026-07-21",
+    81.75
+   ],
+   [
     "2026-07-22",
     78.01
    ],
@@ -63837,6 +64339,30 @@
    ]
   ],
   "Susan Electricals India": [
+   [
+    "2026-07-14",
+    215.6
+   ],
+   [
+    "2026-07-15",
+    255.95
+   ],
+   [
+    "2026-07-16",
+    252.95
+   ],
+   [
+    "2026-07-17",
+    240.0
+   ],
+   [
+    "2026-07-20",
+    235.75
+   ],
+   [
+    "2026-07-21",
+    235.25
+   ],
    [
     "2026-07-22",
     230.0
@@ -64186,6 +64712,14 @@
   ],
   "Kanishk Aluminium India": [
    [
+    "2026-07-15",
+    27.92
+   ],
+   [
+    "2026-07-16",
+    26.7
+   ],
+   [
     "2026-07-22",
     26.05
    ],
@@ -64319,6 +64853,30 @@
    ]
   ],
   "Goldline Pharmaceutical": [
+   [
+    "2026-07-14",
+    38.84
+   ],
+   [
+    "2026-07-15",
+    39.02
+   ],
+   [
+    "2026-07-16",
+    39.05
+   ],
+   [
+    "2026-07-17",
+    40.49
+   ],
+   [
+    "2026-07-20",
+    40.09
+   ],
+   [
+    "2026-07-21",
+    41.0
+   ],
    [
     "2026-07-22",
     39.99
@@ -64503,6 +65061,30 @@
    ]
   ],
   "Recode Studios": [
+   [
+    "2026-07-14",
+    180.6
+   ],
+   [
+    "2026-07-15",
+    194.55
+   ],
+   [
+    "2026-07-16",
+    211.7
+   ],
+   [
+    "2026-07-17",
+    207.9
+   ],
+   [
+    "2026-07-20",
+    206.9
+   ],
+   [
+    "2026-07-21",
+    208.1
+   ],
    [
     "2026-07-22",
     217.05
@@ -64693,6 +65275,30 @@
    ]
   ],
   "Citius Transnet InvIT": [
+   [
+    "2026-07-14",
+    110.04
+   ],
+   [
+    "2026-07-15",
+    110.07
+   ],
+   [
+    "2026-07-16",
+    109.7
+   ],
+   [
+    "2026-07-17",
+    109.44
+   ],
+   [
+    "2026-07-20",
+    110.25
+   ],
+   [
+    "2026-07-21",
+    110.03
+   ],
    [
     "2026-07-22",
     110.96
@@ -65022,6 +65628,30 @@
   ],
   "UHM Vacation": [
    [
+    "2026-07-14",
+    42.05
+   ],
+   [
+    "2026-07-15",
+    41.7
+   ],
+   [
+    "2026-07-16",
+    41.21
+   ],
+   [
+    "2026-07-17",
+    39.15
+   ],
+   [
+    "2026-07-20",
+    38.03
+   ],
+   [
+    "2026-07-21",
+    37.95
+   ],
+   [
     "2026-07-22",
     36.07
    ],
@@ -65211,6 +65841,30 @@
    ]
   ],
   "Kiaasa Retail": [
+   [
+    "2026-07-14",
+    37.17
+   ],
+   [
+    "2026-07-15",
+    39.86
+   ],
+   [
+    "2026-07-16",
+    39.88
+   ],
+   [
+    "2026-07-17",
+    36.55
+   ],
+   [
+    "2026-07-20",
+    37.39
+   ],
+   [
+    "2026-07-21",
+    35.33
+   ],
    [
     "2026-07-22",
     34.99
@@ -65402,6 +66056,30 @@
   ],
   "Aureate Tradde": [
    [
+    "2026-07-14",
+    37.92
+   ],
+   [
+    "2026-07-15",
+    39.81
+   ],
+   [
+    "2026-07-16",
+    41.79
+   ],
+   [
+    "2026-07-17",
+    39.71
+   ],
+   [
+    "2026-07-20",
+    37.73
+   ],
+   [
+    "2026-07-21",
+    35.85
+   ],
+   [
     "2026-07-22",
     34.06
    ],
@@ -65583,6 +66261,30 @@
    ]
   ],
   "Yaashvi Jewellers": [
+   [
+    "2026-07-14",
+    75.55
+   ],
+   [
+    "2026-07-15",
+    79.9
+   ],
+   [
+    "2026-07-16",
+    78.05
+   ],
+   [
+    "2026-07-17",
+    75.45
+   ],
+   [
+    "2026-07-20",
+    75.05
+   ],
+   [
+    "2026-07-21",
+    73.0
+   ],
    [
     "2026-07-22",
     74.35
@@ -65770,6 +66472,30 @@
   ],
   "Jivial Industries": [
    [
+    "2026-07-14",
+    105.35
+   ],
+   [
+    "2026-07-15",
+    90.25
+   ],
+   [
+    "2026-07-16",
+    86.45
+   ],
+   [
+    "2026-07-17",
+    84.45
+   ],
+   [
+    "2026-07-20",
+    85.85
+   ],
+   [
+    "2026-07-21",
+    83.9
+   ],
+   [
     "2026-07-22",
     83.8
    ],
@@ -65915,6 +66641,30 @@
    ]
   ],
   "Yashhtej Industries (India)": [
+   [
+    "2026-07-14",
+    46.66
+   ],
+   [
+    "2026-07-15",
+    48.96
+   ],
+   [
+    "2026-07-16",
+    51.4
+   ],
+   [
+    "2026-07-17",
+    49.48
+   ],
+   [
+    "2026-07-20",
+    51.85
+   ],
+   [
+    "2026-07-21",
+    52.3
+   ],
    [
     "2026-07-22",
     52.95
@@ -66302,6 +67052,26 @@
   ],
   "Emiac Technologies": [
    [
+    "2026-07-14",
+    96.5
+   ],
+   [
+    "2026-07-15",
+    93.33
+   ],
+   [
+    "2026-07-16",
+    94.75
+   ],
+   [
+    "2026-07-20",
+    97.99
+   ],
+   [
+    "2026-07-21",
+    98.0
+   ],
+   [
     "2026-07-22",
     93.7
    ],
@@ -66444,6 +67214,22 @@
   ],
   "Shayona Engineering": [
    [
+    "2026-07-14",
+    144.0
+   ],
+   [
+    "2026-07-15",
+    144.0
+   ],
+   [
+    "2026-07-20",
+    144.0
+   ],
+   [
+    "2026-07-21",
+    144.9
+   ],
+   [
     "2026-07-22",
     143.9
    ],
@@ -66581,6 +67367,30 @@
    ]
   ],
   "Gabion Technologies": [
+   [
+    "2026-07-14",
+    87.87
+   ],
+   [
+    "2026-07-15",
+    88.34
+   ],
+   [
+    "2026-07-16",
+    86.9
+   ],
+   [
+    "2026-07-17",
+    85.35
+   ],
+   [
+    "2026-07-20",
+    83.5
+   ],
+   [
+    "2026-07-21",
+    82.88
+   ],
    [
     "2026-07-22",
     87.0
@@ -66771,6 +67581,30 @@
    ]
   ],
   "Tipco Engineering": [
+   [
+    "2026-07-14",
+    181.55
+   ],
+   [
+    "2026-07-15",
+    185.8
+   ],
+   [
+    "2026-07-16",
+    195.05
+   ],
+   [
+    "2026-07-17",
+    191.8
+   ],
+   [
+    "2026-07-20",
+    195.5
+   ],
+   [
+    "2026-07-21",
+    191.45
+   ],
    [
     "2026-07-22",
     186.7
@@ -67116,6 +67950,30 @@
   ],
   "Safety Controls": [
    [
+    "2026-07-14",
+    74.2
+   ],
+   [
+    "2026-07-15",
+    74.05
+   ],
+   [
+    "2026-07-16",
+    73.48
+   ],
+   [
+    "2026-07-17",
+    73.33
+   ],
+   [
+    "2026-07-20",
+    72.91
+   ],
+   [
+    "2026-07-21",
+    71.8
+   ],
+   [
     "2026-07-22",
     68.72
    ],
@@ -67301,6 +68159,30 @@
    ]
   ],
   "Bagmane REIT": [
+   [
+    "2026-07-14",
+    103.5
+   ],
+   [
+    "2026-07-15",
+    104.1
+   ],
+   [
+    "2026-07-16",
+    104.44
+   ],
+   [
+    "2026-07-17",
+    104.43
+   ],
+   [
+    "2026-07-20",
+    104.67
+   ],
+   [
+    "2026-07-21",
+    104.89
+   ],
    [
     "2026-07-22",
     104.56
@@ -67636,6 +68518,30 @@
   ],
   "Anubhav Plast": [
    [
+    "2026-07-14",
+    56.0
+   ],
+   [
+    "2026-07-15",
+    54.2
+   ],
+   [
+    "2026-07-16",
+    58.5
+   ],
+   [
+    "2026-07-17",
+    53.75
+   ],
+   [
+    "2026-07-20",
+    52.75
+   ],
+   [
+    "2026-07-21",
+    50.59
+   ],
+   [
     "2026-07-22",
     50.0
    ],
@@ -67809,6 +68715,30 @@
    ]
   ],
   "Vegorama Punjabi Angithi": [
+   [
+    "2026-07-14",
+    146.0
+   ],
+   [
+    "2026-07-15",
+    142.8
+   ],
+   [
+    "2026-07-16",
+    148.5
+   ],
+   [
+    "2026-07-17",
+    150.05
+   ],
+   [
+    "2026-07-20",
+    149.05
+   ],
+   [
+    "2026-07-21",
+    155.8
+   ],
    [
     "2026-07-22",
     156.0
@@ -67996,6 +68926,30 @@
   ],
   "Aritas Vinyl": [
    [
+    "2026-07-14",
+    13.02
+   ],
+   [
+    "2026-07-15",
+    13.64
+   ],
+   [
+    "2026-07-16",
+    12.97
+   ],
+   [
+    "2026-07-17",
+    13.19
+   ],
+   [
+    "2026-07-20",
+    13.65
+   ],
+   [
+    "2026-07-21",
+    12.99
+   ],
+   [
     "2026-07-22",
     13.12
    ],
@@ -68162,6 +69116,30 @@
   ],
   "M R Maniveni": [
    [
+    "2026-07-14",
+    32.62
+   ],
+   [
+    "2026-07-15",
+    32.7
+   ],
+   [
+    "2026-07-16",
+    30.77
+   ],
+   [
+    "2026-07-17",
+    31.88
+   ],
+   [
+    "2026-07-20",
+    30.66
+   ],
+   [
+    "2026-07-21",
+    30.02
+   ],
+   [
     "2026-07-22",
     31.64
    ],
@@ -68311,6 +69289,26 @@
    ]
   ],
   "Fractal Industries": [
+   [
+    "2026-07-14",
+    211.7
+   ],
+   [
+    "2026-07-15",
+    210.0
+   ],
+   [
+    "2026-07-17",
+    209.0
+   ],
+   [
+    "2026-07-20",
+    206.95
+   ],
+   [
+    "2026-07-21",
+    208.9
+   ],
    [
     "2026-07-22",
     213.85
@@ -68532,6 +69530,22 @@
   ],
   "PAN HR Solutions": [
    [
+    "2026-07-15",
+    55.0
+   ],
+   [
+    "2026-07-16",
+    52.25
+   ],
+   [
+    "2026-07-17",
+    54.0
+   ],
+   [
+    "2026-07-21",
+    56.65
+   ],
+   [
     "2026-07-30",
     53.82
    ],
@@ -68653,6 +69667,30 @@
    ]
   ],
   "INDO SMC": [
+   [
+    "2026-07-14",
+    412.05
+   ],
+   [
+    "2026-07-15",
+    391.45
+   ],
+   [
+    "2026-07-16",
+    380.2
+   ],
+   [
+    "2026-07-17",
+    375.25
+   ],
+   [
+    "2026-07-20",
+    369.8
+   ],
+   [
+    "2026-07-21",
+    387.6
+   ],
    [
     "2026-07-22",
     406.95
@@ -68875,6 +69913,22 @@
    ]
   ],
   "Devson Catalyst": [
+   [
+    "2026-07-16",
+    205.95
+   ],
+   [
+    "2026-07-17",
+    216.2
+   ],
+   [
+    "2026-07-20",
+    208.6
+   ],
+   [
+    "2026-07-21",
+    202.55
+   ],
    [
     "2026-07-22",
     212.65
@@ -69246,6 +70300,30 @@
   ],
   "Crazy Snacks": [
    [
+    "2026-07-14",
+    50.57
+   ],
+   [
+    "2026-07-15",
+    53.09
+   ],
+   [
+    "2026-07-16",
+    55.74
+   ],
+   [
+    "2026-07-17",
+    62.0
+   ],
+   [
+    "2026-07-20",
+    59.9
+   ],
+   [
+    "2026-07-21",
+    58.0
+   ],
+   [
     "2026-07-22",
     58.0
    ],
@@ -69371,6 +70449,30 @@
    ]
   ],
   "Harikanta Overseas": [
+   [
+    "2026-07-14",
+    81.97
+   ],
+   [
+    "2026-07-15",
+    80.0
+   ],
+   [
+    "2026-07-16",
+    81.89
+   ],
+   [
+    "2026-07-17",
+    79.0
+   ],
+   [
+    "2026-07-20",
+    76.0
+   ],
+   [
+    "2026-07-21",
+    77.0
+   ],
    [
     "2026-07-22",
     75.5
@@ -69692,6 +70794,26 @@
   ],
   "Diksha Polymers": [
    [
+    "2026-07-14",
+    120.5
+   ],
+   [
+    "2026-07-15",
+    119.05
+   ],
+   [
+    "2026-07-16",
+    118.0
+   ],
+   [
+    "2026-07-17",
+    116.0
+   ],
+   [
+    "2026-07-20",
+    119.0
+   ],
+   [
     "2026-07-22",
     119.0
    ],
@@ -69813,6 +70935,18 @@
    ]
   ],
   "Kasturi Metal Composite": [
+   [
+    "2026-07-14",
+    48.17
+   ],
+   [
+    "2026-07-17",
+    51.0
+   ],
+   [
+    "2026-07-20",
+    48.02
+   ],
    [
     "2026-07-23",
     52.65
@@ -69965,6 +71099,30 @@
    ]
   ],
   "Autofurnish": [
+   [
+    "2026-07-14",
+    62.5
+   ],
+   [
+    "2026-07-15",
+    58.49
+   ],
+   [
+    "2026-07-16",
+    59.89
+   ],
+   [
+    "2026-07-17",
+    58.12
+   ],
+   [
+    "2026-07-20",
+    59.0
+   ],
+   [
+    "2026-07-21",
+    59.0
+   ],
    [
     "2026-07-22",
     55.3
@@ -70151,6 +71309,30 @@
    ]
   ],
   "Raajmarg Infra Investment Trust": [
+   [
+    "2026-07-14",
+    116.5
+   ],
+   [
+    "2026-07-15",
+    116.68
+   ],
+   [
+    "2026-07-16",
+    117.1
+   ],
+   [
+    "2026-07-17",
+    117.04
+   ],
+   [
+    "2026-07-20",
+    116.8
+   ],
+   [
+    "2026-07-21",
+    116.59
+   ],
    [
     "2026-07-22",
     116.85
@@ -70342,6 +71524,30 @@
   ],
   "Liotech Industries": [
    [
+    "2026-07-14",
+    106.75
+   ],
+   [
+    "2026-07-15",
+    111.4
+   ],
+   [
+    "2026-07-16",
+    116.95
+   ],
+   [
+    "2026-07-17",
+    122.75
+   ],
+   [
+    "2026-07-20",
+    116.65
+   ],
+   [
+    "2026-07-21",
+    110.85
+   ],
+   [
     "2026-07-22",
     105.35
    ],
@@ -70532,6 +71738,30 @@
   ],
   "Accretion Nutraveda": [
    [
+    "2026-07-14",
+    251.9
+   ],
+   [
+    "2026-07-15",
+    263.85
+   ],
+   [
+    "2026-07-16",
+    262.0
+   ],
+   [
+    "2026-07-17",
+    268.0
+   ],
+   [
+    "2026-07-20",
+    267.5
+   ],
+   [
+    "2026-07-21",
+    278.0
+   ],
+   [
     "2026-07-22",
     273.5
    ],
@@ -70677,6 +71907,30 @@
    ]
   ],
   "Leapfrog Engineering": [
+   [
+    "2026-07-14",
+    23.12
+   ],
+   [
+    "2026-07-15",
+    22.93
+   ],
+   [
+    "2026-07-16",
+    22.7
+   ],
+   [
+    "2026-07-17",
+    22.65
+   ],
+   [
+    "2026-07-20",
+    22.5
+   ],
+   [
+    "2026-07-21",
+    22.49
+   ],
    [
     "2026-07-22",
     22.31
@@ -71026,6 +72280,30 @@
   ],
   "Msafe Equipments": [
    [
+    "2026-07-14",
+    197.0
+   ],
+   [
+    "2026-07-15",
+    192.75
+   ],
+   [
+    "2026-07-16",
+    192.9
+   ],
+   [
+    "2026-07-17",
+    183.55
+   ],
+   [
+    "2026-07-20",
+    192.65
+   ],
+   [
+    "2026-07-21",
+    184.15
+   ],
+   [
     "2026-07-22",
     180.5
    ],
@@ -71278,6 +72556,30 @@
   ],
   "Speciality Medicines": [
    [
+    "2026-07-14",
+    181.0
+   ],
+   [
+    "2026-07-15",
+    178.3
+   ],
+   [
+    "2026-07-16",
+    178.6
+   ],
+   [
+    "2026-07-17",
+    185.5
+   ],
+   [
+    "2026-07-20",
+    188.9
+   ],
+   [
+    "2026-07-21",
+    190.9
+   ],
+   [
     "2026-07-22",
     185.0
    ],
@@ -71451,6 +72753,30 @@
    ]
   ],
   "Yajur Fibres": [
+   [
+    "2026-07-14",
+    38.24
+   ],
+   [
+    "2026-07-15",
+    38.45
+   ],
+   [
+    "2026-07-16",
+    38.0
+   ],
+   [
+    "2026-07-17",
+    38.4
+   ],
+   [
+    "2026-07-20",
+    38.5
+   ],
+   [
+    "2026-07-21",
+    37.98
+   ],
    [
     "2026-07-22",
     36.78
@@ -71642,6 +72968,22 @@
   ],
   "Narmadesh Brass Industries": [
    [
+    "2026-07-14",
+    308.95
+   ],
+   [
+    "2026-07-17",
+    308.05
+   ],
+   [
+    "2026-07-20",
+    295.0
+   ],
+   [
+    "2026-07-21",
+    309.75
+   ],
+   [
     "2026-07-22",
     309.75
    ],
@@ -71740,6 +73082,10 @@
    [
     "2026-09-24",
     132.3
+   ],
+   [
+    "2026-09-25",
+    138.91
    ]
   ],
   "SS Retail": [
@@ -71818,79 +73164,79 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-25T19:02:52+05:30",
+  "asOf": "2026-09-25T19:23:52+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-09-25T18:59:02+05:30",
-    "elapsed": 1.8,
+    "asOf": "2026-09-25T19:08:53+05:30",
+    "elapsed": 1.88,
     "calls": 5,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=47 carried=9 +nse=28 +bse=0 exchange-only=0: 16 mainboard, 37 sme; 23 open, 19 upcoming"
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=47 carried=6 +nse=28 +bse=0 exchange-only=0: 16 mainboard, 37 sme; 23 open, 19 upcoming"
    },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:ok, ipopremium:blocked",
     "status": "ok",
     "asOf": "25-Sep 8:56",
-    "elapsed": 2.83,
+    "elapsed": 42.66,
     "calls": 3,
-    "note": "gmp: 19 board rows patched via investorgain+ipowatch; 38 active, 15 of them matched"
+    "note": "gmp: 19 board rows patched via investorgain+ipowatch; 42 active, 14 of them matched"
    },
    {
     "area": "details",
     "method": "investorgain-list:ok, investorgain:ok",
     "status": "ok",
-    "asOf": "2026-09-25T18:59:05+05:30",
-    "elapsed": 20.84,
-    "calls": 26,
-    "note": "25 records fetched for 52 identified listings (1 without an id); 0 anchor books updated, 67 on file; 26 left for the next run (cap 25)"
+    "asOf": "2026-09-25T19:09:36+05:30",
+    "elapsed": 288.47,
+    "calls": 8,
+    "note": "3 records fetched for 52 identified listings (1 without an id); 0 anchor books updated, 67 on file; 45 left for the next run (cap 25)"
    },
    {
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-25T19:00:58+05:30",
-    "elapsed": 92.7,
+    "asOf": "2026-09-25T19:16:25+05:30",
+    "elapsed": 120.16,
     "calls": 26,
     "note": "12/26 rows patched via nse"
    },
    {
     "area": "listings",
-    "method": "angelone:down, yahoo:changed, yahoo:changed",
-    "status": "stale",
-    "asOf": null,
-    "elapsed": 22.16,
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-09-25",
+    "elapsed": 26.74,
     "calls": 0,
-    "note": "kept previous — empty frame for batch ['VIVEKANAND.NS']"
+    "note": "17 names priced, 1 moved to recent, 4 history points"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-09-25",
-    "elapsed": 2.23,
-    "calls": 2,
-    "note": "1337 listings since 2022 (952 SME); fetched 2026: 234; QIB on file for 86 of 385 mainboard issues"
+    "elapsed": 92.3,
+    "calls": 3,
+    "note": "1336 listings since 2022 (951 SME); fetched 2026: 233; QIB on file for 86 of 385 mainboard issues"
    },
    {
     "area": "tape",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-09-25",
-    "elapsed": 4.92,
+    "elapsed": 25.58,
     "calls": 12,
-    "note": "140 listings with an NSE symbol; 5 NSE file(s) read, 379 closes added; 87 trading days on file, 105 still to fill · 95 BSE-only listings; 6 BSE file(s) read, 393 closes added, 47 days on file"
+    "note": "140 listings with an NSE symbol; 6 NSE file(s) read, 233 closes added; 93 trading days on file, 99 still to fill · 95 BSE-only listings; 6 BSE file(s) read, 334 closes added, 53 days on file"
    },
    {
     "area": "anchorbook",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-09-25",
-    "elapsed": 32.96,
-    "calls": 40,
-    "note": "33 anchor books read (7 without an anchor table, 0 failed); 333 on file, 179 partial (feed gave only the first names); 890 of 1337 listings still to fetch"
+    "elapsed": 151.12,
+    "calls": 5,
+    "note": "stopped after 150s with 1 of 40 records read; the rest next run; 1 anchor books read (0 without an anchor table, 3 failed); 334 on file, 180 partial (feed gave only the first names); 889 of 1337 listings still to fetch"
    },
    {
     "area": "evidence",
@@ -71899,70 +73245,7 @@
     "asOf": "2026-09-25",
     "elapsed": 0.1,
     "calls": 0,
-    "note": "track records: 333 of 333 anchor books have an outcome; 607 of 1080 investors with 2+; 1337 listings; windows: mainboard 135, SME 242; 5 warnings"
-   },
-   {
-    "area": "players",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-09-25",
-    "elapsed": 27.6,
-    "calls": 54,
-    "note": "53 of 2840 anchor investors read (0 failed); names found for 5 of 47 unlisted issues"
-   },
-   {
-    "area": "parents",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-09-25",
-    "elapsed": 13.65,
-    "calls": 0,
-    "note": "5/5 parent prices; 47/53 investor stocks priced"
-   },
-   {
-    "area": "filings",
-    "method": "bse_ann:changed, sebi:ok",
-    "status": "ok",
-    "asOf": "2026-09-25",
-    "elapsed": 3.99,
-    "calls": 10,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; expected: 30 names; 1 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; 0 rows patched, 33 kept previous stage"
-   },
-   {
-    "area": "offers",
-    "method": "bse:blocked, bse:blocked",
-    "status": "blocked",
-    "asOf": null,
-    "elapsed": 0.02,
-    "calls": 1,
-    "note": "kept previous — HTTP 403"
-   },
-   {
-    "area": "flows",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-09-25",
-    "elapsed": 0.35,
-    "calls": 1,
-    "note": "appended 2026-09-25; FII -3,694 / DII +2,838 Cr"
-   },
-   {
-    "area": "deals",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-09-25",
-    "elapsed": 3.3,
-    "calls": 6,
-    "note": "bulk.csv: 237 deals; block.csv: 6 deals; 0 tracked-investor deals of 243; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 76 of today's 243 deals are in this year's listings (10 stocks); 330 kept over 60 days; 140 of 235 listings have an NSE symbol; 179 with a BSE code"
-   },
-   {
-    "area": "news",
-    "method": "rss:ok",
-    "status": "ok",
-    "asOf": "2026-09-25T17:44:13+05:30",
-    "elapsed": 1.12,
-    "calls": 3,
-    "note": "business-standard: 4/35 primary-market items; economic-times: 7/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 11 fresh, 25 kept"
+    "note": "track records: 333 of 334 anchor books have an outcome; 607 of 1079 investors with 2+; 1336 listings; windows: mainboard 135, SME 241; 5 warnings"
    },
    {
     "area": "research layer",
@@ -71974,7 +73257,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "232s, 189 calls, 14/16 modules ok"
+    "note": "900s, 77 calls, 9/9 modules ok"
    }
   ],
   "discrepancies": [
@@ -88051,12 +89334,12 @@
        "p90": 9.0
       },
       {
-       "n": 48,
-       "held": 47.9,
-       "lo": 34.5,
-       "hi": 61.7,
-       "med": -0.1,
-       "p10": -6.0,
+       "n": 46,
+       "held": 45.7,
+       "lo": 32.2,
+       "hi": 59.8,
+       "med": -0.4,
+       "p10": -6.4,
        "p90": 8.8
       },
       {
@@ -88089,11 +89372,11 @@
        "p90": 8.9
       },
       {
-       "n": 125,
-       "held": 52.8,
-       "lo": 44.1,
-       "hi": 61.3,
-       "med": 0.2,
+       "n": 123,
+       "held": 52.0,
+       "lo": 43.3,
+       "hi": 60.7,
+       "med": 0.1,
        "p10": -7.4,
        "p90": 10.1
       },
@@ -88198,13 +89481,13 @@
     "anchors": {
      "rows": [
       {
-       "n": 2,
-       "pos": 50.0,
-       "lo": 9.5,
-       "hi": 90.5,
-       "med": 22.4,
-       "p10": 2.6,
-       "p90": 42.2
+       "n": 3,
+       "pos": 66.7,
+       "lo": 20.8,
+       "hi": 93.9,
+       "med": 3.3,
+       "p10": -1.2,
+       "p90": 38.4
       },
       {
        "n": 1,
@@ -88225,16 +89508,16 @@
        "p90": null
       },
       {
-       "n": 0,
-       "pos": null,
-       "lo": null,
-       "hi": null,
-       "med": null,
-       "p10": null,
-       "p90": null
+       "n": 1,
+       "pos": 100.0,
+       "lo": 20.7,
+       "hi": 100.0,
+       "med": 0.8,
+       "p10": 0.8,
+       "p90": 0.8
       }
      ],
-     "n": 3,
+     "n": 5,
      "since": "2026-09-23",
      "of": 53
     },
@@ -88314,22 +89597,22 @@
    "sme": {
     "window": {
      "rule": "last 12 months",
-     "n": 242,
+     "n": 241,
      "from": "2025-09-25",
-     "to": "2026-09-25"
+     "to": "2026-09-24"
     },
-    "n": 952,
+    "n": 951,
     "bands": {
      "total": {
       "window": [
        {
-        "n": 85,
-        "pos": 36.5,
-        "lo": 27.0,
-        "hi": 47.1,
+        "n": 84,
+        "pos": 35.7,
+        "lo": 26.3,
+        "hi": 46.4,
         "med": 0.0,
         "p10": -20.0,
-        "p90": 13.1
+        "p90": 13.3
        },
        {
         "n": 65,
@@ -88361,13 +89644,13 @@
       ],
       "all": [
        {
-        "n": 160,
-        "pos": 42.5,
-        "lo": 35.1,
-        "hi": 50.2,
+        "n": 159,
+        "pos": 42.1,
+        "lo": 34.7,
+        "hi": 49.9,
         "med": 0.0,
         "p10": -20.0,
-        "p90": 6.9
+        "p90": 7.0
        },
        {
         "n": 210,
@@ -88401,13 +89684,13 @@
      "gmp": {
       "window": [
        {
-        "n": 115,
-        "pos": 37.4,
-        "lo": 29.1,
-        "hi": 46.5,
+        "n": 114,
+        "pos": 36.8,
+        "lo": 28.6,
+        "hi": 46.0,
         "med": 0.0,
         "p10": -20.0,
-        "p90": 6.6
+        "p90": 6.7
        },
        {
         "n": 63,
@@ -88439,10 +89722,10 @@
       ],
       "all": [
        {
-        "n": 299,
-        "pos": 49.8,
-        "lo": 44.2,
-        "hi": 55.5,
+        "n": 298,
+        "pos": 49.7,
+        "lo": 44.0,
+        "hi": 55.3,
         "med": 0.0,
         "p10": -20.0,
         "p90": 18.8
@@ -88479,13 +89762,13 @@
      "qib": {
       "rows": [
        {
-        "n": 48,
-        "pos": 45.8,
-        "lo": 32.6,
-        "hi": 59.7,
+        "n": 47,
+        "pos": 44.7,
+        "lo": 31.4,
+        "hi": 58.8,
         "med": 0.0,
         "p10": -20.0,
-        "p90": 10.9
+        "p90": 11.2
        },
        {
         "n": 23,
@@ -88518,7 +89801,7 @@
       "years": [
        2026
       ],
-      "n": 122
+      "n": 121
      },
      "retail": {
       "rows": [
@@ -88532,13 +89815,13 @@
         "p90": 11.8
        },
        {
-        "n": 45,
-        "pos": 17.8,
-        "lo": 9.3,
-        "hi": 31.3,
-        "med": 0.0,
+        "n": 44,
+        "pos": 15.9,
+        "lo": 7.9,
+        "hi": 29.4,
+        "med": -0.0,
         "p10": -20.0,
-        "p90": 4.0
+        "p90": 4.2
        },
        {
         "n": 19,
@@ -88585,11 +89868,11 @@
        "p90": 4.0
       },
       {
-       "n": 87,
-       "held": 57.5,
-       "lo": 47.0,
-       "hi": 67.3,
-       "med": 1.4,
+       "n": 86,
+       "held": 58.1,
+       "lo": 47.6,
+       "hi": 68.0,
+       "med": 1.5,
        "p10": -5.0,
        "p90": 5.3
       },
@@ -88603,12 +89886,12 @@
        "p90": 6.1
       },
       {
-       "n": 44,
-       "held": 75.0,
-       "lo": 60.6,
-       "hi": 85.4,
-       "med": 7.3,
-       "p10": -9.0,
+       "n": 43,
+       "held": 74.4,
+       "lo": 59.8,
+       "hi": 85.1,
+       "med": 7.2,
+       "p10": -9.1,
        "p90": 9.5
       }
      ],
@@ -88623,10 +89906,10 @@
        "p90": 4.6
       },
       {
-       "n": 303,
-       "held": 55.4,
-       "lo": 49.8,
-       "hi": 60.9,
+       "n": 302,
+       "held": 55.6,
+       "lo": 50.0,
+       "hi": 61.1,
        "med": 0.7,
        "p10": -5.0,
        "p90": 5.3
@@ -88641,10 +89924,10 @@
        "p90": 6.2
       },
       {
-       "n": 323,
-       "held": 74.0,
+       "n": 322,
+       "held": 73.9,
        "lo": 68.9,
-       "hi": 78.5,
+       "hi": 78.4,
        "med": 7.5,
        "p10": -8.9,
        "p90": 9.9
@@ -88668,18 +89951,18 @@
        "evMean": 3.77
       },
       {
-       "n": 45,
-       "pos": 17.8,
-       "lo": 9.3,
-       "hi": 31.3,
-       "med": 0.0,
+       "n": 44,
+       "pos": 15.9,
+       "lo": 7.9,
+       "hi": 29.4,
+       "med": -0.0,
        "p10": -20.0,
-       "p90": 4.0,
-       "oddsMed": 47.6,
-       "evMed": -0.1,
-       "evP10": -11.18,
-       "evP90": 2.92,
-       "evMean": -2.25
+       "p90": 4.2,
+       "oddsMed": 47.4,
+       "evMed": -0.12,
+       "evP10": -11.23,
+       "evP90": 3.11,
+       "evMean": -2.31
       },
       {
        "n": 19,
@@ -88732,22 +90015,22 @@
     "anchors": {
      "rows": [
       {
-       "n": 0,
-       "pos": null,
-       "lo": null,
-       "hi": null,
-       "med": null,
-       "p10": null,
-       "p90": null
+       "n": 1,
+       "pos": 100.0,
+       "lo": 20.7,
+       "hi": 100.0,
+       "med": 3.9,
+       "p10": 3.9,
+       "p90": 3.9
       },
       {
-       "n": 0,
-       "pos": null,
-       "lo": null,
-       "hi": null,
-       "med": null,
-       "p10": null,
-       "p90": null
+       "n": 1,
+       "pos": 100.0,
+       "lo": 20.7,
+       "hi": 100.0,
+       "med": 90.0,
+       "p10": 90.0,
+       "p90": 90.0
       },
       {
        "n": 0,
@@ -88768,9 +90051,9 @@
        "p90": null
       }
      ],
-     "n": 0,
-     "since": null,
-     "of": null
+     "n": 2,
+     "since": "2026-09-24",
+     "of": 53
     },
     "fit": {
      "r377": {
@@ -88784,7 +90067,7 @@
      },
      "eve": null,
      "provisional": true,
-     "eveRows": 8
+     "eveRows": 7
     },
     "byYear": {
      "2022": {
@@ -88824,13 +90107,13 @@
       "p90": 56.9
      },
      "2026": {
-      "n": 148,
-      "pos": 54.7,
-      "lo": 46.7,
-      "hi": 62.5,
-      "med": 1.7,
+      "n": 147,
+      "pos": 54.4,
+      "lo": 46.4,
+      "hi": 62.3,
+      "med": 1.8,
       "p10": -20.0,
-      "p90": 59.2
+      "p90": 60.2
      }
     },
     "lockin": {
@@ -88894,11 +90177,11 @@
    },
    {
     "code": "gmp-provisional-SME",
-    "text": "SME: the GMP interval is provisional. It is fitted on report 377's GMP, which is stamped on listing morning (about 09:35, before the first trade). A check on 37 recent listings found that update no closer to the outcome than the evening before, but the desk's own evening-before record has only 8 of the 30 listings needed to confirm it."
+    "text": "SME: the GMP interval is provisional. It is fitted on report 377's GMP, which is stamped on listing morning (about 09:35, before the first trade). A check on 37 recent listings found that update no closer to the outcome than the evening before, but the desk's own evening-before record has only 7 of the 30 listings needed to confirm it."
    },
    {
     "code": "category-one-year-SME",
-    "text": "SME: QIB and retail bands, and expected value, rest on 147 listings from 2026 alone — category books are not published for earlier years."
+    "text": "SME: QIB and retail bands, and expected value, rest on 146 listings from 2026 alone — category books are not published for earlier years."
    },
    {
     "code": "regime-SME-2025",
@@ -92034,7 +93317,7 @@
   },
   "2268": {
    "name": "Adroit Industries",
-   "fetchedAt": "2026-09-25T18:59:05+05:30",
+   "fetchedAt": "2026-09-25T19:09:36+05:30",
    "about": [
     "Adroit Industries (India) Ltd., incorporated in 1966, is a manufacturer of propeller shafts and torque-transmission components used in vehicles and industrial machinery. The company has a fully integrated manufacturing setup, handling everything from forging and machining to assembly and testing, which helps maintain quality and efficiency. The company offers over 5,000 products to distributors, large component manufacturers, and OEMs. These are mainly used in commercial vehicles, defense, heavy equipment, and industrial machinery. Its manufacturing facilities are located in Madhya Pradesh, India, and are equipped to support large-scale production. Its customer base includes well-known companies such as Godrej & Boyce Manufacturing Company Limited, BEML Limited, VE Commercial Vehicles Limited, Sandvik Mining and Rock Technology India Private Limited, Oilgear India Private Limited, and other industrial and infrastructure players. Adroit has a strong international presence, exporting to over 25 countries across North America, Europe, the Asia-Pacific region, and other regions. It also maintains long-term relationships with reputed customers, supporting steady revenue and repeat business. Competitive Strengths: A large and diversified product portfolio with over 5,000 SKUs Fully integrated manufacturing operations ensure quality control and cost efficiency Strong and long-standing relationships with a diversified customer base High entry barriers supported by technical expertise and validation capabilities Well-established export network across multiple international markets Experienced promoters and management team driving business growth"
    ],
@@ -92352,7 +93635,7 @@
   },
   "1667": {
    "name": "ArMee Infotech",
-   "fetchedAt": "2026-09-25T18:59:05+05:30",
+   "fetchedAt": "2026-09-25T19:09:36+05:30",
    "about": [
     "ArMee Infotech Limited (AIL), founded in 2003, is an IT infrastructure solutions and managed services company based in Ahmedabad, Gujarat. As part of the ArMee Group, the company provides end-to-end IT solutions across various sectors, including government, corporate, banking, financial services, insurance (BFSI), and education. Key Business Areas: IT Infrastructure: Provides IT hardware, software, installation, integration, and maintenance services. IT Managed Services: Offers technical manpower, skill development training, and annual maintenance services. Retail Sales: Operates Experience Zones for IT, consumer electronics, and gaming products. Renewable Energy: Engaged in solar EPC projects and power purchase agreements (PPAs). As of September 30, 2024, the company had 20 ongoing projects, with 11 under the IT infrastructure category and 9 under IT managed services. Additionally, there were 183 projects where contractual obligations for execution and full payment were completed, but the warranty period was still active. Among the 20 ongoing projects, 13 were located in Gujarat, four in Maharashtra, and one each in Madhya Pradesh, Uttarakhand, and Bihar. Gujarat contributed 39.72% of the company's revenue from operations as of September 30, 2024. As of the same date, ArMee Infotech Limited had a workforce of 1,772 employees."
    ],
@@ -92585,39 +93868,54 @@
     "sharesPre": 23731386.0,
     "sharesPost": 31731386.0
    },
+   "gmpHistory": [
+    {
+     "date": "2026-09-23",
+     "gmp": 56.0,
+     "est": 431.0,
+     "pct": 14.93,
+     "kostakSauda": "1700/23800"
+    },
+    {
+     "date": "2026-09-22",
+     "gmp": 46.0,
+     "est": 421.0,
+     "pct": 12.27,
+     "kostakSauda": "1400/19600"
+    },
+    {
+     "date": "2026-09-21",
+     "gmp": 12.0,
+     "est": 387.0,
+     "pct": 3.2,
+     "kostakSauda": "400/5600"
+    },
+    {
+     "date": "2026-09-20",
+     "gmp": 1.0,
+     "est": 376.0,
+     "pct": 0.27,
+     "kostakSauda": "--"
+    },
+    {
+     "date": "2026-09-19",
+     "gmp": 1.0,
+     "est": 376.0,
+     "pct": 0.27,
+     "kostakSauda": "--"
+    }
+   ],
    "bidding": [
     {
-     "asOf": "2026-09-23T17:08:00+05:30",
+     "asOf": "2026-09-23T15:11:00+05:30",
      "qib": 1.0,
-     "nii": 0.42,
-     "bnii": 0.41,
-     "snii": 0.43,
-     "retail": 0.54,
-     "total": 0.57,
-     "bidCr": 148.22,
-     "retailBidCr": 84.87
-    },
-    {
-     "asOf": "2026-09-24T17:06:00+05:30",
-     "qib": 1.01,
-     "nii": 0.93,
-     "bnii": 0.77,
-     "snii": 1.23,
-     "retail": 1.45,
-     "total": 1.26,
-     "bidCr": 326.53,
-     "retailBidCr": 228.69
-    },
-    {
-     "asOf": "2026-09-25T18:41:00+05:30",
-     "qib": 3.2,
-     "nii": 2.24,
-     "bnii": 1.49,
-     "snii": 3.74,
-     "retail": 2.65,
-     "total": 2.62,
-     "bidCr": 680.83,
-     "retailBidCr": 417.14
+     "nii": 0.35,
+     "bnii": 0.37,
+     "snii": 0.32,
+     "retail": 0.43,
+     "total": 0.49,
+     "bidCr": 126.55,
+     "retailBidCr": 67.75
     }
    ],
    "company": {
@@ -92628,7 +93926,7 @@
   },
   "1917": {
    "name": "Elevate Campuses",
-   "fetchedAt": "2026-09-25T18:59:05+05:30",
+   "fetchedAt": "2026-09-25T19:09:36+05:30",
    "about": [
     "Incorporated in 2005, Elevate Campuses Ltd. owns, operates, and manages on-campus student accommodation across higher education institutions (HEIs) and K-12 assets. As of August 31, 2025, the company’s capacity caters to 94,758 students across 20 cities in India and one city in the United Arab Emirates. Its student accommodation business operates under the brands “Good Host Spaces” and “ScholarZ.” The company’s Owned Portfolio includes five student accommodation campuses with 16,934 beds, 16 K-12 assets (three under development), and two student accommodation facilities managed by HEIs and owned by K-12 HoldCos across eight Indian cities, along with two K-12 assets in Dubai. The Managed Portfolio includes 14 student accommodation campuses with 49,338 beds. In addition, the company delivers community and campus technology services such as media coverage of HEIs and community event management. The company collaborates with leading institutions including Manipal Academy of Higher Education (MAHE), Manipal University Jaipur (MUJ), and Meraki Education. Its integrated Elevate Platform combines student accommodation and K-12 assets, supporting students throughout their lifecycle. Between Academic Year 2023 and August 2025, the company added 21,764 beds and six K-12 assets on a post-acquisition group basis. During the same period, its presence expanded from 17 cities and 23 institutes to 21 cities and 33 institutes, including both greenfield and brownfield K-12 developments. As of August 31, 2025, Elevate Campuses Ltd. employed 397 full-time staff."
    ],
@@ -100913,8 +102211,14 @@
   ]
  },
  "tape": {
-  "asOf": "2026-09-25T19:01:23+05:30",
+  "asOf": "2026-09-25T19:18:24+05:30",
   "dates": [
+   "2026-05-15",
+   "2026-05-18",
+   "2026-05-19",
+   "2026-05-20",
+   "2026-05-21",
+   "2026-05-22",
    "2026-05-25",
    "2026-05-26",
    "2026-05-27",
@@ -101153,6 +102457,12 @@
   "n": 140,
   "bse": {
    "dates": [
+    "2026-07-14",
+    "2026-07-15",
+    "2026-07-16",
+    "2026-07-17",
+    "2026-07-20",
+    "2026-07-21",
     "2026-07-22",
     "2026-07-23",
     "2026-07-24",
@@ -101306,7 +102616,7 @@
  },
  "anchorBooks": {
   "asOf": "2026-09-25",
-  "n": 333,
+  "n": 334,
   "books": {
    "1782": {
     "name": "Shakti Polytarp",
@@ -131382,6 +132692,37 @@
     ],
     "complete": false,
     "fetchedOn": "2026-09-25"
+   },
+   "1347": {
+    "name": "Aditya Infotech",
+    "sme": false,
+    "listedOn": "2025-08-05",
+    "bidDate": "2025-07-28",
+    "price": 675.0,
+    "pctQib": 60.0,
+    "locked30": 4313333.0,
+    "locked90": 4313333.0,
+    "totalShares": 8626666.0,
+    "rows": [
+     {
+      "name": "GOVERNMENT OF SINGAPORE",
+      "shares": 881496.0,
+      "amtCr": 59.5,
+      "pctAlloc": 10.22,
+      "pctIssue": 4.57,
+      "key": "GOVERNMENT OF SINGAPORE"
+     },
+     {
+      "name": "MONETARY AUTHORITY OF SINGAPORE",
+      "shares": 155540.0,
+      "amtCr": 10.5,
+      "pctAlloc": 1.8,
+      "pctIssue": 0.81,
+      "key": "MONETARY AUTHORITY OF SINGAPORE"
+     }
+    ],
+    "complete": false,
+    "fetchedOn": "2026-09-25"
    }
   },
   "none": {
@@ -131503,9 +132844,9 @@
  },
  "trackRecords": {
   "asOf": "2026-09-25",
-  "booksOn": 333,
+  "booksOn": 334,
   "withOutcome": 333,
-  "investors": 1080,
+  "investors": 1079,
   "minRows": 2,
   "lead": 2,
   "rows": [
@@ -131523,13 +132864,13 @@
      "p10": -19.2,
      "p90": 16.1,
      "close1": {
-      "n": 7,
-      "pos": 71.4,
-      "lo": 35.9,
-      "hi": 91.8,
-      "med": 1.9,
-      "p10": -23.4,
-      "p90": 11.0
+      "n": 6,
+      "pos": 66.7,
+      "lo": 30.0,
+      "hi": 90.3,
+      "med": 2.4,
+      "p10": -25.5,
+      "p90": 11.9
      },
      "d5": {
       "n": 3,
@@ -131586,13 +132927,13 @@
       "p90": 9.7
      },
      "d30": {
-      "n": 13,
-      "pos": 76.9,
-      "lo": 49.7,
-      "hi": 91.8,
-      "med": 21.6,
-      "p10": -25.5,
-      "p90": 59.4
+      "n": 14,
+      "pos": 71.4,
+      "lo": 45.4,
+      "hi": 88.3,
+      "med": 21.4,
+      "p10": -24.2,
+      "p90": 57.5
      },
      "lead": {
       "n": 17,
@@ -131908,13 +133249,13 @@
      "p10": -0.1,
      "p90": 90.0,
      "close1": {
-      "n": 23,
-      "pos": 78.3,
-      "lo": 58.1,
-      "hi": 90.3,
-      "med": 8.1,
-      "p10": -3.6,
-      "p90": 95.7
+      "n": 22,
+      "pos": 77.3,
+      "lo": 56.6,
+      "hi": 89.9,
+      "med": 11.1,
+      "p10": -3.9,
+      "p90": 97.6
      },
      "d5": {
       "n": 18,
@@ -132203,13 +133544,13 @@
      "p10": 0.8,
      "p90": 0.8,
      "close1": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 1.9,
-      "p10": 1.9,
-      "p90": 1.9
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
      },
      "d5": {
       "n": 0,
@@ -132418,13 +133759,13 @@
      "p10": -0.1,
      "p90": 90.0,
      "close1": {
-      "n": 23,
-      "pos": 87.0,
-      "lo": 67.9,
-      "hi": 95.5,
-      "med": 21.1,
-      "p10": -1.6,
-      "p90": 90.4
+      "n": 22,
+      "pos": 86.4,
+      "lo": 66.7,
+      "hi": 95.3,
+      "med": 15.7,
+      "p10": -2.4,
+      "p90": 85.5
      },
      "d5": {
       "n": 11,
@@ -132606,13 +133947,13 @@
       "p90": 21.3
      },
      "d30": {
-      "n": 7,
-      "pos": 100.0,
-      "lo": 64.6,
-      "hi": 100.0,
-      "med": 28.7,
-      "p10": 16.1,
-      "p90": 68.6
+      "n": 8,
+      "pos": 87.5,
+      "lo": 52.9,
+      "hi": 97.8,
+      "med": 26.9,
+      "p10": 1.2,
+      "p90": 67.3
      },
      "lead": {
       "n": 10,
@@ -132713,13 +134054,13 @@
      "p10": -1.7,
      "p90": 42.9,
      "close1": {
-      "n": 24,
-      "pos": 87.5,
-      "lo": 69.0,
-      "hi": 95.7,
-      "med": 20.8,
-      "p10": 0.1,
-      "p90": 48.1
+      "n": 23,
+      "pos": 87.0,
+      "lo": 67.9,
+      "hi": 95.5,
+      "med": 22.2,
+      "p10": 0.8,
+      "p90": 48.2
      },
      "d5": {
       "n": 18,
@@ -132839,13 +134180,13 @@
      "p10": 0.2,
      "p90": 5.9,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 1.9,
-      "p10": 1.4,
-      "p90": 4.8
+      "med": 3.4,
+      "p10": 1.7,
+      "p90": 5.1
      },
      "d5": {
       "n": 0,
@@ -133349,13 +134690,13 @@
      "p10": -0.2,
      "p90": 24.6,
      "close1": {
-      "n": 19,
-      "pos": 73.7,
-      "lo": 51.2,
-      "hi": 88.2,
-      "med": 7.4,
-      "p10": -5.4,
-      "p90": 27.9
+      "n": 18,
+      "pos": 72.2,
+      "lo": 49.1,
+      "hi": 87.5,
+      "med": 10.2,
+      "p10": -5.8,
+      "p90": 30.4
      },
      "d5": {
       "n": 14,
@@ -133815,13 +135156,13 @@
      "p10": -0.1,
      "p90": 27.0,
      "close1": {
-      "n": 18,
+      "n": 17,
       "pos": 100.0,
-      "lo": 82.4,
+      "lo": 81.6,
       "hi": 100.0,
-      "med": 15.9,
-      "p10": 2.9,
-      "p90": 34.1
+      "med": 16.4,
+      "p10": 3.5,
+      "p90": 34.8
      },
      "d5": {
       "n": 15,
@@ -133941,12 +135282,12 @@
      "p10": 0.4,
      "p90": 9.1,
      "close1": {
-      "n": 6,
-      "pos": 83.3,
-      "lo": 43.6,
-      "hi": 97.0,
-      "med": 1.5,
-      "p10": -2.0,
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 1.2,
+      "p10": -2.5,
       "p90": 2.0
      },
      "d5": {
@@ -133986,13 +135327,13 @@
      "p10": 0.0,
      "p90": 90.0,
      "close1": {
-      "n": 11,
-      "pos": 90.9,
-      "lo": 62.3,
-      "hi": 98.4,
-      "med": 5.0,
-      "p10": 2.0,
-      "p90": 88.4
+      "n": 10,
+      "pos": 90.0,
+      "lo": 59.6,
+      "hi": 98.2,
+      "med": 12.3,
+      "p10": 2.7,
+      "p90": 89.5
      },
      "d5": {
       "n": 4,
@@ -134873,13 +136214,13 @@
      "p10": 4.7,
      "p90": 48.9,
      "close1": {
-      "n": 15,
+      "n": 14,
       "pos": 100.0,
-      "lo": 79.6,
+      "lo": 78.5,
       "hi": 100.0,
-      "med": 22.8,
-      "p10": 7.0,
-      "p90": 67.6
+      "med": 23.2,
+      "p10": 12.3,
+      "p90": 70.8
      },
      "d5": {
       "n": 11,
@@ -134999,13 +136340,13 @@
      "p10": 1.2,
      "p90": 47.7,
      "close1": {
-      "n": 15,
-      "pos": 93.3,
-      "lo": 70.2,
-      "hi": 98.8,
+      "n": 14,
+      "pos": 92.9,
+      "lo": 68.5,
+      "hi": 98.7,
       "med": 29.1,
-      "p10": 3.6,
-      "p90": 51.1
+      "p10": 6.5,
+      "p90": 51.5
      },
      "d5": {
       "n": 10,
@@ -135377,13 +136718,13 @@
      "p10": 6.6,
      "p90": 32.6,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 17.6,
-      "p10": 10.3,
-      "p90": 24.8
+      "med": 26.7,
+      "p10": 26.7,
+      "p90": 26.7
      },
      "d5": {
       "n": 1,
@@ -135422,13 +136763,13 @@
      "p10": 2.3,
      "p90": 87.6,
      "close1": {
-      "n": 12,
+      "n": 11,
       "pos": 100.0,
-      "lo": 75.7,
+      "lo": 74.1,
       "hi": 100.0,
-      "med": 26.6,
-      "p10": 2.3,
-      "p90": 87.0
+      "med": 28.2,
+      "p10": 5.0,
+      "p90": 88.4
      },
      "d5": {
       "n": 8,
@@ -135673,13 +137014,13 @@
      "p10": -0.8,
      "p90": 42.4,
      "close1": {
-      "n": 14,
-      "pos": 85.7,
-      "lo": 60.1,
-      "hi": 96.0,
-      "med": 9.3,
-      "p10": -1.6,
-      "p90": 45.3
+      "n": 13,
+      "pos": 84.6,
+      "lo": 57.8,
+      "hi": 95.7,
+      "med": 13.0,
+      "p10": -1.8,
+      "p90": 46.3
      },
      "d5": {
       "n": 10,
@@ -136391,13 +137732,13 @@
      "p10": 7.0,
      "p90": 43.7,
      "close1": {
-      "n": 12,
+      "n": 11,
       "pos": 100.0,
-      "lo": 75.7,
+      "lo": 74.1,
       "hi": 100.0,
-      "med": 19.2,
-      "p10": 5.5,
-      "p90": 47.3
+      "med": 19.5,
+      "p10": 6.2,
+      "p90": 48.2
      },
      "d5": {
       "n": 9,
@@ -136983,13 +138324,13 @@
      "p10": 4.3,
      "p90": 35.0,
      "close1": {
-      "n": 11,
-      "pos": 90.9,
-      "lo": 62.3,
-      "hi": 98.4,
-      "med": 22.8,
-      "p10": 1.9,
-      "p90": 36.3
+      "n": 10,
+      "pos": 90.0,
+      "lo": 59.6,
+      "hi": 98.2,
+      "med": 26.0,
+      "p10": 4.8,
+      "p90": 37.5
      },
      "d5": {
       "n": 9,
@@ -138041,13 +139382,13 @@
      "p10": -6.4,
      "p90": 38.6,
      "close1": {
-      "n": 5,
-      "pos": 80.0,
-      "lo": 37.6,
-      "hi": 96.4,
-      "med": 34.6,
-      "p10": -5.8,
-      "p90": 47.9
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 40.7,
+      "p10": 2.7,
+      "p90": 48.1
      },
      "d5": {
       "n": 4,
@@ -138677,13 +140018,13 @@
      "p10": 0.8,
      "p90": 12.9,
      "close1": {
-      "n": 9,
-      "pos": 88.9,
-      "lo": 56.5,
-      "hi": 98.0,
-      "med": 6.2,
-      "p10": 0.9,
-      "p90": 20.0
+      "n": 8,
+      "pos": 87.5,
+      "lo": 52.9,
+      "hi": 97.8,
+      "med": 9.6,
+      "p10": 1.6,
+      "p90": 20.2
      },
      "d5": {
       "n": 6,
@@ -138803,13 +140144,13 @@
      "p10": 3.6,
      "p90": 45.5,
      "close1": {
-      "n": 9,
-      "pos": 88.9,
-      "lo": 56.5,
-      "hi": 98.0,
-      "med": 19.5,
-      "p10": -0.3,
-      "p90": 49.2
+      "n": 8,
+      "pos": 87.5,
+      "lo": 52.9,
+      "hi": 97.8,
+      "med": 20.8,
+      "p10": 1.8,
+      "p90": 49.7
      },
      "d5": {
       "n": 5,
@@ -139118,13 +140459,13 @@
       "p90": 7.2
      },
      "d30": {
-      "n": 3,
+      "n": 4,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 51.0,
       "hi": 100.0,
-      "med": 19.6,
-      "p10": 6.9,
-      "p90": 43.4
+      "med": 11.7,
+      "p10": 3.5,
+      "p90": 40.4
      },
      "lead": {
       "n": 3,
@@ -139692,13 +141033,13 @@
      "p10": 37.4,
      "p90": 90.0,
      "close1": {
-      "n": 4,
+      "n": 3,
       "pos": 100.0,
-      "lo": 51.0,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 91.2,
-      "p10": 44.2,
-      "p90": 99.5
+      "med": 83.0,
+      "p10": 38.7,
+      "p90": 96.2
      },
      "d5": {
       "n": 3,
@@ -139987,13 +141328,13 @@
      "p10": 0.7,
      "p90": 38.9,
      "close1": {
-      "n": 8,
-      "pos": 75.0,
-      "lo": 40.9,
-      "hi": 92.9,
-      "med": 5.5,
-      "p10": -1.2,
-      "p90": 38.7
+      "n": 7,
+      "pos": 71.4,
+      "lo": 35.9,
+      "hi": 91.8,
+      "med": 7.4,
+      "p10": -1.5,
+      "p90": 40.1
      },
      "d5": {
       "n": 4,
@@ -140239,13 +141580,13 @@
      "p10": 6.5,
      "p90": 52.0,
      "close1": {
-      "n": 8,
+      "n": 7,
       "pos": 100.0,
-      "lo": 67.6,
+      "lo": 64.6,
       "hi": 100.0,
-      "med": 31.9,
-      "p10": 9.7,
-      "p90": 77.6
+      "med": 44.3,
+      "p10": 14.5,
+      "p90": 78.0
      },
      "d5": {
       "n": 5,
@@ -140535,13 +141876,13 @@
      "p10": 0.3,
      "p90": 43.2,
      "close1": {
-      "n": 8,
-      "pos": 75.0,
-      "lo": 40.9,
-      "hi": 92.9,
-      "med": 22.3,
-      "p10": -1.9,
-      "p90": 58.1
+      "n": 7,
+      "pos": 71.4,
+      "lo": 35.9,
+      "hi": 91.8,
+      "med": 29.1,
+      "p10": -2.1,
+      "p90": 61.3
      },
      "d5": {
       "n": 6,
@@ -140913,13 +142254,13 @@
      "p10": -0.7,
      "p90": 39.5,
      "close1": {
-      "n": 8,
+      "n": 7,
       "pos": 100.0,
-      "lo": 67.6,
+      "lo": 64.6,
       "hi": 100.0,
-      "med": 24.6,
-      "p10": 8.3,
-      "p90": 48.0
+      "med": 29.6,
+      "p10": 14.8,
+      "p90": 48.1
      },
      "d5": {
       "n": 4,
@@ -141039,13 +142380,13 @@
      "p10": -3.0,
      "p90": 43.2,
      "close1": {
-      "n": 8,
-      "pos": 62.5,
-      "lo": 30.6,
-      "hi": 86.3,
-      "med": 8.6,
-      "p10": -4.0,
-      "p90": 58.1
+      "n": 7,
+      "pos": 57.1,
+      "lo": 25.0,
+      "hi": 84.2,
+      "med": 15.4,
+      "p10": -4.4,
+      "p90": 61.3
      },
      "d5": {
       "n": 4,
@@ -141165,13 +142506,13 @@
      "p10": -3.4,
      "p90": 8.3,
      "close1": {
-      "n": 8,
-      "pos": 75.0,
-      "lo": 40.9,
-      "hi": 92.9,
-      "med": 4.0,
-      "p10": -5.4,
-      "p90": 14.4
+      "n": 7,
+      "pos": 71.4,
+      "lo": 35.9,
+      "hi": 91.8,
+      "med": 6.2,
+      "p10": -6.2,
+      "p90": 15.5
      },
      "d5": {
       "n": 5,
@@ -141291,13 +142632,13 @@
      "p10": -3.0,
      "p90": 13.4,
      "close1": {
-      "n": 8,
-      "pos": 62.5,
-      "lo": 30.6,
-      "hi": 86.3,
-      "med": 4.0,
-      "p10": -9.3,
-      "p90": 16.6
+      "n": 7,
+      "pos": 57.1,
+      "lo": 25.0,
+      "hi": 84.2,
+      "med": 6.2,
+      "p10": -10.3,
+      "p90": 17.1
      },
      "d5": {
       "n": 3,
@@ -141417,13 +142758,13 @@
      "p10": -4.0,
      "p90": 42.8,
      "close1": {
-      "n": 8,
-      "pos": 75.0,
-      "lo": 40.9,
-      "hi": 92.9,
-      "med": 4.0,
-      "p10": -7.2,
-      "p90": 36.7
+      "n": 7,
+      "pos": 71.4,
+      "lo": 35.9,
+      "hi": 91.8,
+      "med": 6.2,
+      "p10": -7.7,
+      "p90": 42.4
      },
      "d5": {
       "n": 4,
@@ -141543,13 +142884,13 @@
      "p10": -3.8,
      "p90": 24.1,
      "close1": {
-      "n": 8,
-      "pos": 75.0,
-      "lo": 40.9,
-      "hi": 92.9,
-      "med": 9.4,
-      "p10": -3.4,
-      "p90": 36.9
+      "n": 7,
+      "pos": 71.4,
+      "lo": 35.9,
+      "hi": 91.8,
+      "med": 11.1,
+      "p10": -4.2,
+      "p90": 38.5
      },
      "d5": {
       "n": 6,
@@ -141947,13 +143288,13 @@
      "p10": 1.4,
      "p90": 42.7,
      "close1": {
-      "n": 7,
+      "n": 6,
       "pos": 100.0,
-      "lo": 64.6,
+      "lo": 61.0,
       "hi": 100.0,
-      "med": 15.4,
-      "p10": 5.2,
-      "p90": 41.1
+      "med": 17.5,
+      "p10": 10.2,
+      "p90": 42.3
      },
      "d5": {
       "n": 3,
@@ -142459,13 +143800,13 @@
      "p10": 0.5,
      "p90": 71.1,
      "close1": {
-      "n": 7,
+      "n": 6,
       "pos": 100.0,
-      "lo": 64.6,
+      "lo": 61.0,
       "hi": 100.0,
-      "med": 18.9,
-      "p10": 7.4,
-      "p90": 70.0
+      "med": 27.6,
+      "p10": 12.1,
+      "p90": 74.3
      },
      "d5": {
       "n": 6,
@@ -142576,13 +143917,13 @@
      "p10": 0.5,
      "p90": 35.4,
      "close1": {
-      "n": 7,
-      "pos": 85.7,
-      "lo": 48.7,
-      "hi": 97.4,
-      "med": 2.2,
-      "p10": -2.2,
-      "p90": 36.7
+      "n": 6,
+      "pos": 83.3,
+      "lo": 43.6,
+      "hi": 97.0,
+      "med": 3.8,
+      "p10": -3.2,
+      "p90": 38.4
      },
      "d5": {
       "n": 4,
@@ -142693,13 +144034,13 @@
      "p10": -2.8,
      "p90": 12.0,
      "close1": {
-      "n": 7,
-      "pos": 57.1,
-      "lo": 25.0,
-      "hi": 84.2,
-      "med": 1.9,
-      "p10": -2.1,
-      "p90": 18.8
+      "n": 6,
+      "pos": 50.0,
+      "lo": 18.8,
+      "hi": 81.2,
+      "med": 3.1,
+      "p10": -2.2,
+      "p90": 18.9
      },
      "d5": {
       "n": 4,
@@ -143162,13 +144503,13 @@
      "p10": -9.5,
      "p90": 55.9,
      "close1": {
-      "n": 7,
-      "pos": 85.7,
-      "lo": 48.7,
-      "hi": 97.4,
-      "med": 3.1,
-      "p10": -5.2,
-      "p90": 55.1
+      "n": 6,
+      "pos": 83.3,
+      "lo": 43.6,
+      "hi": 97.0,
+      "med": 3.4,
+      "p10": -6.8,
+      "p90": 59.7
      },
      "d5": {
       "n": 6,
@@ -144056,13 +145397,13 @@
      "p10": 4.7,
      "p90": 44.8,
      "close1": {
-      "n": 6,
+      "n": 5,
       "pos": 100.0,
-      "lo": 61.0,
+      "lo": 56.6,
       "hi": 100.0,
-      "med": 22.9,
-      "p10": 10.4,
-      "p90": 38.7
+      "med": 23.6,
+      "p10": 20.2,
+      "p90": 40.6
      },
      "d5": {
       "n": 3,
@@ -144164,13 +145505,13 @@
      "p10": 3.8,
      "p90": 77.8,
      "close1": {
-      "n": 6,
+      "n": 5,
       "pos": 100.0,
-      "lo": 61.0,
+      "lo": 56.6,
       "hi": 100.0,
-      "med": 27.6,
-      "p10": 4.1,
-      "p90": 74.3
+      "med": 36.3,
+      "p10": 11.3,
+      "p90": 78.5
      },
      "d5": {
       "n": 5,
@@ -144792,13 +146133,13 @@
      "p10": 3.8,
      "p90": 38.7,
      "close1": {
-      "n": 6,
+      "n": 5,
       "pos": 100.0,
-      "lo": 61.0,
+      "lo": 56.6,
       "hi": 100.0,
-      "med": 9.6,
-      "p10": 3.6,
-      "p90": 37.6
+      "med": 13.0,
+      "p10": 5.8,
+      "p90": 39.8
      },
      "d5": {
       "n": 5,
@@ -144900,13 +146241,13 @@
      "p10": 0.6,
      "p90": 35.0,
      "close1": {
-      "n": 6,
-      "pos": 83.3,
-      "lo": 43.6,
-      "hi": 97.0,
-      "med": 9.6,
-      "p10": -0.6,
-      "p90": 33.9
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 13.0,
+      "p10": 0.7,
+      "p90": 36.7
      },
      "d5": {
       "n": 3,
@@ -145009,13 +146350,13 @@
      "p10": 33.1,
      "p90": 90.0,
      "close1": {
-      "n": 6,
+      "n": 5,
       "pos": 100.0,
-      "lo": 61.0,
+      "lo": 56.6,
       "hi": 100.0,
-      "med": 83.1,
-      "p10": 38.9,
-      "p90": 99.5
+      "med": 83.0,
+      "p10": 38.3,
+      "p90": 93.0
      },
      "d5": {
       "n": 4,
@@ -145224,13 +146565,13 @@
      "p10": 3.8,
      "p90": 43.9,
      "close1": {
-      "n": 6,
+      "n": 5,
       "pos": 100.0,
-      "lo": 61.0,
+      "lo": 56.6,
       "hi": 100.0,
-      "med": 16.3,
-      "p10": 4.1,
-      "p90": 42.3
+      "med": 19.5,
+      "p10": 9.0,
+      "p90": 43.5
      },
      "d5": {
       "n": 3,
@@ -145319,6 +146660,114 @@
     ]
    },
    {
+    "key": "MONETARY AUTHORITY OF SINGAPORE",
+    "name": "MONETARY AUTHORITY OF SINGAPORE",
+    "cr": 339.5,
+    "n": 6,
+    "main": {
+     "n": 6,
+     "pos": 100.0,
+     "lo": 61.0,
+     "hi": 100.0,
+     "med": 13.5,
+     "p10": 2.6,
+     "p90": 50.2,
+     "close1": {
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 19.5,
+      "p10": -2.7,
+      "p90": 55.7
+     },
+     "d5": {
+      "n": 2,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 65.8,
+      "med": -5.8,
+      "p10": -8.4,
+      "p90": -3.1
+     },
+     "d30": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -12.5,
+      "p10": -12.5,
+      "p90": -12.5
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 50.4,
+      "p10": 50.4,
+      "p90": 50.4
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2305",
+      "name": "NSE",
+      "sme": false,
+      "date": "2026-09-24",
+      "lead": false,
+      "amtCr": 200.0,
+      "ret": 0.84
+     },
+     {
+      "igId": "1868",
+      "name": "LEAP India",
+      "sme": false,
+      "date": "2026-08-14",
+      "lead": false,
+      "amtCr": 54.99,
+      "ret": 4.34
+     },
+     {
+      "igId": "2210",
+      "name": "SBI Funds Management",
+      "sme": false,
+      "date": "2026-07-21",
+      "lead": false,
+      "amtCr": 27.62,
+      "ret": 6.85
+     },
+     {
+      "igId": "1556",
+      "name": "ICICI Prudential AMC",
+      "sme": false,
+      "date": "2025-12-19",
+      "lead": false,
+      "amtCr": 25.3,
+      "ret": 20.09
+     },
+     {
+      "igId": "1492",
+      "name": "LG Electronics",
+      "sme": false,
+      "date": "2025-10-14",
+      "lead": false,
+      "amtCr": 21.12,
+      "ret": 50.01
+     },
+     {
+      "igId": "1347",
+      "name": "Aditya Infotech",
+      "sme": false,
+      "date": "2025-08-05",
+      "lead": true,
+      "amtCr": 10.5,
+      "ret": 50.37
+     }
+    ]
+   },
+   {
     "key": "UTI DIVIDEND YIELD FUND",
     "name": "UTI DIVIDEND YIELD FUND",
     "cr": 90.2,
@@ -145332,13 +146781,13 @@
      "p10": 2.2,
      "p90": 35.0,
      "close1": {
-      "n": 6,
+      "n": 5,
       "pos": 100.0,
-      "lo": 61.0,
+      "lo": 56.6,
       "hi": 100.0,
-      "med": 9.6,
-      "p10": 2.8,
-      "p90": 33.9
+      "med": 13.0,
+      "p10": 4.7,
+      "p90": 36.7
      },
      "d5": {
       "n": 3,
@@ -145440,13 +146889,13 @@
      "p10": 2.2,
      "p90": 15.3,
      "close1": {
-      "n": 6,
+      "n": 5,
       "pos": 100.0,
-      "lo": 61.0,
+      "lo": 56.6,
       "hi": 100.0,
       "med": 6.2,
-      "p10": 2.8,
-      "p90": 16.3
+      "p10": 4.7,
+      "p90": 16.9
      },
      "d5": {
       "n": 4,
@@ -145548,13 +146997,13 @@
      "p10": 2.6,
      "p90": 16.0,
      "close1": {
-      "n": 6,
+      "n": 5,
       "pos": 100.0,
-      "lo": 61.0,
+      "lo": 56.6,
       "hi": 100.0,
-      "med": 13.6,
-      "p10": 4.1,
-      "p90": 26.7
+      "med": 19.5,
+      "p10": 6.8,
+      "p90": 27.6
      },
      "d5": {
       "n": 2,
@@ -145872,13 +147321,13 @@
      "p10": -4.5,
      "p90": 7.7,
      "close1": {
-      "n": 6,
-      "pos": 83.3,
-      "lo": 43.6,
-      "hi": 97.0,
-      "med": 5.0,
-      "p10": 0.6,
-      "p90": 13.1
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 6.2,
+      "p10": 1.1,
+      "p90": 14.3
      },
      "d5": {
       "n": 4,
@@ -146197,13 +147646,13 @@
      "p10": 4.9,
      "p90": 90.0,
      "close1": {
-      "n": 6,
-      "pos": 83.3,
-      "lo": 43.6,
-      "hi": 97.0,
-      "med": 55.6,
-      "p10": 4.5,
-      "p90": 99.5
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 28.2,
+      "p10": 3.5,
+      "p90": 92.9
      },
      "d5": {
       "n": 4,
@@ -146304,13 +147753,13 @@
      "p10": -4.7,
      "p90": 33.6,
      "close1": {
-      "n": 6,
-      "pos": 66.7,
-      "lo": 30.0,
-      "hi": 90.3,
-      "med": 8.6,
-      "p10": -4.7,
-      "p90": 50.0
+      "n": 5,
+      "pos": 60.0,
+      "lo": 23.1,
+      "hi": 88.2,
+      "med": 15.4,
+      "p10": -5.0,
+      "p90": 56.1
      },
      "d5": {
       "n": 2,
@@ -146736,13 +148185,13 @@
      "p10": -1.3,
      "p90": 11.2,
      "close1": {
-      "n": 6,
-      "pos": 83.3,
-      "lo": 43.6,
-      "hi": 97.0,
-      "med": 3.7,
-      "p10": -3.4,
-      "p90": 8.7
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 5.4,
+      "p10": -4.4,
+      "p90": 9.2
      },
      "d5": {
       "n": 5,
@@ -147168,13 +148617,13 @@
      "p10": 0.1,
      "p90": 0.8,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 6.5,
-      "p10": 2.8,
-      "p90": 10.2
+      "med": 11.1,
+      "p10": 11.1,
+      "p90": 11.1
      },
      "d5": {
       "n": 1,
@@ -147696,13 +149145,13 @@
      "p10": 3.2,
      "p90": 32.6,
      "close1": {
-      "n": 5,
+      "n": 4,
       "pos": 100.0,
-      "lo": 56.6,
+      "lo": 51.0,
       "hi": 100.0,
-      "med": 9.8,
-      "p10": 3.6,
-      "p90": 29.4
+      "med": 14.4,
+      "p10": 7.3,
+      "p90": 31.1
      },
      "d5": {
       "n": 4,
@@ -148191,13 +149640,13 @@
      "p10": 3.1,
      "p90": 24.7,
      "close1": {
-      "n": 5,
+      "n": 4,
       "pos": 100.0,
-      "lo": 56.6,
+      "lo": 51.0,
       "hi": 100.0,
-      "med": 13.0,
-      "p10": 3.6,
-      "p90": 28.1
+      "med": 15.7,
+      "p10": 8.3,
+      "p90": 29.7
      },
      "d5": {
       "n": 4,
@@ -148433,13 +149882,13 @@
      "p10": 0.8,
      "p90": 0.8,
      "close1": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 1.9,
-      "p10": 1.9,
-      "p90": 1.9
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
      },
      "d5": {
       "n": 0,
@@ -148719,13 +150168,13 @@
      "p10": 9.1,
      "p90": 47.7,
      "close1": {
-      "n": 5,
+      "n": 4,
       "pos": 100.0,
-      "lo": 56.6,
+      "lo": 51.0,
       "hi": 100.0,
-      "med": 34.6,
-      "p10": 12.7,
-      "p90": 51.1
+      "med": 41.4,
+      "p10": 30.7,
+      "p90": 51.5
      },
      "d5": {
       "n": 3,
@@ -148818,13 +150267,13 @@
      "p10": 2.3,
      "p90": 44.9,
      "close1": {
-      "n": 5,
+      "n": 4,
       "pos": 100.0,
-      "lo": 56.6,
+      "lo": 51.0,
       "hi": 100.0,
-      "med": 19.5,
-      "p10": 3.6,
-      "p90": 67.7
+      "med": 34.0,
+      "p10": 10.2,
+      "p90": 70.9
      },
      "d5": {
       "n": 2,
@@ -148917,13 +150366,13 @@
      "p10": 1.3,
      "p90": 84.5,
      "close1": {
-      "n": 5,
+      "n": 4,
       "pos": 100.0,
-      "lo": 56.6,
+      "lo": 51.0,
       "hi": 100.0,
-      "med": 6.2,
-      "p10": 2.4,
-      "p90": 78.5
+      "med": 29.6,
+      "p10": 4.2,
+      "p90": 82.8
      },
      "d5": {
       "n": 4,
@@ -149016,13 +150465,13 @@
      "p10": -3.9,
      "p90": 26.1,
      "close1": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 8.5,
-      "p10": -10.4,
-      "p90": 20.6
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 4.3,
+      "p10": -11.2,
+      "p90": 19.7
      },
      "d5": {
       "n": 2,
@@ -149443,105 +150892,6 @@
     ]
    },
    {
-    "key": "MONETARY AUTHORITY OF SINGAPORE",
-    "name": "MONETARY AUTHORITY OF SINGAPORE",
-    "cr": 329.0,
-    "n": 5,
-    "main": {
-     "n": 5,
-     "pos": 100.0,
-     "lo": 56.6,
-     "hi": 100.0,
-     "med": 6.8,
-     "p10": 2.2,
-     "p90": 38.0,
-     "close1": {
-      "n": 5,
-      "pos": 80.0,
-      "lo": 37.6,
-      "hi": 96.4,
-      "med": 6.2,
-      "p10": -4.5,
-      "p90": 36.7
-     },
-     "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -5.8,
-      "p10": -8.4,
-      "p90": -3.1
-     },
-     "d30": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -12.5,
-      "p10": -12.5,
-      "p90": -12.5
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2305",
-      "name": "NSE",
-      "sme": false,
-      "date": "2026-09-24",
-      "lead": false,
-      "amtCr": 200.0,
-      "ret": 0.84
-     },
-     {
-      "igId": "1868",
-      "name": "LEAP India",
-      "sme": false,
-      "date": "2026-08-14",
-      "lead": false,
-      "amtCr": 54.99,
-      "ret": 4.34
-     },
-     {
-      "igId": "2210",
-      "name": "SBI Funds Management",
-      "sme": false,
-      "date": "2026-07-21",
-      "lead": false,
-      "amtCr": 27.62,
-      "ret": 6.85
-     },
-     {
-      "igId": "1556",
-      "name": "ICICI Prudential AMC",
-      "sme": false,
-      "date": "2025-12-19",
-      "lead": false,
-      "amtCr": 25.3,
-      "ret": 20.09
-     },
-     {
-      "igId": "1492",
-      "name": "LG Electronics",
-      "sme": false,
-      "date": "2025-10-14",
-      "lead": false,
-      "amtCr": 21.12,
-      "ret": 50.01
-     }
-    ]
-   },
-   {
     "key": "HSBC ELSS TAX SAVER FUND",
     "name": "HSBC ELSS TAX SAVER FUND",
     "cr": 63.9,
@@ -149555,13 +150905,13 @@
      "p10": 3.2,
      "p90": 16.3,
      "close1": {
-      "n": 5,
+      "n": 4,
       "pos": 100.0,
-      "lo": 56.6,
+      "lo": 51.0,
       "hi": 100.0,
-      "med": 13.0,
-      "p10": 3.6,
-      "p90": 17.9
+      "med": 14.2,
+      "p10": 8.3,
+      "p90": 18.3
      },
      "d5": {
       "n": 3,
@@ -149753,13 +151103,13 @@
      "p10": 4.7,
      "p90": 38.0,
      "close1": {
-      "n": 5,
+      "n": 4,
       "pos": 100.0,
-      "lo": 56.6,
+      "lo": 51.0,
       "hi": 100.0,
-      "med": 13.0,
-      "p10": 6.3,
-      "p90": 36.7
+      "med": 16.3,
+      "p10": 13.0,
+      "p90": 39.6
      },
      "d5": {
       "n": 2,
@@ -149852,13 +151202,13 @@
      "p10": 1.9,
      "p90": 38.0,
      "close1": {
-      "n": 5,
+      "n": 4,
       "pos": 100.0,
-      "lo": 56.6,
+      "lo": 51.0,
       "hi": 100.0,
-      "med": 13.0,
-      "p10": 2.6,
-      "p90": 36.7
+      "med": 16.3,
+      "p10": 6.5,
+      "p90": 39.6
      },
      "d5": {
       "n": 2,
@@ -150534,13 +151884,13 @@
      "p10": 0.3,
      "p90": 16.5,
      "close1": {
-      "n": 5,
-      "pos": 80.0,
-      "lo": 37.6,
-      "hi": 96.4,
-      "med": 6.2,
-      "p10": -0.1,
-      "p90": 21.0
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 12.9,
+      "p10": 0.9,
+      "p90": 21.3
      },
      "d5": {
       "n": 3,
@@ -150633,13 +151983,13 @@
      "p10": 0.3,
      "p90": 29.6,
      "close1": {
-      "n": 5,
-      "pos": 80.0,
-      "lo": 37.6,
-      "hi": 96.4,
-      "med": 6.2,
-      "p10": -0.1,
-      "p90": 40.4
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 17.7,
+      "p10": 0.9,
+      "p90": 42.3
      },
      "d5": {
       "n": 4,
@@ -150732,13 +152082,13 @@
      "p10": 0.3,
      "p90": 36.3,
      "close1": {
-      "n": 5,
-      "pos": 80.0,
-      "lo": 37.6,
-      "hi": 96.4,
-      "med": 15.4,
-      "p10": -0.1,
-      "p90": 56.1
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 17.5,
+      "p10": 3.6,
+      "p90": 62.2
      },
      "d5": {
       "n": 2,
@@ -151511,149 +152861,6 @@
     ]
    },
    {
-    "key": "VBCUBE VENTURES FUND",
-    "name": "VBCUBE VENTURES FUND",
-    "cr": 12.1,
-    "n": 5,
-    "main": {
-     "n": 1,
-     "pos": 0.0,
-     "lo": 0.0,
-     "hi": 79.3,
-     "med": 0.0,
-     "p10": 0.0,
-     "p90": 0.0,
-     "close1": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 5.5,
-      "p10": 5.5,
-      "p90": 5.5
-     },
-     "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": {
-     "n": 4,
-     "pos": 75.0,
-     "lo": 30.1,
-     "hi": 95.4,
-     "med": 2.6,
-     "p10": 0.4,
-     "p90": 53.1,
-     "close1": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -1.3,
-      "p10": -4.1,
-      "p90": 66.1
-     },
-     "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 0.3,
-      "p10": -4.3,
-      "p90": 4.9
-     },
-     "d30": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 1.8,
-      "p10": -3.9,
-      "p90": 7.5
-     },
-     "lead": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 3.8,
-      "p10": 3.8,
-      "p90": 3.8
-     }
-    },
-    "ipos": [
-     {
-      "igId": "1682",
-      "name": "Axiom Gas Engineering",
-      "sme": true,
-      "date": "2026-09-25",
-      "lead": false,
-      "amtCr": 1.5,
-      "ret": 1.39
-     },
-     {
-      "igId": "2092",
-      "name": "Technocrats Plasma Systems",
-      "sme": true,
-      "date": "2026-08-21",
-      "lead": false,
-      "amtCr": 1.6,
-      "ret": 74.24
-     },
-     {
-      "igId": "2078",
-      "name": "Silverstorm Parks & Resorts",
-      "sme": true,
-      "date": "2026-07-31",
-      "lead": false,
-      "amtCr": 2.01,
-      "ret": -0.08
-     },
-     {
-      "igId": "1720",
-      "name": "Safety Controls",
-      "sme": true,
-      "date": "2026-04-13",
-      "lead": true,
-      "amtCr": 2.01,
-      "ret": 3.75
-     },
-     {
-      "igId": "1422",
-      "name": "Dev Accelerator",
-      "sme": false,
-      "date": "2025-09-17",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 0.0
-     }
-    ]
-   },
-   {
     "key": "SWYOM INDIA ALPHA FUND",
     "name": "SWYOM INDIA ALPHA FUND",
     "cr": 27.0,
@@ -151909,13 +153116,13 @@
      "p10": -4.2,
      "p90": 8.1,
      "close1": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 1.9,
-      "p10": -5.7,
-      "p90": 9.7
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": 3.3,
+      "p10": -6.5,
+      "p90": 10.1
      },
      "d5": {
       "n": 4,
@@ -152848,140 +154055,6 @@
     ]
    },
    {
-    "key": "ZEAL GLOBAL OPPORTUNITIES FUND",
-    "name": "ZEAL GLOBAL OPPORTUNITIES FUND",
-    "cr": 25.5,
-    "n": 4,
-    "main": {
-     "n": 2,
-     "pos": 100.0,
-     "lo": 34.2,
-     "hi": 100.0,
-     "med": 10.5,
-     "p10": 10.1,
-     "p90": 11.0,
-     "close1": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 2.4,
-      "p10": 2.2,
-      "p90": 2.5
-     },
-     "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 1.4,
-      "p10": -8.7,
-      "p90": 11.4
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 10.0,
-      "p10": 10.0,
-      "p90": 10.0
-     }
-    },
-    "sme": {
-     "n": 2,
-     "pos": 100.0,
-     "lo": 34.2,
-     "hi": 100.0,
-     "med": 0.8,
-     "p10": 0.3,
-     "p90": 1.3,
-     "close1": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 0.9,
-      "p10": 0.9,
-      "p90": 0.9
-     },
-     "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -1.0,
-      "p10": -1.0,
-      "p90": -1.0
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 0.8,
-      "p10": 0.3,
-      "p90": 1.3
-     }
-    },
-    "ipos": [
-     {
-      "igId": "1682",
-      "name": "Axiom Gas Engineering",
-      "sme": true,
-      "date": "2026-09-25",
-      "lead": true,
-      "amtCr": 2.01,
-      "ret": 1.39
-     },
-     {
-      "igId": "2249",
-      "name": "Om Galaxy",
-      "sme": true,
-      "date": "2026-09-18",
-      "lead": true,
-      "amtCr": 3.51,
-      "ret": 0.22
-     },
-     {
-      "igId": "1932",
-      "name": "Shankesh Jewellers",
-      "sme": false,
-      "date": "2026-08-25",
-      "lead": false,
-      "amtCr": 10.01,
-      "ret": 11.08
-     },
-     {
-      "igId": "1612",
-      "name": "Sunshine Pictures",
-      "sme": false,
-      "date": "2026-08-25",
-      "lead": true,
-      "amtCr": 10.0,
-      "ret": 9.97
-     }
-    ]
-   },
-   {
     "key": "ARVESTA FINANCIAL SERVICES",
     "name": "ARVESTA FINANCIAL SERVICES PVT.LTD.",
     "cr": 12.0,
@@ -152995,13 +154068,13 @@
      "p10": 1.0,
      "p90": 1.9,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 2.6,
-      "p10": 2.0,
-      "p90": 3.1
+      "med": 3.3,
+      "p10": 3.3,
+      "p90": 3.3
      },
      "d5": {
       "n": 1,
@@ -153489,13 +154562,13 @@
      "p10": 3.7,
      "p90": 19.9,
      "close1": {
-      "n": 4,
+      "n": 3,
       "pos": 100.0,
-      "lo": 51.0,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 16.3,
-      "p10": 5.2,
-      "p90": 28.4
+      "med": 19.5,
+      "p10": 14.3,
+      "p90": 29.7
      },
      "d5": {
       "n": 2,
@@ -153669,13 +154742,13 @@
      "p10": 1.1,
      "p90": 21.6,
      "close1": {
-      "n": 4,
+      "n": 2,
       "pos": 100.0,
-      "lo": 51.0,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 7.9,
-      "p10": 3.5,
-      "p90": 14.1
+      "med": 11.9,
+      "p10": 8.3,
+      "p90": 15.6
      },
      "d5": {
       "n": 1,
@@ -153893,13 +154966,13 @@
      "p10": 2.6,
      "p90": 24.8,
      "close1": {
-      "n": 4,
+      "n": 3,
       "pos": 100.0,
-      "lo": 51.0,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 16.8,
-      "p10": 5.9,
-      "p90": 32.5
+      "med": 18.3,
+      "p10": 15.9,
+      "p90": 34.5
      },
      "d5": {
       "n": 3,
@@ -154297,13 +155370,13 @@
      "p10": 0.5,
      "p90": 9.4,
      "close1": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 4.0,
-      "p10": -1.6,
-      "p90": 11.0
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 6.2,
+      "p10": -1.2,
+      "p90": 11.7
      },
      "d5": {
       "n": 3,
@@ -154837,13 +155910,13 @@
      "p10": 2.6,
      "p90": 45.5,
      "close1": {
-      "n": 4,
+      "n": 3,
       "pos": 100.0,
-      "lo": 51.0,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 27.1,
-      "p10": 3.2,
-      "p90": 48.1
+      "med": 47.9,
+      "p10": 14.6,
+      "p90": 48.2
      },
      "d5": {
       "n": 2,
@@ -155377,13 +156450,13 @@
      "p10": 2.6,
      "p90": 38.2,
      "close1": {
-      "n": 4,
+      "n": 3,
       "pos": 100.0,
-      "lo": 51.0,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 9.6,
-      "p10": 3.2,
-      "p90": 37.7
+      "med": 13.0,
+      "p10": 7.6,
+      "p90": 41.2
      },
      "d5": {
       "n": 2,
@@ -155467,13 +156540,13 @@
      "p10": 3.7,
      "p90": 41.0,
      "close1": {
-      "n": 4,
+      "n": 3,
       "pos": 100.0,
-      "lo": 51.0,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 16.3,
-      "p10": 5.2,
-      "p90": 39.6
+      "med": 19.5,
+      "p10": 14.3,
+      "p90": 42.5
      },
      "d5": {
       "n": 1,
@@ -155557,13 +156630,13 @@
      "p10": 3.7,
      "p90": 41.0,
      "close1": {
-      "n": 4,
+      "n": 3,
       "pos": 100.0,
-      "lo": 51.0,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 16.3,
-      "p10": 5.2,
-      "p90": 39.6
+      "med": 19.5,
+      "p10": 14.3,
+      "p90": 42.5
      },
      "d5": {
       "n": 1,
@@ -155724,6 +156797,96 @@
     ]
    },
    {
+    "key": "GOVERNMENT OF SINGAPORE",
+    "name": "GOVERNMENT OF SINGAPORE",
+    "cr": 472.6,
+    "n": 4,
+    "main": {
+     "n": 4,
+     "pos": 100.0,
+     "lo": 51.0,
+     "hi": 100.0,
+     "med": 35.0,
+     "p10": 10.8,
+     "p90": 50.3,
+     "close1": {
+      "n": 4,
+      "pos": 100.0,
+      "lo": 51.0,
+      "hi": 100.0,
+      "med": 33.9,
+      "p10": 10.2,
+      "p90": 56.9
+     },
+     "d5": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -9.1,
+      "p10": -9.1,
+      "p90": -9.1
+     },
+     "d30": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -12.5,
+      "p10": -12.5,
+      "p90": -12.5
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 50.4,
+      "p10": 50.4,
+      "p90": 50.4
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2210",
+      "name": "SBI Funds Management",
+      "sme": false,
+      "date": "2026-07-21",
+      "lead": false,
+      "amtCr": 152.38,
+      "ret": 6.85
+     },
+     {
+      "igId": "1556",
+      "name": "ICICI Prudential AMC",
+      "sme": false,
+      "date": "2025-12-19",
+      "lead": false,
+      "amtCr": 143.65,
+      "ret": 20.09
+     },
+     {
+      "igId": "1492",
+      "name": "LG Electronics",
+      "sme": false,
+      "date": "2025-10-14",
+      "lead": false,
+      "amtCr": 117.11,
+      "ret": 50.01
+     },
+     {
+      "igId": "1347",
+      "name": "Aditya Infotech",
+      "sme": false,
+      "date": "2025-08-05",
+      "lead": true,
+      "amtCr": 59.5,
+      "ret": 50.37
+     }
+    ]
+   },
+   {
     "key": "HDFC LARGE CAP FUND",
     "name": "HDFC LARGE CAP FUND",
     "cr": 172.2,
@@ -155737,13 +156900,13 @@
      "p10": 2.6,
      "p90": 41.0,
      "close1": {
-      "n": 4,
+      "n": 3,
       "pos": 100.0,
-      "lo": 51.0,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 12.9,
-      "p10": 3.2,
-      "p90": 39.6
+      "med": 19.5,
+      "p10": 8.9,
+      "p90": 42.5
      },
      "d5": {
       "n": 1,
@@ -155827,13 +156990,13 @@
      "p10": 2.6,
      "p90": 17.4,
      "close1": {
-      "n": 4,
+      "n": 3,
       "pos": 100.0,
-      "lo": 51.0,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 12.9,
-      "p10": 3.2,
-      "p90": 21.3
+      "med": 19.5,
+      "p10": 8.9,
+      "p90": 21.5
      },
      "d5": {
       "n": 2,
@@ -155917,13 +157080,13 @@
      "p10": 2.6,
      "p90": 41.0,
      "close1": {
-      "n": 4,
+      "n": 3,
       "pos": 100.0,
-      "lo": 51.0,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 12.9,
-      "p10": 3.2,
-      "p90": 39.6
+      "med": 19.5,
+      "p10": 8.9,
+      "p90": 42.5
      },
      "d5": {
       "n": 1,
@@ -157538,13 +158701,13 @@
      "p10": 1.2,
      "p90": 14.4,
      "close1": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 4.9,
-      "p10": -2.4,
-      "p90": 8.8
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 7.9,
+      "p10": -1.8,
+      "p90": 8.9
      },
      "d5": {
       "n": 1,
@@ -158018,6 +159181,140 @@
     ]
    },
    {
+    "key": "VBCUBE VENTURES FUND",
+    "name": "VBCUBE VENTURES FUND",
+    "cr": 10.6,
+    "n": 4,
+    "main": {
+     "n": 1,
+     "pos": 0.0,
+     "lo": 0.0,
+     "hi": 79.3,
+     "med": 0.0,
+     "p10": 0.0,
+     "p90": 0.0,
+     "close1": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.5,
+      "p10": 5.5,
+      "p90": 5.5
+     },
+     "d5": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": {
+     "n": 3,
+     "pos": 66.7,
+     "lo": 20.8,
+     "hi": 93.9,
+     "med": 3.8,
+     "p10": 0.7,
+     "p90": 60.1,
+     "close1": {
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -1.3,
+      "p10": -4.1,
+      "p90": 66.1
+     },
+     "d5": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 0.3,
+      "p10": -4.3,
+      "p90": 4.9
+     },
+     "d30": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 1.8,
+      "p10": -3.9,
+      "p90": 7.5
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 3.8,
+      "p10": 3.8,
+      "p90": 3.8
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2092",
+      "name": "Technocrats Plasma Systems",
+      "sme": true,
+      "date": "2026-08-21",
+      "lead": false,
+      "amtCr": 1.6,
+      "ret": 74.24
+     },
+     {
+      "igId": "2078",
+      "name": "Silverstorm Parks & Resorts",
+      "sme": true,
+      "date": "2026-07-31",
+      "lead": false,
+      "amtCr": 2.01,
+      "ret": -0.08
+     },
+     {
+      "igId": "1720",
+      "name": "Safety Controls",
+      "sme": true,
+      "date": "2026-04-13",
+      "lead": true,
+      "amtCr": 2.01,
+      "ret": 3.75
+     },
+     {
+      "igId": "1422",
+      "name": "Dev Accelerator",
+      "sme": false,
+      "date": "2025-09-17",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 0.0
+     }
+    ]
+   },
+   {
     "key": "GROWW BANKING FINANCIAL SERVICES FUND",
     "name": "GROWW BANKING & FINANCIAL SERVICES FUND",
     "cr": 5.7,
@@ -158211,13 +159508,13 @@
      "p10": -8.7,
      "p90": 5.0,
      "close1": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 1.9,
-      "p10": -7.1,
-      "p90": 5.0
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 2.0,
+      "p10": -8.3,
+      "p90": 5.4
      },
      "d5": {
       "n": 3,
@@ -158828,6 +160125,131 @@
     ]
    },
    {
+    "key": "ZEAL GLOBAL OPPORTUNITIES FUND",
+    "name": "ZEAL GLOBAL OPPORTUNITIES FUND",
+    "cr": 23.5,
+    "n": 3,
+    "main": {
+     "n": 2,
+     "pos": 100.0,
+     "lo": 34.2,
+     "hi": 100.0,
+     "med": 10.5,
+     "p10": 10.1,
+     "p90": 11.0,
+     "close1": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 2.4,
+      "p10": 2.2,
+      "p90": 2.5
+     },
+     "d5": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 1.4,
+      "p10": -8.7,
+      "p90": 11.4
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 10.0,
+      "p10": 10.0,
+      "p90": 10.0
+     }
+    },
+    "sme": {
+     "n": 1,
+     "pos": 100.0,
+     "lo": 20.7,
+     "hi": 100.0,
+     "med": 0.2,
+     "p10": 0.2,
+     "p90": 0.2,
+     "close1": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 0.9,
+      "p10": 0.9,
+      "p90": 0.9
+     },
+     "d5": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -1.0,
+      "p10": -1.0,
+      "p90": -1.0
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 0.2,
+      "p10": 0.2,
+      "p90": 0.2
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2249",
+      "name": "Om Galaxy",
+      "sme": true,
+      "date": "2026-09-18",
+      "lead": true,
+      "amtCr": 3.51,
+      "ret": 0.22
+     },
+     {
+      "igId": "1932",
+      "name": "Shankesh Jewellers",
+      "sme": false,
+      "date": "2026-08-25",
+      "lead": false,
+      "amtCr": 10.01,
+      "ret": 11.08
+     },
+     {
+      "igId": "1612",
+      "name": "Sunshine Pictures",
+      "sme": false,
+      "date": "2026-08-25",
+      "lead": true,
+      "amtCr": 10.0,
+      "ret": 9.97
+     }
+    ]
+   },
+   {
     "key": "NEO ALTERNATIVES INVESTMENT TRUST NEO TREASURY PLUS FUND",
     "name": "NEO ALTERNATIVES INVESTMENT TRUST-NEO TREASURY PLUS FUND",
     "cr": 16.0,
@@ -158841,13 +160263,13 @@
      "p10": 1.0,
      "p90": 1.9,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 2.6,
-      "p10": 2.0,
-      "p90": 3.1
+      "med": 3.3,
+      "p10": 3.3,
+      "p90": 3.3
      },
      "d5": {
       "n": 1,
@@ -159297,13 +160719,13 @@
      "p10": 4.6,
      "p90": 20.0,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 19.5,
-      "p10": 5.4,
-      "p90": 29.7
+      "med": 25.9,
+      "p10": 20.8,
+      "p90": 31.0
      },
      "d5": {
       "n": 1,
@@ -160313,13 +161735,13 @@
      "p10": 2.4,
      "p90": 16.0,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 18.9,
-      "p10": 5.3,
-      "p90": 27.5
+      "med": 24.3,
+      "p10": 20.0,
+      "p90": 28.6
      },
      "d5": {
       "n": 2,
@@ -160637,13 +162059,13 @@
      "p10": 0.8,
      "p90": 0.8,
      "close1": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 1.9,
-      "p10": 1.9,
-      "p90": 1.9
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
      },
      "d5": {
       "n": 0,
@@ -161822,13 +163244,13 @@
      "p10": 0.5,
      "p90": 8.6,
      "close1": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 1.9,
-      "p10": -2.1,
-      "p90": 10.8
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 5.0,
+      "p10": -1.5,
+      "p90": 11.4
      },
      "d5": {
       "n": 2,
@@ -163361,13 +164783,13 @@
      "p10": 4.7,
      "p90": 34.2,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 19.5,
-      "p10": 5.4,
-      "p90": 33.0
+      "med": 27.9,
+      "p10": 21.2,
+      "p90": 34.7
      },
      "d5": {
       "n": 1,
@@ -164053,13 +165475,13 @@
      "p10": 2.5,
      "p90": 17.9,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 15.4,
-      "p10": 4.6,
-      "p90": 18.7
+      "med": 17.5,
+      "p10": 15.8,
+      "p90": 19.1
      },
      "d5": {
       "n": 1,
@@ -164134,13 +165556,13 @@
      "p10": 2.0,
      "p90": 9.8,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 6.2,
-      "p10": 2.7,
-      "p90": 11.7
+      "med": 9.6,
+      "p10": 6.9,
+      "p90": 12.4
      },
      "d5": {
       "n": 2,
@@ -164215,13 +165637,13 @@
      "p10": 2.8,
      "p90": 42.1,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 13.0,
-      "p10": 4.1,
-      "p90": 41.2
+      "med": 30.6,
+      "p10": 16.6,
+      "p90": 44.7
      },
      "d5": {
       "n": 1,
@@ -164377,13 +165799,13 @@
      "p10": 2.8,
      "p90": 42.1,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 13.0,
-      "p10": 4.1,
-      "p90": 41.2
+      "med": 30.6,
+      "p10": 16.6,
+      "p90": 44.7
      },
      "d5": {
       "n": 1,
@@ -164620,13 +166042,13 @@
      "p10": 2.8,
      "p90": 42.1,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 13.0,
-      "p10": 4.1,
-      "p90": 41.2
+      "med": 30.6,
+      "p10": 16.6,
+      "p90": 44.7
      },
      "d5": {
       "n": 1,
@@ -165106,13 +166528,13 @@
      "p10": 4.3,
      "p90": 39.1,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 24.6,
-      "p10": 6.4,
-      "p90": 47.3
+      "med": 38.8,
+      "p10": 27.5,
+      "p90": 50.1
      },
      "d5": {
       "n": 2,
@@ -165187,13 +166609,13 @@
      "p10": 9.5,
      "p90": 48.9,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 48.2,
-      "p10": 11.1,
-      "p90": 52.0
+      "med": 50.6,
+      "p10": 48.7,
+      "p90": 52.5
      },
      "d5": {
       "n": 1,
@@ -165430,13 +166852,13 @@
      "p10": 3.3,
      "p90": 38.0,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 22.2,
-      "p10": 5.9,
-      "p90": 46.8
+      "med": 37.6,
+      "p10": 25.3,
+      "p90": 49.9
      },
      "d5": {
       "n": 1,
@@ -165498,87 +166920,6 @@
     ]
    },
    {
-    "key": "GOVERNMENT OF SINGAPORE",
-    "name": "GOVERNMENT OF SINGAPORE",
-    "cr": 413.1,
-    "n": 3,
-    "main": {
-     "n": 3,
-     "pos": 100.0,
-     "lo": 43.8,
-     "hi": 100.0,
-     "med": 20.1,
-     "p10": 9.5,
-     "p90": 44.0,
-     "close1": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 19.5,
-      "p10": 8.9,
-      "p90": 42.5
-     },
-     "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -9.1,
-      "p10": -9.1,
-      "p90": -9.1
-     },
-     "d30": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -12.5,
-      "p10": -12.5,
-      "p90": -12.5
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2210",
-      "name": "SBI Funds Management",
-      "sme": false,
-      "date": "2026-07-21",
-      "lead": false,
-      "amtCr": 152.38,
-      "ret": 6.85
-     },
-     {
-      "igId": "1556",
-      "name": "ICICI Prudential AMC",
-      "sme": false,
-      "date": "2025-12-19",
-      "lead": false,
-      "amtCr": 143.65,
-      "ret": 20.09
-     },
-     {
-      "igId": "1492",
-      "name": "LG Electronics",
-      "sme": false,
-      "date": "2025-10-14",
-      "lead": false,
-      "amtCr": 117.11,
-      "ret": 50.01
-     }
-    ]
-   },
-   {
     "key": "NIPPON INDIA LARGE CAP FUND",
     "name": "NIPPON INDIA LARGE CAP FUND",
     "cr": 221.4,
@@ -165592,13 +166933,13 @@
      "p10": 2.0,
      "p90": 41.4,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 6.2,
-      "p10": 2.7,
-      "p90": 39.8
+      "med": 27.2,
+      "p10": 10.4,
+      "p90": 44.0
      },
      "d5": {
       "n": 1,
@@ -165673,13 +167014,13 @@
      "p10": 2.0,
      "p90": 17.4,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 6.2,
-      "p10": 2.7,
-      "p90": 16.8
+      "med": 12.9,
+      "p10": 7.6,
+      "p90": 18.2
      },
      "d5": {
       "n": 1,
@@ -165754,13 +167095,13 @@
      "p10": 2.0,
      "p90": 17.4,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 6.2,
-      "p10": 2.7,
-      "p90": 16.8
+      "med": 12.9,
+      "p10": 7.6,
+      "p90": 18.2
      },
      "d5": {
       "n": 1,
@@ -165835,13 +167176,13 @@
      "p10": 2.0,
      "p90": 17.4,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 6.2,
-      "p10": 2.7,
-      "p90": 16.8
+      "med": 12.9,
+      "p10": 7.6,
+      "p90": 18.2
      },
      "d5": {
       "n": 1,
@@ -165916,13 +167257,13 @@
      "p10": 2.0,
      "p90": 17.4,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 6.2,
-      "p10": 2.7,
-      "p90": 16.8
+      "med": 12.9,
+      "p10": 7.6,
+      "p90": 18.2
      },
      "d5": {
       "n": 1,
@@ -166160,13 +167501,13 @@
      "p10": 50.7,
      "p90": 85.5,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 76.1,
-      "p10": 58.2,
-      "p90": 94.8
+      "med": 64.9,
+      "p10": 56.0,
+      "p90": 73.8
      },
      "d5": {
       "n": 2,
@@ -166446,13 +167787,13 @@
      "p10": 1.4,
      "p90": 16.8,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 3.7,
-      "p10": 2.2,
-      "p90": 16.3
+      "med": 11.6,
+      "p10": 5.2,
+      "p90": 17.9
      },
      "d5": {
       "n": 1,
@@ -166527,13 +167868,13 @@
      "p10": 2.6,
      "p90": 18.0,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 13.7,
-      "p10": 4.2,
-      "p90": 18.3
+      "med": 16.6,
+      "p10": 14.3,
+      "p90": 18.9
      },
      "d5": {
       "n": 0,
@@ -166608,13 +167949,13 @@
      "p10": 4.7,
      "p90": 44.0,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 19.5,
-      "p10": 5.4,
-      "p90": 42.5
+      "med": 33.9,
+      "p10": 22.4,
+      "p90": 45.4
      },
      "d5": {
       "n": 0,
@@ -166689,13 +168030,13 @@
      "p10": 4.7,
      "p90": 44.0,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 19.5,
-      "p10": 5.4,
-      "p90": 42.5
+      "med": 33.9,
+      "p10": 22.4,
+      "p90": 45.4
      },
      "d5": {
       "n": 0,
@@ -166851,13 +168192,13 @@
      "p10": 4.7,
      "p90": 44.0,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 19.5,
-      "p10": 5.4,
-      "p90": 42.5
+      "med": 33.9,
+      "p10": 22.4,
+      "p90": 45.4
      },
      "d5": {
       "n": 0,
@@ -167238,13 +168579,13 @@
       "p90": 26.8
      },
      "d30": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 31.1,
-      "p10": 31.1,
-      "p90": 31.1
+      "med": 17.2,
+      "p10": 6.2,
+      "p90": 28.3
      },
      "lead": {
       "n": 1,
@@ -167381,13 +168722,13 @@
      "p10": 0.2,
      "p90": 8.6,
      "close1": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 1.9,
-      "p10": -0.8,
-      "p90": 10.8
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 5.8,
+      "p10": 0.0,
+      "p90": 11.6
      },
      "d5": {
       "n": 2,
@@ -167867,13 +169208,13 @@
      "p10": -7.6,
      "p90": 3.6,
      "close1": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -0.6,
-      "p10": -7.1,
-      "p90": 1.4
+      "n": 2,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 65.8,
+      "med": -4.7,
+      "p10": -7.9,
+      "p90": -1.4
      },
      "d5": {
       "n": 2,
@@ -168111,13 +169452,13 @@
      "p10": 0.7,
      "p90": 54.1,
      "close1": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 2.0,
-      "p10": 0.2,
-      "p90": 60.4
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 37.4,
+      "p10": 7.3,
+      "p90": 67.5
      },
      "d5": {
       "n": 1,
@@ -169406,13 +170747,13 @@
      "p10": -8.8,
      "p90": 5.6,
      "close1": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 1.9,
-      "p10": -8.4,
-      "p90": 5.4
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -2.3,
+      "p10": -9.2,
+      "p90": 4.5
      },
      "d5": {
       "n": 2,
@@ -169487,13 +170828,13 @@
      "p10": -1.7,
      "p90": 5.6,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 6.2,
-      "p10": 2.7,
-      "p90": 15.1
+      "med": 11.8,
+      "p10": 7.4,
+      "p90": 16.2
      },
      "d5": {
       "n": 1,
@@ -169568,13 +170909,13 @@
      "p10": -2.1,
      "p90": 5.6,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 6.2,
-      "p10": 2.7,
-      "p90": 7.0
+      "med": 6.7,
+      "p10": 6.3,
+      "p90": 7.1
      },
      "d5": {
       "n": 2,
@@ -170054,13 +171395,13 @@
      "p10": -7.2,
      "p90": 1.2,
      "close1": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 1.4,
-      "p10": -8.8,
-      "p90": 1.8
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -5.0,
+      "p10": -10.0,
+      "p90": 0.1
      },
      "d5": {
       "n": 1,
@@ -170135,13 +171476,13 @@
      "p10": -7.7,
      "p90": 16.2,
      "close1": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 1.9,
-      "p10": -4.7,
-      "p90": 16.0
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 6.6,
+      "p10": -3.7,
+      "p90": 16.9
      },
      "d5": {
       "n": 0,
@@ -170378,13 +171719,13 @@
      "p10": -5.6,
      "p90": 0.7,
      "close1": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -1.1,
+      "n": 2,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 65.8,
+      "med": -1.3,
       "p10": -1.4,
-      "p90": 1.3
+      "p90": -1.2
      },
      "d5": {
       "n": 2,
@@ -171456,13 +172797,13 @@
      "p10": 3.4,
      "p90": 23.5,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 20.2,
-      "p10": 5.5,
-      "p90": 34.9
+      "med": 38.6,
+      "p10": 38.6,
+      "p90": 38.6
      },
      "d5": {
       "n": 1,
@@ -172104,13 +173445,13 @@
      "p10": 1.4,
      "p90": 6.0,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 10.1,
-      "p10": 3.5,
-      "p90": 16.7
+      "med": 18.3,
+      "p10": 18.3,
+      "p90": 18.3
      },
      "d5": {
       "n": 1,
@@ -172912,13 +174253,13 @@
      "p10": 8.4,
      "p90": 68.9,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 56.8,
-      "p10": 12.8,
-      "p90": 100.8
+      "med": 111.8,
+      "p10": 111.8,
+      "p90": 111.8
      },
      "d5": {
       "n": 1,
@@ -173056,13 +174397,13 @@
      "p10": 8.4,
      "p90": 68.9,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 56.8,
-      "p10": 12.8,
-      "p90": 100.8
+      "med": 111.8,
+      "p10": 111.8,
+      "p90": 111.8
      },
      "d5": {
       "n": 1,
@@ -174224,13 +175565,13 @@
      "p10": 0.5,
      "p90": 0.8,
      "close1": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -0.6,
-      "p10": -2.6,
-      "p90": 1.4
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -3.1,
+      "p10": -3.1,
+      "p90": -3.1
      },
      "d5": {
       "n": 1,
@@ -174512,13 +175853,13 @@
      "p10": 0.5,
      "p90": 0.8,
      "close1": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -0.6,
-      "p10": -2.6,
-      "p90": 1.4
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -3.1,
+      "p10": -3.1,
+      "p90": -3.1
      },
      "d5": {
       "n": 1,
@@ -174584,13 +175925,13 @@
      "p10": 0.5,
      "p90": 0.8,
      "close1": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -0.6,
-      "p10": -2.6,
-      "p90": 1.4
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -3.1,
+      "p10": -3.1,
+      "p90": -3.1
      },
      "d5": {
       "n": 1,
@@ -174944,13 +176285,13 @@
      "p10": 3.9,
      "p90": 28.7,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 12.7,
-      "p10": 4.0,
-      "p90": 21.4
+      "med": 23.6,
+      "p10": 23.6,
+      "p90": 23.6
      },
      "d5": {
       "n": 1,
@@ -176572,13 +177913,13 @@
      "p10": 1.8,
      "p90": 9.5,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 7.4,
-      "p10": 3.0,
-      "p90": 11.9
+      "med": 13.0,
+      "p10": 13.0,
+      "p90": 13.0
      },
      "d5": {
       "n": 1,
@@ -176716,13 +178057,13 @@
      "p10": 1.8,
      "p90": 9.5,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 7.4,
-      "p10": 3.0,
-      "p90": 11.9
+      "med": 13.0,
+      "p10": 13.0,
+      "p90": 13.0
      },
      "d5": {
       "n": 1,
@@ -177220,13 +178561,13 @@
      "p10": 1.8,
      "p90": 9.5,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 7.4,
-      "p10": 3.0,
-      "p90": 11.9
+      "med": 13.0,
+      "p10": 13.0,
+      "p90": 13.0
      },
      "d5": {
       "n": 1,
@@ -177292,13 +178633,13 @@
      "p10": 1.8,
      "p90": 9.5,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 7.4,
-      "p10": 3.0,
-      "p90": 11.9
+      "med": 13.0,
+      "p10": 13.0,
+      "p90": 13.0
      },
      "d5": {
       "n": 1,
@@ -177580,13 +178921,13 @@
      "p10": 1.8,
      "p90": 9.5,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 7.4,
-      "p10": 3.0,
-      "p90": 11.9
+      "med": 13.0,
+      "p10": 13.0,
+      "p90": 13.0
      },
      "d5": {
       "n": 1,
@@ -177940,13 +179281,13 @@
      "p10": 1.8,
      "p90": 9.5,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 7.4,
-      "p10": 3.0,
-      "p90": 11.9
+      "med": 13.0,
+      "p10": 13.0,
+      "p90": 13.0
      },
      "d5": {
       "n": 1,
@@ -178012,13 +179353,13 @@
      "p10": 1.8,
      "p90": 9.5,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 7.4,
-      "p10": 3.0,
-      "p90": 11.9
+      "med": 13.0,
+      "p10": 13.0,
+      "p90": 13.0
      },
      "d5": {
       "n": 1,
@@ -178660,13 +180001,13 @@
      "p10": 1.6,
      "p90": 7.7,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 9.1,
-      "p10": 3.3,
-      "p90": 14.9
+      "med": 16.4,
+      "p10": 16.4,
+      "p90": 16.4
      },
      "d5": {
       "n": 1,
@@ -179452,13 +180793,13 @@
      "p10": 5.2,
      "p90": 40.0,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 27.4,
-      "p10": 7.0,
-      "p90": 47.8
+      "med": 53.0,
+      "p10": 53.0,
+      "p90": 53.0
      },
      "d5": {
       "n": 1,
@@ -179596,13 +180937,13 @@
      "p10": 5.2,
      "p90": 40.0,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 27.4,
-      "p10": 7.0,
-      "p90": 47.8
+      "med": 53.0,
+      "p10": 53.0,
+      "p90": 53.0
      },
      "d5": {
       "n": 1,
@@ -180072,13 +181413,13 @@
      "p10": 2.6,
      "p90": 16.3,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 13.2,
-      "p10": 4.1,
-      "p90": 22.4
+      "med": 24.6,
+      "p10": 24.6,
+      "p90": 24.6
      },
      "d5": {
       "n": 1,
@@ -180432,13 +181773,13 @@
      "p10": 1.4,
      "p90": 6.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 4.0,
-      "p10": 2.3,
-      "p90": 5.8
+      "med": 6.2,
+      "p10": 6.2,
+      "p90": 6.2
      },
      "d5": {
       "n": 1,
@@ -180864,13 +182205,13 @@
      "p10": 1.4,
      "p90": 6.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 4.0,
-      "p10": 2.3,
-      "p90": 5.8
+      "med": 6.2,
+      "p10": 6.2,
+      "p90": 6.2
      },
      "d5": {
       "n": 1,
@@ -181152,13 +182493,13 @@
      "p10": 1.4,
      "p90": 6.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 4.0,
-      "p10": 2.3,
-      "p90": 5.8
+      "med": 6.2,
+      "p10": 6.2,
+      "p90": 6.2
      },
      "d5": {
       "n": 1,
@@ -181224,13 +182565,13 @@
      "p10": 1.4,
      "p90": 6.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 4.0,
-      "p10": 2.3,
-      "p90": 5.8
+      "med": 6.2,
+      "p10": 6.2,
+      "p90": 6.2
      },
      "d5": {
       "n": 1,
@@ -181368,13 +182709,13 @@
      "p10": 1.4,
      "p90": 6.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 4.0,
-      "p10": 2.3,
-      "p90": 5.8
+      "med": 6.2,
+      "p10": 6.2,
+      "p90": 6.2
      },
      "d5": {
       "n": 1,
@@ -181440,13 +182781,13 @@
      "p10": 1.4,
      "p90": 6.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 4.0,
-      "p10": 2.3,
-      "p90": 5.8
+      "med": 6.2,
+      "p10": 6.2,
+      "p90": 6.2
      },
      "d5": {
       "n": 1,
@@ -181512,13 +182853,13 @@
      "p10": 1.4,
      "p90": 6.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 4.0,
-      "p10": 2.3,
-      "p90": 5.8
+      "med": 6.2,
+      "p10": 6.2,
+      "p90": 6.2
      },
      "d5": {
       "n": 1,
@@ -182464,13 +183805,13 @@
      "p10": 1.1,
      "p90": 3.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 2.8,
-      "p10": 2.0,
-      "p90": 3.5
+      "med": 3.7,
+      "p10": 3.7,
+      "p90": 3.7
      },
      "d5": {
       "n": 1,
@@ -182536,13 +183877,13 @@
      "p10": 1.1,
      "p90": 3.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 2.8,
-      "p10": 2.0,
-      "p90": 3.5
+      "med": 3.7,
+      "p10": 3.7,
+      "p90": 3.7
      },
      "d5": {
       "n": 1,
@@ -182680,13 +184021,13 @@
      "p10": 1.2,
      "p90": 4.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 4.0,
-      "p10": 2.3,
-      "p90": 5.8
+      "med": 6.2,
+      "p10": 6.2,
+      "p90": 6.2
      },
      "d5": {
       "n": 1,
@@ -182824,13 +184165,13 @@
      "p10": 2.8,
      "p90": 18.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 10.7,
-      "p10": 3.6,
-      "p90": 17.7
+      "med": 19.5,
+      "p10": 19.5,
+      "p90": 19.5
      },
      "d5": {
       "n": 0,
@@ -183040,13 +184381,13 @@
      "p10": 2.8,
      "p90": 18.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 10.7,
-      "p10": 3.6,
-      "p90": 17.7
+      "med": 19.5,
+      "p10": 19.5,
+      "p90": 19.5
      },
      "d5": {
       "n": 0,
@@ -183472,13 +184813,13 @@
      "p10": 2.8,
      "p90": 18.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 10.7,
-      "p10": 3.6,
-      "p90": 17.7
+      "med": 19.5,
+      "p10": 19.5,
+      "p90": 19.5
      },
      "d5": {
       "n": 0,
@@ -183616,13 +184957,13 @@
      "p10": 2.8,
      "p90": 18.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 10.7,
-      "p10": 3.6,
-      "p90": 17.7
+      "med": 19.5,
+      "p10": 19.5,
+      "p90": 19.5
      },
      "d5": {
       "n": 0,
@@ -183832,13 +185173,13 @@
      "p10": 2.8,
      "p90": 18.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 10.7,
-      "p10": 3.6,
-      "p90": 17.7
+      "med": 19.5,
+      "p10": 19.5,
+      "p90": 19.5
      },
      "d5": {
       "n": 0,
@@ -183904,13 +185245,13 @@
      "p10": 2.8,
      "p90": 18.2,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 10.7,
-      "p10": 3.6,
-      "p90": 17.7
+      "med": 19.5,
+      "p10": 19.5,
+      "p90": 19.5
      },
      "d5": {
       "n": 0,
@@ -184264,13 +185605,13 @@
      "p10": 5.8,
      "p90": 45.1,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 25.0,
-      "p10": 6.5,
-      "p90": 43.6
+      "med": 48.2,
+      "p10": 48.2,
+      "p90": 48.2
      },
      "d5": {
       "n": 0,
@@ -184336,13 +185677,13 @@
      "p10": 5.8,
      "p90": 45.1,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 25.0,
-      "p10": 6.5,
-      "p90": 43.6
+      "med": 48.2,
+      "p10": 48.2,
+      "p90": 48.2
      },
      "d5": {
       "n": 0,
@@ -184640,13 +185981,13 @@
      "p10": 0.9,
      "p90": 1.7,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 4.6,
-      "p10": 2.4,
-      "p90": 6.8
+      "med": 7.4,
+      "p10": 7.4,
+      "p90": 7.4
      },
      "d5": {
       "n": 0,
@@ -185216,12 +186557,12 @@
      "p10": -2.3,
      "p90": 0.5,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 1.9,
-      "p10": 1.9,
+      "med": 2.0,
+      "p10": 2.0,
       "p90": 2.0
      },
      "d5": {
@@ -186585,13 +187926,13 @@
      "p10": 0.3,
      "p90": 3.5,
      "close1": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -1.4,
-      "p10": -4.2,
-      "p90": 1.3
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -4.8,
+      "p10": -4.8,
+      "p90": -4.8
      },
      "d5": {
       "n": 1,
@@ -188727,7 +190068,8 @@
     "d30": -5.3
    },
    "2015": {
-    "d5": -13.9
+    "d5": -13.9,
+    "d30": -14.6
    },
    "1960": {
     "d5": 6.3,
@@ -188742,7 +190084,8 @@
     "d30": -3.4
    },
    "2034": {
-    "d5": 7.3
+    "d5": 7.3,
+    "d30": 3.4
    },
    "1685": {
     "d5": 10.9
