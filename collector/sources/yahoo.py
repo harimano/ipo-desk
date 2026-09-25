@@ -69,14 +69,18 @@ def _rows(sub) -> list[list]:
 
 
 def daily_bars(tickers_ns: list[str], days: int) -> dict[str, list[list]]:
-    """{symbol (without .NS): [[date, open, close], ...] oldest first}. Raises SourceChanged when a
-    whole batch comes back all-NaN (Yahoo answered with junk), SourceBlocked when rate limited."""
+    """{symbol (without .NS): [[date, open, close], ...] oldest first}. Raises SourceChanged when EVERY
+    batch comes back empty or all-NaN (Yahoo answered with junk), SourceBlocked when rate limited.
+
+    One empty batch is a gap, not a failure: a listing Yahoo does not carry yet (VIVEKANAND on its
+    listing day, 25 Sep 2026) sat alone in the last batch and threw away the 40 names that did price."""
     tickers = [t if t.upper().endswith(".NS") else f"{t.upper()}.NS" for t in tickers_ns if t]
     tickers = list(dict.fromkeys(tickers))
     if not tickers:
         raise SourceChanged(SOURCE, "no tickers requested")
     RL = _rate_limit_error()
     out: dict[str, list[list]] = {}
+    empty: list[str] = []
     for i in range(0, len(tickers), BATCH):
         batch = tickers[i:i + BATCH]
         df = None
@@ -95,18 +99,21 @@ def daily_bars(tickers_ns: list[str], days: int) -> dict[str, list[list]]:
                 raise SourceDown(SOURCE, f"download: {type(e).__name__}: {str(e)[:120]}")
         if df is None:
             raise SourceBlocked(SOURCE, "rate limited after backoff", status=429)
-        if df is None or len(df) == 0:
-            raise SourceChanged(SOURCE, f"empty frame for batch {batch[:3]}")
         got_any = False
-        for t in batch:
-            rows = _rows(_frame_for(df, t, len(batch)))
-            if rows:
-                got_any = True
-                out[t.removesuffix(".NS")] = rows
+        if len(df):
+            for t in batch:
+                rows = _rows(_frame_for(df, t, len(batch)))
+                if rows:
+                    got_any = True
+                    out[t.removesuffix(".NS")] = rows
         if not got_any:
-            raise SourceChanged(SOURCE, f"all-NaN batch {batch[:3]}")
+            empty += batch
         if i + BATCH < len(tickers):
             time.sleep(1.0)
+    if not out:
+        raise SourceChanged(SOURCE, f"empty or all-NaN frames for every batch ({len(tickers)} tickers, e.g. {tickers[:3]})")
+    if empty:
+        log.warning("yahoo: no bars for %d tickers (whole batch empty): %s", len(empty), empty[:8])
     return out
 
 

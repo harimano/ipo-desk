@@ -24,6 +24,12 @@ MODULES = ["calendar", "gmp", "details", "subscription", "listings", "history", 
 log = logging.getLogger("collector")
 
 
+class OverBudget(BaseException):
+    """Deliberately NOT a TimeoutError (nor any Exception). httpcore maps a TimeoutError raised inside a socket read to
+    httpx.ReadTimeout, which the session retries as a network fault — so the alarm was swallowed and a slow InvestorGain
+    evening ran past the job's 20 minutes and was cancelled (25 Sep 2026). `except Exception` in modules can't eat this."""
+
+
 class Budget:
     """A whole-run wall-clock budget. SIGALRM is the one thing that can interrupt a stuck call."""
     def __init__(self, seconds: int):
@@ -39,7 +45,7 @@ class Budget:
 
     @staticmethod
     def _fire(signum, frame):
-        raise TimeoutError("run budget exceeded")
+        raise OverBudget("run budget exceeded")
 
 
 def run_module(name: str, session: Session, prev: dict, budget_left: float, doc: dict | None = None) -> Result:
@@ -49,7 +55,7 @@ def run_module(name: str, session: Session, prev: dict, budget_left: float, doc:
     try:
         mod = importlib.import_module(f"collector.modules.{name}")
         res = mod.run(session, prev, res)
-    except TimeoutError:
+    except OverBudget:
         raise
     except Exception as e:  # a module crash is a stale section, not a dead run
         log.exception("module %s crashed", name)
@@ -90,7 +96,7 @@ def main(argv=None) -> int:
                     log.error("OWNERSHIP: %s", e)
                     return 3
                 results.append(res)
-    except TimeoutError:
+    except OverBudget:
         log.error("run budget of %ds exceeded after %d modules; assembling what we have", a.max_seconds, len(results))
     finally:
         session.close()

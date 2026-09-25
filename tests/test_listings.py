@@ -259,3 +259,20 @@ def test_angelone_ltp(angel_env, monkeypatch):
     session = FakeSession(json_={"OpenAPIScripMaster.json": fixture_json("angelone", "instrument_master.json")})
     out = angelone.ltp(["RELIANCE", "SBIN.NS", "NOSUCH"], session)
     assert out == {"RELIANCE": 2951.4, "SBIN": 812.75}
+
+
+def test_yahoo_one_empty_batch_keeps_the_others(monkeypatch):
+    """25 Sep 2026: VIVEKANAND alone in the last batch came back empty and threw away every name that priced."""
+    import pandas as pd
+    monkeypatch.setattr(yahoo, "BATCH", 2)
+    patch_yahoo(monkeypatch, lambda tickers, days: pd.DataFrame() if "VIVEKANAND.NS" in tickers else yahoo_frame(BARS, tickers))
+    out = yahoo.daily_closes(["NEWLIST", "SMEONE", "VIVEKANAND"], 10)
+    assert set(out) == {"NEWLIST", "SMEONE"}
+
+
+def test_yahoo_every_batch_empty_still_raises_changed(monkeypatch):
+    import pandas as pd
+    monkeypatch.setattr(yahoo, "BATCH", 1)
+    patch_yahoo(monkeypatch, lambda tickers, days: pd.DataFrame())
+    with pytest.raises(SourceChanged):
+        yahoo.daily_closes(["NEWLIST", "SMEONE"], 10)
