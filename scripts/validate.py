@@ -213,8 +213,11 @@ def main() -> int:
                     # /records/<id>/… is one listing's fetched sheet: its tables shrink when the source re-cuts them
                     # (a reservation table goes from 8 rows to 3 once the issue closes — 23 Sep 2026, 9 errors, run refused);
                     # the number of records is still checked at /records.
+                    # /players/books/<id> is one UNLISTED issue's anchor line-up: it leaves the day the issue
+                    # lists (NSE, 24 Sep 2026: "18 -> 0, 100% loss" refused three full runs in a row).
                     if (old < MIN_CENSUS or path.startswith("/integrity") or path.startswith("/news")
                             or path == "/meta/unresolved" or path.startswith("/records/")
+                            or path.startswith("/players/books/")
                             or ("[]" in path and old < MIN_CENSUS_NESTED)):
                         continue
                     compared += 1
