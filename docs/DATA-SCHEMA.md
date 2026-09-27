@@ -29,7 +29,13 @@ investors: {asOf, watchlist[], portfolios[], moves[], holdings[], bulkDeals[{dat
     listedOn, daysSinceListing, issuePrice, vsIssuePct}. `sme` on every row: never pooled. Deduped on date+symbol+client+side+qty.
   - `listingSymbols{name: {symbol|null, triedOn}}` (owned by `deals`): this year's listings' NSE symbols, remembered so NSE's equity
     lists are fetched only for new names; null = no NSE symbol (BSE-only), retried weekly while the listing is under 90 days old.
-expected[]: {name, window, stage, sizeCr, sizeText, note, parent, sources[]}
+expected[]: {name, window, stage, sizeCr, sizeText, note, parent, sources[], auto?, lastFiling?, quotaCandidate?}
+  - `quotaCandidate` (filings, a FLAG, never a quota): {via: "announcement", parents[{symbol, name}], kind, text, url, date} when a listed
+    company's NSE announcement about a subsidiary's offer names the row; else, on `auto` rows only, {via: "name", parents[...]} when the
+    row's first word is a listed group's first word (≤15 companies share it, generic words stoplisted). "announcement" is never downgraded.
+quotaLeads[] (filings): NSE announcements (both boards) in which a listed company speaks about a subsidiary's / group company's offer,
+  60 days, ≤40, newest first: {parentSymbol, parentName, kind drhp|udrhp|rhp|observation|withdrawn|ipo, text (≤300), url (the PDF, linked,
+  never read), date, seqId, sme, watched? (parent already on the quota list; its row was moved/flagged), matched? (the expected row named)}.
 news[]: {title, url, date}
 integrity: {asOf, checks[{area, method, status, note, asOf?, elapsed?, calls?}], discrepancies[]}
 current{name}: per-IPO research for open/upcoming mainboard names {research, recs, sheet}   - Claude-owned (data/research/)

@@ -29,12 +29,15 @@ class FakeSession:
     """Same method names as collector.http.Session; answers from fixtures keyed by scrip / register."""
 
     def __init__(self, bse: dict | None = None, sebi_post: dict | None = None, sebi_get: dict | None = None,
-                 detail: str | None = None, bse_exc: Exception | None = None):
+                 detail: str | None = None, bse_exc: Exception | None = None,
+                 nse: dict | None = None, equity_csv: str | None = None):
         self.bse = bse or {}
         self.sebi_post = sebi_post or {}
         self.sebi_get = sebi_get or {}
         self.detail = detail
         self.bse_exc = bse_exc
+        self.nse = nse or {}               # index -> payload | Exception; absent -> down
+        self.equity_csv = equity_csv
         self.calls: list[tuple] = []
 
     def bse_json(self, path, params=None, *, source="bse"):
@@ -60,6 +63,12 @@ class FakeSession:
 
     def get_text(self, url, *, source, headers=None, params=None):
         self.calls.append(("get", url, dict(params or {})))
+        if url.endswith("EQUITY_L.csv"):
+            if self.equity_csv is None:
+                raise SourceDown(source, "no equity list", url)
+            return self.equity_csv
+        if url.endswith("SME_EQUITY_L.csv"):
+            raise SourceDown(source, "no SME list", url)
         if "/filings/" in url:
             if self.detail is None:
                 raise SourceDown(source, "no detail", url)
@@ -69,9 +78,16 @@ class FakeSession:
             return self.sebi_get[smid]
         raise SourceDown(source, "listing unavailable", url)
 
+    def nse_json(self, path, params=None, *, source="nse", referer=None):
+        self.calls.append(("nse", path, dict(params or {})))
+        v = self.nse.get((params or {}).get("index"))
+        if v is None:
+            raise SourceDown(source, "nse down", path)
+        if isinstance(v, Exception):
+            raise v
+        return v
+
     # unused by this module, present so the fake has the full surface
-    def nse_json(self, *a, **k):
-        raise AssertionError("filings must not call NSE")
 
     def get_json(self, *a, **k):
         raise AssertionError("unexpected get_json")
@@ -297,7 +313,7 @@ def test_both_sources_fail_is_not_ok(monkeypatch):
                     sebi_post={"10": SourceDown("sebi", "down"), "11": SourceDown("sebi", "down")})
     res, prev = _run(s, monkeypatch=monkeypatch)
     assert not res.ok and res.error
-    assert len([t for t in res.tried if not t["ok"]]) == 2
+    assert len([t for t in res.tried if not t["ok"]]) == 3
     data = json.loads(json.dumps(prev))
     assemble.apply(data, res)          # not ok -> nothing applied, no ownership error
     assert data["quota"] == prev["quota"]
@@ -311,7 +327,7 @@ def test_module_never_writes_quota_fields(monkeypatch):
                          ("500182", 2): _bse("paged_p2.json")},
                     sebi_post={"10": _sebi("drhp_page1.html"), "11": _sebi("rhp_page1.html")})
     res, prev = _run(s, monkeypatch=monkeypatch)
-    assert res.rows and set(res.rows) == {"quota"} and set(res.replace) <= {"expected"} and not res.merge
+    assert res.rows and set(res.rows) == {"quota"} and set(res.replace) <= {"expected", "quotaLeads"} and not res.merge
     for name, fields in res.rows["quota"].items():
         assert set(fields) <= filings.ALLOWED_FIELDS, (name, fields)
         assert not (set(fields) & filings.FORBIDDEN_FIELDS)
@@ -376,3 +392,145 @@ def test_build_expected_adds_facts_never_rewrites_handwriting():
     assert set(by) == {"Zetwerk", "Torrent Gas", "Iberia Pharmaceuticals India"}, "no addendum-only, quota, or RHP-register names"
     again, stats2 = filings.build_expected({**prev, "expected": out}, rows, dt.date(2026, 9, 18))
     assert [r["name"] for r in again] == [r["name"] for r in out] and stats2["new"] == 0 and stats2["rhp"] == 0
+
+
+# ------------------------------------------------------------------------------------------
+# discovery: NSE's market-wide announcements + group names -> quotaCandidate / quotaLeads
+# ------------------------------------------------------------------------------------------
+from collector.sources import nse_ann, nse_symbols  # noqa: E402
+
+NSE_FIX = FIX / "nse"
+
+
+def _ann():
+    return json.loads((NSE_FIX / "corporate-announcements.json").read_text(encoding="utf8"))
+
+
+def _equity():
+    return (FIX / "nsearchives" / "EQUITY_L-sample.csv").read_text(encoding="utf8")
+
+
+def test_nse_ann_parse_and_changed_shape():
+    rows = nse_ann.parse(_ann())
+    assert len(rows) == 13 and all(r["symbol"] and r["date"] for r in rows)
+    kp = next(r for r in rows if r["symbol"] == "KPIL")
+    assert kp["date"] == "2026-09-25" and kp["url"].startswith("https://nsearchives")
+    with pytest.raises(SourceChanged):
+        nse_ann.parse({"data": []})
+    with pytest.raises(SourceChanged):
+        nse_ann.parse([{"foo": 1}])
+
+
+@pytest.mark.parametrize("text,kind", [
+    ("Disclosure under Regulation 30 of SEBI LODR, 2015 Filing of DRHP of Mahanadi Coalfields Limited (MCL), "
+     "a wholly owned Subsidiary of CIL.", "drhp"),
+    ("Prestige Estates Projects Limited has informed the Exchange about the withdrawal of DRHP by Subsidiary", "withdrawn"),
+    ("Kalpataru Projects International Limited has informed the Exchange about Initial public offering of equity "
+     "shares of Linjemontage i Grastorp AB, a first level step down material subsidiary", "ipo"),
+    ("Arkade Developers Limited has informed the Exchange regarding a press release on marking a milestone of 2 years "
+     "of IPO and growth journey.", None),
+    ("Statement of deviation in utilisation of IPO proceeds of the subsidiary", None),
+    ("JSW Cement Limited has informed the Exchange about General Updates", None),
+    ("Filing of Red Herring Prospectus by Hero FinCorp Limited, a subsidiary", "rhp"),
+])
+def test_classify_lead(text, kind):
+    assert filings.classify_lead(text) == kind
+
+
+def test_discover_finds_leads_and_moves_watched_parent(monkeypatch):
+    prev = _prev()
+    prev["expected"] = [{"name": "Iberia Pharmaceuticals India", "auto": True, "stage": "DRHP filed 17 Sep 2026",
+                         "lastFiling": {"date": "2026-09-17"}}]
+    s = FakeSession(bse_exc=SourceDown("bse_ann", "HTTP 403"),
+                    sebi_post={"10": SourceDown("sebi", "down"), "11": SourceDown("sebi", "down")},
+                    nse={"equities": _ann(), "sme": SourceChanged("nse_ann", "empty JSON body")}, equity_csv=_equity())
+    res, _ = _run(s, prev=prev, today=dt.date(2026, 9, 26), monkeypatch=monkeypatch)
+    assert res.ok and res.source == "nse_ann"
+    leads = res.replace["quotaLeads"]
+    assert {(x["parentSymbol"], x["kind"]) for x in leads} == {("PRESTIGE", "withdrawn"), ("KPIL", "ipo"), ("COALINDIA", "drhp")}
+    assert any(n.startswith("discover: 13 announcements scanned, 3 ") for n in res.notes)
+    # Coal India is a watched parent: its quota row moves, from an NSE announcement
+    p = res.rows["quota"]["Coal India Subsidiary"]
+    assert p["bucket"] == "drhp" and p["needsReview"]["source"] == "nse_ann" and p["stageDate"] == "2026-09-02"
+    assert next(x for x in leads if x["parentSymbol"] == "COALINDIA")["watched"] is True
+    # the window asked for is the last four days
+    assert [c for c in s.calls if c[0] == "nse"][0][2]["from_date"] == "22-09-2026"
+
+
+def test_lead_attaches_to_expected_row_not_to_the_announcer_itself():
+    expected = [{"name": "Mahanadi Coalfields", "auto": True},
+                {"name": "Coal India", "note": "hand row"},             # the announcer: never its own candidate
+                {"name": "Linjemontage", "auto": True}]
+    leads = [{"parentSymbol": "COALINDIA", "parentName": "Coal India Limited", "kind": "drhp", "date": "2026-09-02",
+              "text": "Filing of DRHP of Mahanadi Coalfields Limited (MCL), a wholly owned Subsidiary of Coal India", "url": "u"},
+             {"parentSymbol": "PRESTIGE", "parentName": "Prestige Estates Projects Limited", "kind": "withdrawn",
+              "date": "2026-09-25", "text": "withdrawal of DRHP by Linjemontage subsidiary", "url": "w"}]
+    stats = filings.attach_candidates(expected, leads, [])
+    by = {r["name"]: r for r in expected}
+    c = by["Mahanadi Coalfields"]["quotaCandidate"]
+    assert c["via"] == "announcement" and c["parents"] == [{"symbol": "COALINDIA", "name": "Coal India Limited"}]
+    assert c["url"] == "u" and c["kind"] == "drhp"
+    assert "quotaCandidate" not in by["Coal India"] and by["Coal India"]["note"] == "hand row"
+    assert "quotaCandidate" not in by["Linjemontage"], "a withdrawal is a lead, never a candidate"
+    assert leads[0]["matched"] == "Mahanadi Coalfields" and stats["announcement"] == 1
+
+
+def test_name_flag_on_auto_rows_only():
+    companies = nse_symbols.parse(_equity())
+    expected = [{"name": "Torrent Gas", "auto": True}, {"name": "Hero Fincorp", "auto": True},
+                {"name": "JSW One Platforms", "auto": True}, {"name": "India Shelter Housing", "auto": True},
+                {"name": "India Exposition Mart", "auto": True}, {"name": "M P Steel (India)", "auto": True},
+                {"name": "Sembcorp Green Infra", "auto": True}, {"name": "Torrent Hand", "note": "hand"},
+                {"name": "Fractal Analytics", "auto": True}]
+    stats = filings.attach_candidates(expected, [], companies)
+    by = {r["name"]: r.get("quotaCandidate") for r in expected}
+    assert {p["symbol"] for p in by["Torrent Gas"]["parents"]} == {"TORNTPOWER", "TORNTPHARM"}
+    assert by["Torrent Gas"]["via"] == "name"
+    assert "HEROMOTOCO" in {p["symbol"] for p in by["Hero Fincorp"]["parents"]}
+    assert "JSWCEMENT" in {p["symbol"] for p in by["JSW One Platforms"]["parents"]}
+    assert by["India Shelter Housing"] is None and by["India Exposition Mart"] is None, "generic first word"
+    assert by["M P Steel (India)"] is None and by["Sembcorp Green Infra"] is None
+    assert by["Torrent Hand"] is None, "hand rows are not name-flagged"
+    assert by["Fractal Analytics"] is None, "a listed company is not its own parent"
+    assert stats["name"] == 3
+
+
+def test_name_never_downgrades_announcement_and_missing_list_keeps_flags():
+    ann = {"via": "announcement", "parents": [{"symbol": "COALINDIA"}], "url": "u"}
+    name = {"via": "name", "parents": [{"symbol": "TORNTPOWER"}]}
+    expected = [{"name": "Torrent Gas", "auto": True, "quotaCandidate": dict(ann)},
+                {"name": "Torrent Other", "auto": True, "quotaCandidate": dict(name)}]
+    filings.attach_candidates(expected, [], nse_symbols.parse(_equity()))
+    assert expected[0]["quotaCandidate"] == ann
+    expected[1]["quotaCandidate"] = {"via": "name", "parents": [{"symbol": "OLD"}]}
+    filings.attach_candidates(expected, [], None)
+    assert expected[1]["quotaCandidate"]["parents"] == [{"symbol": "OLD"}]
+
+
+def test_merge_leads_dedupes_and_ages_out():
+    today = dt.date(2026, 9, 26)
+    old = {"parentSymbol": "X", "seqId": "1", "date": "2026-07-01", "text": "t", "kind": "drhp"}
+    kept = {"parentSymbol": "Y", "seqId": "2", "date": "2026-09-20", "text": "t", "kind": "drhp", "matched": "Row"}
+    again = {"parentSymbol": "Y", "seqId": "2", "date": "2026-09-20", "text": "t", "kind": "drhp"}
+    out = filings.merge_leads([old, kept], [again], today)
+    assert [x["seqId"] for x in out] == ["2"] and out[0]["matched"] == "Row"
+
+
+def test_nse_down_carries_leads_and_still_flags_names(monkeypatch):
+    prev = _prev()
+    prev["quotaLeads"] = [{"parentSymbol": "KPIL", "seqId": "9", "date": "2026-09-25", "text": "x", "kind": "ipo"}]
+    prev["expected"] = [{"name": "Torrent Gas", "auto": True}]
+    s = FakeSession(sebi_post={"10": _sebi("drhp_page1.html"), "11": _sebi("rhp_page1.html")}, equity_csv=_equity())
+    res, _ = _run(s, prev=prev, monkeypatch=monkeypatch)
+    assert res.ok and "quotaLeads" not in res.replace, "no answer -> yesterday's leads stay by not replacing"
+    tg = next(r for r in res.replace["expected"] if r["name"] == "Torrent Gas")
+    assert tg["quotaCandidate"]["via"] == "name"
+    assert any(t["source"] == "nse_ann" and not t["ok"] for t in res.tried)
+
+
+def test_schema_and_layout_publish_quota_leads():
+    from collector import layout
+    assert schema.OWNERS["quotaLeads"] == "filings" and "quotaLeads" in schema.TOP_LEVEL
+    assert schema.empty_data()["quotaLeads"] == []
+    assert "quotaLeads" in layout.GROUPS["pipeline"]
+    layout.check_groups()

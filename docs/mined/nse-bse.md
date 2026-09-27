@@ -160,3 +160,12 @@ try:
 except (ConnectionError, TimeoutError, ValueError) as e:
     print("BSE failed:", repr(e)); ril_anns = []
 ```
+
+## corporate-announcements, market-wide (surveyed 26–27 Sep 2026)
+
+No `symbol` + a date range answers every company: `index=equities` 3,883 rows for 22–26 Sep (~2.8 MB), 15,250 for 30 days (~11 MB);
+`index=sme` 842 for five days. Rows as above; `attchmntText` is NSE's one-line summary. Answers from GitHub's runners (the `deals`
+module already uses `/api`). BSE's equivalent (`AnnSubCategoryGetData/w`, `strscrip=` blank) answers only a ONE-DAY window
+(2,084 rows on 25 Sep; 529 under `strCat=Company Update`, 50 a page) and 403s on the runners. BSE headlines name the subsidiary
+more often (JSW Cement → JSW One Platforms' DRHP; NSE said only "General Updates"). 30 days of NSE held three subsidiary-offer
+disclosures: Coal India → Mahanadi Coalfields DRHP, Kalpataru → a Swedish step-down subsidiary's IPO, Prestige → DRHP withdrawn.

@@ -10,9 +10,14 @@ What it does each run:
       RHP -> approved, stage "RHP filed") and sets needsReview {source, url, headline, date};
   (c) diffs page 1 of SEBI's DRHP and RHP registers against prev to catch filings the parent did
       not announce, matching subsidiary names to quota row names after normalisation;
-  (d) moves rows whose listingDate is now past to bucket done.
+  (d) moves rows whose listingDate is now past to bucket done;
+  (e) discovery: reads NSE's market-wide announcements (last 4 days, both boards) for a listed company
+      speaking about a subsidiary's offer. Those are `quotaLeads[]` (60 days). A lead from a watched parent
+      moves its quota row as (b) would (BSE is blocked on the runners); a lead naming an `expected` row, and
+      an `auto` row whose first word is a listed group's first word, get `quotaCandidate`. A flag, never a
+      quota: promotion stays a person reading the DRHP (data/quota-reviews/ + parents.json).
 
-Both bse_ann and sebi are attempted every run; the module is ok if EITHER answered, and res.notes
+bse_ann, sebi and nse_ann are attempted every run; the module is ok if ANY answered, and res.notes
 records which. A row nothing mentioned keeps its previous stage (no patch). Stages never regress:
 a DRHP headline for a row already approved only flags needsReview.
 """
@@ -29,7 +34,7 @@ from ..errors import SourceChanged, SourceError
 from ..http import Session
 from ..names import Matcher, display_name, load_aliases
 from ..result import Result
-from ..sources import bse_ann, sebi
+from ..sources import bse_ann, nse_ann, nse_symbols, sebi
 
 log = logging.getLogger("collector.filings")
 IST = ZoneInfo("Asia/Kolkata")
@@ -302,6 +307,154 @@ def build_expected(prev: dict, sebi_rows: list[dict], today: dt.date) -> tuple[l
     return hand + auto[:AUTO_MAX], stats
 
 
+# ---------------------------------------------------------------------------------------------
+# discovery — listed parents the quota list does not know yet. It flags; it never asserts a quota.
+# ---------------------------------------------------------------------------------------------
+ANN_LOOKBACK_DAYS = 4    # two full runs a day; four days covers a weekend and one missed day
+LEAD_MAX_DAYS = 60
+LEAD_MAX = 40
+_ANN_DOC_RE = re.compile(r"red\s+herring|\bU?DRHP\b|initial\s+public\s+offer|\bIPO\b|offer\s+document|prospectus|"
+                         r"observation\s+letter", re.I)
+_ANN_REL_RE = re.compile(r"subsidiar|step[\s-]*down|group\s+compan|associate\s+compan|joint\s+venture", re.I)
+# a company talking about its OWN past offer: proceeds, monitoring agency, anniversaries
+_ANN_OWN_RE = re.compile(r"utili[sz]ation|proceeds|monitoring\s+agency|variation|anniversary|milestone|years\s+of\s+(its\s+)?IPO",
+                         re.I)
+_WITHDRAW_RE = re.compile(r"withdr[ae]w", re.I)
+
+NAME_MAX_SHARED = 15     # a first word more than this many listed companies share is not a group name (Tata: 13)
+NAME_STOP = frozenset("""
+    india indian bharat hindustan hind indo gujarat maharashtra bombay mumbai delhi bengal punjab rajasthan kerala tamil
+    andhra madras karnataka south north east west eastern western southern northern central national international global
+    united new modern standard general universal super supreme royal star sun premier prime first capital asian orient
+    oriental shree shri sri jai om maa sai ganesh laxmi lakshmi krishna balaji mahalaxmi blue green golden silver
+""".split())
+
+
+def classify_lead(text: str) -> str | None:
+    """An NSE announcement's summary -> lead kind, or None when it is not a listed company speaking about a
+    subsidiary's (or group company's) offer. Kinds: drhp / udrhp / rhp / observation / withdrawn / ipo."""
+    if not text or not _ANN_DOC_RE.search(text) or not _ANN_REL_RE.search(text) or _ANN_OWN_RE.search(text):
+        return None
+    if _WITHDRAW_RE.search(text):
+        return "withdrawn"
+    cls = classify_headline(text)
+    return cls["kind"] if cls and cls["kind"] != "generic" else "ipo"
+
+
+def _from_nse_ann(session: Session, today: dt.date, found: list[dict], res: Result) -> str | None:
+    since = today - dt.timedelta(days=ANN_LOOKBACK_DAYS)
+    scanned = 0
+    for index in ("equities", "sme"):
+        try:
+            rows = nse_ann.fetch(session, index, since, today, source="nse_ann")
+        except SourceError as e:
+            if index == "equities":
+                raise                          # the mainboard list is the leg; an empty SME window is ordinary
+            res.notes.append(f"nse_ann sme: {e.detail}")
+            continue
+        scanned += len(rows)
+        for a in rows:
+            kind = classify_lead(a["text"])
+            if kind and a.get("symbol"):
+                found.append({"parentSymbol": a["symbol"], "parentName": a.get("company"), "kind": kind,
+                              "text": a["text"][:300], "url": a.get("url"), "date": a.get("date"),
+                              "seqId": a.get("seqId"), "sme": index == "sme"})
+    res.notes.append(f"discover: {scanned} announcements scanned, {len(found)} subsidiary-offer leads")
+    return today.isoformat()
+
+
+def _lead_key(lead: dict) -> str:
+    return lead.get("seqId") or f"{lead.get('parentSymbol')}|{lead.get('date')}|{lead.get('text', '')[:60]}"
+
+
+def merge_leads(prev_leads: list[dict], found: list[dict], today: dt.date) -> list[dict]:
+    """Yesterday's leads plus today's, one per announcement, newest first, none older than LEAD_MAX_DAYS."""
+    by: dict[str, dict] = {}
+    for lead in list(prev_leads or []) + found:
+        if isinstance(lead, dict) and lead.get("parentSymbol"):
+            by[_lead_key(lead)] = {**by.get(_lead_key(lead), {}), **lead}
+    keep = [x for x in by.values() if _d(x.get("date")) is None or (today - _d(x["date"])).days <= LEAD_MAX_DAYS]
+    keep.sort(key=lambda x: x.get("date") or "", reverse=True)
+    return keep[:LEAD_MAX]
+
+
+def _row_key(name: str) -> str | None:
+    """A row name specific enough to find inside an announcement: two words, or one of 6+ letters."""
+    k = normalise(name)
+    return k if (len(k.split()) >= 2 or len(k) >= 6) else None
+
+
+def _leads_to_quota(leads: list[dict], wl: dict[str, dict], patches: dict, today: dt.date) -> int:
+    """A lead from a parent already on the quota list moves that row the way a BSE headline would (the BSE
+    per-parent poll is blocked on the runners). A withdrawal only flags the row."""
+    hits = 0
+    for lead in sorted(leads, key=lambda x: x.get("date") or ""):
+        p = wl.get(lead["parentSymbol"])
+        if not p:
+            continue
+        lead["watched"] = True
+        cls = classify_headline(lead["text"]) if lead["kind"] != "withdrawn" else None
+        cls = cls or {"stage": None, "bucket": None, "kind": "generic"}
+        evidence = {"source": "nse_ann", "url": lead.get("url"), "headline": lead["text"], "date": lead.get("date")}
+        for row in _rows_for_announcement(p["rows"], lead["text"]):
+            if _transition(row, cls, evidence, patches, today):
+                hits += 1
+    return hits
+
+
+def _candidate(lead: dict) -> dict:
+    return {"via": "announcement", "parents": [{"symbol": lead["parentSymbol"], "name": lead.get("parentName")}],
+            "kind": lead["kind"], "text": lead["text"], "url": lead.get("url"), "date": lead.get("date")}
+
+
+def attach_candidates(expected: list[dict], leads: list[dict], companies: list[dict] | None) -> dict:
+    """Mark `expected` rows that may carry a shareholder quota. Adds `quotaCandidate` and nothing else:
+      * via "announcement" — a listed company's announcement about a subsidiary's offer names the row.
+        The announcer must not be the row itself (listed issuers announce their own business every day).
+      * via "name" — an `auto` row's first word is a listed company's first word (a group name). Weak:
+        Madhur Iron -> Madhur Knitting is expected. Never replaces an announcement candidate.
+    Leads that name a row get `matched` = the row's name."""
+    stats = {"announcement": 0, "name": 0}
+    keyed = [(k, r) for r in expected if isinstance(r, dict) and r.get("name") and (k := _row_key(r["name"]))]
+    for lead in sorted(leads, key=lambda x: x.get("date") or ""):   # the newest announcement has the last word
+        if lead.get("kind") == "withdrawn":
+            continue
+        text = normalise(lead["text"])
+        parent = normalise(lead.get("parentName") or "")
+        for k, row in keyed:
+            if k in text and not parent.startswith(k):
+                row["quotaCandidate"] = _candidate(lead)
+                lead["matched"] = row["name"]
+    firsts: dict[str, list[dict]] = {}
+    for c in companies or []:
+        words = normalise(c.get("name") or "").split()
+        if words:
+            firsts.setdefault(words[0], []).append(c)
+    for row in expected:
+        if not isinstance(row, dict) or not row.get("name"):
+            continue
+        cand = row.get("quotaCandidate") or {}
+        if cand.get("via") == "announcement":
+            stats["announcement"] += 1
+            continue
+        if companies is None:                 # the list did not load: keep whatever name flag was there
+            stats["name"] += bool(cand)
+            continue
+        row.pop("quotaCandidate", None)
+        if not row.get("auto"):
+            continue
+        own = normalise(row["name"])
+        words = own.split()
+        first = words[0] if words else ""
+        if len(first) < 3 or first in NAME_STOP:
+            continue
+        group = [c for c in firsts.get(first, []) if normalise(c["name"]) != own]
+        if group and len(firsts[first]) <= NAME_MAX_SHARED:
+            row["quotaCandidate"] = {"via": "name", "parents": [{"symbol": c["symbol"], "name": c["name"]} for c in group]}
+            stats["name"] += 1
+    return stats
+
+
 def _expire(prev: dict, patches: dict, today: dt.date) -> int:
     moved = 0
     for row in prev.get("quota") or []:
@@ -338,8 +491,10 @@ def run(session: Session, prev: dict, res: Result) -> Result:
     wins: list[str] = []
     last: Exception | None = None
     sebi_rows: list[dict] = []
+    found: list[dict] = []
     for name, fn in (("bse_ann", lambda: _from_bse(session, wl, patches, res, today)),
-                     ("sebi", lambda: _from_sebi(session, wl, prev, patches, res, today, sebi_rows))):
+                     ("sebi", lambda: _from_sebi(session, wl, prev, patches, res, today, sebi_rows)),
+                     ("nse_ann", lambda: _from_nse_ann(session, today, found, res))):
         try:
             fn()
             res.tried.append({"source": name, "ok": True})
@@ -350,6 +505,11 @@ def run(session: Session, prev: dict, res: Result) -> Result:
         except Exception as e:  # parser bug == SourceChanged in disguise
             res.tried.append({"kind": "changed", "source": name, "detail": f"{type(e).__name__}: {e}", "ok": False})
             last = e
+    ann_ok = "nse_ann" in wins
+    if found:
+        hits = _leads_to_quota(found, wl, patches, today)
+        if hits:
+            res.notes.append(f"nse_ann: {hits} quota stage changes from watched parents")
     moved = _expire(prev, patches, today)
     if moved:
         res.notes.append(f"{moved} rows past listingDate moved to done")
@@ -360,11 +520,25 @@ def run(session: Session, prev: dict, res: Result) -> Result:
         if bad:
             raise RuntimeError(f"filings tried to write {sorted(bad)} on {name!r}")
     res.rows["quota"] = patches
-    if sebi_rows:                      # no SEBI answer -> `expected` is simply not replaced, i.e. carried forward
+    if sebi_rows:                      # no SEBI answer -> the names are yesterday's; candidates are still re-read
         expected, stats = build_expected(prev, sebi_rows, today)
-        res.replace["expected"] = expected
         res.notes.append(f"expected: {len(expected)} names; {stats['new']} new from the DRHP register, "
                          f"{stats['rhp']} moved to RHP filed, {stats['launched']} left for the board")
+    else:
+        expected = [dict(r) for r in prev.get("expected") or [] if isinstance(r, dict)]
+    leads = merge_leads(prev.get("quotaLeads") or [], found, today) if ann_ok else \
+        [dict(x) for x in prev.get("quotaLeads") or [] if isinstance(x, dict)]
+    try:
+        companies = nse_symbols.companies(session)
+    except SourceError as e:
+        companies = None
+        res.notes.append(f"discover: NSE equity lists unavailable ({e.detail}); name flags carried forward")
+    cstats = attach_candidates(expected, leads, companies)
+    res.replace["expected"] = expected
+    if ann_ok:
+        res.replace["quotaLeads"] = leads
+    res.notes.append(f"discover: {cstats['announcement'] + cstats['name']} candidates "
+                     f"({cstats['announcement']} by announcement, {cstats['name']} by group name); {len(leads)} leads held")
     kept = sum(1 for r in prev.get("quota") or [] if isinstance(r, dict) and r.get("name") not in patches)
     res.notes.append(f"{len(patches)} rows patched, {kept} kept previous stage")
     if wins:

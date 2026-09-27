@@ -87,7 +87,7 @@ reason this repo exists.
 | history (`listedPerf`, `comps`) | InvestorGain report 377, one call per year since 2022 (GMP, issue price, listing open, day-1 close, latest price, total subscription; SME included) + report 566 for this year's QIB / NII / retail | the evidence behind every band on the Board; a finished year is fetched once and kept |
 | investor stock prices | NSE equity lists (name → symbol) + the `parents` price batch | written to `investors.prices`, a key the sweep file's overlay cannot undo |
 | parent prices | yfinance → Angel One | eight parents, one batch |
-| filings (the quota radar) | BSE announcements per parent scrip + SEBI DRHP/RHP page-1 diff | Reg 30 intimations; classify by headline; flag `needsReview` for Claude |
+| filings (the quota radar) | BSE announcements per parent scrip + SEBI DRHP/RHP page-1 diff + NSE market-wide announcements | Reg 30 intimations; classify by headline; flag `needsReview` for Claude; discovery: `quotaLeads` + `quotaCandidate` on `expected` rows (flags, never a quota) |
 | FII/DII | NSE `fiidiiTradeReact` | no second source exists; fails cleanly |
 | bulk/block deals | nsearchives CSVs | watchlist + vehicle substring match |
 | news | RSS | keyword-filtered |

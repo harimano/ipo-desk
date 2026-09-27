@@ -100,6 +100,12 @@ document as assembled so far; `prev` is yesterday's.
   intervals, sorted by n — no score, no verdict. Same key: `dealRows` / `deals` = the tape's names (net buyer / net seller
   per client × stock × day) and the stock's 5- / 20-day move after, frozen once the 20-day move exists — accrues from 22 Sep 2026.
 - `parents` prices sheet parents AND every live quota row's `ticker` into `investors.prices[parent]` (the quota planner).
+- `filings` (quota radar) also discovers parents it does not know: NSE's market-wide `/api/corporate-announcements` (one call a
+  board, 4 days, ~3,900 rows; works from the runners, BSE's does not) → `quotaLeads[]` (a listed company on a subsidiary's offer,
+  60 days). A lead from a watched parent moves its quota row (source `nse_ann`; a withdrawal only flags). A lead naming an `expected`
+  row, or an `auto` row whose first word is a listed group's (≤15 share it; stoplist), gets `quotaCandidate` — a flag, never a quota;
+  promotion is still a person reading the DRHP. NSE's summary is sometimes just "General Updates" (JSW Cement, 25 Sep 2026): partial
+  recall by construction, never fixed by reading the PDF.
 - `subscription` never replaces a positive book with an all-zero one (exchanges answer zeros after close). A GMP of "0"
   with no trade behind it is "no quote". `validate.py`'s loss check ignores rows due to retire (listing + 1 day).
 - Known gaps: `api.bseindia.com` answers 403 to GitHub's runners (offers, bse_ann, and the BSE deals leg — all "blocked", a
