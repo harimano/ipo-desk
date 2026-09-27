@@ -271,3 +271,17 @@ Hari: "this whole section is useless … I need to be able to track something", 
   3-failure stop). **BSE coverage**: `sources/bse_deals.py` (bulk/block APIs found in the site's network calls; bhavcopy by
   scrip code), `listedPerf.bseCode` from report 377's Symbol, deals rows carry `exchange`, tape has a `bse` leg — the 90
   BSE-only SME listings now have deals and a price path.
+
+## 27 Sep 2026 — quota radar discovery, and the Worker that never started the live loop
+
+- **Quota discovery**: `filings` reads NSE's market-wide `/api/corporate-announcements` (one call a board; BSE's equivalent
+  answers only a one-day window and 403s on the runners) → `quotaLeads[]`, `expected[].quotaCandidate` (announcement, or a
+  group first-word match against NSE's equity lists), and a watched parent's lead moves its quota row — the only stage
+  tracking that works in CI. Page: Pipeline › Possible quotas. Lessons: an `expected` row whose issuer is already listed
+  appears in its OWN announcements, so a lead must be about a subsidiary's offer and from a different company; a
+  "≥5-letter first word" rule misses Hero and JSW, so the cut is how many listed names share the word (≤15) plus a stoplist.
+- **Trigger Worker**: the 18 Sep deploy that added the live crons FAILED (Workers Builds check on 3621afe) — the free plan
+  allows 5 cron triggers per ACCOUNT and wrangler.toml had 6. The old four-cron Worker kept running, so every live run
+  21–25 Sep came from GitHub's fallback cron 5–5.5 h late and missed the morning. Also: Cloudflare counts 1 = Sunday, so
+  "1-5" fired intraday Sun–Thu and none on Friday. Now five crons with MON-FRI names; one cron starts both live halves
+  (08:55, 12:55 IST). Check a Worker change by the Workers Builds check on the commit, not by assuming the push deployed.
