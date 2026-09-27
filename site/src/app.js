@@ -204,6 +204,7 @@ function renderPipe() {
     ["rhp", "RHP · record date", live.filter(q => q.recordDate)], ["done", "Listed 2026", Q.filter(q => q.bucket === "done").sort((a, b) => (b.listingDate || "").localeCompare(a.listingDate || ""))]];
   $("#lanes").innerHTML = L.map(([k, t, rows]) => `<div class="pipe-lane"><div class="lh"><h2 style="font-size:13px">${t}</h2><span class="n mono">${rows.length}</span></div><div class="body">${rows.length ? rows.map(q => `<button class="chip ${q.bucket === "done" ? "cov" : covClass(q)}${pipeSel === q.name ? " cur" : ""}" data-row data-name="${esc(q.name)}">${esc(q.name)}${S.interest.has(q.name) ? '<span class="mk">★</span>' : ""}<small>${esc(q.ticker || q.parent)}${q.bucket === "done" ? ` · ${pct(q.listingGainPct, true)} · quota ${q.quotaPct != null ? q.quotaPct + "%" : "?"}` : q.sizeCr ? " · " + cr(q.sizeCr) : ""}${q.recordDate ? " · record " + fmtD(q.recordDate) : q.bucket === "approved" && q.lapse && days(q.lapse) <= 45 ? " · lapses " + fmtD(q.lapse) : q.stageDate && q.bucket !== "done" ? " · " + fmtD(q.stageDate) : ""}${held(q.parent) && q.bucket !== "done" ? " · held ✓" : ""}</small></button>`).join("") : `<div class="dim" style="font-size:12px;padding:6px 2px">${k === "rhp" ? "No record dates announced. Jio's arrives with its RHP." : "—"}</div>`}</div></div>`).join("");
   renderQuotaPlanner();
+  renderQuotaRadar();
   $("#c-pipe").textContent = live.filter(q => (q.bucket === "approved" || q.bucket === "drhp") && q.quota !== false && !held(q.parent)).length || "";
   const q = Q.find(z => z.name === pipeSel);
   $("#pipeDetailWrap").hidden = !q;
@@ -663,7 +664,7 @@ function renderMarket() {
   if (Es.length && !$("#expChart")) $("#expWrap").innerHTML = `<canvas id="expChart"></canvas>`;
   if (typeof Chart !== "undefined" && Es.length) mcharts.e = new Chart($("#expChart"), { type: "bar", data: { labels: Es.map(e => { const n = e.name.split(" (")[0]; return n.length > 22 ? n.slice(0, 21) + "…" : n; }), datasets: [{ label: "Expected size ₹Cr", data: Es.map(e => e.sizeCr), backgroundColor: Es.map(e => /sept|sep 2026|this month/i.test(e.window || "") ? acc : lav), borderRadius: 4, maxBarThickness: 18 }] }, options: { indexAxis: "y", responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { title: it => Es[it[0].dataIndex].name, label: c => cr(c.raw), afterLabel: c => { const e = Es[c.dataIndex]; return [e.window ? "Window: " + e.window : "", e.stage || "", e.note || ""].filter(Boolean).join("\n"); } } } }, scales: { x: { ticks: { color: text, callback: v => "₹" + (v >= 1000 ? (v / 1000).toFixed(0) + "k" : v) + " Cr" }, grid: { color: grid } }, y: { ticks: { color: text, font: { size: 11 } }, grid: { display: false } } } } });
   else $("#expWrap").innerHTML = `<div class="empty">No sized names captured.</div>`;
-  $("#expTba").innerHTML = `<span class="acc" style="cursor:default"><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--accent)"></i> September window</span><span class="plan" style="cursor:default"><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--lav)"></i> later / TBD</span>` + Et.map(e => `<span title="${esc([e.window, e.stage, e.note].filter(Boolean).join(" · "))}">${esc(e.name)} <b class="dim">${esc(e.sizeText || "size TBA")}</b></span>`).join("");
+  $("#expTba").innerHTML = `<span class="acc" style="cursor:default"><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--accent)"></i> September window</span><span class="plan" style="cursor:default"><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--lav)"></i> later / TBD</span>` + Et.map(e => `<span title="${esc([e.window, e.stage, e.note, e.quotaCandidate ? "possible shareholder quota, not confirmed — see Pipeline" : ""].filter(Boolean).join(" · "))}">${esc(e.name)} <b class="dim">${esc(e.sizeText || "size TBA")}</b>${e.quotaCandidate ? ` <b class="${e.quotaCandidate.via === "announcement" ? "amb" : "dim"}">quota?</b>` : ""}</span>`).join("");
   // news — date badges
   $("#news").innerHTML = `<div class="newsl">${(DATA.news || []).map(n => `<a href="${esc(n.url || "#")}" target="_blank" rel="noopener"><span class="db">${n.date ? fmtD(n.date) : "—"}</span>${esc(n.title)}</a>`).join("") || `<div class="empty">No headlines captured.</div>`}</div>`;
   // integrity — status bar + chips
@@ -781,6 +782,7 @@ document.addEventListener("keydown", e => {
 })();
 /* @include hold.js */
 /* @include quota.js */
+/* @include quotaradar.js */
 /* @include players.js */
 /* @include deals.js */
 /* @include names.js */
