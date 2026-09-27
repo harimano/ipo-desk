@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-27T15:38:57+05:30",
+  "asOf": "2026-09-27T15:57:40+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "27 Sep 2026, 15:38 IST",
+  "label": "27 Sep 2026, 15:57 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -316,6 +316,15 @@
     "date": "2026-09-18",
     "title": "Madhur Iron & Steel India Limited- Draft Abridged Prospectus",
     "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/madhur-iron-and-steel-india-limited-drhp_104575.html"
+   },
+   "quotaCandidate": {
+    "via": "name",
+    "parents": [
+     {
+      "symbol": "MADHURKNIT",
+      "name": "Madhur Knit Crafts Limited"
+     }
+    ]
    }
   },
   {
@@ -436,6 +445,19 @@
     "date": "2026-09-09",
     "title": "Torrent Gas Limited - Draft Abridged Prospectus",
     "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/torrent-gas-limited-udrhp-i_104350.html"
+   },
+   "quotaCandidate": {
+    "via": "name",
+    "parents": [
+     {
+      "symbol": "TORNTPHARM",
+      "name": "Torrent Pharmaceuticals Limited"
+     },
+     {
+      "symbol": "TORNTPOWER",
+      "name": "Torrent Power Limited"
+     }
+    ]
    }
   },
   {
@@ -476,6 +498,15 @@
     "date": "2026-09-01",
     "title": "Kataria Dhulchand Pannalal Jewellers Limited - Draft Abridged Prospectus",
     "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/kataria-dhulchand-pannalal-jewellers-limited-drhp_104178.html"
+   },
+   "quotaCandidate": {
+    "via": "name",
+    "parents": [
+     {
+      "symbol": "KATARIA",
+      "name": "Kataria Industries Limited"
+     }
+    ]
    }
   },
   {
@@ -576,6 +607,23 @@
     "date": "2026-08-25",
     "title": "JAY JAGDAMBA LIMITED - Draft Abridged Prospectus",
     "url": "https://www.sebi.gov.in/filings/public-issues/aug-2026/jay-jagdamba-limited-udrhp_103937.html"
+   },
+   "quotaCandidate": {
+    "via": "name",
+    "parents": [
+     {
+      "symbol": "JAYBARMARU",
+      "name": "Jay Bharat Maruti Limited"
+     },
+     {
+      "symbol": "JAYBEE",
+      "name": "Jay Bee Laminations Limited"
+     },
+     {
+      "symbol": "KORE",
+      "name": "Jay Jalaram Technologies Limited"
+     }
+    ]
    }
   }
  ],
@@ -75388,34 +75436,16 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-27T15:38:57+05:30",
+  "asOf": "2026-09-27T15:57:40+05:30",
   "checks": [
    {
-    "area": "gmp",
-    "method": "investorgain:ok, ipowatch:ok, ipopremium:blocked",
+    "area": "filings",
+    "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
     "status": "ok",
-    "asOf": "27-Sep 5:55",
-    "elapsed": 1.83,
-    "calls": 3,
-    "note": "gmp: 22 board rows patched via investorgain+ipowatch; 33 active, 15 of them matched; gmp: 1 GMP-site names not on the board: Kheria Autocomp (₹3, investorgain)"
-   },
-   {
-    "area": "details",
-    "method": "investorgain-list:ok, investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-09-27T15:37:44+05:30",
-    "elapsed": 14.35,
-    "calls": 26,
-    "note": "25 records fetched for 48 identified listings (1 without an id); 0 anchor books updated, 72 on file"
-   },
-   {
-    "area": "subscription",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-09-27T15:38:57+05:30",
-    "elapsed": 58.33,
-    "calls": 14,
-    "note": "6/13 rows patched via nse"
+    "asOf": "2026-09-27",
+    "elapsed": 12.48,
+    "calls": 15,
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 3977 announcements scanned, 2 subsidiary-offer leads; expected: 30 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 2 leads held; 1 rows patched, 32 kept previous stage"
    },
    {
     "area": "research layer",
@@ -75427,7 +75457,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "75s, 43 calls, 3/3 modules ok"
+    "note": "13s, 15 calls, 1/1 modules ok"
    }
   ],
   "discrepancies": [
@@ -86815,7 +86845,13 @@
    ],
    "stage": "SEBI approved; IPO paused",
    "stageDate": "2025-08-01",
-   "ticker": "PRESTIGE"
+   "ticker": "PRESTIGE",
+   "needsReview": {
+    "source": "nse_ann",
+    "url": "https://nsearchives.nseindia.com/corporate/PRESTIGE_25092026182037_Emerald_-_PEPL_DRHP_Withdrawal_Intimaiton.pdf",
+    "headline": "Prestige Estates Projects Limited has informed the Exchange about the withdrawal of DRHP by Subsidiary",
+    "date": "2026-09-25"
+   }
   },
   {
    "bucket": "approved",
@@ -215702,5 +215738,28 @@
    5,
    20
   ]
- }
+ },
+ "quotaLeads": [
+  {
+   "parentSymbol": "PRESTIGE",
+   "parentName": "Prestige Estates Projects Limited",
+   "kind": "withdrawn",
+   "text": "Prestige Estates Projects Limited has informed the Exchange about the withdrawal of DRHP by Subsidiary",
+   "url": "https://nsearchives.nseindia.com/corporate/PRESTIGE_25092026182037_Emerald_-_PEPL_DRHP_Withdrawal_Intimaiton.pdf",
+   "date": "2026-09-25",
+   "seqId": "106794560",
+   "sme": false,
+   "watched": true
+  },
+  {
+   "parentSymbol": "KPIL",
+   "parentName": "Kalpataru Projects International Limited",
+   "kind": "ipo",
+   "text": "Kalpataru Projects International Limited has informed the Exchange about Initial public offering of equity shares of Linjemontage i Grästorp AB, a first level step down material subsidiary of the Company ( LMG )",
+   "url": "https://nsearchives.nseindia.com/corporate/KALPATPOWR_25092026085505_KPILSEIntimation25092026.pdf",
+   "date": "2026-09-25",
+   "seqId": "106792590",
+   "sme": false
+  }
+ ]
 }
