@@ -13,9 +13,9 @@ GitHub's `workflow_dispatch` for `collect.yml`. The collector still runs on GitH
    On the last screen: project name `ipo-desk` (must equal `name` in wrangler.toml); deploy command `npx wrangler deploy`; open **Advanced
    settings** and set **Root directory** to `ops/trigger-worker`; UNTICK *Builds for non-production branches* (the
    `data` branch gets a commit every run and must not trigger builds); leave *Cloudflare Access* off. Deploy.
-   `wrangler.toml` in this folder supplies the code, the four cron triggers and `REPO`.
+   `wrangler.toml` in this folder supplies the code, the five cron triggers (the free plan's per-account cap) and `REPO`.
 3. **Settings → Variables and Secrets** → add a **Secret** named `GITHUB_TOKEN` with the token. (Nothing else.)
-4. Settings → Triggers should already list the four cron schedules from `wrangler.toml`.
+4. Settings → Triggers should already list the five cron schedules from `wrangler.toml`.
 5. Check: the Worker's *Logs* tab after the next trigger time, and the repo's Actions tab — a `collect` run whose
    event is `workflow_dispatch` should appear within a minute of the scheduled time.
 

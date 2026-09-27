@@ -5,15 +5,15 @@
 //   GITHUB_TOKEN  fine-grained PAT, this repo only, permission "Actions: Read and write"
 //   REPO          e.g. "harimano/ipo-desk"
 //
-// Cron triggers (UTC), set on the Worker:
-//   13 1 * * *          06:43 IST  full
-//   43 12 * * *         18:13 IST  full
-//   7,37 4-11 * * 1-5   09:37-17:07 IST weekdays  intraday
-//   7 12 * * 1-5        17:37 IST  intraday
-//   25 3 * * 1-5        08:55 IST  start the live loop (live.yml), morning half
-//   35 7 * * 1-5        13:05 IST  start the live loop, afternoon half
+// Cron triggers (UTC), from wrangler.toml. At most five (free plan, per account); day NAMES, because Cloudflare counts
+// 1 = Sunday (27 Sep 2026: "1-5" had fired intraday runs Sun-Thu and none on Friday):
+//   13 1 * * *              06:43 IST  full
+//   43 12 * * *             18:13 IST  full
+//   7,37 4-11 * * MON-FRI   09:37-17:07 IST weekdays  intraday
+//   7 12 * * MON-FRI        17:37 IST  intraday
+//   25 3,7 * * MON-FRI      08:55 and 12:55 IST  start the live loop (live.yml); the second start replaces the first
 const FULL = new Set(["13 1 * * *", "43 12 * * *"]);
-const LIVE = new Set(["25 3 * * 1-5", "35 7 * * 1-5"]);
+const LIVE = new Set(["25 3,7 * * MON-FRI"]);
 
 async function dispatch(env, mode) {
   const live = mode === "live";

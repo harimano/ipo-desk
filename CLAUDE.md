@@ -18,7 +18,7 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
 - `_site/` — built by `site/build.py`, never committed. `collector/layout.py` splits the document into
   `meta / board / pipeline / investors / research / history` parts; `boot.js` fetches `meta.json`, then only changed parts.
 - Schedule: full runs 06:43 and 18:13 IST; intraday (subscription + gmp + open issues' records) :07/:37 on weekdays;
-  `live.yml` 08:55 and 13:05. GitHub's cron is best-effort, so a Cloudflare Worker (`ops/trigger-worker/`) dispatches them.
+  `live.yml` 08:55 and 12:55. GitHub's cron is best-effort, so a Cloudflare Worker (`ops/trigger-worker/`) dispatches them.
   A workflow's push does not trigger other workflows: `collect.yml` dispatches `deploy.yml`; a page-only change needs
   `gh workflow run deploy.yml`.
 - Hari's Mac: no Homebrew, no Node. `uv` and `gh` in `~/.local/bin`; `.venv/bin/python -m collector`, `.venv/bin/pytest`.

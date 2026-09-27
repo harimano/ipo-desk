@@ -10,11 +10,12 @@ workers_dev = true
 REPO = "harimano/ipo-desk"
 
 [triggers]
+# FIVE at most: the Workers free plan allows 5 cron triggers per ACCOUNT (a sixth made the 18 Sep deploy fail, so the
+# live loop was never dispatched). Day names, never numbers: Cloudflare counts 1 = Sunday, so "1-5" ran Sun-Thu.
 crons = [
-  "13 1 * * *",          # 06:43 IST  full
-  "43 12 * * *",         # 18:13 IST  full
-  "7,37 4-11 * * 1-5",   # 09:37-17:07 IST weekdays  intraday
-  "7 12 * * 1-5",        # 17:37 IST  intraday
-  "25 3 * * 1-5",        # 08:55 IST  live loop, morning half
-  "35 7 * * 1-5",        # 13:05 IST  live loop, afternoon half
+  "13 1 * * *",              # 06:43 IST  full
+  "43 12 * * *",             # 18:13 IST  full
+  "7,37 4-11 * * MON-FRI",   # 09:37-17:07 IST weekdays  intraday
+  "7 12 * * MON-FRI",        # 17:37 IST  intraday, the 5 pm book
+  "25 3,7 * * MON-FRI",      # 08:55 and 12:55 IST  live loop, morning and afternoon halves
 ]
