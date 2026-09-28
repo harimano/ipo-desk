@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-09-28T12:22:10+05:30",
+  "asOf": "2026-09-28T17:39:36+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "28 Sep 2026, 12:22 IST",
+  "label": "28 Sep 2026, 17:39 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -40,14 +40,6 @@
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
    "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
-   "[gmp] gmp: no grey-market print found for open issue Green Asia Impex",
-   "[gmp] gmp: no grey-market print found for open issue Peshwa Wheat",
-   "[gmp] gmp: no grey-market print found for open issue Himalayan Solar",
-   "[gmp] gmp: no grey-market print found for open issue Sai Urja Indo",
-   "[gmp] gmp: no grey-market print found for open issue Acme Universal Safezone 9",
-   "[gmp] gmp: no grey-market print found for open issue Pind Hospitality",
-   "[gmp] gmp: no grey-market print found for open issue Shree TNB Polymers",
-   "[details] no InvestorGain record matched (name + opening date): Coreintegra Consulting Services",
    "[listings] listings: no NSE symbol on row 'Amtech Esters' — cannot price",
    "[listings] listings: no NSE symbol on row 'Infrax Renewable' — cannot price",
    "[listings] listings: no NSE symbol on row 'Vinod Texworld' — cannot price",
@@ -63,7 +55,15 @@
    "[listings] listings: no NSE symbol on row 'Symbiotec Pharmalab' — cannot price",
    "[listings] listings: no NSE symbol on row 'Hy-Tech Engineers' — cannot price",
    "[listings] listings: no NSE symbol on row 'Skyways Air Services' — cannot price",
-   "[listings] listings: no NSE symbol on row 'Augmont Enterprises' — cannot price"
+   "[listings] listings: no NSE symbol on row 'Augmont Enterprises' — cannot price",
+   "[gmp] gmp: no grey-market print found for open issue Green Asia Impex",
+   "[gmp] gmp: no grey-market print found for open issue Peshwa Wheat",
+   "[gmp] gmp: no grey-market print found for open issue Himalayan Solar",
+   "[gmp] gmp: no grey-market print found for open issue Sai Urja Indo",
+   "[gmp] gmp: no grey-market print found for open issue Acme Universal Safezone 9",
+   "[gmp] gmp: no grey-market print found for open issue Pind Hospitality",
+   "[gmp] gmp: no grey-market print found for open issue Shree TNB Polymers",
+   "[details] no InvestorGain record matched (name + opening date): Coreintegra Consulting Services"
   ]
  },
  "expected": [
@@ -1418,8 +1418,8 @@
    "issueSizeCr": 708.02,
    "freshCr": 320.0,
    "ofsCr": 388.02,
-   "gmp": 0.0,
-   "gmpPct": 0.0,
+   "gmp": 1.5,
+   "gmpPct": 1.01,
    "gmpTrend": "flat",
    "sub": {
     "qib": 3.1,
@@ -1440,7 +1440,7 @@
    "igId": "1852",
    "bseIpoNo": "7986",
    "bseScripCode": "4837",
-   "igFetchedAt": "2026-09-28T06:44:10+05:30",
+   "igFetchedAt": "2026-09-28T13:07:44+05:30",
    "sector": "Ceramics",
    "anchorShares": 14351775,
    "gmpAsOf": "2026-09-26T06:02:00+05:30",
@@ -1518,10 +1518,10 @@
    "igId": "2268",
    "bseIpoNo": "7993",
    "bseScripCode": "4844",
-   "igFetchedAt": "2026-09-28T09:39:17+05:30",
+   "igFetchedAt": "2026-09-28T16:07:49+05:30",
    "sector": "Auto Components & Equipments",
    "anchorShares": 3374100,
-   "gmpAsOf": "2026-09-26T06:02:00+05:30",
+   "gmpAsOf": "2026-09-28T15:37:00+05:30",
    "facts": {
     "sector": "Auto Components & Equipments",
     "listingAt": "BSE, NSE",
@@ -1542,6 +1542,14 @@
      "promoterPre": 96.1,
      "promoterPost": 71.86
     },
+    "recs": [
+     {
+      "who": "Capital Market",
+      "view": "Neutral",
+      "url": "https://www.capitalmarket.com/pub/nim/nimshow.asp?code=40604",
+      "date": "2026-09-23"
+     }
+    ],
     "registrar": "Bigshare Services Pvt.Ltd.",
     "leadManagers": [
      "Choice Capital Advisors Pvt.Ltd."
@@ -1553,8 +1561,8 @@
     },
     "asOf": "2026-09-24T13:28:00+05:30"
    },
-   "gmpEve": 47.0,
-   "gmpEveAsOf": "2026-09-26T06:02:00+05:30",
+   "gmpEve": 58.0,
+   "gmpEveAsOf": "2026-09-28T15:37:00+05:30",
    "refund": "2026-09-29"
   },
   {
@@ -1594,7 +1602,7 @@
    "igId": "1667",
    "bseIpoNo": "7992",
    "bseScripCode": "4843",
-   "igFetchedAt": "2026-09-28T09:39:17+05:30",
+   "igFetchedAt": "2026-09-28T16:07:49+05:30",
    "sector": "IT Enabled Services",
    "anchorShares": 1065000,
    "facts": {
@@ -1651,7 +1659,7 @@
    "ofsCr": null,
    "gmp": 9.0,
    "gmpPct": 2.49,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 2.66,
     "nii": 0.89,
@@ -1671,7 +1679,7 @@
    "igId": "1917",
    "bseIpoNo": "7987",
    "bseScripCode": "4838",
-   "igFetchedAt": "2026-09-28T09:39:17+05:30",
+   "igFetchedAt": "2026-09-28T16:07:49+05:30",
    "sector": "Real Estate Investment Trusts (REITs)",
    "anchorShares": 26104972,
    "facts": {
@@ -1692,6 +1700,14 @@
      "promoterPre": 100.0,
      "promoterPost": 65.58
     },
+    "recs": [
+     {
+      "who": "Capital Market",
+      "view": "Neutral",
+      "url": "https://www.capitalmarket.com/pub/nim/nimshow.asp?code=96157",
+      "date": "2026-09-23"
+     }
+    ],
     "registrar": "Kfin Technologies Ltd.",
     "leadManagers": [
      "JM Financial Ltd.",
@@ -1701,13 +1717,14 @@
     "docs": {
      "drhp": "https://www.bseindia.com/corporates/download/304620/IPO%20Prior/ProjectScholarspaceConsolidatedDRHP_20250929071116.pdf",
      "rhp": "https://nsearchives.nseindia.com/content/ipo/RHP_ELEVATE.zip",
+     "prospectus": "https://www.elevatecampuses.com/pdf/Prospectus.pdf",
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/elevate-campuses-ipo-anchor-allocation-letter.pdf"
     },
-    "asOf": "2026-09-23T10:35:00+05:30"
+    "asOf": "2026-09-28T12:58:00+05:30"
    },
-   "gmpAsOf": "2026-09-26T06:02:00+05:30",
-   "gmpEve": 4.0,
-   "gmpEveAsOf": "2026-09-26T06:02:00+05:30",
+   "gmpAsOf": "2026-09-28T15:37:00+05:30",
+   "gmpEve": 9.0,
+   "gmpEveAsOf": "2026-09-28T15:37:00+05:30",
    "refund": "2026-09-29"
   },
   {
@@ -1747,10 +1764,10 @@
    "igId": "1708",
    "bseIpoNo": "7991",
    "bseScripCode": "4842",
-   "igFetchedAt": "2026-09-28T09:39:17+05:30",
+   "igFetchedAt": "2026-09-28T16:07:49+05:30",
    "sector": "Civil Construction",
    "anchorShares": 2608782,
-   "gmpAsOf": "2026-09-25T22:37:00+05:30",
+   "gmpAsOf": "2026-09-28T15:37:00+05:30",
    "facts": {
     "sector": "Civil Construction",
     "listingAt": "BSE, NSE",
@@ -1771,6 +1788,14 @@
      "promoterPre": 76.51,
      "promoterPost": 57.41
     },
+    "recs": [
+     {
+      "who": "Capital Market",
+      "view": "Neutral",
+      "url": "https://www.capitalmarket.com/pub/nim/nimshow.asp?code=94673",
+      "date": "2026-09-23"
+     }
+    ],
     "registrar": "MUFG Intime India Pvt.Ltd.",
     "leadManagers": [
      "Srujan Alpha Capital Advisors LLP",
@@ -1783,8 +1808,8 @@
     },
     "asOf": "2026-09-25T18:10:00+05:30"
    },
-   "gmpEve": 4.5,
-   "gmpEveAsOf": "2026-09-25T22:37:00+05:30",
+   "gmpEve": 5.0,
+   "gmpEveAsOf": "2026-09-28T15:37:00+05:30",
    "refund": "2026-09-29"
   },
   {
@@ -1802,16 +1827,16 @@
    "issueSizeCr": 405.0,
    "freshCr": 355.0,
    "ofsCr": 50.0,
-   "gmp": 39.0,
-   "gmpPct": 9.63,
-   "gmpTrend": "down",
+   "gmp": 21.0,
+   "gmpPct": 5.19,
+   "gmpTrend": "flat",
    "sub": {
-    "qib": 0.1,
-    "nii": 7.69,
-    "retail": 4.53,
-    "total": 3.93,
-    "employee": 3.07,
-    "asOf": "2026-09-28T12:12:00+05:30"
+    "qib": 7.3,
+    "nii": 24.51,
+    "retail": 8.64,
+    "total": 11.6,
+    "employee": 4.87,
+    "asOf": "2026-09-28T17:36:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -1825,10 +1850,10 @@
    "igId": "1611",
    "bseIpoNo": "7998",
    "bseScripCode": "4849",
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "sector": "Iron & Steel Products",
    "anchorShares": 2985160,
-   "gmpAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpAsOf": "2026-09-28T17:02:00+05:30",
    "facts": {
     "sector": "Iron & Steel Products",
     "listingAt": "BSE, NSE",
@@ -1868,8 +1893,8 @@
     },
     "asOf": "2026-09-24T10:18:00+05:30"
    },
-   "gmpEve": 39.0,
-   "gmpEveAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpEve": 21.0,
+   "gmpEveAsOf": "2026-09-28T17:02:00+05:30",
    "refund": "2026-09-30"
   },
   {
@@ -1887,15 +1912,15 @@
    "issueSizeCr": 1091.68,
    "freshCr": 750.0,
    "ofsCr": 341.68,
-   "gmp": 11.5,
-   "gmpPct": 33.82,
+   "gmp": 13.5,
+   "gmpPct": 39.71,
    "gmpTrend": "down",
    "sub": {
-    "qib": 1.27,
-    "nii": 49.99,
-    "retail": 10.9,
-    "total": 16.65,
-    "asOf": "2026-09-28T12:15:00+05:30"
+    "qib": 227.45,
+    "nii": 115.41,
+    "retail": 19.57,
+    "total": 98.46,
+    "asOf": "2026-09-28T17:36:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -1909,13 +1934,13 @@
    "igId": "2198",
    "bseIpoNo": "7995",
    "bseScripCode": "4846",
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-09-30",
    "sector": "Financial Technology (Fintech)",
    "anchorShares": 96324729,
-   "gmpAsOf": "2026-09-28T12:02:00+05:30",
-   "gmpEve": 11.5,
-   "gmpEveAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpAsOf": "2026-09-28T17:02:00+05:30",
+   "gmpEve": 13.5,
+   "gmpEveAsOf": "2026-09-28T17:02:00+05:30",
    "facts": {
     "sector": "Financial Technology (Fintech)",
     "listingAt": "BSE, NSE",
@@ -1969,15 +1994,15 @@
    "issueSizeCr": 420.0,
    "freshCr": 287.0,
    "ofsCr": 133.0,
-   "gmp": 1.0,
-   "gmpPct": 3.12,
-   "gmpTrend": "up",
+   "gmp": 1.25,
+   "gmpPct": 3.91,
+   "gmpTrend": "flat",
    "sub": {
-    "qib": 0.0,
-    "nii": 0.69,
-    "retail": 0.98,
-    "total": 0.37,
-    "asOf": "2026-09-28T12:15:00+05:30"
+    "qib": 1.03,
+    "nii": 1.2,
+    "retail": 1.34,
+    "total": 1.13,
+    "asOf": "2026-09-28T17:00:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -1991,13 +2016,13 @@
    "igId": "1840",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-01",
    "sector": "E-Retail/ E-Commerce",
    "anchorShares": 59062500,
-   "gmpAsOf": "2026-09-28T12:02:00+05:30",
-   "gmpEve": 1.0,
-   "gmpEveAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpAsOf": "2026-09-28T17:02:00+05:30",
+   "gmpEve": 1.25,
+   "gmpEveAsOf": "2026-09-28T17:02:00+05:30",
    "facts": {
     "sector": "E-Retail/ E-Commerce",
     "listingAt": "BSE, NSE",
@@ -2050,15 +2075,15 @@
    "issueSizeCr": 303.9,
    "freshCr": 290.0,
    "ofsCr": 13.9,
-   "gmp": 27.0,
-   "gmpPct": 19.42,
-   "gmpTrend": "up",
+   "gmp": 25.0,
+   "gmpPct": 17.99,
+   "gmpTrend": "down",
    "sub": {
-    "qib": 1.33,
-    "nii": 4.45,
-    "retail": 3.71,
-    "total": 3.19,
-    "asOf": "2026-09-28T12:15:00+05:30"
+    "qib": 1.34,
+    "nii": 7.82,
+    "retail": 6.15,
+    "total": 5.14,
+    "asOf": "2026-09-28T17:00:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2072,13 +2097,13 @@
    "igId": "1812",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-01",
    "sector": "Iron & Steel",
    "anchorShares": 6558991,
-   "gmpAsOf": "2026-09-28T12:02:00+05:30",
-   "gmpEve": 27.0,
-   "gmpEveAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpAsOf": "2026-09-28T17:02:00+05:30",
+   "gmpEve": 25.0,
+   "gmpEveAsOf": "2026-09-28T17:02:00+05:30",
    "facts": {
     "sector": "Iron & Steel",
     "listingAt": "BSE, NSE",
@@ -2136,15 +2161,15 @@
    "issueSizeCr": 552.0,
    "freshCr": 320.0,
    "ofsCr": 232.0,
-   "gmp": 80.0,
-   "gmpPct": 29.41,
-   "gmpTrend": "down",
+   "gmp": 87.0,
+   "gmpPct": 31.99,
+   "gmpTrend": "up",
    "sub": {
-    "qib": 0.02,
-    "nii": 9.18,
-    "retail": 5.65,
-    "total": 4.8,
-    "asOf": "2026-09-28T12:15:00+05:30"
+    "qib": 0.06,
+    "nii": 17.37,
+    "retail": 9.16,
+    "total": 8.32,
+    "asOf": "2026-09-28T17:00:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2158,13 +2183,13 @@
    "igId": "1832",
    "bseIpoNo": "8001",
    "bseScripCode": "4851",
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-01",
    "sector": "Telecom - Equipment & Accessories",
    "anchorShares": 6088233,
-   "gmpAsOf": "2026-09-28T12:02:00+05:30",
-   "gmpEve": 80.0,
-   "gmpEveAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpAsOf": "2026-09-28T17:02:00+05:30",
+   "gmpEve": 87.0,
+   "gmpEveAsOf": "2026-09-28T17:02:00+05:30",
    "facts": {
     "sector": "Telecom - Equipment & Accessories",
     "listingAt": "BSE, NSE",
@@ -2221,16 +2246,16 @@
    "issueSizeCr": 500.0,
    "freshCr": 500.0,
    "ofsCr": null,
-   "gmp": 13.5,
-   "gmpPct": 4.43,
-   "gmpTrend": "flat",
+   "gmp": 14.0,
+   "gmpPct": 4.59,
+   "gmpTrend": "down",
    "sub": {
-    "qib": 0.96,
-    "nii": 0.35,
-    "retail": 0.3,
-    "total": 0.5,
-    "employee": 0.28,
-    "asOf": "2026-09-28T12:15:00+05:30"
+    "qib": 1.05,
+    "nii": 0.93,
+    "retail": 0.41,
+    "total": 0.7,
+    "employee": 0.4,
+    "asOf": "2026-09-28T17:00:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2244,13 +2269,13 @@
    "igId": "1711",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-01",
    "sector": "Real Estate related services",
    "anchorShares": 4883605,
-   "gmpAsOf": "2026-09-28T12:02:00+05:30",
-   "gmpEve": 13.5,
-   "gmpEveAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpAsOf": "2026-09-28T17:02:00+05:30",
+   "gmpEve": 14.0,
+   "gmpEveAsOf": "2026-09-28T17:02:00+05:30",
    "facts": {
     "sector": "Real Estate related services",
     "listingAt": "BSE, NSE",
@@ -2304,15 +2329,15 @@
    "issueSizeCr": 218.4,
    "freshCr": 218.4,
    "ofsCr": null,
-   "gmp": 25.0,
-   "gmpPct": 19.23,
+   "gmp": 34.0,
+   "gmpPct": 26.15,
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.27,
-    "retail": 0.68,
-    "total": 0.4,
-    "asOf": "2026-09-28T12:15:00+05:30"
+    "nii": 0.9,
+    "retail": 1.61,
+    "total": 1.0,
+    "asOf": "2026-09-28T17:00:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2326,13 +2351,13 @@
    "igId": "2121",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-05",
    "sector": "Computers - Software & Consulting",
    "anchorShares": 5040000,
-   "gmpAsOf": "2026-09-28T12:02:00+05:30",
-   "gmpEve": 25.0,
-   "gmpEveAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpAsOf": "2026-09-28T17:02:00+05:30",
+   "gmpEve": 34.0,
+   "gmpEveAsOf": "2026-09-28T17:02:00+05:30",
    "facts": {
     "sector": "Computers - Software & Consulting",
     "listingAt": "BSE, NSE",
@@ -2388,15 +2413,15 @@
    "issueSizeCr": 90.17,
    "freshCr": 90.17,
    "ofsCr": null,
-   "gmp": 12.0,
-   "gmpPct": 7.19,
+   "gmp": 12.5,
+   "gmpPct": 7.49,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 0.0,
-    "nii": 0.07,
-    "retail": 0.1,
-    "total": 0.06,
-    "asOf": "2026-09-28T12:15:00+05:30"
+    "qib": 0.5,
+    "nii": 0.25,
+    "retail": 0.23,
+    "total": 0.31,
+    "asOf": "2026-09-28T17:00:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2410,13 +2435,13 @@
    "igId": "1926",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-05",
    "sector": "Stockbroking & Allied",
    "anchorShares": 1619760,
-   "gmpAsOf": "2026-09-28T12:02:00+05:30",
-   "gmpEve": 12.0,
-   "gmpEveAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpAsOf": "2026-09-28T17:02:00+05:30",
+   "gmpEve": 12.5,
+   "gmpEveAsOf": "2026-09-28T17:02:00+05:30",
    "facts": {
     "sector": "Stockbroking & Allied",
     "listingAt": "BSE, NSE",
@@ -2472,8 +2497,8 @@
    "issueSizeCr": 108.35,
    "freshCr": 108.35,
    "ofsCr": null,
-   "gmp": 5.0,
-   "gmpPct": 6.67,
+   "gmp": 6.0,
+   "gmpPct": 8.0,
    "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
@@ -2488,7 +2513,7 @@
    "igId": "2235",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T10:37:54+05:30",
+   "igFetchedAt": "2026-09-28T17:07:34+05:30",
    "refund": "2026-10-07",
    "sector": "Gems, Jewellery And Watches",
    "anchorShares": 0,
@@ -2520,7 +2545,10 @@
      "rhp": "https://www.chittorgarh.net/reports/ipo_notes/va20260924_nityas-gems_rhp_final.pdf"
     },
     "asOf": "2026-09-26T15:09:00+05:30"
-   }
+   },
+   "gmpAsOf": "2026-09-28T16:37:00+05:30",
+   "gmpEve": 6.0,
+   "gmpEveAsOf": "2026-09-28T16:37:00+05:30"
   },
   {
    "name": "Vishal Nirmiti",
@@ -2553,7 +2581,7 @@
    "igId": "1602",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T10:37:54+05:30",
+   "igFetchedAt": "2026-09-28T17:07:34+05:30",
    "refund": "2026-10-07",
    "sector": "Civil Construction",
    "anchorShares": 0,
@@ -2585,8 +2613,11 @@
      "drhp": "https://www.sebi.gov.in/filings/public-issues/jan-2026/vishal-nirmiti-limited_98883.html",
      "rhp": "https://www.saffronadvisor.com/files/offer-documents/Red_Herring_Prospectus__1_.pdf"
     },
-    "asOf": "2026-09-26T17:30:00+05:30"
-   }
+    "asOf": "2026-09-28T12:18:00+05:30"
+   },
+   "gmpAsOf": "2026-09-28T16:32:00+05:30",
+   "gmpEve": 0.0,
+   "gmpEveAsOf": "2026-09-28T16:32:00+05:30"
   }
  ],
  "offers": {
@@ -3399,8 +3430,8 @@
     "asOf": "2026-09-23T18:55:00+05:30"
    },
    "shareholderQuota": null,
-   "listingPrice": null,
-   "listingGainPct": null,
+   "listingPrice": 123.05,
+   "listingGainPct": 6.08,
    "currentPrice": null,
    "sources": [
     "BSE public issues (api)",
@@ -3411,7 +3442,7 @@
    "igId": "1589",
    "bseIpoNo": "7980",
    "bseScripCode": "4831",
-   "igFetchedAt": "2026-09-28T06:44:10+05:30",
+   "igFetchedAt": "2026-09-28T13:07:44+05:30",
    "sector": "Trading & Distributors",
    "anchorShares": 1102800,
    "gmpAsOf": "2026-09-27T21:37:00+05:30",
@@ -3447,7 +3478,7 @@
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/fx-multitech-anchor-book.pdf",
      "allotment": "https://in.mpms.mufg.com/Initial_Offer/public-issues.html"
     },
-    "asOf": "2026-09-27T08:50:00+05:30"
+    "asOf": "2026-09-28T08:51:00+05:30"
    },
    "refund": "2026-09-25",
    "gmpEve": 6.5,
@@ -3480,8 +3511,8 @@
     "asOf": "2026-09-23T18:56:00+05:30"
    },
    "shareholderQuota": null,
-   "listingPrice": null,
-   "listingGainPct": null,
+   "listingPrice": 201.4,
+   "listingGainPct": 90.0,
    "currentPrice": null,
    "sources": [
     "BSE public issues (api)",
@@ -3492,7 +3523,7 @@
    "igId": "2359",
    "bseIpoNo": "7982",
    "bseScripCode": "4833",
-   "igFetchedAt": "2026-09-28T06:44:10+05:30",
+   "igFetchedAt": "2026-09-28T13:07:44+05:30",
    "sector": "E-Learning",
    "anchorShares": 828000,
    "gmpAsOf": "2026-09-27T21:37:00+05:30",
@@ -3561,8 +3592,8 @@
     "asOf": "2026-09-23T18:56:00+05:30"
    },
    "shareholderQuota": null,
-   "listingPrice": null,
-   "listingGainPct": null,
+   "listingPrice": 38.0,
+   "listingGainPct": 2.7,
    "currentPrice": null,
    "sources": [
     "BSE public issues (api)",
@@ -3573,7 +3604,7 @@
    "igId": "1636",
    "bseIpoNo": "7981",
    "bseScripCode": "4832",
-   "igFetchedAt": "2026-09-28T06:44:10+05:30",
+   "igFetchedAt": "2026-09-28T13:07:44+05:30",
    "sector": "Other Textile Products",
    "anchorShares": 1701000,
    "gmpAsOf": "2026-09-27T21:32:00+05:30",
@@ -3653,10 +3684,10 @@
    "igId": "2269",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T06:44:10+05:30",
+   "igFetchedAt": "2026-09-28T13:07:44+05:30",
    "sector": "Iron & Steel Products",
    "anchorShares": 0,
-   "gmpAsOf": "2026-09-28T06:35:00+05:30",
+   "gmpAsOf": "2026-09-28T12:32:00+05:30",
    "facts": {
     "sector": "Iron & Steel Products",
     "listingAt": "BSE SME",
@@ -3685,11 +3716,11 @@
      "prospectus": "https://www.chittorgarh.net/reports/ipo_notes/anand-prospectus.pdf",
      "allotment": "https://in.mpms.mufg.com/Initial_Offer/public-issues.html"
     },
-    "asOf": "2026-09-25T14:15:00+05:30"
+    "asOf": "2026-09-28T08:39:00+05:30"
    },
    "refund": "2026-09-28",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T06:35:00+05:30"
+   "gmpEveAsOf": "2026-09-28T12:32:00+05:30"
   },
   {
    "name": "Himalaya Nutravedics India",
@@ -3729,10 +3760,10 @@
    "igId": "2230",
    "bseIpoNo": "7983",
    "bseScripCode": "4834",
-   "igFetchedAt": "2026-09-28T06:44:10+05:30",
+   "igFetchedAt": "2026-09-28T13:07:44+05:30",
    "sector": "Pharmaceuticals",
    "anchorShares": 710400,
-   "gmpAsOf": "2026-09-28T06:29:00+05:30",
+   "gmpAsOf": "2026-09-28T12:32:00+05:30",
    "facts": {
     "sector": "Pharmaceuticals",
     "listingAt": "BSE SME",
@@ -3767,7 +3798,7 @@
    },
    "refund": "2026-09-28",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T06:29:00+05:30"
+   "gmpEveAsOf": "2026-09-28T12:32:00+05:30"
   },
   {
    "name": "Core Integra Consulting",
@@ -3806,7 +3837,7 @@
    "igId": "1888",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T09:39:17+05:30",
+   "igFetchedAt": "2026-09-28T16:07:49+05:30",
    "refund": "2026-09-29",
    "sector": "Diversified Commercial Services",
    "anchorShares": 0,
@@ -3834,13 +3865,14 @@
     ],
     "docs": {
      "drhp": "https://nsearchives.nseindia.com/emerge/corporates/content/Registration_06092025023502_DRHPCoreintegra05092025.pdf",
-     "rhp": "https://nsearchives.nseindia.com/content/ipo/RHP_COREIN.zip"
+     "rhp": "https://nsearchives.nseindia.com/content/ipo/RHP_COREIN.zip",
+     "prospectus": "https://newsletter.coreintegra.com/company/prospectus-25092026"
     },
-    "asOf": "2026-09-23T12:10:00+05:30"
+    "asOf": "2026-09-28T08:34:00+05:30"
    },
-   "gmpAsOf": "2026-09-28T09:02:00+05:30",
+   "gmpAsOf": "2026-09-28T15:33:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T09:02:00+05:30"
+   "gmpEveAsOf": "2026-09-28T15:33:00+05:30"
   },
   {
    "name": "Coreintegra Consulting Services",
@@ -3892,8 +3924,8 @@
    "bandLow": 51.0,
    "bandHigh": 54.0,
    "lotSize": 2000,
-   "issueSizeCr": 37.06,
-   "freshCr": 32.19,
+   "issueSizeCr": 37.04,
+   "freshCr": 32.17,
    "ofsCr": 4.87,
    "gmp": 0.0,
    "gmpPct": 0.0,
@@ -3917,7 +3949,7 @@
    "igId": "2008",
    "bseIpoNo": "7989",
    "bseScripCode": "4840",
-   "igFetchedAt": "2026-09-28T09:39:17+05:30",
+   "igFetchedAt": "2026-09-28T16:07:49+05:30",
    "sector": "Advertising & Media Agencies",
    "anchorShares": 0,
    "facts": {
@@ -3937,8 +3969,8 @@
      "pe": 10.74,
      "pePost": 14.96,
      "mcapCr": 120.22,
-     "promoterPre": 79.61,
-     "promoterPost": 52.95
+     "promoterPre": 78.04,
+     "promoterPost": 51.83
     },
     "registrar": "Bigshare Services Pvt.Ltd.",
     "leadManagers": [
@@ -3946,14 +3978,15 @@
     ],
     "docs": {
      "drhp": "https://www.bsesme.com/download/393128/SME_IPO%20InPrinciple/DRHP_LIQVD_20251001004247.pdf",
-     "rhp": "https://www.bseindia.com/downloads/ipo/RHP%20&%20GID_220920262218.zip"
+     "rhp": "https://www.bseindia.com/downloads/ipo/RHP%20&%20GID_220920262218.zip",
+     "prospectus": "https://indorient.in/assets/documents/Fearlesss_Prospectus_Final_26092026_1790576974.pdf"
     },
-    "asOf": "2026-09-27T15:28:00+05:30"
+    "asOf": "2026-09-28T07:05:00+05:30"
    },
    "refund": "2026-09-29",
-   "gmpAsOf": "2026-09-27T05:53:00+05:30",
+   "gmpAsOf": "2026-09-28T15:33:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-27T05:53:00+05:30"
+   "gmpEveAsOf": "2026-09-28T15:33:00+05:30"
   },
   {
    "name": "Pooja Logistics",
@@ -3992,10 +4025,10 @@
    "igId": "1982",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T10:08:47+05:30",
+   "igFetchedAt": "2026-09-28T16:18:11+05:30",
    "sector": "Logistics Solution Provider",
    "anchorShares": 1062000,
-   "gmpAsOf": "2026-09-28T09:36:00+05:30",
+   "gmpAsOf": "2026-09-28T15:54:00+05:30",
    "facts": {
     "sector": "Logistics Solution Provider",
     "listingAt": "NSE SME",
@@ -4027,7 +4060,7 @@
     "asOf": "2026-09-25T18:10:00+05:30"
    },
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T09:36:00+05:30",
+   "gmpEveAsOf": "2026-09-28T15:54:00+05:30",
    "refund": "2026-09-29"
   },
   {
@@ -4067,10 +4100,10 @@
    "igId": "2304",
    "bseIpoNo": "7984",
    "bseScripCode": "4836",
-   "igFetchedAt": "2026-09-28T10:08:47+05:30",
+   "igFetchedAt": "2026-09-28T16:18:11+05:30",
    "sector": "Packaging",
    "anchorShares": 540000,
-   "gmpAsOf": "2026-09-28T09:32:00+05:30",
+   "gmpAsOf": "2026-09-28T15:55:00+05:30",
    "facts": {
     "sector": "Packaging",
     "listingAt": "BSE SME",
@@ -4103,7 +4136,7 @@
     "asOf": "2026-09-23T04:14:00+05:30"
    },
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T09:32:00+05:30",
+   "gmpEveAsOf": "2026-09-28T15:55:00+05:30",
    "refund": "2026-09-29"
   },
   {
@@ -4143,10 +4176,10 @@
    "igId": "2326",
    "bseIpoNo": "7988",
    "bseScripCode": "4839",
-   "igFetchedAt": "2026-09-28T10:08:47+05:30",
+   "igFetchedAt": "2026-09-28T16:18:11+05:30",
    "sector": "Petrochemicals",
    "anchorShares": 1107200,
-   "gmpAsOf": "2026-09-28T09:35:00+05:30",
+   "gmpAsOf": "2026-09-28T15:57:00+05:30",
    "facts": {
     "sector": "Petrochemicals",
     "listingAt": "BSE SME",
@@ -4179,7 +4212,7 @@
    },
    "refund": "2026-09-28",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T09:35:00+05:30"
+   "gmpEveAsOf": "2026-09-28T15:57:00+05:30"
   },
   {
    "name": "Green Asia Impex",
@@ -4200,11 +4233,11 @@
    "gmpPct": 0.0,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 0.0,
-    "nii": 0.01,
-    "retail": 0.13,
-    "total": 0.05,
-    "asOf": "2026-09-28T12:12:00+05:30"
+    "qib": 1.17,
+    "nii": 0.02,
+    "retail": 0.19,
+    "total": 0.42,
+    "asOf": "2026-09-28T17:12:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4218,13 +4251,13 @@
    "igId": "2224",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-09-30",
    "sector": "Seafood",
    "anchorShares": 0,
-   "gmpAsOf": "2026-09-28T11:53:00+05:30",
+   "gmpAsOf": "2026-09-28T16:54:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T11:53:00+05:30",
+   "gmpEveAsOf": "2026-09-28T16:54:00+05:30",
    "facts": {
     "sector": "Seafood",
     "listingAt": "NSE SME",
@@ -4276,10 +4309,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 177.12,
-    "nii": 0.16,
-    "retail": 1.01,
-    "total": 2.33,
-    "asOf": "2026-09-28T12:11:00+05:30"
+    "nii": 0.35,
+    "retail": 1.72,
+    "total": 2.77,
+    "asOf": "2026-09-28T17:10:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4293,13 +4326,13 @@
    "igId": "2063",
    "bseIpoNo": "8000",
    "bseScripCode": "4850",
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-09-30",
    "sector": "Other Agricultural Products",
    "anchorShares": 0,
-   "gmpAsOf": "2026-09-28T11:54:00+05:30",
+   "gmpAsOf": "2026-09-28T17:01:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T11:54:00+05:30",
+   "gmpEveAsOf": "2026-09-28T17:01:00+05:30",
    "facts": {
     "sector": "Other Agricultural Products",
     "listingAt": "BSE SME",
@@ -4346,15 +4379,15 @@
    "issueSizeCr": 17.86,
    "freshCr": 17.86,
    "ofsCr": null,
-   "gmp": 34.0,
-   "gmpPct": 53.12,
+   "gmp": 38.0,
+   "gmpPct": 59.38,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 5.38,
-    "nii": 71.56,
-    "retail": 144.96,
-    "total": 64.37,
-    "asOf": "2026-09-28T12:11:00+05:30"
+    "qib": 44.81,
+    "nii": 421.94,
+    "retail": 529.82,
+    "total": 271.94,
+    "asOf": "2026-09-28T17:10:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4368,13 +4401,13 @@
    "igId": "1920",
    "bseIpoNo": "7997",
    "bseScripCode": "4848",
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-09-30",
    "sector": "Industrial Products",
    "anchorShares": 832000,
-   "gmpAsOf": "2026-09-28T12:02:00+05:30",
-   "gmpEve": 34.0,
-   "gmpEveAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpAsOf": "2026-09-28T17:02:00+05:30",
+   "gmpEve": 38.0,
+   "gmpEveAsOf": "2026-09-28T17:02:00+05:30",
    "facts": {
     "sector": "Industrial Products",
     "listingAt": "BSE SME",
@@ -4427,10 +4460,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.29,
-    "retail": 1.13,
-    "total": 0.63,
-    "asOf": "2026-09-28T12:12:00+05:30"
+    "nii": 1.08,
+    "retail": 2.12,
+    "total": 1.29,
+    "asOf": "2026-09-28T17:12:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4444,7 +4477,7 @@
    "igId": "2366",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-01",
    "sector": "IT Enabled Services",
    "anchorShares": 1096800,
@@ -4479,9 +4512,9 @@
     },
     "asOf": "2026-09-25T05:53:00+05:30"
    },
-   "gmpAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpAsOf": "2026-09-28T17:02:00+05:30",
    "gmpEve": 19.0,
-   "gmpEveAsOf": "2026-09-28T12:02:00+05:30"
+   "gmpEveAsOf": "2026-09-28T17:02:00+05:30"
   },
   {
    "name": "Dudani Retail",
@@ -4503,10 +4536,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.03,
-    "retail": 0.31,
-    "total": 0.17,
-    "asOf": "2026-09-28T12:10:00+05:30"
+    "nii": 0.06,
+    "retail": 0.5,
+    "total": 0.28,
+    "asOf": "2026-09-28T17:06:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4520,13 +4553,13 @@
    "igId": "2259",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-01",
    "sector": "Garments & Apparels",
    "anchorShares": 0,
-   "gmpAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpAsOf": "2026-09-28T17:02:00+05:30",
    "gmpEve": 3.0,
-   "gmpEveAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpEveAsOf": "2026-09-28T17:02:00+05:30",
    "facts": {
     "sector": "Garments & Apparels",
     "listingAt": "BSE SME",
@@ -4577,11 +4610,11 @@
    "gmpPct": 0.0,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 1.14,
-    "nii": 0.25,
-    "retail": 0.59,
-    "total": 0.53,
-    "asOf": "2026-09-28T12:11:00+05:30"
+    "qib": 1.58,
+    "nii": 0.26,
+    "retail": 0.84,
+    "total": 0.71,
+    "asOf": "2026-09-28T17:11:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4595,13 +4628,13 @@
    "igId": "1975",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-01",
    "sector": "Power Distribution",
    "anchorShares": 752400,
-   "gmpAsOf": "2026-09-28T12:01:00+05:30",
+   "gmpAsOf": "2026-09-28T16:58:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T12:01:00+05:30",
+   "gmpEveAsOf": "2026-09-28T16:58:00+05:30",
    "facts": {
     "sector": "Power Distribution",
     "listingAt": "NSE SME",
@@ -4655,9 +4688,9 @@
    "sub": {
     "qib": 0.0,
     "nii": 0.08,
-    "retail": 0.17,
-    "total": 0.1,
-    "asOf": "2026-09-28T12:11:00+05:30"
+    "retail": 0.43,
+    "total": 0.23,
+    "asOf": "2026-09-28T17:07:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4671,10 +4704,10 @@
    "igId": "1924",
    "bseIpoNo": "7996",
    "bseScripCode": "4847",
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "sector": "Diversified Commercial Services",
    "anchorShares": 586800,
-   "gmpAsOf": "2026-09-28T11:57:00+05:30",
+   "gmpAsOf": "2026-09-28T16:54:00+05:30",
    "facts": {
     "sector": "Diversified Commercial Services",
     "listingAt": "BSE SME",
@@ -4707,7 +4740,7 @@
     "asOf": "2026-09-25T05:45:00+05:30"
    },
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T11:57:00+05:30",
+   "gmpEveAsOf": "2026-09-28T16:54:00+05:30",
    "refund": "2026-10-01"
   },
   {
@@ -4730,10 +4763,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.22,
-    "retail": 0.07,
-    "total": 0.06,
-    "asOf": "2026-09-28T12:10:00+05:30"
+    "nii": 0.52,
+    "retail": 0.16,
+    "total": 0.13,
+    "asOf": "2026-09-28T17:06:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4747,13 +4780,13 @@
    "igId": "2360",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-05",
    "sector": "Footwear",
    "anchorShares": 1438400,
-   "gmpAsOf": "2026-09-28T11:55:00+05:30",
+   "gmpAsOf": "2026-09-28T16:55:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T11:55:00+05:30",
+   "gmpEveAsOf": "2026-09-28T16:55:00+05:30",
    "facts": {
     "sector": "Footwear",
     "listingAt": "BSE SME",
@@ -4782,7 +4815,7 @@
      "rhp": "https://www.expertglobal.in/wp-content/uploads/2026/09/1_RHP_ACME_22092026.pdf",
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/acme-universal-ipo-anchor-allocation-letter.pdf"
     },
-    "asOf": "2026-09-28T04:40:00+05:30"
+    "asOf": "2026-09-28T11:25:00+05:30"
    }
   },
   {
@@ -4804,11 +4837,11 @@
    "gmpPct": 0.0,
    "gmpTrend": "flat",
    "sub": {
-    "qib": null,
-    "nii": null,
-    "retail": null,
-    "total": 0.0,
-    "asOf": "2026-09-28T12:20:02+05:30"
+    "qib": 1.0,
+    "nii": 0.0,
+    "retail": 0.02,
+    "total": 0.02,
+    "asOf": "2026-09-28T17:07:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4822,7 +4855,7 @@
    "igId": "1683",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-05",
    "sector": "Restaurants",
    "anchorShares": 0,
@@ -4856,9 +4889,9 @@
     },
     "asOf": "2026-09-28T04:15:00+05:30"
    },
-   "gmpAsOf": "2026-09-28T11:57:00+05:30",
+   "gmpAsOf": "2026-09-28T16:53:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T11:57:00+05:30"
+   "gmpEveAsOf": "2026-09-28T16:53:00+05:30"
   },
   {
    "name": "Shivchem Agro",
@@ -4880,10 +4913,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.01,
-    "retail": 0.06,
-    "total": 0.03,
-    "asOf": "2026-09-28T12:11:00+05:30"
+    "nii": 0.14,
+    "retail": 0.1,
+    "total": 0.11,
+    "asOf": "2026-09-28T17:08:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4897,13 +4930,13 @@
    "igId": "1956",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-05",
    "sector": "Pesticides & Agrochemicals",
    "anchorShares": 0,
-   "gmpAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpAsOf": "2026-09-28T17:02:00+05:30",
    "gmpEve": 6.0,
-   "gmpEveAsOf": "2026-09-28T12:02:00+05:30",
+   "gmpEveAsOf": "2026-09-28T17:02:00+05:30",
    "facts": {
     "sector": "Pesticides & Agrochemicals",
     "listingAt": "BSE SME",
@@ -4954,11 +4987,11 @@
    "gmpPct": 0.0,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 0.0,
-    "nii": 0.58,
-    "retail": 0.02,
-    "total": 0.14,
-    "asOf": "2026-09-28T12:11:00+05:30"
+    "qib": 0.41,
+    "nii": 0.66,
+    "retail": 0.05,
+    "total": 0.29,
+    "asOf": "2026-09-28T17:08:00+05:30"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4972,13 +5005,13 @@
    "igId": "2282",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T12:18:32+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-07",
    "sector": "Plastic Products - Industrial",
    "anchorShares": 1706000,
-   "gmpAsOf": "2026-09-28T11:54:00+05:30",
+   "gmpAsOf": "2026-09-28T16:57:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T11:54:00+05:30",
+   "gmpEveAsOf": "2026-09-28T16:57:00+05:30",
    "facts": {
     "sector": "Plastic Products - Industrial",
     "listingAt": "BSE SME",
@@ -5042,7 +5075,7 @@
    "igId": "2052",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T10:08:47+05:30",
+   "igFetchedAt": "2026-09-28T16:18:11+05:30",
    "refund": "2026-10-06",
    "sector": "Residential, Commercial Projects",
    "anchorShares": 796800,
@@ -5076,9 +5109,9 @@
     },
     "asOf": "2026-09-24T11:29:00+05:30"
    },
-   "gmpAsOf": "2026-09-28T09:32:00+05:30",
+   "gmpAsOf": "2026-09-28T15:56:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T09:32:00+05:30"
+   "gmpEveAsOf": "2026-09-28T15:56:00+05:30"
   },
   {
    "name": "EverestIMS Technologies",
@@ -5095,8 +5128,8 @@
    "issueSizeCr": 48.46,
    "freshCr": 36.61,
    "ofsCr": 9.41,
-   "gmp": 13.0,
-   "gmpPct": 15.29,
+   "gmp": 20.0,
+   "gmpPct": 23.53,
    "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
@@ -5111,7 +5144,7 @@
    "igId": "1637",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T10:08:47+05:30",
+   "igFetchedAt": "2026-09-28T16:18:11+05:30",
    "refund": "2026-10-07",
    "sector": "Software Products",
    "anchorShares": 1612800,
@@ -5143,9 +5176,9 @@
     },
     "asOf": "2026-09-24T09:30:00+05:30"
    },
-   "gmpAsOf": "2026-09-28T09:37:00+05:30",
-   "gmpEve": 13.0,
-   "gmpEveAsOf": "2026-09-28T09:37:00+05:30"
+   "gmpAsOf": "2026-09-28T16:02:00+05:30",
+   "gmpEve": 20.0,
+   "gmpEveAsOf": "2026-09-28T16:02:00+05:30"
   },
   {
    "name": "Papadmalji Agro Foods",
@@ -5178,7 +5211,7 @@
    "igId": "2077",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T10:08:47+05:30",
+   "igFetchedAt": "2026-09-28T16:18:11+05:30",
    "refund": "2026-10-06",
    "sector": "Other Food Products",
    "anchorShares": 0,
@@ -5212,9 +5245,9 @@
     },
     "asOf": "2026-09-25T17:30:00+05:30"
    },
-   "gmpAsOf": "2026-09-28T09:29:00+05:30",
+   "gmpAsOf": "2026-09-28T16:02:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T09:29:00+05:30"
+   "gmpEveAsOf": "2026-09-28T16:02:00+05:30"
   },
   {
    "name": "Vans Electroengineerings",
@@ -5247,7 +5280,7 @@
    "igId": "2351",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T10:37:54+05:30",
+   "igFetchedAt": "2026-09-28T17:07:34+05:30",
    "refund": "2026-10-06",
    "sector": "Heavy Electrical Equipment",
    "anchorShares": 804000,
@@ -5280,7 +5313,10 @@
      "rhp": "https://www.chittorgarh.net/reports/ipo_notes/rhp_vans_electroengineering_limited.pdf"
     },
     "asOf": "2026-09-25T17:30:00+05:30"
-   }
+   },
+   "gmpAsOf": "2026-09-28T16:37:00+05:30",
+   "gmpEve": 45.0,
+   "gmpEveAsOf": "2026-09-28T16:37:00+05:30"
   },
   {
    "name": "Acme India Industries",
@@ -5313,7 +5349,7 @@
    "igId": "2006",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T10:37:54+05:30",
+   "igFetchedAt": "2026-09-28T17:07:34+05:30",
    "refund": "2026-10-08",
    "sector": "Railways",
    "anchorShares": 0,
@@ -5346,7 +5382,10 @@
      "rhp": "https://hemadmin.hemsecurities.com/images/Files/offer/3205.pdf"
     },
     "asOf": "2026-09-25T14:22:00+05:30"
-   }
+   },
+   "gmpAsOf": "2026-09-28T16:37:00+05:30",
+   "gmpEve": 30.0,
+   "gmpEveAsOf": "2026-09-28T16:37:00+05:30"
   },
   {
    "name": "Dove Soft",
@@ -5363,9 +5402,9 @@
    "issueSizeCr": 69.6,
    "freshCr": 55.48,
    "ofsCr": 14.12,
-   "gmp": null,
-   "gmpPct": null,
-   "gmpTrend": null,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -5379,7 +5418,7 @@
    "igId": "1781",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T10:37:54+05:30",
+   "igFetchedAt": "2026-09-28T17:07:34+05:30",
    "refund": "2026-10-07",
    "sector": "Software Products",
    "anchorShares": 0,
@@ -5411,7 +5450,10 @@
      "rhp": "https://dovesoft.io/images/investor/RHP.pdf"
     },
     "asOf": "2026-09-24T08:35:00+05:30"
-   }
+   },
+   "gmpAsOf": "2026-09-28T16:31:00+05:30",
+   "gmpEve": 0.0,
+   "gmpEveAsOf": "2026-09-28T16:31:00+05:30"
   },
   {
    "name": "Eventions",
@@ -5428,9 +5470,9 @@
    "issueSizeCr": 36.21,
    "freshCr": 36.21,
    "ofsCr": null,
-   "gmp": null,
-   "gmpPct": null,
-   "gmpTrend": null,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -5444,7 +5486,7 @@
    "igId": "2267",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T10:37:54+05:30",
+   "igFetchedAt": "2026-09-28T17:07:34+05:30",
    "refund": "2026-10-07",
    "sector": "Other Consumer Services",
    "anchorShares": 0,
@@ -5477,7 +5519,10 @@
      "rhp": "https://eventions.in/wp-content/uploads/2026/09/Final_RHP.pdf"
     },
     "asOf": "2026-09-25T04:39:00+05:30"
-   }
+   },
+   "gmpAsOf": "2026-09-28T16:31:00+05:30",
+   "gmpEve": 0.0,
+   "gmpEveAsOf": "2026-09-28T16:31:00+05:30"
   },
   {
    "name": "Omara Ventures India",
@@ -5510,7 +5555,7 @@
    "igId": "2347",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T11:07:34+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-07",
    "sector": "Gems, Jewellery And Watches",
    "anchorShares": 0,
@@ -5544,9 +5589,9 @@
     },
     "asOf": "2026-09-24T09:33:00+05:30"
    },
-   "gmpAsOf": "2026-09-28T10:29:00+05:30",
+   "gmpAsOf": "2026-09-28T16:57:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T10:29:00+05:30"
+   "gmpEveAsOf": "2026-09-28T16:57:00+05:30"
   },
   {
    "name": "Paramount Syntex",
@@ -5579,7 +5624,7 @@
    "igId": "2001",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T11:07:34+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-08",
    "sector": "Other Textile Products",
    "anchorShares": 0,
@@ -5613,9 +5658,9 @@
     },
     "asOf": "2026-09-25T17:30:00+05:30"
    },
-   "gmpAsOf": "2026-09-28T10:34:00+05:30",
+   "gmpAsOf": "2026-09-28T16:54:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T10:34:00+05:30"
+   "gmpEveAsOf": "2026-09-28T16:54:00+05:30"
   },
   {
    "name": "SJP Ultrasonic",
@@ -5648,7 +5693,7 @@
    "igId": "1964",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T11:07:34+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-07",
    "sector": "Other Industrial Products",
    "anchorShares": 0,
@@ -5682,9 +5727,9 @@
     },
     "asOf": "2026-09-27T08:18:00+05:30"
    },
-   "gmpAsOf": "2026-09-28T10:36:00+05:30",
+   "gmpAsOf": "2026-09-28T17:01:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T10:36:00+05:30"
+   "gmpEveAsOf": "2026-09-28T17:01:00+05:30"
   },
   {
    "name": "Sollfege Smart Electronics",
@@ -5717,7 +5762,7 @@
    "igId": "2274",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T11:07:34+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-07",
    "sector": "E-Retail/ E-Commerce",
    "anchorShares": 0,
@@ -5725,18 +5770,18 @@
     "sector": "E-Retail/ E-Commerce",
     "listingAt": "BSE SME",
     "kpis": {
-     "asOf": "2025-09-30",
-     "roe": 10.53,
-     "roce": 12.64,
-     "debtEquity": 0.58,
-     "ronw": 10.0,
-     "patMargin": 9.74,
-     "ebitdaMargin": 18.04,
-     "pb": 3.17,
-     "eps": 3.52,
-     "epsPost": 2.1,
-     "pe": 15.63,
-     "pePost": 26.19,
+     "asOf": "2026-03-31",
+     "roe": 20.82,
+     "roce": 23.57,
+     "debtEquity": 0.6,
+     "ronw": 18.86,
+     "patMargin": 9.86,
+     "ebitdaMargin": 18.02,
+     "pb": 2.86,
+     "eps": 3.63,
+     "epsPost": 2.19,
+     "pe": 15.15,
+     "pePost": 25.11,
      "mcapCr": 55.0,
      "promoterPre": 99.97,
      "promoterPost": 60.38
@@ -5749,11 +5794,11 @@
      "drhp": "https://www.bsesme.com/download/304019/SME_IPO%20InPrinciple/DP_Sollfege_BSE_23042026_20260423120527.pdf",
      "prospectus": "https://cdn.shopify.com/s/files/1/0672/3328/4386/files/Prospectus_c2e29efc-72ef-4a8e-b3c7-2c5279cace83.pdf?v=1790344731"
     },
-    "asOf": "2026-09-28T10:36:00+05:30"
+    "asOf": "2026-09-28T12:01:00+05:30"
    },
-   "gmpAsOf": "2026-09-28T10:32:00+05:30",
+   "gmpAsOf": "2026-09-28T16:54:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-09-28T10:32:00+05:30"
+   "gmpEveAsOf": "2026-09-28T16:54:00+05:30"
   },
   {
    "name": "TNA Solutions",
@@ -5767,7 +5812,7 @@
    "bandLow": 66.0,
    "bandHigh": 70.0,
    "lotSize": 2000,
-   "issueSizeCr": 37.86,
+   "issueSizeCr": 35.95,
    "freshCr": 35.95,
    "ofsCr": null,
    "gmp": 7.0,
@@ -5786,13 +5831,13 @@
    "igId": "2370",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-09-28T11:07:34+05:30",
+   "igFetchedAt": "2026-09-28T17:37:30+05:30",
    "refund": "2026-10-08",
    "sector": "Other Textile Products",
    "anchorShares": 1538000,
-   "gmpAsOf": "2026-09-28T10:37:00+05:30",
+   "gmpAsOf": "2026-09-28T17:02:00+05:30",
    "gmpEve": 7.0,
-   "gmpEveAsOf": "2026-09-28T10:37:00+05:30",
+   "gmpEveAsOf": "2026-09-28T17:02:00+05:30",
    "facts": {
     "sector": "Other Textile Products",
     "listingAt": "BSE SME",
@@ -75285,151 +75330,34 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-09-28T12:22:10+05:30",
+  "asOf": "2026-09-28T17:39:36+05:30",
   "checks": [
-   {
-    "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-09-28T12:18:31+05:30",
-    "elapsed": 1.88,
-    "calls": 5,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=45 carried=4 +nse=19 +bse=0 exchange-only=0: 15 mainboard, 34 sme; 19 open, 14 upcoming"
-   },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "28-Sep 9:37",
-    "elapsed": 0.93,
+    "elapsed": 0.27,
     "calls": 1,
-    "note": "gmp: 23 board rows patched via investorgain; 33 active, 17 of them matched; gmp: 1 GMP-site names not on the board: Kheria Autocomp (₹3, investorgain)"
+    "note": "gmp: 24 board rows patched via investorgain; 33 active, 17 of them matched; gmp: 1 GMP-site names not on the board: Kheria Autocomp (₹3, investorgain)"
    },
    {
     "area": "details",
     "method": "investorgain-list:ok, investorgain:ok",
     "status": "ok",
-    "asOf": "2026-09-28T12:18:32+05:30",
-    "elapsed": 19.13,
-    "calls": 20,
-    "note": "19 records fetched for 48 identified listings (1 without an id); 0 anchor books updated, 72 on file"
+    "asOf": "2026-09-28T17:37:30+05:30",
+    "elapsed": 48.71,
+    "calls": 25,
+    "note": "24 records fetched for 48 identified listings (1 without an id); 0 anchor books updated, 72 on file"
    },
    {
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-09-28T12:20:12+05:30",
-    "elapsed": 81.17,
-    "calls": 19,
-    "note": "9/19 rows patched via nse"
-   },
-   {
-    "area": "listings",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-09-28",
-    "elapsed": 19.31,
-    "calls": 0,
-    "note": "16 names priced, 0 moved to recent, 16 history points"
-   },
-   {
-    "area": "history",
-    "method": "investorgain-566:ok, investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-09-28",
-    "elapsed": 2.56,
-    "calls": 2,
-    "note": "1340 listings since 2022 (955 SME); fetched 2026: 237; QIB on file for 86 of 385 mainboard issues"
-   },
-   {
-    "area": "tape",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-09-25",
-    "elapsed": 5.71,
-    "calls": 12,
-    "note": "142 listings with an NSE symbol; 6 NSE file(s) read, 80 closes added; 153 trading days on file, 30 still to fill · 95 BSE-only listings; 5 BSE file(s) read, 139 closes added, 115 days on file"
-   },
-   {
-    "area": "anchorbook",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-09-28",
-    "elapsed": 36.93,
-    "calls": 40,
-    "note": "28 anchor books read (12 without an anchor table, 0 failed); 662 on file, 427 partial (feed gave only the first names); 452 of 1340 listings still to fetch"
-   },
-   {
-    "area": "evidence",
-    "method": "computed:ok",
-    "status": "ok",
-    "asOf": "2026-09-28",
-    "elapsed": 0.14,
-    "calls": 0,
-    "note": "track records: 662 of 662 anchor books have an outcome; 747 of 1277 investors with 2+; 1340 listings; windows: mainboard 132, SME 243; 5 warnings"
-   },
-   {
-    "area": "players",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-09-28",
-    "elapsed": 28.86,
-    "calls": 54,
-    "note": "53 of 2839 anchor investors read (0 failed); names found for 6 of 45 unlisted issues"
-   },
-   {
-    "area": "parents",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-09-28",
-    "elapsed": 12.62,
-    "calls": 0,
-    "note": "5/5 parent prices; 47/53 investor stocks priced"
-   },
-   {
-    "area": "filings",
-    "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
-    "status": "ok",
-    "asOf": "2026-09-28",
-    "elapsed": 8.6,
-    "calls": 14,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 3307 announcements scanned, 2 subsidiary-offer leads; expected: 30 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 2 leads held; 0 rows patched, 33 kept previous stage"
-   },
-   {
-    "area": "offers",
-    "method": "bse:blocked, bse:blocked",
-    "status": "blocked",
-    "asOf": null,
-    "elapsed": 0.03,
-    "calls": 1,
-    "note": "kept previous — HTTP 403"
-   },
-   {
-    "area": "flows",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-09-25",
-    "elapsed": 0.38,
-    "calls": 1,
-    "note": "2026-09-25 already in history; FII -3,694 / DII +2,838 Cr"
-   },
-   {
-    "area": "deals",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-09-25",
-    "elapsed": 1.0,
-    "calls": 4,
-    "note": "bulk.csv: 237 deals; block.csv: 6 deals; 0 tracked-investor deals of 243; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 76 of today's 243 deals are in this year's listings (10 stocks); 330 kept over 60 days; 142 of 237 listings have an NSE symbol; 181 with a BSE code"
-   },
-   {
-    "area": "news",
-    "method": "rss:ok",
-    "status": "ok",
-    "asOf": "2026-09-28T12:02:48+05:30",
-    "elapsed": 0.93,
-    "calls": 3,
-    "note": "business-standard: 4/35 primary-market items; economic-times: 7/49 primary-market items; moneycontrol-ipo: changed — no entries parsed: '<!DOCTYPE html> <html>   <head>     <met; 11 fresh, 25 kept"
+    "asOf": "2026-09-28T17:39:36+05:30",
+    "elapsed": 77.1,
+    "calls": 20,
+    "note": "8/19 rows patched via nse"
    },
    {
     "area": "research layer",
@@ -75441,7 +75369,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "221s, 176 calls, 15/16 modules ok"
+    "note": "126s, 46 calls, 3/3 modules ok"
    }
   ],
   "discrepancies": [
@@ -92490,7 +92418,7 @@
  "records": {
   "1589": {
    "name": "FX Multitech",
-   "fetchedAt": "2026-09-28T06:44:10+05:30",
+   "fetchedAt": "2026-09-28T13:07:44+05:30",
    "about": [
     "Incorporated in 2008, FX Multitech Limited is engaged in the distribution and export of a diverse portfolio of products, primarily catering to the HVAC (Heating, Ventilation, and Air Conditioning) and Industrial Refrigeration Industry. The company in the manufacturing and trading sector, focusing on delivering specialized products and solutions tailored to industrial, commercial, and infrastructure-related customer requirements. As a distributor, the company source and supply technologically advanced products from globally recognized manufacturers, ensuring that the customers receive the best solutions for their specific requirements. The company emphasizes quality control, efficient production processes, and timely delivery, catering to diverse client needs while maintaining compliance with industry standards and evolving market expectations. FX Multitech Limited aims to strengthen its market presence through operational efficiency, product diversification, and long-term customer relationships, supporting sustainable growth in competitive domestic and international markets. Product Portfolio: Compressors Refrigeration & Air-Conditioning Controls Industrial Refrigeration Controls Variable Frequency Drives and Automation Refrigerants and Ancillary Products Competitive Strengths: Relationship with global supplier Wide and Established Distribution Network Diversified product portfolio across multiple Industries Customer relationships led by Technical Expertise Efficient Operations and Supply Chain Management"
    ],
@@ -92628,9 +92556,9 @@
      ],
      [
       "bNII > ₹10L",
-      "3,71,200",
+      "3,72,000",
       "",
-      "9.52%"
+      "9.54%"
      ],
      [
       "sNII < ₹10L",
@@ -92765,7 +92693,7 @@
   },
   "2359": {
    "name": "Robokidz Eduventures",
-   "fetchedAt": "2026-09-28T06:44:10+05:30",
+   "fetchedAt": "2026-09-28T13:07:44+05:30",
    "about": [
     "Robokidz Eduventures Limited, incorporated in December 2014, provides technology-enabled learning and skill development solutions for K–12 students in areas such as Robotics, Artificial Intelligence (AI), Coding, Electronics and STEM education . The company offers educational laboratory setup projects, subscription-based learning services and other educational solutions for institutions. Its offerings include technology-enabled learning infrastructure, educational kits, curriculum, digital platforms, teacher training and technical support . Through its integrated approach to STEM and experiential learning , Robokidz Eduventures supports educational institutions in providing hands-on learning opportunities and developing students' technical skills, logical reasoning, scientific aptitude and problem-solving abilities ."
    ],
@@ -93042,7 +92970,7 @@
   },
   "1636": {
    "name": "Vivekanand Cotspin",
-   "fetchedAt": "2026-09-28T06:44:10+05:30",
+   "fetchedAt": "2026-09-28T13:07:44+05:30",
    "about": [
     "Incorporated in July 2015, Vivekanand Cotspin Limited processes cotton and manufactures yarn through ginning and spinning, including trading. The company's products include cotton bales, seeds, and yarn. The company operates in two primary areas: cotton ginning and spinning. The company focuses on spinning clean cotton fibres into yarn. The company focuses on cotton yarn, offering carded and combed options for domestic and international markets. Vivekanand Cotspin caters to various industries needing high-quality yarn for fabric production and exporting beyond India. It operates spinning mills with efficient machinery to uphold quality control. The company’s manufacturing facility is located in Rangpurda, Kadi, within the Mahesana District of Gujarat, close to the fertile cotton-growing regions of Maharashtra and Saurashtra in Gujarat. The company has established an annual production capacity of approximately 4,550.51 tons of cotton yarn and 8,000 tons of cotton bales. As of September 30, 2024, the Company has 144 employees on payroll. Competitive Strength Establishing the Spinning Unit has achieved forward integration into the cotton textile industry. Cost-effective production and timely fulfilment of orders. Scalable model to optimize production, strengthen supplier relationships, and achieve economies of scale. Emphasizing high-quality yarn is crucial for attracting and retaining customers in the competitive textile industry. Experienced Promoters."
    ],
@@ -93318,7 +93246,7 @@
   },
   "1852": {
    "name": "Varmora Granito",
-   "fetchedAt": "2026-09-28T06:44:10+05:30",
+   "fetchedAt": "2026-09-28T13:07:44+05:30",
    "about": [
     "Incorporated in 2003, Varmora Granito Limited is engaged in the business of manufacturing and marketing ceramic and vitrified tiles. The company’s product portfolio includes a wide range of tiles across formats such as glazed vitrified tiles (GVT), polished vitrified tiles (PVT), and ceramic tiles. The company distributes its products through a multi-channel network comprising: Business-to-Consumer (B2C) channels: 286 exclusive brand outlets (EBOs) and over 2,000 multi-brand outlets (MBOs) Business-to-Business (B2B) channels: Builders, contractors, developers, and government procurement As of March 31, 2025, the company’s distribution network covered 949 cities across 27 states and union territories in India. The product portfolio included more than 3,500 stock-keeping units (SKUs) as of March 31, 2025. Manufacturing Facilities As of March 31, 2025, the company operated nine manufacturing facilities, all located in the Morbi industrial cluster in Gujarat. Export Operations As of March 31, 2025, the company exported products to over 100 countries, supported by a dedicated export team comprising 47 personnel. Employees The company employed 1,156 permanent employees as of March 31, 2025."
    ],
@@ -93589,7 +93517,7 @@
   },
   "2269": {
    "name": "Anand Seamless",
-   "fetchedAt": "2026-09-28T06:44:10+05:30",
+   "fetchedAt": "2026-09-28T13:07:44+05:30",
    "about": [
     "Anand Seamless Limited is engaged in the production of seamless tubes, pipes, and finned tubes used in industrial applications. The company operates in the iron and steel manufacturing sector. The company specializes in manufacturing carbon steel and alloy steel seamless tubes, heat exchanger tubes, U-tubes, and various types of finned tubes. These products are widely used in industries such as oil & gas, petrochemicals, power plants, and process industries. Anand Seamless Limited focuses on quality-driven manufacturing with certifications like ISO and approvals from agencies such as IBR and Engineers India Limited. It serves both domestic and international clients, including major PSUs and global energy companies, positioning itself as a reliable supplier in the industrial engineering sector. Product Portfolio: Seamless Tubes and Pipes Finned Tubes Competitive Strengths: Diversified Product Range International Accreditations and product approvals Extensive and Effective Quality Control Customer Diversification Experienced and Qualified Team"
    ],
@@ -93862,7 +93790,7 @@
   },
   "2230": {
    "name": "Himalaya Nutravedics India",
-   "fetchedAt": "2026-09-28T06:44:10+05:30",
+   "fetchedAt": "2026-09-28T13:07:44+05:30",
    "about": [
     "Himalaya Nutravedics India Ltd is engaged in the manufacturing, marketing, and distribution of Ayurvedic and nutraceutical formulations in India. In addition to its own branded products, the company also undertakes third-party contract manufacturing for other Ayurvedic and nutraceutical companies. It offers a diversified product portfolio that includes classical Ayurvedic formulations based on traditional texts, proprietary Ayurvedic products, and nutraceutical supplements. These are available in multiple dosage forms such as soft gelatin capsules, hard gelatin capsules, tablets, liquid orals, and medicated oils. The company operates through a hybrid business model, balancing its own-brand formulations with contract manufacturing services. It has an integrated in-house manufacturing facility located in Hyderabad, Telangana. As of September 2025, its products are distributed across multiple states in India, with a strong revenue presence in Telangana, Andhra Pradesh, Kerala, Gujarat, and Uttar Pradesh. Its product portfolio spans a wide range of wellness and therapeutic segments, including digestive health, immunity, metabolic health, musculoskeletal and joint care, reproductive health, respiratory wellness, pain management, and general well-being. These formulations are designed to support general wellness, nutritional supplementation, and lifestyle-related health needs, in line with applicable regulatory standards. Competitive Strengths: Integrated multi-dosage manufacturing capability Doctor acceptance supported by product performance rather than mass advertising Long-standing relationships with suppliers and customers Geographic expansion achieved over a relatively short operating history Broad therapeutic coverage across ayurvedic and nutraceutical segment"
    ],
@@ -94133,7 +94061,7 @@
   },
   "2268": {
    "name": "Adroit Industries",
-   "fetchedAt": "2026-09-28T09:39:17+05:30",
+   "fetchedAt": "2026-09-28T16:07:49+05:30",
    "about": [
     "Adroit Industries (India) Ltd., incorporated in 1966, is a manufacturer of propeller shafts and torque-transmission components used in vehicles and industrial machinery. The company has a fully integrated manufacturing setup, handling everything from forging and machining to assembly and testing, which helps maintain quality and efficiency. The company offers over 5,000 products to distributors, large component manufacturers, and OEMs. These are mainly used in commercial vehicles, defense, heavy equipment, and industrial machinery. Its manufacturing facilities are located in Madhya Pradesh, India, and are equipped to support large-scale production. Its customer base includes well-known companies such as Godrej & Boyce Manufacturing Company Limited, BEML Limited, VE Commercial Vehicles Limited, Sandvik Mining and Rock Technology India Private Limited, Oilgear India Private Limited, and other industrial and infrastructure players. Adroit has a strong international presence, exporting to over 25 countries across North America, Europe, the Asia-Pacific region, and other regions. It also maintains long-term relationships with reputed customers, supporting steady revenue and repeat business. Competitive Strengths: A large and diversified product portfolio with over 5,000 SKUs Fully integrated manufacturing operations ensure quality control and cost efficiency Strong and long-standing relationships with a diversified customer base High entry barriers supported by technical expertise and validation capabilities Well-established export network across multiple international markets Experienced promoters and management team driving business growth"
    ],
@@ -94357,6 +94285,57 @@
     "sharesPre": 34911340.0,
     "sharesPost": 44808340.0
    },
+   "gmpHistory": [
+    {
+     "date": "2026-09-28",
+     "gmp": 58.0,
+     "est": 192.0,
+     "pct": 43.28,
+     "kostakSauda": "4900/68600"
+    },
+    {
+     "date": "2026-09-27",
+     "gmp": 58.0,
+     "est": 192.0,
+     "pct": 43.28,
+     "kostakSauda": "4900/68600"
+    },
+    {
+     "date": "2026-09-26",
+     "gmp": 53.5,
+     "est": 187.5,
+     "pct": 39.93,
+     "kostakSauda": "4500/63000"
+    },
+    {
+     "date": "2026-09-25",
+     "gmp": 47.0,
+     "est": 181.0,
+     "pct": 35.07,
+     "kostakSauda": "4000/56000"
+    },
+    {
+     "date": "2026-09-24",
+     "gmp": 37.0,
+     "est": 171.0,
+     "pct": 27.61,
+     "kostakSauda": "3100/43400"
+    },
+    {
+     "date": "2026-09-23",
+     "gmp": 34.0,
+     "est": 168.0,
+     "pct": 25.37,
+     "kostakSauda": "2900/40600"
+    },
+    {
+     "date": "2026-09-22",
+     "gmp": 34.0,
+     "est": 168.0,
+     "pct": 25.37,
+     "kostakSauda": "2900/40600"
+    }
+   ],
    "bidding": [
     {
      "asOf": "2026-09-23T17:08:00+05:30",
@@ -94400,7 +94379,7 @@
   },
   "1667": {
    "name": "ArMee Infotech",
-   "fetchedAt": "2026-09-28T09:39:17+05:30",
+   "fetchedAt": "2026-09-28T16:07:49+05:30",
    "about": [
     "ArMee Infotech Limited (AIL), founded in 2003, is an IT infrastructure solutions and managed services company based in Ahmedabad, Gujarat. As part of the ArMee Group, the company provides end-to-end IT solutions across various sectors, including government, corporate, banking, financial services, insurance (BFSI), and education. Key Business Areas: IT Infrastructure: Provides IT hardware, software, installation, integration, and maintenance services. IT Managed Services: Offers technical manpower, skill development training, and annual maintenance services. Retail Sales: Operates Experience Zones for IT, consumer electronics, and gaming products. Renewable Energy: Engaged in solar EPC projects and power purchase agreements (PPAs). As of September 30, 2024, the company had 20 ongoing projects, with 11 under the IT infrastructure category and 9 under IT managed services. Additionally, there were 183 projects where contractual obligations for execution and full payment were completed, but the warranty period was still active. Among the 20 ongoing projects, 13 were located in Gujarat, four in Maharashtra, and one each in Madhya Pradesh, Uttarakhand, and Bihar. Gujarat contributed 39.72% of the company's revenue from operations as of September 30, 2024. As of the same date, ArMee Infotech Limited had a workforce of 1,772 employees."
    ],
@@ -94676,7 +94655,7 @@
   },
   "1917": {
    "name": "Elevate Campuses",
-   "fetchedAt": "2026-09-28T09:39:17+05:30",
+   "fetchedAt": "2026-09-28T16:07:49+05:30",
    "about": [
     "Incorporated in 2005, Elevate Campuses Ltd. owns, operates, and manages on-campus student accommodation across higher education institutions (HEIs) and K-12 assets. As of August 31, 2025, the company’s capacity caters to 94,758 students across 20 cities in India and one city in the United Arab Emirates. Its student accommodation business operates under the brands “Good Host Spaces” and “ScholarZ.” The company’s Owned Portfolio includes five student accommodation campuses with 16,934 beds, 16 K-12 assets (three under development), and two student accommodation facilities managed by HEIs and owned by K-12 HoldCos across eight Indian cities, along with two K-12 assets in Dubai. The Managed Portfolio includes 14 student accommodation campuses with 49,338 beds. In addition, the company delivers community and campus technology services such as media coverage of HEIs and community event management. The company collaborates with leading institutions including Manipal Academy of Higher Education (MAHE), Manipal University Jaipur (MUJ), and Meraki Education. Its integrated Elevate Platform combines student accommodation and K-12 assets, supporting students throughout their lifecycle. Between Academic Year 2023 and August 2025, the company added 21,764 beds and six K-12 assets on a post-acquisition group basis. During the same period, its presence expanded from 17 cities and 23 institutes to 21 cities and 33 institutes, including both greenfield and brownfield K-12 developments. As of August 31, 2025, Elevate Campuses Ltd. employed 397 full-time staff."
    ],
@@ -94704,12 +94683,17 @@
      [
       "3",
       "Funding inorganic growth through unidentified acquisitions, other strategic initiatives and general corporate purposes,",
-      ""
+      "129.61"
+     ],
+     [
+      "4",
+      "Issue Expenses",
+      "120.39"
      ],
      [
       "",
       "Total",
-      "1,850.00"
+      "2,100.00"
      ]
     ]
    },
@@ -94780,7 +94764,7 @@
     "rows": [
      [
       "QIB",
-      "4,35,08,287",
+      "4,35,08,288",
       "75.00%",
       "NA"
      ],
@@ -94792,7 +94776,7 @@
      ],
      [
       "QIB (Ex. Anchor)",
-      "1,74,03,315",
+      "1,74,03,316",
       "30.00%",
       "NA"
      ],
@@ -94816,7 +94800,7 @@
      ],
      [
       "Retail",
-      "58,01,105",
+      "58,01,104",
       "10.00%",
       "1,41,490"
      ],
@@ -94852,6 +94836,57 @@
     "sharesPre": 110519988.0,
     "sharesPost": 168531037.0
    },
+   "gmpHistory": [
+    {
+     "date": "2026-09-28",
+     "gmp": 9.0,
+     "est": 371.0,
+     "pct": 2.49,
+     "kostakSauda": "300/4200"
+    },
+    {
+     "date": "2026-09-27",
+     "gmp": 9.5,
+     "est": 371.5,
+     "pct": 2.62,
+     "kostakSauda": "300/4200"
+    },
+    {
+     "date": "2026-09-26",
+     "gmp": 10.0,
+     "est": 372.0,
+     "pct": 2.76,
+     "kostakSauda": "300/4200"
+    },
+    {
+     "date": "2026-09-25",
+     "gmp": 4.0,
+     "est": 366.0,
+     "pct": 1.1,
+     "kostakSauda": "100/1400"
+    },
+    {
+     "date": "2026-09-24",
+     "gmp": 2.5,
+     "est": 364.5,
+     "pct": 0.69,
+     "kostakSauda": "100/1400"
+    },
+    {
+     "date": "2026-09-23",
+     "gmp": 4.5,
+     "est": 366.5,
+     "pct": 1.24,
+     "kostakSauda": "100/1400"
+    },
+    {
+     "date": "2026-09-22",
+     "gmp": 5.0,
+     "est": 367.0,
+     "pct": 1.38,
+     "kostakSauda": "200/2800"
+    }
+   ],
    "bidding": [
     {
      "asOf": "2026-09-23T17:07:00+05:30",
@@ -94895,7 +94930,7 @@
   },
   "1708": {
    "name": "Swastika Infra",
-   "fetchedAt": "2026-09-28T09:39:17+05:30",
+   "fetchedAt": "2026-09-28T16:07:49+05:30",
    "about": [
     "Incorporated in August 2019, Swastika Infra Limited is an Engineering, Procurement, and Construction (EPC) company specializing in power distribution infrastructure projects (EPC Power Projects) and the sale of electrical products. Business Verticals: EPC Power Projects: The company provides end-to-end turnkey solutions covering procurement, supply, erection, installation, testing, and commissioning of power infrastructure. The scope of work includes: Underground cabling work – Laying, installation, and commissioning of high-voltage/low-voltage power cables to enhance efficiency and reduce power losses. Construction of substations – Execution of Gas Insulated Substations (GIS) and Air Insulated Substations (AIS), including installation of power transformers, circuit breakers, and ring main units. Rural and urban electrification projects – Expanding electricity access in underserved regions by implementing distribution networks, service connections, and feeder lines under government schemes. Installation of street lighting systems – Enhancing urban and rural infrastructure through public lighting projects. Sale of Products: The company is engaged in the trading of electrical products, including the procurement and sale of power cables and other electrical items. While the primary focus is on EPC projects, this segment remains part of its operations. Projects & Presence: Completed Projects: Since 2012, the company has completed 34 EPC Power Projects across four Indian states, covering 8,519.50 circuit kilometres (CKM) with a total contract value of ₹60,410 Lakhs. Ongoing Projects: As of February 28, 2025, The company has 12 ongoing EPC Power Projects across five Indian states with an aggregate order value of Rs 1,47,815 Lakhs. Notable Projects: System Strengthening Works of Jaipur JCC Circle under Jaipur Discom in Rajasthan. Supply contract for rural electrification work in Dausa District. Rural electrification works in Sikar under Ajmer Discom, Rajasthan. Supply, erection, testing & commissioning of SCADA-compatible equipment in Jaipur City Circle (Divisions III, IV, and V). Operations & Workforce: As of February 28, 2025, the company had 104 full-time employees."
    ],
@@ -95104,6 +95139,57 @@
     "sharesPre": 27174242.0,
     "sharesPost": 34120188.0
    },
+   "gmpHistory": [
+    {
+     "date": "2026-09-28",
+     "gmp": 5.0,
+     "est": 190.0,
+     "pct": 2.7,
+     "kostakSauda": "300/4200"
+    },
+    {
+     "date": "2026-09-27",
+     "gmp": 6.5,
+     "est": 191.5,
+     "pct": 3.51,
+     "kostakSauda": "400/5600"
+    },
+    {
+     "date": "2026-09-26",
+     "gmp": 6.0,
+     "est": 191.0,
+     "pct": 3.24,
+     "kostakSauda": "400/5600"
+    },
+    {
+     "date": "2026-09-25",
+     "gmp": 4.5,
+     "est": 189.5,
+     "pct": 2.43,
+     "kostakSauda": "300/4200"
+    },
+    {
+     "date": "2026-09-24",
+     "gmp": 9.0,
+     "est": 194.0,
+     "pct": 4.86,
+     "kostakSauda": "600/8400"
+    },
+    {
+     "date": "2026-09-23",
+     "gmp": 9.5,
+     "est": 194.5,
+     "pct": 5.14,
+     "kostakSauda": "600/8400"
+    },
+    {
+     "date": "2026-09-22",
+     "gmp": 8.0,
+     "est": 193.0,
+     "pct": 4.32,
+     "kostakSauda": "500/7000"
+    }
+   ],
    "bidding": [
     {
      "asOf": "2026-09-23T17:08:00+05:30",
@@ -95147,7 +95233,7 @@
   },
   "2008": {
    "name": "Liqvd Digital",
-   "fetchedAt": "2026-09-28T09:39:17+05:30",
+   "fetchedAt": "2026-09-28T16:07:49+05:30",
    "about": [
     "Incorporated in 2013, our Company is positioned within the digital marketing landscape as a creative-first agency offering end-to-end marketing and communication solutions. Its services include content creation and production, media planning and buying, social media management, influencer marketing, SEO, and AI-driven content development. The Company’s focus lies in helping brands and businesses identify, target, and engage their audiences through data-driven strategies and technology-enabled platforms. Following the acquisition of AdLift Marketing in April 2025, the Company has significantly expanded its capabilities in performance marketing, SEO, and analytics, enhancing its positioning as a one-stop integrated digital solutions partner. AdLift operates in India and the United States through its subsidiary, AdLift Inc., strengthening the Company’s international presence. The Company operates across four verticals — Media, Retainer, Project, and Production — offering customized marketing solutions that range from long-term brand retainers to one-time campaign executions and multimedia production. It serves a diverse client base, including large enterprises, mid-sized brands, and D2C startups, primarily across Maharashtra and Gujarat. Headquartered in Mumbai, with offices in Gurgaon and an in-house content production studio in Mumbai, the Company derives a significant portion of its revenue from its Corporate Promoter, Concept Communication Limited , a leading integrated communication agency."
    ],
@@ -95178,9 +95264,19 @@
       "6.57"
      ],
      [
+      "4",
+      "Funding inorganic growth through unidentified acquisitions and general corporate purposes",
+      "4.63"
+     ],
+     [
+      "5",
+      "Issue Expenses",
+      "3.83"
+     ],
+     [
       "",
       "Total",
-      "26.16"
+      "34.62"
      ]
     ]
    },
@@ -95294,46 +95390,46 @@
     "rows": [
      [
       "QIB",
-      "21,62,000",
-      "28.47%",
-      "27.18%"
+      "20,54,000",
+      "29.94%",
+      "28.43%"
      ],
      [
       "NII (HNI)",
-      "14,64,000",
-      "19.28%",
-      "18.40%"
+      "10,30,000",
+      "15.01%",
+      "14.26%"
      ],
      [
       "bNII > ₹10L",
-      "11,04,000",
+      "6,88,000",
       "",
-      "13.88%"
+      "9.52%"
      ],
      [
       "sNII < ₹10L",
-      "3,60,000",
+      "3,42,000",
       "",
-      "4.53%"
+      "4.73%"
      ],
      [
       "Retail",
-      "39,68,000",
-      "52.25%",
-      "49.88%"
+      "37,76,000",
+      "55.04%",
+      "52.27%"
      ],
      [
       "Firm Reservations"
      ],
      [
       "Market Maker",
-      "3,61,200",
+      "3,64,000",
       "",
-      "4.54%"
+      "5.04%"
      ],
      [
       "Total",
-      "79,55,200",
+      "72,24,000",
       "100.00%",
       "100.00%"
      ]
@@ -95351,11 +95447,20 @@
     }
    ],
    "holding": {
-    "promoterPre": 79.61,
-    "promoterPost": 52.95,
+    "promoterPre": 78.04,
+    "promoterPost": 51.83,
     "sharesPre": 15941177.0,
     "sharesPost": 22263177.0
    },
+   "gmpHistory": [
+    {
+     "date": "2026-09-28",
+     "gmp": 0.0,
+     "est": 54.0,
+     "pct": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
    "bidding": [
     {
      "asOf": "2026-09-23T17:08:00+05:30",
@@ -95399,7 +95504,7 @@
   },
   "1982": {
    "name": "Pooja Logistics",
-   "fetchedAt": "2026-09-28T10:08:47+05:30",
+   "fetchedAt": "2026-09-28T16:18:11+05:30",
    "about": [
     "Incorporated in 2011, Pooja Logistics Ltd. is engaged in providing temperature-controlled logistics services for the transportation of perishable goods across India through refrigerated trucks (“reefers”). The company offers cold chain logistics services to a range of industries. Their in-house fleet as on 31st August, 2025 comprises over 357 GPS-enabled vehicles dedicated to the transportation of temperature-sensitive goods. Services: Confectionery and Bakery Dairy and Dairy Products Quick Service Restaurants (QSRs) Pharmaceuticals and Healthcare E-commerce and Retail Competitve Strengths: Owned Refrigerated Vehicle Fleet Long-standing Relationship with Key Customers Geographic Reach of the Company Organizational stability along with Promoter’s experience"
    ],
@@ -95668,7 +95773,7 @@
   },
   "2304": {
    "name": "S.K.Offset",
-   "fetchedAt": "2026-09-28T10:08:47+05:30",
+   "fetchedAt": "2026-09-28T16:18:11+05:30",
    "about": [
     "S. K. Offset Limited, incorporated in February 2007, is engaged in the printing and packaging industry . The company initially started with offset printing and has gradually expanded its operations into packaging, labelling and promotional printing solutions . Its packaging activities include the design and printing of cartons, boxes and other packaging materials used for product storage, transportation, display and branding. The company also undertakes label and promotional printing , including stickers, labels and barcodes for product identification and packaging requirements. In addition, S. K. Offset Limited is involved in the trading, import and export of printing and packaging materials , including paper, paperboard, foils and printing inks. Through these activities, the company caters to various requirements across the printing and packaging value chain."
    ],
@@ -95898,7 +96003,7 @@
   },
   "1924": {
    "name": "Sai Urja Indo",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Sai Urja Indo Ventures Limited is offers Operation and Maintenance (O&M) and other support services in industrial plants, primarily in power generation industry and other industries like iron & steel and agrochemicals. The company handling control and instrumentation services for the biggest power plant in India, a 4,760 MW thermal power plant in Central India and another 3,000 MW plant in Northern India. Services: Maintenance Services: Electrical systems, Control & Instrumentation (C&I), Mechanical Jobs Operation Services: Coal Handling Plants (CHP), Merry-Go-Round (MGR), Boiler-Turbine-Generator (BTG), Other Services: Industrial Housekeeping, Overhaul Works, Annual Overhaul (AOH) and Capital Overhaul (COH). As of March 31, 2025, the company had a team of 2,469 personnel, up from 1611 in 2024 and 1326 in 2023. Competitve Strengths: Diversified O&M service solutions for power and other industries Increase in repeat orders from existing clients with larger project values Large orderbook facilitating sustainable growth in financial performance Leadership with a track record, powered by a sizable team"
    ],
@@ -96133,15 +96238,15 @@
      "retailBidCr": 0.43
     },
     {
-     "asOf": "2026-09-28T12:11:00+05:30",
+     "asOf": "2026-09-28T17:07:00+05:30",
      "qib": 0.0,
      "nii": 0.08,
      "bnii": 0.05,
      "snii": 0.14,
-     "retail": 0.17,
-     "total": 0.1,
-     "bidCr": 1.6,
-     "retailBidCr": 1.33
+     "retail": 0.43,
+     "total": 0.23,
+     "bidCr": 3.69,
+     "retailBidCr": 3.42
     }
    ],
    "company": {
@@ -96152,7 +96257,7 @@
   },
   "2326": {
    "name": "Unitec Fibres",
-   "fetchedAt": "2026-09-28T10:08:47+05:30",
+   "fetchedAt": "2026-09-28T16:18:11+05:30",
    "about": [
     "Unitec Fibres Limited is engaged in the manufacturing of Recycled Polyester Staple Fibre (RPSF), a sustainable product made from recycled PET flakes, PET chips, and other post-consumer polyester waste. The company contributes to the circular economy by converting plastic waste into value-added polyester fibres used across diverse industries. The company's RPSF products cater to applications in the automotive, textile, and home furnishing sectors. These fibres are widely utilized in products such as carpets, roof liners, trunk liners, sofas, curtains, cushions, and spinning yarn, serving a broad customer base across multiple end-use industries. Unitec Fibres operates two manufacturing facilities located in the M.I.D.C. Tarapur Industrial Area, Maharashtra, with a combined installed production capacity of 27,984 MTPA. To support future growth and increasing market demand, the company is in the process of establishing an additional manufacturing facility in Valsad, Gujarat. The company places significant emphasis on quality management and sustainable manufacturing practices. Its operations are supported by internationally recognized certifications, including ISO 9001:2015, ISO 14001:2015, OEKO-TEX®, and the Global Recycled Standard (GRS), demonstrating its commitment to product quality, environmental responsibility, and recycled material usage. Backed by a management team with extensive industry experience, Unitec Fibres focuses on operational efficiency, product consistency, and long-term customer engagement. As of March 31, 2026, the company had a workforce of 171 permanent employees across various functions, including manufacturing, quality control, maintenance, procurement, logistics, finance, human resources, administration, and international trade. Competitive Strengths: Strong presence in the recycled polyester fibre segment with a sustainability-focused business model. Established manufacturing infrastructure with ongoing capacity expansion initiatives. Robust quality control systems supported by globally recognized certifications. Experienced leadership team with deep industry knowledge and operational expertise. Diversified customer base and long-standing business relationships across key industries."
    ],
@@ -96431,7 +96536,7 @@
   },
   "1611": {
    "name": "A-One Steels",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Incorporated in 2012, A-one Steels India Limited is a backward-integrated steel manufacturer with a diversified product portfolio, offering both long and flat steel products, as well as industrial products used in steel manufacturing. The company manufactures HR and CR coils from MS billets, which are then converted into HR pipes, CR pipes, and galvanized tubes. It also produces TMT bars from MS billets in long steel products. The company also manufactures industrial products like met coke and silicon manganese/ferrosilicon, which are sold in the open market. Ferrosilicon is essential in the steel industry for alloying. The company sources significant green energy compared to peers (Source: CRISIL Report). Its TMT bars, certified as green products by CII, are produced in various sizes at the Gauribidanur and Hindupur plants. The company relies on a steady power and fuel supply, with power purchase agreements for solar and wind energy (15 to 25 years) to support its manufacturing facilities in Karnataka and Andhra Pradesh. The company has six manufacturing facilities: five in Karnataka (Gauribidanur, Bellary, Koppal, Chikkantapur) and one in Hindupur, Andhra Pradesh. The company's manufacturing facilities are located near major iron ore sources, within 450 km of ports like Ennore, New Mangalore, and Goa-Mormugao, allowing cost-effective product transportation. The company products are used in various industries, including construction, infrastructure, power plants, dams, airports, bridges, flyovers, stadiums, highways, marine structures, industrial buildings, and high-rise residential constructions. The company manufactures sponge iron at its Koppal facility (Vanya Steels) and Bellary Plant. It is setting up a 10 MW power plant with waste heat recovery on 39.29 acres of land. Products: Sponge iron : Primarily used in steel manufacturing as a raw material for the production of steel billets and other steel products. MS billet : Used as raw material for rolling into bars, rods, and other structural steel products. TMT : Construction and infrastructure for reinforcement in concrete structures. HR coil : Manufacturing of pipes, tubes, automotive frames, and various industrial equipment. CR coil: Used in precision instruments, automotive panels, appliances, and other finished goods requiring a smooth surface finish. As of November 30, 2024, the company had 1,921 employees, including 1,099 permanent and 822 contractual. The sales and marketing team had 59 employees. Competitive Strengths : One of the largest backward integrated steel products manufacturers in southern India with a wide product portfolio. Business operations capitalizing on the strategic location advantage. Widespread, well-connected distribution network with a presence across multiple channels. Well-positioned in an industry with high entry barriers to benefit from favorable trends; command in the pricing of products with the ability to control the cost of manufacturing. Strong brand recall driven by high quality, innovative, and wide range of products. Leading company in the use of green energy for manufacture of steel products."
    ],
@@ -96670,10 +96775,10 @@
    "gmpHistory": [
     {
      "date": "2026-09-28",
-     "gmp": 39.0,
-     "est": 444.0,
-     "pct": 9.63,
-     "kostakSauda": "1100/15400"
+     "gmp": 21.0,
+     "est": 426.0,
+     "pct": 5.19,
+     "kostakSauda": "600/8400"
     },
     {
      "date": "2026-09-27",
@@ -96744,16 +96849,16 @@
      "retailBidCr": 263.07
     },
     {
-     "asOf": "2026-09-28T12:10:00+05:30",
-     "qib": 0.1,
-     "nii": 7.9,
-     "bnii": 7.25,
-     "snii": 9.22,
-     "retail": 4.7,
-     "employee": 3.0,
-     "total": 4.06,
-     "bidCr": 1154.59,
-     "retailBidCr": 662.06
+     "asOf": "2026-09-28T17:11:00+05:30",
+     "qib": 7.69,
+     "nii": 25.8,
+     "bnii": 26.18,
+     "snii": 25.03,
+     "retail": 9.11,
+     "employee": 5.15,
+     "total": 12.23,
+     "bidCr": 3473.41,
+     "retailBidCr": 1284.12
     }
    ],
    "company": {
@@ -96764,7 +96869,7 @@
   },
   "1888": {
    "name": "Core Integra Consulting",
-   "fetchedAt": "2026-09-28T09:39:17+05:30",
+   "fetchedAt": "2026-09-28T16:07:49+05:30",
    "about": [
     "Incorporated in 2009, Core Integra Consulting Services Limited is an integrated human resource solutions provider offering staffing, payroll outsourcing, labour law compliance, HR advisory, vendor management, and proprietary HR-Tech and Reg Tech platforms under one umbrella. The company operates across five verticals: HR Services, Vendor Management, Compliance & Advisory, Reg Tech, and HR Tech Solutions. Its proprietary platforms include CoreX and Core Pay (HR Tech) and Ctrl-F and Core-PFT (Reg Tech). Between Fiscal 2023 and 2025, Core Integra served 500+ customers across 30+ industries and 1,500+ client locations in 20 states, supported by 7 branch offices. Headquartered in Mumbai, Core Integra also operates regional offices in Pune, Solapur, Bangalore, Chennai, Delhi, and Kolkata, reinforcing its Pan-India presence. In Fiscal 2025, the company served 384 customers, with 6 of its top 10 customers associated for more than 3 years. As of July 31, 2025, the company had 243 skilled employees."
    ],
@@ -96781,28 +96886,33 @@
     "rows": [
      [
       "1",
-      "Augmenting Leadership Team for the Company",
-      "5.75"
-     ],
-     [
-      "2",
-      "Enhancing the visibility and awareness of the brand",
-      "0.50"
-     ],
-     [
-      "3",
       "Capital expenditure towards upgrading the existing IT infrastructure",
       "11.76"
      ],
      [
+      "2",
+      "Augmenting Leadership Team for the Company",
+      "5.75"
+     ],
+     [
+      "3",
+      "Enhancing the visibility and awareness of the brand",
+      "0.50"
+     ],
+     [
       "4",
-      "General Corporate Purposes",
-      ""
+      "General corporate purposes",
+      "1.76"
+     ],
+     [
+      "5",
+      "Issue Expenses",
+      "2.22"
      ],
      [
       "",
       "Total",
-      "18.01"
+      "21.99"
      ]
     ]
    },
@@ -97024,7 +97134,7 @@
   },
   "2366": {
    "name": "Bench Mark Infotech Services",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Bench Mark Infotech Services Limited , established in 2007, is a premier Indian IT and digital infrastructure solutions provider delivering end-to-end turnkey technology systems to government departments, public sector units, and private enterprises across India. Service Portfolio: Integrated IT solutions (Supply, Installation and Commissioning of IT Infrastructure Solutions) Annual Maintenance Contracts (AMCs) and Facility Support Services Fibre Optic Infrastructure Solutions The company operates through an integrated, single-roof business model covering everything from system design and engineering to integration, testing, and after-sales support. Over the years, the firm has expanded its capabilities into advanced domains such as dark fibre leasing, cloud virtualization, data storage, and cutting-edge GPU-enabled Artificial Intelligence (AI) lab solutions. As of June 30, 2026, the company is backed by a highly skilled workforce of 54 professionals working across operations, engineering, design, and administration to ensure seamless project delivery. Competitive Strengths: Integrated end-to-end IT and digital infrastructure solutions under a single-roof execution model. Established track record of executing diverse networking, fibre optic, surveillance, and system integration projects. Long-standing customer relationships with repeat order flow from government and institutional clients. Strong relationships with leading OEMs and authorized technology vendors. Experienced promoter and management team with over 19 years of industry expertise."
    ],
@@ -97316,15 +97426,15 @@
      "retailBidCr": 5.76
     },
     {
-     "asOf": "2026-09-28T12:12:00+05:30",
+     "asOf": "2026-09-28T17:12:00+05:30",
      "qib": 0.0,
-     "nii": 0.29,
-     "bnii": 0.15,
-     "snii": 0.56,
-     "retail": 1.13,
-     "total": 0.63,
-     "bidCr": 17.77,
-     "retailBidCr": 16.02
+     "nii": 1.08,
+     "bnii": 1.0,
+     "snii": 1.25,
+     "retail": 2.12,
+     "total": 1.29,
+     "bidCr": 36.46,
+     "retailBidCr": 29.91
     }
    ],
    "company": {
@@ -97335,7 +97445,7 @@
   },
   "2198": {
    "name": "Moneyview",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Moneyview Ltd. is a fintech company incorporated in India that provides digital financial services through its mobile platform. The company focuses on offering accessible and technology-driven financial solutions to individuals. The company operates a digital platform that provides personal loans, credit tracking, and financial management services. It uses data analytics and technology to assess creditworthiness and deliver quick loan approvals to customers. The company's platform functions as a two-sided network, connecting their users seeking financial products with banks, NBFCs, insurers, and other financial institutions offering such products. As of December 31, 2025, they had 125.49 million Registered Users and 42 Financial Partners integrated into the network. As of December 31, 2025, the company served 99.55% of pin codes across India with no physical branches, processing close to 200,000 loan applications per day with minimal human intervention. Product Offerings: personal loans, credit monitoring, expense tracking, and financial planning Competitive Strengths: Large, growing and sticky user base with a flywheel effect for growth Self reinforcing growth engine Data-driven approach for user segmentation and risk assessment Technological and AI capabilities enabling scalable and efficient growth Capital-light model with a diversified network of capital partners Experienced management team with a track record of building and managing successful businesses"
    ],
@@ -97599,10 +97709,10 @@
    "gmpHistory": [
     {
      "date": "2026-09-28",
-     "gmp": 11.5,
-     "est": 45.5,
-     "pct": 33.82,
-     "kostakSauda": "3900/54600"
+     "gmp": 13.5,
+     "est": 47.5,
+     "pct": 39.71,
+     "kostakSauda": "4500/63000"
     },
     {
      "date": "2026-09-27",
@@ -97671,15 +97781,15 @@
      "retailBidCr": 2066.75
     },
     {
-     "asOf": "2026-09-28T12:11:00+05:30",
-     "qib": 0.32,
-     "nii": 49.14,
-     "bnii": 52.06,
-     "snii": 43.31,
-     "retail": 11.08,
-     "total": 16.16,
-     "bidCr": 12351.94,
-     "retailBidCr": 4234.08
+     "asOf": "2026-09-28T17:12:00+05:30",
+     "qib": 64.96,
+     "nii": 22.95,
+     "bnii": 24.05,
+     "snii": 20.74,
+     "retail": 5.65,
+     "total": 26.3,
+     "bidCr": 20099.73,
+     "retailBidCr": 2159.49
     }
    ],
    "company": {
@@ -97690,7 +97800,7 @@
   },
   "2224": {
    "name": "Green Asia Impex",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Founded in August 2014, Green Asia Impex Limited specialises in sourcing, processing, manufacturing, and exporting frozen shrimps and dried chillies. The company processes and exports frozen seafood and agri-commodities, mainly frozen shrimps and dried chillies. It supplies B2B customers, including importers, distributors, and food processors, domestically and internationally. The Company operates in both shrimp processing and chilli trading segments, offering a diversified agri-export portfolio. In shrimp, it processes and exports Vannamei, Black Tiger, and freshwater varieties in formats such as HOSO, HLSO, and PD. In chillies, it trades and exports key Indian varieties including Teja, Guntur Sannam, and Bydagi, catering to domestic and international demand based on heat and colour profiles. With shrimp harvesting spanning February to October and chilli harvests concentrated between January and April, the dual-product strategy helps balance seasonality and ensures more consistent operations. The Company currently runs a semi-automated shrimp processing facility in Unguturu, Andhra Pradesh (1,838.76 sqm), with installed capacities of 7,200 MTPA (block freezing) and 3,600 MTPA (IQF). To scale operations, it plans a new facility at Chennayagudem (4,955.69 sqm), adding ~16,200 MTPA capacity, significantly boosting processing capability and supporting export-led growth. As of January 31, 2026, the company's workforce included 125 permanent employees. nbsp;"
    ],
@@ -97939,15 +98049,15 @@
      "retailBidCr": 1.35
     },
     {
-     "asOf": "2026-09-28T12:12:00+05:30",
-     "qib": 0.0,
-     "nii": 0.01,
+     "asOf": "2026-09-28T17:12:00+05:30",
+     "qib": 1.17,
+     "nii": 0.02,
      "bnii": 0.0,
-     "snii": 0.04,
-     "retail": 0.13,
-     "total": 0.05,
-     "bidCr": 2.76,
-     "retailBidCr": 2.51
+     "snii": 0.05,
+     "retail": 0.19,
+     "total": 0.42,
+     "bidCr": 24.16,
+     "retailBidCr": 3.86
     }
    ],
    "company": {
@@ -97958,7 +98068,7 @@
   },
   "2063": {
    "name": "Peshwa Wheat",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Peshwa Wheat Ltd is engaged in the processing of wheat-based products such as Atta (wheat flour), Sortex Wheat, Broken Wheat, and other flour products including Gram Flour (Besan) and Maize Flour. The company supplies products mainly in 50 kg and 30 kg packaging. During production, by-products like wheat bran are used for cattle feed, to operate with zero waste and zero discharge . The company operate a modern, fully integrated flour processing unit located at Indore, Madhya Pradesh, with an installed capacity of 56,100 MTPA . The unit is equipped with advanced cleaning and milling technology to ensure high-quality and hygienic production. The Company is accredited with State and Central FSSAI licenses and is certified under ISO 22000:2018 for food safety management. Its in-house processing helps to reduce production time, control costs, and maintain strict quality checks at every stage. It mainly sell our products in the B2B segment across Madhya Pradesh, Maharashtra, Karnataka, and Gujarat. Products are sold through Super Stockists , who supply to wholesalers and retailers. Further, it also sell directly to customers who require bulk quantities, such as restaurants, bakeries, wholesalers, and large buyers. In addition to flour processing, the Company is involved in the trading of vegetables , mainly potatoes and tomatoes, within Madhya Pradesh. Competitive strengths Established Promoters and Skilled Management Team Integrated Processing Operations Strategic Procurement Relationship and strong Supply Chain Strong focus on Quality and Food Safety Standards and maintaining Hygienic Processing Standards"
    ],
@@ -98207,15 +98317,15 @@
      "retailBidCr": 12.29
     },
     {
-     "asOf": "2026-09-28T12:11:00+05:30",
+     "asOf": "2026-09-28T17:10:00+05:30",
      "qib": 177.12,
-     "nii": 0.16,
-     "bnii": 0.06,
-     "snii": 0.36,
-     "retail": 1.01,
-     "total": 2.33,
-     "bidCr": 117.62,
-     "retailBidCr": 25.65
+     "nii": 0.35,
+     "bnii": 0.16,
+     "snii": 0.75,
+     "retail": 1.72,
+     "total": 2.77,
+     "bidCr": 140.14,
+     "retailBidCr": 43.39
     }
    ],
    "company": {
@@ -98226,7 +98336,7 @@
   },
   "1920": {
    "name": "Roopa Screen",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Incorporated in 2013, Roopa Screen Ltd manufactures rotary nickel screens used in rotary screen-printing machines, mainly by textile manufacturers for continuous fabric printing. These cylindrical, perforated metal screens act as stencils, allowing printing paste to pass through and create patterns on fabric. Product range: Four main screen types - Standard (for general use), Delta (for fine detailing), Penta (for heavy paste and background printing), and Nova (for high-usage with extended durability). All these variants are available in different mesh sizes and thicknesses. In FY 2025, it has served over 200 customers across India, with major sales in Gujarat, Maharashtra, Haryana, Punjab, and Tamil Nadu, and additional presence in states like Uttar Pradesh, Rajasthan, and Madhya Pradesh. Apart from manufacturing rotary screens, the company also trade in nickel cathodes, a key raw material for its products. In FY 2025, 11.83% of the revenue came from this trading activity. Manufacturing: Two manufacturing units in Ahmedabad, Gujarat, and have additional facilities – a godown in Surat and a sales depot in Panipat – to support stocking, distribution, and faster delivery. Its production units are fully equipped for manufacturing and quality testing to ensure consistent product quality and timely order execution. Competitive strengths In-house Manufacturing Facility with Integrated Quality Control and Testing Capabilities Geographically dispersed customer base Long-term relationship with customers Experienced Promoters with Industry Expertise"
    ],
@@ -98436,10 +98546,10 @@
    "gmpHistory": [
     {
      "date": "2026-09-28",
-     "gmp": 34.0,
-     "est": 98.0,
-     "pct": 53.12,
-     "kostakSauda": "51700"
+     "gmp": 38.0,
+     "est": 102.0,
+     "pct": 59.38,
+     "kostakSauda": "57800"
     },
     {
      "date": "2026-09-27",
@@ -98508,15 +98618,15 @@
      "retailBidCr": 60.21
     },
     {
-     "asOf": "2026-09-28T12:11:00+05:30",
-     "qib": 5.38,
-     "nii": 71.56,
-     "bnii": 69.41,
-     "snii": 75.86,
-     "retail": 144.96,
-     "total": 64.37,
-     "bidCr": 1149.4,
-     "retailBidCr": 909.16
+     "asOf": "2026-09-28T17:10:00+05:30",
+     "qib": 44.81,
+     "nii": 421.94,
+     "bnii": 429.12,
+     "snii": 407.57,
+     "retail": 529.82,
+     "total": 271.94,
+     "bidCr": 4855.82,
+     "retailBidCr": 3323.01
     }
    ],
    "company": {
@@ -98527,7 +98637,7 @@
   },
   "1840": {
    "name": "Acevector",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Acevector Ltd. operates a technology-led, asset-light digital commerce platform through its subsidiaries, with business interests spanning e-commerce marketplaces, software-as-a-service (SaaS) solutions, and consumer-focused brands. The company leverages data analytics, technology, and artificial intelligence to drive growth across its ecosystem. Its business ecosystem consists of three key verticals: Snapdeal – a value-oriented online marketplace that offers a wide range of affordable lifestyle products to price-conscious consumers across India. Unicommerce – comprising platforms such as Uniware, Convertway, and Shipway, which provide integrated SaaS solutions for managing and optimizing end-to-end e-commerce operations. Stellaro Brands – an omnichannel portfolio of consumer brands focused on delivering value-driven products across multiple categories. During the six months ended September 30, 2025, Snapdeal served customers across 18,773 pin codes nationwide, with a significant presence in Tier II, Tier III, and smaller cities. The platform primarily targets middle-income and value-seeking consumers, addressing a large and growing segment of India's value e-commerce market. Snapdeal has consistently maintained strong customer satisfaction levels, with average product ratings of 4.0 or above on a 5-point scale over the last three financial years, as well as during the six-month periods ended September 30, 2025, and September 30, 2024. This reflects the platform's focus on offering quality products at competitive price points."
    ],
@@ -98749,9 +98859,9 @@
    "gmpHistory": [
     {
      "date": "2026-09-28",
-     "gmp": 1.0,
-     "est": 33.0,
-     "pct": 3.12,
+     "gmp": 1.25,
+     "est": 33.25,
+     "pct": 3.91,
      "kostakSauda": "400/5600"
     },
     {
@@ -98796,15 +98906,15 @@
      "retailBidCr": 27.46
     },
     {
-     "asOf": "2026-09-28T12:09:00+05:30",
-     "qib": 0.0,
-     "nii": 0.72,
-     "bnii": 0.56,
-     "snii": 1.03,
-     "retail": 1.02,
-     "total": 0.38,
-     "bidCr": 87.92,
-     "retailBidCr": 42.75
+     "asOf": "2026-09-28T17:06:00+05:30",
+     "qib": 1.05,
+     "nii": 1.31,
+     "bnii": 1.21,
+     "snii": 1.5,
+     "retail": 1.43,
+     "total": 1.19,
+     "bidCr": 274.01,
+     "retailBidCr": 59.85
     }
    ],
    "company": {
@@ -98815,7 +98925,7 @@
   },
   "1812": {
    "name": "German Green Steel",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "German Green Steel and Power Limited is engaged in the manufacturing of iron and steel products, with its operations primarily concentrated in western India, particularly in Gujarat. The company has established a significant presence in the TMT bar segment through its \"German TMT\" brand. The company operates two production facilities in Gujarat. Its Samakhiyali plant functions as a vertically integrated manufacturing unit, while the Viramgam plant is operated through its subsidiary, German TMX Private Limited. These facilities support the production of a diversified range of steel products. German Green Steel and Power Limited manufactures TMT Bars, MS Billets, and Sponge Iron. The company's TMT bar product range is available in sizes from 8 mm to 40 mm, catering to various construction and infrastructure requirements. Its registered and corporate office is located in Ahmedabad, Gujarat, while the strategically located Samakhiyali facility benefits from proximity to major ports in the state. During the nine months ended December 31, 2024, a substantial portion of the company's revenue was generated through its distributor and dealer network. The business primarily follows a B2B model, serving distributors, dealers, and institutional customers who further supply products to contractors, builders, and other end-users in the construction sector. The \"German TMT\" brand has built a strong market presence in Gujarat, supported by a focus on product innovation, process improvements, and adherence to quality standards. The company continues to emphasize operational efficiency and product reliability to strengthen its market position. The manufacturing facilities are certified under various international management standards, including ISO 9001:2015 for quality management systems, ISO 45001:2018 for occupational health and safety management, and ISO 14001:2015 for environmental management systems. Competitive Strengths: Integrated manufacturing operations supported by captive power generation capabilities. Well-established distribution and dealer network across Gujarat with long-standing customer relationships. Leadership team with extensive industry experience and execution capabilities. Strong brand recognition in the TMT bar market backed by consistent product quality. Demonstrated growth in operational and financial performance over the years."
    ],
@@ -99055,10 +99165,10 @@
    "gmpHistory": [
     {
      "date": "2026-09-28",
-     "gmp": 27.0,
-     "est": 166.0,
-     "pct": 19.42,
-     "kostakSauda": "2200/30800"
+     "gmp": 25.0,
+     "est": 164.0,
+     "pct": 17.99,
+     "kostakSauda": "2000/28000"
     },
     {
      "date": "2026-09-27",
@@ -99116,15 +99226,15 @@
      "retailBidCr": 184.72
     },
     {
-     "asOf": "2026-09-28T12:10:00+05:30",
-     "qib": 1.39,
-     "nii": 4.61,
-     "bnii": 4.12,
-     "snii": 5.6,
-     "retail": 3.82,
-     "total": 3.29,
-     "bidCr": 700.86,
-     "retailBidCr": 406.15
+     "asOf": "2026-09-28T17:06:00+05:30",
+     "qib": 1.4,
+     "nii": 8.22,
+     "bnii": 6.82,
+     "snii": 11.01,
+     "retail": 6.47,
+     "total": 5.39,
+     "bidCr": 1147.53,
+     "retailBidCr": 687.88
     }
    ],
    "company": {
@@ -99135,7 +99245,7 @@
   },
   "1832": {
    "name": "Orient Cables",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Orient Cables is engaged in the manufacturing and supply of networking cables, passive networking components, and specialized cable solutions. The company's product offerings are broadly classified into three key business segments: Networking Cables and Connectivity Solutions Specialty Power Cables and Optical Fibre Cable Solutions Allied and Complementary Products Its products cater to a wide range of industries and applications, including telecommunications, broadband infrastructure, data centres, renewable energy projects, smart building systems, security and surveillance networks, system integration, fast-moving electrical goods (FMEG), and the automotive sector. As of March 31, 2025, the company had an aggregate installed manufacturing capacity of approximately 794,976 kilometres of cables. To expand its product portfolio and address emerging market opportunities, Orient Cables is developing and introducing new products such as E-beam irradiated specialty cables, solar junction boxes, tethered drone systems, harness assemblies, and power cords. Competitive Strengths: Established presence as a manufacturer of specialty cable solutions for the telecommunications industry. Broad and diversified portfolio of customized products serving multiple end-user sectors. Long-term business relationships with a wide base of reputed customers. Strategically located manufacturing facilities supported by a focus on innovation and product development. Strong leadership team comprising experienced promoters and professional management personnel."
    ],
@@ -99414,10 +99524,10 @@
    "gmpHistory": [
     {
      "date": "2026-09-28",
-     "gmp": 80.0,
-     "est": 352.0,
-     "pct": 29.41,
-     "kostakSauda": "3300/46200"
+     "gmp": 87.0,
+     "est": 359.0,
+     "pct": 31.99,
+     "kostakSauda": "3600/50400"
     },
     {
      "date": "2026-09-27",
@@ -99475,15 +99585,15 @@
      "retailBidCr": 494.95
     },
     {
-     "asOf": "2026-09-28T12:11:00+05:30",
-     "qib": 0.02,
-     "nii": 9.47,
-     "bnii": 7.61,
-     "snii": 13.21,
-     "retail": 5.82,
-     "total": 4.95,
-     "bidCr": 1910.92,
-     "retailBidCr": 1123.86
+     "asOf": "2026-09-28T17:07:00+05:30",
+     "qib": 0.06,
+     "nii": 18.31,
+     "bnii": 15.08,
+     "snii": 24.77,
+     "retail": 9.66,
+     "total": 8.77,
+     "bidCr": 3388.57,
+     "retailBidCr": 1865.62
     }
    ],
    "company": {
@@ -99494,7 +99604,7 @@
   },
   "1711": {
    "name": "Runwal Enterprises",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Runwal Enterprises Limited is an integrated real estate development company with a diversified presence across residential, commercial, retail, and institutional real estate segments. The company develops residential projects catering to affordable, mid-market, and premium housing categories, while also undertaking commercial developments, shopping malls, and educational infrastructure projects. As of September 30, 2024, the company’s portfolio comprised 15 completed projects, 25 projects under development, and 32 planned projects. Across these developments, the residential portfolio represented a combined Developable Area and Estimated Developable Area of approximately 48.71 million square feet. Between January 2019 and September 2024, Runwal Enterprises Limited established a strong market presence in key Mumbai Metropolitan Region (MMR) micro-markets. In the Eastern Suburbs, the company launched nearly 4,688 residential units and recorded sales of approximately 4,198 units. During the same period, it emerged as the leading developer in the Kalyan-Dombivli market based on both project launches and unit sales, with around 16,043 units launched and approximately 11,481 units sold. Key Business Associations: Banking & Finance Partners: IndusInd Bank Limited, Kotak Mahindra Bank Limited, ICICI Bank Limited, and Piramal Capital & Housing Finance Limited Construction Partner: New Consolidated Construction Company Limited Architectural Consultants: Architect Hafeez Contractor and HBA International Limited Engineering & Technical Consultant: Mahimtura Consultants Private Limited As of September 30, 2024, the company, together with its subsidiaries, employed 791 permanent personnel across its operations."
    ],
@@ -99768,9 +99878,9 @@
    "gmpHistory": [
     {
      "date": "2026-09-28",
-     "gmp": 13.5,
-     "est": 318.5,
-     "pct": 4.43,
+     "gmp": 14.0,
+     "est": 319.0,
+     "pct": 4.59,
      "kostakSauda": "500/7000"
     },
     {
@@ -99830,16 +99940,16 @@
      "retailBidCr": 32.6
     },
     {
-     "asOf": "2026-09-28T12:11:00+05:30",
-     "qib": 1.01,
-     "nii": 0.37,
-     "bnii": 0.39,
-     "snii": 0.33,
-     "retail": 0.32,
-     "employee": 0.29,
-     "total": 0.52,
-     "bidCr": 184.24,
-     "retailBidCr": 55.41
+     "asOf": "2026-09-28T17:07:00+05:30",
+     "qib": 1.11,
+     "nii": 0.99,
+     "bnii": 1.18,
+     "snii": 0.61,
+     "retail": 0.45,
+     "employee": 0.43,
+     "total": 0.75,
+     "bidCr": 262.7,
+     "retailBidCr": 77.47
     }
    ],
    "company": {
@@ -99850,7 +99960,7 @@
   },
   "2259": {
    "name": "Dudani Retail",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Dudani Retail Limited is engaged in the design, manufacturing, sourcing, and distribution of apparel and related fashion products. The company operates through a combination of its own brands, licensed manufacturing arrangements with fashion and lifestyle marketplaces, and product supply agreements with quick-commerce platforms. The company primarily manufactures women's ethnic and fusion wear, while also trading in men's apparel. Its operations support just-in-time (JIT) order fulfillment for various licensed brands under agreements with leading fashion and lifestyle marketplaces. The manufacturing facility is located at F-93, 4th Floor, Kartarpura Industrial Area, Jaipur, Rajasthan, where activities such as fabric cutting, stitching, finishing, quality inspection, packing, and dispatch are carried out. Processes including dyeing, printing, embroidery, and other fabric treatments are outsourced to specialized third-party vendors. Under its licensed manufacturing arrangements with fashion and lifestyle marketplace platforms, the company produces garments for several established labels, including Kalini, Corsica, Roadster, Anouk Rustic, All About You, Taavi, Navyaazri, Chandbaali, Baesd, ETC, Navibhu, and Here & Now. The company also supplies apparel products to a quick-commerce platform through a sell-or-return model. Under this arrangement, products are delivered to designated hubs, with ownership transferring upon acceptance by the platform. Payments are settled periodically based on actual sales, after deducting applicable margins. Dudani Retail Limited markets its products through multiple online channels, including Myntra, Amazon, Flipkart, Ajio, Nykaa Fashion, as well as its own direct-to-consumer website. Competitive Strengths: Diversified presence across multiple apparel business segments. Long-standing relationships with fashion and lifestyle companies through licensed manufacturing partnerships. In-house production capabilities for women's apparel, complemented by a network of specialized outsourced processors. Asset-light operating model for men's wear and selected trading categories. Structured supply framework with a quick-commerce platform. Multi-channel sales strategy encompassing marketplaces and direct online sales. Strong expertise in managing marketplace-led business operations. End-to-end operational capabilities covering design, production, quality control, and order fulfillment. Well-established sourcing network for fabrics, trims, and finished apparel products."
    ],
@@ -100108,15 +100218,15 @@
      "retailBidCr": 0.79
     },
     {
-     "asOf": "2026-09-28T12:10:00+05:30",
+     "asOf": "2026-09-28T17:06:00+05:30",
      "qib": 0.0,
-     "nii": 0.03,
+     "nii": 0.06,
      "bnii": 0.0,
      "snii": 0.0,
-     "retail": 0.31,
-     "total": 0.17,
-     "bidCr": 1.75,
-     "retailBidCr": 1.58
+     "retail": 0.5,
+     "total": 0.28,
+     "bidCr": 2.8,
+     "retailBidCr": 2.48
     }
    ],
    "company": {
@@ -100127,7 +100237,7 @@
   },
   "1975": {
    "name": "Himalayan Solar",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Incorporated in 2015, Himalayan Solar Limited is specializes in providing integrated turnkey solar energy solutions offering services including design, manufacturing, supply, installation, and commissioning of wide range of solar products, with a primary focus on Solar Water Pumping Systems. They provide solar energy solutions for Solar Inverter Charge Systems and Solar Rooftop Power Systems. As on March 31, 2025, they have a qualitative experience in implementation of more than 61000 HP capacity of Solar Water Pumping Systems as part of Government Projects in India and this quantity will further increase to 100000 HP by end of FY 2025-26. As on August 31, 2025, the Company have employed 64 employees. Competitive Strengths: Experienced Solar PV Module Manufacturer Experienced Promoters backed by a strong management team Strong Presence in Government-Focused Renewable Energy Projects Across Multiple States Strong relationship with customers and suppliers. Ability to implement our Solar Products portfolio is Government-backed Solar Projects as supplemental value addition along with their manufacturing business. Strong Order Book"
    ],
@@ -100382,15 +100492,15 @@
      "retailBidCr": 16.44
     },
     {
-     "asOf": "2026-09-28T12:11:00+05:30",
-     "qib": 1.14,
-     "nii": 0.25,
-     "bnii": 0.35,
+     "asOf": "2026-09-28T17:11:00+05:30",
+     "qib": 1.58,
+     "nii": 0.26,
+     "bnii": 0.36,
      "snii": 0.05,
-     "retail": 0.59,
-     "total": 0.53,
-     "bidCr": 30.06,
-     "retailBidCr": 19.23
+     "retail": 0.84,
+     "total": 0.71,
+     "bidCr": 40.21,
+     "retailBidCr": 27.02
     }
    ],
    "company": {
@@ -100401,7 +100511,7 @@
   },
   "1683": {
    "name": "Pind Hospitality",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Incorporated in June 15, 2021, Pind Hospitality Limited is engaged in the hospitality sector, specifically in hotels and restaurants. The company has completed over 5 lakh deliveries and is recognized as one of the long-standing restaurant partners in Pune by third-party food delivery apps. The company served 2.18 lakh, 4.23 lakh, 4.43 lakh, and 0.96 lakh orders through food delivery apps in the six months ending September 2024, 2024, 2023, and 2022, respectively. The company sources raw materials from local and organized vendors to meet safety and quality standards, including perishable items like dairy, vegetables, and meat. Restaurants undergo routine audits for FSSAI compliance. Services: Restaurants: The company, along with its partnership firm Pind Punjab, operates six restaurants in Pune, Maharashtra, with no permanent closures since 2016. Delivery: The company serves customers through third-party food delivery apps, its own mobile app, online bookings, and phone orders. It also offers mobile pre-ordering for pick-up within a 6 km radius. Outdoor Catering: The company also offers outdoor catering services for special events and workplace canteens, with revenue of ₹80.69 lakhs, ₹64.38 lakhs, ₹59.84 lakhs, and ₹51.16 lakhs in recent periods. Advertising Strategy: The company targets middle and upper-middle-class consumers through advertising focused on fresh, affordable food. It uses various media, including internet, print, direct marketing, and social media, to increase brand awareness. As of September 30, 2024, the company had 138 staff, who formed a part of the central functions including finance, human resources and administration. Competitive Strengths: Experienced Promoters, management team and dedicated staff Attractive offerings at competitive prices based on constant menu innovation and customer focus. Strong on-line presence Strategic locations Strong financial position and profitability"
    ],
@@ -100628,15 +100738,15 @@
    ],
    "bidding": [
     {
-     "asOf": "2026-09-28T12:11:00+05:30",
-     "qib": 0.0,
+     "asOf": "2026-09-28T17:07:00+05:30",
+     "qib": 1.0,
      "nii": 0.0,
      "bnii": 0.0,
      "snii": 0.0,
-     "retail": 0.01,
-     "total": 0.0,
-     "bidCr": 0.05,
-     "retailBidCr": 0.05
+     "retail": 0.02,
+     "total": 0.02,
+     "bidCr": 0.32,
+     "retailBidCr": 0.14
     }
    ],
    "company": {
@@ -100647,7 +100757,7 @@
   },
   "2282": {
    "name": "Shree TNB Polymers",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Shree TNB Polymers Limited is engaged in the manufacturing of polymer-based piping systems and plastic products, catering to a wide range of infrastructure, agricultural, industrial, and utility applications. Headquartered in Silvassa, the Company develops solutions for sectors such as irrigation, agriculture, drinking water distribution, sewerage and drainage networks, telecom cable protection, construction, and industrial projects. The Company offers a broad range of products, including HDPE pipes and fittings, PP and PPH pipes and fittings, Double Wall Corrugated (DWC) pipes, sprinkler systems, drip irrigation solutions, solid industrial sheets, and Well Pack sheets used in packaging and industrial applications. Its diversified portfolio enables it to address varied customer requirements across multiple end-use industries. Shree TNB Polymers operates two manufacturing facilities in Silvassa with a combined area of approximately 23,028 square metres and an aggregate installed production capacity of 24,000 metric tonnes per annum. The facilities are supported by in-house quality testing laboratories and manufacturing processes that comply with various BIS and ISO-certified standards, ensuring product reliability and adherence to industry specifications. The Company has established a nationwide distribution network comprising more than 325 dealers and distributors, enabling broad market reach across India. In addition to its domestic operations, it exports products to international markets including the UAE, Sri Lanka, Oman, and Germany. As of July 31, 2026, the Company employed 298 full-time personnel and 39 contract workers across manufacturing, operations, sales, administration, and support functions. Competitive Strengths Promoter-led business supported by extensive industry experience and established market relationships. Comprehensive product portfolio serving diverse applications across agriculture, infrastructure, telecom, packaging, and industrial sectors. Strong dealer and distributor network supported by long-standing customer relationships and integrated manufacturing capabilities. Emphasis on product quality, supported by recognised certifications and in-house testing infrastructure."
    ],
@@ -100896,15 +101006,15 @@
    ],
    "bidding": [
     {
-     "asOf": "2026-09-28T12:11:00+05:30",
-     "qib": 0.0,
-     "nii": 0.58,
-     "bnii": 0.87,
-     "snii": 0.0,
-     "retail": 0.02,
-     "total": 0.14,
-     "bidCr": 2.9,
-     "retailBidCr": 0.25
+     "asOf": "2026-09-28T17:08:00+05:30",
+     "qib": 0.41,
+     "nii": 0.66,
+     "bnii": 0.94,
+     "snii": 0.11,
+     "retail": 0.05,
+     "total": 0.29,
+     "bidCr": 6.05,
+     "retailBidCr": 0.53
     }
    ],
    "company": {
@@ -100915,7 +101025,7 @@
   },
   "2121": {
    "name": "SRIT India",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "SRIT India Ltd. is an India-based Information Technology and Information Technology-enabled Services (“IT/ITeS”) company headquartered in Bengaluru, specialising in digital transformation and system automation through bespoke application development and systems integration. Over the past twenty-six years, the company has built deep capabilities in conceptualising, deploying, and managing digital platforms for government organisations and enterprise clients across India and select international markets. Its business operations are aligned across three principal verticals: (i) Healthcare, (ii) Electronic Governance, and (iii) Telecommunications and Broadband. Its ongoing and completed engagements include the delivery of AI-enabled solutions for public safety and transportation systems; end-to-end computerisation of core and ancillary operations for a state-owned beverage distribution and retail corporation; and the development, maintenance, and handholding support of multiple digital platforms such as Supply Management Information Systems, Health Management Information Systems, e-Prescription platforms, and online licensing solutions. As of September 30, 2025, its outstanding order book stood at ₹12,806.21 million. Over the last decade, the company has successfully executed over 103 projects, representing a cumulative order value of ₹12,347.16 million, across the healthcare, electronic governance, and telecommunications and broadband sectors. The company serves a broad and diversified customer base comprising: (i) government bodies and public sector entities, including Central, State, and local government departments and institutions that procure technology solutions for administrative, infrastructure, and public service delivery purposes (collectively, “Government”); and (ii) private sector businesses and enterprises (collectively, “Enterprises”). Competitive Strengths: Established track record with end-to-end product solution and integration capabilities Diverse Order Book across offerings for multiple clients & geographies Extensive geographic footprint with scalable operations across key markets Strong financial performance and healthy balance sheet Experienced Promoters and Senior Management team, having domain knowledge"
    ],
@@ -101162,10 +101272,10 @@
    "gmpHistory": [
     {
      "date": "2026-09-28",
-     "gmp": 25.0,
-     "est": 155.0,
-     "pct": 19.23,
-     "kostakSauda": "2200/30800"
+     "gmp": 34.0,
+     "est": 164.0,
+     "pct": 26.15,
+     "kostakSauda": "3000/42000"
     },
     {
      "date": "2026-09-27",
@@ -101205,15 +101315,15 @@
    ],
    "bidding": [
     {
-     "asOf": "2026-09-28T12:11:00+05:30",
+     "asOf": "2026-09-28T17:08:00+05:30",
      "qib": 0.0,
-     "nii": 0.27,
-     "bnii": 0.15,
-     "snii": 0.5,
-     "retail": 0.66,
-     "total": 0.39,
-     "bidCr": 59.03,
-     "retailBidCr": 50.28
+     "nii": 0.9,
+     "bnii": 0.53,
+     "snii": 1.65,
+     "retail": 1.61,
+     "total": 1.0,
+     "bidCr": 152.87,
+     "retailBidCr": 123.37
     }
    ],
    "company": {
@@ -101224,7 +101334,7 @@
   },
   "1926": {
    "name": "Shah Investor's Home",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Incorporated in 1994, Shah Investor's Home Ltd. is retail brokering company that offers a range of services covering equity brokerage services and derivatives brokerage services. The company offer services facilitate the buying and selling of financial products such as equities, IPO investing, mutual funds distribution, and other securities. The company's primarily focus on providing secondary market brokering services to retail customers, comprising both resident and non-resident Indians. In addition to executing buy and sell orders, their business extends to offering mutual fund distribution, margin funding, and stock lending and borrowing services, which are carried out under the brand name “Shah Investors”. As of March 31, 2025, the company served over 100,000 demat accounts, with more than 37,810 active clients and partnerships with over 184 authorised persons. They conduct operations through 11 branches in India, located in Mumbai, Ahmedabad, Vadodara, Junagadh, Gandhinagar and Rajkot. Competitive Strengths: Sizeable clientele across Gujarat, with a strong regional presence Strong track record of financial performance and operating efficiency Leveraging technology to enhance client satisfaction Integrated brokerage model with long term client relationships"
    ],
@@ -101446,9 +101556,9 @@
    "gmpHistory": [
     {
      "date": "2026-09-28",
-     "gmp": 12.0,
-     "est": 179.0,
-     "pct": 7.19,
+     "gmp": 12.5,
+     "est": 179.5,
+     "pct": 7.49,
      "kostakSauda": "800/12000"
     },
     {
@@ -101489,15 +101599,15 @@
    ],
    "bidding": [
     {
-     "asOf": "2026-09-28T12:11:00+05:30",
-     "qib": 0.0,
-     "nii": 0.07,
-     "bnii": 0.03,
-     "snii": 0.14,
-     "retail": 0.1,
-     "total": 0.06,
-     "bidCr": 3.93,
-     "retailBidCr": 3.03
+     "asOf": "2026-09-28T17:07:00+05:30",
+     "qib": 0.5,
+     "nii": 0.25,
+     "bnii": 0.12,
+     "snii": 0.53,
+     "retail": 0.24,
+     "total": 0.32,
+     "bidCr": 19.88,
+     "retailBidCr": 7.44
     }
    ],
    "company": {
@@ -101508,7 +101618,7 @@
   },
   "2360": {
    "name": "Acme Universal Safezone 9",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Acme Universal Safezone 9 Limited is engaged in the manufacturing and distribution of industrial safety footwear under its flagship brand, “ACME.” Operating within the Personal Protective Equipment (PPE) industry, the Company provides a comprehensive range of safety shoes designed to meet the requirements of sectors such as construction, oil and gas, mining, automotive, pharmaceuticals, chemicals, foundries, and power generation. Its product portfolio includes EVA-Rubber, Nitrile Rubber, and PVC-based safety footwear that conforms to recognized Indian and international standards, including IS 15298, EN ISO 20345, ASTM F2413, and SEDEX SMETA. The Company operates five manufacturing facilities located across Madhya Pradesh and Uttar Pradesh, supported by modern production infrastructure and technology-enabled operations. Its manufacturing and business processes are integrated through advanced digital platforms, including SAP S/4 HANA ERP, ICad3D design software, customer relationship management (CRM) systems, and human resource management solutions, enabling efficient production planning, product development, and operational control. Acme Universal Safezone 9 serves a diverse customer base through multiple sales channels, including institutional customers, distributors, dealers, e-commerce platforms, and export markets. The Company has established an international presence, supplying products to countries such as the United Arab Emirates, Saudi Arabia, Bahrain, Nigeria, Israel, the Netherlands, Hong Kong, Cameroon, and Mauritius. The Company’s growth strategy is driven by a focus on product innovation, technology-led manufacturing, adherence to global quality standards, and the expansion of its domestic and international market reach. Competitive Strengths Extensive manufacturing capacity supported by five strategically located production facilities. Technology-driven operations enabled by advanced ERP systems, digital product design tools, and process automation. Broad portfolio of industrial safety footwear meeting stringent domestic and international quality standards. Well-established distribution network, export footprint, and long-standing relationships with institutional and industrial customers."
    ],
@@ -101756,15 +101866,15 @@
    ],
    "bidding": [
     {
-     "asOf": "2026-09-28T12:10:00+05:30",
+     "asOf": "2026-09-28T17:06:00+05:30",
      "qib": 0.0,
-     "nii": 0.22,
-     "bnii": 0.15,
-     "snii": 0.35,
-     "retail": 0.07,
-     "total": 0.06,
-     "bidCr": 1.95,
-     "retailBidCr": 0.84
+     "nii": 0.52,
+     "bnii": 0.38,
+     "snii": 0.81,
+     "retail": 0.16,
+     "total": 0.13,
+     "bidCr": 4.6,
+     "retailBidCr": 1.91
     }
    ],
    "company": {
@@ -101775,7 +101885,7 @@
   },
   "1956": {
    "name": "Shivchem Agro",
-   "fetchedAt": "2026-09-28T12:18:32+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Incorporated in 2021, Shivchem Agro is an ISO 9001:2015, ISO 22000:2018, and ISO 31000:2018 certified agrochemical company based in India. The company manufactures stock, distribute, and sell a wide range of agricultural formulations, including insecticides, fungicides, herbicides, plant growth regulators, rodenticides, and fertilizers. These products are available in both solid (powders) and liquid (emulsifiable concentrates) forms, helping farmers improve crop protection and productivity. Products: Insecticides to manage pest challenges in agriculture Fungicides used to combat fungal diseases in crops and seeds Herbicides offer a solution to tackle unwanted plants or weeds Plant Growth Regulators: plant hormones or vitamins Rodenticide : Chemical substances to control rodent populations by killing or repelling Fertilizers used to meet the needs of various soils and crops The company is licensed under the Insecticides Act, 1968 to manufacture 176 agrochemical products—88 insecticides, 40 fungicides, 37 herbicides, 8 plant growth regulators, and 3 rodenticides—approved by the Central Insecticides Board and Registration Committee (CIBRC), Haryana. It is also authorized to manufacture 82 fertilizers under the Fertilizer Control Order, 1985. The company is licensed to sell and distribute our products in Andhra Pradesh, Telangana, Odisha, Assam, and Madhya Pradesh, with a network of 516 distributors and 6 godowns across these states as of March 31, 2025. Manufacturing facility: Its manufacturing facility in Jhajjar, Haryana, is equipped with modern machinery and pollution control systems, including an Effluent Treatment Plant (ETP) and a Wet Scrubber Unit. As on August 31, 2025, its total workforce has 59 permanent employees. Competitive strengths: Diversified product portfolio including a wide range of insecticides, fungicides, herbicides, plant growth regulators, rodenticides, and fertilizers Large and diverse Distributors and Distribution Network: As of March 31, 2025, we have 516 distributors. On-Field product demonstrations Manufacturing facility with ability to manufacture a wide range of products Enhanced Efficiency through automated filling and packaging machines"
    ],
@@ -102004,15 +102114,15 @@
    ],
    "bidding": [
     {
-     "asOf": "2026-09-28T12:11:00+05:30",
+     "asOf": "2026-09-28T17:08:00+05:30",
      "qib": 0.0,
-     "nii": 0.01,
-     "bnii": 0.0,
-     "snii": 0.02,
-     "retail": 0.06,
-     "total": 0.03,
-     "bidCr": 0.41,
-     "retailBidCr": 0.37
+     "nii": 0.14,
+     "bnii": 0.17,
+     "snii": 0.07,
+     "retail": 0.1,
+     "total": 0.11,
+     "bidCr": 1.48,
+     "retailBidCr": 0.62
     }
    ],
    "company": {
@@ -102023,7 +102133,7 @@
   },
   "2052": {
    "name": "Black Opal Consultants",
-   "fetchedAt": "2026-09-28T10:08:47+05:30",
+   "fetchedAt": "2026-09-28T16:18:11+05:30",
    "about": [
     "Incorporated in 2020, Black Opal Consultants Limited works with well-known real estate developers such as Gaurs Group, SKA, Galaxy, Shapoorji Pallonji, Max Estates, and M3M to market and sell their residential and commercial projects. The Company signs exclusive or semi-exclusive sales rights to market and sell specific units within a project in return for brokerage income. The Company also works with its Group Entities, such as Aurika Homes Private Limited to market and sell Aurika Homes’ projects in return for brokerage income. This helps strengthen group synergies and enhances business growth. Black Opal has a network of more than 200 brokers, which helps expand its reach. It also uses platforms like Facebook and Google for marketing. Core service offerings: Consulting & Advisory Services Exclusive Sale Arrangements: Commission or margin on the sale of underwritten/exclusively mandated inventorie Loan Syndication Services: Commissions or success fees for arranging developer and buyer financing. Real Estate Development through group entities operating in Tier -II cities in India The Company works in both residential and commercial segments, mainly focusing on new and under-construction properties. It supports developers in selling their projects and helps customers buy properties. Black Opal has entered the development business through Aurika Developers LLP. Its first project, “Veda” , is a commercial and hospitality project in Darshan Nagar, Ayodhya. Key strengths In-depth Asset & Project Management Expertise and Proven Track Record in Project Sales Experienced Professional Team Strategic Partnerships with Developers such as Gaurs Group, SKA, Shapoorji Pallonji, Max Estates, and M3M for Exclusive Mandate Strong and Reputed Customer Base Strategic Foray into High-Margin Real Estate Development with Tier II City Focus Strengthen Agent Network Through Training and Support"
    ],
@@ -102247,7 +102357,7 @@
   },
   "1637": {
    "name": "EverestIMS Technologies",
-   "fetchedAt": "2026-09-28T10:08:47+05:30",
+   "fetchedAt": "2026-09-28T16:18:11+05:30",
    "about": [
     "Incorporated in April 2017, EverestIMS Technologies Limited is a software enterprise that offers both Software as a Service (SaaS) solutions and on-premise products and services. The company specializes in digital transformation, IT operations, and AI-driven product solutions to streamline IT processes, improve efficiency, and enhance user experiences. The company's products & services include AI for IT Operations (AIOps), Generative-AI IT Service Management (ITSM), IT Infrastructure Management (ITIM), Network Change and Configuration Management (NCCM), and IT Asset Management (ITAM). The company offers solutions for remote monitoring of critical network devices, servers, and applications, reducing downtime and improving IT operations with its platform ' Infraon Infinity '. The company generates revenue mainly from: (i) software product sales and (ii) service sales. As of December 31, 2024, the company employed 197 people. Competitive Strength Experienced core team supported by experienced and senior management team. The \"Infraon Infinity” platform offers AI-driven modules for On-Premises and SaaS customers. Cordial relationship with the channel partners. Diversified Platform Development and Market Expansion."
    ],
@@ -102455,10 +102565,10 @@
    "gmpHistory": [
     {
      "date": "2026-09-28",
-     "gmp": 13.0,
-     "est": 98.0,
-     "pct": 15.29,
-     "kostakSauda": "15800"
+     "gmp": 20.0,
+     "est": 105.0,
+     "pct": 23.53,
+     "kostakSauda": "24300"
     },
     {
      "date": "2026-09-27",
@@ -102483,7 +102593,7 @@
   },
   "2347": {
    "name": "Omara Ventures India",
-   "fetchedAt": "2026-09-28T11:07:34+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Omara Ventures India Limited is engaged in the retail jewellery business, specialising in diamond jewellery crafted with natural diamonds, precious and semi-precious gemstones, and precious metals such as gold, platinum, and silver. The Company markets its products under the “Omara” brand and primarily serves business-to-consumer (B2C) customers through its exclusive retail boutique. Its product portfolio features a diverse range of diamond jewellery, including necklaces, earrings, rings, bracelets, and other adornments designed to suit varying customer preferences, age groups, and occasions. The collection spans bridal and wedding jewellery, festive and celebratory pieces, occasion-specific designs, as well as contemporary jewellery for everyday wear, catering to multiple price segments. The Company’s operating model focuses on product ideation, design development, consumer trend analysis, collection curation, and retail merchandising. While jewellery manufacturing is undertaken through a dedicated product development and supply partner, all products are created in accordance with designs, specifications, and quality standards approved by the Company. Omara also offers customised jewellery solutions, allowing customers to tailor designs to their individual tastes and special requirements. The Company follows a selective and design-driven approach to its collections, introducing limited-quantity designs to preserve exclusivity and uniqueness. Each jewellery piece bears the “Omara” brand insignia, enhancing product authenticity and reinforcing brand recognition. The Company places significant emphasis on quality assurance, with products supported by relevant certifications, including BIS hallmarking for precious metals and diamond grading or certification from recognised gemological institutions such as GIA, wherever applicable. As of June 30, 2026, Omara Ventures India Limited had a workforce of 17 employees across leadership, key managerial personnel, sales and marketing, accounts, operations, product management, and support functions. Competitive Strengths Distinctive, design-focused jewellery collections with curated offerings. Experienced promoters and management team with industry expertise. Personalised customer engagement supported by jewellery customisation services. Established retail boutique supported by operational infrastructure. Strong commitment to quality standards, certification, and product authenticity. Brand-building initiatives supported by selective marketing and product branding. In-house capabilities for product conceptualisation, design, and collection development."
    ],
@@ -102741,7 +102851,7 @@
   },
   "2001": {
    "name": "Paramount Syntex",
-   "fetchedAt": "2026-09-28T11:07:34+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Incorporated in 1996, Paramount Syntex Limited is engaged in the manufacturing of synthetic fibres, dyed fibres, and various types of yarns, including acrylic, polyester, wool, nylon, and blended yarns. The Company’s manufacturing units are located at Village Mangarh, Machiwara Road, Kohara, Ludhiana, Punjab, with a combined area of approximately 7,268.73 sq. yards. Paramount Syntex operates with a fully integrated setup comprising fibre processing, tow dyeing, hank dyeing, spinning, bulking, and packing facilities, supported by an in-house research and quality control team. The Company also manufactures recycled acrylic fibre from waste materials sourced both domestically and internationally, ensuring sustainable operations and efficient resource utilization. Over the years, the Company has established a strong presence in the textile and apparel industry, supplying high-quality yarns and fibres to a wide customer base across India. It holds certifications including ISO 9001:2015 (Quality Management), ISO 14001:2015 (Environmental Management), ISO 45001:2018 (Occupational Health & Safety), and Good Manufacturing Practice (GMP). Led by its experienced promoters, Paramount Syntex continues to strengthen its market position by maintaining product quality, investing in process improvement, and leveraging trading opportunities to ensure sustainable and profitable growth."
    ],
@@ -102969,7 +103079,7 @@
   },
   "2077": {
    "name": "Papadmalji Agro Foods",
-   "fetchedAt": "2026-09-28T10:08:47+05:30",
+   "fetchedAt": "2026-09-28T16:18:11+05:30",
    "about": [
     "Papadmalji Agro Foods Ltd is engaged in the processing and manufacturing of agro-based food products, focusing on quality-driven production, sourcing raw agricultural inputs, and delivering packaged food items to consumers. The company offers services including food processing, grading, packaging, storage, and supply of agricultural and processed food products, catering to wholesalers, retailers, and institutional buyers across regional markets. Papadmalji Agro Foods Ltd emphasizes hygiene, consistent quality, and efficient distribution, supporting farmers and food supply chains while meeting regulatory standards and growing demand for processed and value-added agro food products. In addition to in-house manufacturing, they also undertake white label manufacturing of Handmade Papads for clients, wherein products are produced by the Company and marketed by clients under their respective brand names and packaging, tailored to their target market. As of June 30, 2025, the distribution network comprises 68 distributors and 25 wholesalers, collectively servicing 5,965 retail outlets in the general trade channel through distributors and wholesalers. Competitive Strengths: They are amongst the few organized players exclusively in the papad segment leveraging strategically located manufacturing facilities. Extensive and well-established sale and distribution network Multi Channel Presence Wide Range of Products with diverse variants Purity, Health & Wellness Focus"
    ],
@@ -103152,7 +103262,7 @@
   },
   "1781": {
    "name": "Dove Soft",
-   "fetchedAt": "2026-09-28T10:37:54+05:30",
+   "fetchedAt": "2026-09-28T17:07:34+05:30",
    "about": [
     "Incorporated in August 2011, Dove Soft Limited provides integrated cloud-communication solutions through SMS, RCS, Voice, WhatsApp, Email, and other digital channels. The company provides services to enterprises and OTT platforms, including SMS, WhatsApp, Voice, IVR, automated calls, E-mail, and Digital Products. The company serves clients across industries like Telecom, IT, Travel, Entertainment, Media, Advertising, Retail, Real Estate, Healthcare, BFSI, Automobile, E-commerce, and Food & Beverages, helping manage customer communication and streamline operations. Dove Soft Limited provides communication services that help businesses connect with customers through multiple digital channels. These include: Enterprise Messaging Services : Bulk SMS, transactional and promotional SMS, and OTP delivery. Voice Solutions : Automated IVR, outbound dialer services, and missed call alerts. Email Marketing Solutions : High-volume enterprise-grade email delivery infrastructure. WhatsApp Business API : Secure and scalable customer engagement via WhatsApp for notifications, support, and marketing. Dove Soft is ISO/IEC 27001 certified for information security and has connectivity with all major telecom operators in India, ensuring reliable and fast service delivery. As of April 15 2025, the company employed 67 people in various departments. Competitive Strength: Sustainable business model and consistent financial track record. Diversified service portfolio resulting in our lesser dependence on a single industry, product or services. Scalable delivery platform supported by robust infrastructure. Experienced Promoter and senior management team."
    ],
@@ -103353,6 +103463,15 @@
     "sharesPre": 19058755.0,
     "sharesPost": 24386755.0
    },
+   "gmpHistory": [
+    {
+     "date": "2026-09-28",
+     "gmp": 0.0,
+     "est": 111.0,
+     "pct": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
    "company": {
     "address": "Office No. 1101, DLH Park, Opp. MTN, Goregoan West",
     "website": "https://www.dovesoft.io/",
@@ -103361,7 +103480,7 @@
   },
   "1602": {
    "name": "Vishal Nirmiti",
-   "fetchedAt": "2026-09-28T10:37:54+05:30",
+   "fetchedAt": "2026-09-28T17:07:34+05:30",
    "about": [
     "Incorporated in 1994, Vishal Nirmiti Limited (formerly Sejal Farms Private Limited) is a civil engineering, manufacturing, and construction company primarily engaged in manufacturing and dealing of Pre-Stressed Concrete (PSC) sleepers for railways, pre-cast and pre-stressed concrete products, as well as fabrication and erection of Mild Steel (MS) pipes, liners, and penstock pipes for Pumped Storage Projects (PSPs). The company also provides engineering, procurement, and construction (EPC) services for railway infrastructure, irrigation, and civil engineering projects across sectors such as railways, renewable power, and industrial infrastructure. Business Segments: Manufacturing segment: Includes PSC sleeper manufacturing for Indian Railways, DFCCIL, and private clients, as well as MS pipes, MS liners, and penstock pipes for hydro power, lift irrigation, water supply, and infrastructure projects. Services segment: Covers job work contracts for MS pipes, liners, penstock pipes, pre-cast and pre-stressed elements (such as noise barriers and cable ducts), hydro-mechanical structures, as well as construction works, power generation through windmills, transportation, leasing, and sale of scrap. VNL has a pan-India presence with operational units across Maharashtra, Madhya Pradesh, Gujarat, Himachal Pradesh, Uttar Pradesh, Odisha, and Karnataka and is led by a highly experienced promoter group with over four decades of domain expertise Competitive Strengths: Execution capabilities with industry experience and strong operating systems, providing comprehensive solution. Dedicated focus on railway infrastructure development and manufacture of PSC sleepers Deeply entrenched, long term relationships with customers Experienced Management Team driving the growth of the Company"
    ],
@@ -103537,6 +103656,15 @@
     "sharesPre": 19800000.0,
     "sharesPost": 26390909.0
    },
+   "gmpHistory": [
+    {
+     "date": "2026-09-28",
+     "gmp": 0.0,
+     "est": 220.0,
+     "pct": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
    "company": {
     "address": "303, 17 Elphinstone House, Marzban Road, New Empire Cinema, Fort",
     "website": "https://www.vishalnirmiti.com/",
@@ -103545,7 +103673,7 @@
   },
   "2351": {
    "name": "Vans Electroengineerings",
-   "fetchedAt": "2026-09-28T10:37:54+05:30",
+   "fetchedAt": "2026-09-28T17:07:34+05:30",
    "about": [
     "VANS Electroengineerings Limited is an ISO 9001:2015 certified engineering company engaged in the design, manufacture, and supply of traction power supply and overhead equipment (OHE) system components used in railway electrification projects, metro rail networks, and renewable energy infrastructure. The Company’s core product portfolio includes Vacuum Circuit Breakers (VCBs) and Vacuum Interrupters (VIs), encompassing both single-pole and double-pole configurations, which are primarily supplied to Indian Railways and railway electrification contractors. The Company operates a manufacturing facility located in Salem, Tamil Nadu, equipped with modern production systems, in-house testing facilities, and quality assurance infrastructure. Its products have received approvals from the Research Designs and Standards Organisation (RDSO) and undergo testing and validation by reputed institutions, including Korea Electrotechnology Research Institute (KERI), South Korea, and Central Power Research Institute (CPRI), Bengaluru, ensuring compliance with stringent industry and international standards. VANS Electroengineerings focuses on delivering reliable and high-performance electrical equipment through a combination of engineering expertise, advanced manufacturing processes, and rigorous quality control practices. The Company is led by experienced promoters and a technically proficient management team with domain knowledge in electrical engineering, railway electrification, and infrastructure development. Competitive Strengths Strong expertise in manufacturing traction power and railway electrification equipment. RDSO-approved product portfolio supported by comprehensive quality control and internationally recognised testing standards. End-to-end capabilities encompassing engineering, manufacturing, assembly, and in-house testing. Long-standing presence in the railway infrastructure ecosystem with an established customer network. Experienced leadership team with technical knowledge and industry-specific expertise."
    ],
@@ -103715,6 +103843,29 @@
     "sharesPre": 8000000.0,
     "sharesPost": 10880000.0
    },
+   "gmpHistory": [
+    {
+     "date": "2026-09-28",
+     "gmp": 45.0,
+     "est": 163.0,
+     "pct": 38.14,
+     "kostakSauda": "41000"
+    },
+    {
+     "date": "2026-09-27",
+     "gmp": 45.0,
+     "est": 163.0,
+     "pct": 38.14,
+     "kostakSauda": "41000"
+    },
+    {
+     "date": "2026-09-26",
+     "gmp": 45.0,
+     "est": 163.0,
+     "pct": 38.14,
+     "kostakSauda": "41000"
+    }
+   ],
    "company": {
     "address": "Plot 17, SIDCO Women's Industrial Estate, Karuppur",
     "website": "https://vanselectroengineerings.com/",
@@ -103723,7 +103874,7 @@
   },
   "2235": {
    "name": "Nityas Gems & Jewellery",
-   "fetchedAt": "2026-09-28T10:37:54+05:30",
+   "fetchedAt": "2026-09-28T17:07:34+05:30",
    "about": [
     "Nityas Gems and Jewellery Limited specialises in the design, manufacturing, and sale of lab-grown diamond-studded gold jewellery in India. The company operate through a business-to-business (B2B) model for retailers and wholesalers, as well as a direct-to-consumer (D2C) approach via our subsidiary, Ayaani Diamonds and Jewellery Private Limited. The company's operations encompass the entire jewellery value chain, including raw material management, product design, manufacturing, quality control, distribution, and retail sales. The company offers a variety of lab-grown diamond gold jewellery, including rings, earrings, pendants, bracelets, mangalsutras, nose pins, necklaces, cufflinks, and bangles, for daily wear, special occasions, men’s jewellery, and custom designs. The company's key B2B customers include established jewellery retailers like ‘GIVA’, ‘Palmonas’, ‘ONYA’, and ‘Ladia Diamonds’. The company supplies customised lab-grown diamond-studded gold jewellery based on its designs and specific customer requirements, including purity, weight, and finish. They ensure design-led development, consistent quality, and timely order execution to support our customer relationships. The company's B2B operations are essential to its business, focusing on the design and supply of lab-grown diamond jewellery to retailers. The company serves the domestic market by supplying products to B2B customers in 18 states and 2 union territories in India, as well as to end customers through retail stores in seven cities and online sales. Competitive Strength: Integrated B2B and D2C business model with a growing and diversified customer base. Manufacturing capabilities supported by in-house design and technology integration. Well positioned to capitalise on the growth of lab grown diamond jewellery. Skilled in-house workforce enabling quality control and reduced dependence on external job work. Robust financial performance with consistent growth. 18 states and 2 union territories in India, as well as to international customers in the UAE, Australia, Canada, Taiwan, and Kenya."
    ],
@@ -103898,6 +104049,15 @@
     "sharesPre": 43137248.0,
     "sharesPost": 57593248.0
    },
+   "gmpHistory": [
+    {
+     "date": "2026-09-28",
+     "gmp": 6.0,
+     "est": 81.0,
+     "pct": 8.0,
+     "kostakSauda": "900/12600"
+    }
+   ],
    "company": {
     "address": "Sector-1, 6th & 7th Floor, Ratih House SY-376, TPS 4, PI-7,Paiki Part-B, Parshottam Farm Compound, Opp. Podar Arcade, Varachha Road, A. K. Road",
     "website": "https://www.nityas.in/",
@@ -103906,7 +104066,7 @@
   },
   "2006": {
    "name": "Acme India Industries",
-   "fetchedAt": "2026-09-28T10:37:54+05:30",
+   "fetchedAt": "2026-09-28T17:07:34+05:30",
    "about": [
     "Acme India is engaged in the Indian railway rolling stock sector, with a strong focus on designing, manufacturing, and maintaining railway coach interiors. The company works mainly through government tenders and provide turnkey solutions for furnishing new railway coaches, refurbishing old ones, and upgrading coach toilets. It also manufacture and supply various components to Indian Railways, ensuring our products meet their standards for comfort, safety, hygiene, and functionality. Service offerings: Turnkey Coach Furnishing: Design and install interiors for new railway coaches including LHB coaches, Vande Bharat trains, inspection and overhead equipment coaches. Since 2017, it has delivered 1,610 new coaches. Refurbishment & Upgradation: We upgrade both LHB and ICF coaches by replacing old parts and redesigning interiors. Since 2018, it has refurbished 1,888 coaches. Toilet Modernization: The company has successfully completed over 10,948 toilet upgrades in LHB and ICF coaches, focusing on hygiene and passenger comfort. Component Supply: It regularly supply products like Braille signage, FRP and aluminum polymer composite sanitary ware, Epoxy flooring, FRP doors, seat and berth components, Hygiene products (soap dispensers, odor control systems), Fire-retardant decorative coatings, andVacuum circuit breakers The company operates two manufacturing units in Sonipat, Haryana, covering 116,000 sq. ft., with in-house lab and testing facilities. Modern Coach Factory, Raebareli, North Eastern Railway, Gorakhpur, and Northern Western Railway, Jodhpur are some of the notable projects. As on August 31, 2025, the company’s order book stood at Rs 40,208.20 lakhs. Competitive Strengths Established market presence in Indian railway sector Diversified range of products and services under one roof Healthy portfolio of order book Experienced Promoters with strong management team having domain knowledge Multiple Global Tie ups and representations Fully integrated manufacturing plant set up"
    ],
@@ -104065,6 +104225,22 @@
     "sharesPre": 18065000.0,
     "sharesPost": 23472200.0
    },
+   "gmpHistory": [
+    {
+     "date": "2026-09-28",
+     "gmp": 30.0,
+     "est": 226.0,
+     "pct": 15.31,
+     "kostakSauda": "13700"
+    },
+    {
+     "date": "2026-09-27",
+     "gmp": 30.0,
+     "est": 226.0,
+     "pct": 15.31,
+     "kostakSauda": "13700"
+    }
+   ],
    "company": {
     "address": "Plot No-34, Second Floor Dwarka Sector 3",
     "website": "https://acmeindia.co/",
@@ -104073,7 +104249,7 @@
   },
   "2267": {
    "name": "Eventions",
-   "fetchedAt": "2026-09-28T10:37:54+05:30",
+   "fetchedAt": "2026-09-28T17:07:34+05:30",
    "about": [
     "Incorporated 2020, Eventions Limited is engaged in providing event management and experiential marketing services. It specializes in planning and executing corporate events, brand activations, exhibitions, conferences, and promotional campaigns. The company offers end-to-end solutions, including event conceptualization, design, logistics, and on-ground execution. It caters to corporate clients across various industries, helping them enhance brand visibility and customer engagement through customized event experiences. Eventions Private Limited focuses on creativity, timely execution, and client-centric solutions, aiming to deliver impactful and memorable events. The company has undertaken assignments for clients operating across various sectors including banking, insurance, event management, fast-moving consumer goods and other industry. Service: MICE services, including meetings, conferences and incentive travel programs Corporate events, including product launches, conferences and corporate gatherings including Virtual events, conducted through digital platforms Free Independent Travel (“FIT”) services, comprising customised travel arrangements. Brand and marketing activations, involving promotional and on-ground marketing activities Competitive Strengths: Integrated service model for MICE and corporate events End-to-End Event Management Capabilities Asset-Light Business Model Event Execution Capabilities Across Multiple Geographies"
    ],
@@ -104273,6 +104449,15 @@
     "sharesPre": 8953509.0,
     "sharesPost": 12183909.0
    },
+   "gmpHistory": [
+    {
+     "date": "2026-09-28",
+     "gmp": 0.0,
+     "est": 118.0,
+     "pct": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
    "company": {
     "address": "Plot No. 108, Sector 44, Institutional, Gurgaon Sector 45",
     "website": "https://eventions.in/",
@@ -104281,7 +104466,7 @@
   },
   "1964": {
    "name": "SJP Ultrasonic",
-   "fetchedAt": "2026-09-28T11:07:34+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Incorporated on January 27, 2012, SJP Ultrasonic Ltd. is engaged in the end-to-end plastic joining and automation solution providers. The company offers specialised solutions mainly in the Automotive industry and industries related to Medical, Electrical, Electronics, Textile, FMCG, Toys, Gift & Stationery, Food & Packaging, Defence & Educational Institutes. Business Segments: Plastic joining solutions Industrial automation Laser technology solutions The sale of the products and services is majorly made to manufacturers engaged in various industries, which makes model business to business (B2B) in nature. Competitive Strengths: A start to finish plastic welding solution provider offering diverse and comprehensive service offerings. Long standing relations with raw material and equipment suppliers Long-standing relationships with established customers, with potential to expand the customer base. They provide a diverse range of specialised plastic products across varied industry segments Quality Standard Certifications & Quality Tests"
    ],
@@ -104492,7 +104677,7 @@
   },
   "2274": {
    "name": "Sollfege Smart Electronics",
-   "fetchedAt": "2026-09-28T11:07:34+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "Sollfege Smart Electronics Limited operates in the premium electronics and smart living segment, offering audio-visual, home automation, lifestyle, and wellness solutions. The Company focuses on delivering technology-driven products and integrated solutions that enhance convenience, comfort, and modern living experiences for residential and commercial customers. The Company has evolved from a traditional audio-video distributor into a provider of end-to-end premium electronics and automation solutions. Its offerings include home theatre systems, audio and video solutions, smart home automation, intelligent lighting and climate control, lifestyle electronics, and connected living technologies. Sollfege follows an experience-led business model through showrooms, experience centres, and digital channels. Its experience centres are designed to simulate real-life environments, allowing customers to explore, test, and evaluate products before purchase. The Company’s sales and technical teams work closely with customers, architects, interior designers, and project stakeholders to deliver customized solutions that meet functional and aesthetic requirements. The Company has developed strong relationships with leading global brands, national distributors, builders, and project partners, enabling it to offer premium products and execute integrated technology projects across residential, commercial, hospitality, and institutional sectors. With showrooms in Kolkata, Gurgaon, and Bhubaneswar, Sollfege serves both retail and business customers across India. The Company continues to expand its market presence through exhibitions, digital marketing initiatives, strategic partnerships, and an enhanced product portfolio. Competitive Strengths Diversified portfolio of premium audio-video, automation, and smart living solutions. Experience-centre driven business model supporting customer engagement and product demonstrations. Strong partnerships with globally recognized brands and project stakeholders. Capability to provide customized and integrated technology solutions. Established presence across key Indian markets with a premium customer focus."
    ],
@@ -104523,76 +104708,73 @@
       "1.80"
      ],
      [
+      "4",
+      "Issue Expenses",
+      "1.76"
+     ],
+     [
       "",
       "Total",
-      "20.02"
+      "21.78"
      ]
     ]
    },
    "financials": {
     "head": [
      "Period Ended",
-     "30 Sep 2025",
+     "31 Mar 2026",
      "31 Mar 2025",
-     "31 Mar 2024",
-     "31 Mar 2023"
+     "31 Mar 2024"
     ],
     "rows": [
      [
       "Assets",
-      "31.71",
+      "30.37",
       "24.83",
-      "12.30",
-      "10.09"
+      "12.30"
      ],
      [
       "Total Income",
-      "10.76",
+      "22.22",
       "21.28",
-      "19.84",
-      "12.74"
+      "19.84"
      ],
      [
       "Profit After Tax",
-      "1.05",
+      "2.19",
       "2.13",
-      "1.76",
-      "0.36"
+      "1.76"
      ],
      [
       "EBITDA",
-      "1.94",
+      "4.00",
       "3.24",
-      "1.73",
-      "0.66"
+      "1.73"
      ],
      [
       "NET Worth",
-      "10.47",
+      "11.62",
       "9.43",
-      "3.75",
-      "1.99"
+      "3.75"
      ],
      [
       "Reserves and Surplus",
-      "4.43",
+      "5.58",
       "7.92",
-      "2.74",
-      "0.98"
+      "2.74"
      ],
      [
       "Total Borrowing",
-      "6.08",
+      "6.98",
       "4.46",
-      "2.87",
-      "1.76"
+      "2.87"
      ],
      [
       "Amount in ₹ Crore"
      ]
     ],
-    "title": "Company Financials (Restated Consolidated)",
-    "asOf": "2025-09-30"
+    "title": "Company Financials (Restated)",
+    "asOf": "2026-03-31"
    },
    "reservation": {
     "head": [
@@ -104633,22 +104815,13 @@
    },
    "kpiPeriods": [
     {
-     "asOf": "2025-03-31",
-     "roe": 32.27,
-     "roce": 27.79,
-     "ronw": 22.56,
-     "patMargin": 9.99,
-     "ebitdaMargin": 15.43,
-     "debtEquity": 0.47
-    },
-    {
-     "asOf": "2025-09-30",
-     "roe": 10.53,
-     "roce": 12.64,
-     "ronw": 10.0,
-     "patMargin": 9.74,
-     "ebitdaMargin": 18.04,
-     "debtEquity": 0.58
+     "asOf": "2026-03-31",
+     "roe": 20.82,
+     "roce": 23.57,
+     "ronw": 18.86,
+     "patMargin": 9.86,
+     "ebitdaMargin": 18.02,
+     "debtEquity": 0.6
     }
    ],
    "holding": {
@@ -104674,7 +104847,7 @@
   },
   "2370": {
    "name": "TNA Solutions",
-   "fetchedAt": "2026-09-28T11:07:34+05:30",
+   "fetchedAt": "2026-09-28T17:37:30+05:30",
    "about": [
     "TNA Solutions Limited is a home textile manufacturing company based in Indore, Madhya Pradesh, catering to both domestic and international markets. The Company specializes in converting processed fabrics into a wide range of finished home furnishing products tailored to customer requirements. Its product portfolio includes bed sheet sets, pillow covers and shells, towels, comforters, quilts, dohars, mattress protectors, and other home textile offerings. The Company primarily operates as a business-to-business (B2B) manufacturer, supplying products to global retailers, importers, and Indian brands under private labels and customer-specified branding. In addition to its B2B operations, TNA Solutions has expanded its presence in the direct-to-consumer segment through e-commerce platforms, wholesalers, retailers, and its own brand, Ambra Linens , which was introduced in 2022. To strengthen its digital retail reach, the Company launched a dedicated e-commerce website for Ambra Linens in July 2026. TNA Solutions follows an asset-light manufacturing approach by sourcing greige fabrics from weavers and processed fabrics from mills, processing units, and stockists. While third-party partners handle fabric-related activities such as weaving, dyeing, and printing, the Company undertakes value-added processes including cutting, stitching, embroidery, finishing, quality inspection, packaging, and dispatch from its manufacturing facility in Indore. With a significant share of revenue derived from exports, the Company serves a geographically diverse customer base and emphasizes consistent product quality, operational efficiency, and on-time order fulfillment. Its manufacturing and operational processes are supported by technology-driven systems and a structured quality management framework. The business is led by an experienced promoter group with expertise spanning sourcing, product development, production planning, quality control, and customer relationship management. Competitive Strengths Broad and diversified range of home textile products. Robust quality assurance processes supported by multiple inspection stages. Technology-driven manufacturing and operational systems. Experienced promoter-led management team with industry expertise. Strong export presence supported by a geographically diversified customer base."
    ],
