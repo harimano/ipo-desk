@@ -105,3 +105,18 @@ def test_outside_the_pre_open_window_nse_is_not_asked_and_a_new_day_starts_clean
     stale = {"asOf": "2026-09-17T17:00:00+05:30", "rows": {"Old": {}}, "timeline": {"Old": [["10:00", 1, 1, 1]]}, "preopen": [{"name": "x"}]}
     out = live.tick(S(), DOC, stale, NOW.replace(hour=11))
     assert "Old" not in out["rows"] and "Old" not in out["timeline"] and out["preopen"] == []
+
+
+def test_a_trading_holiday_is_read_from_nse_and_a_failed_list_fails_open():
+    class H:
+        def __init__(self, v):
+            self.v = v
+
+        def nse_json(self, path, params=None, *, source="nse", referer=None):
+            if isinstance(self.v, Exception):
+                raise self.v
+            return self.v
+    hol = {"CM": [{"tradingDate": "02-Oct-2026", "description": "Mahatma Gandhi Jayanti"}]}
+    assert live.trading_holiday(H(hol), dt.date(2026, 10, 2)) == "Mahatma Gandhi Jayanti"
+    assert live.trading_holiday(H(hol), dt.date(2026, 10, 1)) is None
+    assert live.trading_holiday(H(SourceBlocked("nse", "HTTP 403", "u", 403)), dt.date(2026, 10, 2)) is None

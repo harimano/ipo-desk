@@ -172,6 +172,21 @@ def tick(session: Session, doc: dict, prev: dict, now: dt.datetime) -> dict:
     return out
 
 
+def trading_holiday(session: Session, day: dt.date) -> str | None:
+    """NSE's equity-segment holiday for `day` (its description), else None. Fails open: a list that will not load
+    never costs a trading day."""
+    try:
+        data = session.nse_json("/api/holiday-master", {"type": "trading"}, source="nse_holidays")
+    except SourceError as e:
+        log.warning("holiday list unavailable (%s); running anyway", e.kind)
+        return None
+    want = day.strftime("%d-%b-%Y").lower()
+    for h in (data.get("CM") if isinstance(data, dict) else None) or []:
+        if isinstance(h, dict) and str(h.get("tradingDate") or "").lower() == want:
+            return str(h.get("description") or "holiday")
+    return None
+
+
 def publish(repo_dir: pathlib.Path, stamp: str) -> None:
     """One commit on the `live` branch, replaced every time: the branch never grows."""
     def git(*a):
@@ -194,6 +209,11 @@ def main(argv=None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)-7s %(name)s  %(message)s", datefmt="%H:%M:%S")
     out_p, session = pathlib.Path(a.out), Session()
     prev = json.loads(out_p.read_text()) if out_p.exists() and out_p.stat().st_size > 2 else {}
+    if a.until:                                     # a loop on a market holiday would poll a closed market all day
+        why = trading_holiday(session, dt.datetime.now(IST).date())
+        if why:
+            log.info("NSE trading holiday (%s): no loop today", why)
+            return 0
     while True:
         now = dt.datetime.now(IST)
         doc = json.loads(pathlib.Path(a.board).read_text())
