@@ -310,3 +310,8 @@ Hari: "this whole section is useless … I need to be able to track something", 
   one its page calls, `Pubissues_BBS_CumultveCatdem_ng`) shows "No Records Found" mid-issue — BSE does not publish it, so
   no route to BSE helps. InvestorGain 566 stays for those 11 issues only. First cut wrote NSE's zeros: caught by a live
   tick before shipping — the page would have blanked every SME book. Rule: an all-zero book is never written.
+- Narada (trynarada.com, found via an unrelated public repo, sanketicfai/ipo-desk) — 1 Oct evening. Its `/ipos/<symbol>/
+  subscription/` fragment (the site's own htmx swap) holds two tables: share-wise and application-wise, sub-rows marked by
+  an indent span. For BSE-only SMEs it is the only fresh book (Black Opal closing day 73.88x vs IG 2.22x; Vans 628.78x vs
+  93x). Board run: SMEs ask Narada first — NSE's ~4.5 s per-issue call returned zeros for every SME and cost 60 s a run
+  (78 s → 16 s). Live: SMEs from Narada at most every 10 min an issue. Applications received per quota stored as `apps`.

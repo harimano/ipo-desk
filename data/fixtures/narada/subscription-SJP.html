@@ -1,0 +1,149 @@
+
+
+
+<div class="flex justify-between items-center mb-4">
+  <h2 class="text-xs font-medium text-muted">Subscription</h2>
+  <div class="flex gap-3 items-center">
+    <button
+      hx-get="/ipos/SJP/subscription/"
+      hx-target="closest [data-view]"
+      hx-swap="innerHTML"
+      hx-disabled-elt="this"
+      class="inline-flex justify-center items-center size-6 rounded cursor-pointer text-xs transition-colors text-muted hover:bg-accent hover:text-foreground disabled:opacity-40 [&.htmx-request]:animate-spin"
+    >↻</button>
+    <div class="flex overflow-hidden text-xs rounded border border-border">
+      <button data-tab="shares" class="py-1 px-3 font-medium cursor-pointer text-foreground bg-accent">Shares</button>
+      <button data-tab="applications" class="py-1 px-3 cursor-pointer text-muted">Applications</button>
+    </div>
+  </div>
+</div>
+<div class="overflow-x-auto">
+  <table data-table="shares" class="w-full text-sm">
+    <thead>
+      <tr class="text-xs font-medium text-left border-b text-muted border-border">
+        <th class="pb-2 w-full font-medium">Quota</th>
+        <th class="pb-2 pl-6 font-medium text-right whitespace-nowrap">Shares offered<br>(₹ Cr)</th>
+        <th class="pb-2 pl-6 font-medium text-right whitespace-nowrap">Shares applied<br>(₹ Cr)</th>
+        <th class="pb-2 pl-6 font-medium text-right whitespace-nowrap">Times<br>subscribed</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        
+        <tr class="border-b border-border/50">
+          <td class="py-2.5 font-medium text-foreground">Other</td>
+          <td class="py-2.5 pl-6 tabular-nums text-right text-foreground">11.14</td>
+          <td class="py-2.5 pl-6 tabular-nums text-right text-foreground">10.68</td>
+          <td class="py-2.5 pl-6 font-semibold tabular-nums text-right text-foreground">
+            0.96x
+          </td>
+        </tr>
+        
+        
+      
+        
+        <tr class="border-b border-border/50">
+          <td class="py-2.5 font-medium text-foreground">IND</td>
+          <td class="py-2.5 pl-6 tabular-nums text-right text-foreground">11.14</td>
+          <td class="py-2.5 pl-6 tabular-nums text-right text-foreground">2.60</td>
+          <td class="py-2.5 pl-6 font-semibold tabular-nums text-right text-foreground">
+            0.23x
+          </td>
+        </tr>
+        
+        
+      
+      <tr class="border-t border-border">
+        <td class="pt-2.5 font-semibold text-foreground">Total</td>
+        <td class="pt-2.5 pl-6 font-semibold tabular-nums text-right text-foreground">22.27</td>
+        <td class="pt-2.5 pl-6 font-semibold tabular-nums text-right text-foreground">13.28</td>
+        <td class="pt-2.5 pl-6 font-semibold tabular-nums text-right text-foreground">
+          0.60x
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table data-table="applications" class="hidden w-full text-sm">
+    <thead>
+      <tr class="text-xs font-medium text-left border-b text-muted border-border">
+        <th class="pb-2 w-full font-medium">Quota</th>
+        <th class="pb-2 pl-6 font-medium text-right whitespace-nowrap">Applications<br>reserved</th>
+        <th class="pb-2 pl-6 font-medium text-right whitespace-nowrap">Applications<br>received</th>
+        <th class="pb-2 pl-6 font-medium text-right whitespace-nowrap">Times<br>subscribed</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        
+        <tr class="border-b border-border/50">
+          <td class="py-2.5 font-medium text-foreground">Other</td>
+          <td class="py-2.5 pl-6 tabular-nums text-right text-foreground">277</td>
+          <td class="py-2.5 pl-6 tabular-nums text-right text-foreground">57</td>
+          <td class="py-2.5 pl-6 font-semibold tabular-nums text-right text-foreground">
+            0.21x
+          </td>
+        </tr>
+        
+        
+      
+        
+        <tr class="border-b border-border/50">
+          <td class="py-2.5 font-medium text-foreground">IND</td>
+          <td class="py-2.5 pl-6 tabular-nums text-right text-foreground">416</td>
+          <td class="py-2.5 pl-6 tabular-nums text-right text-foreground">97</td>
+          <td class="py-2.5 pl-6 font-semibold tabular-nums text-right text-foreground">
+            0.23x
+          </td>
+        </tr>
+        
+        
+      
+      <tr class="border-t border-border">
+        <td class="pt-2.5 font-semibold text-foreground">Total</td>
+        <td class="pt-2.5 pl-6 font-semibold tabular-nums text-right text-foreground">693</td>
+        <td class="pt-2.5 pl-6 font-semibold tabular-nums text-right text-foreground">154</td>
+        <td class="pt-2.5 pl-6 font-semibold tabular-nums text-right text-foreground">
+          0.22x
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="mt-3 text-xs text-muted/60">Last updated: <span data-last-updated>just now</span></p>
+
+<script>
+  (function () {
+    const container = document.currentScript.parentElement;
+    if (container.tagName === 'HEAD') return;
+
+    const lastUpdated = Date.now();
+    const lastUpdatedEl = container.querySelector('[data-last-updated]');
+
+    setInterval(() => {
+      const mins = Math.floor((Date.now() - lastUpdated) / 60000);
+      lastUpdatedEl.textContent = mins === 1 ? '1 minute ago' : `${mins} minutes ago`;
+    }, 60000);
+
+    const ACTIVE = 'py-1 px-3 font-medium cursor-pointer text-foreground bg-accent';
+    const INACTIVE = 'py-1 px-3 cursor-pointer text-muted';
+
+    function setView(v) {
+      const isShares = v === 'shares';
+      container.dataset.view = v;
+      container.querySelector('[data-tab="shares"]').className = isShares ? ACTIVE : INACTIVE;
+      container.querySelector('[data-tab="applications"]').className = isShares ? INACTIVE : ACTIVE;
+      container.querySelector('[data-table="shares"]').classList.toggle('hidden', !isShares);
+      container.querySelector('[data-table="applications"]').classList.toggle('hidden', isShares);
+    }
+
+    container.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-tab]');
+      if (btn) setView(btn.dataset.tab);
+    });
+
+    setView(container.dataset.view || 'shares');
+  }());
+</script>
+

@@ -14,9 +14,9 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
 
 - `main` — code, fixtures, `data/aliases.json`, research sheets. Never collector output.
 - `data` branch (orphan) — `latest.json` + `history/`, written ONLY by `ipo-desk-bot` in `collect.yml`. `live` branch —
-  one amended commit of `live.json` from the five-minute market-hours loop (`collector/live.py`: subscription NSE first —
-  mainboard split from `/api/ipo-detail`, NSE SME total from `/api/ipo-current-issue` — and InvestorGain 566 only for
-  BSE-only SMEs, every book tagged `src`; never an all-zero book; GMP from IG 331). `scripts/pull_data.sh` copies `data` into `./data`.
+  one amended commit of `live.json` from the five-minute market-hours loop (`collector/live.py`: mainboard from NSE
+  `/api/ipo-detail`; every SME from Narada, at most every 10 min an issue; NSE's list total, then InvestorGain 566, as
+  fallbacks; every book tagged `src`; never an all-zero book; exits on an NSE trading holiday; GMP from IG 331). `scripts/pull_data.sh` copies `data` into `./data`.
 - `_site/` — built by `site/build.py`, never committed. `collector/layout.py` splits the document into
   `meta / board / pipeline / investors / research / history` parts; `boot.js` fetches `meta.json`, then only changed parts.
 - Schedule: full runs 06:43 and 18:13 IST; intraday (subscription + gmp + open issues' records) :07/:37 on weekdays;
@@ -110,6 +110,10 @@ document as assembled so far; `prev` is yesterday's.
   recall by construction, never fixed by reading the PDF.
 - `listings` borrows a symbol from `investors.listingSymbols` (matched, since that cache uses the listing report's spelling)
   and does not report a row `tape.bse` prices as "cannot price". `validate.py` caps the COMPACT document (6 MB, warns at 80%).
+- `subscription` asks mainboard NSE → Narada, SME Narada → NSE (NSE's SME answer has no shares offered: zeros), then BSE,
+  chittorgarh (dead). **Narada** (`sources/narada.py`, trynarada.com, reachable from runners) is the only fresh book for
+  BSE-only SMEs and gives application counts (`apps`, counts only, not rendered — showing real "1 in N" odds is Hari's
+  call under rule 3); it publishes no timestamp, so its books carry our fetch time. A small third-party site: be polite.
 - `subscription` never replaces a positive book with an all-zero one (exchanges answer zeros after close). A GMP of "0"
   with no trade behind it is "no quote". `validate.py`'s loss check ignores rows due to retire (listing + 1 day).
 - Known gaps: `api.bseindia.com` answers 403 to GitHub's runners (offers, bse_ann, and the BSE deals leg — all "blocked", a

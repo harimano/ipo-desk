@@ -6,18 +6,20 @@
 the issues on that document's board, into `live.json` on the `live` branch (one commit, amended and force-pushed, so
 the branch never grows). The page lays it over the document it already has.
 
-  subscription   NSE first, every figure carrying its own source (`src`) and timestamp:
-                   mainboard   NSE /api/ipo-detail, one call an issue — category-wise, NSE's update time
-                   NSE SME     NSE /api/ipo-current-issue, ONE call — the total only (NSE's per-issue SME answer has
-                               shares bid but no shares offered, so no multiples)
-                   BSE-only    InvestorGain report 566, one call — the only live feed: BSE's own category demand
-                               answers "No Records Found" mid-issue for SMEs (surveyed 1 Oct 2026). ~1-2 h behind.
-                 Until 1 Oct 2026 everything came from 566, whose stamps ran 1-2 h behind NSE's.
+  subscription   every book carrying its own source (`src`) and timestamp:
+                   mainboard   NSE /api/ipo-detail, one call an issue — category-wise, NSE's update time;
+                               Narada if NSE has no book
+                   SME (both)  Narada /ipos/<symbol>/subscription/ — share-wise split + application counts (`apps`),
+                               at most every NARADA_EVERY minutes an issue (a small site: be polite); stamped with OUR
+                               fetch time, Narada publishes none. Fallbacks: NSE's one-call list total (NSE SMEs), then
+                               InvestorGain report 566 (BSE-only SMEs) — ~1-2 h behind, the last resort.
+                 History: InvestorGain 566 for everything until 1 Oct 2026; NSE first that morning; Narada that evening
+                 (Black Opal's closing day: Narada 73.88x while 566 still said 2.22x).
   gmp            InvestorGain report 331: one call (the grey market is off-exchange; NSE has no GMP)
   pre-open       NSE special pre-open session, 09:00-10:05 IST: the indicative listing price of anything listing today
   timeline       each issue's book through the day, [HH:MM, total, qib, retail] — the late QIB surge, visible
 
-A tick is one NSE call per open mainboard issue plus four. An all-zero book is never written: NSE answers zeros for an
+A tick is one NSE call per open mainboard issue, one Narada call per SME due a refresh, plus four. An all-zero book is never written: NSE answers zeros for an
 issue it does not carry, and the page would lay them over a real book. An NSE block (401/403 after the session's one
 re-prime) ends that tick's NSE pass — never retried. A source that fails costs that tick its part and nothing else: the
 previous values stay in the file, stamped with their own times. Nothing here touches `latest.json`.
@@ -37,12 +39,13 @@ from zoneinfo import ZoneInfo
 from .errors import SourceBlocked, SourceError
 from .http import Session
 from .modules.subscription import _as_of, combine, has_values
-from .sources import investorgain, nse_ipo, nse_preopen
+from .sources import investorgain, narada, nse_ipo, nse_preopen
 
 log = logging.getLogger("collector.live")
 IST = ZoneInfo("Asia/Kolkata")
 PREOPEN_FROM, PREOPEN_TO = dt.time(8, 55), dt.time(10, 5)
 TIMELINE_MAX = 120
+NARADA_EVERY = 10          # minutes between Narada fetches of one issue
 
 
 def board_index(doc: dict, today: dt.date) -> tuple[dict, dict, list]:
@@ -78,7 +81,7 @@ def nse_sub(session: Session, row: dict) -> dict | None:
 
 def real_book(sub: dict | None) -> bool:
     """Some category, or the total, above zero — zeros are what a source says when it has nothing."""
-    return bool(sub) and any((sub.get(k) or 0) > 0 for k in ("qib", "nii", "retail", "total"))
+    return bool(sub) and any((sub.get(k) or 0) > 0 for k in ("qib", "nii", "retail", "total", "other"))
 
 
 def tick(session: Session, doc: dict, prev: dict, now: dt.datetime) -> dict:
@@ -90,18 +93,48 @@ def tick(session: Session, doc: dict, prev: dict, now: dt.datetime) -> dict:
         out["rows"], out["preopen"], out["timeline"] = {}, [], {}
     hhmm = now.strftime("%H:%M")
 
-    def put(row: dict, sub: dict, src: str):
+    def put(row: dict, sub: dict, src: str, apps: dict | None = None):
         sub = {**{k: v for k, v in sub.items() if v is not None}, "src": src}
-        out["rows"].setdefault(row["name"], {})["sub"] = sub
+        cur = out["rows"].setdefault(row["name"], {})
+        cur["sub"] = sub
+        if apps:
+            cur["apps"] = apps
         point = [sub.get("total"), sub.get("qib"), sub.get("retail")]
         line = out["timeline"].setdefault(row["name"], [])
         if not line or line[-1][1:] != point:
             line.append([hhmm, *point])
             del line[:-TIMELINE_MAX]
 
-    status, covered = [], set()
+    def narada_due(row: dict) -> bool:
+        old = (out["rows"].get(row["name"]) or {}).get("sub") or {}
+        if old.get("src") != "narada":
+            return True
+        try:
+            return (now - dt.datetime.fromisoformat(old["asOf"])).total_seconds() >= NARADA_EVERY * 60 - 30
+        except (KeyError, TypeError, ValueError):
+            return True
+
+    def from_narada(row: dict) -> bool | None:
+        """True: a fresh Narada book went in; None: not due (the last one stands); False: no book from Narada."""
+        if not row.get("symbol"):
+            return False
+        if not narada_due(row):
+            return None
+        try:
+            parsed = narada.fetch(session, row["symbol"])
+        except SourceError as e:
+            n_err.append(f"narada {e.kind}")
+            return False
+        sub = narada.book(parsed)
+        if not real_book(sub):
+            return False
+        put(row, {**sub, "asOf": now.replace(microsecond=0).isoformat()}, "narada", narada.applications(parsed))
+        return True
+
+    status, covered, n_err = [], set(), []
+    counts = {"nse": 0, "narada": 0, "nseTotal": 0}
     if open_rows:
-        # 1. NSE's list: which open issues NSE carries, and each one's total, in one call
+        # NSE's list: which open issues NSE carries, and each one's total, in one call
         nse_list, blocked = {}, False
         try:
             nse_list = {str(r["symbol"]).upper(): r for r in nse_ipo.current_issues(session) if r.get("symbol")}
@@ -111,32 +144,34 @@ def tick(session: Session, doc: dict, prev: dict, now: dt.datetime) -> dict:
         except SourceError as e:
             status.append(f"nse list {e.kind}")
         stamp = now.replace(second=0, microsecond=0).isoformat()
-        n_main, n_sme = 0, 0
         for row in open_rows:
-            listed = nse_list.get(str(row.get("symbol") or "").upper())
-            if not listed or blocked:
-                continue
-            covered.add(row["name"])
-            if row.get("_board") == "mainboard":
-                # 2. mainboard: NSE's category split, one call each
+            listed = None if blocked else nse_list.get(str(row.get("symbol") or "").upper())
+            if row.get("_board") == "mainboard" and listed:
                 try:
                     s = nse_sub(session, row)
                 except SourceBlocked as e:
-                    blocked = True
+                    blocked, s = True, None
                     status.append(f"nse {e.kind}")
-                    continue
                 except SourceError:
                     s = None
                 if s:
                     put(row, s, "nse")
-                    n_main += 1
+                    counts["nse"] += 1
+                    covered.add(row["name"])
                     continue
-            total = listed.get("totalSub")
+            got = from_narada(row)
+            if got is not False:                       # a fresh Narada book, or the last one still current
+                counts["narada"] += bool(got)
+                covered.add(row["name"])
+                continue
+            total = (listed or {}).get("totalSub")
             if total is not None and total > 0:
                 put(row, {"total": round(float(total), 2), "asOf": stamp}, "nse")
-                n_sme += 1
-        status.append(f"nse {n_main} split + {n_sme} total")
-        # 3. what NSE does not carry: InvestorGain's report, matched by igId, never by name
+                counts["nseTotal"] += 1
+                covered.add(row["name"])
+        status.append(f"nse {counts['nse']} split + {counts['nseTotal']} total; narada {counts['narada']}"
+                      + (f" ({n_err[0]})" if n_err else ""))
+        # the last resort, for what nothing else carried: InvestorGain's report, matched by igId, never by name
         rest = {str(r["igId"]): r for r in open_rows if r["name"] not in covered and r.get("igId")}
         if rest:
             try:
@@ -149,7 +184,7 @@ def tick(session: Session, doc: dict, prev: dict, now: dt.datetime) -> dict:
                 status.append(f"investorgain {n_ig}/{len(rest)}")
             except SourceError as e:
                 status.append(f"investorgain {e.kind}")
-    out["sources"]["subscription"] = "; ".join(status)[:120] if status else "ok"
+    out["sources"]["subscription"] = "; ".join(status)[:160] if status else "ok"
 
     try:
         for g in investorgain.fetch(session, now.date()):

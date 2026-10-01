@@ -2,9 +2,13 @@
 
 For every board row that is Open, or Closed within the last 3 days, fetch category-wise subscription:
   nse   /api/ipo-detail?symbol=&series=        (needs the row's `symbol`; the calendar stores it)
+  narada  trynarada.com/ipos/<symbol>/subscription/  (share- and application-wise; the only live book for BSE-only
+           SMEs — added 1 Oct 2026; stamped with our fetch time, Narada publishes none)
   bse   CummDemandSchedule.aspx?ID=<IPONo>     (needs the row's `bseIpoNo`)
   chittorgarh  report 21 live-bidding table    (matched by name; fetched once per run, last resort)
-and write  sub: {qib, nii, retail, employee?, shareholder?, total, asOf}.
+and write  sub: {qib, nii, retail, employee?, shareholder?, total, asOf, src}  (+ `apps` {quota: {reserved, received}} when
+Narada answered). An answer that is all zeros is not a book: NSE gives zeros for issues it does not carry (every SME),
+so the next source is asked.
 
 Category classifier (lifted from the IPO-Tracker track_subscriptions notes, with one change): NII
 sub-buckets (bNII/sNII, "above/below 10 lakh", "bid amount ...") are NOT dropped — they are combined
@@ -24,7 +28,7 @@ from zoneinfo import ZoneInfo
 from ..errors import SourceBlocked, SourceChanged, SourceError
 from ..http import Session
 from ..result import Result
-from ..sources import bse_issues, nse_ipo
+from ..sources import bse_issues, narada, nse_ipo
 from .calendar import derive_status, match_name, norm_name
 
 try:
@@ -129,6 +133,11 @@ def has_values(sub: dict | None) -> bool:
     return bool(sub) and any(sub.get(k) is not None for k in ("qib", "nii", "retail", "total"))
 
 
+def real_book(sub: dict | None) -> bool:
+    """Some quota, or the total, above zero — zeros are what a source says when it has nothing."""
+    return bool(sub) and any((sub.get(k) or 0) > 0 for k in ("qib", "nii", "retail", "total", "other"))
+
+
 # ---------------------------------------------------------------------------------------------
 # chittorgarh report 21 (HTML table, matched by name)
 # ---------------------------------------------------------------------------------------------
@@ -217,24 +226,56 @@ class _Chittorgarh:
         return table.get(hit) if hit else None
 
 
+def _from_nse(session: Session, row: dict, nse_blocked: list[bool], errs: list[str]) -> dict | None:
+    if not row.get("symbol") or nse_blocked[0]:
+        return None
+    try:
+        d = nse_ipo.ipo_detail(session, row["symbol"], row.get("series") or "EQ")
+        sub = combine(d["bidDetails"])
+        if not has_values(sub) and d.get("rootTotal") is not None:
+            sub["total"] = d["rootTotal"]
+        if real_book(sub):
+            sub["asOf"] = _as_of(d.get("updateTime"))
+            return sub
+        errs.append("nse: no book (all zero or nothing classified)")
+    except SourceBlocked as e:
+        nse_blocked[0] = True             # one block is enough; do not hammer for every row
+        errs.append(f"nse: {e.detail}")
+    except SourceError as e:
+        errs.append(f"nse: {e.detail}")
+    return None
+
+
+def _from_narada(session: Session, row: dict, errs: list[str]) -> dict | None:
+    if not row.get("symbol"):
+        return None
+    try:
+        parsed = narada.fetch(session, row["symbol"])
+        sub = narada.book(parsed)
+        if real_book(sub):
+            sub["asOf"] = _now_iso()
+            apps = narada.applications(parsed)
+            if apps:
+                sub["_apps"] = apps
+            return sub
+        errs.append("narada: no book yet")
+    except SourceError as e:
+        errs.append(f"narada: {e.detail}")
+    return None
+
+
 def fetch_row(session: Session, row: dict, chit: _Chittorgarh, nse_blocked: list[bool]) -> tuple[str, dict]:
-    """-> (source, sub). Raises SourceError when every source failed."""
+    """-> (source, sub). Raises SourceError when every source failed. Mainboard asks NSE first (official, category-wise);
+    an SME asks Narada first — NSE's per-issue answer for an SME has no shares offered, so no multiples, and a 4-5 s
+    call each (1 Oct 2026: 14 SMEs cost ~60 s of a run for nothing)."""
     errs: list[str] = []
-    if row.get("symbol") and not nse_blocked[0]:
-        try:
-            d = nse_ipo.ipo_detail(session, row["symbol"], row.get("series") or "EQ")
-            sub = combine(d["bidDetails"])
-            if not has_values(sub) and d.get("rootTotal") is not None:
-                sub["total"] = d["rootTotal"]
-            if has_values(sub):
-                sub["asOf"] = _as_of(d.get("updateTime"))
-                return "nse", sub
-            errs.append("nse: bidDetails classified to nothing")
-        except SourceBlocked as e:
-            nse_blocked[0] = True             # one block is enough; do not hammer for every row
-            errs.append(f"nse: {e.detail}")
-        except SourceError as e:
-            errs.append(f"nse: {e.detail}")
+    sme = str(row.get("type", "")).endswith("SME")
+    order = (("narada", lambda: _from_narada(session, row, errs)), ("nse", lambda: _from_nse(session, row, nse_blocked, errs))) \
+        if sme else (("nse", lambda: _from_nse(session, row, nse_blocked, errs)), ("narada", lambda: _from_narada(session, row, errs)))
+    for name, ask in order:
+        sub = ask()
+        if sub:
+            return name, sub
     if row.get("bseIpoNo"):
         try:
             rows = bse_issues.cumulative_demand(session, str(row["bseIpoNo"]))
@@ -300,11 +341,13 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
             if k not in sub and old is not None:
                 sub[k] = old
         key = "sme" if str(row.get("type", "")).endswith("SME") else "mainboard"
-        patches[key][row["name"]] = {"sub": sub}
+        apps = sub.pop("_apps", None)
+        sub["src"] = src
+        patches[key][row["name"]] = {"sub": sub, **({"apps": apps} if apps else {})}
         won.add(src)
     n = sum(len(v) for v in patches.values())
     if n == 0:
-        res.tried.append({"kind": "changed", "source": "nse/bse/chittorgarh", "ok": False,
+        res.tried.append({"kind": "changed", "source": "nse/narada/bse/chittorgarh", "ok": False,
                           "detail": f"0 of {len(rows)} rows fetched"})
         return res.fail(last or SourceChanged("subscription", "no source answered"))
     res.rows = {k: v for k, v in patches.items() if v}

@@ -78,7 +78,7 @@ reason this repo exists.
 | need | chain | notes |
 |---|---|---|
 | calendar | NSE `/api/ipo-current-issue`, `all-upcoming-issues` → BSE `GetPublicIssue_par_updated` → BSE legacy table (beta host) | NSE primed via the issue-information page, not the homepage, which 403s from cloud |
-| subscription | NSE `ipo-detail` bidDetails → BSE `CummDemandSchedule` → chittorgarh report 21 | NII sub-buckets summed once, never double-counted |
+| subscription | mainboard: NSE `ipo-detail` → Narada; SME: Narada `/ipos/<symbol>/subscription/` (share- and application-wise) → NSE; then BSE `CummDemandSchedule` → chittorgarh report 21 (dead: page now script-rendered) | NII sub-buckets summed once, never double-counted; an all-zero answer is not a book; every `sub` carries `src` |
 | GMP | InvestorGain v2 JSON → IPOWatch → IPOPremium (HTML, parsers from oriz-ipo, MIT) | v1 retired July 2026; v2 treated as fragile |
 | listing prices | Angel One SmartAPI → yfinance `.NS` | Angel One has new symbols on listing morning; yfinance lags 0–2 days |
 | everything about one listing | InvestorGain `ipo-detail-read/<id>` — one complete record per IPO (`details` module): dates, band, lot, fresh/OFS, anchor book and lock-ins, GMP, subscription, listing price, KPIs, documents | the fullest source; private and undocumented, so every exchange module above stays as the fallback. Module order decides who wins per field |

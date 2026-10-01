@@ -22,9 +22,18 @@ DOC = {"mainboard": [{"name": "Hero Motors", "igId": "1688", "symbol": "HEROMOTO
 
 
 class S:
-    """InvestorGain by URL (566 subscription, 331 GMP); NSE by path (current issues, one issue's detail, pre-open)."""
-    def __init__(self, subs=SUBS, gmp=GMP, pre=PRE, cur=CUR, detail=DETAIL):
+    """InvestorGain by URL (566 subscription, 331 GMP); NSE by path (current issues, one issue's detail, pre-open);
+    Narada by symbol."""
+    def __init__(self, subs=SUBS, gmp=GMP, pre=PRE, cur=CUR, detail=DETAIL, nar=None):
         self.subs, self.gmp, self.pre, self.cur, self.detail, self.calls = subs, gmp, pre, cur, detail, []
+        self.nar = nar or {}                       # symbol -> Narada fragment; absent -> 404
+
+    def get_text(self, url, *, source=None, headers=None, **kw):
+        sym = url.rstrip("/").split("/")[-2]
+        self.calls.append(f"narada:{sym}")
+        if sym not in self.nar:
+            raise SourceDown("narada", "HTTP 404", url, 404)
+        return self.nar[sym]
 
     def get_json(self, url, *, source=None, headers=None, **kw):
         self.calls.append("566" if "/566/" in url else "331")
@@ -45,7 +54,8 @@ class S:
 def test_nse_first_then_investorgain_only_for_what_nse_does_not_carry():
     s = S()
     out = live.tick(s, DOC, {}, NOW)
-    assert s.calls == ["current", "detail:SONASEL", "566", "331", "preopen"], "mainboard detail only for an issue NSE lists"
+    assert s.calls == ["current", "narada:HEROMOTORS", "detail:SONASEL", "narada:VIDYAWIRE", "566", "331", "preopen"], \
+        "NSE detail only for a mainboard issue NSE lists; Narada for the rest; 566 only for what is still uncovered"
     sona = out["rows"]["Sona Selection India"]["sub"]
     assert sona == {"qib": 3.91, "nii": 4.16, "retail": 0.8, "total": 2.39, "employee": 0.45,
                     "asOf": "2026-09-17T15:02:00+05:30", "src": "nse"}, "mainboard: NSE's category split and its own time"
@@ -54,7 +64,7 @@ def test_nse_first_then_investorgain_only_for_what_nse_does_not_carry():
     assert out["rows"]["Axiom Gas Engineering"]["sub"] == {"qib": 0.8, "snii": 0.5, "bnii": 0.58, "nii": 0.55, "retail": 0.64,
                                                           "total": 0.62, "asOf": "2026-09-18T17:57:00+05:30", "src": "investorgain"}
     assert "Closed Long Ago" not in out["rows"], "only issues that can still move"
-    assert out["sources"]["subscription"].startswith("nse 1 split + 1 total; investorgain")
+    assert out["sources"]["subscription"].startswith("nse 1 split + 1 total; narada 0")
     assert out["preopen"] == [{"name": "Veegaland Developers", "symbol": "VEEGALAND", "iep": 154.0, "pct": 10.0, "base": 140.0,
                                "qty": 3102806.0, "status": "Close", "asOf": "2026-09-18T09:55:00+05:30"}]
     assert out["timeline"]["Axiom Gas Engineering"] == [["09:40", 0.62, 0.8, 0.64]]
@@ -120,3 +130,21 @@ def test_a_trading_holiday_is_read_from_nse_and_a_failed_list_fails_open():
     assert live.trading_holiday(H(hol), dt.date(2026, 10, 2)) == "Mahatma Gandhi Jayanti"
     assert live.trading_holiday(H(hol), dt.date(2026, 10, 1)) is None
     assert live.trading_holiday(H(SourceBlocked("nse", "HTTP 403", "u", 403)), dt.date(2026, 10, 2)) is None
+
+
+NAR = (FX / "narada/subscription-BLACKOPAL.html").read_text()
+
+
+def test_an_sme_gets_narada_s_split_and_application_counts_at_most_every_ten_minutes():
+    s = S(nar={"VIDYAWIRE": NAR})
+    out = live.tick(s, DOC, {}, NOW)
+    v = out["rows"]["Vidya Wires"]
+    assert v["sub"]["src"] == "narada" and v["sub"]["total"] == 73.88 and v["sub"]["asOf"] == "2026-09-18T09:40:00+05:30"
+    assert v["apps"]["retail"] == {"reserved": 775, "received": 46619}
+    s2 = S(nar={"VIDYAWIRE": NAR})
+    again = live.tick(s2, DOC, out, NOW + dt.timedelta(minutes=5))
+    assert "narada:VIDYAWIRE" not in s2.calls and again["rows"]["Vidya Wires"]["sub"]["src"] == "narada", \
+        "five minutes on: the last Narada book stands, nobody is asked"
+    s3 = S(nar={"VIDYAWIRE": NAR})
+    live.tick(s3, DOC, again, NOW + dt.timedelta(minutes=10))
+    assert "narada:VIDYAWIRE" in s3.calls

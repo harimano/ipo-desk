@@ -141,7 +141,7 @@ def test_happy_path_nse():
     assert set(res.rows) == {"mainboard", "sme"}
     sona = res.rows["mainboard"]["Sona Selection India"]["sub"]
     assert sona == {"qib": 3.91, "nii": 4.16, "retail": 0.8, "total": 2.39, "employee": 0.45,
-                    "asOf": "2026-09-17T15:02:00+05:30"}
+                    "asOf": "2026-09-17T15:02:00+05:30", "src": "nse"}
     vidya = res.rows["sme"]["Vidya Wires Limited"]["sub"]
     assert vidya["nii"] == 1.9 and vidya["retail"] == 1.2 and vidya["qib"] == 0.65 and vidya["total"] == 1.19
     assert vidya["asOf"].startswith("20") and "T" in vidya["asOf"]
@@ -271,3 +271,44 @@ def test_a_blank_exchange_page_never_zeroes_a_book_we_already_have():
     fresh = dict(row, sub=None)
     res = subscription.run(S(), {"mainboard": [], "sme": [fresh]}, Result(module="subscription"), today=dt.date(2026, 9, 18))
     assert (res.rows.get("sme") or {}).get("Shakti Polytarp", {}).get("sub", {}).get("total") == 0.0, "with nothing on file, the exchange's zero stands"
+
+
+# ---------------------------------------------------------------------------------------------
+# Narada: the book for what NSE does not carry (BSE-only SMEs), share- and application-wise
+# ---------------------------------------------------------------------------------------------
+NARADA = pathlib.Path(__file__).resolve().parent.parent / "data/fixtures/narada"
+
+
+def _narada(sym):
+    return (NARADA / f"subscription-{sym}.html").read_text(encoding="utf8")
+
+
+@needs_selectolax
+def test_narada_parses_both_tables_and_nests_sub_rows():
+    from collector.sources import narada
+    p = narada.parse(_narada("BLACKOPAL"))
+    assert narada.book(p) == {"qib": 59.7, "nii": 124.82, "bnii": 145.83, "snii": 82.81, "retail": 60.15, "total": 73.88}
+    assert narada.applications(p)["retail"] == {"reserved": 775, "received": 46619}
+    fii = next(r for r in p["shares"] if r["label"] == "FII")
+    assert fii["parent"] == "qib" and fii["times"] is None, "a sub-row has amounts, no multiple"
+    small = narada.parse(_narada("SOLLFEGE"))
+    assert narada.book(small) == {"other": 2.22, "retail": 1.59, "total": 1.91}, \
+        "a small SME's QIB has no reservation: no multiple invented (InvestorGain printed 1819000x)"
+    with pytest.raises(SourceChanged):
+        narada.parse("<html><body><p>Page not found</p></body></html>")
+
+
+@needs_selectolax
+def test_nse_zeros_fall_through_to_narada_with_application_counts():
+    """1 Oct 2026: NSE's ipo-detail answers zeros for SMEs it does not carry; the zeros must not stop the chain."""
+    prev = prev_board()
+    vidya = prev["sme"][0]
+    vidya["symbol"], vidya["bseIpoNo"] = "BLACKOPAL", None
+    zero = {"bidDetails": [{"category": "Total", "noOfTime": "0.00", "noOfSharesOffered": "0.0", "noOfsharesBid": "0.0"}]}
+    s = FakeSession(nse={**nse_ok(), "detail:BLACKOPAL": zero},
+                    html={"trynarada.com/ipos/BLACKOPAL/subscription/": _narada("BLACKOPAL")})
+    res = run(s, prev)
+    assert res.ok and "narada" in res.source
+    patch = res.rows["sme"]["Vidya Wires Limited"]
+    assert patch["sub"]["total"] == 73.88 and patch["sub"]["src"] == "narada"
+    assert patch["apps"]["retail"] == {"reserved": 775, "received": 46619}
