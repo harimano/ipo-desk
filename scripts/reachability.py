@@ -36,6 +36,8 @@ PROBES = [
     ("ipowatch.gmp",         "get_text",  "https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/", None),
     ("ipopremium.gmp",       "get_text",  "https://ipopremium.in/", None),
     ("chittorgarh.sub",      "get_text",  "https://www.chittorgarh.com/report/ipo-subscription-status-live-bidding-data-bse-nse/21/", None),
+    ("narada.subscription",  "get_text",  "https://trynarada.com/ipos/VNL/subscription/", None),
+    ("narada.logo",          "get_text",  "https://www.chittorgarh.net/images/ipo/jindal-supreme-logo.png", None),
     ("yahoo.chart",          "get_json",  "https://query1.finance.yahoo.com/v8/finance/chart/RELIANCE.NS", {"range": "5d", "interval": "1d"}),
     ("rss.bs-markets",       "get_text",  "https://www.business-standard.com/rss/markets-106.rss", None),
 ]
