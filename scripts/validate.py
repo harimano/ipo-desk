@@ -24,7 +24,9 @@ BUCKETS = {"approved", "awaited", "done", "drhp", "dropped"}
 ISO_FIELDS = {"close", "date", "disclosedDate", "listDate", "listedDate", "listing", "listingDate", "open",
               "recordDate", "stageDate"}
 FREE_TEXT = {"dates", "when"}
-MAX_DOC_BYTES = 6 * 1024 * 1024      # a static file; generous, but a runaway is still a bug
+MAX_DOC_BYTES = 6 * 1024 * 1024      # the document as published (compact JSON); generous, but a runaway is still a bug.
+                                     # 1 Oct 2026: the file on disk is written with indent=1 (4.9 MB) while the parts the page
+                                     # fetches are compact (3.3 MB) — the cap had been counting whitespace nobody downloads.
 MAX_ITEM_LOSS = 0.30
 MIN_CENSUS = 8
 MIN_CENSUS_NESTED = 24     # a list summed across rows (facts.recs, anchors[].investors) must be this big before a loss counts:
@@ -131,14 +133,16 @@ def main() -> int:
     if not p.exists():
         err(f"{p} does not exist")
         return report()
-    sz = p.stat().st_size
-    if sz > MAX_DOC_BYTES:
-        err(f"{p}: {sz:,} B exceeds the {MAX_DOC_BYTES:,} B cap")
     try:
         data = json.loads(p.read_text(encoding="utf8"))
     except Exception as e:
         err(f"{p}: does not parse — {e}")
         return report()
+    sz = len(json.dumps(data, ensure_ascii=False, separators=(",", ":")).encode("utf8"))
+    if sz > MAX_DOC_BYTES:
+        err(f"{p}: {sz:,} B published (compact) exceeds the {MAX_DOC_BYTES:,} B cap")
+    elif sz > 0.8 * MAX_DOC_BYTES:
+        warn(f"{p}: {sz:,} B published (compact) is over 80% of the {MAX_DOC_BYTES:,} B cap")
     for k in TOP_LEVEL:
         if k not in data:
             err(f"missing top-level key {k!r}")

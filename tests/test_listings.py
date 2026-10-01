@@ -276,3 +276,19 @@ def test_yahoo_every_batch_empty_still_raises_changed(monkeypatch):
     patch_yahoo(monkeypatch, lambda tickers, days: pd.DataFrame())
     with pytest.raises(SourceChanged):
         yahoo.daily_closes(["NEWLIST", "SMEONE"], 10)
+
+
+def test_row_without_symbol_borrows_the_resolved_one_and_bse_tape_rows_are_not_gaps(no_angel, monkeypatch):
+    """1 Oct 2026: board "ESDS Software" had no symbol while deals had resolved "ESDS Software Solution" -> ESDS;
+    ten BSE-only rows priced daily by the tape's BSE leg were still reported as "cannot price"."""
+    prev = make_prev()
+    del prev["mainboard"][0]["symbol"]
+    prev["recent"] = []
+    prev["investors"] = {"listingSymbols": {"NewList Industries Limited": {"symbol": "NEWLIST", "triedOn": "2026-09-12"}}}
+    _, _, _, symbols = listings.collect_targets(prev, dt.date(2026, 9, 17))
+    assert symbols["NewList Industries"] == "NEWLIST"
+    prev["investors"] = {}
+    prev["tape"] = {"bse": {"names": {"NewList Industries": "544999"}}}
+    assert listings.priced_by_tape(prev, "NewList Industries", dt.date(2026, 9, 17))
+    assert not listings.priced_by_tape(prev, "NewList Industries", dt.date(2026, 10, 30)), "a stale BSE close is a gap again"
+    assert not listings.priced_by_tape({"priceHistory": prev["priceHistory"]}, "NewList Industries", dt.date(2026, 9, 17))

@@ -285,3 +285,20 @@ Hari: "this whole section is useless … I need to be able to track something", 
   21–25 Sep came from GitHub's fallback cron 5–5.5 h late and missed the morning. Also: Cloudflare counts 1 = Sunday, so
   "1-5" fired intraday Sun–Thu and none on Friday. Now five crons with MON-FRI names; one cron starts both live halves
   (08:55, 12:55 IST). Check a Worker change by the Workers Builds check on the commit, not by assuming the push deployed.
+
+## 1 Oct 2026 — whole-system check
+
+- Scheduling after the 27 Sep Worker fix: the Worker starts both live halves on time (03:25 / 07:25 UTC, `workflow_dispatch`)
+  and intraday runs only on weekdays. But GitHub's fallback live cron still fired ~5 h late (~15:28 IST) and, with
+  `cancel-in-progress`, killed the Worker's afternoon loop at the close. Now only a `workflow_dispatch` cancels; a scheduled
+  start queues behind the running loop.
+- Every module ok in the 06:43 full run except `offers` (BSE 403, known). One deploy failed on a Pages HTTP 500 (transient).
+- Size: `latest.json` grew ~250 KB a day while `anchorbook` backfilled (3.5 MB 24 Sep → 4.9 MB; backfill done, 1,328 of
+  ~1,352). The file is written indent=1; the published parts are compact (3.3 MB). `validate.py` now caps the compact size.
+- Live loop vs NSE: report 566's stamps were 10:17–10:22 at 12:01 IST while NSE's board run said 11:10; NSE's
+  `/api/ipo-current-issue` had fresher totals and an issue 566 lacked. InvestorGain also publishes absurd QIB multiples on
+  SMEs with a near-empty QIB portion (Sollfege "1819000x") — it is their number, not a parse error. The page only lays a
+  live value over a newer one, so the stale feed never overwrote NSE's.
+- `listings`: 10 of 11 "no NSE symbol — cannot price" warnings were BSE-only rows the tape prices daily (noise, now
+  suppressed via `tape.bse.names`); the 11th, board "ESDS Software", had no symbol while deals had resolved "ESDS Software
+  Solution" → ESDS — `listings` now borrows it. Five board rows have a second series under the listing report's spelling.

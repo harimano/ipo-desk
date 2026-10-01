@@ -25,11 +25,13 @@ from __future__ import annotations
 import copy
 import datetime as dt
 import logging
+import pathlib
 import re
 from zoneinfo import ZoneInfo
 
 from ..errors import SourceChanged
 from ..http import Session
+from ..names import Matcher, load_aliases
 from ..result import Result, try_chain
 from ..sources import angelone, yahoo
 
@@ -38,6 +40,8 @@ log = logging.getLogger("collector.listings")
 IST = ZoneInfo("Asia/Kolkata")
 BOARDS = ("mainboard", "sme")
 RECENT_DAYS = 28
+TAPE_FRESH_DAYS = 7         # a BSE-tape close this recent means the row IS priced
+ALIASES_DIR = pathlib.Path(__file__).resolve().parents[2] / "data"
 LOOKBACK_DAYS = 45          # enough candles to cover the oldest `recent` listing
 _DROP_WORDS = re.compile(r"\b(limited|ltd|ipo|mainboard|sme|nse|bse)\b")
 
@@ -131,7 +135,29 @@ def collect_targets(prev: dict, today: dt.date):
         sym = symbol_of(lot)
         if sym:
             symbols.setdefault(name, sym)
+    # a row with no symbol of its own borrows the one `deals` resolved from NSE's equity lists, which is keyed by the
+    # listing report's spelling (1 Oct 2026: board "ESDS Software" had no symbol; the cache had "ESDS Software Solution": ESDS)
+    cache = {k: v.get("symbol") for k, v in ((prev.get("investors") or {}).get("listingSymbols") or {}).items()
+             if isinstance(v, dict) and v.get("symbol")}
+    unpriced = [r["name"] for _, r in board] + [r["name"] for r in recent]
+    if cache and any(n not in symbols for n in unpriced):
+        matcher = Matcher([{"name": k} for k in cache], load_aliases(ALIASES_DIR))
+        for name in unpriced:
+            if name not in symbols:
+                hit = cache.get(name) and name or matcher.match(name)
+                if hit and cache.get(hit):
+                    symbols[name] = cache[hit]
     return board, recent, lot_names, symbols
+
+
+def priced_by_tape(prev: dict, name: str, today: dt.date) -> bool:
+    """The tape prices BSE-only listings from BSE's bhavcopy (`tape.bse.names`, same row names): no NSE symbol is then
+    not a gap. Only a close in the last week counts, so a code BSE stopped answering for is reported again."""
+    if name not in (((prev.get("tape") or {}).get("bse") or {}).get("names") or {}):
+        return False
+    series = (prev.get("priceHistory") or {}).get(name) or []
+    last = _date(str(series[-1][0])) if series and isinstance(series[-1], list) and series[-1] else None
+    return bool(last and (today - last).days <= TAPE_FRESH_DAYS)
 
 
 # ---------------------------------------------------------------------------------------------
@@ -283,7 +309,8 @@ def _build(prev: dict, res: Result, today: dt.date, bars: dict[str, list[list]],
     res.replace["priceHistory"] = history
     res.notes.append(f"{priced} names priced, {len(new_recent)} moved to recent, {appended} history points")
     for name in dict.fromkeys(no_symbol):
-        res.unresolved.append(f"listings: no NSE symbol on row {name!r} — cannot price")
+        if not priced_by_tape(prev, name, today):
+            res.unresolved.append(f"listings: no NSE symbol on row {name!r} — cannot price")
     return as_of
 
 
@@ -298,6 +325,8 @@ def run(session: Session, prev: dict, res: Result) -> Result:
     if not wanted:
         missing = [r["name"] for _, r in board] + [r["name"] for r in recent]
         for name in missing:
+            if priced_by_tape(prev, name, today):
+                continue
             res.unresolved.append(f"listings: no NSE symbol on row {name!r} — cannot price")
         def nothing():
             raise SourceChanged("listings", "nothing to price: no listed/recent/lot names with a symbol")

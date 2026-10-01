@@ -106,6 +106,8 @@ document as assembled so far; `prev` is yesterday's.
   row, or an `auto` row whose first word is a listed group's (≤15 share it; stoplist), gets `quotaCandidate` — a flag, never a quota;
   promotion is still a person reading the DRHP. NSE's summary is sometimes just "General Updates" (JSW Cement, 25 Sep 2026): partial
   recall by construction, never fixed by reading the PDF.
+- `listings` borrows a symbol from `investors.listingSymbols` (matched, since that cache uses the listing report's spelling)
+  and does not report a row `tape.bse` prices as "cannot price". `validate.py` caps the COMPACT document (6 MB, warns at 80%).
 - `subscription` never replaces a positive book with an all-zero one (exchanges answer zeros after close). A GMP of "0"
   with no trade behind it is "no quote". `validate.py`'s loss check ignores rows due to retire (listing + 1 day).
 - Known gaps: `api.bseindia.com` answers 403 to GitHub's runners (offers, bse_ann, and the BSE deals leg — all "blocked", a
@@ -131,7 +133,8 @@ when dataset types are mixed. Market has a sticky section bar built from `.sec-h
 
 ## Next
 
-Hari to do: set the `NTFY_TOPIC` secret (alerts are built and in dry-run). Then: check the live loop's first full market
-day and the InvestorGain-vs-NSE subscription lag → login + Book sync on Cloudflare free tier (Access + Worker + KV,
+Hari to do: set the `NTFY_TOPIC` secret (alerts are built and in dry-run). Then: the live loop's subscription source
+(1 Oct 2026: InvestorGain's report 566 runs ~1–2 h behind NSE and misses NSE-only issues; NSE's `/api/ipo-current-issue`
+gives every open NSE issue's total in one call — proposed, awaiting go) → login + Book sync on Cloudflare free tier (Access + Worker + KV,
 encrypted in the browser; state the design, get a go) → capital planner and calendar (reports 554 / 607) → provenance on
 hover, source-health strip → alerts with deep links, weekly digest → the AI layer, last.

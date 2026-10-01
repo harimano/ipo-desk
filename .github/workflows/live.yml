@@ -13,7 +13,12 @@ on:
         required: false
         default: ""
 
-concurrency: { group: live, cancel-in-progress: true }
+# A Worker start (workflow_dispatch) replaces a running loop — that is how the afternoon half takes over. GitHub's
+# fallback cron runs hours late (28-30 Sep 2026: ~15:28 IST, cancelling the Worker's afternoon loop at the close), so
+# a scheduled start never cancels: it queues, and finds its half already over when the running loop ends.
+concurrency:
+  group: live
+  cancel-in-progress: ${{ github.event_name == 'workflow_dispatch' }}
 permissions:
   contents: write
 
