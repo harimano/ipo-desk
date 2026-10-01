@@ -311,4 +311,29 @@ def test_nse_zeros_fall_through_to_narada_with_application_counts():
     assert res.ok and "narada" in res.source
     patch = res.rows["sme"]["Vidya Wires Limited"]
     assert patch["sub"]["total"] == 73.88 and patch["sub"]["src"] == "narada"
-    assert patch["apps"]["retail"] == {"reserved": 775, "received": 46619}
+    assert patch["apps"]["retail"] == {"reserved": 775, "received": 46619, "reservedSrc": "narada"}
+
+
+@needs_selectolax
+def test_a_mainboard_book_stays_nse_s_and_takes_narada_s_application_counts():
+    prev = prev_board()
+    s = FakeSession(nse=nse_ok(), html={"trynarada.com/ipos/SONASEL/subscription/": _narada("VNL")})
+    res = run(s, prev)
+    patch = res.rows["mainboard"]["Sona Selection India"]
+    assert patch["sub"]["src"] == "nse" and patch["sub"]["total"] == 2.39, "the book is NSE's"
+    assert patch["apps"]["retail"] == {"reserved": 83289, "received": 35318, "reservedSrc": "narada"}, "the counts are Narada's"
+    assert patch["apps"]["asOf"].startswith("20"), "the counts carry the time they were read"
+
+
+def test_slots_come_from_the_rhp_where_it_says_and_narada_otherwise():
+    """1 Oct 2026: Narada gave Nityas Gems' retail 7,178 slots; the RHP's Max Allottees says 25,123."""
+    doc = {"records": {"1": {"reservation": {"head": ["Investor Category", "Shares", "% of Net Issue", "Max Allottees"], "rows": [
+        ["QIB", "71,78,000", "", "NA"], ["bNII > ₹10L", "14,35,600", "", "512"], ["sNII < ₹10L", "7,17,800", "", "256"],
+        ["Retail", "50,24,600", "35.00%", "25,123"], ["Preferential Reservations"], ["Employee", "1,00,000", "", "NA"]]}},
+        "2": {"reservation": {"head": ["Investor Category", "Shares", "% of Net Issue"], "rows": [["Retail", "9,30,000", "35%"]]}}}}
+    assert subscription.max_allottees(doc, "1") == {"bnii": 512, "snii": 256, "retail": 25123}
+    assert subscription.max_allottees(doc, "2") == {}, "an SME table has no Max Allottees column"
+    apps = {"retail": {"reserved": 7178, "received": 26954}, "employee": {"reserved": 500, "received": 134}}
+    out = subscription.true_apps(apps, subscription.max_allottees(doc, "1"))
+    assert out["retail"] == {"reserved": 25123, "received": 26954, "reservedSrc": "rhp"}
+    assert out["employee"]["reservedSrc"] == "narada"

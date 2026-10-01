@@ -35,7 +35,9 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
    n and a Wilson 95% interval; a thin band widens, it is never hidden. The page's own arithmetic is limited to an open
    issue's EV (its inputs move with `live.json`) and the Scoreboard's by-year explorer, which follows the same n + Wilson rule.
 3. **Evidence and both sides, never a verdict** — no "apply" / "skip", no invented scores. Allotment odds are a LOWER BOUND
-   ("at least 1 in N"): lots per application is unpublished.
+   ("at least 1 in N"): lots per application is unpublished. Since 2 Oct 2026 the REAL odds by count sit BESIDE it ("about 1
+   in N": Narada's applications received ÷ slots, slots from the RHP's Max Allottees where the record has them) — never
+   instead of it, hidden when the two disagree; EV stays on the lower bound.
 4. Never edit `latest.json` by hand, never commit it on `main`, never push to `data`. `scripts/validate.py` is the gate.
 5. A parser that gets an empty or unexpected response raises `SourceChanged` — never `[]` as success. Retries are for
    network faults only; **never retry a 403**.
@@ -112,8 +114,9 @@ document as assembled so far; `prev` is yesterday's.
   and does not report a row `tape.bse` prices as "cannot price". `validate.py` caps the COMPACT document (6 MB, warns at 80%).
 - `subscription` asks mainboard NSE → Narada, SME Narada → NSE (NSE's SME answer has no shares offered: zeros), then BSE,
   chittorgarh (dead). **Narada** (`sources/narada.py`, trynarada.com, reachable from runners) is the only fresh book for
-  BSE-only SMEs and gives application counts (`apps`, counts only, not rendered — showing real "1 in N" odds is Hari's
-  call under rule 3); it publishes no timestamp, so its books carry our fetch time. A small third-party site: be polite.
+  BSE-only SMEs and gives application counts (`apps`; mainboard books stay NSE's but take Narada's counts). Narada's
+  SLOT counts can be wrong on mainboard (Nityas: 7,178 vs the RHP's 25,123), so `max_allottees` from the record wins
+  (`reservedSrc`). It publishes no timestamp: books and counts carry our fetch time. A small third-party site: be polite.
 - `logos` (full runs): InvestorGain's record names each issue's logo file (`row.logo`, via `details`); the PNG (~100 KB, from
   chittorgarh.net/images/ipo/) is fetched ONCE, shrunk to a 96x48 WebP (~1.3 KB) and written to `logos/<igId>.webp` beside
   latest.json — the first module that writes files (`Result.files`, only under `schema.FILE_OWNERS[module]`, only when

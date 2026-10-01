@@ -11,7 +11,7 @@ sheets{name}: {parent, parentTicker, parentPrice{value, asOf}, status, timeline{
           bull[], bear[], flags[], street[{who, date, view}], logistics, sources[]}
 mainboard[] / sme[]: {name, slug, type "Mainboard"|"NSE SME"|"BSE SME", status, open, close, allotment, listing, bandLow, bandHigh, lotSize,
           issueSizeCr, freshCr, ofsCr, gmp, gmpPct, gmpTrend up|down|flat, sub{qib, nii, retail, bnii?, snii?, other?, employee?, shareholder?, total, asOf, src nse|narada|bse|chittorgarh, catAsOf? (page only)},
-          logo? (InvestorGain's logo file name), apps?{quota: {reserved, received}} (Narada's application counts — counts only; not yet rendered),
+          logo? (InvestorGain's logo file name), apps?{quota: {reserved, received, reservedSrc rhp|rhp=narada|narada}, asOf} (Narada's application counts — counts only; not yet rendered),
           shareholderQuota{offered, parent, recordDate}|null, listingPrice, listingGainPct, currentPrice, sources[]}
           - a Listed row stays on the board only on its listing day, then moves to recent[].
 recent[]: {name, type, listingDate, issuePrice, listingPrice, gainPct, closeDay1, closeDay1GainPct, sources[]}  - last ~4 weeks

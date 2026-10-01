@@ -319,3 +319,9 @@ Hari: "this whole section is useless … I need to be able to track something", 
   InvestorGain's record already names the file (`logo_url`), served from chittorgarh.net/images/ipo/ at ~100 KB a PNG —
   too heavy to hotlink. `logos` fetches each once, 96x48 WebP (~1.3 KB; a square shrank the wordmarks to strips), 25 a
   run. First module to write files: `Result.files`, guarded to `logos/` and written only when the module succeeded.
+- 2 Oct: real allotment odds by count shown beside the lower bound (Hari's call). First cut showed Nityas Gems "about 1 in
+  3.8" beside "at least 1 in 1.3" — impossible (applications cannot outnumber lots bid). Cause: Narada's retail SLOT count
+  for that mainboard issue was a 10% quota (7,178); the RHP's Max Allottees in the IG record says 25,123 (35%). Slots now
+  come from the RHP where present; for SMEs Narada's slots check out (Black Opal 9,30,000 / 1,200 = 775) and the ratio
+  equals the retail multiple (each SME individual applies for exactly the minimum). The page hides real odds that are
+  worse than the book allows, rather than show a contradiction.

@@ -128,7 +128,9 @@ def tick(session: Session, doc: dict, prev: dict, now: dt.datetime) -> dict:
         sub = narada.book(parsed)
         if not real_book(sub):
             return False
-        put(row, {**sub, "asOf": now.replace(microsecond=0).isoformat()}, "narada", narada.applications(parsed))
+        stamp_ = now.replace(microsecond=0).isoformat()
+        apps = narada.applications(parsed)
+        put(row, {**sub, "asOf": stamp_}, "narada", {**apps, "asOf": stamp_} if apps else None)
         return True
 
     status, covered, n_err = [], set(), []

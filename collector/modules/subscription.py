@@ -264,6 +264,44 @@ def _from_narada(session: Session, row: dict, errs: list[str]) -> dict | None:
     return None
 
 
+_ALLOT_ROWS = {"retail": "retail", "rii": "retail", "individual": "retail", "employee": "employee", "shareholder": "shareholder",
+               "bnii": "bnii", "snii": "snii"}
+
+
+def max_allottees(doc: dict, ig_id) -> dict[str, int]:
+    """{quota: max allottees} from the issue's own reservation table (InvestorGain record, `Max Allottees` column — the
+    RHP's figure). Mainboard only; SME tables have no such column."""
+    res = (((doc or {}).get("records") or {}).get(str(ig_id or "")) or {}).get("reservation") or {}
+    head = [str(h).lower() for h in res.get("head") or []]
+    if "max allottees" not in head:
+        return {}
+    col, out = head.index("max allottees"), {}
+    for row in res.get("rows") or []:
+        if not isinstance(row, list) or len(row) <= col:
+            continue
+        label = re.sub(r"[^a-z]", "", str(row[0]).lower().split(">")[0].split("<")[0])
+        key = _ALLOT_ROWS.get(label)
+        n = re.sub(r"[^\d]", "", str(row[col]))
+        if key and n:
+            out.setdefault(key, int(n))
+    return out
+
+
+def true_apps(apps: dict, allottees: dict) -> dict:
+    """Narada's application counts with the number of slots taken from the RHP where it has one (`reservedSrc` says which).
+    1 Oct 2026: Narada gave Nityas Gems' retail 7,178 slots (a 10% quota); the RHP says 25,123 (35%)."""
+    out = {}
+    for k, v in apps.items():
+        v = dict(v)
+        if allottees.get(k):
+            v["reservedSrc"] = "rhp" if v.get("reserved") != allottees[k] else "rhp=narada"
+            v["reserved"] = allottees[k]
+        else:
+            v["reservedSrc"] = "narada"
+        out[k] = v
+    return out
+
+
 def fetch_row(session: Session, row: dict, chit: _Chittorgarh, nse_blocked: list[bool]) -> tuple[str, dict]:
     """-> (source, sub). Raises SourceError when every source failed. Mainboard asks NSE first (official, category-wise);
     an SME asks Narada first — NSE's per-issue answer for an SME has no shares offered, so no multiples, and a 4-5 s
@@ -275,6 +313,15 @@ def fetch_row(session: Session, row: dict, chit: _Chittorgarh, nse_blocked: list
     for name, ask in order:
         sub = ask()
         if sub:
+            if name == "nse" and row.get("symbol"):
+                # NSE publishes no application counts: Narada's, for the real odds beside the lower bound (best effort —
+                # the book stays NSE's either way)
+                try:
+                    apps = narada.applications(narada.fetch(session, row["symbol"]))
+                    if apps:
+                        sub["_apps"] = apps
+                except SourceError:
+                    pass
             return name, sub
     if row.get("bseIpoNo"):
         try:
@@ -342,6 +389,8 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
                 sub[k] = old
         key = "sme" if str(row.get("type", "")).endswith("SME") else "mainboard"
         apps = sub.pop("_apps", None)
+        if apps:
+            apps = {**true_apps(apps, max_allottees(res.doc or prev, row.get("igId"))), "asOf": _now_iso()}
         sub["src"] = src
         patches[key][row["name"]] = {"sub": sub, **({"apps": apps} if apps else {})}
         won.add(src)
