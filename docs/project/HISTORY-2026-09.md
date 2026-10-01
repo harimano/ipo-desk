@@ -304,3 +304,9 @@ Hari: "this whole section is useless … I need to be able to track something", 
   Solution" → ESDS — `listings` now borrows it. Five board rows have a second series under the listing report's spelling.
 
 - Test trap (22 Sep 2026): tests' FakeSession matches URL substrings — "EQUITY_L.csv" also matches the SME list URL; use full paths.
+- Live loop moved to NSE first (Hari's call, 1 Oct). Survey: NSE's per-issue `/api/ipo-detail` gives mainboard a category
+  split ~10 min old, but for SMEs it carries shares bid and no shares offered (no multiples) — the one-call
+  `/api/ipo-current-issue` has their totals; for BSE-only SMEs NSE answers ZEROS, and BSE's own category-demand API (the
+  one its page calls, `Pubissues_BBS_CumultveCatdem_ng`) shows "No Records Found" mid-issue — BSE does not publish it, so
+  no route to BSE helps. InvestorGain 566 stays for those 11 issues only. First cut wrote NSE's zeros: caught by a live
+  tick before shipping — the page would have blanked every SME book. Rule: an all-zero book is never written.

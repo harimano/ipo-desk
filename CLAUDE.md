@@ -14,7 +14,9 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
 
 - `main` — code, fixtures, `data/aliases.json`, research sheets. Never collector output.
 - `data` branch (orphan) — `latest.json` + `history/`, written ONLY by `ipo-desk-bot` in `collect.yml`. `live` branch —
-  one amended commit of `live.json` from the five-minute market-hours loop. `scripts/pull_data.sh` copies `data` into `./data`.
+  one amended commit of `live.json` from the five-minute market-hours loop (`collector/live.py`: subscription NSE first —
+  mainboard split from `/api/ipo-detail`, NSE SME total from `/api/ipo-current-issue` — and InvestorGain 566 only for
+  BSE-only SMEs, every book tagged `src`; never an all-zero book; GMP from IG 331). `scripts/pull_data.sh` copies `data` into `./data`.
 - `_site/` — built by `site/build.py`, never committed. `collector/layout.py` splits the document into
   `meta / board / pipeline / investors / research / history` parts; `boot.js` fetches `meta.json`, then only changed parts.
 - Schedule: full runs 06:43 and 18:13 IST; intraday (subscription + gmp + open issues' records) :07/:37 on weekdays;
@@ -133,8 +135,6 @@ when dataset types are mixed. Market has a sticky section bar built from `.sec-h
 
 ## Next
 
-Hari to do: set the `NTFY_TOPIC` secret (alerts are built and in dry-run). Then: the live loop's subscription source
-(1 Oct 2026: InvestorGain's report 566 runs ~1–2 h behind NSE and misses NSE-only issues; NSE's `/api/ipo-current-issue`
-gives every open NSE issue's total in one call — proposed, awaiting go) → login + Book sync on Cloudflare free tier (Access + Worker + KV,
+Hari to do: set the `NTFY_TOPIC` secret (alerts are built and in dry-run). Then: login + Book sync on Cloudflare free tier (Access + Worker + KV,
 encrypted in the browser; state the design, get a go) → capital planner and calendar (reports 554 / 607) → provenance on
 hover, source-health strip → alerts with deep links, weekly digest → the AI layer, last.
