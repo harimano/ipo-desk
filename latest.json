@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-01T18:17:17+05:30",
+  "asOf": "2026-10-01T20:59:58+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "1 Oct 2026, 18:17 IST",
+  "label": "1 Oct 2026, 20:59 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -2525,7 +2525,8 @@
     "nii": 312.99,
     "retail": 63.7,
     "total": 125.16,
-    "asOf": "2026-09-30T19:00:00+05:30"
+    "asOf": "2026-09-30T19:00:00+05:30",
+    "src": "nse"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2609,7 +2610,8 @@
     "nii": 95.54,
     "retail": 19.26,
     "total": 38.12,
-    "asOf": "2026-09-30T19:00:00+05:30"
+    "asOf": "2026-09-30T19:00:00+05:30",
+    "src": "nse"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2694,7 +2696,8 @@
     "retail": 1.31,
     "total": 0.69,
     "employee": 0.95,
-    "asOf": "2026-10-01T17:00:00+05:30"
+    "asOf": "2026-10-01T17:00:00+05:30",
+    "src": "nse"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2776,7 +2779,8 @@
     "nii": 0.8,
     "retail": 0.47,
     "total": 0.57,
-    "asOf": "2026-10-01T17:00:00+05:30"
+    "asOf": "2026-10-01T17:00:00+05:30",
+    "src": "nse"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4074,10 +4078,13 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 2.06,
-    "nii": 0.64,
-    "retail": 0.55,
-    "total": 1.03,
-    "asOf": "2026-10-01T16:11:00+05:30"
+    "nii": 0.8,
+    "bnii": 0.97,
+    "snii": 0.47,
+    "retail": 0.56,
+    "total": 1.09,
+    "asOf": "2026-10-01T20:59:52+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4127,6 +4134,32 @@
      "rhp": "https://nsearchives.nseindia.com/content/ipo/RHP_GREENASIA.zip"
     },
     "asOf": "2026-10-01T10:05:00+05:30"
+   },
+   "apps": {
+    "qib": {
+     "reserved": 1184,
+     "received": 10
+    },
+    "nii": {
+     "reserved": 462,
+     "received": 92
+    },
+    "bnii": {
+     "reserved": 308,
+     "received": 20
+    },
+    "snii": {
+     "reserved": 154,
+     "received": 72
+    },
+    "retail": {
+     "reserved": 693,
+     "received": 388
+    },
+    "total": {
+     "reserved": 2339,
+     "received": 490
+    }
    }
   },
   {
@@ -4613,11 +4646,14 @@
    "gmpPct": 9.86,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 31.29,
-    "nii": 31.98,
-    "retail": 15.23,
-    "total": 23.41,
-    "asOf": "2026-09-30T17:55:00+05:30"
+    "qib": 25.48,
+    "nii": 26.46,
+    "bnii": 32.74,
+    "snii": 13.9,
+    "retail": 12.42,
+    "total": 19.16,
+    "asOf": "2026-10-01T20:59:53+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4667,6 +4703,32 @@
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/acme-universal-ipo-anchor-allocation-letter.pdf"
     },
     "asOf": "2026-09-30T15:02:00+05:30"
+   },
+   "apps": {
+    "qib": {
+     "reserved": 737,
+     "received": 48
+    },
+    "nii": {
+     "reserved": 184,
+     "received": 2120
+    },
+    "bnii": {
+     "reserved": 123,
+     "received": 1289
+    },
+    "snii": {
+     "reserved": 61,
+     "received": 831
+    },
+    "retail": {
+     "reserved": 645,
+     "received": 8010
+    },
+    "total": {
+     "reserved": 1566,
+     "received": 10178
+    }
    }
   },
   {
@@ -4689,10 +4751,13 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 1.0,
-    "nii": 1.15,
+    "nii": 1.26,
+    "bnii": 1.46,
+    "snii": 0.87,
     "retail": 4.31,
-    "total": 2.71,
-    "asOf": "2026-09-30T17:56:00+05:30"
+    "total": 2.77,
+    "asOf": "2026-10-01T20:59:53+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4742,7 +4807,33 @@
    },
    "gmpAsOf": "2026-10-01T15:37:00+05:30",
    "gmpEve": 1.0,
-   "gmpEveAsOf": "2026-10-01T15:37:00+05:30"
+   "gmpEveAsOf": "2026-10-01T15:37:00+05:30",
+   "apps": {
+    "qib": {
+     "reserved": 15,
+     "received": 1
+    },
+    "nii": {
+     "reserved": 235,
+     "received": 95
+    },
+    "bnii": {
+     "reserved": 157,
+     "received": 32
+    },
+    "snii": {
+     "reserved": 78,
+     "received": 63
+    },
+    "retail": {
+     "reserved": 352,
+     "received": 1518
+    },
+    "total": {
+     "reserved": 602,
+     "received": 1614
+    }
+   }
   },
   {
    "name": "Shivchem Agro",
@@ -4764,10 +4855,13 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 1.0,
-    "nii": 1.0,
+    "nii": 1.12,
+    "bnii": 1.14,
+    "snii": 1.08,
     "retail": 3.5,
-    "total": 2.2,
-    "asOf": "2026-09-30T17:56:00+05:30"
+    "total": 2.25,
+    "asOf": "2026-10-01T20:59:53+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4817,6 +4911,32 @@
      "rhp": "https://www.shivchemagro.com/assets/pdf/Red%20Herring%20Prospectus.pdf"
     },
     "asOf": "2026-09-30T15:02:00+05:30"
+   },
+   "apps": {
+    "qib": {
+     "reserved": 54,
+     "received": 1
+    },
+    "nii": {
+     "reserved": 169,
+     "received": 65
+    },
+    "bnii": {
+     "reserved": 113,
+     "received": 11
+    },
+    "snii": {
+     "reserved": 56,
+     "received": 54
+    },
+    "retail": {
+     "reserved": 256,
+     "received": 897
+    },
+    "total": {
+     "reserved": 479,
+     "received": 963
+    }
    }
   },
   {
@@ -4839,10 +4959,13 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.75,
-    "nii": 1.57,
-    "retail": 0.68,
-    "total": 0.89,
-    "asOf": "2026-10-01T16:11:00+05:30"
+    "nii": 1.95,
+    "bnii": 2.66,
+    "snii": 0.53,
+    "retail": 0.84,
+    "total": 1.05,
+    "asOf": "2026-10-01T20:59:54+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4893,6 +5016,32 @@
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/shree-tnb-anchor-list.pdf"
     },
     "asOf": "2026-09-28T04:45:00+05:30"
+   },
+   "apps": {
+    "qib": {
+     "reserved": 570,
+     "received": 2
+    },
+    "nii": {
+     "reserved": 143,
+     "received": 40
+    },
+    "bnii": {
+     "reserved": 95,
+     "received": 21
+    },
+    "snii": {
+     "reserved": 48,
+     "received": 19
+    },
+    "retail": {
+     "reserved": 499,
+     "received": 420
+    },
+    "total": {
+     "reserved": 1212,
+     "received": 462
+    }
    }
   },
   {
@@ -4914,11 +5063,14 @@
    "gmpPct": 15.23,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 59.77,
-    "nii": 123.93,
-    "retail": 57.46,
-    "total": 72.38,
-    "asOf": "2026-10-01T16:11:00+05:30"
+    "qib": 59.7,
+    "nii": 124.82,
+    "bnii": 145.83,
+    "snii": 82.81,
+    "retail": 60.15,
+    "total": 73.88,
+    "asOf": "2026-10-01T20:59:54+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -4969,7 +5121,33 @@
    },
    "gmpAsOf": "2026-10-01T16:02:00+05:30",
    "gmpEve": 30.0,
-   "gmpEveAsOf": "2026-10-01T16:02:00+05:30"
+   "gmpEveAsOf": "2026-10-01T16:02:00+05:30",
+   "apps": {
+    "qib": {
+     "reserved": 886,
+     "received": 46
+    },
+    "nii": {
+     "reserved": 221,
+     "received": 12847
+    },
+    "bnii": {
+     "reserved": 147,
+     "received": 7082
+    },
+    "snii": {
+     "reserved": 74,
+     "received": 5765
+    },
+    "retail": {
+     "reserved": 775,
+     "received": 46619
+    },
+    "total": {
+     "reserved": 1882,
+     "received": 59512
+    }
+   }
   },
   {
    "name": "EverestIMS Technologies",
@@ -4991,10 +5169,13 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.87,
-    "nii": 1.5,
+    "nii": 1.85,
+    "bnii": 1.93,
+    "snii": 1.69,
     "retail": 2.27,
-    "total": 1.7,
-    "asOf": "2026-10-01T17:10:00+05:30"
+    "total": 1.78,
+    "asOf": "2026-10-01T20:59:54+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -5043,7 +5224,33 @@
    },
    "gmpAsOf": "2026-10-01T17:03:00+05:30",
    "gmpEve": 10.0,
-   "gmpEveAsOf": "2026-10-01T17:03:00+05:30"
+   "gmpEveAsOf": "2026-10-01T17:03:00+05:30",
+   "apps": {
+    "qib": {
+     "reserved": 680,
+     "received": 2
+    },
+    "nii": {
+     "reserved": 170,
+     "received": 148
+    },
+    "bnii": {
+     "reserved": 113,
+     "received": 59
+    },
+    "snii": {
+     "reserved": 57,
+     "received": 89
+    },
+    "retail": {
+     "reserved": 593,
+     "received": 1347
+    },
+    "total": {
+     "reserved": 1443,
+     "received": 1497
+    }
+   }
   },
   {
    "name": "Papadmalji Agro Foods",
@@ -5065,10 +5272,13 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 86.85,
-    "nii": 1.32,
-    "retail": 1.57,
-    "total": 2.52,
-    "asOf": "2026-10-01T16:11:00+05:30"
+    "nii": 1.5,
+    "bnii": 1.93,
+    "snii": 0.65,
+    "retail": 1.59,
+    "total": 2.59,
+    "asOf": "2026-10-01T20:59:55+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -5118,7 +5328,33 @@
    },
    "gmpAsOf": "2026-10-01T15:56:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-01T15:56:00+05:30"
+   "gmpEveAsOf": "2026-10-01T15:56:00+05:30",
+   "apps": {
+    "qib": {
+     "reserved": 20,
+     "received": 4
+    },
+    "nii": {
+     "reserved": 164,
+     "received": 39
+    },
+    "bnii": {
+     "reserved": 109,
+     "received": 9
+    },
+    "snii": {
+     "reserved": 55,
+     "received": 30
+    },
+    "retail": {
+     "reserved": 575,
+     "received": 915
+    },
+    "total": {
+     "reserved": 759,
+     "received": 958
+    }
+   }
   },
   {
    "name": "Vans Electroengineerings",
@@ -5140,11 +5376,14 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 281.65,
-    "nii": 1029.97,
-    "retail": 672.45,
-    "total": 621.57,
-    "asOf": "2026-10-01T16:11:00+05:30",
-    "employee": 0.95
+    "nii": 1032.23,
+    "bnii": 1172.98,
+    "snii": 750.73,
+    "retail": 686.27,
+    "employee": 0.95,
+    "total": 628.78,
+    "asOf": "2026-10-01T20:59:55+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -5195,7 +5434,37 @@
    },
    "gmpAsOf": "2026-10-01T16:02:00+05:30",
    "gmpEve": 70.0,
-   "gmpEveAsOf": "2026-10-01T16:02:00+05:30"
+   "gmpEveAsOf": "2026-10-01T16:02:00+05:30",
+   "apps": {
+    "qib": {
+     "reserved": 448,
+     "received": 137
+    },
+    "nii": {
+     "reserved": 112,
+     "received": 57554
+    },
+    "bnii": {
+     "reserved": 75,
+     "received": 31747
+    },
+    "snii": {
+     "reserved": 37,
+     "received": 25807
+    },
+    "retail": {
+     "reserved": 392,
+     "received": 269018
+    },
+    "employee": {
+     "reserved": 40,
+     "received": 13
+    },
+    "total": {
+     "reserved": 992,
+     "received": 326722
+    }
+   }
   },
   {
    "name": "Acme India Industries",
@@ -5216,11 +5485,14 @@
    "gmpPct": 12.76,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 5.7,
-    "nii": 0.02,
-    "retail": 0.42,
-    "total": 1.84,
-    "asOf": "2026-10-01T16:11:00+05:30"
+    "qib": 5.71,
+    "nii": 0.84,
+    "bnii": 1.06,
+    "snii": 0.4,
+    "retail": 0.48,
+    "total": 2.05,
+    "asOf": "2026-10-01T20:59:55+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -5271,7 +5543,33 @@
    },
    "gmpAsOf": "2026-10-01T16:02:00+05:30",
    "gmpEve": 25.0,
-   "gmpEveAsOf": "2026-10-01T16:02:00+05:30"
+   "gmpEveAsOf": "2026-10-01T16:02:00+05:30",
+   "apps": {
+    "qib": {
+     "reserved": 1963,
+     "received": 5
+    },
+    "nii": {
+     "reserved": 492,
+     "received": 113
+    },
+    "bnii": {
+     "reserved": 328,
+     "received": 57
+    },
+    "snii": {
+     "reserved": 164,
+     "received": 56
+    },
+    "retail": {
+     "reserved": 1720,
+     "received": 828
+    },
+    "total": {
+     "reserved": 4175,
+     "received": 946
+    }
+   }
   },
   {
    "name": "Dove Soft",
@@ -5293,10 +5591,13 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 1.0,
-    "nii": 1.19,
+    "nii": 1.29,
+    "bnii": 1.93,
+    "snii": 0.01,
     "retail": 0.55,
-    "total": 0.86,
-    "asOf": "2026-10-01T17:10:00+05:30"
+    "total": 0.92,
+    "asOf": "2026-10-01T20:59:56+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -5345,7 +5646,33 @@
    },
    "gmpAsOf": "2026-10-01T16:56:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-01T16:56:00+05:30"
+   "gmpEveAsOf": "2026-10-01T16:56:00+05:30",
+   "apps": {
+    "qib": {
+     "reserved": 54,
+     "received": 1
+    },
+    "nii": {
+     "reserved": 853,
+     "received": 7
+    },
+    "bnii": {
+     "reserved": 569,
+     "received": 3
+    },
+    "snii": {
+     "reserved": 284,
+     "received": 4
+    },
+    "retail": {
+     "reserved": 1306,
+     "received": 715
+    },
+    "total": {
+     "reserved": 2213,
+     "received": 723
+    }
+   }
   },
   {
    "name": "Eventions",
@@ -5367,10 +5694,13 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 26.18,
-    "nii": 0.06,
-    "retail": 0.5,
-    "total": 1.71,
-    "asOf": "2026-10-01T16:12:00+05:30"
+    "nii": 0.21,
+    "bnii": 0.26,
+    "snii": 0.13,
+    "retail": 0.65,
+    "total": 1.85,
+    "asOf": "2026-10-01T20:59:56+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -5420,7 +5750,33 @@
    },
    "gmpAsOf": "2026-10-01T15:53:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-01T15:53:00+05:30"
+   "gmpEveAsOf": "2026-10-01T15:53:00+05:30",
+   "apps": {
+    "qib": {
+     "reserved": 135,
+     "received": 8
+    },
+    "nii": {
+     "reserved": 292,
+     "received": 15
+    },
+    "bnii": {
+     "reserved": 195,
+     "received": 3
+    },
+    "snii": {
+     "reserved": 97,
+     "received": 12
+    },
+    "retail": {
+     "reserved": 773,
+     "received": 499
+    },
+    "total": {
+     "reserved": 1200,
+     "received": 522
+    }
+   }
   },
   {
    "name": "Omara Ventures India",
@@ -5442,10 +5798,13 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 1.0,
-    "nii": 1.05,
-    "retail": 0.14,
-    "total": 0.68,
-    "asOf": "2026-10-01T16:10:00+05:30"
+    "nii": 1.2,
+    "bnii": 1.68,
+    "snii": 0.25,
+    "retail": 0.16,
+    "total": 0.75,
+    "asOf": "2026-10-01T20:59:56+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -5495,7 +5854,33 @@
    },
    "gmpAsOf": "2026-10-01T16:00:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-01T16:00:00+05:30"
+   "gmpEveAsOf": "2026-10-01T16:00:00+05:30",
+   "apps": {
+    "qib": {
+     "reserved": 641,
+     "received": 3
+    },
+    "nii": {
+     "reserved": 427,
+     "received": 65
+    },
+    "bnii": {
+     "reserved": 285,
+     "received": 40
+    },
+    "snii": {
+     "reserved": 142,
+     "received": 25
+    },
+    "retail": {
+     "reserved": 641,
+     "received": 101
+    },
+    "total": {
+     "reserved": 1709,
+     "received": 169
+    }
+   }
   },
   {
    "name": "Paramount Syntex",
@@ -5517,10 +5902,13 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 119.29,
-    "nii": 0.01,
+    "nii": 0.02,
+    "bnii": 0.01,
+    "snii": 0.02,
     "retail": 0.1,
-    "total": 1.34,
-    "asOf": "2026-10-01T16:11:00+05:30"
+    "total": 1.35,
+    "asOf": "2026-10-01T20:59:57+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -5570,7 +5958,33 @@
    },
    "gmpAsOf": "2026-10-01T16:00:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-01T16:00:00+05:30"
+   "gmpEveAsOf": "2026-10-01T16:00:00+05:30",
+   "apps": {
+    "qib": {
+     "reserved": 66,
+     "received": 7
+    },
+    "nii": {
+     "reserved": 1005,
+     "received": 10
+    },
+    "bnii": {
+     "reserved": 670,
+     "received": 2
+    },
+    "snii": {
+     "reserved": 335,
+     "received": 8
+    },
+    "retail": {
+     "reserved": 1518,
+     "received": 158
+    },
+    "total": {
+     "reserved": 2589,
+     "received": 175
+    }
+   }
   },
   {
    "name": "SJP Ultrasonic",
@@ -5591,11 +6005,11 @@
    "gmpPct": 0.0,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 0.0,
-    "nii": 0.76,
-    "retail": 0.2,
-    "total": 0.48,
-    "asOf": "2026-10-01T16:11:00+05:30"
+    "other": 0.96,
+    "retail": 0.23,
+    "total": 0.6,
+    "asOf": "2026-10-01T20:59:57+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -5645,7 +6059,21 @@
    },
    "gmpAsOf": "2026-10-01T15:59:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-01T15:59:00+05:30"
+   "gmpEveAsOf": "2026-10-01T15:59:00+05:30",
+   "apps": {
+    "other": {
+     "reserved": 277,
+     "received": 57
+    },
+    "retail": {
+     "reserved": 416,
+     "received": 97
+    },
+    "total": {
+     "reserved": 693,
+     "received": 154
+    }
+   }
   },
   {
    "name": "Sollfege Smart Electronics",
@@ -5666,11 +6094,11 @@
    "gmpPct": 0.0,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 0.0,
-    "nii": 0.0,
-    "retail": 1.12,
-    "total": 1.62,
-    "asOf": "2026-10-01T16:11:00+05:30"
+    "other": 2.22,
+    "retail": 1.59,
+    "total": 1.91,
+    "asOf": "2026-10-01T20:59:57+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -5720,7 +6148,21 @@
    },
    "gmpAsOf": "2026-10-01T15:55:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-01T15:55:00+05:30"
+   "gmpEveAsOf": "2026-10-01T15:55:00+05:30",
+   "apps": {
+    "other": {
+     "reserved": 313,
+     "received": 39
+    },
+    "retail": {
+     "reserved": 470,
+     "received": 749
+    },
+    "total": {
+     "reserved": 783,
+     "received": 788
+    }
+   }
   },
   {
    "name": "TNA Solutions",
@@ -5742,10 +6184,13 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 4.77,
-    "nii": 0.12,
-    "retail": 0.61,
-    "total": 1.69,
-    "asOf": "2026-10-01T16:11:00+05:30"
+    "nii": 0.48,
+    "bnii": 0.61,
+    "snii": 0.21,
+    "retail": 0.64,
+    "total": 1.78,
+    "asOf": "2026-10-01T20:59:58+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -5796,6 +6241,32 @@
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/company_anchor_letter-tna.pdf"
     },
     "asOf": "2026-09-30T03:30:00+05:30"
+   },
+   "apps": {
+    "qib": {
+     "reserved": 513,
+     "received": 4
+    },
+    "nii": {
+     "reserved": 129,
+     "received": 18
+    },
+    "bnii": {
+     "reserved": 86,
+     "received": 9
+    },
+    "snii": {
+     "reserved": 43,
+     "received": 9
+    },
+    "retail": {
+     "reserved": 450,
+     "received": 290
+    },
+    "total": {
+     "reserved": 1092,
+     "received": 312
+    }
    }
   },
   {
@@ -77365,151 +77836,16 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-01T18:17:17+05:30",
+  "asOf": "2026-10-01T20:59:58+05:30",
   "checks": [
    {
-    "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-01T18:14:16+05:30",
-    "elapsed": 1.51,
-    "calls": 5,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=30 carried=14 +nse=8 +bse=0 exchange-only=0: 14 mainboard, 30 sme; 16 open, 1 upcoming"
-   },
-   {
-    "area": "gmp",
-    "method": "investorgain:ok, ipowatch:ok, ipopremium:blocked",
-    "status": "ok",
-    "asOf": "30-Sep 9:37",
-    "elapsed": 1.97,
-    "calls": 3,
-    "note": "gmp: 25 board rows patched via investorgain+ipowatch; 17 active, 7 of them matched; gmp: 3 GMP-site names not on the board: FX Multitech (₹6.5, investorgain); Robokidz Eduventures (₹86, investorgain); Varmora Granito (₹1, investorgain)"
-   },
-   {
-    "area": "details",
-    "method": "investorgain-list:ok, investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-01T18:14:18+05:30",
-    "elapsed": 5.8,
-    "calls": 17,
-    "note": "16 records fetched for 43 identified listings (1 without an id); 0 anchor books updated, 72 on file"
-   },
-   {
     "area": "subscription",
-    "method": "nse:ok",
+    "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-10-01T18:15:55+05:30",
-    "elapsed": 90.6,
-    "calls": 21,
-    "note": "4/21 rows patched via nse"
-   },
-   {
-    "area": "listings",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-10-01",
-    "elapsed": 23.68,
-    "calls": 0,
-    "note": "33 names priced, 4 moved to recent, 0 history points"
-   },
-   {
-    "area": "history",
-    "method": "investorgain-566:ok, investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-01",
-    "elapsed": 2.68,
-    "calls": 2,
-    "note": "1356 listings since 2022 (964 SME); fetched 2026: 253; QIB on file for 93 of 392 mainboard issues"
-   },
-   {
-    "area": "tape",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-09-30",
-    "elapsed": 1.08,
-    "calls": 1,
-    "note": "157 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 183 trading days on file, 0 still to fill · 96 BSE-only listings; 1 BSE file(s) read, 0 closes added, 182 days on file"
-   },
-   {
-    "area": "anchorbook",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-01",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "0 anchor books read (0 without an anchor table, 0 failed); 884 on file, 589 partial (feed gave only the first names); 0 of 1356 listings still to fetch"
-   },
-   {
-    "area": "evidence",
-    "method": "computed:ok",
-    "status": "ok",
-    "asOf": "2026-10-01",
-    "elapsed": 0.1,
-    "calls": 0,
-    "note": "track records: 884 of 884 anchor books have an outcome; 818 of 1369 investors with 2+; 1356 listings; windows: mainboard 133, SME 246; 5 warnings"
-   },
-   {
-    "area": "players",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-01",
-    "elapsed": 29.59,
-    "calls": 54,
-    "note": "53 of 2839 anchor investors read (0 failed); names found for 3 of 30 unlisted issues"
-   },
-   {
-    "area": "parents",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-10-01",
-    "elapsed": 12.18,
-    "calls": 0,
-    "note": "5/5 parent prices; 47/53 investor stocks priced"
-   },
-   {
-    "area": "filings",
-    "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
-    "status": "ok",
-    "asOf": "2026-10-01",
-    "elapsed": 9.06,
-    "calls": 14,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 5030 announcements scanned, 0 subsidiary-offer leads; expected: 40 names; 4 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 6 candidates (0 by announcement, 6 by group name); 2 leads held; 0 rows patched, 33 kept previous stage"
-   },
-   {
-    "area": "offers",
-    "method": "bse:blocked, bse:blocked",
-    "status": "blocked",
-    "asOf": null,
-    "elapsed": 0.08,
-    "calls": 1,
-    "note": "kept previous — HTTP 403"
-   },
-   {
-    "area": "flows",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-10-01",
-    "elapsed": 0.32,
-    "calls": 1,
-    "note": "appended 2026-10-01; FII -9,484 / DII +10,042 Cr"
-   },
-   {
-    "area": "deals",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-09-30",
-    "elapsed": 1.01,
-    "calls": 4,
-    "note": "bulk.csv: 179 deals; block.csv: 14 deals; 0 tracked-investor deals of 193; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 93 of today's 193 deals are in this year's listings (10 stocks); 532 kept over 60 days; 157 of 253 listings have an NSE symbol; 195 with a BSE code"
-   },
-   {
-    "area": "news",
-    "method": "rss:ok",
-    "status": "ok",
-    "asOf": "2026-10-01T16:26:39+05:30",
-    "elapsed": 1.05,
-    "calls": 3,
-    "note": "business-standard: 8/35 primary-market items; economic-times: 7/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 15 fresh, 25 kept"
+    "asOf": "2026-10-01T20:59:58+05:30",
+    "elapsed": 28.27,
+    "calls": 22,
+    "note": "21/21 rows patched via narada, nse"
    },
    {
     "area": "research layer",
@@ -77521,7 +77857,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "182s, 126 calls, 15/16 modules ok"
+    "note": "28s, 22 calls, 1/1 modules ok"
    }
   ],
   "discrepancies": [
