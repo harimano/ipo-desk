@@ -380,6 +380,7 @@ def normalise_detail(raw) -> dict:
         "symbol": strip_tags(g("nse_symbol") or g("nse_script_symbol")) or None,
         "bseCode": strip_tags(g("bse_script_code") or g("bse_cd")) or None, "isin": strip_tags(g("isin")) or None,
         "sector": strip_tags(g("company_sector")) or None, "faceValue": _num(g("face_value")),
+        "logo": strip_tags(g("logo_url")) or None,               # a file name, served from chittorgarh.net/images/ipo/
         "open": _day(g("issue_open_dt_json")), "close": _day(g("issue_end_dt_json")), "allotment": _day(g("timetable_boa_dt")),
         "refund": _day(g("timetable_refunds_dt")), "credit": _day(g("timetable_share_credit_dt")),
         "listing": _day(g("ipo_listing_date")) or _day(g("timetable_listing_dt")),

@@ -7,4 +7,6 @@ git fetch -q origin data
 mkdir -p data/history
 git show origin/data:latest.json > data/latest.json
 for f in $(git ls-tree --name-only origin/data history/); do git show "origin/data:$f" > "data/$f"; done
+mkdir -p data/logos
+for f in $(git ls-tree --name-only origin/data logos/ 2>/dev/null); do git show "origin/data:$f" > "data/$f"; done
 echo "data/latest.json <- origin/data ($(git log -1 --format='%h %cd' --date=format:'%d %b %H:%M' origin/data))"

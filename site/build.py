@@ -2,7 +2,7 @@
 
   python site/build.py             # reads site/src/{inner.html,app.js,boot.js} and data/
                                    # writes _site/index.html, _site/data/{meta,board,...}.json (collector/layout.py),
-                                   #        _site/data/latest.json, _site/data/research/, _site/data/quota-reviews/
+                                   #        _site/data/latest.json, _site/data/research/, _site/data/quota-reviews/, _site/data/logos/
 
 The page is: chart.js tag + inner markup + <script>FALLBACK + app.js + boot.js</script>.
 FALLBACK is the small snapshot (meta, mainboard, sme, quota, lot) taken from data/latest.json at
@@ -81,7 +81,7 @@ def main() -> int:
             (data_out / name).write_bytes(body)
         shutil.copy(latest_path, data_out / "latest.json")     # the whole document, for people and for old tabs
         print("layout   " + ", ".join(f"{n} {kb(len(b))}" for n, b in parts.items()))
-    for d in ("research", "quota-reviews"):
+    for d in ("research", "quota-reviews", "logos"):
         if (ROOT / "data" / d).is_dir():
             shutil.copytree(ROOT / "data" / d, data_out / d)
     return 0

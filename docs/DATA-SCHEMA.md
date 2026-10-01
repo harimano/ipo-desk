@@ -11,7 +11,7 @@ sheets{name}: {parent, parentTicker, parentPrice{value, asOf}, status, timeline{
           bull[], bear[], flags[], street[{who, date, view}], logistics, sources[]}
 mainboard[] / sme[]: {name, slug, type "Mainboard"|"NSE SME"|"BSE SME", status, open, close, allotment, listing, bandLow, bandHigh, lotSize,
           issueSizeCr, freshCr, ofsCr, gmp, gmpPct, gmpTrend up|down|flat, sub{qib, nii, retail, bnii?, snii?, other?, employee?, shareholder?, total, asOf, src nse|narada|bse|chittorgarh, catAsOf? (page only)},
-          apps?{quota: {reserved, received}} (Narada's application counts — counts only; not yet rendered),
+          logo? (InvestorGain's logo file name), apps?{quota: {reserved, received}} (Narada's application counts — counts only; not yet rendered),
           shareholderQuota{offered, parent, recordDate}|null, listingPrice, listingGainPct, currentPrice, sources[]}
           - a Listed row stays on the board only on its listing day, then moves to recent[].
 recent[]: {name, type, listingDate, issuePrice, listingPrice, gainPct, closeDay1, closeDay1GainPct, sources[]}  - last ~4 weeks
@@ -80,3 +80,6 @@ trackRecords.bookMoves{igId: {d5, d30}} — each anchored IPO's move from the li
 listedPerf[].bseCode — the BSE scrip code from report 377's Symbol column ('KARAMTARA, 544917' or '544931'); investors.listingDeals[].exchange
   is NSE or BSE and `symbol` is the NSE symbol or the BSE scrip code accordingly. tape.bse{dates, noFile, names{name: code}, n} — the BSE
   leg of the tape: listings with a BSE code and no NSE symbol, priced from BSE's bhavcopy (keyed by FinInstrmId).
+
+logos{igId}: {src (the logo file the thumbnail was made from), at (date), missing? (true: the source had no image; retried
+  after 7 days)} — a thumbnail exists at data/logos/<igId>.webp (96x48 WebP) for every entry without `missing`. Owner: logos.

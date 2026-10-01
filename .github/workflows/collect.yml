@@ -83,6 +83,7 @@ jobs:
         run: |
           cp _data/latest.json data/latest.json
           mkdir -p data/history && cp -R _data/history/. data/history/ 2>/dev/null || true
+          mkdir -p data/logos && cp -R _data/logos/. data/logos/ 2>/dev/null || true
           cp _data/latest.json /tmp/prev_latest.json
 
       - name: Collect
@@ -113,10 +114,11 @@ jobs:
         run: |
           cp data/latest.json _data/latest.json
           rm -rf _data/history && mkdir -p _data/history && cp -R data/history/. _data/history/
+          mkdir -p _data/logos && cp -R data/logos/. _data/logos/ 2>/dev/null || true     # thumbnails only ever added
           cd _data
           git config user.name  "ipo-desk-bot"
           git config user.email "ipo-desk-bot@users.noreply.github.com"
-          git add -A latest.json history
+          git add -A latest.json history logos
           if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
           MODE="${{ steps.mode.outputs.mode }}"
           STAMP="$(date -u +'%Y-%m-%d %H:%M UTC')"

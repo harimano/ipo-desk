@@ -6,6 +6,7 @@ requires-python = ">=3.11"
 dependencies = [
   "httpx[http2,brotli]>=0.27",
   "selectolax>=0.3.21",
+  "pillow>=10.4",                 # logo thumbnails (logos module)
   "nse[server]>=4.0.1",
   "bse>=3.3",
   "pymupdf>=1.24",

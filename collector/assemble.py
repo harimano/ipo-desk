@@ -259,6 +259,27 @@ def write(data: dict, root: pathlib.Path, t: dt.datetime) -> tuple[pathlib.Path,
     return latest, hist
 
 
+def write_files(results: list, root: pathlib.Path) -> int:
+    """Files a module produced (Result.files), written only for a module that succeeded and only under the one directory
+    schema.FILE_OWNERS gives it. A path that tries to leave that directory is an error, not a skip."""
+    n = 0
+    for res in results:
+        if not res.ok or not res.files:
+            continue
+        prefix = schema.FILE_OWNERS.get(res.module)
+        if not prefix:
+            raise OwnershipError(f"module {res.module!r} wrote files but owns no directory")
+        for rel, blob in res.files.items():
+            path = (root / rel).resolve()
+            if not str(rel).startswith(prefix) or ".." in pathlib.PurePosixPath(rel).parts \
+                    or not str(path).startswith(str((root / prefix).resolve())):
+                raise OwnershipError(f"module {res.module!r} tried to write {rel!r} outside {prefix}")
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(blob)
+            n += 1
+    return n
+
+
 def prune_history(root: pathlib.Path, keep_days: int = 45) -> list[str]:
     """Keep every day for keep_days, Sundays forever. Mirrors the retention rule from the db era."""
     removed = []

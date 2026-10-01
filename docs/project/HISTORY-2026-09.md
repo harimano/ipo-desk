@@ -315,3 +315,7 @@ Hari: "this whole section is useless … I need to be able to track something", 
   an indent span. For BSE-only SMEs it is the only fresh book (Black Opal closing day 73.88x vs IG 2.22x; Vans 628.78x vs
   93x). Board run: SMEs ask Narada first — NSE's ~4.5 s per-issue call returned zeros for every SME and cost 60 s a run
   (78 s → 16 s). Live: SMEs from Narada at most every 10 min an issue. Applications received per quota stored as `apps`.
+- Logos (Hari liked them on sanketicfai's page, which hotlinks Narada's CDN). Option chosen: thumbnails we make and publish.
+  InvestorGain's record already names the file (`logo_url`), served from chittorgarh.net/images/ipo/ at ~100 KB a PNG —
+  too heavy to hotlink. `logos` fetches each once, 96x48 WebP (~1.3 KB; a square shrank the wordmarks to strips), 25 a
+  run. First module to write files: `Result.files`, guarded to `logos/` and written only when the module succeeded.

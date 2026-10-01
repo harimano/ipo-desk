@@ -64,7 +64,7 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
 ## The collector
 
 `MODULES` order IS the fallback logic (a later patch wins):
-`calendar, gmp, details, subscription, listings, history, tape, anchorbook, evidence, players, parents, filings, offers, flows, deals, news`.
+`calendar, gmp, details, subscription, listings, history, tape, anchorbook, evidence, players, parents, filings, offers, flows, deals, news, logos`.
 Ownership is enforced by `schema.OWNERS` / `ROW_PATCHERS`; a failed module changes nothing. `Result.doc` is today's
 document as assembled so far; `prev` is yesterday's.
 
@@ -114,6 +114,11 @@ document as assembled so far; `prev` is yesterday's.
   chittorgarh (dead). **Narada** (`sources/narada.py`, trynarada.com, reachable from runners) is the only fresh book for
   BSE-only SMEs and gives application counts (`apps`, counts only, not rendered — showing real "1 in N" odds is Hari's
   call under rule 3); it publishes no timestamp, so its books carry our fetch time. A small third-party site: be polite.
+- `logos` (full runs): InvestorGain's record names each issue's logo file (`row.logo`, via `details`); the PNG (~100 KB, from
+  chittorgarh.net/images/ipo/) is fetched ONCE, shrunk to a 96x48 WebP (~1.3 KB) and written to `logos/<igId>.webp` beside
+  latest.json — the first module that writes files (`Result.files`, only under `schema.FILE_OWNERS[module]`, only when
+  ok). `logos{igId: {src, at, missing?}}` (board part) lists what exists, so the page never asks for a missing image.
+  `collect.yml` commits `logos/` to the data branch after the gate; `deploy.yml` and `build.py` publish it. Needs Pillow.
 - `subscription` never replaces a positive book with an all-zero one (exchanges answer zeros after close). A GMP of "0"
   with no trade behind it is "no quote". `validate.py`'s loss check ignores rows due to retire (listing + 1 day).
 - Known gaps: `api.bseindia.com` answers 403 to GitHub's runners (offers, bse_ann, and the BSE deals leg — all "blocked", a
@@ -131,7 +136,7 @@ planner, Pipeline tab) · `quotaradar.js` (Possible quotas under the planner: `e
 group-name, and the `quotaLeads` list folded; a `quota?` mark on Market's pipeline chips) · `hold.js` (hold-or-sell meter: Today, Board row, Scoreboard) · `deals.js` (Market > Superinvestors: one tracker card per listing with deals — price vs issue, round-trip / net buyer / net seller counts per client×stock, sold│bought bar, rows folded under; Money that stayed; Repeat clients; `Mine` = held or starred; counts only) ·
 `lockin.js` (Anchor lock-ins: 30 / 90-day expiries from `anchors[]` in a −10/+45 day window, next 14 days open, rest folded, free-to-sell amount, price vs issue, sales on the tape since; `trackerQueueItems()` puts lock-ins, the day's deals, followed names, and a strong-record anchor in an unlisted book (5+ IPOs, 70%+ listed up — the filter is printed on the card) on the Today queue) ·
 `records.js` (Anchor track records + today's books read against them; fetches the lazy `data/books.json` on demand via `DATA.lazy.books.hash`; `recKey` mirrors `anchorbook.investor_key`) ·
-`names.js` (Your names: the followed investors matched by normalised substring against anchor books, anchor letters and both deal files; `follows()`, `+` buttons via `[data-follow]`) · `scoreboard.js` (Open calls, GMP
+`logo()` in app.js (board, SME screener, sheet headers; white chip in dark mode) · `names.js` (Your names: the followed investors matched by normalised substring against anchor books, anchor letters and both deal files; `follows()`, `+` buttons via `[data-follow]`) · `scoreboard.js` (Open calls, GMP
 calibration with the collector's fit, hit-rate by month, band explorer). Shared evidence helpers in `app.js`: `EVD`, `SEG`,
 `EDG`, `bandOf`, `edgeLbl`, `evBand`, `evCls` (coloured by the INTERVAL), `evOf(b, seg, cat)` — `cat` = retail / shareholder /
 employee; the reserved-category EV beside the retail one is Hari's real edge. Chart.js needs explicit `type:"linear"` scales

@@ -20,7 +20,7 @@ from .result import Result
 # Order is the fallback logic: a later module's patch wins. `details` (the fullest record) runs after `gmp` so its
 # fresher quote overwrites the cached report, and before `subscription` / `listings` so the exchanges' live book and
 # the traded listing price overwrite its copies when they answer — and its copies stand when they do not.
-MODULES = ["calendar", "gmp", "details", "subscription", "listings", "history", "tape", "anchorbook", "evidence", "players", "parents", "filings", "offers", "flows", "deals", "news"]
+MODULES = ["calendar", "gmp", "details", "subscription", "listings", "history", "tape", "anchorbook", "evidence", "players", "parents", "filings", "offers", "flows", "deals", "news", "logos"]
 log = logging.getLogger("collector")
 
 
@@ -118,8 +118,10 @@ def main(argv=None) -> int:
         print(json.dumps(data["integrity"], indent=1, ensure_ascii=False))
         return 0
     latest, hist = assemble.write(data, root, t)
+    written = assemble.write_files(results, root)
     removed = assemble.prune_history(root)
-    log.info("wrote %s (%d KB) and %s; pruned %d old snapshots", latest, latest.stat().st_size // 1024, hist.name, len(removed))
+    log.info("wrote %s (%d KB) and %s; %d files; pruned %d old snapshots", latest, latest.stat().st_size // 1024, hist.name,
+             written, len(removed))
     return 0
 
 
