@@ -302,3 +302,5 @@ Hari: "this whole section is useless … I need to be able to track something", 
 - `listings`: 10 of 11 "no NSE symbol — cannot price" warnings were BSE-only rows the tape prices daily (noise, now
   suppressed via `tape.bse.names`); the 11th, board "ESDS Software", had no symbol while deals had resolved "ESDS Software
   Solution" → ESDS — `listings` now borrows it. Five board rows have a second series under the listing report's spelling.
+
+- Test trap (22 Sep 2026): tests' FakeSession matches URL substrings — "EQUITY_L.csv" also matches the SME list URL; use full paths.
