@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-02T00:13:26+05:30",
+  "asOf": "2026-10-02T01:57:26+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "2 Oct 2026, 00:13 IST",
+  "label": "2 Oct 2026, 01:57 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -2409,7 +2409,7 @@
    "igId": "2235",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-02T00:06:02+05:30",
+   "igFetchedAt": "2026-10-02T01:57:15+05:30",
    "refund": "2026-10-07",
    "sector": "Gems, Jewellery And Watches",
    "anchorShares": 0,
@@ -2453,7 +2453,45 @@
    "gmpAsOf": "2026-10-01T21:37:00+05:30",
    "gmpEve": 3.0,
    "gmpEveAsOf": "2026-10-01T21:37:00+05:30",
-   "logo": "nityas-logo.jpg"
+   "logo": "nityas-logo.jpg",
+   "apps": {
+    "qib": {
+     "reserved": 7178000,
+     "received": 5,
+     "reservedSrc": "narada"
+    },
+    "nii": {
+     "reserved": 769,
+     "received": 120,
+     "reservedSrc": "narada"
+    },
+    "bnii": {
+     "reserved": 512,
+     "received": 18,
+     "reservedSrc": "rhp"
+    },
+    "snii": {
+     "reserved": 256,
+     "received": 102,
+     "reservedSrc": "rhp=narada"
+    },
+    "retail": {
+     "reserved": 25123,
+     "received": 26954,
+     "reservedSrc": "rhp"
+    },
+    "employee": {
+     "reserved": 500,
+     "received": 134,
+     "reservedSrc": "narada"
+    },
+    "total": {
+     "reserved": 7186447,
+     "received": 27213,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:21+05:30"
+   }
   },
   {
    "name": "Vishal Nirmiti",
@@ -2493,7 +2531,7 @@
    "igId": "1602",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-02T00:06:02+05:30",
+   "igFetchedAt": "2026-10-02T01:57:15+05:30",
    "refund": "2026-10-07",
    "sector": "Civil Construction",
    "anchorShares": 0,
@@ -2538,7 +2576,40 @@
    "gmpAsOf": "2026-10-01T21:37:00+05:30",
    "gmpEve": 20.0,
    "gmpEveAsOf": "2026-10-01T21:37:00+05:30",
-   "logo": "vishal-nirmiti-logo.png"
+   "logo": "vishal-nirmiti-logo.png",
+   "apps": {
+    "qib": {
+     "reserved": 80909,
+     "received": 1,
+     "reservedSrc": "narada"
+    },
+    "nii": {
+     "reserved": 2465,
+     "received": 364,
+     "reservedSrc": "narada"
+    },
+    "bnii": {
+     "reserved": 1642,
+     "received": 111,
+     "reservedSrc": "rhp"
+    },
+    "snii": {
+     "reserved": 821,
+     "received": 253,
+     "reservedSrc": "rhp"
+    },
+    "retail": {
+     "reserved": 83288,
+     "received": 35318,
+     "reservedSrc": "rhp"
+    },
+    "total": {
+     "reserved": 166663,
+     "received": 35683,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:22+05:30"
+   }
   }
  ],
  "offers": {
@@ -3406,7 +3477,7 @@
     "snii": 0.47,
     "retail": 0.56,
     "total": 1.09,
-    "asOf": "2026-10-02T00:06:08+05:30",
+    "asOf": "2026-10-02T01:57:22+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3461,28 +3532,35 @@
    "apps": {
     "qib": {
      "reserved": 1184,
-     "received": 10
+     "received": 10,
+     "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 462,
-     "received": 92
+     "received": 92,
+     "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 308,
-     "received": 20
+     "received": 20,
+     "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 154,
-     "received": 72
+     "received": 72,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 693,
-     "received": 388
+     "received": 388,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 2339,
-     "received": 490
-    }
+     "received": 490,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:22+05:30"
    },
    "logo": "green_asia_logo.png"
   },
@@ -4303,7 +4381,7 @@
     "snii": 0.53,
     "retail": 0.84,
     "total": 1.05,
-    "asOf": "2026-10-02T00:06:09+05:30",
+    "asOf": "2026-10-02T01:57:22+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -4318,7 +4396,7 @@
    "igId": "2282",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-02T00:06:02+05:30",
+   "igFetchedAt": "2026-10-02T01:57:15+05:30",
    "refund": "2026-10-07",
    "sector": "Plastic Products - Industrial",
    "anchorShares": 1706000,
@@ -4359,28 +4437,35 @@
    "apps": {
     "qib": {
      "reserved": 570,
-     "received": 2
+     "received": 2,
+     "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 143,
-     "received": 40
+     "received": 40,
+     "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 95,
-     "received": 21
+     "received": 21,
+     "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 48,
-     "received": 19
+     "received": 19,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 499,
-     "received": 420
+     "received": 420,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 1212,
-     "received": 462
-    }
+     "received": 462,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:22+05:30"
    },
    "logo": "shree-tnb-polymers-logo.jpg"
   },
@@ -4409,7 +4494,7 @@
     "snii": 82.81,
     "retail": 60.15,
     "total": 73.88,
-    "asOf": "2026-10-02T00:06:09+05:30",
+    "asOf": "2026-10-02T01:57:23+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -4465,28 +4550,35 @@
    "apps": {
     "qib": {
      "reserved": 886,
-     "received": 46
+     "received": 46,
+     "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 221,
-     "received": 12847
+     "received": 12847,
+     "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 147,
-     "received": 7082
+     "received": 7082,
+     "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 74,
-     "received": 5765
+     "received": 5765,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 775,
-     "received": 46619
+     "received": 46619,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 1882,
-     "received": 59512
-    }
+     "received": 59512,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:23+05:30"
    },
    "logo": "black-opal-consultants-logo.png"
   },
@@ -4507,7 +4599,7 @@
    "ofsCr": 9.41,
    "gmp": 25.0,
    "gmpPct": 29.41,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 0.87,
     "nii": 1.85,
@@ -4515,7 +4607,7 @@
     "snii": 1.69,
     "retail": 2.27,
     "total": 1.78,
-    "asOf": "2026-10-02T00:06:09+05:30",
+    "asOf": "2026-10-02T01:57:23+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -4530,7 +4622,7 @@
    "igId": "1637",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-02T00:06:02+05:30",
+   "igFetchedAt": "2026-10-02T01:57:15+05:30",
    "refund": "2026-10-07",
    "sector": "Software Products",
    "anchorShares": 1612800,
@@ -4569,28 +4661,35 @@
    "apps": {
     "qib": {
      "reserved": 680,
-     "received": 2
+     "received": 2,
+     "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 170,
-     "received": 148
+     "received": 148,
+     "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 113,
-     "received": 59
+     "received": 59,
+     "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 57,
-     "received": 89
+     "received": 89,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 593,
-     "received": 1347
+     "received": 1347,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 1443,
-     "received": 1497
-    }
+     "received": 1497,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:23+05:30"
    },
    "logo": "everestims-logo.png"
   },
@@ -4619,7 +4718,7 @@
     "snii": 0.65,
     "retail": 1.59,
     "total": 2.59,
-    "asOf": "2026-10-02T00:06:10+05:30",
+    "asOf": "2026-10-02T01:57:23+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -4674,28 +4773,35 @@
    "apps": {
     "qib": {
      "reserved": 20,
-     "received": 4
+     "received": 4,
+     "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 164,
-     "received": 39
+     "received": 39,
+     "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 109,
-     "received": 9
+     "received": 9,
+     "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 55,
-     "received": 30
+     "received": 30,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 575,
-     "received": 915
+     "received": 915,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 759,
-     "received": 958
-    }
+     "received": 958,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:23+05:30"
    },
    "logo": "papadmalji-ipo-logo.png"
   },
@@ -4725,7 +4831,7 @@
     "retail": 686.27,
     "employee": 0.95,
     "total": 628.78,
-    "asOf": "2026-10-02T00:06:10+05:30",
+    "asOf": "2026-10-02T01:57:24+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -4781,32 +4887,40 @@
    "apps": {
     "qib": {
      "reserved": 448,
-     "received": 137
+     "received": 137,
+     "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 112,
-     "received": 57554
+     "received": 57554,
+     "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 75,
-     "received": 31747
+     "received": 31747,
+     "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 37,
-     "received": 25807
+     "received": 25807,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 392,
-     "received": 269018
+     "received": 269018,
+     "reservedSrc": "narada"
     },
     "employee": {
      "reserved": 40,
-     "received": 13
+     "received": 13,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 992,
-     "received": 326722
-    }
+     "received": 326722,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:24+05:30"
    },
    "logo": "vans-logo.png"
   },
@@ -4835,7 +4949,7 @@
     "snii": 0.4,
     "retail": 0.48,
     "total": 2.05,
-    "asOf": "2026-10-02T00:06:10+05:30",
+    "asOf": "2026-10-02T01:57:24+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -4850,7 +4964,7 @@
    "igId": "2006",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-02T00:06:02+05:30",
+   "igFetchedAt": "2026-10-02T01:57:15+05:30",
    "refund": "2026-10-08",
    "sector": "Railways",
    "anchorShares": 1765800,
@@ -4891,28 +5005,35 @@
    "apps": {
     "qib": {
      "reserved": 1963,
-     "received": 5
+     "received": 5,
+     "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 492,
-     "received": 113
+     "received": 113,
+     "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 328,
-     "received": 57
+     "received": 57,
+     "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 164,
-     "received": 56
+     "received": 56,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 1720,
-     "received": 828
+     "received": 828,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 4175,
-     "received": 946
-    }
+     "received": 946,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:24+05:30"
    },
    "logo": "acme-india-logo.jpg"
   },
@@ -4941,7 +5062,7 @@
     "snii": 0.01,
     "retail": 0.55,
     "total": 0.92,
-    "asOf": "2026-10-02T00:06:11+05:30",
+    "asOf": "2026-10-02T01:57:24+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -4956,7 +5077,7 @@
    "igId": "1781",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-02T00:06:02+05:30",
+   "igFetchedAt": "2026-10-02T01:57:15+05:30",
    "refund": "2026-10-07",
    "sector": "Software Products",
    "anchorShares": 0,
@@ -4995,28 +5116,35 @@
    "apps": {
     "qib": {
      "reserved": 54,
-     "received": 1
+     "received": 1,
+     "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 853,
-     "received": 7
+     "received": 7,
+     "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 569,
-     "received": 3
+     "received": 3,
+     "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 284,
-     "received": 4
+     "received": 4,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 1306,
-     "received": 715
+     "received": 715,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 2213,
-     "received": 723
-    }
+     "received": 723,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:24+05:30"
    },
    "logo": "dove-soft-logo.jpg"
   },
@@ -5045,7 +5173,7 @@
     "snii": 0.13,
     "retail": 0.65,
     "total": 1.85,
-    "asOf": "2026-10-02T00:06:11+05:30",
+    "asOf": "2026-10-02T01:57:25+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -5060,7 +5188,7 @@
    "igId": "2267",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-02T00:06:02+05:30",
+   "igFetchedAt": "2026-10-02T01:57:15+05:30",
    "refund": "2026-10-07",
    "sector": "Other Consumer Services",
    "anchorShares": 0,
@@ -5100,28 +5228,35 @@
    "apps": {
     "qib": {
      "reserved": 135,
-     "received": 8
+     "received": 8,
+     "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 292,
-     "received": 15
+     "received": 15,
+     "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 195,
-     "received": 3
+     "received": 3,
+     "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 97,
-     "received": 12
+     "received": 12,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 773,
-     "received": 499
+     "received": 499,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 1200,
-     "received": 522
-    }
+     "received": 522,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:25+05:30"
    },
    "logo": "eventions-ipo-logo.png"
   },
@@ -5150,7 +5285,7 @@
     "snii": 0.25,
     "retail": 0.16,
     "total": 0.75,
-    "asOf": "2026-10-02T00:06:11+05:30",
+    "asOf": "2026-10-02T01:57:25+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -5165,7 +5300,7 @@
    "igId": "2347",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-02T00:06:02+05:30",
+   "igFetchedAt": "2026-10-02T01:57:15+05:30",
    "refund": "2026-10-07",
    "sector": "Gems, Jewellery And Watches",
    "anchorShares": 0,
@@ -5205,28 +5340,35 @@
    "apps": {
     "qib": {
      "reserved": 641,
-     "received": 3
+     "received": 3,
+     "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 427,
-     "received": 65
+     "received": 65,
+     "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 285,
-     "received": 40
+     "received": 40,
+     "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 142,
-     "received": 25
+     "received": 25,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 641,
-     "received": 101
+     "received": 101,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 1709,
-     "received": 169
-    }
+     "received": 169,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:25+05:30"
    },
    "logo": "omara-ventures-india-limited-logo.png"
   },
@@ -5255,7 +5397,7 @@
     "snii": 0.02,
     "retail": 0.1,
     "total": 1.35,
-    "asOf": "2026-10-02T00:06:12+05:30",
+    "asOf": "2026-10-02T01:57:25+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -5270,7 +5412,7 @@
    "igId": "2001",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-02T00:06:02+05:30",
+   "igFetchedAt": "2026-10-02T01:57:15+05:30",
    "refund": "2026-10-08",
    "sector": "Other Textile Products",
    "anchorShares": 0,
@@ -5310,28 +5452,35 @@
    "apps": {
     "qib": {
      "reserved": 66,
-     "received": 7
+     "received": 7,
+     "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 1005,
-     "received": 10
+     "received": 10,
+     "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 670,
-     "received": 2
+     "received": 2,
+     "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 335,
-     "received": 8
+     "received": 8,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 1518,
-     "received": 158
+     "received": 158,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 2589,
-     "received": 175
-    }
+     "received": 175,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:25+05:30"
    },
    "logo": "paramount-syntex-logo.png"
   },
@@ -5357,7 +5506,7 @@
     "other": 0.96,
     "retail": 0.23,
     "total": 0.6,
-    "asOf": "2026-10-02T00:06:12+05:30",
+    "asOf": "2026-10-02T01:57:26+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -5372,7 +5521,7 @@
    "igId": "1964",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-02T00:06:02+05:30",
+   "igFetchedAt": "2026-10-02T01:57:15+05:30",
    "refund": "2026-10-07",
    "sector": "Other Industrial Products",
    "anchorShares": 0,
@@ -5412,16 +5561,20 @@
    "apps": {
     "other": {
      "reserved": 277,
-     "received": 57
+     "received": 57,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 416,
-     "received": 97
+     "received": 97,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 693,
-     "received": 154
-    }
+     "received": 154,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:26+05:30"
    },
    "logo": "sjp-ultrasonics-logo.png"
   },
@@ -5447,7 +5600,7 @@
     "other": 2.22,
     "retail": 1.59,
     "total": 1.91,
-    "asOf": "2026-10-02T00:06:12+05:30",
+    "asOf": "2026-10-02T01:57:26+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -5462,7 +5615,7 @@
    "igId": "2274",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-02T00:06:02+05:30",
+   "igFetchedAt": "2026-10-02T01:57:15+05:30",
    "refund": "2026-10-07",
    "sector": "E-Retail/ E-Commerce",
    "anchorShares": 0,
@@ -5502,16 +5655,20 @@
    "apps": {
     "other": {
      "reserved": 313,
-     "received": 39
+     "received": 39,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 470,
-     "received": 749
+     "received": 749,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 783,
-     "received": 788
-    }
+     "received": 788,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:26+05:30"
    },
    "logo": "sollfege-smart-Electronics-logo.png"
   },
@@ -5540,7 +5697,7 @@
     "snii": 0.21,
     "retail": 0.64,
     "total": 1.78,
-    "asOf": "2026-10-02T00:06:13+05:30",
+    "asOf": "2026-10-02T01:57:26+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -5555,7 +5712,7 @@
    "igId": "2370",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-02T00:06:02+05:30",
+   "igFetchedAt": "2026-10-02T01:57:15+05:30",
    "refund": "2026-10-08",
    "sector": "Other Textile Products",
    "anchorShares": 1536000,
@@ -5596,28 +5753,35 @@
    "apps": {
     "qib": {
      "reserved": 513,
-     "received": 4
+     "received": 4,
+     "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 129,
-     "received": 18
+     "received": 18,
+     "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 86,
-     "received": 9
+     "received": 9,
+     "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 43,
-     "received": 9
+     "received": 9,
+     "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 450,
-     "received": 290
+     "received": 290,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 1092,
-     "received": 312
-    }
+     "received": 312,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-02T01:57:26+05:30"
    },
    "logo": "tna-solutions-ltd-logo.png"
   },
@@ -77585,32 +77749,14 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-02T00:13:26+05:30",
+  "asOf": "2026-10-02T01:57:26+05:30",
   "checks": [
-   {
-    "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-02T00:06:01+05:30",
-    "elapsed": 85.04,
-    "calls": 8,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=30 carried=14 +nse=6 +bse=0 exchange-only=0: 10 mainboard, 25 sme; 12 open, 1 upcoming"
-   },
-   {
-    "area": "gmp",
-    "method": "investorgain:ok, ipowatch:ok, ipopremium:blocked",
-    "status": "ok",
-    "asOf": "30-Sep 9:37",
-    "elapsed": 1.28,
-    "calls": 3,
-    "note": "gmp: 26 board rows patched via investorgain+ipowatch; 17 active, 7 of them matched; gmp: 3 GMP-site names not on the board: FX Multitech (₹6.5, investorgain); Robokidz Eduventures (₹86, investorgain); Varmora Granito (₹1, investorgain); mainboard: 4 patched names not on the board: Adroit Industries, ArMee Infotech, Elevate Campuses, Swastika Infra"
-   },
    {
     "area": "details",
     "method": "investorgain-list:ok, investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-02T00:06:02+05:30",
-    "elapsed": 4.28,
+    "asOf": "2026-10-02T01:57:15+05:30",
+    "elapsed": 4.39,
     "calls": 13,
     "note": "12 records fetched for 34 identified listings (1 without an id); 0 anchor books updated, 72 on file"
    },
@@ -77618,127 +77764,10 @@
     "area": "subscription",
     "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-10-02T00:06:13+05:30",
-    "elapsed": 6.01,
-    "calls": 16,
+    "asOf": "2026-10-02T01:57:26+05:30",
+    "elapsed": 7.13,
+    "calls": 19,
     "note": "16/16 rows patched via narada, nse"
-   },
-   {
-    "area": "listings",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-10-01",
-    "elapsed": 25.46,
-    "calls": 0,
-    "note": "34 names priced, 6 moved to recent, 1 history points; mainboard: 4 patched names not on the board: Adroit Industries, ArMee Infotech, Elevate Campuses, Swastika Infra"
-   },
-   {
-    "area": "history",
-    "method": "investorgain-566:ok, investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-02",
-    "elapsed": 2.64,
-    "calls": 2,
-    "note": "1356 listings since 2022 (964 SME); fetched 2026: 253; QIB on file for 93 of 392 mainboard issues"
-   },
-   {
-    "area": "tape",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-10-01",
-    "elapsed": 0.92,
-    "calls": 2,
-    "note": "157 listings with an NSE symbol; 1 NSE file(s) read, 115 closes added; 184 trading days on file, 0 still to fill · 96 BSE-only listings; 1 BSE file(s) read, 91 closes added, 183 days on file"
-   },
-   {
-    "area": "anchorbook",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-02",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "0 anchor books read (0 without an anchor table, 0 failed); 884 on file, 589 partial (feed gave only the first names); 0 of 1356 listings still to fetch"
-   },
-   {
-    "area": "evidence",
-    "method": "computed:ok",
-    "status": "ok",
-    "asOf": "2026-10-02",
-    "elapsed": 0.13,
-    "calls": 0,
-    "note": "track records: 884 of 884 anchor books have an outcome; 818 of 1369 investors with 2+; 1356 listings; windows: mainboard 130, SME 241; 5 warnings"
-   },
-   {
-    "area": "players",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-02",
-    "elapsed": 27.8,
-    "calls": 54,
-    "note": "53 of 2839 anchor investors read (0 failed); names found for 3 of 30 unlisted issues"
-   },
-   {
-    "area": "parents",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-09-30",
-    "elapsed": 13.17,
-    "calls": 0,
-    "note": "5/5 parent prices; 47/53 investor stocks priced"
-   },
-   {
-    "area": "filings",
-    "method": "bse_ann:changed, sebi:ok, nse_ann:changed",
-    "status": "ok",
-    "asOf": "2026-10-02",
-    "elapsed": 188.93,
-    "calls": 16,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; expected: 43 names; 3 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 2 leads held; 0 rows patched, 33 kept previous stage"
-   },
-   {
-    "area": "offers",
-    "method": "bse:blocked, bse:blocked",
-    "status": "blocked",
-    "asOf": null,
-    "elapsed": 0.08,
-    "calls": 1,
-    "note": "kept previous — HTTP 403"
-   },
-   {
-    "area": "flows",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-10-01",
-    "elapsed": 20.39,
-    "calls": 1,
-    "note": "2026-10-01 already in history; FII -9,484 / DII +10,042 Cr"
-   },
-   {
-    "area": "deals",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-10-01",
-    "elapsed": 145.8,
-    "calls": 9,
-    "note": "bulk.csv: 157 deals; block.csv: 6 deals; 1 tracked-investor deals of 163; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 57 of today's 163 deals are in this year's listings (10 stocks); 589 kept over 60 days; 157 of 253 listings have an NSE symbol; 195 with a BSE code"
-   },
-   {
-    "area": "news",
-    "method": "rss:ok",
-    "status": "ok",
-    "asOf": "2026-10-01T22:02:30+05:30",
-    "elapsed": 0.6,
-    "calls": 3,
-    "note": "business-standard: 13/35 primary-market items; economic-times: 8/42 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 21 fresh, 25 kept"
-   },
-   {
-    "area": "logos",
-    "method": "chittorgarh.net:ok",
-    "status": "ok",
-    "asOf": "2026-10-02",
-    "elapsed": 5.95,
-    "calls": 18,
-    "note": "18 logos made, 0 missing, 0 errors; 0 left; 43 on file"
    },
    {
     "area": "research layer",
@@ -77750,7 +77779,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "530s, 146 calls, 16/17 modules ok"
+    "note": "12s, 32 calls, 2/2 modules ok"
    }
   ],
   "discrepancies": [
@@ -103743,7 +103772,7 @@
   },
   "2282": {
    "name": "Shree TNB Polymers",
-   "fetchedAt": "2026-10-02T00:06:02+05:30",
+   "fetchedAt": "2026-10-02T01:57:15+05:30",
    "about": [
     "Shree TNB Polymers Limited is engaged in the manufacturing of polymer-based piping systems and plastic products, catering to a wide range of infrastructure, agricultural, industrial, and utility applications. Headquartered in Silvassa, the Company develops solutions for sectors such as irrigation, agriculture, drinking water distribution, sewerage and drainage networks, telecom cable protection, construction, and industrial projects. The Company offers a broad range of products, including HDPE pipes and fittings, PP and PPH pipes and fittings, Double Wall Corrugated (DWC) pipes, sprinkler systems, drip irrigation solutions, solid industrial sheets, and Well Pack sheets used in packaging and industrial applications. Its diversified portfolio enables it to address varied customer requirements across multiple end-use industries. Shree TNB Polymers operates two manufacturing facilities in Silvassa with a combined area of approximately 23,028 square metres and an aggregate installed production capacity of 24,000 metric tonnes per annum. The facilities are supported by in-house quality testing laboratories and manufacturing processes that comply with various BIS and ISO-certified standards, ensuring product reliability and adherence to industry specifications. The Company has established a nationwide distribution network comprising more than 325 dealers and distributors, enabling broad market reach across India. In addition to its domestic operations, it exports products to international markets including the UAE, Sri Lanka, Oman, and Germany. As of July 31, 2026, the Company employed 298 full-time personnel and 39 contract workers across manufacturing, operations, sales, administration, and support functions. Competitive Strengths Promoter-led business supported by extensive industry experience and established market relationships. Comprehensive product portfolio serving diverse applications across agriculture, infrastructure, telecom, packaging, and industrial sectors. Strong dealer and distributor network supported by long-standing customer relationships and integrated manufacturing capabilities. Emphasis on product quality, supported by recognised certifications and in-house testing infrastructure."
    ],
@@ -105555,7 +105584,7 @@
   },
   "1637": {
    "name": "EverestIMS Technologies",
-   "fetchedAt": "2026-10-02T00:06:02+05:30",
+   "fetchedAt": "2026-10-02T01:57:15+05:30",
    "about": [
     "Incorporated in April 2017, EverestIMS Technologies Limited is a software enterprise that offers both Software as a Service (SaaS) solutions and on-premise products and services. The company specializes in digital transformation, IT operations, and AI-driven product solutions to streamline IT processes, improve efficiency, and enhance user experiences. The company's products & services include AI for IT Operations (AIOps), Generative-AI IT Service Management (ITSM), IT Infrastructure Management (ITIM), Network Change and Configuration Management (NCCM), and IT Asset Management (ITAM). The company offers solutions for remote monitoring of critical network devices, servers, and applications, reducing downtime and improving IT operations with its platform ' Infraon Infinity '. The company generates revenue mainly from: (i) software product sales and (ii) service sales. As of December 31, 2024, the company employed 197 people. Competitive Strength Experienced core team supported by experienced and senior management team. The \"Infraon Infinity” platform offers AI-driven modules for On-Premises and SaaS customers. Cordial relationship with the channel partners. Diversified Platform Development and Market Expansion."
    ],
@@ -105847,7 +105876,7 @@
   },
   "2347": {
    "name": "Omara Ventures India",
-   "fetchedAt": "2026-10-02T00:06:02+05:30",
+   "fetchedAt": "2026-10-02T01:57:15+05:30",
    "about": [
     "Omara Ventures India Limited is engaged in the retail jewellery business, specialising in diamond jewellery crafted with natural diamonds, precious and semi-precious gemstones, and precious metals such as gold, platinum, and silver. The Company markets its products under the “Omara” brand and primarily serves business-to-consumer (B2C) customers through its exclusive retail boutique. Its product portfolio features a diverse range of diamond jewellery, including necklaces, earrings, rings, bracelets, and other adornments designed to suit varying customer preferences, age groups, and occasions. The collection spans bridal and wedding jewellery, festive and celebratory pieces, occasion-specific designs, as well as contemporary jewellery for everyday wear, catering to multiple price segments. The Company’s operating model focuses on product ideation, design development, consumer trend analysis, collection curation, and retail merchandising. While jewellery manufacturing is undertaken through a dedicated product development and supply partner, all products are created in accordance with designs, specifications, and quality standards approved by the Company. Omara also offers customised jewellery solutions, allowing customers to tailor designs to their individual tastes and special requirements. The Company follows a selective and design-driven approach to its collections, introducing limited-quantity designs to preserve exclusivity and uniqueness. Each jewellery piece bears the “Omara” brand insignia, enhancing product authenticity and reinforcing brand recognition. The Company places significant emphasis on quality assurance, with products supported by relevant certifications, including BIS hallmarking for precious metals and diamond grading or certification from recognised gemological institutions such as GIA, wherever applicable. As of June 30, 2026, Omara Ventures India Limited had a workforce of 17 employees across leadership, key managerial personnel, sales and marketing, accounts, operations, product management, and support functions. Competitive Strengths Distinctive, design-focused jewellery collections with curated offerings. Experienced promoters and management team with industry expertise. Personalised customer engagement supported by jewellery customisation services. Established retail boutique supported by operational infrastructure. Strong commitment to quality standards, certification, and product authenticity. Brand-building initiatives supported by selective marketing and product branding. In-house capabilities for product conceptualisation, design, and collection development."
    ],
@@ -106129,7 +106158,7 @@
   },
   "2001": {
    "name": "Paramount Syntex",
-   "fetchedAt": "2026-10-02T00:06:02+05:30",
+   "fetchedAt": "2026-10-02T01:57:15+05:30",
    "about": [
     "Incorporated in 1996, Paramount Syntex Limited is engaged in the manufacturing of synthetic fibres, dyed fibres, and various types of yarns, including acrylic, polyester, wool, nylon, and blended yarns. The Company’s manufacturing units are located at Village Mangarh, Machiwara Road, Kohara, Ludhiana, Punjab, with a combined area of approximately 7,268.73 sq. yards. Paramount Syntex operates with a fully integrated setup comprising fibre processing, tow dyeing, hank dyeing, spinning, bulking, and packing facilities, supported by an in-house research and quality control team. The Company also manufactures recycled acrylic fibre from waste materials sourced both domestically and internationally, ensuring sustainable operations and efficient resource utilization. Over the years, the Company has established a strong presence in the textile and apparel industry, supplying high-quality yarns and fibres to a wide customer base across India. It holds certifications including ISO 9001:2015 (Quality Management), ISO 14001:2015 (Environmental Management), ISO 45001:2018 (Occupational Health & Safety), and Good Manufacturing Practice (GMP). Led by its experienced promoters, Paramount Syntex continues to strengthen its market position by maintaining product quality, investing in process improvement, and leveraging trading opportunities to ensure sustainable and profitable growth."
    ],
@@ -106599,7 +106628,7 @@
   },
   "1781": {
    "name": "Dove Soft",
-   "fetchedAt": "2026-10-02T00:06:02+05:30",
+   "fetchedAt": "2026-10-02T01:57:15+05:30",
    "about": [
     "Incorporated in August 2011, Dove Soft Limited provides integrated cloud-communication solutions through SMS, RCS, Voice, WhatsApp, Email, and other digital channels. The company provides services to enterprises and OTT platforms, including SMS, WhatsApp, Voice, IVR, automated calls, E-mail, and Digital Products. The company serves clients across industries like Telecom, IT, Travel, Entertainment, Media, Advertising, Retail, Real Estate, Healthcare, BFSI, Automobile, E-commerce, and Food & Beverages, helping manage customer communication and streamline operations. Dove Soft Limited provides communication services that help businesses connect with customers through multiple digital channels. These include: Enterprise Messaging Services : Bulk SMS, transactional and promotional SMS, and OTP delivery. Voice Solutions : Automated IVR, outbound dialer services, and missed call alerts. Email Marketing Solutions : High-volume enterprise-grade email delivery infrastructure. WhatsApp Business API : Secure and scalable customer engagement via WhatsApp for notifications, support, and marketing. Dove Soft is ISO/IEC 27001 certified for information security and has connectivity with all major telecom operators in India, ensuring reliable and fast service delivery. As of April 15 2025, the company employed 67 people in various departments. Competitive Strength: Sustainable business model and consistent financial track record. Diversified service portfolio resulting in our lesser dependence on a single industry, product or services. Scalable delivery platform supported by robust infrastructure. Experienced Promoter and senior management team."
    ],
@@ -106841,7 +106870,7 @@
   },
   "1602": {
    "name": "Vishal Nirmiti",
-   "fetchedAt": "2026-10-02T00:06:02+05:30",
+   "fetchedAt": "2026-10-02T01:57:15+05:30",
    "about": [
     "Incorporated in 1994, Vishal Nirmiti Limited (formerly Sejal Farms Private Limited) is a civil engineering, manufacturing, and construction company primarily engaged in manufacturing and dealing of Pre-Stressed Concrete (PSC) sleepers for railways, pre-cast and pre-stressed concrete products, as well as fabrication and erection of Mild Steel (MS) pipes, liners, and penstock pipes for Pumped Storage Projects (PSPs). The company also provides engineering, procurement, and construction (EPC) services for railway infrastructure, irrigation, and civil engineering projects across sectors such as railways, renewable power, and industrial infrastructure. Business Segments: Manufacturing segment: Includes PSC sleeper manufacturing for Indian Railways, DFCCIL, and private clients, as well as MS pipes, MS liners, and penstock pipes for hydro power, lift irrigation, water supply, and infrastructure projects. Services segment: Covers job work contracts for MS pipes, liners, penstock pipes, pre-cast and pre-stressed elements (such as noise barriers and cable ducts), hydro-mechanical structures, as well as construction works, power generation through windmills, transportation, leasing, and sale of scrap. VNL has a pan-India presence with operational units across Maharashtra, Madhya Pradesh, Gujarat, Himachal Pradesh, Uttar Pradesh, Odisha, and Karnataka and is led by a highly experienced promoter group with over four decades of domain expertise Competitive Strengths: Execution capabilities with industry experience and strong operating systems, providing comprehensive solution. Dedicated focus on railway infrastructure development and manufacture of PSC sleepers Deeply entrenched, long term relationships with customers Experienced Management Team driving the growth of the Company"
    ],
@@ -107377,7 +107406,7 @@
   },
   "2235": {
    "name": "Nityas Gems & Jewellery",
-   "fetchedAt": "2026-10-02T00:06:02+05:30",
+   "fetchedAt": "2026-10-02T01:57:15+05:30",
    "about": [
     "Nityas Gems and Jewellery Limited specialises in the design, manufacturing, and sale of lab-grown diamond-studded gold jewellery in India. The company operate through a business-to-business (B2B) model for retailers and wholesalers, as well as a direct-to-consumer (D2C) approach via our subsidiary, Ayaani Diamonds and Jewellery Private Limited. The company's operations encompass the entire jewellery value chain, including raw material management, product design, manufacturing, quality control, distribution, and retail sales. The company offers a variety of lab-grown diamond gold jewellery, including rings, earrings, pendants, bracelets, mangalsutras, nose pins, necklaces, cufflinks, and bangles, for daily wear, special occasions, men’s jewellery, and custom designs. The company's key B2B customers include established jewellery retailers like ‘GIVA’, ‘Palmonas’, ‘ONYA’, and ‘Ladia Diamonds’. The company supplies customised lab-grown diamond-studded gold jewellery based on its designs and specific customer requirements, including purity, weight, and finish. They ensure design-led development, consistent quality, and timely order execution to support our customer relationships. The company's B2B operations are essential to its business, focusing on the design and supply of lab-grown diamond jewellery to retailers. The company serves the domestic market by supplying products to B2B customers in 18 states and 2 union territories in India, as well as to end customers through retail stores in seven cities and online sales. Competitive Strength: Integrated B2B and D2C business model with a growing and diversified customer base. Manufacturing capabilities supported by in-house design and technology integration. Well positioned to capitalise on the growth of lab grown diamond jewellery. Skilled in-house workforce enabling quality control and reduced dependence on external job work. Robust financial performance with consistent growth. 18 states and 2 union territories in India, as well as to international customers in the UAE, Australia, Canada, Taiwan, and Kenya."
    ],
@@ -107666,7 +107695,7 @@
   },
   "2006": {
    "name": "Acme India Industries",
-   "fetchedAt": "2026-10-02T00:06:02+05:30",
+   "fetchedAt": "2026-10-02T01:57:15+05:30",
    "about": [
     "Acme India is engaged in the Indian railway rolling stock sector, with a strong focus on designing, manufacturing, and maintaining railway coach interiors. The company works mainly through government tenders and provide turnkey solutions for furnishing new railway coaches, refurbishing old ones, and upgrading coach toilets. It also manufacture and supply various components to Indian Railways, ensuring our products meet their standards for comfort, safety, hygiene, and functionality. Service offerings: Turnkey Coach Furnishing: Design and install interiors for new railway coaches including LHB coaches, Vande Bharat trains, inspection and overhead equipment coaches. Since 2017, it has delivered 1,610 new coaches. Refurbishment & Upgradation: We upgrade both LHB and ICF coaches by replacing old parts and redesigning interiors. Since 2018, it has refurbished 1,888 coaches. Toilet Modernization: The company has successfully completed over 10,948 toilet upgrades in LHB and ICF coaches, focusing on hygiene and passenger comfort. Component Supply: It regularly supply products like Braille signage, FRP and aluminum polymer composite sanitary ware, Epoxy flooring, FRP doors, seat and berth components, Hygiene products (soap dispensers, odor control systems), Fire-retardant decorative coatings, andVacuum circuit breakers The company operates two manufacturing units in Sonipat, Haryana, covering 116,000 sq. ft., with in-house lab and testing facilities. Modern Coach Factory, Raebareli, North Eastern Railway, Gorakhpur, and Northern Western Railway, Jodhpur are some of the notable projects. As on August 31, 2025, the company’s order book stood at Rs 40,208.20 lakhs. Competitive Strengths Established market presence in Indian railway sector Diversified range of products and services under one roof Healthy portfolio of order book Experienced Promoters with strong management team having domain knowledge Multiple Global Tie ups and representations Fully integrated manufacturing plant set up"
    ],
@@ -107918,7 +107947,7 @@
   },
   "2267": {
    "name": "Eventions",
-   "fetchedAt": "2026-10-02T00:06:02+05:30",
+   "fetchedAt": "2026-10-02T01:57:15+05:30",
    "about": [
     "Incorporated 2020, Eventions Limited is engaged in providing event management and experiential marketing services. It specializes in planning and executing corporate events, brand activations, exhibitions, conferences, and promotional campaigns. The company offers end-to-end solutions, including event conceptualization, design, logistics, and on-ground execution. It caters to corporate clients across various industries, helping them enhance brand visibility and customer engagement through customized event experiences. Eventions Private Limited focuses on creativity, timely execution, and client-centric solutions, aiming to deliver impactful and memorable events. The company has undertaken assignments for clients operating across various sectors including banking, insurance, event management, fast-moving consumer goods and other industry. Service: MICE services, including meetings, conferences and incentive travel programs Corporate events, including product launches, conferences and corporate gatherings including Virtual events, conducted through digital platforms Free Independent Travel (“FIT”) services, comprising customised travel arrangements. Brand and marketing activations, involving promotional and on-ground marketing activities Competitive Strengths: Integrated service model for MICE and corporate events End-to-End Event Management Capabilities Asset-Light Business Model Event Execution Capabilities Across Multiple Geographies"
    ],
@@ -108177,7 +108206,7 @@
   },
   "1964": {
    "name": "SJP Ultrasonic",
-   "fetchedAt": "2026-10-02T00:06:02+05:30",
+   "fetchedAt": "2026-10-02T01:57:15+05:30",
    "about": [
     "Incorporated on January 27, 2012, SJP Ultrasonic Ltd. is engaged in the end-to-end plastic joining and automation solution providers. The company offers specialised solutions mainly in the Automotive industry and industries related to Medical, Electrical, Electronics, Textile, FMCG, Toys, Gift & Stationery, Food & Packaging, Defence & Educational Institutes. Business Segments: Plastic joining solutions Industrial automation Laser technology solutions The sale of the products and services is majorly made to manufacturers engaged in various industries, which makes model business to business (B2B) in nature. Competitive Strengths: A start to finish plastic welding solution provider offering diverse and comprehensive service offerings. Long standing relations with raw material and equipment suppliers Long-standing relationships with established customers, with potential to expand the customer base. They provide a diverse range of specialised plastic products across varied industry segments Quality Standard Certifications & Quality Tests"
    ],
@@ -108412,7 +108441,7 @@
   },
   "2274": {
    "name": "Sollfege Smart Electronics",
-   "fetchedAt": "2026-10-02T00:06:02+05:30",
+   "fetchedAt": "2026-10-02T01:57:15+05:30",
    "about": [
     "Sollfege Smart Electronics Limited operates in the premium electronics and smart living segment, offering audio-visual, home automation, lifestyle, and wellness solutions. The Company focuses on delivering technology-driven products and integrated solutions that enhance convenience, comfort, and modern living experiences for residential and commercial customers. The Company has evolved from a traditional audio-video distributor into a provider of end-to-end premium electronics and automation solutions. Its offerings include home theatre systems, audio and video solutions, smart home automation, intelligent lighting and climate control, lifestyle electronics, and connected living technologies. Sollfege follows an experience-led business model through showrooms, experience centres, and digital channels. Its experience centres are designed to simulate real-life environments, allowing customers to explore, test, and evaluate products before purchase. The Company’s sales and technical teams work closely with customers, architects, interior designers, and project stakeholders to deliver customized solutions that meet functional and aesthetic requirements. The Company has developed strong relationships with leading global brands, national distributors, builders, and project partners, enabling it to offer premium products and execute integrated technology projects across residential, commercial, hospitality, and institutional sectors. With showrooms in Kolkata, Gurgaon, and Bhubaneswar, Sollfege serves both retail and business customers across India. The Company continues to expand its market presence through exhibitions, digital marketing initiatives, strategic partnerships, and an enhanced product portfolio. Competitive Strengths Diversified portfolio of premium audio-video, automation, and smart living solutions. Experience-centre driven business model supporting customer engagement and product demonstrations. Strong partnerships with globally recognized brands and project stakeholders. Capability to provide customized and integrated technology solutions. Established presence across key Indian markets with a premium customer focus."
    ],
@@ -108606,7 +108635,7 @@
   },
   "2370": {
    "name": "TNA Solutions",
-   "fetchedAt": "2026-10-02T00:06:02+05:30",
+   "fetchedAt": "2026-10-02T01:57:15+05:30",
    "about": [
     "TNA Solutions Limited is a home textile manufacturing company based in Indore, Madhya Pradesh, catering to both domestic and international markets. The Company specializes in converting processed fabrics into a wide range of finished home furnishing products tailored to customer requirements. Its product portfolio includes bed sheet sets, pillow covers and shells, towels, comforters, quilts, dohars, mattress protectors, and other home textile offerings. The Company primarily operates as a business-to-business (B2B) manufacturer, supplying products to global retailers, importers, and Indian brands under private labels and customer-specified branding. In addition to its B2B operations, TNA Solutions has expanded its presence in the direct-to-consumer segment through e-commerce platforms, wholesalers, retailers, and its own brand, Ambra Linens , which was introduced in 2022. To strengthen its digital retail reach, the Company launched a dedicated e-commerce website for Ambra Linens in July 2026. TNA Solutions follows an asset-light manufacturing approach by sourcing greige fabrics from weavers and processed fabrics from mills, processing units, and stockists. While third-party partners handle fabric-related activities such as weaving, dyeing, and printing, the Company undertakes value-added processes including cutting, stitching, embroidery, finishing, quality inspection, packaging, and dispatch from its manufacturing facility in Indore. With a significant share of revenue derived from exports, the Company serves a geographically diverse customer base and emphasizes consistent product quality, operational efficiency, and on-time order fulfillment. Its manufacturing and operational processes are supported by technology-driven systems and a structured quality management framework. The business is led by an experienced promoter group with expertise spanning sourcing, product development, production planning, quality control, and customer relationship management. Competitive Strengths Broad and diversified range of home textile products. Robust quality assurance processes supported by multiple inspection stages. Technology-driven manufacturing and operational systems. Experienced promoter-led management team with industry expertise. Strong export presence supported by a geographically diversified customer base."
    ],
