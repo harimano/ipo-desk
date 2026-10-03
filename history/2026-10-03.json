@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-03T18:29:20+05:30",
+  "asOf": "2026-10-03T22:13:52+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "3 Oct 2026, 18:29 IST",
+  "label": "3 Oct 2026, 22:13 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -36805,6 +36805,26 @@
  ],
  "news": [
   {
+   "title": "Sebi examining position limits for non-agri contracts to boost liquidity",
+   "url": "https://www.business-standard.com/markets/news/sebi-examining-position-limits-for-non-agri-contracts-to-boost-liquidity-126100300459_1.html",
+   "date": "2026-10-03T15:23:59+05:30"
+  },
+  {
+   "title": "Sebi examining position limits for non-agri contracts to boost liquidity",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-examining-position-limits-for-non-agri-contracts-to-boost-liquidity/articleshow/134656225.cms",
+   "date": "2026-10-03T15:16:13+05:30"
+  },
+  {
+   "title": "Sebi to soon issue framework on Closing Auction Session; receives over 3,500 comments",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-to-soon-issue-framework-on-closing-auction-session-receives-over-3500-comments/articleshow/134655426.cms",
+   "date": "2026-10-03T14:08:16+05:30"
+  },
+  {
+   "title": "Sebi to soon issue framework on CAS; receives over 3,500 comments",
+   "url": "https://www.business-standard.com/markets/news/sebi-to-soon-issue-framework-on-cas-mechanism-after-receiving-3-5k-comments-126100300348_1.html",
+   "date": "2026-10-03T14:01:29+05:30"
+  },
+  {
    "title": "Jio Platforms IPO may open on October 21, issue estimated at $3.8 billion: Report",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-platforms-ipo-may-open-on-october-21-issue-estimated-at-3-8-billion-report/articleshow/134652545.cms",
    "date": "2026-10-03T10:46:10+05:30"
@@ -36908,26 +36928,6 @@
    "title": "FY27 comeback: India IPOs raise record Rs 94,000 crore in first half, average listing gain doubles",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/fy27-comeback-india-ipos-raise-record-rs-94000-crore-in-first-half-average-listing-gain-doubles/articleshow/134614542.cms",
    "date": "2026-10-01T15:10:12+05:30"
-  },
-  {
-   "title": "Gas maker Inox Air Products files IPO papers with Sebi, public issue to entirely comprise OFS",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/gas-maker-inox-air-products-files-ipo-papers-with-sebi-public-issue-to-entirely-comprise-ofs/articleshow/134614291.cms",
-   "date": "2026-10-01T14:55:20+05:30"
-  },
-  {
-   "title": "Anarock Property Consultants files DRHP to raise ₹1,000 cr via IPO",
-   "url": "https://www.business-standard.com/markets/ipo/anarock-property-consultants-files-drhp-to-raise-1-000-cr-via-ipo-126100100644_1.html",
-   "date": "2026-10-01T14:46:49+05:30"
-  },
-  {
-   "title": "Inox Air Products files IPO papers; issue size not disclosed",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/inox-air-products-files-ipo-papers-issue-size-not-disclosed/articleshow/134613796.cms",
-   "date": "2026-10-01T14:33:34+05:30"
-  },
-  {
-   "title": "Moneyview shares skyrocket 82% from IPO price after strong market debut. Should you buy, sell or hold?",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/moneyview-shares-skyrocket-82-from-ipo-price-after-strong-market-debut-should-you-buy-sell-or-hold/articleshow/134611871.cms",
-   "date": "2026-10-01T13:03:29+05:30"
   }
  ],
  "priceHistory": {
@@ -77401,61 +77401,61 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-03T18:29:20+05:30",
+  "asOf": "2026-10-03T22:13:52+05:30",
   "checks": [
    {
     "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-03T18:14:22+05:30",
-    "elapsed": 2.3,
-    "calls": 5,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=30 carried=1 +nse=6 +bse=0 exchange-only=0: 8 mainboard, 23 sme; 12 open, 1 upcoming"
+    "method": "None:error",
+    "status": "stale",
+    "asOf": null,
+    "elapsed": 0.03,
+    "calls": 0,
+    "note": "kept previous — ImportError: Modest backend is deprecated since selectolax 1.0. It's outdated, not maintained, contains bugs and does not follow modern HTML5 standards. Please use lexbor backend instead: `from selectolax.lexbor import LexborHTMLParser`."
    },
    {
     "area": "gmp",
-    "method": "investorgain:ok, ipowatch:changed, ipopremium:blocked",
-    "status": "ok",
-    "asOf": "30-Sep 9:37",
-    "elapsed": 15.15,
-    "calls": 3,
-    "note": "gmp: 19 board rows patched via investorgain; 13 active, 5 of them matched; gmp: 10 GMP-site names not on the board: A-One Steels (₹46, investorgain); Adroit Industries (₹55, investorgain); ArMee Infotech (₹6, investorgain); Elevate Campuses (₹6.5, investorgain); FX Multitech (₹6.5, investorgain); Moneyview (₹14.5, investorgain); Robokidz Eduventures (₹86, investorgain); Roopa Screen (₹42, investorgain) …"
+    "method": "None:error",
+    "status": "stale",
+    "asOf": null,
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "kept previous — ImportError: Modest backend is deprecated since selectolax 1.0. It's outdated, not maintained, contains bugs and does not follow modern HTML5 standards. Please use lexbor backend instead: `from selectolax.lexbor import LexborHTMLParser`."
    },
    {
     "area": "details",
-    "method": "investorgain-list:ok, investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-03T18:14:38+05:30",
-    "elapsed": 150.58,
-    "calls": 14,
-    "note": "13 records fetched for 30 identified listings (1 without an id); 0 anchor books updated, 72 on file; 17 left for the next run (cap 25)"
+    "method": "None:error",
+    "status": "stale",
+    "asOf": null,
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "kept previous — ImportError: Modest backend is deprecated since selectolax 1.0. It's outdated, not maintained, contains bugs and does not follow modern HTML5 standards. Please use lexbor backend instead: `from selectolax.lexbor import LexborHTMLParser`."
    },
    {
     "area": "subscription",
-    "method": "narada+nse:ok",
-    "status": "ok",
-    "asOf": "2026-10-03T18:18:19+05:30",
-    "elapsed": 70.73,
-    "calls": 15,
-    "note": "12/12 rows patched via narada, nse"
+    "method": "None:error",
+    "status": "stale",
+    "asOf": null,
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "kept previous — ImportError: Modest backend is deprecated since selectolax 1.0. It's outdated, not maintained, contains bugs and does not follow modern HTML5 standards. Please use lexbor backend instead: `from selectolax.lexbor import LexborHTMLParser`."
    },
    {
     "area": "listings",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-01",
-    "elapsed": 23.8,
+    "elapsed": 22.66,
     "calls": 0,
     "note": "26 names priced, 0 moved to recent, 0 history points"
    },
    {
     "area": "history",
-    "method": "investorgain-566:ok, investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-03",
-    "elapsed": 120.03,
-    "calls": 2,
-    "note": "1356 listings since 2022 (964 SME); fetched 2026: 253; QIB on file for 93 of 392 mainboard issues"
+    "method": "None:error",
+    "status": "stale",
+    "asOf": null,
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "kept previous — ImportError: Modest backend is deprecated since selectolax 1.0. It's outdated, not maintained, contains bugs and does not follow modern HTML5 standards. Please use lexbor backend instead: `from selectolax.lexbor import LexborHTMLParser`."
    },
    {
     "area": "tape",
@@ -77468,21 +77468,93 @@
    },
    {
     "area": "anchorbook",
-    "method": "investorgain:ok",
+    "method": "None:error",
+    "status": "stale",
+    "asOf": null,
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "kept previous — ImportError: Modest backend is deprecated since selectolax 1.0. It's outdated, not maintained, contains bugs and does not follow modern HTML5 standards. Please use lexbor backend instead: `from selectolax.lexbor import LexborHTMLParser`."
+   },
+   {
+    "area": "evidence",
+    "method": "None:error",
+    "status": "stale",
+    "asOf": null,
+    "elapsed": 0.08,
+    "calls": 0,
+    "note": "kept previous — ImportError: Modest backend is deprecated since selectolax 1.0. It's outdated, not maintained, contains bugs and does not follow modern HTML5 standards. Please use lexbor backend instead: `from selectolax.lexbor import LexborHTMLParser`."
+   },
+   {
+    "area": "players",
+    "method": "None:error",
+    "status": "stale",
+    "asOf": null,
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "kept previous — ImportError: Modest backend is deprecated since selectolax 1.0. It's outdated, not maintained, contains bugs and does not follow modern HTML5 standards. Please use lexbor backend instead: `from selectolax.lexbor import LexborHTMLParser`."
+   },
+   {
+    "area": "parents",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-10-01",
+    "elapsed": 12.74,
+    "calls": 0,
+    "note": "5/5 parent prices; 47/53 investor stocks priced"
+   },
+   {
+    "area": "filings",
+    "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
+    "status": "ok",
+    "asOf": "2026-10-03",
+    "elapsed": 11.33,
+    "calls": 15,
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 4206 announcements scanned, 0 subsidiary-offer leads; expected: 43 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 6 candidates (0 by announcement, 6 by group name); 2 leads held; 0 rows patched, 33 kept previous stage"
+   },
+   {
+    "area": "offers",
+    "method": "bse:blocked, bse:blocked",
+    "status": "blocked",
+    "asOf": null,
+    "elapsed": 0.09,
+    "calls": 1,
+    "note": "kept previous — HTTP 403"
+   },
+   {
+    "area": "flows",
+    "method": "nse:ok",
+    "status": "ok",
+    "asOf": "2026-10-01",
+    "elapsed": 0.44,
+    "calls": 1,
+    "note": "2026-10-01 already in history; FII -9,484 / DII +10,042 Cr"
+   },
+   {
+    "area": "deals",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-10-01",
+    "elapsed": 1.09,
+    "calls": 4,
+    "note": "bulk.csv: 157 deals; block.csv: 6 deals; 1 tracked-investor deals of 163; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 57 of today's 163 deals are in this year's listings (10 stocks); 589 kept over 60 days; 157 of 253 listings have an NSE symbol; 195 with a BSE code"
+   },
+   {
+    "area": "news",
+    "method": "rss:ok",
+    "status": "ok",
+    "asOf": "2026-10-03T15:23:59+05:30",
+    "elapsed": 1.05,
+    "calls": 3,
+    "note": "business-standard: 12/35 primary-market items; economic-times: 9/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 21 fresh, 25 kept"
+   },
+   {
+    "area": "logos",
+    "method": "none:ok",
     "status": "ok",
     "asOf": "2026-10-03",
     "elapsed": 0.0,
     "calls": 0,
-    "note": "0 anchor books read (0 without an anchor table, 0 failed); 884 on file, 589 partial (feed gave only the first names); 0 of 1356 listings still to fetch"
-   },
-   {
-    "area": "evidence",
-    "method": "computed:ok",
-    "status": "ok",
-    "asOf": "2026-10-03",
-    "elapsed": 0.25,
-    "calls": 0,
-    "note": "track records: 884 of 884 anchor books have an outcome; 818 of 1369 investors with 2+; 1356 listings; windows: mainboard 130, SME 241; 5 warnings"
+    "note": "43 logos on file; none to fetch"
    },
    {
     "area": "research layer",
@@ -77494,7 +77566,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "900s, 49 calls, 9/9 modules ok"
+    "note": "50s, 24 calls, 8/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -108301,7 +108373,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-03T18:20:43+05:30",
+  "asOf": "2026-10-03T22:13:25+05:30",
   "dates": [
    "2026-01-02",
    "2026-01-05",
