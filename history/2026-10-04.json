@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-04T12:19:47+05:30",
+  "asOf": "2026-10-04T18:15:26+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "4 Oct 2026, 12:19 IST",
+  "label": "4 Oct 2026, 18:15 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -36805,6 +36805,11 @@
  ],
  "news": [
   {
+   "title": "IPO bonanza: 29 companies to list this week; GMPs signal returns of up to 59%",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/ipo-bonanza-29-companies-to-list-this-week-gmps-signal-returns-of-up-to-59/slideshow/134672937.cms",
+   "date": "2026-10-04T13:54:31+05:30"
+  },
+  {
    "title": "Jio IPO likely by Oct end at enterprise valuation of above ₹12 trillion",
    "url": "https://www.business-standard.com/markets/ipo/jio-ipo-likely-by-oct-end-at-enterprise-valuation-of-above-12-trillion-126100400146_1.html",
    "date": "2026-10-04T11:41:44+05:30"
@@ -36923,11 +36928,6 @@
    "title": "Carlsberg India IPO gets Sebi approval along with three other public offers. Check details",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/carlsberg-india-ipo-gets-sebi-approval-along-with-three-other-public-offers-check-details/articleshow/134620190.cms",
    "date": "2026-10-01T18:40:55+05:30"
-  },
-  {
-   "title": "Airtel Money to raise £529 million in LSE IPO at £5.3 billion valuation",
-   "url": "https://www.business-standard.com/markets/ipo/airtel-money-to-raise-529-million-in-lse-ipo-at-5-3-billion-valuation-126100100836_1.html",
-   "date": "2026-10-01T16:26:17+05:30"
   }
  ],
  "priceHistory": {
@@ -77401,14 +77401,14 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-04T12:19:47+05:30",
+  "asOf": "2026-10-04T18:15:26+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "None:error",
     "status": "stale",
     "asOf": null,
-    "elapsed": 0.06,
+    "elapsed": 0.05,
     "calls": 0,
     "note": "kept previous — ImportError: Modest backend is deprecated since selectolax 1.0. It's outdated, not maintained, contains bugs and does not follow modern HTML5 standards. Please use lexbor backend instead: `from selectolax.lexbor import LexborHTMLParser`."
    },
@@ -77444,7 +77444,7 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-01",
-    "elapsed": 19.87,
+    "elapsed": 26.87,
     "calls": 0,
     "note": "26 names priced, 0 moved to recent, 0 history points"
    },
@@ -77480,7 +77480,7 @@
     "method": "None:error",
     "status": "stale",
     "asOf": null,
-    "elapsed": 0.1,
+    "elapsed": 0.12,
     "calls": 0,
     "note": "kept previous — ImportError: Modest backend is deprecated since selectolax 1.0. It's outdated, not maintained, contains bugs and does not follow modern HTML5 standards. Please use lexbor backend instead: `from selectolax.lexbor import LexborHTMLParser`."
    },
@@ -77498,7 +77498,7 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-01",
-    "elapsed": 12.14,
+    "elapsed": 17.56,
     "calls": 0,
     "note": "5/5 parent prices; 47/53 investor stocks priced"
    },
@@ -77507,16 +77507,16 @@
     "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-10-04",
-    "elapsed": 8.14,
+    "elapsed": 12.4,
     "calls": 15,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 3008 announcements scanned, 0 subsidiary-offer leads; expected: 43 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 6 candidates (0 by announcement, 6 by group name); 2 leads held; 0 rows patched, 33 kept previous stage"
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 3025 announcements scanned, 0 subsidiary-offer leads; expected: 43 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 6 candidates (0 by announcement, 6 by group name); 2 leads held; 0 rows patched, 33 kept previous stage"
    },
    {
     "area": "offers",
     "method": "bse:blocked, bse:blocked",
     "status": "blocked",
     "asOf": null,
-    "elapsed": 0.02,
+    "elapsed": 0.09,
     "calls": 1,
     "note": "kept previous — HTTP 403"
    },
@@ -77525,7 +77525,7 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-10-01",
-    "elapsed": 0.21,
+    "elapsed": 0.15,
     "calls": 1,
     "note": "2026-10-01 already in history; FII -9,484 / DII +10,042 Cr"
    },
@@ -77534,7 +77534,7 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-10-01",
-    "elapsed": 0.95,
+    "elapsed": 1.03,
     "calls": 4,
     "note": "bulk.csv: 157 deals; block.csv: 6 deals; 1 tracked-investor deals of 163; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 57 of today's 163 deals are in this year's listings (10 stocks); 589 kept over 60 days; 157 of 253 listings have an NSE symbol; 195 with a BSE code"
    },
@@ -77542,10 +77542,10 @@
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
-    "asOf": "2026-10-04T11:41:44+05:30",
-    "elapsed": 0.75,
+    "asOf": "2026-10-04T13:54:31+05:30",
+    "elapsed": 1.03,
     "calls": 3,
-    "note": "business-standard: 12/35 primary-market items; economic-times: 7/50 primary-market items; moneycontrol-ipo: changed — no entries parsed: '<!DOCTYPE html> <html>   <head>     <met; 19 fresh, 25 kept"
+    "note": "business-standard: 12/35 primary-market items; economic-times: 6/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 18 fresh, 25 kept"
    },
    {
     "area": "logos",
@@ -77566,7 +77566,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "44s, 24 calls, 8/17 modules ok"
+    "note": "61s, 24 calls, 8/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -108373,7 +108373,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-04T12:19:24+05:30",
+  "asOf": "2026-10-04T18:14:53+05:30",
   "dates": [
    "2026-01-02",
    "2026-01-05",
