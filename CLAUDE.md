@@ -48,6 +48,11 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
    file. The Book (applications, holdings, P&L) never goes in the repo. No paid services. No React / Node.
 8. localStorage keys must survive: `ipo-interest`, `ipo-holdings`, `ipo-apps`, `ipo-tasks-done`, `ipo-tasks-custom`,
    `ipo-investors`, `ipo-theme`, `ipo-tab`, `ipo-research-sel`, `ipo-seen`.
+9. **Dependencies are a run-time risk, not a footnote** (6 Oct 2026: selectolax 1.0 dropped `selectolax.parser`; every
+   collect run failed at import for a morning — the gate refused to write, the board went stale). HTML parsing is the
+   lexbor backend only (`from selectolax.lexbor import LexborHTMLParser as HTMLParser`). A declared package must be
+   imported somewhere or carry the reason beside it (`logzero`, `websocket-client`: SmartApi needs them and does not
+   declare them); `nse` / `bse` were surveyed, never used, and are gone.
 
 ## How to build here
 
@@ -62,6 +67,10 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
   check phone width. Test the listing-day card with `window.__ipo.live({preopen:[…]})`.
 - Say what was verified (`git log`, `gh run list`, the live URL) and what was not. Side findings go on a list.
 - Cost: one fresh session per task; Sonnet for page work, Fable for collector / design work.
+- **A stale page is a failed run until proven otherwise**: `gh run list` first. A scheduled "success" may be an intraday
+  no-op; read the Install / import lines of the latest failure before touching code.
+- `ruff check .` must pass (309 tests too). CI runs ruff LAST in `collect.yml` — it fails the run, never the data. The
+  standard lives in `[tool.ruff.lint]`: BLE001 is off on purpose (module-boundary catches record, log or re-wrap).
 
 ## The collector
 
@@ -123,7 +132,8 @@ document as assembled so far; `prev` is yesterday's.
   ok). `logos{igId: {src, at, missing?}}` (board part) lists what exists, so the page never asks for a missing image.
   `collect.yml` commits `logos/` to the data branch after the gate; `deploy.yml` and `build.py` publish it. Needs Pillow.
 - `subscription` never replaces a positive book with an all-zero one (exchanges answer zeros after close). A GMP of "0"
-  with no trade behind it is "no quote". `validate.py`'s loss check ignores rows due to retire (listing + 1 day).
+  with no trade behind it is "no quote". `validate.py`'s loss check ignores rows due to retire (listing + 1 day). It also exempts `players.covered` / `players.names` (keyed by unlisted
+  issue: they shrink when issues list; `players.frozen` is the gate and only grows — 13 listings over 5–6 Oct read as "40% loss").
 - Known gaps: `api.bseindia.com` answers 403 to GitHub's runners (offers, bse_ann, and the BSE deals leg — all "blocked", a
   note; they work from Hari's Mac); `www.bseindia.com/download` (the BSE bhavcopy) is fine. NSE gives FII / DII one day at a time (8–16 Sep missing; no backfill source surveyed); Tata Motors' quota
   ticker is stale; `details` caps at 25 record calls a run; ipopremium 403s (leave it); chittorgarh fallback is dead;

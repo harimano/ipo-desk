@@ -325,3 +325,29 @@ Hari: "this whole section is useless … I need to be able to track something", 
   come from the RHP where present; for SMEs Narada's slots check out (Black Opal 9,30,000 / 1,200 = 775) and the ratio
   equals the retail multiple (each SME individual applies for exactly the minimum). The page hides real odds that are
   worse than the book allows, rather than show a contradiction.
+
+## 6 Oct 2026 — the morning the collector would not import
+
+- Every collect run from ~04:30 UTC failed in 30 s: `ImportError: Modest backend is deprecated since selectolax 1.0`. The
+  pin was `selectolax>=0.3.21` with no ceiling; 1.0 shipped and removed `selectolax.parser`, which all six HTML sources
+  import. The collector did the right thing (every module failed → "refusing to write; previous latest.json stays live"),
+  so the page simply sat on the 06:43 document. Not obvious from the run list: the 07:30 UTC scheduled run showed
+  "success" because it was an intraday no-op. Lesson: when the page is stale, read the latest failure's import lines first.
+- Fix in three commits, each proven on the runner: pin `<1` (back in business in 20 min) → migrate to lexbor (the test
+  suite run with `selectolax.parser.HTMLParser` monkey-swapped for `LexborHTMLParser` before import, plus a Modest-vs-
+  lexbor probe over the fragment shapes we parse: byte-identical) → lift the ceiling. venv now on 1.0.0, like the runners.
+- The first good run was then refused by the gate: `players/covered: 30 -> 18 (40% loss)`. Thirteen issues had listed over
+  5–6 Oct while runs were failing; `covered` is simply the unlisted set and every dropped id had moved into `frozen`
+  (27 → 40). Exempted like `/players/books/<id>` already was; `frozen` stays gated and only grows, which is the real check.
+- Ruff: 114 findings across collector/scripts, more in tests (ruff 0.16.8 from the dev extra resolves a broad rule set;
+  nothing ran it in CI). Cleaned to zero over the whole tree. Decisions worth keeping: BLE001 off in `[tool.ruff.lint]`
+  with the reason (all 20 sites record to `tried`, log, or re-wrap — a parser bug is a SourceChanged in disguise); five
+  B023 closures bind their loop variable as a default (each only ran inside its own iteration); `v != v` stays as the
+  numpy-NaN test; `NAME_STOP` stays prose. ruff now runs as the LAST step of `collect.yml` with `if: always()` — a lint
+  slip turns the run red but the document is already committed and published. Code hygiene never leaves the board stale.
+- Dependencies: `nse[server]` warned on every install (5.0.0 dropped the extra). Survey: neither `nse` nor `bse` is
+  imported anywhere — `docs/mined/nse-bse.md` was the study of the libraries, the collector uses its own `http.py`. Both
+  dropped (with mthrottle, an exact httpx pin, GPLv3). Tried to drop the three "smartapi extras" too: `python-dateutil`
+  is declared by the SDK and went; `logzero` and `websocket-client` are imported by `SmartApi/__init__` and
+  `smartConnect` at import time and NOT declared by the SDK — without them `_connect` degrades silently to SourceDown.
+  Proven by removing each in the venv. They stay, with the reason beside them in pyproject.
