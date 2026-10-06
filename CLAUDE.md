@@ -4,7 +4,8 @@ India IPO desk for one retail investor (Hari). A deterministic collector on GitH
 static vanilla-JS page renders it; Claude is never in the daily path. Live at https://harimano.github.io/ipo-desk/ from
 https://github.com/harimano/ipo-desk (public). This file is the working brief — kept short on purpose, because every
 session pays for it. The long story (why each thing is the way it is, every lesson with its date) is
-`docs/project/HISTORY-2026-09.md`; read the part you need when you touch that area.
+`docs/project/HISTORY-2026-09.md` (Sep: state of play, roadmap, rules) and `HISTORY-2026-10.md` (Oct onward); read the part
+you need when you touch that area.
 
 Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-CONTRACT.md` how a module is written ·
 `docs/DATA-SCHEMA.md` the document's shape · `docs/mined/` endpoint and response notes (check before guessing a field) ·
