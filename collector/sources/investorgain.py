@@ -20,7 +20,7 @@ import datetime as dt
 import re
 from zoneinfo import ZoneInfo
 
-from selectolax.parser import HTMLParser
+from selectolax.lexbor import LexborHTMLParser as HTMLParser
 
 from ..errors import SourceChanged
 from ._parse import clean, compute_gmp_pct, parse_money, parse_pct, upper_band

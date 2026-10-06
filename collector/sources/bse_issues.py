@@ -28,7 +28,7 @@ from ..http import BSE_BETA
 from .nse_ipo import first, iso_date, number, price_band
 
 try:  # selectolax is a declared dependency; guard so the module imports (and tests can skip) without it
-    from selectolax.parser import HTMLParser
+    from selectolax.lexbor import LexborHTMLParser as HTMLParser
 except ImportError:  # pragma: no cover
     HTMLParser = None
 

@@ -12,7 +12,7 @@ adapted to take the page text instead of fetching itself.
 """
 from __future__ import annotations
 
-from selectolax.parser import HTMLParser
+from selectolax.lexbor import LexborHTMLParser as HTMLParser
 
 from ..errors import SourceChanged
 from ._parse import clean, compute_gmp_pct, parse_money, parse_pct

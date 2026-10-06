@@ -20,7 +20,7 @@ import re
 from ..errors import SourceChanged
 
 try:
-    from selectolax.parser import HTMLParser
+    from selectolax.lexbor import LexborHTMLParser as HTMLParser
 except ImportError:  # pragma: no cover
     HTMLParser = None
 

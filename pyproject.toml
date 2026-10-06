@@ -5,7 +5,7 @@ description = "Deterministic daily collector for the India IPO Command Center. W
 requires-python = ">=3.11"
 dependencies = [
   "httpx[http2,brotli]>=0.27",
-  "selectolax>=0.3.21,<1",       # 1.0 removed selectolax.parser (Modest); every source imports it — move to lexbor deliberately
+  "selectolax>=0.3.21",          # lexbor backend only (selectolax.lexbor); 1.0 removed the Modest one (6 Oct 2026)
   "pillow>=10.4",                 # logo thumbnails (logos module)
   "nse[server]>=4.0.1",
   "bse>=3.3",

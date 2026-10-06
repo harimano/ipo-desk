@@ -32,7 +32,7 @@ from ..sources import bse_issues, narada, nse_ipo
 from .calendar import derive_status, match_name, norm_name
 
 try:
-    from selectolax.parser import HTMLParser
+    from selectolax.lexbor import LexborHTMLParser as HTMLParser
 except ImportError:  # pragma: no cover
     HTMLParser = None
 
