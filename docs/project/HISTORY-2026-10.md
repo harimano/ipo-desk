@@ -72,3 +72,8 @@ agreed in September). Newest section last. `CLAUDE.md` is the short working brie
   page is a failed run until proven otherwise, ruff must pass and runs last in CI; the covered/names exemption on the
   validate line). The history is now split by month: `HISTORY-2026-09.md` keeps September (state of play, roadmap, rules)
   under its own title instead of the brief's heading it had carried since the rebuild; this file starts at 1 Oct.
+- `live.yml` got the same trailing ruff step (dev extra installed for it). Proving it is a day-structure question: a running
+  loop keeps the workflow file it started with, so the step only exists on a job started after the push; a dispatch is the
+  documented "new start replaces the running one" (one tick's gap). Started 15:41 IST; the Lint step runs when the loop
+  ends at 17:20. A short `until` would have proved it faster but would have left the afternoon without a loop — never
+  cut into market hours to verify a lint step.
