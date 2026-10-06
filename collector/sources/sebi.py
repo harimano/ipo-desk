@@ -30,20 +30,20 @@ REFERER = SEBI + "/sebiweb/home/HomeAction.do"
 SMID = {"DRHP": 10, "RHP": 11}
 
 _DATE_RE = re.compile(r"([A-Z][a-z]{2})\.?\s+(\d{1,2}),?\s+(\d{4})")
-_ROW_RE = re.compile(r"<tr\b[^>]*>(.*?)</tr>", re.S | re.I)
-_ANCHOR_RE = re.compile(r"<a\b([^>]*)href=[\'\"]([^\'\"]*/filings/[^\'\"]+)[\'\"]([^>]*)>(.*?)</a>", re.S | re.I)
-_TITLE_ATTR_RE = re.compile(r"title=[\'\"]([^\'\"]+)[\'\"]", re.I)
+_ROW_RE = re.compile(r"<tr\b[^>]*>(.*?)</tr>", re.DOTALL | re.IGNORECASE)
+_ANCHOR_RE = re.compile(r"<a\b([^>]*)href=[\'\"]([^\'\"]*/filings/[^\'\"]+)[\'\"]([^>]*)>(.*?)</a>", re.DOTALL | re.IGNORECASE)
+_TITLE_ATTR_RE = re.compile(r"title=[\'\"]([^\'\"]+)[\'\"]", re.IGNORECASE)
 _TAG_RE = re.compile(r"<[^>]+>")
 
 # classification, most specific first
-_ADDENDUM_RE = re.compile(r"addendum|corrigendum|erratum", re.I)
-_DRHP_RE = re.compile(r"draft\s+red\s+herring|\bU?DRHP\b|draft\s+prospectus|draft\s+offer\s+document", re.I)
-_RHP_RE = re.compile(r"red\s+herring|\bRHP\b", re.I)
-_PROSPECTUS_RE = re.compile(r"prospectus|offer\s+document", re.I)
+_ADDENDUM_RE = re.compile(r"addendum|corrigendum|erratum", re.IGNORECASE)
+_DRHP_RE = re.compile(r"draft\s+red\s+herring|\bU?DRHP\b|draft\s+prospectus|draft\s+offer\s+document", re.IGNORECASE)
+_RHP_RE = re.compile(r"red\s+herring|\bRHP\b", re.IGNORECASE)
+_PROSPECTUS_RE = re.compile(r"prospectus|offer\s+document", re.IGNORECASE)
 
-_PDF_FULL_RE = re.compile(r"(https?://[^\'\"\s<>]*?/sebi_data/attachdocs/[^\'\"\s<>]+?\.pdf)", re.I)
-_PDF_VIEWER_RE = re.compile(r"[?&]file=([^&\'\"\s<>]+\.pdf)", re.I)
-_PDF_ANY_RE = re.compile(r"href=[\'\"]([^\'\"]+\.pdf)[\'\"]", re.I)
+_PDF_FULL_RE = re.compile(r"(https?://[^\'\"\s<>]*?/sebi_data/attachdocs/[^\'\"\s<>]+?\.pdf)", re.IGNORECASE)
+_PDF_VIEWER_RE = re.compile(r"[?&]file=([^&\'\"\s<>]+\.pdf)", re.IGNORECASE)
+_PDF_ANY_RE = re.compile(r"href=[\'\"]([^\'\"]+\.pdf)[\'\"]", re.IGNORECASE)
 
 
 def _clean(s: str) -> str:
@@ -52,7 +52,7 @@ def _clean(s: str) -> str:
 
 def _iso(mon: str, day: str, year: str) -> str | None:
     try:
-        return dt.datetime.strptime(f"{mon} {day} {year}", "%b %d %Y").date().isoformat()
+        return dt.datetime.strptime(f"{mon} {day} {year}", "%b %d %Y").date().isoformat()  # noqa: DTZ007
     except ValueError:
         return None
 
@@ -106,7 +106,7 @@ def _post_body(smid: int, page: int) -> dict:
 
 
 _ISSUER_RE = re.compile(r"\s*[-\u2013\u2014:]+\s*(?:the\s+)?(?:second\s+|third\s+)?(?:draft|abridged|addendum|corrigendum|erratum|"
-                        r"u?drhp|rhp|red\s+herring|prospectus|offer\s+document|public\s+announcement).*$", re.I)
+                        r"u?drhp|rhp|red\s+herring|prospectus|offer\s+document|public\s+announcement).*$", re.IGNORECASE)
 
 
 def issuer(title: str) -> str:

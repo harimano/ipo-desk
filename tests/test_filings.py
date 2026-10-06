@@ -232,7 +232,7 @@ def test_sebi_resolve_pdf_prefers_full_document():
 def test_bse_drhp_announcement_advances_row(monkeypatch):
     s = FakeSession(bse={("500325", None): _bse("reliance_500325.json")},
                     sebi_post={"10": SourceDown("sebi", "down"), "11": SourceDown("sebi", "down")})
-    res, prev = _run(s, monkeypatch=monkeypatch)
+    res, _prev = _run(s, monkeypatch=monkeypatch)
     assert res.ok and res.source == "bse_ann"
     p = res.rows["quota"]["Jio Platforms"]
     assert p["stage"] == "DRHP filed" and p["bucket"] == "drhp" and p["stageDate"] == "2026-09-16"
@@ -247,7 +247,7 @@ def test_bse_drhp_announcement_advances_row(monkeypatch):
 def test_sebi_rhp_listing_advances_row_parent_did_not_announce(monkeypatch):
     s = FakeSession(sebi_post={"10": _sebi("drhp_page1.html"), "11": _sebi("rhp_page1.html")},
                     bse_exc=SourceDown("bse_ann", "api down"))
-    res, prev = _run(s, monkeypatch=monkeypatch)
+    res, _prev = _run(s, monkeypatch=monkeypatch)
     assert res.ok and res.source == "sebi"
     p = res.rows["quota"]["Hero FinCorp"]
     assert p["stage"] == "RHP filed" and p["bucket"] == "approved" and p["stageDate"] == "2026-09-15"
@@ -397,7 +397,7 @@ def test_build_expected_adds_facts_never_rewrites_handwriting():
 # ------------------------------------------------------------------------------------------
 # discovery: NSE's market-wide announcements + group names -> quotaCandidate / quotaLeads
 # ------------------------------------------------------------------------------------------
-from collector.sources import nse_ann, nse_symbols  # noqa: E402
+from collector.sources import nse_ann, nse_symbols
 
 NSE_FIX = FIX / "nse"
 
@@ -422,13 +422,13 @@ def test_nse_ann_parse_and_changed_shape():
 
 
 @pytest.mark.parametrize("text,kind", [
-    ("Disclosure under Regulation 30 of SEBI LODR, 2015 Filing of DRHP of Mahanadi Coalfields Limited (MCL), "
-     "a wholly owned Subsidiary of CIL.", "drhp"),
+    (("Disclosure under Regulation 30 of SEBI LODR, 2015 Filing of DRHP of Mahanadi Coalfields Limited (MCL), "
+     "a wholly owned Subsidiary of CIL."), "drhp"),
     ("Prestige Estates Projects Limited has informed the Exchange about the withdrawal of DRHP by Subsidiary", "withdrawn"),
-    ("Kalpataru Projects International Limited has informed the Exchange about Initial public offering of equity "
-     "shares of Linjemontage i Grastorp AB, a first level step down material subsidiary", "ipo"),
-    ("Arkade Developers Limited has informed the Exchange regarding a press release on marking a milestone of 2 years "
-     "of IPO and growth journey.", None),
+    (("Kalpataru Projects International Limited has informed the Exchange about Initial public offering of equity "
+     "shares of Linjemontage i Grastorp AB, a first level step down material subsidiary"), "ipo"),
+    (("Arkade Developers Limited has informed the Exchange regarding a press release on marking a milestone of 2 years "
+     "of IPO and growth journey."), None),
     ("Statement of deviation in utilisation of IPO proceeds of the subsidiary", None),
     ("JSW Cement Limited has informed the Exchange about General Updates", None),
     ("Filing of Red Herring Prospectus by Hero FinCorp Limited, a subsidiary", "rhp"),
@@ -454,7 +454,7 @@ def test_discover_finds_leads_and_moves_watched_parent(monkeypatch):
     assert p["bucket"] == "drhp" and p["needsReview"]["source"] == "nse_ann" and p["stageDate"] == "2026-09-02"
     assert next(x for x in leads if x["parentSymbol"] == "COALINDIA")["watched"] is True
     # the window asked for is the last four days
-    assert [c for c in s.calls if c[0] == "nse"][0][2]["from_date"] == "22-09-2026"
+    assert next(c for c in s.calls if c[0] == "nse")[2]["from_date"] == "22-09-2026"
 
 
 def test_lead_attaches_to_expected_row_not_to_the_announcer_itself():

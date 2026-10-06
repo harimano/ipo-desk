@@ -27,7 +27,7 @@ from zoneinfo import ZoneInfo
 
 from ..errors import SourceBlocked, SourceChanged, SourceError
 from ..http import Session
-from ..names import Matcher, display_name, load_aliases, norm_name  # noqa: F401  (norm_name re-exported)
+from ..names import Matcher, display_name, load_aliases, norm_name
 from ..result import Result, try_chain
 from ..sources import bse_issues, investorgain, nse_ipo
 
@@ -157,7 +157,7 @@ def build_board(rows: list[dict], prev: dict, today: dt.date, exchange: str) -> 
         if shares or price:
             lot[name] = {"shares": shares, "price": price, "listDate": row.get("listing")}
 
-    key = lambda r: (r.get("open") or "9999", r.get("name"))  # noqa: E731
+    key = lambda r: (r.get("open") or "9999", r.get("name"))
     mainboard.sort(key=key)
     sme.sort(key=key)
     return mainboard, sme, lot

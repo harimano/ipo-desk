@@ -34,5 +34,10 @@ packages = ["collector", "collector.sources", "collector.modules", "collector.pd
 line-length = 110
 target-version = "py311"
 
+[tool.ruff.lint]
+# BLE001: a module boundary catches Exception on purpose — a parser bug is a SourceChanged in disguise, is
+# recorded in `tried` and the module fails without touching the document. Every site logs, records or re-wraps.
+ignore = ["BLE001"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]

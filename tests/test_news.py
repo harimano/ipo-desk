@@ -4,7 +4,6 @@ from __future__ import annotations
 import copy
 
 import pytest
-
 from _support import FakeSession, blocked, fixture
 
 from collector import assemble

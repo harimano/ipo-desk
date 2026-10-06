@@ -3,7 +3,7 @@ import pathlib
 import pytest
 
 from collector.errors import SourceChanged
-from collector.pdf import anchor as letter        # a bench tool for the research layer; no workflow calls it
+from collector.pdf import anchor as letter  # a bench tool for the research layer; no workflow calls it
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SONA = (ROOT / "data/fixtures/anchor/SONA-letter-text.txt").read_text()

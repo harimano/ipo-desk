@@ -4,7 +4,8 @@ import json
 import pathlib
 
 from collector import assemble, layout, schema
-from collector.modules import evidence as ev, history
+from collector.modules import evidence as ev
+from collector.modules import history
 from collector.result import Result
 from collector.sources import investorgain as ig
 

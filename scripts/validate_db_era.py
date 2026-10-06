@@ -3,7 +3,11 @@
 
 17 Sep 2026: --prev pointing at a path with no documents under it silently skipped the
 delta check and printed PASS. It now fails loudly. See Phase 6 run 1 in the procedure doc."""
-import json, sys, argparse, datetime as dt, pathlib
+import argparse
+import datetime as dt
+import json
+import pathlib
+import sys
 
 DASH_DOCS   = ["meta", "board", "market", "integrity", "investors", "anchors", "quota"]
 STATUSES    = {"Open", "Upcoming", "Closed", "Listed"}

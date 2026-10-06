@@ -9,7 +9,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from collector.errors import SourceBlocked, SourceDown  # noqa: E402
+from collector.errors import SourceBlocked, SourceDown
 
 FIX = ROOT / "data" / "fixtures"
 

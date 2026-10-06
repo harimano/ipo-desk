@@ -78,7 +78,7 @@ def send_telegram(messages: list[str]) -> bool:
                 timeout=20,
             )
             r.raise_for_status()
-        except Exception as e:  # noqa: BLE001
+        except Exception as e:
             log.warning("telegram send failed: %s", e)
             ok = False
     if ok:
@@ -110,7 +110,7 @@ def send_ntfy(text: str) -> bool:
         r.raise_for_status()
         log.info("ntfy: sent to %s/%s", base, topic)
         return True
-    except Exception as e:  # noqa: BLE001
+    except Exception as e:
         log.warning("ntfy send failed: %s", e)
         return False
 

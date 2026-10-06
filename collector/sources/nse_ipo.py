@@ -25,7 +25,7 @@ from ..errors import SourceChanged
 from ..http import NSE
 
 SRC = "nse"
-DEBT_WORDS = re.compile(r"\b(NCD|DEBT|BONDS?|DEBENTURES?|NON[- ]CONVERTIBLE)\b", re.I)
+DEBT_WORDS = re.compile(r"\b(NCD|DEBT|BONDS?|DEBENTURES?|NON[- ]CONVERTIBLE)\b", re.IGNORECASE)
 DEBT_SYMBOL = re.compile(r"^\d{3,4}[A-Z][A-Z0-9]{1,14}\d{2}$")
 DATE_FORMATS = ("%d-%b-%Y", "%d-%B-%Y", "%d/%m/%Y", "%d-%m-%Y", "%Y-%m-%d", "%d %b %Y", "%d %B %Y",
                 "%b %d, %Y", "%B %d, %Y", "%d-%b-%y", "%d/%b/%Y", "%Y%m%d")
@@ -56,14 +56,14 @@ def iso_date(v) -> str | None:
     s = re.sub(r"\s+", " ", s)
     for fmt in DATE_FORMATS:
         try:
-            return dt.datetime.strptime(s, fmt).date().isoformat()
+            return dt.datetime.strptime(s, fmt).date().isoformat()  # noqa: DTZ007
         except ValueError:
             continue
     m = re.search(r"(\d{1,2})[-/ ]([A-Za-z]{3,9})[-/ ](\d{4})", s)
     if m:
         for fmt in ("%d %b %Y", "%d %B %Y"):
             try:
-                return dt.datetime.strptime(" ".join(m.groups()), fmt).date().isoformat()
+                return dt.datetime.strptime(" ".join(m.groups()), fmt).date().isoformat()  # noqa: DTZ007
             except ValueError:
                 continue
     return None
@@ -140,8 +140,8 @@ def normalise_list_row(row: dict, endpoint: str) -> dict | None:
     if not name:
         return None
     name = re.sub(r"\s+", " ", str(name)).strip()
-    withdrawn = bool(re.search(r"issue withdrawn", name, re.I))
-    name = re.sub(r"\s*-\s*issue withdrawn.*$", "", name, flags=re.I)
+    withdrawn = bool(re.search(r"issue withdrawn", name, re.IGNORECASE))
+    name = re.sub(r"\s*-\s*issue withdrawn.*$", "", name, flags=re.IGNORECASE)
     symbol = first(row, "symbol", "nseSymbol", "securitySymbol", "smSymbol")
     series = str(first(row, "series", "securityType", default="") or "").upper()
     blob = " ".join(str(v) for v in row.values() if isinstance(v, str)).upper()
@@ -330,13 +330,13 @@ def detail_lot(detail: dict) -> dict:
 def _size_text_to_cr(txt: str) -> float | None:
     """'Rs. 1,200.00 crore' / '₹ 450 Cr' / 'up to 20,00,000 equity shares aggregating to 42.5 crores'."""
     t = txt.replace(",", "")
-    m = re.search(r"(\d+(?:\.\d+)?)\s*(crore|crores|cr\b)", t, re.I)
+    m = re.search(r"(\d+(?:\.\d+)?)\s*(crore|crores|cr\b)", t, re.IGNORECASE)
     if m:
         return round(float(m.group(1)), 2)
-    m = re.search(r"(\d+(?:\.\d+)?)\s*(lakh|lac)", t, re.I)
+    m = re.search(r"(\d+(?:\.\d+)?)\s*(lakh|lac)", t, re.IGNORECASE)
     if m:
         return round(float(m.group(1)) / 100, 2)
-    m = re.search(r"(\d+(?:\.\d+)?)\s*(million|mn)\b", t, re.I)
+    m = re.search(r"(\d+(?:\.\d+)?)\s*(million|mn)\b", t, re.IGNORECASE)
     if m:
         return round(float(m.group(1)) / 10, 2)
     return None

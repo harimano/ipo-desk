@@ -65,7 +65,7 @@ def _env() -> dict[str, str]:
 def _connect(api_key: str):
     """Build the SDK client. Split out so tests can swap in a fake without importing the SDK."""
     try:
-        from SmartApi.smartConnect import SmartConnect      # lazy: import has side effects
+        from SmartApi.smartConnect import SmartConnect  # lazy: import has side effects
     except Exception as e:  # ImportError or anything the SDK does at import time
         raise SourceDown(SOURCE, f"smartapi-python unavailable: {type(e).__name__}")
     return SmartConnect(api_key=api_key)

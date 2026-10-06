@@ -30,7 +30,7 @@ log = logging.getLogger("collector.names")
 
 FUZZY_MIN = 90
 _STRIP = re.compile(r"\b(limited|ltd|pvt|private|ipo|the|india)\b|[^a-z0-9 ]+")
-_SUFFIX = re.compile(r"[\s,]+(?:private\s+|pvt\.?\s+)?(?:limited|ltd\.?)\s*$", re.I)
+_SUFFIX = re.compile(r"[\s,]+(?:private\s+|pvt\.?\s+)?(?:limited|ltd\.?)\s*$", re.IGNORECASE)
 _PARENS = re.compile(r"\(([^)]*)\)")
 _SMALL = {"AND", "OF", "THE", "FOR", "IN"}
 

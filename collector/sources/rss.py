@@ -15,7 +15,6 @@ import calendar
 import datetime as dt
 import logging
 import re
-import time
 from zoneinfo import ZoneInfo
 
 from ..errors import SourceChanged, SourceDown, SourceError
@@ -32,7 +31,7 @@ FEEDS = [
 KEYWORDS = re.compile(
     r"\b(ipo|ipos|sebi|listing|listed|lists|debut|drhp|rhp|gmp|grey market|gray market|anchor|"
     r"public issue|public offer|fpo|ofs|offer for sale|subscription|subscribed|allotment|sme)\b",
-    re.I,
+    re.IGNORECASE,
 )
 
 
@@ -41,7 +40,7 @@ def _when(entry) -> str | None:
         t = entry.get(key)
         if t:
             try:
-                return dt.datetime.fromtimestamp(calendar.timegm(t), tz=dt.timezone.utc).astimezone(IST).isoformat()
+                return dt.datetime.fromtimestamp(calendar.timegm(t), tz=dt.UTC).astimezone(IST).isoformat()
             except (OverflowError, ValueError):
                 continue
     for key in ("published", "updated"):

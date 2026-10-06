@@ -67,7 +67,6 @@ def load_research_layer(data: dict, root: pathlib.Path) -> list[str]:
     notes = []
     research = root / "research"
     if research.exists():
-        cur: dict = {}
         files = sorted(research.glob("*.json"))
         bodies = []
         for f in files:

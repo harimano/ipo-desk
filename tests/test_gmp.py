@@ -13,11 +13,11 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from collector import assemble  # noqa: E402
-from collector.errors import SourceChanged, SourceDown  # noqa: E402
-from collector.modules import gmp  # noqa: E402
-from collector.result import Result  # noqa: E402
-from collector.sources import investorgain, ipopremium, ipowatch  # noqa: E402
+from collector import assemble
+from collector.errors import SourceChanged, SourceDown
+from collector.modules import gmp
+from collector.result import Result
+from collector.sources import investorgain, ipopremium, ipowatch
 
 FIX = ROOT / "data" / "fixtures"
 

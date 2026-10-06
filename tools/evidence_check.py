@@ -151,7 +151,7 @@ def gmp_calibration(comps: list[dict], perf: dict[str, dict]) -> list[str]:
         print(f"  {lab:10} n={len(sel):4}  realised = {a:+5.2f} + {b:4.2f} x implied   R2={r2:.2f}   "
               f"resid sd={sd:5.1f}pp   80% band {lo:+.0f} to {hi:+.0f}pp")
         if abs(b - 1) > 0.25 or abs(a) > 5:
-            print(f"           ! biased in this window — a point estimate from GMP would be systematically off")
+            print("           ! biased in this window — a point estimate from GMP would be systematically off")
             fail.append(f"gmp-bias-{lab}")
     print("  by year and segment (this is what a rolling fit would use):")
     for y in sorted({r[0] for r in rows if r[0]}):

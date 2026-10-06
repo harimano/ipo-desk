@@ -33,7 +33,7 @@ def parse_ipopremium(html: str) -> list[dict]:
             continue
         idx = {h: i for i, h in enumerate(header)}
 
-        def col(cells, *keys):
+        def col(cells, *keys, idx=idx):
             for k in keys:
                 for h, i in idx.items():
                     if k in h and i < len(cells):

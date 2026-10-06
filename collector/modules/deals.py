@@ -267,7 +267,7 @@ def listing_deals(session: Session, prev: dict, doc: dict, deals: list[tuple[str
     merged = merge_listing_deals(prev_rows, rows, today)
     unresolved = [n for n, r in listings.items() if not r["symbol"] and not r.get("bseCode")]
     res.notes.append(f"listing deals: {len(rows)} of today's {len(deals)} deals are in this year's listings "
-                     f"({len(set(r['symbol'] for r in rows))} stocks); {len(merged)} kept over {LISTING_KEEP_DAYS} days; "
+                     f"({len({r['symbol'] for r in rows})} stocks); {len(merged)} kept over {LISTING_KEEP_DAYS} days; "
                      f"{len(by_symbol)} of {len(listings)} listings have an NSE symbol"
                      + f"; {sum(1 for r in listings.values() if r.get('bseCode'))} with a BSE code"
                      + (f", {len(unresolved)} with neither" if unresolved else ""))

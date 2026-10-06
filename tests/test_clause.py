@@ -7,7 +7,7 @@ import pytest
 
 fitz = pytest.importorskip("pymupdf")
 
-from collector.pdf import clause  # noqa: E402
+from collector.pdf import clause
 
 DEFINITIONS = (
     "DEFINITIONS AND ABBREVIATIONS\n\n"

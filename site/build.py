@@ -19,7 +19,7 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from collector import layout  # noqa: E402
+from collector import layout
 
 SITE = ROOT / "_site"
 SRC = ROOT / "site" / "src"
@@ -66,7 +66,7 @@ def main() -> int:
     SITE.mkdir(exist_ok=True)
     out = SITE / "index.html"
     out.write_text(html, encoding="utf8")
-    kb = lambda n: f"{n / 1024:.1f} KB"  # noqa: E731
+    kb = lambda n: f"{n / 1024:.1f} KB"
     print(f"fallback {kb(len(fb_js))}  render {kb(len(app) + len(boot))}  -> {out.relative_to(ROOT)} {kb(out.stat().st_size)}")
 
     data_out = SITE / "data"

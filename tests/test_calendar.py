@@ -14,11 +14,11 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from collector import assemble, schema  # noqa: E402
-from collector.errors import SourceBlocked, SourceChanged, SourceDown  # noqa: E402
-from collector.modules import calendar  # noqa: E402
-from collector.result import Result  # noqa: E402
-from collector.sources import bse_issues, nse_ipo  # noqa: E402
+from collector import assemble, schema
+from collector.errors import SourceBlocked, SourceChanged, SourceDown
+from collector.modules import calendar
+from collector.result import Result
+from collector.sources import bse_issues, nse_ipo
 
 FIX = ROOT / "data" / "fixtures"
 TODAY = dt.date(2026, 9, 17)
@@ -479,6 +479,7 @@ def test_nse_sme_detail_uses_its_own_labels():
     """Live, 18 Sep 2026: an NSE Emerge issue page says "Price Range" and "Lot Size", not "Price Band" / "Bid Lot"."""
     import json
     import pathlib
+
     from collector.sources import nse_ipo
     raw = json.loads((pathlib.Path(__file__).parent.parent / "data/fixtures/nse/ipo-detail-KHERIAAUTO-sme.json").read_text())
     detail = {"dataList": raw["issueInfo"]["dataList"]}

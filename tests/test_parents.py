@@ -4,7 +4,6 @@ from __future__ import annotations
 import copy
 
 import pytest
-
 from _support import FakeSession, FakeSmartConnect, fixture_json, yahoo_frame
 
 from collector import assemble
@@ -96,7 +95,9 @@ def test_no_parent_tickers_is_not_success(no_angel):
 
 def test_nse_equity_lists_parse_both_header_spellings():
     import pathlib
+
     import pytest
+
     from collector.errors import SourceChanged
     from collector.sources import nse_symbols
     fx = pathlib.Path(__file__).resolve().parent.parent / "data/fixtures/live-2026-09-17"

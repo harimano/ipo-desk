@@ -67,10 +67,10 @@ def _ipo_no_from_row(tr) -> str | None:
 def _ipo_no_from_text(raw) -> str | None:
     if not raw:
         return None
-    m = re.search(r"IPONo=(\d+)", str(raw), re.I)
+    m = re.search(r"IPONo=(\d+)", str(raw), re.IGNORECASE)
     if m:
         return m.group(1)
-    m = re.search(r"CummDemandSchedule\.aspx\?ID=(\d+)", str(raw), re.I)
+    m = re.search(r"CummDemandSchedule\.aspx\?ID=(\d+)", str(raw), re.IGNORECASE)
     if m:
         return m.group(1)
     return None

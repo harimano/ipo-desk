@@ -34,7 +34,7 @@ class Result:
     doc: dict | None = None              # the document as assembled SO FAR in this run (a copy; read-only). `prev` is
                                          # yesterday's; this is today's board, so a listing born this run is visible at once
 
-    def fail(self, err: SourceError | Exception, source: str | None = None) -> "Result":
+    def fail(self, err: SourceError | Exception, source: str | None = None) -> Result:
         self.ok = False
         rec = err.record() if isinstance(err, SourceError) else {"kind": "error", "detail": f"{type(err).__name__}: {err}"}
         if source:
@@ -43,7 +43,7 @@ class Result:
         self.tried.append({**rec, "ok": False})
         return self
 
-    def won(self, source: str, asOf: str | None = None) -> "Result":
+    def won(self, source: str, asOf: str | None = None) -> Result:
         self.ok, self.source, self.asOf = True, source, asOf or self.asOf
         self.tried.append({"source": source, "ok": True})
         return self

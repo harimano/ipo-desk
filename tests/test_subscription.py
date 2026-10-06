@@ -13,13 +13,13 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from collector import assemble  # noqa: E402
-from collector.errors import SourceBlocked, SourceChanged, SourceDown  # noqa: E402
-from collector.modules import subscription  # noqa: E402
-from collector.result import Result  # noqa: E402
-from collector.sources import bse_issues  # noqa: E402
+from test_calendar import TODAY, FakeSession, load, nse_ok, prev_board, text
 
-from test_calendar import TODAY, FakeSession, load, nse_ok, prev_board, text  # noqa: E402
+from collector import assemble
+from collector.errors import SourceBlocked, SourceChanged, SourceDown
+from collector.modules import subscription
+from collector.result import Result
+from collector.sources import bse_issues
 
 needs_selectolax = pytest.mark.skipif(bse_issues.HTMLParser is None, reason="selectolax not installed")
 CHIT_KEY = "chittorgarh.com/report/ipo-subscription-status"
@@ -228,8 +228,8 @@ def test_partial_success_patches_what_answered_and_flags_the_rest():
 
 def test_row_patcher_only_touches_sub_key():
     res = run(FakeSession(nse=nse_ok()), prev_board())
-    for key, patches in res.rows.items():
-        for name, fields in patches.items():
+    for patches in res.rows.values():
+        for fields in patches.values():
             assert set(fields) == {"sub"}
     assert not res.replace and not res.merge
 
@@ -238,8 +238,9 @@ def test_bse_category_demand_json_live_shape():
     """The endpoint bseindia.com's demand page calls, recorded 17 Sep 2026 (NSE's own IPO, day 1)."""
     import json
     import pathlib
-    from collector.sources import bse_issues
+
     from collector.modules.subscription import combine
+    from collector.sources import bse_issues
     live = json.loads((pathlib.Path(__file__).parent.parent / "data/fixtures/live-2026-09-17/bse_CatDem-7977.json").read_text())
     sub = combine(bse_issues.parse_category_demand(live))
     assert sub["qib"] == 0.19 and sub["nii"] == 0.72          # aggregate rows win; 2.1 / 2.2 are not added on top

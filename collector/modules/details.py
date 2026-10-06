@@ -28,8 +28,8 @@ from __future__ import annotations
 
 import datetime as dt
 import logging
-import time
 import pathlib
+import time
 from zoneinfo import ZoneInfo
 
 from ..errors import SourceBlocked, SourceChanged, SourceError

@@ -93,10 +93,9 @@ def applications(parsed: dict) -> dict:
     """{quota: {reserved, received}} from the applications table (top-level quotas, plus bNII / sNII). Counts only."""
     out = {}
     for r in parsed["apps"]:
-        if r["parent"] is None or (r["parent"] == "nii" and r["key"] in ("bnii", "snii")):
-            if r["a"] is not None or r["b"] is not None:
-                out.setdefault(r["key"], {"reserved": int(r["a"]) if r["a"] is not None else None,
-                                          "received": int(r["b"]) if r["b"] is not None else None})
+        if (r["parent"] is None or (r["parent"] == "nii" and r["key"] in ("bnii", "snii"))) and (r["a"] is not None or r["b"] is not None):
+            out.setdefault(r["key"], {"reserved": int(r["a"]) if r["a"] is not None else None,
+                                      "received": int(r["b"]) if r["b"] is not None else None})
     return out
 
 

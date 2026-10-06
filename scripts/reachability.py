@@ -8,13 +8,13 @@ lives on Actions or moves to Cloudflare Workers.
 from __future__ import annotations
 
 import json
+import pathlib
 import sys
 import time
-import pathlib
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
-from collector.http import Session, NSE, NSE_ARCHIVES, BSE_API, BSE_BETA, SEBI  # noqa: E402
-from collector.errors import SourceError  # noqa: E402
+from collector.errors import SourceError
+from collector.http import BSE_BETA, NSE_ARCHIVES, SEBI, Session
 
 PROBES = [
     # name, kind, target, params

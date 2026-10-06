@@ -74,8 +74,8 @@ def test_tracked_investor_bulk_deal_is_new_once():
 
 def test_book_crossing_speaks_once_per_mark_and_only_the_highest():
     row = dict(HERO, close="2026-09-21")
-    at = lambda hhmm, total: doc(f"2026-09-17T{hhmm}:00+05:30", mainboard=[dict(row, sub={"total": total})])  # noqa: E731
-    subs = lambda a, b: [x.line for x in evaluate(a, b) if x.key.startswith("sub:")]  # noqa: E731
+    at = lambda hhmm, total: doc(f"2026-09-17T{hhmm}:00+05:30", mainboard=[dict(row, sub={"total": total})])
+    subs = lambda a, b: [x.line for x in evaluate(a, b) if x.key.startswith("sub:")]
     assert subs(at("10:00", 0.4), at("10:30", 0.9)) == []
     assert subs(at("10:30", 0.9), at("11:00", 1.2)) == ["Hero Motors book crossed 1x — now 1.2x, closes 21 Sep"]
     assert subs(at("11:00", 1.2), at("11:30", 3.0)) == []
@@ -87,7 +87,7 @@ def test_anchor_lock_in_speaks_once_the_day_before_for_mainboard_names():
     a = [{"name": "Hero Motors", "lockIn30": "2026-10-21", "lockIn90": "2026-12-20", "amountCr": 300.0},
          {"name": "Some SME", "lockIn30": "2026-10-21"}]
     rec = [{"name": "Hero Motors", "type": "Mainboard"}, {"name": "Some SME", "type": "NSE SME"}]
-    at = lambda day: doc(f"2026-10-{day}T06:45:00+05:30", anchors=a, recent=rec)  # noqa: E731
+    at = lambda day: doc(f"2026-10-{day}T06:45:00+05:30", anchors=a, recent=rec)
     assert evaluate(at(18), at(19)) == []
     assert [x.line for x in evaluate(at(19), at(20))] == ["Hero Motors: lock-in on half the anchor book ends tomorrow (₹300 Cr book)"]
     assert evaluate(at(20), at(21)) == [], "said once: the day itself does not repeat it"
@@ -98,12 +98,12 @@ def test_a_strong_record_anchor_in_an_unlisted_book_speaks_once_with_its_n_and_r
     rec = {"key": "EDELWEISS RECENTLY LISTED IPO FUND", "name": "EDELWEISS RECENTLY LISTED IPO FUND", "n": 11,
            "main": {"n": 11, "pos": 81.8, "lo": 52.3, "hi": 94.9, "med": 19.4}, "sme": None}
     weak = {"key": "SMALL FUND", "name": "SMALL FUND", "n": 3, "main": {"n": 3, "pos": 100.0, "lo": 43.8, "hi": 100.0, "med": 5.0}, "sme": None}
-    kw = dict(mainboard=[{"name": "NSE", "igId": "2305", "status": "Closed", "open": "2026-09-17", "close": "2026-09-21", "listing": "2026-09-24"},
+    kw = {"mainboard": [{"name": "NSE", "igId": "2305", "status": "Closed", "open": "2026-09-17", "close": "2026-09-21", "listing": "2026-09-24"},
                          {"name": "Old Co", "igId": "1", "status": "Listed", "listing": "2026-09-10"}],
-              anchors=[{"name": "NSE", "investors": [{"name": "Edelweiss Recently Listed IPO Fund"}, {"name": "Small Fund"}]},
+              "anchors": [{"name": "NSE", "investors": [{"name": "Edelweiss Recently Listed IPO Fund"}, {"name": "Small Fund"}]},
                        {"name": "Old Co", "investors": [{"name": "Edelweiss Recently Listed IPO Fund"}]}],
-              players={"books": {"2305": [{"name": "SMALL FUND"}]}},
-              trackRecords={"rows": [rec, weak]})
+              "players": {"books": {"2305": [{"name": "SMALL FUND"}]}},
+              "trackRecords": {"rows": [rec, weak]}}
     prev = doc("2026-09-21T18:15:00+05:30", **{**kw, "trackRecords": {"rows": []}})
     new = doc("2026-09-22T06:45:00+05:30", **kw)
     out = evaluate(prev, new)

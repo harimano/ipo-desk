@@ -22,21 +22,20 @@ def test_budget_interrupts_a_catch_all_retry_loop():
         while True:
             try:
                 time.sleep(0.05)
-            except Exception:
+            except Exception:  # noqa: S112  the catch-all retry IS what is under test
                 continue
-    with pytest.raises(cli.OverBudget):
-        with cli.Budget(1):
-            stubborn()
+    with pytest.raises(cli.OverBudget), cli.Budget(1):
+        stubborn()
 
 
 def test_budget_survives_httpx_exception_mapping():
-    from httpcore._exceptions import map_exceptions
     import socket
+
+    from httpcore._exceptions import map_exceptions
 
     def read():
         with map_exceptions({socket.timeout: httpx.ReadTimeout, OSError: httpx.ReadError}):
             while True:
                 time.sleep(0.05)
-    with pytest.raises(cli.OverBudget):
-        with cli.Budget(1):
-            read()
+    with pytest.raises(cli.OverBudget), cli.Budget(1):
+        read()

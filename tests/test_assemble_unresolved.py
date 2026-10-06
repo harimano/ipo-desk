@@ -18,6 +18,7 @@ def test_unresolved_is_current_state_not_a_log():
 
 def test_research_overlay_does_not_put_an_old_parent_price_back(tmp_path):
     import json
+
     from collector.assemble import load_research_layer
     (tmp_path / "research").mkdir()
     (tmp_path / "research" / "jio.json").write_text(json.dumps(

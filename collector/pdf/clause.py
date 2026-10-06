@@ -38,15 +38,15 @@ EXCERPT_CHARS = 600
 
 CLAUSE_RE = re.compile(
     r"eligible\s+shareholders?|shareholders?\s+reservation\s+portion|reservation\s+for\s+eligible\s+shareholders?",
-    re.I)
+    re.IGNORECASE)
 DEFN_RE = re.compile(
     r"[\"“”']?\s*Eligible\s+Shareholders?(?:\s*\(s\))?\s*[\"“”']?\s*[:\-–]?\s*"
     r"(?:means|shall\s+mean|refers?\s+to|shall\s+refer\s+to)\b",
-    re.I)
+    re.IGNORECASE)
 PARENT_RE = re.compile(
     r"(?:equity\s+)?shareholders?\s+of\s+(?:our\s+)?(?:promoters?,?\s+)?(?:the\s+)?"
     r"([A-Z][A-Za-z0-9&.,'\- ]{2,80}?(?:Limited|Ltd\.?))",
-    re.S)
+    re.DOTALL)
 
 # Chapters worth knowing about, in typical order. Synonyms feed the fuzzy bookmark match; the
 # heading regex is for the page-top scan when a PDF has no bookmarks.
@@ -110,7 +110,7 @@ def _chapters_from_toc(toc: list, page_count: int) -> dict[str, int]:
 def _chapters_from_headings(pages: dict[int, str]) -> dict[str, int]:
     found: dict[str, int] = {}
     for spec in CHAPTERS:
-        pat = re.compile(rf"^\s*(?:SECTION\s+[IVXLC]+\s*[-–:.]?\s*)?{spec['heading']}\s*$", re.M)
+        pat = re.compile(rf"^\s*(?:SECTION\s+[IVXLC]+\s*[-–:.]?\s*)?{spec['heading']}\s*$", re.MULTILINE)
         for n in sorted(pages):
             head = "\n".join(pages[n].splitlines()[:12])
             if pat.search(head):

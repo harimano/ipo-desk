@@ -47,11 +47,11 @@ ALLOWED_FIELDS = {"stage", "bucket", "stageDate", "recordDate", "listingDate", "
 FORBIDDEN_FIELDS = {"quota", "quotaPct", "confidence", "sources"}
 
 HEADLINE_RE = re.compile(
-    r"draft red herring|DRHP|red herring|RHP|initial public offer|IPO of .*subsidiary|observation letter", re.I)
-_OBS_RE = re.compile(r"observation\s+letter|final\s+observations?", re.I)
-_DRHP_RE = re.compile(r"draft\s+red\s+herring|\bU?DRHP\b", re.I)
-_RHP_RE = re.compile(r"red\s+herring|\bRHP\b", re.I)
-_UPDATED_DRHP_RE = re.compile(r"updated\s+draft|\bUDRHP\b|addendum|corrigendum", re.I)
+    r"draft red herring|DRHP|red herring|RHP|initial public offer|IPO of .*subsidiary|observation letter", re.IGNORECASE)
+_OBS_RE = re.compile(r"observation\s+letter|final\s+observations?", re.IGNORECASE)
+_DRHP_RE = re.compile(r"draft\s+red\s+herring|\bU?DRHP\b", re.IGNORECASE)
+_RHP_RE = re.compile(r"red\s+herring|\bRHP\b", re.IGNORECASE)
+_UPDATED_DRHP_RE = re.compile(r"updated\s+draft|\bUDRHP\b|addendum|corrigendum", re.IGNORECASE)
 
 # bucket rank: a transition may only move a row forward
 RANK = {"dropped": -1, "awaited": 0, "drhp": 1, "approved": 2, "done": 3}
@@ -314,20 +314,21 @@ ANN_LOOKBACK_DAYS = 4    # two full runs a day; four days covers a weekend and o
 LEAD_MAX_DAYS = 60
 LEAD_MAX = 40
 _ANN_DOC_RE = re.compile(r"red\s+herring|\bU?DRHP\b|initial\s+public\s+offer|\bIPO\b|offer\s+document|prospectus|"
-                         r"observation\s+letter", re.I)
-_ANN_REL_RE = re.compile(r"subsidiar|step[\s-]*down|group\s+compan|associate\s+compan|joint\s+venture", re.I)
+                         r"observation\s+letter", re.IGNORECASE)
+_ANN_REL_RE = re.compile(r"subsidiar|step[\s-]*down|group\s+compan|associate\s+compan|joint\s+venture", re.IGNORECASE)
 # a company talking about its OWN past offer: proceeds, monitoring agency, anniversaries
 _ANN_OWN_RE = re.compile(r"utili[sz]ation|proceeds|monitoring\s+agency|variation|anniversary|milestone|years\s+of\s+(its\s+)?IPO",
-                         re.I)
-_WITHDRAW_RE = re.compile(r"withdr[ae]w", re.I)
+                         re.IGNORECASE)
+_WITHDRAW_RE = re.compile(r"withdr[ae]w", re.IGNORECASE)
 
 NAME_MAX_SHARED = 15     # a first word more than this many listed companies share is not a group name (Tata: 13)
 NAME_STOP = frozenset("""
-    india indian bharat hindustan hind indo gujarat maharashtra bombay mumbai delhi bengal punjab rajasthan kerala tamil
-    andhra madras karnataka south north east west eastern western southern northern central national international global
-    united new modern standard general universal super supreme royal star sun premier prime first capital asian orient
-    oriental shree shri sri jai om maa sai ganesh laxmi lakshmi krishna balaji mahalaxmi blue green golden silver
-""".split())
+    india indian bharat hindustan hind indo gujarat maharashtra bombay mumbai delhi bengal punjab rajasthan
+    kerala tamil andhra madras karnataka south north east west eastern western southern northern central
+    national international global united new modern standard general universal super supreme royal star sun
+    premier prime first capital asian orient oriental shree shri sri jai om maa sai ganesh laxmi lakshmi
+    krishna balaji mahalaxmi blue green golden silver
+""".split())  # noqa: SIM905  a word list reads as prose
 
 
 def classify_lead(text: str) -> str | None:

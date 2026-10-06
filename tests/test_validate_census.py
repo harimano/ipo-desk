@@ -19,7 +19,7 @@ def test_census_counts_collections_not_the_shape_of_whichever_row_came_last():
 
 
 def test_rows_that_age_off_the_board_on_schedule_are_not_a_loss():
-    rows = lambda n, listing: [{"name": f"co{i}-{listing}", "status": "Listed", "listing": listing, "sources": ["a", "b", "c"]} for i in range(n)]  # noqa: E731
+    rows = lambda n, listing: [{"name": f"co{i}-{listing}", "status": "Listed", "listing": listing, "sources": ["a", "b", "c"]} for i in range(n)]
     live = [{"name": f"open{i}", "status": "Open", "listing": "2026-09-24", "sources": ["a"]} for i in range(13)]
     prev = {"meta": {"asOf": "2026-09-18T22:48:00+05:30"}, "mainboard": rows(6, "2026-09-17") + live, "sme": []}
     new = {"meta": {"asOf": "2026-09-19T00:07:00+05:30"}, "mainboard": live, "sme": []}
@@ -42,7 +42,9 @@ def test_a_retired_rows_research_record_leaves_with_it():
 
 
 def test_a_records_sheet_table_shrinking_and_a_small_nested_list_are_not_a_loss(tmp_path):
-    import json, subprocess, sys
+    import json
+    import subprocess
+    import sys
     base = validate.retire_due  # noqa: F841  (module import check)
     doc = {k: [] for k in validate.TOP_LEVEL}
     doc.update({"meta": {"asOf": "2026-09-23T06:43:00+05:30", "label": "x", "unresolved": []}, "lot": {}, "priceHistory": {}, "current": {}, "sheets": {},
@@ -56,9 +58,9 @@ def test_a_records_sheet_table_shrinking_and_a_small_nested_list_are_not_a_loss(
     for i in range(9):
         doc["records"][str(i)]["reservation"]["rows"] = [[1, 2]] * 3
     (tmp_path / "prev.json").write_text(json.dumps(prev)); (tmp_path / "new.json").write_text(json.dumps(doc))
-    out = subprocess.run([sys.executable, str(validate.__file__), str(tmp_path / "new.json"), "--prev", str(tmp_path / "prev.json"), "--max-age-hours", "999999"], capture_output=True, text=True)
+    out = subprocess.run([sys.executable, str(validate.__file__), str(tmp_path / "new.json"), "--prev", str(tmp_path / "prev.json"), "--max-age-hours", "999999"], capture_output=True, text=True, check=False)
     assert "reservation" not in out.stdout and "facts/recs" not in out.stdout, out.stdout
     doc["records"] = {}                                           # the number of records still counts
     (tmp_path / "new.json").write_text(json.dumps(doc))
-    out = subprocess.run([sys.executable, str(validate.__file__), str(tmp_path / "new.json"), "--prev", str(tmp_path / "prev.json"), "--max-age-hours", "999999"], capture_output=True, text=True)
+    out = subprocess.run([sys.executable, str(validate.__file__), str(tmp_path / "new.json"), "--prev", str(tmp_path / "prev.json"), "--max-age-hours", "999999"], capture_output=True, text=True, check=False)
     assert "latest/records: 9 -> 0" in out.stdout

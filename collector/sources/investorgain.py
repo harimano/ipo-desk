@@ -215,7 +215,7 @@ def _table(fragment, what: str) -> dict | None:
     if not fragment or "<table" not in str(fragment):
         return None
     t = HTMLParser(str(fragment)).css_first("table")
-    cells = lambda tr, sel: [clean(c.text(separator=" ")).lstrip("−- ").strip() if sel == "td" else clean(c.text(separator=" ")) for c in tr.css(sel)]  # noqa: E731
+    cells = lambda tr, sel: [clean(c.text(separator=" ")).lstrip("−- ").strip() if sel == "td" else clean(c.text(separator=" ")) for c in tr.css(sel)]
     head = next((cells(tr, "th") for tr in t.css("tr") if tr.css("th")), [])
     rows = [r for r in (cells(tr, "td") for tr in t.css("tr")) if any(r)]
     if not rows:
@@ -229,13 +229,13 @@ def _table(fragment, what: str) -> dict | None:
 # (# | Anchor | Shares Allotted | Amt (Rs cr.) | % Allocated | % Allotment of Issue) with a totals row. Some records
 # carry only the first two names (a limit of the free feed, cause unknown): `complete` says whether the rows account
 # for the whole book (their % Allocated sums to ~100), so a partial book is never mistaken for a small one.
-_TOTAL_RE = re.compile(r"A total of ([\d,]+) shares? at a price of Rs\.? ?([\d,.]+)", re.I)
+_TOTAL_RE = re.compile(r"A total of ([\d,]+) shares? at a price of Rs\.? ?([\d,.]+)", re.IGNORECASE)
 
 
 def _long_date(v) -> str | None:
     """'Sep 15, 2026' -> ISO."""
     try:
-        return dt.datetime.strptime(clean(str(v or "")), "%b %d, %Y").date().isoformat()
+        return dt.datetime.strptime(clean(str(v or "")), "%b %d, %Y").date().isoformat()  # noqa: DTZ007
     except ValueError:
         return None
 
@@ -467,7 +467,7 @@ def parse_performance_report(data) -> list[dict]:
     # "Est Price", "Listing Day Cls Price" -> "Listing Day Close", "IPO Size" -> "Size") and dropped ~IPO_Category — the SME
     # badge now sits inside the IPO cell. Both spellings are read; a row is SME when either says so.
     out = []
-    pick = lambda r, *ks: next((r.get(k) for k in ks if r.get(k) not in (None, "")), None)  # noqa: E731
+    pick = lambda r, *ks: next((r.get(k) for k in ks if r.get(k) not in (None, "")), None)
     for r in rows:
         if not isinstance(r, dict) or not r.get("~id"):
             continue

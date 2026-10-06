@@ -39,7 +39,7 @@ def _rate_limit_error():
 
 def _is_nan(v) -> bool:
     try:
-        return v is None or (isinstance(v, float) and math.isnan(v)) or bool(v != v)
+        return v is None or (isinstance(v, float) and math.isnan(v)) or bool(v != v)  # noqa: PLR0124  numpy NaN
     except Exception:
         return True
 
@@ -63,7 +63,7 @@ def _rows(sub) -> list[list]:
         if _is_nan(close):
             continue
         o = None if opens is None or _is_nan(opens.loc[idx]) else round(float(opens.loc[idx]), 2)
-        date = str(getattr(idx, "date", lambda: idx)())[:10]
+        date = str(getattr(idx, "date", lambda i=idx: i)())[:10]
         out.append([date, o, round(float(close), 2)])
     return out
 

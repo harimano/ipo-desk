@@ -90,7 +90,7 @@ def parse_deals_csv(text: str, url: str) -> list[dict]:
     for rec in reader:
         if not rec or len(rec) <= max(index.values()):
             continue
-        get = lambda f: rec[index[f]].strip() if f in index else ""  # noqa: E731
+        get = lambda f, rec=rec: rec[index[f]].strip() if f in index else ""
         side = get("side").upper()
         if side not in ("BUY", "SELL"):
             continue

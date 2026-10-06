@@ -103,7 +103,7 @@ def fill(session: Session, fetch, names: dict[str, str], prev_tape: dict, doc: d
         try:
             day = fetch(session, d)
             res.calls += 1
-        except SourceBlocked as e:
+        except SourceBlocked:
             if not fetched and label == "NSE":
                 raise
             res.notes.append(f"{label} bhavcopy {date}: blocked after {fetched} file(s); stopping")

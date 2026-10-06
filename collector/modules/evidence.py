@@ -26,6 +26,7 @@ documents, which is research-layer work.
 from __future__ import annotations
 
 import datetime as dt
+import itertools
 import logging
 import math
 import statistics as st
@@ -74,7 +75,7 @@ def band_index(v: float, edges: list[float]) -> int:
 def summarise(rets: list[float]) -> dict:
     n, k = len(rets), sum(1 for r in rets if r > 0)
     lo, hi = wilson(k, n)
-    r1 = lambda v: None if v is None else round(v, 1)  # noqa: E731
+    r1 = lambda v: None if v is None else round(v, 1)
     return {"n": n, "pos": round(100 * k / n, 1) if n else None, "lo": lo, "hi": hi,
             "med": r1(st.median(rets)) if n else None, "p10": r1(_q(rets, 0.1)), "p90": r1(_q(rets, 0.9))}
 
@@ -193,7 +194,7 @@ def book_moves(doc: dict, prev_moves: dict) -> dict:
     erase it). A value is written once; a missing one is retried while the path grows."""
     out = {k: dict(v) for k, v in (prev_moves or {}).items() if isinstance(v, dict)}
     ph = doc.get("priceHistory") or {}
-    for ig_id, b in (((doc.get("anchorBooks") or {}).get("books") or {})).items():
+    for ig_id, b in ((doc.get("anchorBooks") or {}).get("books") or {}).items():
         if not isinstance(b, dict) or not b.get("listedOn"):
             continue
         cur = out.setdefault(str(ig_id), {})
@@ -342,7 +343,7 @@ def unified(doc: dict) -> list[dict]:
         p = perf.get(c.get("igId")) if isinstance(c, dict) else None
         if not p or c.get("ret") is None or not p.get("issue"):
             continue
-        imp = lambda g: round(100 * g / p["issue"], 2) if g is not None else None  # noqa: E731
+        imp = lambda g, p=p: round(100 * g / p["issue"], 2) if g is not None else None
         out.append({"date": p["date"], "year": int(p["date"][:4]), "sme": bool(p.get("sme")), "ret": c["ret"], "retClose": c.get("retClose"), "total": c.get("total"),
                     "qib": c.get("qib"), "retail": c.get("retail"), "gmp": imp(p.get("gmp")), "gmpEve": imp(p.get("gmpEve")),
                     "anchors": (frozen.get(str(c["igId"])) or {}).get("large"), "anchorsOf": (frozen.get(str(c["igId"])) or {}).get("of")})
@@ -385,7 +386,7 @@ def segment(rows: list[dict], today: dt.date, label: str, warnings: list[dict]) 
                          f"{cat_years[0]} alone — category books are not published for earlier years."})
     rates = {y: summarise([r["ret"] for r in rows if r["year"] == y]) for y in sorted({r["year"] for r in rows})}
     ys = [y for y in rates if rates[y]["n"] >= MIN_N]
-    for a, b in zip(ys, ys[1:]):
+    for a, b in itertools.pairwise(ys):
         if abs(rates[a]["pos"] - rates[b]["pos"]) >= 15:
             warnings.append({"code": f"regime-{label}-{b}", "text": f"{label}: {rates[a]['pos']:.0f}% listed positive in {a} (median {rates[a]['med']:+}%), "
                              f"{rates[b]['pos']:.0f}% in {b} ({rates[b]['med']:+}%). All-years figures average different markets; the window is the one to read."})

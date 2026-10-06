@@ -5,7 +5,6 @@ import copy
 import datetime as dt
 
 import pytest
-
 from _support import FakeSession, FakeSmartConnect, fixture_json, nan_frame, yahoo_frame
 
 from collector import assemble

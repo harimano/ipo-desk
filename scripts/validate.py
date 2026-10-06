@@ -222,9 +222,8 @@ def main() -> int:
                     # /players/covered and /players/names are keyed by unlisted issue the same way: thirteen issues
                     # listing over 5-6 Oct 2026 read as "30 -> 18, 40% loss" and refused the first good run after a
                     # dependency break. Each one moved into /players/frozen, which is still gated and only ever grows.
-                    if (old < MIN_CENSUS or path.startswith("/integrity") or path.startswith("/news")
-                            or path == "/meta/unresolved" or path.startswith("/records/")
-                            or path.startswith("/players/books/")
+                    if (old < MIN_CENSUS or path.startswith(("/integrity", "/news", "/records/", "/players/books/"))
+                            or path == "/meta/unresolved"
                             or path in ("/players/covered", "/players/names")
                             or ("[]" in path and old < MIN_CENSUS_NESTED)):
                         continue

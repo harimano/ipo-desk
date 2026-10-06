@@ -67,9 +67,8 @@ def classify(text: str) -> tuple[str | None, str | None]:
         return "employee", None
     if "shareholder" in words or "shareholders" in words or "policyholder" in words or "policyholders" in words:
         return "shareholder", None
-    if "qualified institutional" in t or "qib" in words or "qibs" in words or "institutional buyers" in t:
-        if "non" not in words:
-            return "qib", None
+    if ("qualified institutional" in t or "qib" in words or "qibs" in words or "institutional buyers" in t) and "non" not in words:
+        return "qib", None
     if "retail" in t or "rii" in words or "riis" in words or "rib" in words:
         return "retail", None
     if ("individual investor" in t or "individual investors" in t) and "non" not in words:
@@ -83,7 +82,7 @@ def classify(text: str) -> tuple[str | None, str | None]:
                 return "nii", "small"
             return "nii", "unknown"
         return "nii", None
-    if t.startswith("bnii") or t.startswith("snii") or t.startswith("bhni") or t.startswith("shni"):
+    if t.startswith(("bnii", "snii", "bhni", "shni")):
         return "nii", ("big" if t[0] == "b" else "small")
     return None, None
 
@@ -156,7 +155,7 @@ def parse_chittorgarh(html: str, *, url: str = CHITTORGARH_URL) -> dict[str, dic
             if not cells:
                 continue
             if header_cells is None:
-                if any(re.search(r"\bqib", c, re.I) for c in cells) and any(re.search(r"total", c, re.I) for c in cells):
+                if any(re.search(r"\bqib", c, re.IGNORECASE) for c in cells) and any(re.search(r"total", c, re.IGNORECASE) for c in cells):
                     header_cells = [classify(c) for c in cells]
                 continue
             name = cells[0]
@@ -170,7 +169,7 @@ def parse_chittorgarh(html: str, *, url: str = CHITTORGARH_URL) -> dict[str, dic
                 rows.append({"category": label, "noOfTime": cells[i]})
             sub = combine(rows)
             if has_values(sub):
-                out[re.sub(r"\s+(ipo|sme ipo)$", "", name, flags=re.I).strip()] = sub
+                out[re.sub(r"\s+(ipo|sme ipo)$", "", name, flags=re.IGNORECASE).strip()] = sub
     if not out:
         raise SourceChanged("chittorgarh", "report 21: no subscription table with QIB/Total headers", url)
     return out

@@ -37,27 +37,27 @@ _TAIL = re.compile(
 _SERIAL = re.compile(r"(?:^|[\s|\[(])(\d{1,3})\s*[.\])]?\s*\|")            # "| 9. |", "10. |", "106]"
 _SERIAL_LINE = re.compile(r"(?:^|\s)(\d{1,3})[.)]\s+(?=[A-Za-z])")
 _HEADER_END = re.compile(r".*(?:\(\s*(?:in\s+)?(?:Rs\.?|₹|INR|%|z)\s*\)|\bper\s+Equity\s+Share\)?|\bEquity\s+Shares?\)?|\bPortion\b|"
-                         r"\ballocated\b|\bAllocation\b|\bAmount\b|\bPrice\b|\bInvestor\b|\bmanner\s*:)", re.I | re.S)
+                         r"\ballocated\b|\bAllocation\b|\bAmount\b|\bPrice\b|\bInvestor\b|\bmanner\s*:)", re.IGNORECASE | re.DOTALL)
 # "Out of the 37,793,739 Equity Shares allocated to the Anchor Investors, 13,977,524 Equity Shares (i.e., 36.98% ...)
 #  were allocated to 29 domestic mutual funds ..." — the issuer's own statement of who took the book. The tables
 # that follow these sentences repeat rows of the main table, so the main table ends where the first one starts.
 _STATED = re.compile(r"out\s+of\s+the\b.{0,120}?\(\s*i\.?\s*e\.?,?\s*(?P<pct>\d{1,3}(?:\.\d{1,2})?)\s*%.{0,90}?allocated\s+to\s+"
-                     r"(?P<n>\d{1,3})\s+(?P<who>[A-Za-z /&-]{4,70}?)(?:,|\s+which|\s+details|\s+through|\.)", re.I)
-_PRICE = re.compile(r"allocation\s+price\s+of\s*(?:Rs\.?|₹|INR|%|z|Z)?\s*([\d,]+(?:\.\d+)?)", re.I)
-_TOTAL = re.compile(r"(?:allocation\s+of|out\s+of\s+the(?:\s+total\s+allocation\s+of)?)\s+([\d,]{5,})\s+Equity\s+Shares", re.I)
+                     r"(?P<n>\d{1,3})\s+(?P<who>[A-Za-z /&-]{4,70}?)(?:,|\s+which|\s+details|\s+through|\.)", re.IGNORECASE)
+_PRICE = re.compile(r"allocation\s+price\s+of\s*(?:Rs\.?|₹|INR|%|z|Z)?\s*([\d,]+(?:\.\d+)?)", re.IGNORECASE)
+_TOTAL = re.compile(r"(?:allocation\s+of|out\s+of\s+the(?:\s+total\s+allocation\s+of)?)\s+([\d,]{5,})\s+Equity\s+Shares", re.IGNORECASE)
 _DATE = re.compile(r"(?:Date[d:]*\s*)?((?:January|February|March|April|May|June|July|August|September|October|November|"
                    r"December)\s+\d{1,2},?\s+\d{4}|\d{1,2}(?:st|nd|rd|th)?\s+(?:January|February|March|April|May|June|July|"
-                   r"August|September|October|November|December),?\s+\d{4})", re.I)
+                   r"August|September|October|November|December),?\s+\d{4})", re.IGNORECASE)
 _MONTHS = {m: i for i, m in enumerate(["january", "february", "march", "april", "may", "june", "july", "august",
                                        "september", "october", "november", "december"], 1)}
 
-_CATS = (("MF", r"mutual fund|\bmf\b|\bamc\b|asset management|flexi ?cap|small ?cap|mid ?cap|large ?cap|multi ?cap|"
-                r"elss|tax saver|hybrid fund|balanced advantage|opportunities fund|\bscheme\b"),
+_CATS = (("MF", (r"mutual fund|\bmf\b|\bamc\b|asset management|flexi ?cap|small ?cap|mid ?cap|large ?cap|multi ?cap|"
+                r"elss|tax saver|hybrid fund|balanced advantage|opportunities fund|\bscheme\b")),
          ("Insurance", r"insurance|\blife\b|assurance|\blic\b|general ins"),
-         ("Pension/Sovereign", r"pension|provident|superannuation|sovereign|government of|monetary authority|"
-                               r"investment authority|\bgic\b|temasek|norges|retirement"),
-         ("FPI", r"\bplc\b|\bllc\b|\bl\.?p\.?\b|\bpte\b|mauritius|singapore|luxembourg|cayman|\bsicav\b|\bvcc\b|"
-                 r"\bodi\b|global|international|emerging markets|\binc\b|limited partnership"),
+         ("Pension/Sovereign", (r"pension|provident|superannuation|sovereign|government of|monetary authority|"
+                               r"investment authority|\bgic\b|temasek|norges|retirement")),
+         ("FPI", (r"\bplc\b|\bllc\b|\bl\.?p\.?\b|\bpte\b|mauritius|singapore|luxembourg|cayman|\bsicav\b|\bvcc\b|"
+                 r"\bodi\b|global|international|emerging markets|\binc\b|limited partnership")),
          ("AIF", r"\baif\b|alternative investment|\btrust\b|\bfund\b"))
 
 
@@ -74,7 +74,7 @@ def _n(s: str) -> float:
 def _clean_name(s: str) -> str:
     s = re.sub(r"[|\[\]{}_~;=]+", " ", s)
     s = re.sub(r"\s+", " ", s).strip(" -–—:,.'\"")
-    s = re.sub(r"^(?:Sr\.?\s*No\.?|No\.?)\s*", "", s, flags=re.I)
+    s = re.sub(r"^(?:Sr\.?\s*No\.?|No\.?)\s*", "", s, flags=re.IGNORECASE)
     s = re.sub(r"^\d{1,3}[.,)]?\s+(?=[A-Za-z])", "", s)                      # the row's own serial number
     s = re.sub(r"(?<=[A-Za-z])\s+\d{1,2}\s+(?=[A-Z])", " ", s)               # a serial OCR dropped inside a wrapped name
     return s.strip(" -–—:,.'\"")
@@ -140,7 +140,7 @@ def parse_text(text: str) -> dict:
         name = _clean_name(own[hdr.end():] if hdr else own)[-160:]
         ok = (shares > 0 and price > 0 and abs(shares * price - amount) <= ROW_TOLERANCE_RS and 0 < pct <= 100
               and (not stated_price or abs(price - stated_price) <= 0.01 * stated_price))
-        if re.fullmatch(r"(?:grand\s+)?total.*", name, re.I) or (stated_total and shares == stated_total):
+        if re.fullmatch(r"(?:grand\s+)?total.*", name, re.IGNORECASE) or (stated_total and shares == stated_total):
             continue                                        # the letter's own total line
         if not ok or len(name) < 3:
             dropped += 1

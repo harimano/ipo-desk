@@ -76,7 +76,9 @@ def test_failure_changes_nothing():
 
 
 def test_report_377_is_read_in_its_september_2026_shape_too():
-    import json, pathlib
+    import json
+    import pathlib
+
     from collector.sources import investorgain as ig
     fx = pathlib.Path(__file__).resolve().parent.parent / "data/fixtures/investorgain"
     rows = ig.parse_performance_report(json.loads((fx / "report-377-gmp-performance-2026-09-22.json").read_text()))

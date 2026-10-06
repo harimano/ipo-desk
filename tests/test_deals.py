@@ -6,7 +6,6 @@ import datetime as dt
 import pathlib
 
 import pytest
-
 from _support import FakeSession, blocked, fixture
 
 from collector import assemble
