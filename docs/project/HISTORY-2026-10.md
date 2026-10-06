@@ -68,3 +68,7 @@ agreed in September). Newest section last. `CLAUDE.md` is the short working brie
   is declared by the SDK and went; `logzero` and `websocket-client` are imported by `SmartApi/__init__` and
   `smartConnect` at import time and NOT declared by the SDK — without them `_connect` degrades silently to SourceDown.
   Proven by removing each in the venv. They stay, with the reason beside them in pyproject.
+- Docs: today's lessons went into CLAUDE.md (rule 9: dependencies are a run-time risk; two "how to build" bullets: a stale
+  page is a failed run until proven otherwise, ruff must pass and runs last in CI; the covered/names exemption on the
+  validate line). The history is now split by month: `HISTORY-2026-09.md` keeps September (state of play, roadmap, rules)
+  under its own title instead of the brief's heading it had carried since the rebuild; this file starts at 1 Oct.
