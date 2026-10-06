@@ -219,9 +219,13 @@ def main() -> int:
                     # the number of records is still checked at /records.
                     # /players/books/<id> is one UNLISTED issue's anchor line-up: it leaves the day the issue
                     # lists (NSE, 24 Sep 2026: "18 -> 0, 100% loss" refused three full runs in a row).
+                    # /players/covered and /players/names are keyed by unlisted issue the same way: thirteen issues
+                    # listing over 5-6 Oct 2026 read as "30 -> 18, 40% loss" and refused the first good run after a
+                    # dependency break. Each one moved into /players/frozen, which is still gated and only ever grows.
                     if (old < MIN_CENSUS or path.startswith("/integrity") or path.startswith("/news")
                             or path == "/meta/unresolved" or path.startswith("/records/")
                             or path.startswith("/players/books/")
+                            or path in ("/players/covered", "/players/names")
                             or ("[]" in path and old < MIN_CENSUS_NESTED)):
                         continue
                     compared += 1
