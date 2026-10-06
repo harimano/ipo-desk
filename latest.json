@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-06T02:18:00+05:30",
+  "asOf": "2026-10-06T06:45:14+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "6 Oct 2026, 02:18 IST",
+  "label": "6 Oct 2026, 06:45 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -77458,14 +77458,14 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-06T02:18:00+05:30",
+  "asOf": "2026-10-06T06:45:14+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "None:error",
     "status": "stale",
     "asOf": null,
-    "elapsed": 0.05,
+    "elapsed": 0.04,
     "calls": 0,
     "note": "kept previous — ImportError: Modest backend is deprecated since selectolax 1.0. It's outdated, not maintained, contains bugs and does not follow modern HTML5 standards. Please use lexbor backend instead: `from selectolax.lexbor import LexborHTMLParser`."
    },
@@ -77501,7 +77501,7 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-05",
-    "elapsed": 23.65,
+    "elapsed": 21.67,
     "calls": 0,
     "note": "33 names priced, 4 moved to recent, 0 history points"
    },
@@ -77519,9 +77519,9 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-10-05",
-    "elapsed": 1.94,
-    "calls": 2,
-    "note": "157 listings with an NSE symbol; 1 NSE file(s) read, 119 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 1 BSE file(s) read, 81 closes added, 184 days on file"
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "157 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 184 days on file"
    },
    {
     "area": "anchorbook",
@@ -77537,7 +77537,7 @@
     "method": "None:error",
     "status": "stale",
     "asOf": null,
-    "elapsed": 0.13,
+    "elapsed": 0.1,
     "calls": 0,
     "note": "kept previous — ImportError: Modest backend is deprecated since selectolax 1.0. It's outdated, not maintained, contains bugs and does not follow modern HTML5 standards. Please use lexbor backend instead: `from selectolax.lexbor import LexborHTMLParser`."
    },
@@ -77554,8 +77554,8 @@
     "area": "parents",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
-    "asOf": "2026-10-01",
-    "elapsed": 13.94,
+    "asOf": "2026-10-05",
+    "elapsed": 13.61,
     "calls": 0,
     "note": "5/5 parent prices; 47/53 investor stocks priced"
    },
@@ -77564,7 +77564,7 @@
     "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-10-06",
-    "elapsed": 12.99,
+    "elapsed": 8.75,
     "calls": 15,
     "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 991 announcements scanned, 0 subsidiary-offer leads; expected: 43 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 2 leads held; 0 rows patched, 33 kept previous stage"
    },
@@ -77573,7 +77573,7 @@
     "method": "bse:blocked, bse:blocked",
     "status": "blocked",
     "asOf": null,
-    "elapsed": 0.03,
+    "elapsed": 0.04,
     "calls": 1,
     "note": "kept previous — HTTP 403"
    },
@@ -77582,7 +77582,7 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-10-05",
-    "elapsed": 1.0,
+    "elapsed": 0.24,
     "calls": 1,
     "note": "2026-10-05 already in history; FII -4,699 / DII +5,182 Cr"
    },
@@ -77591,8 +77591,8 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-10-05",
-    "elapsed": 2.13,
-    "calls": 6,
+    "elapsed": 1.06,
+    "calls": 4,
     "note": "bulk.csv: 180 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 180; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 34 of today's 180 deals are in this year's listings (6 stocks); 623 kept over 60 days; 157 of 253 listings have an NSE symbol; 195 with a BSE code"
    },
    {
@@ -77600,9 +77600,9 @@
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-10-05T19:35:48+05:30",
-    "elapsed": 0.69,
+    "elapsed": 0.3,
     "calls": 3,
-    "note": "business-standard: 7/35 primary-market items; economic-times: 8/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 15 fresh, 25 kept"
+    "note": "business-standard: 7/35 primary-market items; economic-times: 7/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 14 fresh, 25 kept"
    },
    {
     "area": "logos",
@@ -77623,7 +77623,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "58s, 28 calls, 8/17 modules ok"
+    "note": "47s, 24 calls, 8/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -79353,18 +79353,18 @@
   "prices": {
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1167.7,
-    "asOf": "2026-10-01"
+    "value": 1186.4,
+    "asOf": "2026-10-05"
    },
    "Edelweiss Financial Services": {
     "symbol": "EDELWEISS",
-    "value": 137.9,
-    "asOf": "2026-10-01"
+    "value": 135.47,
+    "asOf": "2026-10-05"
    },
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 420.4,
-    "asOf": "2026-10-01"
+    "value": 425.1,
+    "asOf": "2026-10-05"
    },
    "Hero MotoCorp": {
     "symbol": "HEROMOTOCO",
@@ -79373,13 +79373,13 @@
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 105.98,
-    "asOf": "2026-10-01"
+    "value": 104.3,
+    "asOf": "2026-10-05"
    },
    "Prestige Estates": {
     "symbol": "PRESTIGE",
-    "value": 1486.1,
-    "asOf": "2026-10-01"
+    "value": 1445.0,
+    "asOf": "2026-10-05"
    },
    "SIS Limited": {
     "symbol": "SIS",
@@ -79388,8 +79388,8 @@
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 253.2,
-    "asOf": "2026-10-01"
+    "value": 252.45,
+    "asOf": "2026-10-05"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
@@ -79398,8 +79398,8 @@
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 57.91,
-    "asOf": "2026-10-01"
+    "value": 57.16,
+    "asOf": "2026-10-05"
    },
    "Tata Motors": {
     "symbol": "TATAMOTORS",
@@ -79408,23 +79408,23 @@
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 391.85,
-    "asOf": "2026-10-01"
+    "value": 388.7,
+    "asOf": "2026-10-05"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 71.75,
-    "asOf": "2026-10-01"
+    "value": 72.0,
+    "asOf": "2026-10-05"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 222.37,
-    "asOf": "2026-10-01"
+    "value": 224.9,
+    "asOf": "2026-10-05"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 721.2,
-    "asOf": "2026-10-01"
+    "value": 704.8,
+    "asOf": "2026-10-05"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
@@ -79433,23 +79433,23 @@
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1217.1,
-    "asOf": "2026-10-01"
+    "value": 1222.2,
+    "asOf": "2026-10-05"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1732.6,
-    "asOf": "2026-10-01"
+    "value": 1751.4,
+    "asOf": "2026-10-05"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1200.0,
-    "asOf": "2026-10-01"
+    "value": 1201.7,
+    "asOf": "2026-10-05"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 19.19,
-    "asOf": "2026-10-01"
+    "value": 19.96,
+    "asOf": "2026-10-05"
    },
    "Gretex Corporate Services": {
     "symbol": "GRETEX",
@@ -79458,8 +79458,8 @@
    },
    "Asian Energy": {
     "symbol": "ASIANENE",
-    "value": 466.75,
-    "asOf": "2026-10-01"
+    "value": 458.65,
+    "asOf": "2026-10-05"
    },
    "TechEra Engineering": {
     "symbol": "TECHERA",
@@ -79473,13 +79473,13 @@
    },
    "Fineotex Chemical": {
     "symbol": "FCL",
-    "value": 55.72,
-    "asOf": "2026-10-01"
+    "value": 54.03,
+    "asOf": "2026-10-05"
    },
    "SG Finserve": {
     "symbol": "SGFIN",
-    "value": 631.85,
-    "asOf": "2026-10-01"
+    "value": 677.95,
+    "asOf": "2026-10-05"
    },
    "Walchandnagar Industries / Jain Resource Recycling": {
     "symbol": "WALCHANNAG",
@@ -79493,8 +79493,8 @@
    },
    "Lux Industries": {
     "symbol": "LUXIND",
-    "value": 1092.0,
-    "asOf": "2026-10-01"
+    "value": 1183.9,
+    "asOf": "2026-10-05"
    },
    "J Kumar Infraprojects": {
     "symbol": "JKIL",
@@ -79503,8 +79503,8 @@
    },
    "Intellect Design Arena": {
     "symbol": "INTELLECT",
-    "value": 610.95,
-    "asOf": "2026-10-01"
+    "value": 600.2,
+    "asOf": "2026-10-05"
    },
    "Eimco Elecon (India)": {
     "symbol": "EIMCOELECO",
@@ -79513,8 +79513,8 @@
    },
    "Rain Industries": {
     "symbol": "RAIN",
-    "value": 208.52,
-    "asOf": "2026-10-01"
+    "value": 208.02,
+    "asOf": "2026-10-05"
    },
    "Sharda Cropchem": {
     "symbol": "SHARDACROP",
@@ -79533,28 +79533,28 @@
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1198.0,
-    "asOf": "2026-10-01"
+    "value": 1169.7,
+    "asOf": "2026-10-05"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 505.25,
-    "asOf": "2026-10-01"
+    "value": 493.95,
+    "asOf": "2026-10-05"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 308.45,
-    "asOf": "2026-10-01"
+    "value": 304.0,
+    "asOf": "2026-10-05"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 119.98,
-    "asOf": "2026-10-01"
+    "value": 123.0,
+    "asOf": "2026-10-05"
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
-    "value": 1434.1,
-    "asOf": "2026-10-01"
+    "value": 1362.4,
+    "asOf": "2026-10-05"
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
@@ -79573,8 +79573,8 @@
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 500.35,
-    "asOf": "2026-10-01"
+    "value": 495.4,
+    "asOf": "2026-10-05"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
@@ -79583,13 +79583,13 @@
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1271.8,
-    "asOf": "2026-10-01"
+    "value": 1320.4,
+    "asOf": "2026-10-05"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 467.95,
-    "asOf": "2026-10-01"
+    "value": 490.05,
+    "asOf": "2026-10-05"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
@@ -98049,8 +98049,8 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1167.7,
-    "asOf": "2026-10-01"
+    "value": 1186.4,
+    "asOf": "2026-10-05"
    },
    "parentTicker": "RELIANCE",
    "sources": [
@@ -98102,8 +98102,8 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 137.9,
-    "asOf": "2026-10-01"
+    "value": 135.47,
+    "asOf": "2026-10-05"
    },
    "parentTicker": "EDELWEISS",
    "sources": [
@@ -98257,8 +98257,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 420.4,
-    "asOf": "2026-10-01"
+    "value": 425.1,
+    "asOf": "2026-10-05"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -98501,8 +98501,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 420.4,
-    "asOf": "2026-10-01"
+    "value": 425.1,
+    "asOf": "2026-10-05"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -109008,7 +109008,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-06T02:17:26+05:30",
+  "asOf": "2026-10-06T06:44:49+05:30",
   "dates": [
    "2026-01-02",
    "2026-01-05",
