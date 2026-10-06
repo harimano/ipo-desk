@@ -39,10 +39,16 @@ jobs:
                && git -c user.name=ipo-desk-bot -c user.email=ipo-desk-bot@users.noreply.github.com commit -qm "live: start" && git push -q origin live; fi
       - uses: actions/setup-python@v7
         with: { python-version: "3.12", cache: "pip" }
-      - run: pip install -e . >/dev/null
+      - run: pip install -e ".[dev]" >/dev/null      # dev: the same ruff the lint step below runs
       - name: Loop
         run: |
           UNTIL="${{ github.event.inputs.until }}"
           if [ -z "$UNTIL" ]; then if [ "$(TZ=Asia/Kolkata date +%H%M)" -lt 1230 ]; then UNTIL=13:10; else UNTIL=17:20; fi; fi
           echo "looping until $UNTIL IST"
           python -m collector.live --board _data/latest.json --out _live/live.json --until "$UNTIL" --interval 300 --publish _live
+
+      # Last, as in collect.yml: a lint slip turns the finished job red so it is seen, and never keeps the loop from
+      # starting — every tick of live.json was pushed long before this runs. Runs on cancel too (always()).
+      - name: Lint — ruff over the whole tree (fails the job, never the data)
+        if: always()
+        run: ruff check .
