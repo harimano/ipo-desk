@@ -13,9 +13,8 @@ dependencies = [
   "feedparser>=6.0",
   "pyotp>=2.9",
   "smartapi-python>=1.4",
-  "logzero>=1.7",
+  "logzero>=1.7",                 # SmartApi imports these two at import time; smartapi-python declares neither
   "websocket-client>=1.6",
-  "python-dateutil>=2.9",
 ]
 
 [project.optional-dependencies]
