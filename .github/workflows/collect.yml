@@ -151,6 +151,12 @@ jobs:
           if [ -n "$TELEGRAM_BOT_TOKEN$NTFY_TOPIC" ]; then SEND=--send; else SEND=""; fi
           python -m collector.alerts --prev /tmp/prev_latest.json --new data/latest.json $SEND
 
+      # Last on purpose: a lint slip turns the run red so it is seen, but the document was already committed
+      # and published above — code hygiene never leaves the board stale. Same ruff as the dev extra installs.
+      - name: Lint — ruff over the whole tree (fails the run, never the data)
+        if: always() && steps.mode.outputs.go == '1'
+        run: ruff check .
+
       - uses: actions/upload-artifact@v7
         if: always() && steps.mode.outputs.go == '1'
         with:
