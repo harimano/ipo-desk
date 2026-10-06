@@ -1,4 +1,4 @@
-# CLAUDE.md — read this first
+# History — September 2026
 
 This repo is the India IPO Command Center rebuilt as a standalone site: a deterministic collector
 on GitHub Actions writes `data/latest.json`; a static page reads it; Claude contributes research
