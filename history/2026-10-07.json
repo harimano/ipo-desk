@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-07T17:37:54+05:30",
+  "asOf": "2026-10-07T18:15:29+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "7 Oct 2026, 17:37 IST",
+  "label": "7 Oct 2026, 18:15 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -216,6 +216,26 @@
    ],
    "stage": "DRHP filed 30 Oct 2025",
    "window": null
+  },
+  {
+   "name": "Integrum Energy Infrastructure",
+   "window": null,
+   "stage": "DRHP filed 7 Oct 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 7 Oct",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/oct-2026/integrum-energy-infrastructure-limited-drhp_105075.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-10-07",
+    "title": "INTEGRUM ENERGY INFRASTRUCTURE LIMITED - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/oct-2026/integrum-energy-infrastructure-limited-drhp_105075.html"
+   }
   },
   {
    "name": "Pentacle Consultants (I)",
@@ -544,15 +564,16 @@
    "note": null,
    "parent": null,
    "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/oct-2026/inox-clean-energy-limited-drhp_105010.html",
     "https://www.sebi.gov.in/filings/public-issues/oct-2026/inox-clean-energy-limited_105010.html"
    ],
    "auto": true,
    "lastFiling": {
     "register": "DRHP",
-    "kind": null,
+    "kind": "Prospectus",
     "date": "2026-10-05",
-    "title": "Inox Clean Energy Limited",
-    "url": "https://www.sebi.gov.in/filings/public-issues/oct-2026/inox-clean-energy-limited_105010.html"
+    "title": "Inox Clean Energy Limited - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/oct-2026/inox-clean-energy-limited-drhp_105010.html"
    },
    "quotaCandidate": {
     "via": "name",
@@ -852,26 +873,6 @@
     "date": "2026-09-30",
     "title": "J B ECOTEX LIMITED",
     "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/j-b-ecotex-limited_104830.html"
-   }
-  },
-  {
-   "name": "S G Encon",
-   "window": null,
-   "stage": "DRHP filed 30 Sep 2026",
-   "sizeCr": null,
-   "sizeText": "DRHP 30 Sep",
-   "note": null,
-   "parent": null,
-   "sources": [
-    "https://www.sebi.gov.in/filings/public-issues/sep-2026/s-g-encon-limited_104828.html"
-   ],
-   "auto": true,
-   "lastFiling": {
-    "register": "DRHP",
-    "kind": "Prospectus",
-    "date": "2026-09-30",
-    "title": "S G Encon Limited - Draft Abridged prospectus",
-    "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/s-g-encon-limited_104828.html"
    }
   }
  ],
@@ -1650,6 +1651,11 @@
    "shares": 1600,
    "price": 82.0,
    "listDate": "2026-10-12"
+  },
+  "HD Fire Protect": {
+   "shares": 55,
+   "price": 271.0,
+   "listDate": "2026-10-21"
   }
  },
  "mainboard": [
@@ -1767,9 +1773,9 @@
     "asOf": "2026-09-30T17:56:00+05:30"
    },
    "shareholderQuota": null,
-   "listingPrice": 167.05,
-   "listingGainPct": 0.03,
-   "currentPrice": 167.0,
+   "listingPrice": 171.0,
+   "listingGainPct": 2.4,
+   "currentPrice": 166.82,
    "sources": [
     "InvestorGain IPO list"
    ],
@@ -2528,10 +2534,10 @@
    "type": "Mainboard",
    "listingDate": "2026-10-06",
    "issuePrice": 167.0,
-   "listingPrice": 167.05,
-   "gainPct": 0.03,
-   "closeDay1": 167.0,
-   "closeDay1GainPct": 0.0,
+   "listingPrice": 171.0,
+   "gainPct": 2.4,
+   "closeDay1": 173.79,
+   "closeDay1GainPct": 4.07,
    "sources": [
     "InvestorGain IPO list"
    ],
@@ -4084,7 +4090,7 @@
     "snii": 106.94,
     "retail": 85.5,
     "total": 124.34,
-    "asOf": "2026-10-07T17:37:53+05:30",
+    "asOf": "2026-10-07T18:13:49+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -4168,7 +4174,7 @@
      "received": 188962,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-07T17:37:53+05:30"
+    "asOf": "2026-10-07T18:13:49+05:30"
    },
    "logo": "acme-india-logo.jpg"
   },
@@ -4525,7 +4531,7 @@
     "snii": 0.21,
     "retail": 1.1,
     "total": 1.93,
-    "asOf": "2026-10-07T17:37:53+05:30",
+    "asOf": "2026-10-07T18:13:49+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -4608,7 +4614,7 @@
      "received": 1755,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-07T17:37:53+05:30"
+    "asOf": "2026-10-07T18:13:49+05:30"
    },
    "logo": "paramount-syntex-logo.png"
   },
@@ -4826,7 +4832,7 @@
     "snii": 76.59,
     "retail": 46.17,
     "total": 55.28,
-    "asOf": "2026-10-07T17:37:54+05:30",
+    "asOf": "2026-10-07T18:13:50+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -4910,7 +4916,7 @@
      "received": 27673,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-07T17:37:54+05:30"
+    "asOf": "2026-10-07T18:13:50+05:30"
    },
    "logo": "tna-solutions-ltd-logo.png"
   },
@@ -4939,7 +4945,7 @@
     "snii": 1.79,
     "retail": 3.11,
     "total": 2.75,
-    "asOf": "2026-10-07T17:37:54+05:30",
+    "asOf": "2026-10-07T18:13:50+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -4954,7 +4960,7 @@
    "igId": "2292",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-07T17:37:51+05:30",
+   "igFetchedAt": "2026-10-07T18:13:47+05:30",
    "refund": "2026-10-09",
    "sector": "Gems, Jewellery And Watches",
    "anchorShares": 0,
@@ -5023,7 +5029,7 @@
      "received": 2615,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-07T17:37:54+05:30"
+    "asOf": "2026-10-07T18:13:50+05:30"
    }
   }
  ],
@@ -18637,19 +18643,19 @@
  ],
  "flows": {
   "latest": {
-   "date": "2026-10-06",
-   "fiiNetCr": -2961.3,
-   "diiNetCr": 5088.92,
+   "date": "2026-10-07",
+   "fiiNetCr": -6121.37,
+   "diiNetCr": 4596.57,
    "previousDay": {
-    "date": "2026-10-05",
-    "fiiNetCr": -4699.14,
-    "diiNetCr": 5181.62
+    "date": "2026-10-06",
+    "fiiNetCr": -2961.3,
+    "diiNetCr": 5088.92
    },
    "source": "NSE provisional (fiidiiTradeReact)",
-   "fiiBuyCr": 11258.72,
-   "fiiSellCr": 14220.02,
-   "diiBuyCr": 20146.4,
-   "diiSellCr": 15057.48
+   "fiiBuyCr": 12577.96,
+   "fiiSellCr": 18699.33,
+   "diiBuyCr": 18707.03,
+   "diiSellCr": 14110.46
   },
   "history": [
    [
@@ -18831,6 +18837,11 @@
     "2026-10-06",
     -2961.3,
     5088.92
+   ],
+   [
+    "2026-10-07",
+    -6121.37,
+    4596.57
    ]
   ],
   "monthly": [
@@ -36828,6 +36839,31 @@
  ],
  "news": [
   {
+   "title": "SAT seeks details of documents Sebi shared with Jane Street beyond duty",
+   "url": "https://www.business-standard.com/india-news/sat-seeks-details-of-documents-sebi-shared-with-jane-street-beyond-duty-126100700982_1.html",
+   "date": "2026-10-07T17:46:38+05:30"
+  },
+  {
+   "title": "‘Only bullish corner’: Nithin Kamath flags ‘full-on party’ in IPOs amid broader market weakness",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/only-bullish-corner-nithin-kamath-flags-full-on-party-in-ipos-amid-broader-market-weakness/articleshow/134765380.cms",
+   "date": "2026-10-07T17:25:25+05:30"
+  },
+  {
+   "title": "Sebi shares trade data with Jane Street, seeks response to allegations",
+   "url": "https://www.business-standard.com/markets/news/sebi-shares-trade-data-with-jane-street-seeks-response-to-allegations-126100700677_1.html",
+   "date": "2026-10-07T15:19:12+05:30"
+  },
+  {
+   "title": "Newly-listed Arcil hits 10% upper circuit as Q1 profit more than doubles",
+   "url": "https://www.business-standard.com/markets/news/newly-listed-arcil-hits-10-upper-circuit-as-q1-profit-more-than-doubles-126100700671_1.html",
+   "date": "2026-10-07T14:55:33+05:30"
+  },
+  {
+   "title": "HD Fire Protect IPO price band set at Rs 258-271; Rs 712 crore issue opens on October 13",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/hd-fire-protect-ipo-price-band-set-at-rs-258-271-rs-712-crore-issue-opens-on-october-13/articleshow/134761449.cms",
+   "date": "2026-10-07T14:36:30+05:30"
+  },
+  {
    "title": "Reliance Jio IPO: Rs 37,700 crore mega issue, full schedule &amp; 5 must-know details",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/reliance-jio-ipo-rs-37700-crore-mega-issue-full-schedule-5-must-know-details/videoshow/134758557.cms",
    "date": "2026-10-07T12:18:18+05:30"
@@ -36838,7 +36874,7 @@
    "date": "2026-10-07T12:02:46+05:30"
   },
   {
-   "title": "RBI allows Sebi-regulated depositories to include customer deposit details in statements: What changes for investors?",
+   "title": "RBI allows Sebi-regulated depositories to show bank deposit details in consolidated A/C statements; what it means for you",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/rbi-allows-sebi-regulated-depositories-to-include-customer-deposit-details-in-statements-what-changes-for-investors/articleshow/134757684.cms",
    "date": "2026-10-07T11:39:40+05:30"
   },
@@ -36926,31 +36962,6 @@
    "title": "NSE shares wipe off Rs 41,000 crore after listing day pop as stock slips below IPO price. Why are analysts still bullish?",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/nse-shares-wipe-off-rs-41000-crore-after-listing-day-pop-as-stock-slips-below-ipo-price-why-are-analysts-still-bullish/articleshow/134725274.cms",
    "date": "2026-10-06T11:43:55+05:30"
-  },
-  {
-   "title": "Newly-listed Steamhouse India shares hit 10% circuit after Q1 net profit rises 80% to Rs 18 crore",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/newly-listed-steamhouse-india-shares-hit-10-circuit-after-q1-net-profit-rises-80-to-rs-18-crore/articleshow/134724996.cms",
-   "date": "2026-10-06T11:36:54+05:30"
-  },
-  {
-   "title": "Acme Universal Safezone 9 debuts 42% premium on BSE SME; Pind Hospitality opens at 20% discount. Check details",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/acme-universal-safezone-9-debuts-42-premium-on-bse-sme-pind-hospitality-opens-at-20-discount-check-details/articleshow/134723670.cms",
-   "date": "2026-10-06T10:38:21+05:30"
-  },
-  {
-   "title": "Vinir Engineering files DRHP with SEBI for fresh issue of up to 7.1 crore shares",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/vinir-engineering-files-drhp-with-sebi-for-fresh-issue-of-up-to-7-1-crore-shares/articleshow/134723527.cms",
-   "date": "2026-10-06T10:28:57+05:30"
-  },
-  {
-   "title": "Q1 results impact: Rentomojo shares jump 6% on first earnings post-listing",
-   "url": "https://www.business-standard.com/markets/news/q1-results-impact-rentomojo-shares-jump-6-on-first-earnings-post-listing-126100600209_1.html",
-   "date": "2026-10-06T10:07:25+05:30"
-  },
-  {
-   "title": "Shah Investor's Home lists at mere 2% premium despite 38x bids for IPO",
-   "url": "https://www.business-standard.com/markets/news/shah-investor-s-home-share-price-lists-at-mere-2-premium-despite-38x-bids-for-ipo-126100600210_1.html",
-   "date": "2026-10-06T10:06:18+05:30"
   }
  ],
  "priceHistory": {
@@ -78104,14 +78115,23 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-07T17:37:54+05:30",
+  "asOf": "2026-10-07T18:15:29+05:30",
   "checks": [
+   {
+    "area": "calendar",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-07T18:13:47+05:30",
+    "elapsed": 1.61,
+    "calls": 5,
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=15 carried=10 +nse=1 +bse=0 exchange-only=0: 6 mainboard, 19 sme; 1 open, 2 upcoming"
+   },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "7-Oct 9:37",
-    "elapsed": 0.19,
+    "elapsed": 0.08,
     "calls": 1,
     "note": "gmp: 14 board rows patched via investorgain; 3 active, 3 of them matched; gmp: 14 GMP-site names not on the board: A-One Steels (₹46, investorgain); Adroit Industries (₹55, investorgain); ArMee Infotech (₹6, investorgain); Bench Mark Infotech Services (₹15, investorgain); Dudani Retail (₹0.5, investorgain); Elevate Campuses (₹6.5, investorgain); FX Multitech (₹6.5, investorgain); German Green Steel (₹9.5, investorgain) …"
    },
@@ -78119,8 +78139,8 @@
     "area": "details",
     "method": "investorgain-list:ok, investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-07T17:37:51+05:30",
-    "elapsed": 0.5,
+    "asOf": "2026-10-07T18:13:47+05:30",
+    "elapsed": 0.68,
     "calls": 2,
     "note": "1 records fetched for 24 identified listings (1 without an id); 0 anchor books updated, 73 on file"
    },
@@ -78128,10 +78148,127 @@
     "area": "subscription",
     "method": "narada:ok",
     "status": "ok",
-    "asOf": "2026-10-07T17:37:54+05:30",
-    "elapsed": 2.55,
+    "asOf": "2026-10-07T18:13:50+05:30",
+    "elapsed": 2.38,
     "calls": 4,
     "note": "4/4 rows patched via narada"
+   },
+   {
+    "area": "listings",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-10-07",
+    "elapsed": 29.35,
+    "calls": 0,
+    "note": "31 names priced, 2 moved to recent, 0 history points"
+   },
+   {
+    "area": "history",
+    "method": "investorgain-566:ok, investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-07",
+    "elapsed": 3.22,
+    "calls": 2,
+    "note": "1373 listings since 2022 (975 SME); fetched 2026: 270; QIB on file for 99 of 398 mainboard issues"
+   },
+   {
+    "area": "tape",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-10-06",
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "174 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file"
+   },
+   {
+    "area": "anchorbook",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-07",
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "0 anchor books read (0 without an anchor table, 0 failed); 896 on file, 589 partial (feed gave only the first names); 0 of 1373 listings still to fetch"
+   },
+   {
+    "area": "evidence",
+    "method": "computed:ok",
+    "status": "ok",
+    "asOf": "2026-10-07",
+    "elapsed": 0.19,
+    "calls": 0,
+    "note": "track records: 896 of 896 anchor books have an outcome; 829 of 1377 investors with 2+; 1373 listings; windows: mainboard 133, SME 242; 4 warnings"
+   },
+   {
+    "area": "players",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-07",
+    "elapsed": 35.44,
+    "calls": 54,
+    "note": "53 of 2839 anchor investors read (0 failed); names found for 1 of 15 unlisted issues"
+   },
+   {
+    "area": "parents",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-10-07",
+    "elapsed": 15.88,
+    "calls": 0,
+    "note": "5/5 parent prices; 47/53 investor stocks priced"
+   },
+   {
+    "area": "filings",
+    "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
+    "status": "ok",
+    "asOf": "2026-10-07",
+    "elapsed": 10.51,
+    "calls": 14,
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 2156 announcements scanned, 0 subsidiary-offer leads; expected: 43 names; 1 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 2 leads held; 0 rows patched, 33 kept previous stage"
+   },
+   {
+    "area": "offers",
+    "method": "bse:blocked, bse:blocked",
+    "status": "blocked",
+    "asOf": null,
+    "elapsed": 0.09,
+    "calls": 1,
+    "note": "kept previous — HTTP 403"
+   },
+   {
+    "area": "flows",
+    "method": "nse:ok",
+    "status": "ok",
+    "asOf": "2026-10-07",
+    "elapsed": 0.26,
+    "calls": 1,
+    "note": "appended 2026-10-07; FII -6,121 / DII +4,597 Cr"
+   },
+   {
+    "area": "deals",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-10-07",
+    "elapsed": 1.21,
+    "calls": 4,
+    "note": "bulk.csv: 218 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 218; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 89 of today's 218 deals are in this year's listings (18 stocks); 825 kept over 60 days; 174 of 270 listings have an NSE symbol; 208 with a BSE code"
+   },
+   {
+    "area": "news",
+    "method": "rss:ok",
+    "status": "ok",
+    "asOf": "2026-10-07T17:46:38+05:30",
+    "elapsed": 1.9,
+    "calls": 3,
+    "note": "business-standard: 5/35 primary-market items; economic-times: 5/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 10 fresh, 25 kept"
+   },
+   {
+    "area": "logos",
+    "method": "none:ok",
+    "status": "ok",
+    "asOf": "2026-10-07",
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "45 logos on file; none to fetch"
    },
    {
     "area": "research layer",
@@ -78143,7 +78280,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "3s, 7 calls, 3/3 modules ok"
+    "note": "104s, 91 calls, 16/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -79873,52 +80010,52 @@
   "prices": {
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1218.3,
+    "value": 1207.7,
     "asOf": "2026-10-07"
    },
    "Edelweiss Financial Services": {
     "symbol": "EDELWEISS",
-    "value": 134.48,
+    "value": 133.8,
     "asOf": "2026-10-07"
    },
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 414.65,
+    "value": 414.5,
     "asOf": "2026-10-07"
    },
    "Hero MotoCorp": {
     "symbol": "HEROMOTOCO",
-    "value": 5027.0,
+    "value": 5004.0,
     "asOf": "2026-10-07"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 105.73,
+    "value": 105.85,
     "asOf": "2026-10-07"
    },
    "Prestige Estates": {
     "symbol": "PRESTIGE",
-    "value": 1437.2,
+    "value": 1429.3,
     "asOf": "2026-10-07"
    },
    "SIS Limited": {
     "symbol": "SIS",
-    "value": 416.2,
+    "value": 413.3,
     "asOf": "2026-10-07"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 252.1,
+    "value": 250.35,
     "asOf": "2026-10-07"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 6867.0,
+    "value": 6925.0,
     "asOf": "2026-10-07"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 56.63,
+    "value": 56.36,
     "asOf": "2026-10-07"
    },
    "Tata Motors": {
@@ -79928,57 +80065,57 @@
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 387.5,
+    "value": 386.3,
     "asOf": "2026-10-07"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 72.72,
+    "value": 72.5,
     "asOf": "2026-10-07"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 222.55,
+    "value": 221.88,
     "asOf": "2026-10-07"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 704.35,
+    "value": 702.75,
     "asOf": "2026-10-07"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 440.8,
+    "value": 440.0,
     "asOf": "2026-10-07"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1249.6,
+    "value": 1242.5,
     "asOf": "2026-10-07"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1741.0,
+    "value": 1743.3,
     "asOf": "2026-10-07"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1230.0,
+    "value": 1225.3,
     "asOf": "2026-10-07"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 21.09,
+    "value": 21.05,
     "asOf": "2026-10-07"
    },
    "Gretex Corporate Services": {
     "symbol": "GRETEX",
     "value": 214.0,
-    "asOf": "2026-10-05"
+    "asOf": "2026-10-06"
    },
    "Asian Energy": {
     "symbol": "ASIANENE",
-    "value": 473.95,
+    "value": 480.15,
     "asOf": "2026-10-07"
    },
    "TechEra Engineering": {
@@ -79988,77 +80125,77 @@
    },
    "Beta Drugs": {
     "symbol": "BETA",
-    "value": 2000.0,
+    "value": 1991.4,
     "asOf": "2026-10-07"
    },
    "Fineotex Chemical": {
     "symbol": "FCL",
-    "value": 59.0,
+    "value": 57.8,
     "asOf": "2026-10-07"
    },
    "SG Finserve": {
     "symbol": "SGFIN",
-    "value": 668.0,
+    "value": 663.7,
     "asOf": "2026-10-07"
    },
    "Walchandnagar Industries / Jain Resource Recycling": {
     "symbol": "WALCHANNAG",
-    "value": 224.62,
+    "value": 223.99,
     "asOf": "2026-10-07"
    },
    "Laxmi India Finance": {
     "symbol": "LAXMIINDIA",
-    "value": 112.4,
+    "value": 110.81,
     "asOf": "2026-10-07"
    },
    "Lux Industries": {
     "symbol": "LUXIND",
-    "value": 1160.1,
+    "value": 1157.5,
     "asOf": "2026-10-07"
    },
    "J Kumar Infraprojects": {
     "symbol": "JKIL",
-    "value": 443.0,
+    "value": 442.2,
     "asOf": "2026-10-07"
    },
    "Intellect Design Arena": {
     "symbol": "INTELLECT",
-    "value": 598.5,
+    "value": 591.35,
     "asOf": "2026-10-07"
    },
    "Eimco Elecon (India)": {
     "symbol": "EIMCOELECO",
-    "value": 2379.9,
+    "value": 2247.3,
     "asOf": "2026-10-07"
    },
    "Rain Industries": {
     "symbol": "RAIN",
-    "value": 218.39,
+    "value": 218.95,
     "asOf": "2026-10-07"
    },
    "Sharda Cropchem": {
     "symbol": "SHARDACROP",
-    "value": 742.75,
+    "value": 742.05,
     "asOf": "2026-10-07"
    },
    "Zaggle Prepaid": {
     "symbol": "ZAGGLE",
-    "value": 173.06,
+    "value": 172.22,
     "asOf": "2026-10-07"
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 108.0,
+    "value": 107.5,
     "asOf": "2026-10-07"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1154.2,
+    "value": 1135.6,
     "asOf": "2026-10-07"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 541.55,
+    "value": 578.0,
     "asOf": "2026-10-07"
    },
    "Milky Mist Dairy Food": {
@@ -80068,7 +80205,7 @@
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 132.2,
+    "value": 133.11,
     "asOf": "2026-10-07"
    },
    "ESDS Software Solution": {
@@ -80078,42 +80215,42 @@
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1457.9,
+    "value": 1463.7,
     "asOf": "2026-10-07"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1543.3,
+    "value": 1544.7,
     "asOf": "2026-10-07"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 108.08,
+    "value": 108.9,
     "asOf": "2026-10-07"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 497.1,
+    "value": 501.2,
     "asOf": "2026-10-07"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 532.5,
+    "value": 531.95,
     "asOf": "2026-10-07"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1348.1,
+    "value": 1359.9,
     "asOf": "2026-10-07"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 511.3,
+    "value": 514.4,
     "asOf": "2026-10-07"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 530.5,
+    "value": 531.45,
     "asOf": "2026-10-07"
    },
    "Ashutosh Fibre (upcoming)": {
@@ -80141,6 +80278,1519 @@
    }
   },
   "listingDeals": [
+   {
+    "date": "2026-10-07",
+    "symbol": "VEEGALAND",
+    "stock": "Veegaland Developers",
+    "client": "SAROJDEVI S KABRA",
+    "side": "SELL",
+    "qty": 410226.0,
+    "price": 147.0,
+    "valueCr": 6.03,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-18",
+    "daysSinceListing": 19,
+    "issuePrice": 140.0,
+    "vsIssuePct": 5.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "VEEGALAND",
+    "stock": "Veegaland Developers",
+    "client": "SAROJDEVI S KABRA",
+    "side": "BUY",
+    "qty": 410226.0,
+    "price": 147.7,
+    "valueCr": 6.06,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-18",
+    "daysSinceListing": 19,
+    "issuePrice": 140.0,
+    "vsIssuePct": 5.5
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "VALUE360",
+    "stock": "Value 360 Communications",
+    "client": "SETU SECURITIES PVT LTD",
+    "side": "SELL",
+    "qty": 91200.0,
+    "price": 73.85,
+    "valueCr": 0.67,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-05-11",
+    "daysSinceListing": 149,
+    "issuePrice": 98.0,
+    "vsIssuePct": -24.6
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "SUNSHINE",
+    "stock": "Sunshine Pictures",
+    "client": "ARIHANT CAPITAL MARKETS LIMITED",
+    "side": "SELL",
+    "qty": 157888.0,
+    "price": 452.64,
+    "valueCr": 7.15,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-25",
+    "daysSinceListing": 43,
+    "issuePrice": 360.0,
+    "vsIssuePct": 25.7
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "SUNSHINE",
+    "stock": "Sunshine Pictures",
+    "client": "ARIHANT CAPITAL MARKETS LIMITED",
+    "side": "BUY",
+    "qty": 22897.0,
+    "price": 450.31,
+    "valueCr": 1.03,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-25",
+    "daysSinceListing": 43,
+    "issuePrice": 360.0,
+    "vsIssuePct": 25.1
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "SHAHINVEST",
+    "stock": "Shah Investor's Home",
+    "client": "SHINE STAR BUILD CAP PVT LTD",
+    "side": "SELL",
+    "qty": 165000.0,
+    "price": 167.06,
+    "valueCr": 2.76,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-06",
+    "daysSinceListing": 1,
+    "issuePrice": 167.0,
+    "vsIssuePct": 0.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "SHAHINVEST",
+    "stock": "Shah Investor's Home",
+    "client": "SUNRISE GILTS & SECURITIES PVT LTD",
+    "side": "BUY",
+    "qty": 301000.0,
+    "price": 167.0,
+    "valueCr": 5.03,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-06",
+    "daysSinceListing": 1,
+    "issuePrice": 167.0,
+    "vsIssuePct": 0.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "RENTOMOJO",
+    "stock": "Rentomojo",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 745310.0,
+    "price": 610.08,
+    "valueCr": 45.47,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-17",
+    "daysSinceListing": 20,
+    "issuePrice": 404.0,
+    "vsIssuePct": 51.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "RENTOMOJO",
+    "stock": "Rentomojo",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 938531.0,
+    "price": 610.39,
+    "valueCr": 57.29,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-17",
+    "daysSinceListing": 20,
+    "issuePrice": 404.0,
+    "vsIssuePct": 51.1
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "RENTOMOJO",
+    "stock": "Rentomojo",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 745310.0,
+    "price": 609.09,
+    "valueCr": 45.4,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-17",
+    "daysSinceListing": 20,
+    "issuePrice": 404.0,
+    "vsIssuePct": 50.8
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "RENTOMOJO",
+    "stock": "Rentomojo",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 863126.0,
+    "price": 606.24,
+    "valueCr": 52.33,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-17",
+    "daysSinceListing": 20,
+    "issuePrice": 404.0,
+    "vsIssuePct": 50.1
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "PRIORITY",
+    "stock": "Priority Jewels",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 119406.0,
+    "price": 327.57,
+    "valueCr": 3.91,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-04",
+    "daysSinceListing": 33,
+    "issuePrice": 200.0,
+    "vsIssuePct": 63.8
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "PRIORITY",
+    "stock": "Priority Jewels",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 118934.0,
+    "price": 324.65,
+    "valueCr": 3.86,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-04",
+    "daysSinceListing": 33,
+    "issuePrice": 200.0,
+    "vsIssuePct": 62.3
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "PAPADMALJI",
+    "stock": "Papadmalji Agro Foods",
+    "client": "SHAGUN TIEUP PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 48000.0,
+    "price": 69.12,
+    "valueCr": 0.33,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-10-07",
+    "daysSinceListing": 0,
+    "issuePrice": 72.0,
+    "vsIssuePct": -4.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "PAPADMALJI",
+    "stock": "Papadmalji Agro Foods",
+    "client": "MULTIPLIER SHARE & STOCK ADVISORS PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 56000.0,
+    "price": 68.7,
+    "valueCr": 0.38,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-10-07",
+    "daysSinceListing": 0,
+    "issuePrice": 72.0,
+    "vsIssuePct": -4.6
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "PAPADMALJI",
+    "stock": "Papadmalji Agro Foods",
+    "client": "PROGNOSIS SECURITIES PVT. LTD",
+    "side": "BUY",
+    "qty": 304000.0,
+    "price": 72.3,
+    "valueCr": 2.2,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-10-07",
+    "daysSinceListing": 0,
+    "issuePrice": 72.0,
+    "vsIssuePct": 0.4
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "PAPADMALJI",
+    "stock": "Papadmalji Agro Foods",
+    "client": "TRADE PULSE BROKING PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 1027200.0,
+    "price": 72.3,
+    "valueCr": 7.43,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-10-07",
+    "daysSinceListing": 0,
+    "issuePrice": 72.0,
+    "vsIssuePct": 0.4
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "PNGSREVA",
+    "stock": "PNGS Reva Diamond Jewellery",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 164454.0,
+    "price": 620.78,
+    "valueCr": 10.21,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-03-04",
+    "daysSinceListing": 217,
+    "issuePrice": 386.0,
+    "vsIssuePct": 60.8
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "PNGSREVA",
+    "stock": "PNGS Reva Diamond Jewellery",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 204134.0,
+    "price": 617.19,
+    "valueCr": 12.6,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-03-04",
+    "daysSinceListing": 217,
+    "issuePrice": 386.0,
+    "vsIssuePct": 59.9
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "PNGSREVA",
+    "stock": "PNGS Reva Diamond Jewellery",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 164997.0,
+    "price": 619.8,
+    "valueCr": 10.23,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-03-04",
+    "daysSinceListing": 217,
+    "issuePrice": 386.0,
+    "vsIssuePct": 60.6
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "PNGSREVA",
+    "stock": "PNGS Reva Diamond Jewellery",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 200940.0,
+    "price": 612.56,
+    "valueCr": 12.31,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-03-04",
+    "daysSinceListing": 217,
+    "issuePrice": 386.0,
+    "vsIssuePct": 58.7
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MONEYVIEW",
+    "stock": "Moneyview",
+    "client": "YUGA STOCKS AND COMMODITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 8694554.0,
+    "price": 56.51,
+    "valueCr": 49.13,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 6,
+    "issuePrice": 34.0,
+    "vsIssuePct": 66.2
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MONEYVIEW",
+    "stock": "Moneyview",
+    "client": "NK SECURITIES RESEARCH PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 8943843.0,
+    "price": 56.14,
+    "valueCr": 50.21,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 6,
+    "issuePrice": 34.0,
+    "vsIssuePct": 65.1
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MONEYVIEW",
+    "stock": "Moneyview",
+    "client": "JUMP TRADING FINANCIAL INDIA PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 12181434.0,
+    "price": 54.54,
+    "valueCr": 66.44,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 6,
+    "issuePrice": 34.0,
+    "vsIssuePct": 60.4
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MONEYVIEW",
+    "stock": "Moneyview",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 12381209.0,
+    "price": 55.62,
+    "valueCr": 68.86,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 6,
+    "issuePrice": 34.0,
+    "vsIssuePct": 63.6
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MONEYVIEW",
+    "stock": "Moneyview",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 13994299.0,
+    "price": 55.58,
+    "valueCr": 77.78,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 6,
+    "issuePrice": 34.0,
+    "vsIssuePct": 63.5
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MONEYVIEW",
+    "stock": "Moneyview",
+    "client": "PLUTUS WEALTH MANAGEMENT LLP",
+    "side": "SELL",
+    "qty": 19328196.0,
+    "price": 55.64,
+    "valueCr": 107.54,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 6,
+    "issuePrice": 34.0,
+    "vsIssuePct": 63.6
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MONEYVIEW",
+    "stock": "Moneyview",
+    "client": "NK SECURITIES RESEARCH PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 8937278.0,
+    "price": 56.11,
+    "valueCr": 50.15,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 6,
+    "issuePrice": 34.0,
+    "vsIssuePct": 65.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MONEYVIEW",
+    "stock": "Moneyview",
+    "client": "YUGA STOCKS AND COMMODITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 10870323.0,
+    "price": 56.54,
+    "valueCr": 61.46,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 6,
+    "issuePrice": 34.0,
+    "vsIssuePct": 66.3
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MONEYVIEW",
+    "stock": "Moneyview",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 11288188.0,
+    "price": 55.82,
+    "valueCr": 63.01,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 6,
+    "issuePrice": 34.0,
+    "vsIssuePct": 64.2
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MONEYVIEW",
+    "stock": "Moneyview",
+    "client": "JUMP TRADING FINANCIAL INDIA PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 11601051.0,
+    "price": 55.71,
+    "valueCr": 64.63,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 6,
+    "issuePrice": 34.0,
+    "vsIssuePct": 63.9
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MONEYVIEW",
+    "stock": "Moneyview",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 13994299.0,
+    "price": 55.49,
+    "valueCr": 77.65,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 6,
+    "issuePrice": 34.0,
+    "vsIssuePct": 63.2
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MONEYVIEW",
+    "stock": "Moneyview",
+    "client": "PLUTUS WEALTH MANAGEMENT LLP",
+    "side": "BUY",
+    "qty": 19328196.0,
+    "price": 55.61,
+    "valueCr": 107.48,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 6,
+    "issuePrice": 34.0,
+    "vsIssuePct": 63.6
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MANIKA",
+    "stock": "Manika Plastech",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 934251.0,
+    "price": 53.77,
+    "valueCr": 5.02,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-21",
+    "daysSinceListing": 16,
+    "issuePrice": 43.0,
+    "vsIssuePct": 25.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MANIKA",
+    "stock": "Manika Plastech",
+    "client": "MATHISYS QUANTCAP LLP",
+    "side": "SELL",
+    "qty": 1003321.0,
+    "price": 54.2,
+    "valueCr": 5.44,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-21",
+    "daysSinceListing": 16,
+    "issuePrice": 43.0,
+    "vsIssuePct": 26.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MANIKA",
+    "stock": "Manika Plastech",
+    "client": "SAROJDEVI S KABRA",
+    "side": "SELL",
+    "qty": 3147703.0,
+    "price": 55.15,
+    "valueCr": 17.36,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-21",
+    "daysSinceListing": 16,
+    "issuePrice": 43.0,
+    "vsIssuePct": 28.3
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MANIKA",
+    "stock": "Manika Plastech",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 942829.0,
+    "price": 54.61,
+    "valueCr": 5.15,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-21",
+    "daysSinceListing": 16,
+    "issuePrice": 43.0,
+    "vsIssuePct": 27.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MANIKA",
+    "stock": "Manika Plastech",
+    "client": "MATHISYS QUANTCAP LLP",
+    "side": "BUY",
+    "qty": 1003321.0,
+    "price": 54.13,
+    "valueCr": 5.43,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-21",
+    "daysSinceListing": 16,
+    "issuePrice": 43.0,
+    "vsIssuePct": 25.9
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "MANIKA",
+    "stock": "Manika Plastech",
+    "client": "SAROJDEVI S KABRA",
+    "side": "BUY",
+    "qty": 3147703.0,
+    "price": 56.09,
+    "valueCr": 17.66,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-21",
+    "daysSinceListing": 16,
+    "issuePrice": 43.0,
+    "vsIssuePct": 30.4
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "IRAGE BROKING SERVICES LLP",
+    "side": "SELL",
+    "qty": 317923.0,
+    "price": 1075.24,
+    "valueCr": 34.18,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 70.1
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "MICROCURVES TRADING PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 411348.0,
+    "price": 1082.88,
+    "valueCr": 44.54,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 71.3
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 424012.0,
+    "price": 1078.99,
+    "valueCr": 45.75,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 70.7
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "JUMP TRADING FINANCIAL INDIA PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 435541.0,
+    "price": 1090.26,
+    "valueCr": 47.49,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 72.5
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 459659.0,
+    "price": 1072.97,
+    "valueCr": 49.32,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 69.8
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 550696.0,
+    "price": 1080.17,
+    "valueCr": 59.48,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 70.9
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "PLUTUS WEALTH MANAGEMENT LLP",
+    "side": "SELL",
+    "qty": 605489.0,
+    "price": 1074.24,
+    "valueCr": 65.04,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 70.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 831752.0,
+    "price": 1085.47,
+    "valueCr": 90.28,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 71.8
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "MICROCURVES TRADING PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 411348.0,
+    "price": 1082.64,
+    "valueCr": 44.53,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 71.3
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 429485.0,
+    "price": 1076.94,
+    "valueCr": 46.25,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 70.4
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "JUMP TRADING FINANCIAL INDIA PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 435541.0,
+    "price": 1081.2,
+    "valueCr": 47.09,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 71.1
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 459659.0,
+    "price": 1072.84,
+    "valueCr": 49.31,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 69.8
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "PLUTUS WEALTH MANAGEMENT LLP",
+    "side": "BUY",
+    "qty": 605489.0,
+    "price": 1073.48,
+    "valueCr": 65.0,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 69.9
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 637676.0,
+    "price": 1080.86,
+    "valueCr": 68.92,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 71.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "IRAGE BROKING SERVICES LLP",
+    "side": "BUY",
+    "qty": 791336.0,
+    "price": 1068.08,
+    "valueCr": 84.52,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 69.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "KANOHAR",
+    "stock": "Kanohar Electricals",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 877507.0,
+    "price": 1074.47,
+    "valueCr": 94.29,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 632.0,
+    "vsIssuePct": 70.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "HTEL",
+    "stock": "Hy-Tech Engineers",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 529081.0,
+    "price": 83.57,
+    "valueCr": 4.42,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 36,
+    "issuePrice": 53.0,
+    "vsIssuePct": 57.7
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "HTEL",
+    "stock": "Hy-Tech Engineers",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 586850.0,
+    "price": 82.66,
+    "valueCr": 4.85,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 36,
+    "issuePrice": 53.0,
+    "vsIssuePct": 56.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "HTEL",
+    "stock": "Hy-Tech Engineers",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 664664.0,
+    "price": 82.67,
+    "valueCr": 5.49,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 36,
+    "issuePrice": 53.0,
+    "vsIssuePct": 56.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "HTEL",
+    "stock": "Hy-Tech Engineers",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 515887.0,
+    "price": 83.43,
+    "valueCr": 4.3,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 36,
+    "issuePrice": 53.0,
+    "vsIssuePct": 57.4
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "HTEL",
+    "stock": "Hy-Tech Engineers",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 524249.0,
+    "price": 82.31,
+    "valueCr": 4.32,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 36,
+    "issuePrice": 53.0,
+    "vsIssuePct": 55.3
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "HTEL",
+    "stock": "Hy-Tech Engineers",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 696734.0,
+    "price": 83.18,
+    "valueCr": 5.8,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 36,
+    "issuePrice": 53.0,
+    "vsIssuePct": 56.9
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "HEROMOTORS",
+    "stock": "Hero Motors",
+    "client": "JUMP TRADING FINANCIAL INDIA PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 3520642.0,
+    "price": 169.72,
+    "valueCr": 59.75,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-23",
+    "daysSinceListing": 14,
+    "issuePrice": 84.0,
+    "vsIssuePct": 102.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "HEROMOTORS",
+    "stock": "Hero Motors",
+    "client": "JUMP TRADING FINANCIAL INDIA PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 3531533.0,
+    "price": 170.96,
+    "valueCr": 60.38,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-23",
+    "daysSinceListing": 14,
+    "issuePrice": 84.0,
+    "vsIssuePct": 103.5
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "GREENASIA",
+    "stock": "Green Asia Impex",
+    "client": "CRAFT EMERGING MARKET FUND PCC- CITADEL CAPITAL FUND",
+    "side": "SELL",
+    "qty": 120000.0,
+    "price": 89.0,
+    "valueCr": 1.07,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-10-07",
+    "daysSinceListing": 0,
+    "issuePrice": 89.0,
+    "vsIssuePct": 0.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "GREENASIA",
+    "stock": "Green Asia Impex",
+    "client": "LONGTHRIVE CAPITAL VCC - GAMMA VIEW FUNDS",
+    "side": "SELL",
+    "qty": 144000.0,
+    "price": 89.0,
+    "valueCr": 1.28,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-10-07",
+    "daysSinceListing": 0,
+    "issuePrice": 89.0,
+    "vsIssuePct": 0.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "GREENASIA",
+    "stock": "Green Asia Impex",
+    "client": "LONGTHRIVE CAPITAL VCC - TRENDVIEW CAPITAL FUND",
+    "side": "SELL",
+    "qty": 160000.0,
+    "price": 89.0,
+    "valueCr": 1.42,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-10-07",
+    "daysSinceListing": 0,
+    "issuePrice": 89.0,
+    "vsIssuePct": 0.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "GREENASIA",
+    "stock": "Green Asia Impex",
+    "client": "M7 GLOBAL FUND PCC - AERION",
+    "side": "BUY",
+    "qty": 480000.0,
+    "price": 89.0,
+    "valueCr": 4.27,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-10-07",
+    "daysSinceListing": 0,
+    "issuePrice": 89.0,
+    "vsIssuePct": 0.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "GREENASIA",
+    "stock": "Green Asia Impex",
+    "client": "NOVA GLOBAL OPPORTUNITIES FUND PCC - TOUCHSTONE",
+    "side": "BUY",
+    "qty": 656000.0,
+    "price": 89.0,
+    "valueCr": 5.84,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-10-07",
+    "daysSinceListing": 0,
+    "issuePrice": 89.0,
+    "vsIssuePct": 0.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "GLASSWALL",
+    "stock": "Glass Wall Systems",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 523507.0,
+    "price": 261.1,
+    "valueCr": 13.67,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 182.0,
+    "vsIssuePct": 43.5
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "GLASSWALL",
+    "stock": "Glass Wall Systems",
+    "client": "JUMP TRADING FINANCIAL INDIA PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 581573.0,
+    "price": 260.52,
+    "valueCr": 15.15,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 182.0,
+    "vsIssuePct": 43.1
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "GLASSWALL",
+    "stock": "Glass Wall Systems",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 535191.0,
+    "price": 260.42,
+    "valueCr": 13.94,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 182.0,
+    "vsIssuePct": 43.1
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "GLASSWALL",
+    "stock": "Glass Wall Systems",
+    "client": "JUMP TRADING FINANCIAL INDIA PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 581573.0,
+    "price": 262.52,
+    "valueCr": 15.27,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-16",
+    "daysSinceListing": 21,
+    "issuePrice": 182.0,
+    "vsIssuePct": 44.2
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "FASCINATE",
+    "stock": "Fascinate Textiles",
+    "client": "GIRIJADHAVA VYAPAAR PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 128800.0,
+    "price": 85.5,
+    "valueCr": 1.1,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-08-24",
+    "daysSinceListing": 44,
+    "issuePrice": 151.0,
+    "vsIssuePct": -43.4
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "FASCINATE",
+    "stock": "Fascinate Textiles",
+    "client": "VIVEK LAHOTI",
+    "side": "BUY",
+    "qty": 100000.0,
+    "price": 85.5,
+    "valueCr": 0.85,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-08-24",
+    "daysSinceListing": 44,
+    "issuePrice": 151.0,
+    "vsIssuePct": -43.4
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "DEEPA",
+    "stock": "Deepa Jewellers",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 556689.0,
+    "price": 231.25,
+    "valueCr": 12.87,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-08",
+    "daysSinceListing": 29,
+    "issuePrice": 177.0,
+    "vsIssuePct": 30.6
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "DEEPA",
+    "stock": "Deepa Jewellers",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 605634.0,
+    "price": 232.53,
+    "valueCr": 14.08,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-08",
+    "daysSinceListing": 29,
+    "issuePrice": 177.0,
+    "vsIssuePct": 31.4
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "DEEPA",
+    "stock": "Deepa Jewellers",
+    "client": "MICROCURVES TRADING PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 638942.0,
+    "price": 233.11,
+    "valueCr": 14.89,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-08",
+    "daysSinceListing": 29,
+    "issuePrice": 177.0,
+    "vsIssuePct": 31.7
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "DEEPA",
+    "stock": "Deepa Jewellers",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 1091527.0,
+    "price": 232.79,
+    "valueCr": 25.41,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-08",
+    "daysSinceListing": 29,
+    "issuePrice": 177.0,
+    "vsIssuePct": 31.5
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "DEEPA",
+    "stock": "Deepa Jewellers",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 1231207.0,
+    "price": 232.01,
+    "valueCr": 28.57,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-08",
+    "daysSinceListing": 29,
+    "issuePrice": 177.0,
+    "vsIssuePct": 31.1
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "DEEPA",
+    "stock": "Deepa Jewellers",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 560493.0,
+    "price": 231.17,
+    "valueCr": 12.96,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-08",
+    "daysSinceListing": 29,
+    "issuePrice": 177.0,
+    "vsIssuePct": 30.6
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "DEEPA",
+    "stock": "Deepa Jewellers",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 608096.0,
+    "price": 232.46,
+    "valueCr": 14.14,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-08",
+    "daysSinceListing": 29,
+    "issuePrice": 177.0,
+    "vsIssuePct": 31.3
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "DEEPA",
+    "stock": "Deepa Jewellers",
+    "client": "MICROCURVES TRADING PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 638942.0,
+    "price": 233.04,
+    "valueCr": 14.89,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-08",
+    "daysSinceListing": 29,
+    "issuePrice": 177.0,
+    "vsIssuePct": 31.7
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "DEEPA",
+    "stock": "Deepa Jewellers",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 1091527.0,
+    "price": 232.73,
+    "valueCr": 25.4,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-08",
+    "daysSinceListing": 29,
+    "issuePrice": 177.0,
+    "vsIssuePct": 31.5
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "DEEPA",
+    "stock": "Deepa Jewellers",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 1203243.0,
+    "price": 231.87,
+    "valueCr": 27.9,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-08",
+    "daysSinceListing": 29,
+    "issuePrice": 177.0,
+    "vsIssuePct": 31.0
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "ACEVECTOR",
+    "stock": "Acevector",
+    "client": "MATHISYS QUANTCAP LLP",
+    "side": "SELL",
+    "qty": 2959048.0,
+    "price": 28.63,
+    "valueCr": 8.47,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-05",
+    "daysSinceListing": 2,
+    "issuePrice": 32.0,
+    "vsIssuePct": -10.5
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "ACEVECTOR",
+    "stock": "Acevector",
+    "client": "GOLDMAN SACHS BANK EUROPE SE",
+    "side": "SELL",
+    "qty": 3217800.0,
+    "price": 29.88,
+    "valueCr": 9.61,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-05",
+    "daysSinceListing": 2,
+    "issuePrice": 32.0,
+    "vsIssuePct": -6.6
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "ACEVECTOR",
+    "stock": "Acevector",
+    "client": "YUGA STOCKS AND COMMODITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 6463406.0,
+    "price": 31.1,
+    "valueCr": 20.1,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-05",
+    "daysSinceListing": 2,
+    "issuePrice": 32.0,
+    "vsIssuePct": -2.8
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "ACEVECTOR",
+    "stock": "Acevector",
+    "client": "MATHISYS QUANTCAP LLP",
+    "side": "BUY",
+    "qty": 3045592.0,
+    "price": 28.83,
+    "valueCr": 8.78,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-05",
+    "daysSinceListing": 2,
+    "issuePrice": 32.0,
+    "vsIssuePct": -9.9
+   },
+   {
+    "date": "2026-10-07",
+    "symbol": "ACEVECTOR",
+    "stock": "Acevector",
+    "client": "YUGA STOCKS AND COMMODITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 6163603.0,
+    "price": 30.07,
+    "valueCr": 18.53,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-05",
+    "daysSinceListing": 2,
+    "issuePrice": 32.0,
+    "vsIssuePct": -6.0
+   },
    {
     "date": "2026-10-06",
     "symbol": "VINOD",
@@ -100574,7 +102224,7 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1218.3,
+    "value": 1207.7,
     "asOf": "2026-10-07"
    },
    "parentTicker": "RELIANCE",
@@ -100627,7 +102277,7 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 134.48,
+    "value": 133.8,
     "asOf": "2026-10-07"
    },
    "parentTicker": "EDELWEISS",
@@ -100782,7 +102432,7 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 414.65,
+    "value": 414.5,
     "asOf": "2026-10-07"
    },
    "parentTicker": "COALINDIA",
@@ -100911,7 +102561,7 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5027.0,
+    "value": 5004.0,
     "asOf": "2026-10-07"
    },
    "parentTicker": "HEROMOTOCO",
@@ -101026,7 +102676,7 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 414.65,
+    "value": 414.5,
     "asOf": "2026-10-07"
    },
    "parentTicker": "COALINDIA",
@@ -108409,7 +110059,7 @@
   },
   "2292": {
    "name": "R.K.Fashion Accessories",
-   "fetchedAt": "2026-10-07T17:37:51+05:30",
+   "fetchedAt": "2026-10-07T18:13:47+05:30",
    "about": [
     "Incorporated in March 2010, R.K. Fashion Accessories Limited is engaged in the manufacturing through contract manufacturers and wholesale distribution of imitation jewellery, along with trading of branded cosmetics. The company offers traditional and contemporary jewellery products under brands such as “City Girl” and “Manikya”. The company operates through B2B wholesale, e-commerce retailing, and corporate retail tie-ups while expanding its B2C presence in Kolkata. Its product portfolio includes bangles, earrings, necklaces, chains, rings, bracelets, mangalsutras, sets, and CZ/AD jewellery catering to wedding, festive, and daily wear segments. R.K. Fashion Accessories follows a contract manufacturing model supported by skilled artisans and third-party manufacturers, primarily based in Kolkata. The company also operates around 120 shop-in-shop counters through corporate partnerships and processes over 10,000 online orders monthly across multiple e-commerce platforms. For Fiscal 2026, the company reported revenue from operations of ₹3,035.71 lakhs, with West Bengal contributing the majority of revenue. As of March 31, 2026, the company had 50 permanent employees. Competitive Strengths: Traditional and contemporary jewellery portfolio Strong B2B and e-commerce presence Strategic corporate retail tie-ups Consistent revenue growth Multi-stage quality control process Wide product range across multiple price points"
    ],
@@ -109768,7 +111418,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-07T12:42:27+05:30",
+  "asOf": "2026-10-07T18:14:23+05:30",
   "dates": [
    "2026-01-05",
    "2026-01-06",
