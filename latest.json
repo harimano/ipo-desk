@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-11T06:45:08+05:30",
+  "asOf": "2026-10-11T12:40:04+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "11 Oct 2026, 06:45 IST",
+  "label": "11 Oct 2026, 12:40 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -1763,9 +1763,9 @@
    "issueSizeCr": 702.0,
    "freshCr": 500.0,
    "ofsCr": 202.0,
-   "gmp": 53.0,
-   "gmpPct": 18.34,
-   "gmpTrend": "flat",
+   "gmp": 45.0,
+   "gmpPct": 15.57,
+   "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -1964,7 +1964,7 @@
    "freshCr": null,
    "ofsCr": null,
    "gmp": 171.0,
-   "gmpPct": 0.0,
+   "gmpPct": null,
    "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
@@ -2856,7 +2856,7 @@
    "bandLow": 77.0,
    "bandHigh": 82.0,
    "lotSize": 1600,
-   "issueSizeCr": 33.23,
+   "issueSizeCr": 34.99,
    "freshCr": 33.23,
    "ofsCr": null,
    "gmp": 1.5,
@@ -2967,7 +2967,7 @@
    "bandLow": 105.0,
    "bandHigh": 112.0,
    "lotSize": 1200,
-   "issueSizeCr": 110.21,
+   "issueSizeCr": 116.05,
    "freshCr": 110.21,
    "ofsCr": null,
    "gmp": 12.0,
@@ -3037,7 +3037,7 @@
    "bandLow": 51.0,
    "bandHigh": 54.0,
    "lotSize": 2000,
-   "issueSizeCr": 39.99,
+   "issueSizeCr": 42.1,
    "freshCr": 39.99,
    "ofsCr": null,
    "gmp": 0.0,
@@ -35254,6 +35254,16 @@
  ],
  "news": [
   {
+   "title": "IPO rush continues: Jio, Zetwerk among cos set to tap primary market in Oct",
+   "url": "https://www.business-standard.com/markets/ipo/ipo-rush-continues-jio-zetwerk-among-cos-set-to-tap-primary-market-in-oct-126101100192_1.html",
+   "date": "2026-10-11T12:15:38+05:30"
+  },
+  {
+   "title": "IPO calendar: After a week of lull, 5 companies to raise nearly Rs 1,600 crore this week",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-calendar-after-a-week-of-lull-5-companies-to-raise-nearly-rs-1600-crore-next-week/articleshow/134864751.cms",
+   "date": "2026-10-11T09:54:38+05:30"
+  },
+  {
    "title": "Sebi to issue closing auction guidelines in a week: Tuhin Kanta Pandey",
    "url": "https://www.business-standard.com/markets/news/sebi-to-issue-closing-auction-guidelines-in-a-week-tuhin-kanta-pandey-126101000778_1.html",
    "date": "2026-10-10T19:28:24+05:30"
@@ -35367,16 +35377,6 @@
    "title": "6 SME IPOs to list today: EverestIMS, Dove Soft, Eventions among issues making debut",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/6-sme-ipos-to-list-today-everestims-dove-soft-eventions-among-issues-making-debut/articleshow/134779287.cms",
    "date": "2026-10-08T09:26:54+05:30"
-  },
-  {
-   "title": "Vishal Nirmiti shares list at 2% discount over IPO price on NSE, BSE",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/vishal-nirmiti-shares-to-list-today-check-gmp-ahead-of-debut/articleshow/134779234.cms",
-   "date": "2026-10-08T09:18:59+05:30"
-  },
-  {
-   "title": "Sebi brings risk-o-meter for debt securities; eases norms for debt-raising",
-   "url": "https://www.business-standard.com/markets/news/sebi-brings-risk-o-meter-for-debt-securities-eases-norms-for-debt-raising-126100701525_1.html",
-   "date": "2026-10-07T23:32:07+05:30"
   }
  ],
  "priceHistory": {
@@ -78408,40 +78408,40 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-11T06:45:08+05:30",
+  "asOf": "2026-10-11T12:40:04+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-11T06:43:55+05:30",
-    "elapsed": 1.17,
+    "asOf": "2026-10-11T12:38:49+05:30",
+    "elapsed": 1.45,
     "calls": 5,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=8 carried=3 +nse=3 +bse=0 exchange-only=0: 5 mainboard, 3 sme; 0 open, 7 upcoming"
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=8 carried=0 +nse=3 +bse=0 exchange-only=0: 5 mainboard, 3 sme; 0 open, 7 upcoming"
    },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.71,
+    "elapsed": 1.05,
     "calls": 1,
-    "note": "gmp: 6 board rows patched via investorgain; 7 active, 4 of them matched; gmp: 24 GMP-site names not on the board: A-One Steels (₹46, investorgain); Acme Universal Safezone 9 (₹16, investorgain); Adroit Industries (₹55, investorgain); ArMee Infotech (₹6, investorgain); Bench Mark Infotech Services (₹15, investorgain); Bonfiglioli Transmissions (₹137, investorgain); Dudani Retail (₹0.5, investorgain); Elevate Campuses (₹6.5, investorgain) …; sme: 1 patched names not on the board: Acme India Industries"
+    "note": "gmp: 5 board rows patched via investorgain; 7 active, 4 of them matched; gmp: 25 GMP-site names not on the board: A-One Steels (₹46, investorgain); Acme India Industries (₹43, investorgain); Acme Universal Safezone 9 (₹16, investorgain); Adroit Industries (₹55, investorgain); ArMee Infotech (₹6, investorgain); Bench Mark Infotech Services (₹15, investorgain); Bonfiglioli Transmissions (₹140, investorgain); Dudani Retail (₹0.5, investorgain) …"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-11T06:43:56+05:30",
-    "elapsed": 3.16,
-    "calls": 8,
-    "note": "8 records fetched for 8 identified listings (0 without an id); 0 anchor books updated, 77 on file"
+    "asOf": "2026-10-11",
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "8 listings identified, none due for a refresh"
    },
    {
     "area": "subscription",
     "method": "none:ok",
     "status": "ok",
-    "asOf": "2026-10-11T06:44:00+05:30",
+    "asOf": "2026-10-11T12:38:50+05:30",
     "elapsed": 0.01,
     "calls": 0,
     "note": "no open or recently closed issues on the board"
@@ -78451,7 +78451,7 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-09",
-    "elapsed": 13.33,
+    "elapsed": 10.43,
     "calls": 0,
     "note": "31 names priced, 0 moved to recent, 0 history points"
    },
@@ -78460,7 +78460,7 @@
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-11",
-    "elapsed": 2.5,
+    "elapsed": 3.1,
     "calls": 2,
     "note": "1385 listings since 2022 (985 SME); fetched 2026: 282; QIB on file for 101 of 400 mainboard issues"
    },
@@ -78496,7 +78496,7 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-11",
-    "elapsed": 27.42,
+    "elapsed": 32.0,
     "calls": 54,
     "note": "53 of 2839 anchor investors read (0 failed); names found for 0 of 8 unlisted issues"
    },
@@ -78505,7 +78505,7 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-09",
-    "elapsed": 14.17,
+    "elapsed": 13.19,
     "calls": 0,
     "note": "5/5 parent prices; 46/52 investor stocks priced"
    },
@@ -78514,16 +78514,16 @@
     "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-10-11",
-    "elapsed": 7.22,
+    "elapsed": 11.19,
     "calls": 14,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 2522 announcements scanned, 0 subsidiary-offer leads; expected: 43 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 2 leads held; 0 rows patched, 33 kept previous stage"
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 2526 announcements scanned, 0 subsidiary-offer leads; expected: 43 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 2 leads held; 0 rows patched, 33 kept previous stage"
    },
    {
     "area": "offers",
     "method": "bse:blocked, bse:blocked",
     "status": "blocked",
     "asOf": null,
-    "elapsed": 0.03,
+    "elapsed": 0.04,
     "calls": 1,
     "note": "kept previous — HTTP 403"
    },
@@ -78532,7 +78532,7 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-10-09",
-    "elapsed": 0.3,
+    "elapsed": 0.7,
     "calls": 1,
     "note": "2026-10-09 already in history; FII -3,569 / DII +4,743 Cr"
    },
@@ -78541,7 +78541,7 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-10-09",
-    "elapsed": 1.0,
+    "elapsed": 0.94,
     "calls": 4,
     "note": "bulk.csv: 155 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 155; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 52 of today's 155 deals are in this year's listings (14 stocks); 992 kept over 60 days; 186 of 282 listings have an NSE symbol; 219 with a BSE code"
    },
@@ -78549,10 +78549,10 @@
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
-    "asOf": "2026-10-10T19:28:24+05:30",
-    "elapsed": 0.65,
+    "asOf": "2026-10-11T12:15:38+05:30",
+    "elapsed": 0.59,
     "calls": 3,
-    "note": "business-standard: 4/35 primary-market items; economic-times: 7/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 11 fresh, 25 kept"
+    "note": "business-standard: 5/35 primary-market items; economic-times: 5/50 primary-market items; moneycontrol-ipo: changed — no entries parsed: '<!DOCTYPE html> <html>   <head>     <met; 10 fresh, 25 kept"
    },
    {
     "area": "logos",
@@ -78573,7 +78573,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "73s, 93 calls, 16/17 modules ok"
+    "note": "76s, 85 calls, 16/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -109765,7 +109765,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-11T06:44:16+05:30",
+  "asOf": "2026-10-11T12:39:04+05:30",
   "dates": [
    "2026-01-07",
    "2026-01-08",
