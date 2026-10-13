@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-13T02:56:01+05:30",
+  "asOf": "2026-10-13T06:45:14+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "13 Oct 2026, 02:56 IST",
+  "label": "13 Oct 2026, 06:45 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -39,7 +39,8 @@
   ],
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
-   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics"
+   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
+   "[gmp] gmp: no grey-market print found for open issue Vaibhav Vyapaar"
   ]
  },
  "expected": [
@@ -1722,7 +1723,7 @@
    "igId": "1902",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-13T02:54:49+05:30",
+   "igFetchedAt": "2026-10-13T06:43:54+05:30",
    "sector": "Other Consumer Services",
    "anchorShares": 0,
    "logo": "hd-fire-ipo-logo.png",
@@ -3152,7 +3153,7 @@
    "igId": "2335",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-13T02:54:49+05:30",
+   "igFetchedAt": "2026-10-13T06:43:54+05:30",
    "refund": "2026-10-19",
    "sector": "Non Banking Financial Company (NBFC)",
    "anchorShares": 2200000,
@@ -78717,14 +78718,14 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-13T02:56:01+05:30",
+  "asOf": "2026-10-13T06:45:14+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-13T02:54:47+05:30",
-    "elapsed": 2.13,
+    "asOf": "2026-10-13T06:43:53+05:30",
+    "elapsed": 1.44,
     "calls": 5,
     "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=10 carried=1 +nse=5 +bse=0 exchange-only=0: 7 mainboard, 4 sme; 2 open, 8 upcoming"
    },
@@ -78733,7 +78734,7 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.95,
+    "elapsed": 0.88,
     "calls": 1,
     "note": "gmp: 8 board rows patched via investorgain; 10 active, 7 of them matched; gmp: 23 GMP-site names not on the board: A-One Steels (₹46, investorgain); Acme India Industries (₹43, investorgain); Acme Universal Safezone 9 (₹16, investorgain); Adroit Industries (₹55, investorgain); Bench Mark Infotech Services (₹15, investorgain); Bonfiglioli Transmissions (₹155, investorgain); Dudani Retail (₹0.5, investorgain); Elevate Campuses (₹6.5, investorgain) …"
    },
@@ -78741,8 +78742,8 @@
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-13T02:54:49+05:30",
-    "elapsed": 2.04,
+    "asOf": "2026-10-13T06:43:54+05:30",
+    "elapsed": 0.36,
     "calls": 2,
     "note": "2 records fetched for 11 identified listings (0 without an id); 0 anchor books updated, 81 on file"
    },
@@ -78751,7 +78752,7 @@
     "method": "nse/narada/bse/chittorgarh:changed, subscription:changed",
     "status": "stale",
     "asOf": null,
-    "elapsed": 1.69,
+    "elapsed": 10.46,
     "calls": 5,
     "note": "kept previous — Vaibhav Vyapaar: narada: no book yet; nse: no book (all zero or nothing classified); chittorgarh: report 21: no subscription table with QIB/Total headers"
    },
@@ -78759,8 +78760,8 @@
     "area": "listings",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
-    "asOf": "2026-10-12",
-    "elapsed": 10.85,
+    "asOf": "2026-10-09",
+    "elapsed": 12.01,
     "calls": 0,
     "note": "31 names priced, 0 moved to recent, 0 history points"
    },
@@ -78769,7 +78770,7 @@
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-13",
-    "elapsed": 2.89,
+    "elapsed": 2.59,
     "calls": 2,
     "note": "1386 listings since 2022 (986 SME); fetched 2026: 283; QIB on file for 101 of 400 mainboard issues"
    },
@@ -78778,25 +78779,25 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-10-12",
-    "elapsed": 1.14,
-    "calls": 2,
-    "note": "187 listings with an NSE symbol; 1 NSE file(s) read, 126 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 1 BSE file(s) read, 85 closes added, 185 days on file"
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "187 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file"
    },
    {
     "area": "anchorbook",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-13",
-    "elapsed": 0.97,
-    "calls": 1,
-    "note": "0 anchor books read (1 without an anchor table, 0 failed); 900 on file, 589 partial (feed gave only the first names); 0 of 1386 listings still to fetch"
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "0 anchor books read (0 without an anchor table, 0 failed); 900 on file, 589 partial (feed gave only the first names); 0 of 1386 listings still to fetch"
    },
    {
     "area": "evidence",
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-10-13",
-    "elapsed": 0.09,
+    "elapsed": 0.18,
     "calls": 0,
     "note": "track records: 900 of 900 anchor books have an outcome; 831 of 1379 investors with 2+; 1386 listings; windows: mainboard 130, SME 237; 4 warnings"
    },
@@ -78805,7 +78806,7 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-13",
-    "elapsed": 30.82,
+    "elapsed": 27.79,
     "calls": 54,
     "note": "53 of 2839 anchor investors read (0 failed); names found for 1 of 10 unlisted issues"
    },
@@ -78814,7 +78815,7 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-09",
-    "elapsed": 10.76,
+    "elapsed": 13.3,
     "calls": 0,
     "note": "5/5 parent prices; 45/51 investor stocks priced"
    },
@@ -78823,7 +78824,7 @@
     "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-10-13",
-    "elapsed": 7.74,
+    "elapsed": 8.97,
     "calls": 14,
     "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1763 announcements scanned, 0 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 2 leads held; 0 rows patched, 33 kept previous stage"
    },
@@ -78832,7 +78833,7 @@
     "method": "bse:blocked, bse:blocked",
     "status": "blocked",
     "asOf": null,
-    "elapsed": 0.05,
+    "elapsed": 0.06,
     "calls": 1,
     "note": "kept previous — HTTP 403"
    },
@@ -78841,17 +78842,17 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-10-12",
-    "elapsed": 0.23,
+    "elapsed": 1.0,
     "calls": 1,
-    "note": "appended 2026-10-12; FII -1,708 / DII +3,045 Cr"
+    "note": "2026-10-12 already in history; FII -1,708 / DII +3,045 Cr"
    },
    {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-10-12",
-    "elapsed": 1.98,
-    "calls": 6,
+    "elapsed": 1.34,
+    "calls": 4,
     "note": "bulk.csv: 103 deals; block.csv: 2 deals; 0 tracked-investor deals of 105; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 44 of today's 105 deals are in this year's listings (8 stocks); 1036 kept over 60 days; 187 of 283 listings have an NSE symbol; 219 with a BSE code"
    },
    {
@@ -78859,9 +78860,9 @@
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-10-12T23:24:29+05:30",
-    "elapsed": 0.76,
+    "elapsed": 0.52,
     "calls": 3,
-    "note": "business-standard: 5/35 primary-market items; economic-times: 5/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 10 fresh, 25 kept"
+    "note": "business-standard: 5/35 primary-market items; economic-times: 3/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 8 fresh, 25 kept"
    },
    {
     "area": "logos",
@@ -78882,7 +78883,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "76s, 97 calls, 15/17 modules ok"
+    "note": "82s, 92 calls, 15/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -108626,7 +108627,7 @@
   },
   "1902": {
    "name": "HD Fire Protect",
-   "fetchedAt": "2026-10-13T02:54:49+05:30",
+   "fetchedAt": "2026-10-13T06:43:54+05:30",
    "about": [
     "HD Fire Protect Ltd. is engaged in the design, manufacture, and supply of a wide range of fire protection equipment and integrated fire safety systems. The company caters to industrial, commercial, and institutional clients by providing dependable and internationally certified fire protection solutions. The company focuses on innovation, product development, and adherence to global quality and safety standards. Supported by an extensive distribution network and strong after-sales service capabilities, HD Fire Protect has established a significant presence in both domestic and international markets. HD Fire Protect operates two manufacturing facilities located at Jalgaon MIDC and Thane MIDC in Maharashtra, covering a combined area of approximately 8.50 acres. Its product portfolio includes fire sprinklers, valves, foam-based firefighting equipment, and fire detection systems, enabling comprehensive fire protection solutions across multiple industries. The company serves a diverse range of sectors, including oil & gas, power generation, manufacturing, infrastructure, and other high-risk industrial applications. As of March 31, 2025, it employed 261 permanent employees and 185 contractual employees. Strong global footprint in a highly regulated and certification-driven industry with significant entry barriers. Broad portfolio of fire protection equipment and systems serving multiple end-use industries. Diversified customer base supported by long-term relationships across domestic and international markets. Advanced engineering, design, and manufacturing capabilities backed by continuous research and innovation. Experienced leadership team and skilled workforce with extensive industry expertise."
    ],
@@ -109259,7 +109260,7 @@
   },
   "2335": {
    "name": "Vaibhav Vyapaar",
-   "fetchedAt": "2026-10-13T02:54:49+05:30",
+   "fetchedAt": "2026-10-13T06:43:54+05:30",
    "about": [
     "Vaibhav Vyapaar Limited is an RBI-registered Non-Banking Financial Company (NBFC) engaged in providing digital lending solutions to retail customers across India. The company primarily offers unsecured personal loans to salaried and self-employed individuals through a technology-enabled platform, operating under both direct lending and co-lending arrangements. Its lending services are delivered through the “LoanFront” mobile application, which facilitates the entire loan lifecycle digitally, including customer onboarding, credit assessment, documentation, loan disbursement, and repayment management. The company leverages automated underwriting processes, digital verification systems, and data-driven risk evaluation tools to streamline lending operations and enhance credit decision-making. Apart from its lending business, Vaibhav Vyapaar also provides technology and application support services to other NBFCs, creating an additional source of revenue. The company primarily caters to retail borrowers, with a focus on first-time credit seekers and salaried individuals in the low- to middle-income segment, while expanding its reach across urban and semi-urban markets through a scalable digital infrastructure."
    ],
@@ -111554,7 +111555,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-13T02:55:06+05:30",
+  "asOf": "2026-10-13T06:44:20+05:30",
   "dates": [
    "2026-01-09",
    "2026-01-12",
