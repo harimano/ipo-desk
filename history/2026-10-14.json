@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-14T06:45:47+05:30",
+  "asOf": "2026-10-14T11:08:06+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "14 Oct 2026, 06:45 IST",
+  "label": "14 Oct 2026, 11:08 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -40,8 +40,7 @@
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
    "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
-   "[gmp] gmp: no grey-market print found for open issue Vaibhav Vyapaar",
-   "[subscription] subscription missing for Fusion CX, Ravita Engineering Services — check NSE/BSE ids on the row"
+   "[gmp] gmp: no grey-market print found for open issue Vaibhav Vyapaar"
   ]
  },
  "expected": [
@@ -1711,12 +1710,12 @@
    "gmpPct": 33.58,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 1.04,
-    "nii": 11.38,
-    "retail": 3.78,
-    "total": 4.62,
-    "employee": 2.93,
-    "asOf": "2026-10-13T17:00:00+05:30",
+    "qib": 1.05,
+    "nii": 20.22,
+    "retail": 5.66,
+    "total": 7.45,
+    "employee": 4.12,
+    "asOf": "2026-10-14T11:03:00+05:30",
     "src": "nse"
    },
    "shareholderQuota": null,
@@ -1731,7 +1730,7 @@
    "igId": "1902",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T06:44:02+05:30",
+   "igFetchedAt": "2026-10-14T11:07:52+05:30",
    "sector": "Other Consumer Services",
    "anchorShares": 7864008,
    "logo": "hd-fire-ipo-logo.png",
@@ -1775,46 +1774,46 @@
     "asOf": "2026-10-13T18:10:00+05:30"
    },
    "refund": "2026-10-19",
-   "gmpAsOf": "2026-10-13T23:37:00+05:30",
+   "gmpAsOf": "2026-10-14T08:02:00+05:30",
    "gmpEve": 91.0,
-   "gmpEveAsOf": "2026-10-13T23:37:00+05:30",
+   "gmpEveAsOf": "2026-10-14T08:02:00+05:30",
    "apps": {
     "qib": {
      "reserved": 5242673,
-     "received": 134,
+     "received": 189,
      "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 5106,
-     "received": 27969,
+     "received": 46976,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 3404,
-     "received": 7416,
+     "received": 14109,
      "reservedSrc": "rhp=narada"
     },
     "snii": {
      "reserved": 1702,
-     "received": 20553,
+     "received": 32867,
      "reservedSrc": "rhp=narada"
     },
     "retail": {
      "reserved": 166812,
-     "received": 542747,
+     "received": 810167,
      "reservedSrc": "rhp=narada"
     },
     "employee": {
      "reserved": 1293,
-     "received": 2034,
+     "received": 3167,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 5415884,
-     "received": 572884,
+     "received": 860499,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-14T06:44:11+05:30"
+    "asOf": "2026-10-14T11:08:00+05:30"
    }
   },
   {
@@ -1832,10 +1831,17 @@
    "issueSizeCr": 702.0,
    "freshCr": 500.0,
    "ofsCr": 202.0,
-   "gmp": 33.5,
-   "gmpPct": 11.59,
-   "gmpTrend": "flat",
-   "sub": null,
+   "gmp": 31.0,
+   "gmpPct": 10.73,
+   "gmpTrend": "down",
+   "sub": {
+    "qib": 0.0,
+    "nii": 0.08,
+    "retail": 0.36,
+    "total": 0.09,
+    "asOf": "2026-10-14T11:03:00+05:30",
+    "src": "nse"
+   },
    "shareholderQuota": null,
    "listingPrice": null,
    "listingGainPct": null,
@@ -1848,14 +1854,14 @@
    "igId": "1792",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T06:44:02+05:30",
+   "igFetchedAt": "2026-10-14T11:07:52+05:30",
    "refund": "2026-10-21",
    "sector": "Business Process Outsourcing (BPO)/Knowledge Process Outsourcing (KPO)",
-   "anchorShares": 0,
+   "anchorShares": 10930795,
    "logo": "fusion-cx-ipo-logo.png",
-   "gmpAsOf": "2026-10-13T23:37:00+05:30",
-   "gmpEve": 33.5,
-   "gmpEveAsOf": "2026-10-13T23:37:00+05:30",
+   "gmpAsOf": "2026-10-14T10:02:00+05:30",
+   "gmpEve": 31.0,
+   "gmpEveAsOf": "2026-10-14T10:02:00+05:30",
    "facts": {
     "sector": "Business Process Outsourcing (BPO)/Knowledge Process Outsourcing (KPO)",
     "listingAt": "BSE, NSE",
@@ -1884,10 +1890,43 @@
     ],
     "docs": {
      "drhp": "https://www.sebi.gov.in/filings/public-issues/may-2025/fusion-cx-limited_94311.html",
-     "rhp": "https://www.chittorgarh.net/reports/ipo_notes/fusion-cx-limited-red-herring-prospectus.pdf",
+     "rhp": "https://nsearchives.nseindia.com/content/ipo/RHP_FUSIONCX.zip",
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/fusion-cx-ipo-anchor-allocation-letter.pdf"
     },
-    "asOf": "2026-10-14T00:10:00+05:30"
+    "asOf": "2026-10-14T04:55:00+05:30"
+   },
+   "apps": {
+    "qib": {
+     "reserved": 7287197,
+     "received": 0,
+     "reservedSrc": "narada"
+    },
+    "nii": {
+     "reserved": 5103,
+     "received": 255,
+     "reservedSrc": "narada"
+    },
+    "bnii": {
+     "reserved": 3402,
+     "received": 42,
+     "reservedSrc": "rhp=narada"
+    },
+    "snii": {
+     "reserved": 1701,
+     "received": 213,
+     "reservedSrc": "rhp=narada"
+    },
+    "retail": {
+     "reserved": 47628,
+     "received": 15169,
+     "reservedSrc": "rhp"
+    },
+    "total": {
+     "reserved": 7339929,
+     "received": 15424,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-14T11:08:05+05:30"
    }
   },
   {
@@ -1974,9 +2013,9 @@
    "issueSizeCr": 475.48,
    "freshCr": null,
    "ofsCr": 475.48,
-   "gmp": 41.0,
-   "gmpPct": 11.92,
-   "gmpTrend": "flat",
+   "gmp": 42.0,
+   "gmpPct": 12.21,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2046,8 +2085,8 @@
    "issueSizeCr": 852.18,
    "freshCr": null,
    "ofsCr": 852.18,
-   "gmp": 490.0,
-   "gmpPct": 70.0,
+   "gmp": 500.0,
+   "gmpPct": 71.43,
    "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
@@ -2115,9 +2154,9 @@
    "issueSizeCr": 5012.33,
    "freshCr": 2830.0,
    "ofsCr": 2182.33,
-   "gmp": 23.0,
-   "gmpPct": 15.23,
-   "gmpTrend": "flat",
+   "gmp": 24.5,
+   "gmpPct": 16.23,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2185,9 +2224,9 @@
    "issueSizeCr": 27.0,
    "freshCr": null,
    "ofsCr": null,
-   "gmp": 218.0,
-   "gmpPct": 0.0,
-   "gmpTrend": "flat",
+   "gmp": 219.0,
+   "gmpPct": null,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3061,10 +3100,10 @@
    "sub": {
     "nii": 0.42,
     "bnii": 0.48,
-    "snii": 0.28,
-    "retail": 0.2,
-    "total": 0.19,
-    "asOf": "2026-10-14T06:44:18+05:30",
+    "snii": 0.3,
+    "retail": 0.26,
+    "total": 0.22,
+    "asOf": "2026-10-14T11:08:06+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3079,14 +3118,14 @@
    "igId": "2335",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T06:44:02+05:30",
+   "igFetchedAt": "2026-10-14T11:07:52+05:30",
    "refund": "2026-10-19",
    "sector": "Non Banking Financial Company (NBFC)",
    "anchorShares": 2200000,
    "logo": "vaibhav-vyapaar-logo.jpg",
-   "gmpAsOf": "2026-10-13T23:36:00+05:30",
+   "gmpAsOf": "2026-10-14T09:58:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-13T23:36:00+05:30",
+   "gmpEveAsOf": "2026-10-14T09:58:00+05:30",
    "facts": {
     "sector": "Non Banking Financial Company (NBFC)",
     "listingAt": "NSE SME",
@@ -3126,7 +3165,7 @@
     },
     "nii": {
      "reserved": 186,
-     "received": 34,
+     "received": 35,
      "reservedSrc": "narada"
     },
     "bnii": {
@@ -3136,20 +3175,20 @@
     },
     "snii": {
      "reserved": 62,
-     "received": 16,
+     "received": 17,
      "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 649,
-     "received": 127,
+     "received": 171,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 1582,
-     "received": 161,
+     "received": 206,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-14T06:44:18+05:30"
+    "asOf": "2026-10-14T11:08:06+05:30"
    }
   },
   {
@@ -3170,7 +3209,15 @@
    "gmp": 2.0,
    "gmpPct": 1.79,
    "gmpTrend": "flat",
-   "sub": null,
+   "sub": {
+    "nii": 0.1,
+    "bnii": 0.1,
+    "snii": 0.1,
+    "retail": 0.19,
+    "total": 0.12,
+    "asOf": "2026-10-14T11:08:06+05:30",
+    "src": "narada"
+   },
    "shareholderQuota": null,
    "listingPrice": null,
    "listingGainPct": null,
@@ -3183,7 +3230,7 @@
    "igId": "2220",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T06:44:02+05:30",
+   "igFetchedAt": "2026-10-14T11:07:52+05:30",
    "refund": "2026-10-21",
    "sector": "Civil Construction",
    "anchorShares": 0,
@@ -3214,14 +3261,47 @@
     ],
     "docs": {
      "drhp": "https://nsearchives.nseindia.com/emerge/corporates/content/Registration_25032026194505_RESL_DRHP_20260325.pdf",
-     "rhp": "https://www.vivro.net/uploads/team/1791441800230.pdf",
+     "rhp": "https://nsearchives.nseindia.com/content/ipo/RHP_RAVITA.zip",
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/ravita-engineering-anchor-book.pdf"
     },
-    "asOf": "2026-10-13T18:25:00+05:30"
+    "asOf": "2026-10-14T04:40:00+05:30"
    },
-   "gmpAsOf": "2026-10-13T23:37:00+05:30",
+   "gmpAsOf": "2026-10-14T10:02:00+05:30",
    "gmpEve": 2.0,
-   "gmpEveAsOf": "2026-10-13T23:37:00+05:30"
+   "gmpEveAsOf": "2026-10-14T10:02:00+05:30",
+   "apps": {
+    "qib": {
+     "reserved": 1640,
+     "received": 0,
+     "reservedSrc": "narada"
+    },
+    "nii": {
+     "reserved": 410,
+     "received": 23,
+     "reservedSrc": "narada"
+    },
+    "bnii": {
+     "reserved": 273,
+     "received": 10,
+     "reservedSrc": "narada"
+    },
+    "snii": {
+     "reserved": 137,
+     "received": 13,
+     "reservedSrc": "narada"
+    },
+    "retail": {
+     "reserved": 1435,
+     "received": 273,
+     "reservedSrc": "narada"
+    },
+    "total": {
+     "reserved": 3485,
+     "received": 296,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-14T11:08:06+05:30"
+   }
   },
   {
    "name": "Shellz India",
@@ -79170,23 +79250,14 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-14T06:45:47+05:30",
+  "asOf": "2026-10-14T11:08:06+05:30",
   "checks": [
-   {
-    "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-14T06:44:00+05:30",
-    "elapsed": 1.89,
-    "calls": 5,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=10 carried=0 +nse=10 +bse=0 exchange-only=0: 7 mainboard, 3 sme; 4 open, 6 upcoming"
-   },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 1.18,
+    "elapsed": 0.99,
     "calls": 1,
     "note": "gmp: 7 board rows patched via investorgain; 10 active, 7 of them matched; gmp: 24 GMP-site names not on the board: A-One Steels (₹46, investorgain); Acme India Industries (₹43, investorgain); Acme Universal Safezone 9 (₹16, investorgain); Adroit Industries (₹55, investorgain); Bench Mark Infotech Services (₹15, investorgain); Bonfiglioli Transmissions (₹175, investorgain); Dudani Retail (₹0.5, investorgain); Elevate Campuses (₹6.5, investorgain) …"
    },
@@ -79194,136 +79265,19 @@
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-14T06:44:02+05:30",
-    "elapsed": 3.84,
-    "calls": 10,
-    "note": "10 records fetched for 10 identified listings (0 without an id); 0 anchor books updated, 81 on file"
+    "asOf": "2026-10-14T11:07:52+05:30",
+    "elapsed": 1.13,
+    "calls": 4,
+    "note": "4 records fetched for 10 identified listings (0 without an id); 1 anchor books updated, 81 on file"
    },
    {
     "area": "subscription",
     "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-10-14T06:44:23+05:30",
-    "elapsed": 17.82,
-    "calls": 8,
-    "note": "2/4 rows patched via narada, nse; no subscription for: Fusion CX, Ravita Engineering Services"
-   },
-   {
-    "area": "listings",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-10-13",
-    "elapsed": 19.46,
-    "calls": 0,
-    "note": "30 names priced, 0 moved to recent, 0 history points"
-   },
-   {
-    "area": "history",
-    "method": "investorgain-566:ok, investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-14",
-    "elapsed": 3.22,
-    "calls": 2,
-    "note": "1386 listings since 2022 (986 SME); fetched 2026: 283; QIB on file for 101 of 400 mainboard issues"
-   },
-   {
-    "area": "tape",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-10-13",
-    "elapsed": 0.01,
-    "calls": 0,
-    "note": "187 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file"
-   },
-   {
-    "area": "anchorbook",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-14",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "0 anchor books read (0 without an anchor table, 0 failed); 900 on file, 589 partial (feed gave only the first names); 0 of 1386 listings still to fetch"
-   },
-   {
-    "area": "evidence",
-    "method": "computed:ok",
-    "status": "ok",
-    "asOf": "2026-10-14",
-    "elapsed": 0.2,
-    "calls": 0,
-    "note": "track records: 900 of 900 anchor books have an outcome; 831 of 1379 investors with 2+; 1386 listings; windows: mainboard 129, SME 237; 4 warnings"
-   },
-   {
-    "area": "players",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-14",
-    "elapsed": 33.77,
-    "calls": 54,
-    "note": "53 of 2839 anchor investors read (0 failed); names found for 2 of 10 unlisted issues"
-   },
-   {
-    "area": "parents",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-10-13",
-    "elapsed": 16.65,
-    "calls": 0,
-    "note": "5/5 parent prices; 43/49 investor stocks priced"
-   },
-   {
-    "area": "filings",
-    "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
-    "status": "ok",
-    "asOf": "2026-10-14",
-    "elapsed": 7.7,
-    "calls": 14,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1740 announcements scanned, 1 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 3 leads held; 0 rows patched, 33 kept previous stage"
-   },
-   {
-    "area": "offers",
-    "method": "bse:blocked, bse:blocked",
-    "status": "blocked",
-    "asOf": null,
-    "elapsed": 0.05,
-    "calls": 1,
-    "note": "kept previous — HTTP 403"
-   },
-   {
-    "area": "flows",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-10-13",
-    "elapsed": 0.03,
-    "calls": 1,
-    "note": "2026-10-13 already in history; FII -1,305 / DII +2,439 Cr"
-   },
-   {
-    "area": "deals",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-10-13",
-    "elapsed": 1.09,
-    "calls": 4,
-    "note": "bulk.csv: 171 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 171; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 39 of today's 171 deals are in this year's listings (8 stocks); 1075 kept over 60 days; 187 of 283 listings have an NSE symbol; 219 with a BSE code"
-   },
-   {
-    "area": "news",
-    "method": "rss:ok",
-    "status": "ok",
-    "asOf": "2026-10-14T06:29:13+05:30",
-    "elapsed": 0.67,
-    "calls": 3,
-    "note": "business-standard: 6/35 primary-market items; economic-times: 8/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 14 fresh, 25 kept"
-   },
-   {
-    "area": "logos",
-    "method": "none:ok",
-    "status": "ok",
-    "asOf": "2026-10-14",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "53 logos on file; none to fetch"
+    "asOf": "2026-10-14T11:08:06+05:30",
+    "elapsed": 12.39,
+    "calls": 7,
+    "note": "4/4 rows patched via narada, nse"
    },
    {
     "area": "research layer",
@@ -79335,7 +79289,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "109s, 103 calls, 16/17 modules ok"
+    "note": "15s, 12 calls, 3/3 modules ok"
    }
   ],
   "discrepancies": [
@@ -100743,7 +100697,7 @@
   {
    "name": "Fusion CX",
    "date": "2026-10-13",
-   "amountCr": null,
+   "amountCr": 315.9,
    "issueSizeCr": 702.0,
    "count": null,
    "topTierShare": null,
@@ -100755,8 +100709,11 @@
    "auto": true,
    "lockIn30": "2026-11-18",
    "lockIn90": "2027-01-17",
-   "anchor": "bid 13 Oct · lock-in ends 18 Nov (half) and 17 Jan",
-   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+   "anchor": "₹315.90 Cr anchor book · bid 13 Oct · 45% of the issue · lock-in ends 18 Nov (half) and 17 Jan",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read.",
+   "anchorShares": 10930795,
+   "price": 289.0,
+   "amountBasis": "exchange-json"
   },
   {
    "name": "HD Fire Protect",
@@ -109394,7 +109351,7 @@
  "records": {
   "1902": {
    "name": "HD Fire Protect",
-   "fetchedAt": "2026-10-14T06:44:02+05:30",
+   "fetchedAt": "2026-10-14T11:07:52+05:30",
    "about": [
     "HD Fire Protect Ltd. is engaged in the design, manufacture, and supply of a wide range of fire protection equipment and integrated fire safety systems. The company caters to industrial, commercial, and institutional clients by providing dependable and internationally certified fire protection solutions. The company focuses on innovation, product development, and adherence to global quality and safety standards. Supported by an extensive distribution network and strong after-sales service capabilities, HD Fire Protect has established a significant presence in both domestic and international markets. HD Fire Protect operates two manufacturing facilities located at Jalgaon MIDC and Thane MIDC in Maharashtra, covering a combined area of approximately 8.50 acres. Its product portfolio includes fire sprinklers, valves, foam-based firefighting equipment, and fire detection systems, enabling comprehensive fire protection solutions across multiple industries. The company serves a diverse range of sectors, including oil & gas, power generation, manufacturing, infrastructure, and other high-risk industrial applications. As of March 31, 2025, it employed 261 permanent employees and 185 contractual employees. Strong global footprint in a highly regulated and certification-driven industry with significant entry barriers. Broad portfolio of fire protection equipment and systems serving multiple end-use industries. Diversified customer base supported by long-term relationships across domestic and international markets. Advanced engineering, design, and manufacturing capabilities backed by continuous research and innovation. Experienced leadership team and skilled workforce with extensive industry expertise."
    ],
@@ -109638,6 +109595,13 @@
    },
    "gmpHistory": [
     {
+     "date": "2026-10-14",
+     "gmp": 91.0,
+     "est": 362.0,
+     "pct": 33.58,
+     "kostakSauda": "3800/53200"
+    },
+    {
      "date": "2026-10-13",
      "gmp": 91.0,
      "est": 362.0,
@@ -109678,13 +109642,6 @@
      "est": 334.0,
      "pct": 23.25,
      "kostakSauda": "2600/36400"
-    },
-    {
-     "date": "2026-10-07",
-     "gmp": 80.0,
-     "est": 351.0,
-     "pct": 29.52,
-     "kostakSauda": "3300/46200"
     }
    ],
    "bidding": [
@@ -109926,7 +109883,7 @@
   },
   "2220": {
    "name": "Ravita Engineering Services",
-   "fetchedAt": "2026-10-14T06:44:02+05:30",
+   "fetchedAt": "2026-10-14T11:07:52+05:30",
    "about": [
     "Ravita Engineering Services Ltd., founded in December 2007, specializes in EPIC contracts for HVAC, central air-conditioning, air flow systems, chillers, compressors, cooling equipment, and other electromechanical systems on a turnkey basis for commercial, industrial, offshore rigs, and platforms. They also offer operation and maintenance services for their projects and third-party systems. The company also engages in the execution of a specialised niche engineering project, viz., laying of sub-sea discharge pipelines for the effluent treatment plant (“ETP”) at Paradeep, Odisha.P”) at Paradeep, Odisha. The company's business operations fall into three areas of expertise, namely, (i) Onshore; (ii) Offshore; and (iii) Data Centre. The company has undertaken its Onshore operations in states like Gujarat, Maharashtra, Odisha and Karnataka. Its offshore operations occur at rigs, platforms, and marine installations in India's territorial waters. The company's Data Centre operations include maintaining cooling systems, chiller plants, HVAC, and utilities to ensure uptime, reliability, and temperature control. They currently serve a large Indian conglomerate at their Navi Mumbai data center. As of December 31, 2025, our order book for Data Center O&M services was ₹ 7,403.63 lakhs. Competitive Strength Comprehensive electro-mechanical engineering capabilities with separate EPIC and O&M service offerings. Balanced revenue mix with short to medium tenor project execution cycle and multi-year O&M contracts Long-standing relationships with large clients supporting repeat business. Management-driven domain expertise and industry relationships. Specialised operational experience in adverse environments and mission‑critical data centres."
    ],
@@ -110031,20 +109988,61 @@
    "reservation": {
     "head": [
      "Investor Category",
-     "Shares"
+     "Shares",
+     "% of Net Issue",
+     "% of Total Issue"
     ],
     "rows": [
      [
       "QIB",
-      "Not more than 50 % of the Net Issue"
+      "19,69,200",
+      "",
+      ""
+     ],
+     [
+      "QIB (Ex. Anchor)",
+      "19,69,200",
+      "",
+      ""
+     ],
+     [
+      "NII (HNI)",
+      "14,76,000",
+      "21.42%",
+      "19.91%"
+     ],
+     [
+      "bNII > ₹10L",
+      "4,60,800",
+      "",
+      "6.22%"
+     ],
+     [
+      "sNII < ₹10L",
+      "4,93,200",
+      "",
+      "6.65%"
      ],
      [
       "Retail",
-      "Not less than 35.00% of the Net Issue"
+      "34,46,400",
+      "50.01%",
+      "46.49%"
      ],
      [
-      "NII",
-      "Not less than 15.00% of the Net Issue"
+      "Firm Reservations"
+     ],
+     [
+      "Market Maker",
+      "5,22,000",
+      "",
+      "7.04%"
+     ],
+     [
+      "Total",
+      "74,13,600",
+      "100.00%",
+      "100.00%"
      ]
     ]
    },
@@ -110076,6 +110074,13 @@
    },
    "gmpHistory": [
     {
+     "date": "2026-10-14",
+     "gmp": 2.0,
+     "est": 114.0,
+     "pct": 1.79,
+     "kostakSauda": "1800"
+    },
+    {
      "date": "2026-10-13",
      "gmp": 2.0,
      "est": 114.0,
@@ -110104,6 +110109,19 @@
      "kostakSauda": "10900"
     }
    ],
+   "bidding": [
+    {
+     "asOf": "2026-10-14T10:22:00+05:30",
+     "qib": 0.0,
+     "nii": 0.01,
+     "bnii": 0.02,
+     "snii": 0.01,
+     "retail": 0.08,
+     "total": 0.04,
+     "bidCr": 3.33,
+     "retailBidCr": 3.14
+    }
+   ],
    "company": {
     "address": "Office No. 202 2nd Floor, Mayuresh Square, Plot No. 17, Sector 15 CBD Belapur",
     "website": "https://ravita.co.in/",
@@ -110112,7 +110130,7 @@
   },
   "2335": {
    "name": "Vaibhav Vyapaar",
-   "fetchedAt": "2026-10-14T06:44:02+05:30",
+   "fetchedAt": "2026-10-14T11:07:52+05:30",
    "about": [
     "Vaibhav Vyapaar Limited is an RBI-registered Non-Banking Financial Company (NBFC) engaged in providing digital lending solutions to retail customers across India. The company primarily offers unsecured personal loans to salaried and self-employed individuals through a technology-enabled platform, operating under both direct lending and co-lending arrangements. Its lending services are delivered through the “LoanFront” mobile application, which facilitates the entire loan lifecycle digitally, including customer onboarding, credit assessment, documentation, loan disbursement, and repayment management. The company leverages automated underwriting processes, digital verification systems, and data-driven risk evaluation tools to streamline lending operations and enhance credit decision-making. Apart from its lending business, Vaibhav Vyapaar also provides technology and application support services to other NBFCs, creating an additional source of revenue. The company primarily caters to retail borrowers, with a focus on first-time credit seekers and salaried individuals in the low- to middle-income segment, while expanding its reach across urban and semi-urban markets through a scalable digital infrastructure."
    ],
@@ -110354,7 +110372,7 @@
    },
    "gmpHistory": [
     {
-     "date": "2026-10-13",
+     "date": "2026-10-14",
      "gmp": 0.0,
      "est": 54.0,
      "pct": 0.0,
@@ -110372,6 +110390,17 @@
      "total": 0.19,
      "bidCr": 5.32,
      "retailBidCr": 2.81
+    },
+    {
+     "asOf": "2026-10-14T10:11:00+05:30",
+     "qib": 0.0,
+     "nii": 0.07,
+     "bnii": 0.48,
+     "snii": 0.3,
+     "retail": 0.24,
+     "total": 0.14,
+     "bidCr": 3.81,
+     "retailBidCr": 3.37
     }
    ],
    "company": {
@@ -110382,7 +110411,7 @@
   },
   "1792": {
    "name": "Fusion CX",
-   "fetchedAt": "2026-10-14T06:44:02+05:30",
+   "fetchedAt": "2026-10-14T11:07:52+05:30",
    "about": [
     "Fusion CX Ltd. provides customer experience management and business process services to enterprises through multiple communication channels, including telephone, email, online chat, social media and messaging platforms. The Company has also expanded into AI data infrastructure, offering services such as data sourcing, data annotation, image and video tagging, and robotic teleoperation. The Company integrates human-led service delivery with proprietary technology and artificial intelligence to facilitate customer engagement across languages and digital channels. Its solutions are designed to streamline business processes, enhance service quality and automate customer interactions. Through its subsidiary, Omind Technologies, Fusion CX is developing technology platforms for AI-based marketing, conversational intelligence, automated quality monitoring and workforce management. As of June 30, 2026, the Company had established 40 delivery centres in 13 countries, provided support in 28 languages and maintained relationships with 208 customers, including 22 Fortune 1000 companies. Its operations cater to several industry segments, such as telecommunications and utilities, healthcare and life sciences, high technology and travel, banking, financial services and insurance (BFSI), and consumer retail. During Fiscal 2026, Fusion CX recorded revenue from operations of ₹1,818.14 crore, representing a year-on-year increase of 36.77% compared with Fiscal 2025. Telecommunications and technology accounted for 47.34% of operating revenue, followed by BFSI at 13.52%, healthcare at 13.14%, consumer and retail at 12.12%, and other sectors at 13.88%. Geographically, the US and Canada generated 85.26% of revenue, while India contributed 11.29%, the UK and Europe accounted for 3.11%, and other markets represented the remaining 0.34%. Customer concentration remained significant, with the five largest clients contributing 39.55% of total revenue and the ten largest clients accounting for 49.66%. Competitive Strengths: Global Delivery Network with 40 delivery centres across 13 countries. AI-Driven Technology Proven Acquisition Track Record Diversified Industry Presence across multiple industries, including telecom and utilities, healthcare, BFSI, retail, high-tech. Customer-Centric Approach Experienced Management Team"
    ],
@@ -110572,20 +110601,58 @@
    "reservation": {
     "head": [
      "Investor Category",
-     "Shares"
+     "Shares",
+     "% of Total Issue",
+     "Max Allottees"
     ],
     "rows": [
      [
       "QIB",
-      "Not less than 75%"
+      "1,82,17,992",
+      "75.00%",
+      "NA"
+     ],
+     [
+      "Anchor Investor",
+      "1,09,30,795",
+      "45.00%",
+      "NA"
+     ],
+     [
+      "QIB (Ex. Anchor)",
+      "72,87,197",
+      "30.00%",
+      "NA"
+     ],
+     [
+      "NII (HNI)",
+      "36,43,598",
+      "15.00%",
+      "NA"
+     ],
+     [
+      "bNII > ₹10L",
+      "24,29,066",
+      "10.00%",
+      "3,402"
+     ],
+     [
+      "sNII < ₹10L",
+      "12,14,533",
+      "5.00%",
+      "1,701"
      ],
      [
       "Retail",
-      "Not more than 10%"
+      "24,29,066",
+      "10.00%",
+      "47,628"
      ],
      [
-      "NII",
-      "Not more than 15%"
+      "Total",
+      "2,42,90,656",
+      "100.00%",
+      ""
      ]
     ]
    },
@@ -110616,6 +110683,13 @@
     "sharesPost": 144360333.0
    },
    "gmpHistory": [
+    {
+     "date": "2026-10-14",
+     "gmp": 31.0,
+     "est": 320.0,
+     "pct": 10.73,
+     "kostakSauda": "1200/16800"
+    },
     {
      "date": "2026-10-13",
      "gmp": 33.5,
@@ -110650,6 +110724,19 @@
      "est": 344.0,
      "pct": 19.03,
      "kostakSauda": "2100/29400"
+    }
+   ],
+   "bidding": [
+    {
+     "asOf": "2026-10-14T10:21:00+05:30",
+     "qib": 0.0,
+     "nii": 0.04,
+     "bnii": 0.02,
+     "snii": 0.07,
+     "retail": 0.14,
+     "total": 0.04,
+     "bidCr": 14.07,
+     "retailBidCr": 9.98
     }
    ],
    "company": {
