@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-14T23:08:04+05:30",
+  "asOf": "2026-10-15T06:45:59+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "14 Oct 2026, 23:08 IST",
+  "label": "15 Oct 2026, 06:45 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -40,7 +40,9 @@
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
    "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
-   "[gmp] gmp: no grey-market print found for open issue Vaibhav Vyapaar"
+   "[gmp] gmp: no grey-market print found for open issue Vaibhav Vyapaar",
+   "[subscription] subscription missing for Bonfigloli Transmissions, Sahajanand Medical Technologies, Tonbo Imaging India, Zetwerk — check NSE/BSE ids on the row",
+   "[parents] no NSE symbol found for investor stocks: Indo SMC, Sahajanand Medical Technologies (upcoming), NSE (upcoming) — BSE-only, or add to data/aliases.json"
   ]
  },
  "expected": [
@@ -1730,7 +1732,7 @@
    "igId": "1902",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T23:06:39+05:30",
+   "igFetchedAt": "2026-10-15T06:44:00+05:30",
    "sector": "Other Consumer Services",
    "anchorShares": 7864008,
    "logo": "hd-fire-ipo-logo.png",
@@ -1774,9 +1776,9 @@
     "asOf": "2026-10-14T06:45:00+05:30"
    },
    "refund": "2026-10-19",
-   "gmpAsOf": "2026-10-14T20:02:00+05:30",
+   "gmpAsOf": "2026-10-15T06:02:00+05:30",
    "gmpEve": 89.0,
-   "gmpEveAsOf": "2026-10-14T20:02:00+05:30",
+   "gmpEveAsOf": "2026-10-15T06:02:00+05:30",
    "apps": {
     "qib": {
      "reserved": 5242673,
@@ -1813,7 +1815,7 @@
      "received": 1742824,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-14T23:06:46+05:30"
+    "asOf": "2026-10-15T06:44:10+05:30"
    }
   },
   {
@@ -1854,14 +1856,14 @@
    "igId": "1792",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T23:06:39+05:30",
+   "igFetchedAt": "2026-10-15T06:44:00+05:30",
    "refund": "2026-10-21",
    "sector": "Business Process Outsourcing (BPO)/Knowledge Process Outsourcing (KPO)",
    "anchorShares": 10930795,
    "logo": "fusion-cx-ipo-logo.png",
-   "gmpAsOf": "2026-10-14T22:37:00+05:30",
+   "gmpAsOf": "2026-10-15T06:02:00+05:30",
    "gmpEve": 33.0,
-   "gmpEveAsOf": "2026-10-14T22:37:00+05:30",
+   "gmpEveAsOf": "2026-10-15T06:02:00+05:30",
    "facts": {
     "sector": "Business Process Outsourcing (BPO)/Knowledge Process Outsourcing (KPO)",
     "listingAt": "BSE, NSE",
@@ -1934,14 +1936,14 @@
      "received": 68592,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-14T23:06:52+05:30"
+    "asOf": "2026-10-15T06:44:16+05:30"
    }
   },
   {
    "name": "Bonfigloli Transmissions",
    "slug": "bonfigloli-transmissions",
    "type": "Mainboard",
-   "status": "Upcoming",
+   "status": "Open",
    "open": "2026-10-15",
    "close": "2026-10-19",
    "allotment": "2026-10-21",
@@ -1949,11 +1951,11 @@
    "bandLow": 558.0,
    "bandHigh": 586.0,
    "lotSize": 25,
-   "issueSizeCr": 1774.54,
+   "issueSizeCr": 2533.66,
    "freshCr": null,
    "ofsCr": 2533.66,
-   "gmp": 180.0,
-   "gmpPct": 30.72,
+   "gmp": 178.0,
+   "gmpPct": 30.38,
    "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
@@ -1968,7 +1970,7 @@
    "igId": "2124",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T20:08:47+05:30",
+   "igFetchedAt": "2026-10-15T06:44:00+05:30",
    "sector": "Industrial Products",
    "anchorShares": 0,
    "logo": "bonfiglioli-logo.png",
@@ -1999,18 +2001,18 @@
      "drhp": "https://www.sebi.gov.in/filings/public-issues/feb-2026/bonfiglioli-transmissions-limited_99781.html",
      "rhp": "https://www.bonfiglioli.com/india/IPO/RHP/Peacock%20-%20RHP%20%28Filing%20version%29%20-%20Signed.pdf"
     },
-    "asOf": "2026-10-13T23:56:00+05:30"
+    "asOf": "2026-10-14T17:30:00+05:30"
    },
-   "gmpAsOf": "2026-10-14T16:37:00+05:30",
+   "gmpAsOf": "2026-10-15T06:02:00+05:30",
    "refund": "2026-10-22",
-   "gmpEve": 180.0,
-   "gmpEveAsOf": "2026-10-14T16:37:00+05:30"
+   "gmpEve": 178.0,
+   "gmpEveAsOf": "2026-10-15T06:02:00+05:30"
   },
   {
    "name": "Sahajanand Medical Technologies",
    "slug": "sahajanand-medical-technologies",
    "type": "Mainboard",
-   "status": "Upcoming",
+   "status": "Open",
    "open": "2026-10-15",
    "close": "2026-10-19",
    "allotment": "2026-10-21",
@@ -2037,7 +2039,7 @@
    "igId": "1842",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T20:08:47+05:30",
+   "igFetchedAt": "2026-10-15T06:44:00+05:30",
    "refund": "2026-10-22",
    "sector": "Hospital",
    "anchorShares": 0,
@@ -2078,19 +2080,20 @@
     ],
     "docs": {
      "drhp": "https://www.sebi.gov.in/filings/public-issues/jul-2025/sahajanand-medical-technologies-limited_95741.html",
-     "rhp": "https://assets.ipopremium.in/images/ipo/sahajanand_medical_technologies_ltd_mainboard_rhp_1791630001.pdf"
+     "rhp": "https://assets.ipopremium.in/images/ipo/sahajanand_medical_technologies_ltd_mainboard_rhp_1791630001.pdf",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/sahajanand-medical-technologies-ipo-anchor-allocation-letter.pdf"
     },
-    "asOf": "2026-10-13T10:39:00+05:30"
+    "asOf": "2026-10-14T20:38:00+05:30"
    },
-   "gmpAsOf": "2026-10-14T16:37:00+05:30",
-   "gmpEve": 36.0,
-   "gmpEveAsOf": "2026-10-14T16:37:00+05:30"
+   "gmpAsOf": "2026-10-15T06:02:00+05:30",
+   "gmpEve": 41.0,
+   "gmpEveAsOf": "2026-10-15T06:02:00+05:30"
   },
   {
    "name": "Tonbo Imaging India",
    "slug": "tonbo-imaging-india",
    "type": "Mainboard",
-   "status": "Upcoming",
+   "status": "Open",
    "open": "2026-10-15",
    "close": "2026-10-19",
    "allotment": "2026-10-21",
@@ -2117,14 +2120,14 @@
    "igId": "2369",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T20:08:47+05:30",
+   "igFetchedAt": "2026-10-15T06:44:00+05:30",
    "refund": "2026-10-22",
    "sector": "Aerospace & Defense",
    "anchorShares": 0,
    "logo": "tonbo-imaging-india-ltd-logo.png",
-   "gmpAsOf": "2026-10-14T16:37:00+05:30",
+   "gmpAsOf": "2026-10-15T06:02:00+05:30",
    "gmpEve": 500.0,
-   "gmpEveAsOf": "2026-10-14T16:37:00+05:30",
+   "gmpEveAsOf": "2026-10-15T06:02:00+05:30",
    "facts": {
     "sector": "Aerospace & Defense",
     "listingAt": "BSE, NSE",
@@ -2152,14 +2155,14 @@
      "drhp": "https://www.bseindia.com/corporates/download/303183/IPO%20Prior/B2_DRHP_20260805023511.zip",
      "rhp": "https://live.jmfl.com/od/UploadedFiles/CA86AB52-0D43-437A-8D1C-6E475C6CEF01.pdf"
     },
-    "asOf": "2026-10-12T14:43:00+05:30"
+    "asOf": "2026-10-14T17:30:00+05:30"
    }
   },
   {
    "name": "Zetwerk",
    "slug": "zetwerk",
    "type": "Mainboard",
-   "status": "Upcoming",
+   "status": "Open",
    "open": "2026-10-15",
    "close": "2026-10-19",
    "allotment": "2026-10-21",
@@ -2172,7 +2175,7 @@
    "ofsCr": 2182.33,
    "gmp": 22.0,
    "gmpPct": 14.57,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2186,14 +2189,14 @@
    "igId": "2279",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T20:08:47+05:30",
+   "igFetchedAt": "2026-10-15T06:44:00+05:30",
    "refund": "2026-10-22",
    "sector": "IT Enabled Services",
    "anchorShares": 0,
    "logo": "zetwork-manufacturing-logo.jpg",
-   "gmpAsOf": "2026-10-14T16:37:00+05:30",
-   "gmpEve": 18.5,
-   "gmpEveAsOf": "2026-10-14T16:37:00+05:30",
+   "gmpAsOf": "2026-10-15T06:02:00+05:30",
+   "gmpEve": 22.0,
+   "gmpEveAsOf": "2026-10-15T06:02:00+05:30",
    "facts": {
     "sector": "IT Enabled Services",
     "listingAt": "BSE, NSE",
@@ -2222,7 +2225,7 @@
      "drhp": "https://www.sebi.gov.in/filings/public-issues/aug-2026/zetwerk-manufacturing-businesses-limited-udrhp_103643.html",
      "rhp": "https://ir.zetwerk.com/wp-content/uploads/Zetwerk-RHP.pdf"
     },
-    "asOf": "2026-10-12T14:43:00+05:30"
+    "asOf": "2026-10-14T17:30:00+05:30"
    }
   },
   {
@@ -2230,18 +2233,18 @@
    "slug": "jio-platforms",
    "type": "Mainboard",
    "status": "Upcoming",
-   "open": null,
-   "close": null,
-   "allotment": null,
-   "listing": null,
+   "open": "2026-10-21",
+   "close": "2026-10-23",
+   "allotment": "2026-10-26",
+   "listing": "2026-10-28",
    "bandLow": null,
    "bandHigh": null,
    "lotSize": null,
    "issueSizeCr": 27.0,
    "freshCr": null,
    "ofsCr": null,
-   "gmp": 205.0,
-   "gmpPct": null,
+   "gmp": 206.0,
+   "gmpPct": 0.0,
    "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": null,
@@ -2256,11 +2259,11 @@
    "igId": "2306",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T20:08:47+05:30",
+   "igFetchedAt": "2026-10-15T06:44:00+05:30",
    "sector": "Telecom - Cellular & Fixed line services",
    "anchorShares": 0,
    "logo": "jio-platform-logo.png",
-   "gmpAsOf": "2026-10-14T19:37:00+05:30",
+   "gmpAsOf": "2026-10-15T06:02:00+05:30",
    "facts": {
     "sector": "Telecom - Cellular & Fixed line services",
     "listingAt": "BSE, NSE",
@@ -2288,7 +2291,76 @@
     "docs": {
      "drhp": "https://www.sebi.gov.in/filings/public-issues/jun-2026/jio-platforms-ltd-drhp_102248.html"
     },
-    "asOf": "2026-10-06T09:52:00+05:30"
+    "asOf": "2026-10-14T19:53:00+05:30"
+   },
+   "refund": "2026-10-27",
+   "gmpEve": 206.0,
+   "gmpEveAsOf": "2026-10-15T06:02:00+05:30"
+  },
+  {
+   "name": "Paras Healthcare",
+   "slug": "paras-healthcare",
+   "type": "Mainboard",
+   "status": "Upcoming",
+   "open": "2026-10-21",
+   "close": "2026-10-23",
+   "allotment": "2026-10-26",
+   "listing": "2026-10-28",
+   "bandLow": null,
+   "bandHigh": null,
+   "lotSize": null,
+   "issueSizeCr": 10000.0,
+   "freshCr": 500.0,
+   "ofsCr": 950.0,
+   "gmp": 83.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "1728",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-10-15T06:44:00+05:30",
+   "refund": "2026-10-27",
+   "sector": "Hospital",
+   "anchorShares": 0,
+   "logo": "paras-healthcare-logo.jpeg",
+   "gmpAsOf": "2026-10-15T06:02:00+05:30",
+   "gmpEve": 83.0,
+   "gmpEveAsOf": "2026-10-15T06:02:00+05:30",
+   "facts": {
+    "sector": "Hospital",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-06-30",
+     "roe": 11.83,
+     "roce": 4.23,
+     "debtEquity": 3.21,
+     "ronw": 11.83,
+     "patMargin": 10.38,
+     "ebitdaMargin": 23.7,
+     "eps": 4.34,
+     "promoterPre": 72.8
+    },
+    "registrar": "MUFG Intime India Pvt.Ltd.",
+    "leadManagers": [
+     "JM Financial Ltd.",
+     "BOFA Securities India Ltd.",
+     "Nuvama Wealth Management Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.sebi.gov.in/filings/public-issues/jun-2026/paras-healthcare-limited-drhp_102187.html",
+     "rhp": "https://www.jmfl.com/Common/getFile/6104"
+    },
+    "asOf": "2026-10-14T19:48:00+05:30"
    }
   }
  ],
@@ -3041,57 +3113,6 @@
    ],
    "type": "Mainboard",
    "symbol": "STEAMHOUSE"
-  },
-  {
-   "closeDay1": 214.85,
-   "closeDay1GainPct": 18.05,
-   "gainPct": 6.59,
-   "issuePrice": 182.0,
-   "listingDate": "2026-09-16",
-   "listingPrice": 194.0,
-   "name": "Glass Wall Systems",
-   "sources": [
-    "https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/",
-    "https://www.kotakneo.com/news/ipos/glass-wall-systems-ipo-opens-8-september/",
-    "https://www.businesstoday.in/markets/ipo-corner/story/ipo-rush-next-week-11-issues-eye-to-raise-rs-7055-crore-6-ipos-to-open-on-same-day-check-details-553357-2026-09-05",
-    "NSE public-past-issues"
-   ],
-   "type": "Mainboard",
-   "symbol": "GLASSWALL"
-  },
-  {
-   "closeDay1": 751.5,
-   "closeDay1GainPct": 18.91,
-   "gainPct": 8.47,
-   "issuePrice": 632.0,
-   "listingDate": "2026-09-16",
-   "listingPrice": 685.5,
-   "name": "Kanohar Electricals",
-   "sources": [
-    "https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/",
-    "https://ipowatch.in/kanohar-electricals-ipo/",
-    "https://www.businesstoday.in/markets/ipo-corner/story/ipo-rush-next-week-11-issues-eye-to-raise-rs-7055-crore-6-ipos-to-open-on-same-day-check-details-553357-2026-09-05",
-    "NSE public-past-issues"
-   ],
-   "type": "Mainboard",
-   "symbol": "KANOHAR"
-  },
-  {
-   "closeDay1": 671.0,
-   "closeDay1GainPct": -0.74,
-   "gainPct": -9.76,
-   "issuePrice": 676.0,
-   "listingDate": "2026-09-16",
-   "listingPrice": 610.0,
-   "name": "Prasol Chemicals",
-   "sources": [
-    "https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/",
-    "https://www.businesstoday.in/markets/ipo-corner/story/ipo-rush-next-week-11-issues-eye-to-raise-rs-7055-crore-6-ipos-to-open-on-same-day-check-details-553357-2026-09-05",
-    "https://www.ipoji.com/blog/pranav-glass-wall-prasol-kanohar-ipos-opening-september-2026/",
-    "NSE public-past-issues"
-   ],
-   "type": "Mainboard",
-   "symbol": "PRASOLCHEM"
   }
  ],
  "sme": [
@@ -3119,7 +3140,7 @@
     "snii": 0.67,
     "retail": 0.59,
     "total": 0.46,
-    "asOf": "2026-10-14T23:06:52+05:30",
+    "asOf": "2026-10-15T06:44:38+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3134,14 +3155,14 @@
    "igId": "2335",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T23:06:39+05:30",
+   "igFetchedAt": "2026-10-15T06:44:00+05:30",
    "refund": "2026-10-19",
    "sector": "Non Banking Financial Company (NBFC)",
    "anchorShares": 2200000,
    "logo": "vaibhav-vyapaar-logo.jpg",
-   "gmpAsOf": "2026-10-14T22:28:00+05:30",
+   "gmpAsOf": "2026-10-15T05:55:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-14T22:28:00+05:30",
+   "gmpEveAsOf": "2026-10-15T05:55:00+05:30",
    "facts": {
     "sector": "Non Banking Financial Company (NBFC)",
     "listingAt": "NSE SME",
@@ -3204,7 +3225,7 @@
      "received": 452,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-14T23:06:52+05:30"
+    "asOf": "2026-10-15T06:44:38+05:30"
    }
   },
   {
@@ -3232,7 +3253,7 @@
     "snii": 0.51,
     "retail": 0.94,
     "total": 1.05,
-    "asOf": "2026-10-14T23:06:52+05:30",
+    "asOf": "2026-10-15T06:44:38+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3247,7 +3268,7 @@
    "igId": "2220",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T23:06:39+05:30",
+   "igFetchedAt": "2026-10-15T06:44:00+05:30",
    "refund": "2026-10-21",
    "sector": "Civil Construction",
    "anchorShares": 2948400,
@@ -3283,9 +3304,9 @@
     },
     "asOf": "2026-10-14T12:13:00+05:30"
    },
-   "gmpAsOf": "2026-10-14T22:37:00+05:30",
+   "gmpAsOf": "2026-10-15T06:02:00+05:30",
    "gmpEve": 7.0,
-   "gmpEveAsOf": "2026-10-14T22:37:00+05:30",
+   "gmpEveAsOf": "2026-10-15T06:02:00+05:30",
    "apps": {
     "qib": {
      "reserved": 1641,
@@ -3317,14 +3338,14 @@
      "received": 1542,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-14T23:06:52+05:30"
+    "asOf": "2026-10-15T06:44:38+05:30"
    }
   },
   {
    "name": "Shellz India",
    "slug": "shellz-india",
    "type": "BSE SME",
-   "status": "Upcoming",
+   "status": "Open",
    "open": "2026-10-15",
    "close": "2026-10-19",
    "allotment": "2026-10-21",
@@ -3351,14 +3372,14 @@
    "igId": "2228",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-14T20:08:47+05:30",
+   "igFetchedAt": "2026-10-15T06:44:00+05:30",
    "refund": "2026-10-22",
    "sector": "Packaged Foods",
    "anchorShares": 0,
    "logo": "shellz-india-logo.png",
-   "gmpAsOf": "2026-10-14T16:28:00+05:30",
+   "gmpAsOf": "2026-10-15T05:55:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-14T16:28:00+05:30",
+   "gmpEveAsOf": "2026-10-15T05:55:00+05:30",
    "facts": {
     "sector": "Packaged Foods",
     "listingAt": "BSE SME",
@@ -3385,9 +3406,10 @@
     ],
     "docs": {
      "drhp": "https://www.bsesme.com/download/312428/SME_IPO%20InPrinciple/DraftRedHerringProspectusShellz_20260330033128.pdf",
-     "rhp": "https://www.socradamus.in/downloads/sme-ipo/shellz-india-limited/RHP-Shellz-final.pdf"
+     "rhp": "https://www.socradamus.in/downloads/sme-ipo/shellz-india-limited/RHP-Shellz-final.pdf",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/shellz-india-ipo-anchor-allocation-letter.pdf"
     },
-    "asOf": "2026-10-12T14:43:00+05:30"
+    "asOf": "2026-10-14T20:39:00+05:30"
    }
   }
  ],
@@ -35583,7 +35605,42 @@
  ],
  "news": [
   {
-   "title": "Jio IPO sparks investor buzz: GMP hits 20% as Reliance’s telecom arm announces price band, dates",
+   "title": "Sebi plans to ease many SME IPO rules, lower application amount",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/sebi-plans-to-ease-many-sme-ipo-rules-lower-application-amount/articleshow/134954790.cms",
+   "date": "2026-10-15T06:06:16+05:30"
+  },
+  {
+   "title": "Jio Platforms files red herring prospectus for India’s biggest public issue",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-platforms-files-red-herring-prospectus-for-indias-biggest-public-issue/articleshow/134954464.cms",
+   "date": "2026-10-15T05:42:12+05:30"
+  },
+  {
+   "title": "Jio Platforms' grey market premium jumps to Rs 218 ahead of October 21 launch; price band set at Rs 1,065-1,119",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-platforms-grey-market-premium-jumps-to-rs-218-ahead-of-ipo-price-band-set/articleshow/134954484.cms",
+   "date": "2026-10-15T05:39:49+05:30"
+  },
+  {
+   "title": "Sebi confirms interim curbs on Rajesh Exports, promoter over alleged fund routing",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-confirms-interim-curbs-on-rajesh-exports-promoter-over-alleged-fund-routing/articleshow/134954527.cms",
+   "date": "2026-10-15T05:38:14+05:30"
+  },
+  {
+   "title": "BlackRock, SBI MF lead Tonbo Imaging’s Rs 255 crore anchor round ahead of IPO",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/blackrock-sbi-mf-lead-tonbo-imagings-rs-255-crore-anchor-round-ahead-of-ipo/articleshow/134950868.cms",
+   "date": "2026-10-15T01:16:52+05:30"
+  },
+  {
+   "title": "Jio Platforms set to bring India's biggest IPO on Oct 21, seeks ₹30,213 cr",
+   "url": "https://www.business-standard.com/markets/news/jio-platforms-set-to-bring-india-s-biggest-ipo-on-oct-21-seeks-30-213-cr-126101401333_1.html",
+   "date": "2026-10-15T00:19:30+05:30"
+  },
+  {
+   "title": "BlackRock, Goldman Sachs, Nomura among key investors as Zetwerk mops up Rs 2,251 crore in anchor bidding; IPO opens on Oct 15",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/blackrock-goldman-sachs-nomura-among-key-investors-as-zetwerk-mops-up-rs-2251-crore-in-anchor-bidding-ipo-opens-on-oct-15/articleshow/134947568.cms",
+   "date": "2026-10-14T22:48:48+05:30"
+  },
+  {
+   "title": "Jio IPO sparks investor buzz: GMP rises to 20% as Reliance’s telecom arm announces price band, dates",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-sparks-investor-buzz-gmp-hits-20-as-reliances-telecom-arm-announces-price-band-dates/articleshow/134946913.cms",
    "date": "2026-10-14T22:18:51+05:30"
   },
@@ -35671,41 +35728,6 @@
    "title": "A Jigsaw Puzzle: Why Reliance Jio's IPO buzz isn’t saving RIL stock from a painful year?",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/a-jigsaw-puzzle-why-reliance-jios-ipo-buzz-isnt-saving-ril-stock-from-a-painful-year/articleshow/134932672.cms",
    "date": "2026-10-14T10:33:59+05:30"
-  },
-  {
-   "title": "Hero Motors jumps 8% after Q1 profit doubles; stock up 100% from IPO level",
-   "url": "https://www.business-standard.com/markets/news/hero-motors-jumps-8-after-q1-profit-doubles-stock-up-100-from-ipo-level-126101400278_1.html",
-   "date": "2026-10-14T10:24:12+05:30"
-  },
-  {
-   "title": "Fusion CX IPO opens for subscription; GMP at 12%. Should you bid or skip?",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/fusion-cx-ipo-opens-for-subscription-gmp-at-12-should-you-bid-or-skip/articleshow/134931950.cms",
-   "date": "2026-10-14T09:49:22+05:30"
-  },
-  {
-   "title": "HD Fire Protect IPO Day 2: GMP signals 34% listing gain; key details inside",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/hd-fire-protect-ipo-day-2-gmp-signals-34-listing-gain-key-details-inside/articleshow/134931883.cms",
-   "date": "2026-10-14T09:48:50+05:30"
-  },
-  {
-   "title": "Fusion CX IPO: Brokerages mixed; customer concentration a key concern",
-   "url": "https://www.business-standard.com/markets/news/fusion-cx-ipo-review-brokerages-mixed-customer-concentration-a-key-concern-126101400153_1.html",
-   "date": "2026-10-14T09:09:20+05:30"
-  },
-  {
-   "title": "FPIs favour IPOs over listed stocks for 3rd year running; will trend last?",
-   "url": "https://www.business-standard.com/markets/news/fpis-keep-ipo-faith-amid-stock-selloff-for-3rd-year-running-will-trend-last-126101400110_1.html",
-   "date": "2026-10-14T07:26:21+05:30"
-  },
-  {
-   "title": "Can Fusion CX IPO deliver long-term growth for high-risk investors?",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/can-fusion-cx-ipo-deliver-long-term-growth-for-high-risk-investors/articleshow/134929546.cms",
-   "date": "2026-10-14T06:29:13+05:30"
-  },
-  {
-   "title": "Sebi proposes Rs 50,000 fine for firms not cooperating with monitoring agencies",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-proposes-rs-50000-fine-for-firms-not-cooperating-with-monitors/articleshow/134929434.cms",
-   "date": "2026-10-14T06:02:33+05:30"
   }
  ],
  "priceHistory": {
@@ -44057,10 +44079,6 @@
   ],
   "Om Power Transmission": [
    [
-    "2026-07-16",
-    172.21
-   ],
-   [
     "2026-07-17",
     169.99
    ],
@@ -44421,10 +44439,6 @@
   ],
   "Vinit Mobile": [
    [
-    "2026-07-16",
-    102.95
-   ],
-   [
     "2026-07-17",
     97.85
    ],
@@ -44670,10 +44684,6 @@
    ]
   ],
   "OnEMI Technology": [
-   [
-    "2026-07-16",
-    321.15
-   ],
    [
     "2026-07-17",
     310.65
@@ -45111,10 +45121,6 @@
   ],
   "Aye Finance": [
    [
-    "2026-07-16",
-    166.15
-   ],
-   [
     "2026-07-17",
     168.12
    ],
@@ -45364,10 +45370,6 @@
    ]
   ],
   "Knack Packaging": [
-   [
-    "2026-07-16",
-    194.42
-   ],
    [
     "2026-07-17",
     190.76
@@ -45619,10 +45621,6 @@
   ],
   "Shreedhar Spinners": [
    [
-    "2026-07-16",
-    76.4
-   ],
-   [
     "2026-07-17",
     77.7
    ],
@@ -45860,10 +45858,6 @@
    ]
   ],
   "IC Electricals": [
-   [
-    "2026-07-16",
-    167.35
-   ],
    [
     "2026-07-17",
     161.65
@@ -46115,10 +46109,6 @@
   ],
   "Turtlemint Fintech Solutions": [
    [
-    "2026-07-16",
-    137.75
-   ],
-   [
     "2026-07-17",
     136.06
    ],
@@ -46369,10 +46359,6 @@
   ],
   "Happy Steels": [
    [
-    "2026-07-16",
-    68.5
-   ],
-   [
     "2026-07-17",
     66.1
    ],
@@ -46618,10 +46604,6 @@
    ]
   ],
   "Sai Parenteral's": [
-   [
-    "2026-07-16",
-    570.7
-   ],
    [
     "2026-07-17",
     556.1
@@ -46873,10 +46855,6 @@
   ],
   "Clean Max Enviro Energy Solutions": [
    [
-    "2026-07-16",
-    1288.8
-   ],
-   [
     "2026-07-17",
     1262.2
    ],
@@ -47127,10 +47105,6 @@
   ],
   "Utkal Speciality": [
    [
-    "2026-07-16",
-    28.75
-   ],
-   [
     "2026-07-17",
     30.15
    ],
@@ -47368,10 +47342,6 @@
    ]
   ],
   "Laser Power & Infra": [
-   [
-    "2026-07-16",
-    262.42
-   ],
    [
     "2026-07-17",
     288.66
@@ -47622,10 +47592,6 @@
    ]
   ],
   "Advit Jewels": [
-   [
-    "2026-07-16",
-    206.07
-   ],
    [
     "2026-07-17",
     214.11
@@ -48023,10 +47989,6 @@
   ],
   "Clay Craft": [
    [
-    "2026-07-16",
-    171.25
-   ],
-   [
     "2026-07-17",
     162.9
    ],
@@ -48276,10 +48238,6 @@
    ]
   ],
   "Omnitech Engineering": [
-   [
-    "2026-07-16",
-    570.75
-   ],
    [
     "2026-07-17",
     565.6
@@ -48531,10 +48489,6 @@
   ],
   "PNGS Reva Diamond Jewellery": [
    [
-    "2026-07-16",
-    401.5
-   ],
-   [
     "2026-07-17",
     398.1
    ],
@@ -48784,10 +48738,6 @@
    ]
   ],
   "Amba Auto Sales & Services": [
-   [
-    "2026-07-16",
-    85.15
-   ],
    [
     "2026-07-17",
     81.7
@@ -49193,10 +49143,6 @@
   ],
   "Armour Security": [
    [
-    "2026-07-16",
-    18.7
-   ],
-   [
     "2026-07-17",
     18.65
    ],
@@ -49525,10 +49471,6 @@
   ],
   "Avana Electrosystems": [
    [
-    "2026-07-16",
-    146.0
-   ],
-   [
     "2026-07-17",
     152.5
    ],
@@ -49774,10 +49716,6 @@
    ]
   ],
   "E to E Transportation Infrastructure": [
-   [
-    "2026-07-16",
-    273.75
-   ],
    [
     "2026-07-17",
     270.0
@@ -50187,10 +50125,6 @@
   ],
   "Grover Jewells": [
    [
-    "2026-07-16",
-    165.65
-   ],
-   [
     "2026-07-17",
     157.4
    ],
@@ -50543,10 +50477,6 @@
   ],
   "Manilam Industries": [
    [
-    "2026-07-16",
-    55.3
-   ],
-   [
     "2026-07-28",
     53.9
    ],
@@ -50831,10 +50761,6 @@
   ],
   "Waterways Leisure Tourism": [
    [
-    "2026-07-16",
-    817.65
-   ],
-   [
     "2026-07-17",
     825.65
    ],
@@ -51084,10 +51010,6 @@
    ]
   ],
   "Fractal Analytics": [
-   [
-    "2026-07-16",
-    885.35
-   ],
    [
     "2026-07-17",
     867.0
@@ -51339,10 +51261,6 @@
   ],
   "Victory Electric Vehicles": [
    [
-    "2026-07-16",
-    16.1
-   ],
-   [
     "2026-07-17",
     16.45
    ],
@@ -51576,10 +51494,6 @@
    ]
   ],
   "Shree Ram Twistex": [
-   [
-    "2026-07-16",
-    41.32
-   ],
    [
     "2026-07-17",
     41.82
@@ -51831,10 +51745,6 @@
   ],
   "Vivid Electromech": [
    [
-    "2026-07-16",
-    1271.4
-   ],
-   [
     "2026-07-17",
     1276.7
    ],
@@ -52084,10 +51994,6 @@
    ]
   ],
   "Simca Advertising": [
-   [
-    "2026-07-16",
-    191.4
-   ],
    [
     "2026-07-17",
     193.1
@@ -52417,10 +52323,6 @@
   ],
   "Kusumgar": [
    [
-    "2026-07-16",
-    588.7
-   ],
-   [
     "2026-07-17",
     575.7
    ],
@@ -52670,10 +52572,6 @@
    ]
   ],
   "Hexagon Nutrition": [
-   [
-    "2026-07-16",
-    73.19
-   ],
    [
     "2026-07-17",
     69.54
@@ -52925,10 +52823,6 @@
   ],
   "Biopol Chemicals": [
    [
-    "2026-07-16",
-    97.55
-   ],
-   [
     "2026-07-17",
     96.0
    ],
@@ -53178,10 +53072,6 @@
    ]
   ],
   "Acetech E-Commerce": [
-   [
-    "2026-07-16",
-    120.0
-   ],
    [
     "2026-07-17",
     126.0
@@ -53559,10 +53449,6 @@
   ],
   "GSP Crop Science": [
    [
-    "2026-07-16",
-    493.0
-   ],
-   [
     "2026-07-17",
     492.2
    ],
@@ -53812,10 +53698,6 @@
    ]
   ],
   "SEDEMAC Mechatronics": [
-   [
-    "2026-07-16",
-    2717.2
-   ],
    [
     "2026-07-17",
     2712.3
@@ -54067,10 +53949,6 @@
   ],
   "Avience Biomedicals": [
    [
-    "2026-07-16",
-    277.5
-   ],
-   [
     "2026-07-17",
     222.85
    ],
@@ -54321,10 +54199,6 @@
   ],
   "Teamtech Formwork Solutions": [
    [
-    "2026-07-16",
-    118.5
-   ],
-   [
     "2026-07-17",
     118.9
    ],
@@ -54570,10 +54444,6 @@
    ]
   ],
   "Teja Engineering Industries": [
-   [
-    "2026-07-16",
-    567.0
-   ],
    [
     "2026-07-17",
     574.0
@@ -54821,10 +54691,6 @@
   ],
   "CKK Retail Mart": [
    [
-    "2026-07-16",
-    131.65
-   ],
-   [
     "2026-07-17",
     130.0
    ],
@@ -55070,10 +54936,6 @@
    ]
   ],
   "Central Mine Planning": [
-   [
-    "2026-07-16",
-    264.07
-   ],
    [
     "2026-07-17",
     254.91
@@ -55325,10 +55187,6 @@
   ],
   "Shadowfax Technologies": [
    [
-    "2026-07-16",
-    203.97
-   ],
-   [
     "2026-07-17",
     223.25
    ],
@@ -55579,10 +55437,6 @@
   ],
   "CMR Green Technologies": [
    [
-    "2026-07-16",
-    222.6
-   ],
-   [
     "2026-07-17",
     216.95
    ],
@@ -55832,10 +55686,6 @@
    ]
   ],
   "Amagi Media Labs": [
-   [
-    "2026-07-16",
-    598.95
-   ],
    [
     "2026-07-17",
     562.8
@@ -56333,10 +56183,6 @@
   ],
   "Value 360 Communications": [
    [
-    "2026-07-16",
-    79.2
-   ],
-   [
     "2026-07-17",
     80.25
    ],
@@ -56562,10 +56408,6 @@
    ]
   ],
   "Striders Impex": [
-   [
-    "2026-07-16",
-    57.65
-   ],
    [
     "2026-07-17",
     58.75
@@ -56847,10 +56689,6 @@
   ],
   "Srinibas Pradhan Constructions": [
    [
-    "2026-07-16",
-    135.0
-   ],
-   [
     "2026-07-17",
     133.0
    ],
@@ -57040,10 +56878,6 @@
    ]
   ],
   "Brandman Retail": [
-   [
-    "2026-07-16",
-    188.0
-   ],
    [
     "2026-07-17",
     182.05
@@ -57290,10 +57124,6 @@
    ]
   ],
   "Gaudium IVF": [
-   [
-    "2026-07-16",
-    136.94
-   ],
    [
     "2026-07-17",
     143.78
@@ -57545,10 +57375,6 @@
   ],
   "RFBL Flexi Pack": [
    [
-    "2026-07-16",
-    83.0
-   ],
-   [
     "2026-07-17",
     78.95
    ],
@@ -57722,10 +57548,6 @@
    ]
   ],
   "Rajputana Stainless": [
-   [
-    "2026-07-16",
-    128.79
-   ],
    [
     "2026-07-17",
     128.66
@@ -58131,10 +57953,6 @@
   ],
   "Genxai Analytics": [
    [
-    "2026-07-16",
-    78.8
-   ],
-   [
     "2026-07-17",
     79.4
    ],
@@ -58384,10 +58202,6 @@
    ]
   ],
   "Adisoft Technologies": [
-   [
-    "2026-07-16",
-    186.55
-   ],
    [
     "2026-07-17",
     185.7
@@ -58639,10 +58453,6 @@
   ],
   "Apsis Aerocom": [
    [
-    "2026-07-16",
-    378.5
-   ],
-   [
     "2026-07-17",
     385.95
    ],
@@ -58893,10 +58703,6 @@
   ],
   "Yaap Digital": [
    [
-    "2026-07-16",
-    157.4
-   ],
-   [
     "2026-07-17",
     164.1
    ],
@@ -59142,10 +58948,6 @@
    ]
   ],
   "CSM Technologies": [
-   [
-    "2026-07-16",
-    106.24
-   ],
    [
     "2026-07-17",
     103.92
@@ -59586,10 +59388,6 @@
    ]
   ],
   "KRM Ayurveda": [
-   [
-    "2026-07-16",
-    242.7
-   ],
    [
     "2026-07-17",
     238.95
@@ -60201,10 +59999,6 @@
   ],
   "Powerica": [
    [
-    "2026-07-16",
-    591.25
-   ],
-   [
     "2026-07-17",
     572.65
    ],
@@ -60645,10 +60439,6 @@
   ],
   "NFP Sampoorna Foods": [
    [
-    "2026-07-16",
-    23.55
-   ],
-   [
     "2026-07-17",
     24.1
    ],
@@ -60882,10 +60672,6 @@
    ]
   ],
   "Innovision": [
-   [
-    "2026-07-16",
-    291.65
-   ],
    [
     "2026-07-17",
     287.6
@@ -61137,10 +60923,6 @@
   ],
   "Q-Line Biotec": [
    [
-    "2026-07-16",
-    555.5
-   ],
-   [
     "2026-07-17",
     537.85
    ],
@@ -61390,10 +61172,6 @@
    ]
   ],
   "Aastha Spintex": [
-   [
-    "2026-07-16",
-    122.25
-   ],
    [
     "2026-07-17",
     116.14
@@ -61873,10 +61651,6 @@
   ],
   "Bharat Coking Coal": [
    [
-    "2026-07-16",
-    36.74
-   ],
-   [
     "2026-07-17",
     36.52
    ],
@@ -62126,10 +61900,6 @@
    ]
   ],
   "Propshare Celestia": [
-   [
-    "2026-07-16",
-    1022011.0
-   ],
    [
     "2026-07-20",
     1016601.0
@@ -62641,10 +62411,6 @@
   ],
   "Accord Transformer & Switchgear": [
    [
-    "2026-07-16",
-    55.74
-   ],
-   [
     "2026-07-17",
     54.23
    ],
@@ -62895,10 +62661,6 @@
   ],
   "Mehul Telecom": [
    [
-    "2026-07-16",
-    94.99
-   ],
-   [
     "2026-07-20",
     93.5
    ],
@@ -63112,10 +62874,6 @@
    ]
   ],
   "Highness Microelectronics": [
-   [
-    "2026-07-16",
-    189.9
-   ],
    [
     "2026-07-17",
     180.45
@@ -63354,10 +63112,6 @@
    ]
   ],
   "Digilogic Systems": [
-   [
-    "2026-07-16",
-    120.0
-   ],
    [
     "2026-07-17",
     119.55
@@ -63810,10 +63564,6 @@
    ]
   ],
   "Novus Loyalty": [
-   [
-    "2026-07-16",
-    132.0
-   ],
    [
     "2026-07-17",
     128.5
@@ -64473,10 +64223,6 @@
   ],
   "Seemax Resources": [
    [
-    "2026-07-16",
-    75.0
-   ],
-   [
     "2026-07-17",
     71.25
    ],
@@ -64674,10 +64420,6 @@
    ]
   ],
   "Modern Diagnostic": [
-   [
-    "2026-07-16",
-    49.0
-   ],
    [
     "2026-07-17",
     49.05
@@ -64913,10 +64655,6 @@
   ],
   "Hannah Joseph Hospital": [
    [
-    "2026-07-16",
-    112.0
-   ],
-   [
     "2026-07-17",
     110.0
    ],
@@ -65151,10 +64889,6 @@
   ],
   "Elfin Agro India": [
    [
-    "2026-07-16",
-    76.65
-   ],
-   [
     "2026-07-17",
     80.43
    ],
@@ -65384,10 +65118,6 @@
    ]
   ],
   "Horizon Reclaim (India)": [
-   [
-    "2026-07-16",
-    147.5
-   ],
    [
     "2026-07-17",
     155.9
@@ -65639,10 +65369,6 @@
   ],
   "Kratikal Tech": [
    [
-    "2026-07-16",
-    176.0
-   ],
-   [
     "2026-07-17",
     171.3
    ],
@@ -65892,10 +65618,6 @@
    ]
   ],
   "GRE Renew Enertech": [
-   [
-    "2026-07-16",
-    152.25
-   ],
    [
     "2026-07-17",
     159.85
@@ -66479,10 +66201,6 @@
   ],
   "Riyaasat Lifestyle": [
    [
-    "2026-07-16",
-    61.75
-   ],
-   [
     "2026-07-17",
     60.5
    ],
@@ -66657,10 +66375,6 @@
   ],
   "Vahh Chemicals": [
    [
-    "2026-07-16",
-    59.0
-   ],
-   [
     "2026-07-17",
     58.0
    ],
@@ -66818,10 +66532,6 @@
    ]
   ],
   "SMR Jewels": [
-   [
-    "2026-07-16",
-    85.5
-   ],
    [
     "2026-07-20",
     86.0
@@ -67131,10 +66841,6 @@
   ],
   "Merritronix": [
    [
-    "2026-07-16",
-    383.05
-   ],
-   [
     "2026-07-17",
     369.8
    ],
@@ -67385,10 +67091,6 @@
   ],
   "Sampark India Logistics": [
    [
-    "2026-07-16",
-    97.96
-   ],
-   [
     "2026-07-17",
     100.0
    ],
@@ -67626,10 +67328,6 @@
    ]
   ],
   "Adon Agro Commodities": [
-   [
-    "2026-07-16",
-    88.14
-   ],
    [
     "2026-07-17",
     86.94
@@ -67881,10 +67579,6 @@
   ],
   "Atharva Polyplast": [
    [
-    "2026-07-16",
-    78.13
-   ],
-   [
     "2026-07-17",
     79.9
    ],
@@ -68134,10 +67828,6 @@
    ]
   ],
   "Susan Electricals India": [
-   [
-    "2026-07-16",
-    252.95
-   ],
    [
     "2026-07-17",
     240.0
@@ -68595,10 +68285,6 @@
   ],
   "Kanishk Aluminium India": [
    [
-    "2026-07-16",
-    26.7
-   ],
-   [
     "2026-07-22",
     26.05
    ],
@@ -68776,10 +68462,6 @@
    ]
   ],
   "Goldline Pharmaceutical": [
-   [
-    "2026-07-16",
-    39.05
-   ],
    [
     "2026-07-17",
     40.49
@@ -69065,10 +68747,6 @@
   ],
   "Recode Studios": [
    [
-    "2026-07-16",
-    211.7
-   ],
-   [
     "2026-07-17",
     207.9
    ],
@@ -69318,10 +68996,6 @@
    ]
   ],
   "Citius Transnet InvIT": [
-   [
-    "2026-07-16",
-    109.7
-   ],
    [
     "2026-07-17",
     109.44
@@ -69759,10 +69433,6 @@
   ],
   "UHM Vacation": [
    [
-    "2026-07-16",
-    41.21
-   ],
-   [
     "2026-07-17",
     39.15
    ],
@@ -70012,10 +69682,6 @@
    ]
   ],
   "Kiaasa Retail": [
-   [
-    "2026-07-16",
-    39.88
-   ],
    [
     "2026-07-17",
     36.55
@@ -70267,10 +69933,6 @@
   ],
   "Aureate Tradde": [
    [
-    "2026-07-16",
-    41.79
-   ],
-   [
     "2026-07-17",
     39.71
    ],
@@ -70512,10 +70174,6 @@
    ]
   ],
   "Yaashvi Jewellers": [
-   [
-    "2026-07-16",
-    78.05
-   ],
    [
     "2026-07-17",
     75.45
@@ -70759,10 +70417,6 @@
   ],
   "Jivial Industries": [
    [
-    "2026-07-16",
-    86.45
-   ],
-   [
     "2026-07-17",
     84.45
    ],
@@ -70952,10 +70606,6 @@
    ]
   ],
   "Yashhtej Industries (India)": [
-   [
-    "2026-07-16",
-    51.4
-   ],
    [
     "2026-07-17",
     49.48
@@ -71471,10 +71121,6 @@
   ],
   "Emiac Technologies": [
    [
-    "2026-07-16",
-    94.75
-   ],
-   [
     "2026-07-20",
     97.99
    ],
@@ -71843,10 +71489,6 @@
   ],
   "Gabion Technologies": [
    [
-    "2026-07-16",
-    86.9
-   ],
-   [
     "2026-07-17",
     85.35
    ],
@@ -72096,10 +71738,6 @@
    ]
   ],
   "Tipco Engineering": [
-   [
-    "2026-07-16",
-    195.05
-   ],
    [
     "2026-07-17",
     191.8
@@ -72533,10 +72171,6 @@
   ],
   "Safety Controls": [
    [
-    "2026-07-16",
-    73.48
-   ],
-   [
     "2026-07-17",
     73.33
    ],
@@ -72782,10 +72416,6 @@
    ]
   ],
   "Bagmane REIT": [
-   [
-    "2026-07-16",
-    104.44
-   ],
    [
     "2026-07-17",
     104.43
@@ -73277,10 +72907,6 @@
   ],
   "Anubhav Plast": [
    [
-    "2026-07-16",
-    58.5
-   ],
-   [
     "2026-07-17",
     53.75
    ],
@@ -73502,10 +73128,6 @@
    ]
   ],
   "Vegorama Punjabi Angithi": [
-   [
-    "2026-07-16",
-    148.5
-   ],
    [
     "2026-07-17",
     150.05
@@ -73753,10 +73375,6 @@
   ],
   "Aritas Vinyl": [
    [
-    "2026-07-16",
-    12.97
-   ],
-   [
     "2026-07-17",
     13.19
    ],
@@ -73978,10 +73596,6 @@
    ]
   ],
   "M R Maniveni": [
-   [
-    "2026-07-16",
-    30.77
-   ],
    [
     "2026-07-17",
     31.88
@@ -74501,10 +74115,6 @@
   ],
   "PAN HR Solutions": [
    [
-    "2026-07-16",
-    52.25
-   ],
-   [
     "2026-07-17",
     54.0
    ],
@@ -74658,10 +74268,6 @@
    ]
   ],
   "INDO SMC": [
-   [
-    "2026-07-16",
-    380.2
-   ],
    [
     "2026-07-17",
     375.25
@@ -75008,10 +74614,6 @@
    ]
   ],
   "Devson Catalyst": [
-   [
-    "2026-07-16",
-    205.95
-   ],
    [
     "2026-07-17",
     216.2
@@ -75539,10 +75141,6 @@
   ],
   "Crazy Snacks": [
    [
-    "2026-07-16",
-    55.74
-   ],
-   [
     "2026-07-17",
     62.0
    ],
@@ -75712,10 +75310,6 @@
    ]
   ],
   "Harikanta Overseas": [
-   [
-    "2026-07-16",
-    81.89
-   ],
    [
     "2026-07-17",
     79.0
@@ -76141,10 +75735,6 @@
   ],
   "Diksha Polymers": [
    [
-    "2026-07-16",
-    118.0
-   ],
-   [
     "2026-07-17",
     116.0
    ],
@@ -76547,10 +76137,6 @@
   ],
   "Autofurnish": [
    [
-    "2026-07-16",
-    59.89
-   ],
-   [
     "2026-07-17",
     58.12
    ],
@@ -76792,10 +76378,6 @@
    ]
   ],
   "Raajmarg Infra Investment Trust": [
-   [
-    "2026-07-16",
-    117.1
-   ],
    [
     "2026-07-17",
     117.04
@@ -77047,10 +76629,6 @@
   ],
   "Liotech Industries": [
    [
-    "2026-07-16",
-    116.95
-   ],
-   [
     "2026-07-17",
     122.75
    ],
@@ -77297,10 +76875,6 @@
   ],
   "Accretion Nutraveda": [
    [
-    "2026-07-16",
-    262.0
-   ],
-   [
     "2026-07-17",
     268.0
    ],
@@ -77486,10 +77060,6 @@
    ]
   ],
   "Leapfrog Engineering": [
-   [
-    "2026-07-16",
-    22.7
-   ],
    [
     "2026-07-17",
     22.65
@@ -77939,10 +77509,6 @@
   ],
   "Msafe Equipments": [
    [
-    "2026-07-16",
-    192.9
-   ],
-   [
     "2026-07-17",
     183.55
    ],
@@ -78303,10 +77869,6 @@
   ],
   "Speciality Medicines": [
    [
-    "2026-07-16",
-    178.6
-   ],
-   [
     "2026-07-17",
     185.5
    ],
@@ -78536,10 +78098,6 @@
    ]
   ],
   "Yajur Fibres": [
-   [
-    "2026-07-16",
-    38.0
-   ],
    [
     "2026-07-17",
     38.4
@@ -80243,23 +79801,23 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-14T23:08:04+05:30",
+  "asOf": "2026-10-15T06:45:59+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-14T23:06:38+05:30",
-    "elapsed": 1.72,
+    "asOf": "2026-10-15T06:43:59+05:30",
+    "elapsed": 1.76,
     "calls": 5,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=10 carried=0 +nse=10 +bse=0 exchange-only=0: 7 mainboard, 3 sme; 4 open, 6 upcoming"
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=11 carried=0 +nse=14 +bse=0 exchange-only=0: 8 mainboard, 3 sme; 9 open, 2 upcoming"
    },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.92,
+    "elapsed": 0.98,
     "calls": 1,
     "note": "gmp: 7 board rows patched via investorgain; 10 active, 7 of them matched; gmp: 26 GMP-site names not on the board: A-One Steels (₹46, investorgain); Acme India Industries (₹43, investorgain); Acme Universal Safezone 9 (₹16, investorgain); Adroit Industries (₹55, investorgain); ArMee Infotech (₹6, investorgain); Bench Mark Infotech Services (₹15, investorgain); Bonfiglioli Transmissions (₹178, investorgain); Dudani Retail (₹0.5, investorgain) …"
    },
@@ -80267,35 +79825,35 @@
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-14T23:06:39+05:30",
-    "elapsed": 1.1,
-    "calls": 4,
-    "note": "4 records fetched for 10 identified listings (0 without an id); 0 anchor books updated, 81 on file"
+    "asOf": "2026-10-15T06:44:00+05:30",
+    "elapsed": 8.82,
+    "calls": 11,
+    "note": "11 records fetched for 11 identified listings (0 without an id); 2 anchor books updated, 83 on file"
    },
    {
     "area": "subscription",
     "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-10-14T23:06:52+05:30",
-    "elapsed": 12.48,
-    "calls": 6,
-    "note": "4/4 rows patched via narada, nse"
+    "asOf": "2026-10-15T06:44:38+05:30",
+    "elapsed": 29.56,
+    "calls": 15,
+    "note": "4/9 rows patched via narada, nse; no subscription for: Bonfigloli Transmissions, Sahajanand Medical Technologies, Tonbo Imaging India, Zetwerk"
    },
    {
     "area": "listings",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-14",
-    "elapsed": 14.83,
+    "elapsed": 17.3,
     "calls": 0,
-    "note": "30 names priced, 0 moved to recent, 0 history points"
+    "note": "27 names priced, 0 moved to recent, 0 history points"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-14",
-    "elapsed": 2.63,
+    "asOf": "2026-10-15",
+    "elapsed": 2.86,
     "calls": 2,
     "note": "1386 listings since 2022 (986 SME); fetched 2026: 283; QIB on file for 101 of 400 mainboard issues"
    },
@@ -80304,61 +79862,61 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-10-14",
-    "elapsed": 0.81,
-    "calls": 2,
-    "note": "187 listings with an NSE symbol; 1 NSE file(s) read, 127 closes added; 186 trading days on file, 0 still to fill · 96 BSE-only listings; 1 BSE file(s) read, 87 closes added, 186 days on file"
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "187 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 186 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 186 days on file"
    },
    {
     "area": "anchorbook",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-14",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "0 anchor books read (0 without an anchor table, 0 failed); 900 on file, 589 partial (feed gave only the first names); 0 of 1386 listings still to fetch"
+    "asOf": "2026-10-15",
+    "elapsed": 0.66,
+    "calls": 1,
+    "note": "0 anchor books read (1 without an anchor table, 0 failed); 900 on file, 589 partial (feed gave only the first names); 0 of 1386 listings still to fetch"
    },
    {
     "area": "evidence",
     "method": "computed:ok",
     "status": "ok",
-    "asOf": "2026-10-14",
-    "elapsed": 0.09,
+    "asOf": "2026-10-15",
+    "elapsed": 0.2,
     "calls": 0,
-    "note": "track records: 900 of 900 anchor books have an outcome; 831 of 1379 investors with 2+; 1386 listings; windows: mainboard 129, SME 237; 4 warnings"
+    "note": "track records: 900 of 900 anchor books have an outcome; 831 of 1379 investors with 2+; 1386 listings; windows: mainboard 128, SME 236; 4 warnings"
    },
    {
     "area": "players",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-14",
-    "elapsed": 28.82,
+    "asOf": "2026-10-15",
+    "elapsed": 31.94,
     "calls": 54,
-    "note": "53 of 2839 anchor investors read (0 failed); names found for 2 of 10 unlisted issues"
+    "note": "53 of 2839 anchor investors read (0 failed); names found for 2 of 11 unlisted issues"
    },
    {
     "area": "parents",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-14",
-    "elapsed": 13.34,
-    "calls": 0,
+    "elapsed": 17.19,
+    "calls": 2,
     "note": "5/5 parent prices; 43/49 investor stocks priced"
    },
    {
     "area": "filings",
     "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
     "status": "ok",
-    "asOf": "2026-10-14",
-    "elapsed": 7.61,
+    "asOf": "2026-10-15",
+    "elapsed": 7.44,
     "calls": 14,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 2396 announcements scanned, 1 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 3 leads held; 0 rows patched, 33 kept previous stage"
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 2122 announcements scanned, 1 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 3 leads held; 0 rows patched, 33 kept previous stage"
    },
    {
     "area": "offers",
     "method": "bse:blocked, bse:blocked",
     "status": "blocked",
     "asOf": null,
-    "elapsed": 0.03,
+    "elapsed": 0.02,
     "calls": 1,
     "note": "kept previous — HTTP 403"
    },
@@ -80367,7 +79925,7 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-10-14",
-    "elapsed": 0.32,
+    "elapsed": 0.27,
     "calls": 1,
     "note": "2026-10-14 already in history; FII -1,857 / DII +2,670 Cr"
    },
@@ -80376,7 +79934,7 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-10-14",
-    "elapsed": 1.04,
+    "elapsed": 1.13,
     "calls": 4,
     "note": "bulk.csv: 176 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 176; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 85 of today's 176 deals are in this year's listings (10 stocks); 1160 kept over 60 days; 187 of 283 listings have an NSE symbol; 219 with a BSE code"
    },
@@ -80384,19 +79942,19 @@
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
-    "asOf": "2026-10-14T22:18:51+05:30",
-    "elapsed": 0.97,
+    "asOf": "2026-10-15T06:06:16+05:30",
+    "elapsed": 0.49,
     "calls": 3,
-    "note": "business-standard: 7/35 primary-market items; economic-times: 11/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 18 fresh, 25 kept"
+    "note": "business-standard: 8/35 primary-market items; economic-times: 16/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 24 fresh, 25 kept"
    },
    {
     "area": "logos",
-    "method": "none:ok",
+    "method": "chittorgarh.net:ok",
     "status": "ok",
-    "asOf": "2026-10-14",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "53 logos on file; none to fetch"
+    "asOf": "2026-10-15",
+    "elapsed": 0.2,
+    "calls": 1,
+    "note": "1 logos made, 0 missing, 0 errors; 0 left; 54 on file"
    },
    {
     "area": "research layer",
@@ -80408,7 +79966,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "88s, 97 calls, 16/17 modules ok"
+    "note": "122s, 115 calls, 16/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -81757,19 +81315,6 @@
     "when": "Q1 FY27 (Jun 2026)"
    },
    {
-    "action": "FRESH ENTRY",
-    "detail": "1.45% stake",
-    "disclosedDate": "2026-07-16",
-    "investor": "Vijay Kedia (Kedia Securities)",
-    "priceAsOf": "2026-09-08",
-    "priceAtDisclosure": 1884,
-    "priceNow": 2268,
-    "sector": "Mining equipment",
-    "sectorGroup": "Other",
-    "stock": "Eimco Elecon (India)",
-    "when": "Q1 FY27 (Jun 2026)"
-   },
-   {
     "action": "BULK BUY",
     "detail": "20 lakh shares at ₹164.72 (₹32.94 Cr, NSE bulk deal), 1.48% stake",
     "disclosedDate": "2026-08-18",
@@ -82078,8 +81623,8 @@
    },
    "Edelweiss Financial Services": {
     "symbol": "EDELWEISS",
-    "value": 133.71,
-    "asOf": "2026-10-14"
+    "value": 134.34,
+    "asOf": "2026-10-13"
    },
    "Coal India": {
     "symbol": "COALINDIA",
@@ -82103,8 +81648,8 @@
    },
    "SIS Limited": {
     "symbol": "SIS",
-    "value": 406.25,
-    "asOf": "2026-10-14"
+    "value": 405.4,
+    "asOf": "2026-10-13"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
@@ -82113,8 +81658,8 @@
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 6645.0,
-    "asOf": "2026-10-14"
+    "value": 6640.0,
+    "asOf": "2026-10-13"
    },
    "SJVN": {
     "symbol": "SJVN",
@@ -82178,8 +81723,8 @@
    },
    "Asian Energy": {
     "symbol": "ASIANENE",
-    "value": 485.85,
-    "asOf": "2026-10-14"
+    "value": 458.7,
+    "asOf": "2026-10-13"
    },
    "TechEra Engineering": {
     "symbol": "TECHERA",
@@ -82188,8 +81733,8 @@
    },
    "Beta Drugs": {
     "symbol": "BETA",
-    "value": 1699.5,
-    "asOf": "2026-10-14"
+    "value": 1677.7,
+    "asOf": "2026-10-13"
    },
    "Fineotex Chemical": {
     "symbol": "FCL",
@@ -82203,13 +81748,13 @@
    },
    "Laxmi India Finance": {
     "symbol": "LAXMIINDIA",
-    "value": 108.9,
-    "asOf": "2026-10-14"
+    "value": 109.2,
+    "asOf": "2026-10-13"
    },
    "Lux Industries": {
     "symbol": "LUXIND",
-    "value": 1165.4,
-    "asOf": "2026-10-14"
+    "value": 1152.0,
+    "asOf": "2026-10-13"
    },
    "Intellect Design Arena": {
     "symbol": "INTELLECT",
@@ -82228,8 +81773,8 @@
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 105.54,
-    "asOf": "2026-10-14"
+    "value": 105.19,
+    "asOf": "2026-10-13"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
@@ -82248,8 +81793,8 @@
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 134.53,
-    "asOf": "2026-10-14"
+    "value": 136.04,
+    "asOf": "2026-10-13"
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
@@ -82263,8 +81808,8 @@
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1461.2,
-    "asOf": "2026-10-14"
+    "value": 1471.8,
+    "asOf": "2026-10-13"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
@@ -82293,8 +81838,8 @@
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 526.55,
-    "asOf": "2026-10-14"
+    "value": 516.6,
+    "asOf": "2026-10-13"
    },
    "Ashutosh Fibre (upcoming)": {
     "symbol": "ASHUTOSH",
@@ -82305,19 +81850,19 @@
     "symbol": null,
     "value": null,
     "asOf": null,
-    "triedOn": "2026-10-08"
+    "triedOn": "2026-10-15"
    },
    "Sahajanand Medical Technologies (upcoming)": {
     "symbol": null,
     "value": null,
     "asOf": null,
-    "triedOn": "2026-10-08"
+    "triedOn": "2026-10-15"
    },
    "NSE (upcoming)": {
     "symbol": null,
     "value": null,
     "asOf": null,
-    "triedOn": "2026-10-08"
+    "triedOn": "2026-10-15"
    }
   },
   "listingDeals": [
@@ -103179,6 +102724,38 @@
  },
  "anchors": [
   {
+   "name": "Jio Platforms",
+   "date": "2026-10-19",
+   "amountCr": null,
+   "issueSizeCr": 27.0,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-11-25",
+   "lockIn90": "2027-01-24",
+   "anchor": "bid 19 Oct · lock-in ends 25 Nov (half) and 24 Jan",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "Paras Healthcare",
+   "date": "2026-10-19",
+   "amountCr": null,
+   "issueSizeCr": 10000.0,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-11-25",
+   "lockIn90": "2027-01-24",
+   "anchor": "bid 19 Oct · lock-in ends 25 Nov (half) and 24 Jan",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
    "name": "Sahajanand Medical Technologies",
    "date": "2026-10-14",
    "amountCr": null,
@@ -103186,7 +102763,9 @@
    "count": null,
    "topTierShare": null,
    "investors": [],
-   "sources": [],
+   "sources": [
+    "https://www.chittorgarh.net/reports/anchor-investor/sahajanand-medical-technologies-ipo-anchor-allocation-letter.pdf"
+   ],
    "source": "exchange-json",
    "auto": true,
    "lockIn30": "2026-11-20",
@@ -103250,7 +102829,9 @@
    "count": null,
    "topTierShare": null,
    "investors": [],
-   "sources": [],
+   "sources": [
+    "https://www.chittorgarh.net/reports/anchor-investor/shellz-india-ipo-anchor-allocation-letter.pdf"
+   ],
    "source": "exchange-json",
    "auto": true,
    "lockIn30": "2026-11-20",
@@ -110221,8 +109802,8 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 133.71,
-    "asOf": "2026-10-14"
+    "value": 134.34,
+    "asOf": "2026-10-13"
    },
    "parentTicker": "EDELWEISS",
    "sources": [
@@ -110668,7 +110249,7 @@
   }
  },
  "evidence": {
-  "asOf": "2026-10-14",
+  "asOf": "2026-10-15",
   "rfAnnual": 0.07,
   "minN": 30,
   "edges": {
@@ -110720,8 +110301,8 @@
    "main": {
     "window": {
      "rule": "last 12 months",
-     "n": 129,
-     "from": "2025-10-14",
+     "n": 128,
+     "from": "2025-10-16",
      "to": "2026-10-08"
     },
     "n": 400,
@@ -110756,13 +110337,13 @@
         "p90": 23.0
        },
        {
-        "n": 47,
-        "pos": 89.4,
-        "lo": 77.4,
-        "hi": 95.4,
-        "med": 27.8,
-        "p10": 4.0,
-        "p90": 64.1
+        "n": 46,
+        "pos": 89.1,
+        "lo": 77.0,
+        "hi": 95.3,
+        "med": 27.5,
+        "p10": 3.3,
+        "p90": 64.3
        }
       ],
       "all": [
@@ -110834,13 +110415,13 @@
         "p90": 28.0
        },
        {
-        "n": 25,
+        "n": 24,
         "pos": 100.0,
-        "lo": 86.7,
+        "lo": 86.2,
         "hi": 100.0,
-        "med": 39.6,
-        "p10": 30.2,
-        "p90": 76.0
+        "med": 39.0,
+        "p10": 29.9,
+        "p90": 76.1
        }
       ],
       "all": [
@@ -111009,12 +110590,12 @@
        "p90": 12.6
       },
       {
-       "n": 24,
-       "held": 50.0,
-       "lo": 31.4,
-       "hi": 68.6,
-       "med": -0.5,
-       "p10": -16.3,
+       "n": 23,
+       "held": 52.2,
+       "lo": 33.0,
+       "hi": 70.8,
+       "med": 0.5,
+       "p10": -16.4,
        "p90": 13.1
       }
      ],
@@ -111180,13 +110761,13 @@
     },
     "fit": {
      "r377": {
-      "n": 117,
+      "n": 116,
       "a": -1.88,
-      "b": 1.058,
+      "b": 1.053,
       "r2": 0.81,
       "sd": 10.1,
-      "q10": -9.3,
-      "q90": 9.4
+      "q10": -9.4,
+      "q90": 9.6
      },
      "eve": null,
      "provisional": true,
@@ -111254,8 +110835,8 @@
    "sme": {
     "window": {
      "rule": "last 12 months",
-     "n": 237,
-     "from": "2025-10-14",
+     "n": 236,
+     "from": "2025-10-17",
      "to": "2026-10-12"
     },
     "n": 986,
@@ -111272,13 +110853,13 @@
         "p90": 6.9
        },
        {
-        "n": 63,
-        "pos": 47.6,
-        "lo": 35.8,
-        "hi": 59.7,
+        "n": 62,
+        "pos": 48.4,
+        "lo": 36.4,
+        "hi": 60.6,
         "med": 0.0,
         "p10": -20.0,
-        "p90": 12.7
+        "p90": 12.8
        },
        {
         "n": 29,
@@ -111341,10 +110922,10 @@
      "gmp": {
       "window": [
        {
-        "n": 110,
-        "pos": 37.3,
-        "lo": 28.8,
-        "hi": 46.6,
+        "n": 109,
+        "pos": 37.6,
+        "lo": 29.1,
+        "hi": 47.0,
         "med": 0.0,
         "p10": -20.0,
         "p90": 4.8
@@ -111516,10 +111097,10 @@
     "hold": {
      "window": [
       {
-       "n": 73,
-       "held": 24.7,
-       "lo": 16.2,
-       "hi": 35.6,
+       "n": 72,
+       "held": 25.0,
+       "lo": 16.4,
+       "hi": 36.1,
        "med": -4.0,
        "p10": -4.9,
        "p90": 4.0
@@ -111918,7 +111499,7 @@
  "records": {
   "1902": {
    "name": "HD Fire Protect",
-   "fetchedAt": "2026-10-14T23:06:39+05:30",
+   "fetchedAt": "2026-10-15T06:44:00+05:30",
    "about": [
     "HD Fire Protect Ltd. is engaged in the design, manufacture, and supply of a wide range of fire protection equipment and integrated fire safety systems. The company caters to industrial, commercial, and institutional clients by providing dependable and internationally certified fire protection solutions. The company focuses on innovation, product development, and adherence to global quality and safety standards. Supported by an extensive distribution network and strong after-sales service capabilities, HD Fire Protect has established a significant presence in both domestic and international markets. HD Fire Protect operates two manufacturing facilities located at Jalgaon MIDC and Thane MIDC in Maharashtra, covering a combined area of approximately 8.50 acres. Its product portfolio includes fire sprinklers, valves, foam-based firefighting equipment, and fire detection systems, enabling comprehensive fire protection solutions across multiple industries. The company serves a diverse range of sectors, including oil & gas, power generation, manufacturing, infrastructure, and other high-risk industrial applications. As of March 31, 2025, it employed 261 permanent employees and 185 contractual employees. Strong global footprint in a highly regulated and certification-driven industry with significant entry barriers. Broad portfolio of fire protection equipment and systems serving multiple end-use industries. Diversified customer base supported by long-term relationships across domestic and international markets. Advanced engineering, design, and manufacturing capabilities backed by continuous research and innovation. Experienced leadership team and skilled workforce with extensive industry expertise."
    ],
@@ -112143,6 +111724,13 @@
    },
    "gmpHistory": [
     {
+     "date": "2026-10-15",
+     "gmp": 89.0,
+     "est": 360.0,
+     "pct": 32.84,
+     "kostakSauda": "3700/51800"
+    },
+    {
      "date": "2026-10-14",
      "gmp": 89.0,
      "est": 360.0,
@@ -112183,13 +111771,6 @@
      "est": 345.0,
      "pct": 27.31,
      "kostakSauda": "3100/43400"
-    },
-    {
-     "date": "2026-10-08",
-     "gmp": 63.0,
-     "est": 334.0,
-     "pct": 23.25,
-     "kostakSauda": "2600/36400"
     }
    ],
    "bidding": [
@@ -112225,7 +111806,7 @@
   },
   "2306": {
    "name": "Jio Platforms",
-   "fetchedAt": "2026-10-14T20:08:47+05:30",
+   "fetchedAt": "2026-10-15T06:44:00+05:30",
    "about": [
     "Jio Platforms Limited is a leading digital technology company in India, operating primarily through its subsidiary, Reliance Jio Infocomm Limited. The company delivers a broad range of digital connectivity and technology-enabled services to consumers and enterprises across the country. As of March 31, 2026, it served more than 524 million customers through its extensive telecommunications and digital services ecosystem. The company has built an integrated, proprietary technology platform encompassing network infrastructure, software applications, operating systems, cloud capabilities, digital devices, and advanced technology solutions. Its consumer offerings include mobile and fixed broadband services, digital entertainment, gaming, cloud storage, smart home products, and AI-powered applications, supported by platforms such as MyJio, JioTV+, JioSaavn, JioGames, and JioAICloud. For enterprises, Jio Platforms provides connectivity solutions, cloud and IoT services, cybersecurity, managed services, unified communications, and private 5G networks, serving clients across sectors including banking, manufacturing, utilities, transportation, government, and information technology. As of March 31, 2026, the company and its subsidiaries employed 28,163 full-time personnel and maintained a portfolio of patent applications related to digital communications, cloud-native technologies, artificial intelligence, and other emerging innovations."
    ],
@@ -112385,9 +111966,16 @@
    },
    "gmpHistory": [
     {
+     "date": "2026-10-15",
+     "gmp": 206.0,
+     "est": 206.0,
+     "pct": 0.0,
+     "kostakSauda": "--"
+    },
+    {
      "date": "2026-10-14",
-     "gmp": 200.0,
-     "est": 200.0,
+     "gmp": 206.0,
+     "est": 206.0,
      "pct": 0.0,
      "kostakSauda": "--"
     },
@@ -112425,13 +112013,6 @@
      "est": 173.0,
      "pct": 0.0,
      "kostakSauda": "--"
-    },
-    {
-     "date": "2026-10-08",
-     "gmp": 167.0,
-     "est": 167.0,
-     "pct": 0.0,
-     "kostakSauda": "--"
     }
    ],
    "company": {
@@ -112442,7 +112023,7 @@
   },
   "2220": {
    "name": "Ravita Engineering Services",
-   "fetchedAt": "2026-10-14T23:06:39+05:30",
+   "fetchedAt": "2026-10-15T06:44:00+05:30",
    "about": [
     "Ravita Engineering Services Ltd., founded in December 2007, specializes in EPIC contracts for HVAC, central air-conditioning, air flow systems, chillers, compressors, cooling equipment, and other electromechanical systems on a turnkey basis for commercial, industrial, offshore rigs, and platforms. They also offer operation and maintenance services for their projects and third-party systems. The company also engages in the execution of a specialised niche engineering project, viz., laying of sub-sea discharge pipelines for the effluent treatment plant (“ETP”) at Paradeep, Odisha.P”) at Paradeep, Odisha. The company's business operations fall into three areas of expertise, namely, (i) Onshore; (ii) Offshore; and (iii) Data Centre. The company has undertaken its Onshore operations in states like Gujarat, Maharashtra, Odisha and Karnataka. Its offshore operations occur at rigs, platforms, and marine installations in India's territorial waters. The company's Data Centre operations include maintaining cooling systems, chiller plants, HVAC, and utilities to ensure uptime, reliability, and temperature control. They currently serve a large Indian conglomerate at their Navi Mumbai data center. As of December 31, 2025, our order book for Data Center O&M services was ₹ 7,403.63 lakhs. Competitive Strength Comprehensive electro-mechanical engineering capabilities with separate EPIC and O&M service offerings. Balanced revenue mix with short to medium tenor project execution cycle and multi-year O&M contracts Long-standing relationships with large clients supporting repeat business. Management-driven domain expertise and industry relationships. Specialised operational experience in adverse environments and mission‑critical data centres."
    ],
@@ -112639,6 +112220,13 @@
    },
    "gmpHistory": [
     {
+     "date": "2026-10-15",
+     "gmp": 7.0,
+     "est": 119.0,
+     "pct": 6.25,
+     "kostakSauda": "6400"
+    },
+    {
      "date": "2026-10-14",
      "gmp": 7.0,
      "est": 119.0,
@@ -112695,7 +112283,7 @@
   },
   "2335": {
    "name": "Vaibhav Vyapaar",
-   "fetchedAt": "2026-10-14T23:06:39+05:30",
+   "fetchedAt": "2026-10-15T06:44:00+05:30",
    "about": [
     "Vaibhav Vyapaar Limited is an RBI-registered Non-Banking Financial Company (NBFC) engaged in providing digital lending solutions to retail customers across India. The company primarily offers unsecured personal loans to salaried and self-employed individuals through a technology-enabled platform, operating under both direct lending and co-lending arrangements. Its lending services are delivered through the “LoanFront” mobile application, which facilitates the entire loan lifecycle digitally, including customer onboarding, credit assessment, documentation, loan disbursement, and repayment management. The company leverages automated underwriting processes, digital verification systems, and data-driven risk evaluation tools to streamline lending operations and enhance credit decision-making. Apart from its lending business, Vaibhav Vyapaar also provides technology and application support services to other NBFCs, creating an additional source of revenue. The company primarily caters to retail borrowers, with a focus on first-time credit seekers and salaried individuals in the low- to middle-income segment, while expanding its reach across urban and semi-urban markets through a scalable digital infrastructure."
    ],
@@ -112937,7 +112525,7 @@
    },
    "gmpHistory": [
     {
-     "date": "2026-10-14",
+     "date": "2026-10-15",
      "gmp": 0.0,
      "est": 54.0,
      "pct": 0.0,
@@ -112976,7 +112564,7 @@
   },
   "1792": {
    "name": "Fusion CX",
-   "fetchedAt": "2026-10-14T23:06:39+05:30",
+   "fetchedAt": "2026-10-15T06:44:00+05:30",
    "about": [
     "Fusion CX Ltd. provides customer experience management and business process services to enterprises through multiple communication channels, including telephone, email, online chat, social media and messaging platforms. The Company has also expanded into AI data infrastructure, offering services such as data sourcing, data annotation, image and video tagging, and robotic teleoperation. The Company integrates human-led service delivery with proprietary technology and artificial intelligence to facilitate customer engagement across languages and digital channels. Its solutions are designed to streamline business processes, enhance service quality and automate customer interactions. Through its subsidiary, Omind Technologies, Fusion CX is developing technology platforms for AI-based marketing, conversational intelligence, automated quality monitoring and workforce management. As of June 30, 2026, the Company had established 40 delivery centres in 13 countries, provided support in 28 languages and maintained relationships with 208 customers, including 22 Fortune 1000 companies. Its operations cater to several industry segments, such as telecommunications and utilities, healthcare and life sciences, high technology and travel, banking, financial services and insurance (BFSI), and consumer retail. During Fiscal 2026, Fusion CX recorded revenue from operations of ₹1,818.14 crore, representing a year-on-year increase of 36.77% compared with Fiscal 2025. Telecommunications and technology accounted for 47.34% of operating revenue, followed by BFSI at 13.52%, healthcare at 13.14%, consumer and retail at 12.12%, and other sectors at 13.88%. Geographically, the US and Canada generated 85.26% of revenue, while India contributed 11.29%, the UK and Europe accounted for 3.11%, and other markets represented the remaining 0.34%. Customer concentration remained significant, with the five largest clients contributing 39.55% of total revenue and the ten largest clients accounting for 49.66%. Competitive Strengths: Global Delivery Network with 40 delivery centres across 13 countries. AI-Driven Technology Proven Acquisition Track Record Diversified Industry Presence across multiple industries, including telecom and utilities, healthcare, BFSI, retail, high-tech. Customer-Centric Approach Experienced Management Team"
    ],
@@ -113249,6 +112837,13 @@
    },
    "gmpHistory": [
     {
+     "date": "2026-10-15",
+     "gmp": 33.0,
+     "est": 322.0,
+     "pct": 11.42,
+     "kostakSauda": "1300/18200"
+    },
+    {
      "date": "2026-10-14",
      "gmp": 33.0,
      "est": 322.0,
@@ -113312,7 +112907,7 @@
   },
   "2124": {
    "name": "Bonfigloli Transmissions",
-   "fetchedAt": "2026-10-14T20:08:47+05:30",
+   "fetchedAt": "2026-10-15T06:44:00+05:30",
    "about": [
     "Bonfiglioli Transmissions Ltd is a technology-driven manufacturer of mechanical and electro-mechanical power transmission solutions, including gearboxes, gear motors, electric motors, variable frequency drives, servo drives, and precision drives for robotics and automation. The company operates across three key segments: Industry and Automation Solutions, Off-Highway Mobility, and Wind Industry. It operates three manufacturing facilities in Tamil Nadu and Maharashtra, producing over 330,000 gear motors and gearboxes in FY2024. With 13 sales offices across India, the company provides dedicated after-sales support and serves a diversified customer base, including leading industrial OEMs. Its key strengths include a diversified product portfolio, global R&D capabilities, an established brand, strong customer relationships, advanced manufacturing infrastructure, and an experienced management team."
    ],
@@ -113504,10 +113099,17 @@
    },
    "gmpHistory": [
     {
+     "date": "2026-10-15",
+     "gmp": 178.0,
+     "est": 764.0,
+     "pct": 30.38,
+     "kostakSauda": "3400/47600"
+    },
+    {
      "date": "2026-10-14",
-     "gmp": 180.0,
-     "est": 766.0,
-     "pct": 30.72,
+     "gmp": 178.0,
+     "est": 764.0,
+     "pct": 30.38,
      "kostakSauda": "3400/47600"
     },
     {
@@ -113547,7 +113149,7 @@
   },
   "1842": {
    "name": "Sahajanand Medical Technologies",
-   "fetchedAt": "2026-10-14T20:08:47+05:30",
+   "fetchedAt": "2026-10-15T06:44:00+05:30",
    "about": [
     "Founded in 2001 by Mr. Dhirajlal Kotadia, Sahajanand Medical Technologies Ltd. is a medical device company focused on Class III and Class C/D devices, primarily in the fields of vascular and structural heart intervention. The company was the first globally to receive CE certification for a drug-eluting stent (DES) with a biodegradable polymer—Infinnium. The product portfolio spans three key categories: Vascular Intervention (VI): Includes coronary stents and balloons for minimally invasive blood vessel treatments. Structural Heart (SH): Covers advanced technologies such as Transcatheter Aortic Valve Implantation (TAVI) and Occluders. Other Products: Includes renal stents, peripheral Drug-Coated Balloons (DCBs), and selected trading products. Sahajanand operates two R&D centers—one in India and one in Thailand—supported by a team of 102 professionals, including biomedical engineers and clinical research specialists. The company has built a robust intellectual property base, with 102 patents granted globally and 71 pending patent applications, along with five design registrations in India. Key products such as Supraflex Cruz (DES) , Hydra (TAVI) , and Cocoon (Occluders) are backed by 72 clinical studies, and are widely accepted in over 76 countries across Europe, Asia, and other regions. The global distribution strategy includes direct operations in key European markets (Germany, Spain, France, UK), hybrid models in India (serving hospitals like Narayana Hrudayalaya Limited), and distributor-led entry in markets such as Italy. International market adoption is reinforced by endorsements from key opinion leaders (KOLs), successful government tenders, and partnerships with major Group Purchasing Organizations (GPOs) in Europe. The company follows a “House of Brand” strategy, developing and commercializing clinically differentiated products under recognized brand names like Supraflex Cruz, Hydra, and Cocoon. As of March 31, 2025, Sahajanand Medical Technologies employed 1,458 full-time staff, 24 consultants, and 818 contract-based personnel across its operations."
    ],
@@ -113713,11 +113315,18 @@
    },
    "gmpHistory": [
     {
+     "date": "2026-10-15",
+     "gmp": 41.0,
+     "est": 385.0,
+     "pct": 11.92,
+     "kostakSauda": "1300/18200"
+    },
+    {
      "date": "2026-10-14",
-     "gmp": 36.0,
-     "est": 380.0,
-     "pct": 10.47,
-     "kostakSauda": "1200/16800"
+     "gmp": 41.0,
+     "est": 385.0,
+     "pct": 11.92,
+     "kostakSauda": "1300/18200"
     },
     {
      "date": "2026-10-13",
@@ -113749,7 +113358,7 @@
   },
   "2369": {
    "name": "Tonbo Imaging India",
-   "fetchedAt": "2026-10-14T20:08:47+05:30",
+   "fetchedAt": "2026-10-15T06:44:00+05:30",
    "about": [
     "Tonbo Imaging India Limited is a defence electronics original equipment manufacturer (OEM) with a global presence, specialising in the design, development and manufacture of advanced electro-optic and infrared (EO/IR) technologies, embedded vision solutions, communication systems, guidance equipment and surveillance technologies for defence and security applications. Its product portfolio encompasses a wide range of battlefield solutions, including thermal imaging equipment, weapon sights, missile seekers, fire control systems, missile guidance solutions, targeting systems and handheld thermal imaging devices. Products and Solutions Tactical Systems: These solutions support critical battlefield functions such as imaging, surveillance, reconnaissance and target acquisition, enabling improved situational awareness and operational effectiveness. Platform Systems: The Company's platform offerings comprise subsystems that provide observation and fire control capabilities for aerial, ground and weapon platforms, as well as complete platforms designed to undertake threat-neutralisation operations. Directed Energy Systems: Tonbo is developing a range of technology components to address emerging threats, including drone swarms. These components are being integrated into a high-power microwave (HPM) platform marketed under the brand name WaveStrike. Tonbo serves defence and security organisations in 24 countries, with more than 28,000 systems deployed in the field. During FY2024 to FY2026, the Company was India's largest manufacturer of thermal imaging systems for government and defence agencies and the country's largest exporter of thermal imaging systems by volume. Its solutions are built on proprietary, fully owned intellectual property and are free from International Traffic in Arms Regulations (ITAR) restrictions, supporting access to international markets without the export constraints associated with ITAR-controlled technologies. The Company's business model is driven by continuous innovation, supported by in-house research and development, proprietary engineering capabilities and advanced manufacturing infrastructure. Tonbo is an approved supplier under India's Indigenously Designed, Developed and Manufactured (IDDM) defence procurement framework, aligning its operations with the Government of India's Make in India and Atmanirbhar Bharat initiatives. As of June 30, 2026, Tonbo employed 339 permanent employees across various functions, including product design and development, manufacturing, project management, sales, finance, human resources and management. Key Strengths Established position in defence electronics: Specialised expertise in the development and manufacture of electro-optic, infrared and thermal imaging technologies for defence and security applications. Proprietary technology and R&D expertise: Strong internal research and development capabilities, supported by ownership of core intellectual property and specialised engineering knowledge. Comprehensive product portfolio: A diverse range of battlefield solutions covering surveillance, imaging, target acquisition, weapon control and missile guidance applications. International market reach: A global footprint spanning 24 countries, with over 28,000 deployed systems and ITAR-free technologies that facilitate exports to international markets. Innovation-led operating model: An asset-light business approach supported by technology development, specialised manufacturing capabilities and financial performance. Experienced management team: Leadership with expertise in defence technologies, product engineering, research and development, and the execution of complex manufacturing programmes."
    ],
@@ -113943,6 +113552,13 @@
    },
    "gmpHistory": [
     {
+     "date": "2026-10-15",
+     "gmp": 500.0,
+     "est": 1200.0,
+     "pct": 71.43,
+     "kostakSauda": "8000/112000"
+    },
+    {
      "date": "2026-10-14",
      "gmp": 500.0,
      "est": 1200.0,
@@ -113979,7 +113595,7 @@
   },
   "2279": {
    "name": "Zetwerk",
-   "fetchedAt": "2026-10-14T20:08:47+05:30",
+   "fetchedAt": "2026-10-15T06:44:00+05:30",
    "about": [
     "Zetwerk Manufacturing Businesses Private Limited is a technology-driven global manufacturing platform that connects industrial and consumer businesses with a diversified network of manufacturing partners. Through its managed marketplace, the Company facilitates customised and large-scale manufacturing requirements for businesses ranging from emerging startups to established enterprises. Its customer base spans multiple industries, including utilities, renewable energy, consumer electronics, artificial intelligence infrastructure, aerospace, space and defence, oil and gas, and industrial automation. The Company operates an asset-light business model, offering integrated manufacturing solutions encompassing product design, supplier identification, quality assurance and logistics management. Its proprietary technology platform, Zetwerk OS, supports end-to-end workflow management and provides real-time visibility throughout the manufacturing process. The Company's operational capabilities are supported by scalable production capacity, stringent quality control processes, shorter delivery cycles and a diversified international customer base. Zetwerk serves a broad range of manufacturing segments, including electronics, renewable energy, aerospace and defence, capital goods and precision engineering. The Company has an international presence spanning more than 25 countries, supported by a network of over 10,000 suppliers and more than 1,100 customers, including Fortune 500 enterprises. Its manufacturing infrastructure comprises over 20 facilities across India, the United States and Mexico. During Fiscal 2026, the Company served 1,802 customers, of which 1,613 were based in India and 189 were located outside India. Competitive Strengths Diversified and resilient business model: Its distinctive manufacturing platform enables the Company to address demand across multiple industry segments, reducing dependence on any single market and supporting resilience through different economic cycles. Capabilities across multiple industry verticals: The Company continues to develop manufacturing expertise and operational capabilities to serve a wide range of industries and evolving customer requirements. Capital-efficient scalability: Its asset-light operating structure enables the Company to expand manufacturing capacity and serve growing demand without relying exclusively on investments in owned production infrastructure. Proprietary technology platform: Zetwerk OS integrates workflows across the manufacturing lifecycle, enhancing operational visibility, coordination and efficiency while strengthening network effects across its ecosystem. Established customer relationships: Long-standing customer relationships support repeat business, improve revenue visibility and contribute to greater customer retention. Expansion of value-added services: The Company can broaden its service offerings by introducing complementary solutions across its manufacturing ecosystem, strengthening its overall value proposition to customers. Experienced leadership and governance: The Company benefits from an experienced management team with exposure to different business cycles, supported by an established board of directors."
    ],
@@ -114132,11 +113748,18 @@
    },
    "gmpHistory": [
     {
+     "date": "2026-10-15",
+     "gmp": 22.0,
+     "est": 173.0,
+     "pct": 14.57,
+     "kostakSauda": "1700/23800"
+    },
+    {
      "date": "2026-10-14",
-     "gmp": 18.5,
-     "est": 169.5,
-     "pct": 12.25,
-     "kostakSauda": "1400/19600"
+     "gmp": 22.0,
+     "est": 173.0,
+     "pct": 14.57,
+     "kostakSauda": "1700/23800"
     },
     {
      "date": "2026-10-13",
@@ -114168,7 +113791,7 @@
   },
   "2228": {
    "name": "Shellz India",
-   "fetchedAt": "2026-10-14T20:08:47+05:30",
+   "fetchedAt": "2026-10-15T06:44:00+05:30",
    "about": [
     "Shellz India Ltd. is engaged in the manufacturing and marketing of a wide range of confectionery products in India, supported by a diversified portfolio of over 250 SKUs. These offerings span across multiple categories, including chocolate-based products, jellies, baked treats, and other confectionery formats. In addition, the company manufacture and supply food and bakery ingredients, catering to urban and semi-urban markets, as well as smaller towns and rural areas, leveraging an extensive distribution network. It market its consumer products under two key brands: Hugs and Tosca . The flagship Hugs brand is positioned for the mass market and includes products across four primary categories: baked treats, chocolate-based confectionery, jellies, and panned and sugar confectionery. As of September 30, 2025, its products are distributed through a network of over 200 super stockists and are available across kirana outlets in approximately 24 states. The Tosca brand is positioned toward the mass-premium segment, offering products at relatively higher price points. This brand targets urban consumers with differentiated formats and packaging. In addition to the branded consumer business, the business also undertake private label manufacturing for third-party customers. Furthermore, the company export its products to international markets, including regions in the Middle East, Southeast Asia, and Europe (including Spain). These additional channels complement its core operations, enabling diversification across customers, product categories, and distribution channels. Competitive strengths Ability to develop differentiated products across formats and price points Presence at mass-market price-points supported by a diversified product portfolio Super stockist-led distribution model enabling scalable market reach Integrated in-house manufacturing capabilities In-house product development capabilities Experienced Promoters and Management Team"
    ],
@@ -114350,7 +113973,7 @@
    },
    "gmpHistory": [
     {
-     "date": "2026-10-14",
+     "date": "2026-10-15",
      "gmp": 0.0,
      "est": 179.0,
      "pct": 0.0,
@@ -114362,10 +113985,306 @@
     "website": "https://www.shellz.in/",
     "process": "Book Build Issue"
    }
+  },
+  "1728": {
+   "name": "Paras Healthcare",
+   "fetchedAt": "2026-10-15T06:44:00+05:30",
+   "about": [
+    "Incorporated in1987, Paras Health is a healthcare provider operating a network of hospitals across North India, Bihar, and Jharkhand. As of March 31, 2024, Paras Health had an aggregate bed capacity of 2,135 beds, making it the fifth-largest healthcare provider in terms of bed capacity among its peers in these regions. The company operates eight hospitals under the \"Paras Health\" brand, located in Gurugram and Panchkula (Haryana), Patna and Darbhanga (Bihar), Kanpur (Uttar Pradesh), Udaipur (Rajasthan), Ranchi (Jharkhand), and Srinagar (Jammu and Kashmir, UT). Paras Health expanded its bed capacity from 1,250 beds in March 2022 to 2,135 beds in March 2024. As of March 31, 2024, the company had a medical team comprising 1,091 doctors and 1,509 nurses across its hospitals."
+   ],
+   "desc": [
+    "Incorporated in1987, Paras Healthcare Limited is a leading clinical specialty-led hospital platform providing tertiary and quaternary healthcare services across North India, Bihar, and Jharkhand under the \"Paras Health\" brand. The company operates eight hospitals with an aggregate bed capacity of 2,211 beds across Gurugram, Panchkula, Patna, Darbhanga, Kanpur, Udaipur, Ranchi, and Srinagar as of June 30, 2026. It specializes in cardiac sciences, oncology, neurosciences, gastro sciences, orthopedics & sports injury, and renal sciences (CONGOR specialties), which contributed 75.30% of revenue in Fiscal 2026. Paras Healthcare has over 20 years of operating history and follows a balanced growth strategy through mature, emerging, and new hospitals. The company plans to expand its network with a 300-bed hospital in Gurugram and a 500-bed hospital in Ludhiana, increasing total capacity to 3,011 beds by March 2028. As of March 31, 2026, it had 4,670 employees, including 1,084 doctors and 1,937 nurses. Strengths Leading healthcare provider in North India, Bihar, and Jharkhand. Network of 8 hospitals with 2,211-bed capacity. Strong Paras Health brand with over 20 years of experience. Focus on high-acuity CONGOR specialties. Balanced portfolio of mature, emerging, and new hospitals. Strong occupancy growth and operational efficiency. Experienced workforce of 1,011 doctors and 1,665 nurses. Expansion pipeline to reach 3,011 beds by FY28. Advanced clinical infrastructure and standardized care protocols."
+   ],
+   "promoters": "Dharminder Kumar Nagar",
+   "objects": {
+    "head": [
+     "#",
+     "Issue Objects",
+     "Est Amt (₹ Cr.)"
+    ],
+    "rows": [
+     [
+      "1",
+      "Prepayment or scheduled re-payment, in full or part, of certain outstanding borrowings availed by Company",
+      "320.90"
+     ],
+     [
+      "2",
+      "Investment in our wholly owned Subsidiary, PMHPL (which also operates hospital in Srinagar), for repayment/prepayment of borrowings, in full or part, of PMHPL",
+      "54.10"
+     ],
+     [
+      "3",
+      "General Corporate Purposes",
+      ""
+     ],
+     [
+      "",
+      "Total",
+      "375.00"
+     ]
+    ]
+   },
+   "financials": {
+    "head": [
+     "Period Ended",
+     "30 Jun 2026",
+     "31 Mar 2026",
+     "31 Mar 2025",
+     "31 Mar 2024"
+    ],
+    "rows": [
+     [
+      "Assets",
+      "2,202.88",
+      "2,071.14",
+      "1,810.45",
+      "1,477.66"
+     ],
+     [
+      "Total Income",
+      "478.75",
+      "1,628.78",
+      "1,314.21",
+      "1,151.02"
+     ],
+     [
+      "Profit After Tax",
+      "49.68",
+      "43.83",
+      "57.98",
+      "15.33"
+     ],
+     [
+      "EBITDA",
+      "113.48",
+      "335.58",
+      "156.46",
+      "154.41"
+     ],
+     [
+      "NET Worth",
+      "444.96",
+      "394.94",
+      "280.49",
+      "338.51"
+     ],
+     [
+      "Reserves and Surplus",
+      "434.86",
+      "384.84",
+      "270.73",
+      "328.75"
+     ],
+     [
+      "Total Borrowing",
+      "1,429.49",
+      "1,393.86",
+      "1,232.12",
+      "923.92"
+     ],
+     [
+      "Amount in ₹ Crore"
+     ]
+    ],
+    "title": "Company Financials (Restated Consolidated)",
+    "asOf": "2026-06-30"
+   },
+   "peers": {
+    "head": [
+     "Company Name",
+     "EPS (Basic)",
+     "EPS (Diluted)",
+     "NAV (₹ per share)",
+     "P/E (x)",
+     "RoNW (%)",
+     "P/BV Ratio",
+     "Financial statements"
+    ],
+    "rows": [
+     [
+      "Paras Healthcare Ltd.",
+      "4.34",
+      "4.34",
+      "39.11",
+      "",
+      "12.98",
+      "",
+      "Consolidated"
+     ],
+     [
+      "Aster DM Quality Care Ltd.",
+      "7.53",
+      "7.52",
+      "88.32",
+      "91.89",
+      "9.70",
+      "7.85",
+      "Consolidated"
+     ],
+     [
+      "Apollo Hospitals Enterprise Ltd.",
+      "135.04",
+      "134.94",
+      "657.58",
+      "59.36",
+      "21.95",
+      "12.19",
+      "Consolidated"
+     ],
+     [
+      "Fortis Healthcare Ltd.",
+      "13.80",
+      "13.80",
+      "131.07",
+      "55.43",
+      "11.08",
+      "5.84",
+      "Consolidated"
+     ],
+     [
+      "Global Health Ltd.",
+      "20.71",
+      "20.66",
+      "147.06",
+      "64.46",
+      "15.15",
+      "9.05",
+      "Consolidated"
+     ],
+     [
+      "Jupiter Lifeline Hospitals Ltd.",
+      "5.92",
+      "5.92",
+      "47.10",
+      "42.92",
+      "13.41",
+      "5.40",
+      "Consolidated"
+     ],
+     [
+      "Krishna Institute of Medical Sciences Ltd.",
+      "6.03",
+      "6.03",
+      "56.17",
+      "116.41",
+      "11.01",
+      "12.52",
+      "Consolidated"
+     ],
+     [
+      "Manipal Health Enterprises Ltd.",
+      "7.71",
+      "7.67",
+      "63.26",
+      "87.00",
+      "12.37",
+      "10.59",
+      "Consolidated"
+     ],
+     [
+      "Max Healthcare Institute Ltd.",
+      "14.83",
+      "14.76",
+      "109.53",
+      "62.10",
+      "14.33",
+      "8.40",
+      "Consolidated"
+     ],
+     [
+      "Narayana Hrudayalaya Ltd.",
+      "39.67",
+      "39.67",
+      "222.02",
+      "43.41",
+      "19.74",
+      "7.75",
+      "Consolidated"
+     ],
+     [
+      "Yatharth Hospital and Trauma Care Services Ltd.",
+      "18.20",
+      "18.20",
+      "184.79",
+      "55.16",
+      "10.36",
+      "5.45",
+      "Consolidated"
+     ]
+    ],
+    "asOf": "2026-03-31"
+   },
+   "reservation": {
+    "head": [
+     "Investor Category",
+     "Shares"
+    ],
+    "rows": [
+     [
+      "QIB",
+      "Not more than 75% of the Net Offer"
+     ],
+     [
+      "Retail",
+      "Not less than 10% of the Offer"
+     ],
+     [
+      "NII",
+      "Not less than 15% of the Offer"
+     ]
+    ]
+   },
+   "kpiPeriods": [
+    {
+     "asOf": "2026-03-31",
+     "roe": 12.98,
+     "roce": 10.76,
+     "ronw": 12.98,
+     "patMargin": 2.69,
+     "ebitdaMargin": 20.6,
+     "debtEquity": 3.53
+    },
+    {
+     "asOf": "2026-06-30",
+     "roe": 11.83,
+     "roce": 4.23,
+     "ronw": 11.83,
+     "patMargin": 10.38,
+     "ebitdaMargin": 23.7,
+     "debtEquity": 3.21
+    }
+   ],
+   "holding": {
+    "promoterPre": 72.8,
+    "sharesPre": 100986187.0,
+    "sharesPost": 0.0
+   },
+   "gmpHistory": [
+    {
+     "date": "2026-10-15",
+     "gmp": 83.0,
+     "est": 83.0,
+     "pct": 0.0,
+     "kostakSauda": "--"
+    },
+    {
+     "date": "2026-10-14",
+     "gmp": 83.0,
+     "est": 83.0,
+     "pct": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
+   "company": {
+    "address": "1 st Floor, Tower B, Paras Twin Towers, Golf Course Road, Sector 54",
+    "website": "https://www.parashospitals.com/",
+    "process": "Book Build Issue"
+   }
   }
  },
  "players": {
-  "asOf": "2026-10-14",
+  "asOf": "2026-10-15",
   "tracked": 53,
   "of": 2839,
   "latestPerInvestor": 5,
@@ -114955,6 +114874,7 @@
    }
   },
   "covered": [
+   "1728",
    "1792",
    "1842",
    "1902",
@@ -115145,7 +115065,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-14T23:07:10+05:30",
+  "asOf": "2026-10-15T06:44:59+05:30",
   "dates": [
    "2026-01-12",
    "2026-01-13",
@@ -115843,7 +115763,7 @@
   }
  },
  "anchorBooks": {
-  "asOf": "2026-10-14",
+  "asOf": "2026-10-15",
   "n": 900,
   "books": {
    "1782": {
@@ -173150,7 +173070,7 @@
    "263": "2026-10-01",
    "262": "2026-10-01",
    "257": "2026-10-01",
-   "2063": "2026-10-01",
+   "2063": "2026-10-15",
    "256": "2026-10-01",
    "252": "2026-10-01",
    "248": "2026-10-01",
@@ -173189,7 +173109,7 @@
   }
  },
  "trackRecords": {
-  "asOf": "2026-10-14",
+  "asOf": "2026-10-15",
   "booksOn": 900,
   "withOutcome": 900,
   "investors": 1379,
@@ -258532,6 +258452,10 @@
   "2228": {
    "src": "shellz-india-logo.png",
    "at": "2026-10-12"
+  },
+  "1728": {
+   "src": "paras-healthcare-logo.jpeg",
+   "at": "2026-10-15"
   }
  }
 }
