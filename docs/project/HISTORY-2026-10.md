@@ -77,3 +77,21 @@ agreed in September). Newest section last. `CLAUDE.md` is the short working brie
   documented "new start replaces the running one" (one tick's gap). Started 15:41 IST; the Lint step runs when the loop
   ends at 17:20. A short `until` would have proved it faster but would have left the afternoon without a loop — never
   cut into market hours to verify a lint step.
+
+## 16 Oct 2026 — four days of red runs, one day of a stale board
+
+- Hari: "non-stop error emails and the whole desk isn't functioning". `gh run list` first: every `collect` and `live` run
+  since 12 Oct red. Two causes, found in that order, both proven locally before any change.
+- The emails (12 Oct on): the trailing Lint step. `ruff>=0.6` resolves to 0.17.1 on the runners (0.16.8 here) and 0.17
+  reports RUF100 for a `noqa: DTZ007` when DTZ is not enabled — four of them. The step is last on purpose, so the data kept
+  flowing for three days while every run mailed a failure; the design held (`cd37660`, 15 Oct 17:23 UTC, was a normal
+  commit under a red run). Comments removed; venv on 0.17.1 like the runners.
+- The stale board (16 Oct): the gate. `recent[]/sources: 64 -> 34 items (47% loss)`. `recent` is capped at 28 days
+  (`schema.CAPS`); on the 16th the nine 17 Sep listings aged out together, carrying 30 of the list's 64 source tags (the
+  September rows had 3–7 news links each, October's one). The rows were a 30% loss — exactly the limit, allowed — their
+  summed sources 47%, refused. Same class as 19 Sep (board rows retiring) and 22 Sep (records leaving with them):
+  `retire_due` now drops recent rows past the window from `prev`; a row vanishing early still counts. Reproduced with an
+  intraday run into a scratch copy against the data branch, test added (310), full run dispatched: gate PASS, data
+  `293660a`, deploy, live `asOf 16 Oct 21:33 IST`. Lesson for the gate: a summed nested list under a capped list ages out
+  in lumps — whenever a cap is added to a list the validator compares, `retire_due` needs the matching cutoff.
+- Not done: ruff is still unpinned (`>=0.6`); a lint step can go red again on a release, but it cannot stale the board.
