@@ -1,0 +1,26 @@
+name: ci
+# Code checks live here, on pushes to main — NOT in the scheduled data workflows. 12–16 Oct 2026: a ruff release
+# turned the trailing lint step of every collect and live run red, ~25 failure mails a day for four days, while the
+# data itself was fine. A lint or test slip is one red run per push, seen once; the board's runs stay about the board.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: { python-version: "3.12", cache: "pip" }
+      - run: pip install -e ".[dev]" >/dev/null
+      - name: Lint — ruff over the whole tree
+        run: ruff check .
+      - name: Tests
+        run: pytest -q

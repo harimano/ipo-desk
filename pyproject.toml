@@ -18,7 +18,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "pytest-httpx>=0.30", "ruff>=0.6"]
+dev = ["pytest>=8", "pytest-httpx>=0.30", "ruff==0.17.1"]   # ruff exact: a release changed what it flags (16 Oct 2026)
 
 [build-system]
 requires = ["setuptools>=68"]
