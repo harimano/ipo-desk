@@ -23,7 +23,8 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
 - Schedule: full runs 06:43 and 18:13 IST; intraday (subscription + gmp + open issues' records) :07/:37 on weekdays;
   `live.yml` 08:55 and 12:55. GitHub's cron is best-effort, so a Cloudflare Worker (`ops/trigger-worker/`) dispatches them.
   A workflow's push does not trigger other workflows: `collect.yml` dispatches `deploy.yml`; a page-only change needs
-  `gh workflow run deploy.yml`.
+  `gh workflow run deploy.yml`. An intraday run whose predecessor refused at the gate on the same commit skips green with one
+  `::warning::` carrying the refusal (`scripts/prev_gate.py`); the full runs and any push to main retry and fail loudly.
 - Hari's Mac: no Homebrew, no Node. `uv` and `gh` in `~/.local/bin`; `.venv/bin/python -m collector`, `.venv/bin/pytest`.
   Preview: `.claude/launch.json` server `site` serves `_site` on 8765.
 

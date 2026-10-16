@@ -100,3 +100,14 @@ agreed in September). Newest section last. `CLAUDE.md` is the short working brie
   lint; their only failures are the board's. ruff pinned `==0.17.1`. Proven: ci.yml green on the first push (309 passed,
   1 skipped), an intraday collect dispatched on the edited workflow. What still mails: a real gate refusal repeats every
   intraday slot until fixed — that is the signal, but 20 copies of it a day is the next thing to tame.
+- Tamed the same evening. Surveyed first: the Gate step fails with the validator's `FAIL — … · …` lines on stdout and
+  nothing else records them; the Mode step runs before the install and already decides `go`; the Alerts step runs only
+  after a commit, so it can never carry a refusal, and NTFY is unset anyway. So the refusal travels through the Actions
+  API: `scripts/prev_gate.py` (runner python3 + gh, three calls, GITHUB_TOKEN) reads the last completed collect run; if
+  it failed at the step named Gate on this same main commit, it pulls the FAIL lines from that job's log and prints them
+  as one `::warning::` (run annotation + job summary), exit 3, and the Mode step sets `go=0`. Only exit 3 skips — an API
+  error or a crash runs as usual, so a flaky API never silences the board; a failure in any other step (a network fault
+  in Collect) is retried at the next slot as before. Full runs never ask, so the refusal is seen once per slot that
+  matters: the failed run stays red, 06:43 and 18:13 retry and fail loudly, and a push to main (a fix) changes the sha
+  and the next intraday goes too. Proven: both paths live from the Mac against the real runs (the 13:53 refusal reproduced
+  verbatim), four tests (314), ruff, and one intraday dispatch on the edited workflow.

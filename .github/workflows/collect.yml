@@ -46,8 +46,13 @@ jobs:
       - uses: actions/checkout@v7
         with: { ref: data, path: _data, fetch-depth: 2 }
 
+      # An intraday run also asks scripts/prev_gate.py: if the last completed run refused at the Gate on this same
+      # commit, the refusal is repeated as one ::warning:: and the run skips green. 16 Oct 2026: one refusal was ~20
+      # identical failure mails in a day. The failed run stays red; the next full run (twice a day) or a push to main
+      # retries and fails loudly. A full run never asks.
       - name: Mode — and whether an intraday run has anything to do (before paying for the install)
         id: mode
+        env: { GH_TOKEN: "${{ github.token }}" }
         run: |
           case "${{ github.event_name }}:${{ github.event.schedule }}" in
             "schedule:13 1 * * *"|"schedule:43 12 * * *") MODE=full ;;
@@ -66,6 +71,13 @@ jobs:
             )
             echo "issues open today: $OPEN"
             [ "$OPEN" -gt 0 ] || GO=0
+            if [ "$GO" = 1 ]; then
+              python3 scripts/prev_gate.py --run-id "${{ github.run_id }}" --sha "${{ github.sha }}" \
+                --repo "${{ github.repository }}" > prev_gate.log && RC=0 || RC=$?
+              cat prev_gate.log                      # the ::warning:: line becomes the run's annotation
+              [ "$RC" != 3 ] || GO=0                 # 3 = skip; anything else (even a crash) runs
+              grep '^::warning::' prev_gate.log | sed 's/^::warning::/**Skipped:** /' >> "$GITHUB_STEP_SUMMARY" || true
+            fi
           fi
           echo "mode=$MODE" >> "$GITHUB_OUTPUT"; echo "go=$GO" >> "$GITHUB_OUTPUT"
           echo "mode=$MODE go=$GO"
