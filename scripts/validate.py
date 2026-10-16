@@ -68,13 +68,18 @@ def walk_dates(o, where):
 
 
 LISTED_GRACE_DAYS = 1      # collector/modules/calendar.py: a Listed row leaves the board this many days after its listing date
+RECENT_DAYS = 28           # collector/schema.py CAPS["recent.days"]: assemble.enforce_caps drops a recent listing after this
 
 
 def retire_due(prev: dict, new: dict) -> dict:
     """`prev` without the board rows the calendar is SUPPOSED to retire by the new document's date.
 
     Six mainboard issues listed on 17 Sep 2026 and all left the board on the 19th: 19 -> 13 rows, "32% loss", and a good
-    run was refused. A row ageing out on schedule is not a loss; a row vanishing before its time still is, and still counts."""
+    run was refused. A row ageing out on schedule is not a loss; a row vanishing before its time still is, and still counts.
+
+    `recent` ages the same way, 28 days after listing: on 16 Oct 2026 the nine 17 Sep listings left together carrying 30 of
+    the list's 64 source tags — the rows were a 30% loss (allowed), their summed `sources` 47% (refused), and every run
+    that day was blocked. The cutoff mirrors assemble.enforce_caps, which uses the IST date like `meta.asOf`."""
     day = str((new.get("meta") or {}).get("asOf") or "")[:10]
     try:
         cutoff = (dt.date.fromisoformat(day) - dt.timedelta(days=LISTED_GRACE_DAYS)).isoformat()
@@ -91,6 +96,10 @@ def retire_due(prev: dict, new: dict) -> dict:
             else:
                 keep.append(r)
         out[k] = keep
+    if isinstance(prev.get("recent"), list):
+        recent_cut = (dt.date.fromisoformat(day) - dt.timedelta(days=RECENT_DAYS)).isoformat()
+        out["recent"] = [r for r in prev["recent"]
+                         if not (isinstance(r, dict) and str(r.get("listingDate") or "9999")[:10] < recent_cut)]
     # the Research record behind a retired row leaves with it (details keeps records only for rows on the board):
     # four listings retiring together on 22 Sep 2026 read as 34 "100% loss" errors and blocked every full run
     if gone and isinstance(prev.get("records"), dict):

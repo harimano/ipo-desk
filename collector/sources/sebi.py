@@ -52,7 +52,7 @@ def _clean(s: str) -> str:
 
 def _iso(mon: str, day: str, year: str) -> str | None:
     try:
-        return dt.datetime.strptime(f"{mon} {day} {year}", "%b %d %Y").date().isoformat()  # noqa: DTZ007
+        return dt.datetime.strptime(f"{mon} {day} {year}", "%b %d %Y").date().isoformat()
     except ValueError:
         return None
 

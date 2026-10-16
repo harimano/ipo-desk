@@ -235,7 +235,7 @@ _TOTAL_RE = re.compile(r"A total of ([\d,]+) shares? at a price of Rs\.? ?([\d,.
 def _long_date(v) -> str | None:
     """'Sep 15, 2026' -> ISO."""
     try:
-        return dt.datetime.strptime(clean(str(v or "")), "%b %d, %Y").date().isoformat()  # noqa: DTZ007
+        return dt.datetime.strptime(clean(str(v or "")), "%b %d, %Y").date().isoformat()
     except ValueError:
         return None
 

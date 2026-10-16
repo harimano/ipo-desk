@@ -31,6 +31,20 @@ def test_rows_that_age_off_the_board_on_schedule_are_not_a_loss():
     assert validate.retire_due(prev, {"meta": {}}) is prev, "no date to reason from: compare everything"
 
 
+def test_recent_listings_that_age_out_of_the_window_on_schedule_are_not_a_loss():
+    # 16 Oct 2026: nine 17 Sep listings left `recent` together (28 days) with 30 of its 64 source tags — rows 30% (allowed),
+    # sources 47% (refused), every run that day blocked. Ageing out of the window is the cap doing its job.
+    old = [{"name": f"old{i}", "listingDate": "2026-09-17", "sources": ["a", "b", "c"]} for i in range(9)]
+    fresh = [{"name": f"new{i}", "listingDate": "2026-09-30", "sources": ["a"]} for i in range(21)]
+    prev = {"meta": {"asOf": "2026-10-15T22:53:00+05:30"}, "mainboard": [], "sme": [], "recent": old + fresh}
+    new = {"meta": {"asOf": "2026-10-16T06:43:00+05:30"}, "mainboard": [], "sme": [], "recent": fresh}
+    kept = validate.retire_due(prev, new)
+    assert len(kept["recent"]) == 21 and len(prev["recent"]) == 30, "due rows leave the comparison; prev is not mutated"
+    assert validate.census(kept)["/recent[]/sources"] == validate.census(new)["/recent[]/sources"] == 21
+    still_due = {"meta": {"asOf": "2026-10-14T06:43:00+05:30"}, "mainboard": [], "sme": [], "recent": fresh}
+    assert validate.census(validate.retire_due(prev, still_due))["/recent[]/sources"] == 48, "two days early: the nine still count"
+
+
 def test_a_retired_rows_research_record_leaves_with_it():
     prev = {"mainboard": [{"name": "Gone", "listing": "2026-09-18", "igId": 2277}, {"name": "Fresh", "listing": "2026-09-21", "igId": "2300"}],
             "sme": [], "records": {"2277": {"name": "Gone", "financials": {"rows": [1, 2, 3]}}, "2300": {"name": "Fresh"}, "2100": {"name": "No row"}}}

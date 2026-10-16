@@ -56,14 +56,14 @@ def iso_date(v) -> str | None:
     s = re.sub(r"\s+", " ", s)
     for fmt in DATE_FORMATS:
         try:
-            return dt.datetime.strptime(s, fmt).date().isoformat()  # noqa: DTZ007
+            return dt.datetime.strptime(s, fmt).date().isoformat()
         except ValueError:
             continue
     m = re.search(r"(\d{1,2})[-/ ]([A-Za-z]{3,9})[-/ ](\d{4})", s)
     if m:
         for fmt in ("%d %b %Y", "%d %B %Y"):
             try:
-                return dt.datetime.strptime(" ".join(m.groups()), fmt).date().isoformat()  # noqa: DTZ007
+                return dt.datetime.strptime(" ".join(m.groups()), fmt).date().isoformat()
             except ValueError:
                 continue
     return None
