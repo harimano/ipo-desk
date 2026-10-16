@@ -94,4 +94,9 @@ agreed in September). Newest section last. `CLAUDE.md` is the short working brie
   intraday run into a scratch copy against the data branch, test added (310), full run dispatched: gate PASS, data
   `293660a`, deploy, live `asOf 16 Oct 21:33 IST`. Lesson for the gate: a summed nested list under a capped list ages out
   in lumps — whenever a cap is added to a list the validator compares, `retire_due` needs the matching cutoff.
-- Not done: ruff is still unpinned (`>=0.6`); a lint step can go red again on a release, but it cannot stale the board.
+- Then Hari: "I don't want 100 failure emails". The lint step's placement was the amplifier: it ran in every scheduled
+  data run (~25 a day), so one ruff release was four days of mail. Code checks now live in `ci.yml` (ruff + pytest — the
+  tests had never run in CI) on pushes to main: one red run per slip, seen once. `collect.yml` and `live.yml` no longer
+  lint; their only failures are the board's. ruff pinned `==0.17.1`. Proven: ci.yml green on the first push (309 passed,
+  1 skipped), an intraday collect dispatched on the edited workflow. What still mails: a real gate refusal repeats every
+  intraday slot until fixed — that is the signal, but 20 copies of it a day is the next thing to tame.

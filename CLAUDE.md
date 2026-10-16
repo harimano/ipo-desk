@@ -70,8 +70,9 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
 - Cost: one fresh session per task; Sonnet for page work, Fable for collector / design work.
 - **A stale page is a failed run until proven otherwise**: `gh run list` first. A scheduled "success" may be an intraday
   no-op; read the Install / import lines of the latest failure before touching code.
-- `ruff check .` must pass (309 tests too). CI runs ruff LAST in `collect.yml` — it fails the run, never the data. The
-  standard lives in `[tool.ruff.lint]`: BLE001 is off on purpose (module-boundary catches record, log or re-wrap).
+- `ruff check .` must pass (310 tests too). Both run in `ci.yml` on every push to main — NEVER in `collect.yml` or
+  `live.yml` (16 Oct 2026: a ruff release there meant ~25 failure mails a day for four days while the data was fine). ruff
+  is pinned exact. The standard lives in `[tool.ruff.lint]`: BLE001 is off on purpose (module-boundary catches record, log or re-wrap).
 
 ## The collector
 
