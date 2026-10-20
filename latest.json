@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-20T06:46:04+05:30",
+  "asOf": "2026-10-20T11:30:35+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "20 Oct 2026, 06:46 IST",
+  "label": "20 Oct 2026, 11:30 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -1725,9 +1725,9 @@
    "issueSizeCr": 712.13,
    "freshCr": null,
    "ofsCr": 712.13,
-   "gmp": 61.0,
-   "gmpPct": 22.51,
-   "gmpTrend": "flat",
+   "gmp": 64.0,
+   "gmpPct": 23.62,
+   "gmpTrend": "up",
    "sub": {
     "qib": 256.65,
     "nii": 203.21,
@@ -1853,8 +1853,8 @@
    "issueSizeCr": 702.0,
    "freshCr": 500.0,
    "ofsCr": 202.0,
-   "gmp": 15.0,
-   "gmpPct": 5.19,
+   "gmp": 18.0,
+   "gmpPct": 6.23,
    "gmpTrend": "up",
    "sub": {
     "qib": 4.21,
@@ -1971,7 +1971,7 @@
    "bandLow": 558.0,
    "bandHigh": 586.0,
    "lotSize": 25,
-   "issueSizeCr": 2533.66,
+   "issueSizeCr": 1774.54,
    "freshCr": null,
    "ofsCr": 2533.66,
    "gmp": 127.0,
@@ -2083,7 +2083,7 @@
      "received": 3443620,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-20T06:44:40+05:30"
+    "asOf": "2026-10-20T11:29:14+05:30"
    }
   },
   {
@@ -2210,7 +2210,7 @@
      "received": 319827,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-20T06:44:45+05:30"
+    "asOf": "2026-10-20T11:29:19+05:30"
    }
   },
   {
@@ -2228,9 +2228,9 @@
    "issueSizeCr": 852.18,
    "freshCr": null,
    "ofsCr": 852.18,
-   "gmp": 510.0,
-   "gmpPct": 72.86,
-   "gmpTrend": "flat",
+   "gmp": 501.0,
+   "gmpPct": 71.57,
+   "gmpTrend": "down",
    "sub": {
     "qib": 293.56,
     "nii": 170.94,
@@ -2334,7 +2334,7 @@
      "received": 5521416,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-20T06:44:50+05:30"
+    "asOf": "2026-10-20T11:29:20+05:30"
    }
   },
   {
@@ -2352,9 +2352,9 @@
    "issueSizeCr": 5012.33,
    "freshCr": 2830.0,
    "ofsCr": 2182.33,
-   "gmp": 3.5,
-   "gmpPct": 2.32,
-   "gmpTrend": "flat",
+   "gmp": 3.75,
+   "gmpPct": 2.48,
+   "gmpTrend": "up",
    "sub": {
     "qib": 4.73,
     "nii": 1.4,
@@ -2459,7 +2459,7 @@
      "received": 195701,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-20T06:44:55+05:30"
+    "asOf": "2026-10-20T11:29:20+05:30"
    }
   },
   {
@@ -2477,9 +2477,9 @@
    "issueSizeCr": 30213.0,
    "freshCr": 30213.0,
    "ofsCr": null,
-   "gmp": 245.0,
-   "gmpPct": 21.89,
-   "gmpTrend": "flat",
+   "gmp": 243.0,
+   "gmpPct": 21.72,
+   "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2552,9 +2552,9 @@
    "issueSizeCr": 1450.0,
    "freshCr": 500.0,
    "ofsCr": 950.0,
-   "gmp": 78.0,
-   "gmpPct": 11.26,
-   "gmpTrend": "flat",
+   "gmp": 81.0,
+   "gmpPct": 11.69,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2610,6 +2610,70 @@
    }
   },
   {
+   "name": "EAAA India Alternatives",
+   "slug": "eaaa-india-alternatives",
+   "type": "Mainboard",
+   "status": "Upcoming",
+   "open": "2026-10-26",
+   "close": "2026-10-28",
+   "allotment": "2026-10-29",
+   "listing": "2026-11-02",
+   "bandLow": null,
+   "bandHigh": null,
+   "lotSize": null,
+   "issueSizeCr": 1200.0,
+   "freshCr": null,
+   "ofsCr": 1200.0,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "1635",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-10-20T11:29:07+05:30",
+   "refund": "2026-10-30",
+   "sector": "Asset Management Company",
+   "anchorShares": 0,
+   "logo": "edelweiss-alternatives-corporate-logo.png",
+   "facts": {
+    "sector": "Asset Management Company",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-06-30",
+     "roe": 28.96,
+     "debtEquity": 0.34,
+     "ronw": 28.96,
+     "patMargin": 24.01,
+     "eps": 41.02,
+     "epsPost": 49.93,
+     "promoterPre": 95.03,
+     "promoterPost": 95.03
+    },
+    "registrar": "MUFG Intime India Pvt.Ltd.",
+    "leadManagers": [
+     "Motilal Oswal Investment Advisors Ltd.",
+     "Jefferies India Pvt.Ltd.",
+     "Axis Capital Ltd.",
+     "Nuvama Wealth Management Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.sebi.gov.in/filings/public-issues/jan-2026/eaaa-india-alternatives-limited-drhp_99257.html",
+     "rhp": "https://www.eaaa.in/wp-content/uploads/2026/09/Red-Herring-Prospectus.pdf"
+    },
+    "asOf": "2026-10-20T09:13:00+05:30"
+   }
+  },
+  {
    "name": "BLS Polymers",
    "slug": "bls-polymers",
    "type": "Mainboard",
@@ -2624,9 +2688,9 @@
    "issueSizeCr": 255.0,
    "freshCr": 255.0,
    "ofsCr": null,
-   "gmp": 18.0,
-   "gmpPct": 12.0,
-   "gmpTrend": "down",
+   "gmp": 30.0,
+   "gmpPct": 20.0,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3263,7 +3327,7 @@
    "bandLow": 51.0,
    "bandHigh": 54.0,
    "lotSize": 2000,
-   "issueSizeCr": 39.99,
+   "issueSizeCr": 42.1,
    "freshCr": 39.99,
    "ofsCr": null,
    "gmp": 5.0,
@@ -3376,7 +3440,7 @@
    "bandLow": 105.0,
    "bandHigh": 112.0,
    "lotSize": 1200,
-   "issueSizeCr": 110.21,
+   "issueSizeCr": 116.05,
    "freshCr": 110.21,
    "ofsCr": null,
    "gmp": 5.0,
@@ -3487,7 +3551,7 @@
    "bandLow": 170.0,
    "bandHigh": 179.0,
    "lotSize": 800,
-   "issueSizeCr": 54.07,
+   "issueSizeCr": 59.97,
    "freshCr": 54.07,
    "ofsCr": null,
    "gmp": 46.0,
@@ -3500,7 +3564,7 @@
     "snii": 62.41,
     "retail": 56.09,
     "total": 58.7,
-    "asOf": "2026-10-20T06:44:56+05:30",
+    "asOf": "2026-10-20T11:29:21+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3585,7 +3649,7 @@
      "received": 46167,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-20T06:44:56+05:30"
+    "asOf": "2026-10-20T11:29:21+05:30"
    }
   },
   {
@@ -35849,6 +35913,31 @@
  ],
  "news": [
   {
+   "title": "Tonbo Imaging’s Rs 852 crore IPO subscribed 140x. Check GMP, allotment, other details",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/tonbo-imagings-rs-852-crore-ipo-subscribed-140x-check-gmp-allotment-other-details/articleshow/135062276.cms",
+   "date": "2026-10-20T11:15:38+05:30"
+  },
+  {
+   "title": "Paras Healthcare secures Rs 652 cr from anchor investors; IPO to open on Oct 21",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/paras-healthcare-secures-rs-652-cr-from-anchor-investors-ipo-to-open-on-oct-21/articleshow/135061692.cms",
+   "date": "2026-10-20T10:28:38+05:30"
+  },
+  {
+   "title": "Jio IPO’s GMP rises to 22% as India’s largest ever issue set to open on October 21. Should you subscribe?",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipos-gmp-rises-to-22-as-indias-largest-ever-issue-set-to-open-on-october-21-should-you-subscribe/articleshow/135061297.cms",
+   "date": "2026-10-20T09:52:31+05:30"
+  },
+  {
+   "title": "Jio IPO vs Airtel shares: Which telecom giant offers greater valuation comfort to investors?",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-vs-airtel-shares-which-telecom-giant-offers-greater-valuation-comfort-to-investors/articleshow/135053174.cms",
+   "date": "2026-10-20T09:30:00+05:30"
+  },
+  {
+   "title": "Global Market: South Korea's Elice shares plunge 28% in market debut as data centre stocks shunned",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-south-koreas-elice-shares-plunge-28-in-market-debut-as-data-centre-stocks-shunned/articleshow/135060541.cms",
+   "date": "2026-10-20T08:53:42+05:30"
+  },
+  {
    "title": "Jio Platforms' IPO draws Rs 2.5 lakh crore in anchor bids",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-platforms-ipo-draws-rs-2-5-lakh-crore-in-anchor-bids/articleshow/135059075.cms",
    "date": "2026-10-20T05:56:17+05:30"
@@ -35947,31 +36036,6 @@
    "title": "IPO-bound Sathya Agencies plans to strengthen presence in Karnataka",
    "url": "https://www.business-standard.com/companies/start-ups/sathya-agencies-karnataka-expansion-unilet-acquisition-ipo-126101700528_1.html",
    "date": "2026-10-17T15:16:54+05:30"
-  },
-  {
-   "title": "Jio IPO’s grey market hints at 20% listing pop. What are Emkay, SBI Securities saying?",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipos-grey-market-hints-at-20-listing-pop-what-are-emkay-sbi-securities-saying/articleshow/135008712.cms",
-   "date": "2026-10-17T11:51:19+05:30"
-  },
-  {
-   "title": "OpenAI’s IPO dream may shatter with sistress sale to MS",
-   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/ai-bubble-burst-may-trigger-2008-like-banking-crisis-says-gary-marcus/articleshow/135007219.cms",
-   "date": "2026-10-17T09:56:04+05:30"
-  },
-  {
-   "title": "Jio’s $3.2 billion IPO tests Ambani appeal with young Indians",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jios-3-2-billion-ipo-tests-ambani-appeal-with-young-indians/articleshow/135006812.cms",
-   "date": "2026-10-17T09:18:41+05:30"
-  },
-  {
-   "title": "Sebi's IPO nod to Cult.fit, Eswari Global Metal, Sohan Lal Commodity",
-   "url": "https://www.business-standard.com/markets/stock-market-news/sebi-s-ipo-nod-to-cult-fit-eswari-global-metal-sohan-lal-commodity-126101700004_1.html",
-   "date": "2026-10-17T00:01:39+05:30"
-  },
-  {
-   "title": "Cult.fit receives Sebi approval for proposed IPO",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/cult-fit-receives-sebi-approval-for-proposed-ipo/articleshow/134997161.cms",
-   "date": "2026-10-16T19:32:27+05:30"
   }
  ],
  "priceHistory": {
@@ -81493,41 +81557,41 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-20T06:46:04+05:30",
+  "asOf": "2026-10-20T11:30:35+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-20T06:44:20+05:30",
-    "elapsed": 2.23,
+    "asOf": "2026-10-20T11:29:06+05:30",
+    "elapsed": 1.57,
     "calls": 5,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=13 carried=0 +nse=10 +bse=0 exchange-only=0: 9 mainboard, 4 sme; 0 open, 4 upcoming"
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=14 carried=0 +nse=10 +bse=0 exchange-only=0: 10 mainboard, 4 sme; 0 open, 5 upcoming"
    },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.83,
+    "elapsed": 0.71,
     "calls": 1,
-    "note": "gmp: 11 board rows patched via investorgain; 4 active, 3 of them matched; gmp: 9 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹127, investorgain); EverestIMS Technologies (₹50, investorgain); Nityas Gems & Jewellery (₹1, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Shree TNB Polymers (₹4, investorgain); Sollfege Smart Electronics (₹10, investorgain); Vans Electroengineerings (₹103, investorgain) …"
+    "note": "gmp: 11 board rows patched via investorgain; 4 active, 3 of them matched; gmp: 8 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹126, investorgain); EverestIMS Technologies (₹50, investorgain); Nityas Gems & Jewellery (₹1, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Shree TNB Polymers (₹4, investorgain); Sollfege Smart Electronics (₹10, investorgain); Vishal Nirmiti (₹2, investorgain)"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-20T06:44:21+05:30",
-    "elapsed": 13.43,
-    "calls": 13,
-    "note": "13 records fetched for 13 identified listings (0 without an id); 0 anchor books updated, 85 on file"
+    "asOf": "2026-10-20T11:29:07+05:30",
+    "elapsed": 0.79,
+    "calls": 1,
+    "note": "1 records fetched for 14 identified listings (0 without an id); 1 anchor books updated, 86 on file"
    },
    {
     "area": "subscription",
     "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-10-20T06:44:56+05:30",
-    "elapsed": 21.52,
+    "asOf": "2026-10-20T11:29:21+05:30",
+    "elapsed": 12.55,
     "calls": 9,
     "note": "5/5 rows patched via narada, nse"
    },
@@ -81536,7 +81600,7 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-19",
-    "elapsed": 10.96,
+    "elapsed": 13.37,
     "calls": 0,
     "note": "19 names priced, 0 moved to recent, 0 history points"
    },
@@ -81545,7 +81609,7 @@
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-20",
-    "elapsed": 2.89,
+    "elapsed": 2.66,
     "calls": 2,
     "note": "1386 listings since 2022 (986 SME); fetched 2026: 283; QIB on file for 101 of 400 mainboard issues"
    },
@@ -81563,7 +81627,7 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-20",
-    "elapsed": 0.01,
+    "elapsed": 0.0,
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 900 on file, 589 partial (feed gave only the first names); 0 of 1386 listings still to fetch"
    },
@@ -81572,7 +81636,7 @@
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-10-20",
-    "elapsed": 0.2,
+    "elapsed": 0.14,
     "calls": 0,
     "note": "track records: 900 of 900 anchor books have an outcome; 831 of 1379 investors with 2+; 1386 listings; windows: mainboard 124, SME 233; 4 warnings"
    },
@@ -81581,16 +81645,16 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-20",
-    "elapsed": 29.49,
+    "elapsed": 32.94,
     "calls": 54,
-    "note": "53 of 2839 anchor investors read (0 failed); names found for 6 of 13 unlisted issues"
+    "note": "53 of 2839 anchor investors read (0 failed); names found for 6 of 14 unlisted issues"
    },
    {
     "area": "parents",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
-    "asOf": "2026-10-16",
-    "elapsed": 11.96,
+    "asOf": "2026-10-19",
+    "elapsed": 13.73,
     "calls": 0,
     "note": "5/5 parent prices; 41/47 investor stocks priced"
    },
@@ -81599,16 +81663,16 @@
     "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-10-20",
-    "elapsed": 9.86,
+    "elapsed": 7.97,
     "calls": 14,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1393 announcements scanned, 0 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 3 leads held; 0 rows patched, 33 kept previous stage"
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1403 announcements scanned, 0 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 3 leads held; 0 rows patched, 33 kept previous stage"
    },
    {
     "area": "offers",
     "method": "bse:blocked, bse:blocked",
     "status": "blocked",
     "asOf": null,
-    "elapsed": 0.02,
+    "elapsed": 0.03,
     "calls": 1,
     "note": "kept previous — HTTP 403"
    },
@@ -81617,7 +81681,7 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-10-19",
-    "elapsed": 0.21,
+    "elapsed": 0.26,
     "calls": 1,
     "note": "2026-10-19 already in history; FII -1,149 / DII +3,201 Cr"
    },
@@ -81626,7 +81690,7 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-10-19",
-    "elapsed": 1.01,
+    "elapsed": 1.07,
     "calls": 4,
     "note": "bulk.csv: 126 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 126; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 30 of today's 126 deals are in this year's listings (5 stocks); 1311 kept over 60 days; 187 of 283 listings have an NSE symbol; 219 with a BSE code"
    },
@@ -81634,19 +81698,19 @@
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
-    "asOf": "2026-10-20T05:56:17+05:30",
-    "elapsed": 0.34,
+    "asOf": "2026-10-20T11:15:38+05:30",
+    "elapsed": 0.79,
     "calls": 3,
-    "note": "business-standard: 4/35 primary-market items; economic-times: 4/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 8 fresh, 25 kept"
+    "note": "business-standard: 4/35 primary-market items; economic-times: 7/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 11 fresh, 25 kept"
    },
    {
     "area": "logos",
-    "method": "none:ok",
+    "method": "chittorgarh.net:ok",
     "status": "ok",
     "asOf": "2026-10-20",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "56 logos on file; none to fetch"
+    "elapsed": 0.18,
+    "calls": 1,
+    "note": "1 logos made, 0 missing, 0 errors; 0 left; 57 on file"
    },
    {
     "area": "research layer",
@@ -81658,7 +81722,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "106s, 107 calls, 16/17 modules ok"
+    "note": "90s, 96 calls, 16/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -83296,18 +83360,18 @@
   "prices": {
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1211.2,
-    "asOf": "2026-10-16"
+    "value": 1202.0,
+    "asOf": "2026-10-19"
    },
    "Edelweiss Financial Services": {
     "symbol": "EDELWEISS",
-    "value": 134.84,
-    "asOf": "2026-10-16"
+    "value": 128.16,
+    "asOf": "2026-10-19"
    },
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 417.2,
-    "asOf": "2026-10-16"
+    "value": 411.7,
+    "asOf": "2026-10-19"
    },
    "Hero MotoCorp": {
     "symbol": "HEROMOTOCO",
@@ -83316,13 +83380,13 @@
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 107.55,
-    "asOf": "2026-10-16"
+    "value": 104.8,
+    "asOf": "2026-10-19"
    },
    "Prestige Estates": {
     "symbol": "PRESTIGE",
-    "value": 1492.0,
-    "asOf": "2026-10-16"
+    "value": 1475.0,
+    "asOf": "2026-10-19"
    },
    "SIS Limited": {
     "symbol": "SIS",
@@ -83331,8 +83395,8 @@
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 253.35,
-    "asOf": "2026-10-16"
+    "value": 244.35,
+    "asOf": "2026-10-19"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
@@ -83341,8 +83405,8 @@
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 53.88,
-    "asOf": "2026-10-16"
+    "value": 51.11,
+    "asOf": "2026-10-19"
    },
    "Tata Motors": {
     "symbol": "TATAMOTORS",
@@ -83351,33 +83415,33 @@
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 397.75,
-    "asOf": "2026-10-16"
+    "value": 393.35,
+    "asOf": "2026-10-19"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 71.44,
-    "asOf": "2026-10-16"
+    "value": 70.7,
+    "asOf": "2026-10-19"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 222.0,
-    "asOf": "2026-10-16"
+    "value": 225.0,
+    "asOf": "2026-10-19"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 728.85,
-    "asOf": "2026-10-16"
+    "value": 712.0,
+    "asOf": "2026-10-19"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 447.4,
-    "asOf": "2026-10-16"
+    "value": 442.3,
+    "asOf": "2026-10-19"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1290.0,
-    "asOf": "2026-10-16"
+    "value": 1236.0,
+    "asOf": "2026-10-19"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
@@ -83386,13 +83450,13 @@
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1265.1,
-    "asOf": "2026-10-16"
+    "value": 1220.0,
+    "asOf": "2026-10-19"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 21.25,
-    "asOf": "2026-10-16"
+    "value": 20.07,
+    "asOf": "2026-10-19"
    },
    "Gretex Corporate Services": {
     "symbol": "GRETEX",
@@ -83416,8 +83480,8 @@
    },
    "Fineotex Chemical": {
     "symbol": "FCL",
-    "value": 57.25,
-    "asOf": "2026-10-16"
+    "value": 55.81,
+    "asOf": "2026-10-19"
    },
    "Walchandnagar Industries / Jain Resource Recycling": {
     "symbol": "WALCHANNAG",
@@ -83446,18 +83510,18 @@
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1279.5,
-    "asOf": "2026-10-16"
+    "value": 1238.6,
+    "asOf": "2026-10-19"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 555.85,
-    "asOf": "2026-10-16"
+    "value": 534.7,
+    "asOf": "2026-10-19"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 303.85,
-    "asOf": "2026-10-16"
+    "value": 292.2,
+    "asOf": "2026-10-19"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
@@ -83466,28 +83530,28 @@
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
-    "value": 1512.1,
-    "asOf": "2026-10-16"
+    "value": 1436.5,
+    "asOf": "2026-10-19"
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1551.8,
-    "asOf": "2026-10-16"
+    "value": 1488.9,
+    "asOf": "2026-10-19"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1574.4,
-    "asOf": "2026-10-16"
+    "value": 1434.8,
+    "asOf": "2026-10-19"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 102.16,
-    "asOf": "2026-10-16"
+    "value": 100.41,
+    "asOf": "2026-10-19"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 507.65,
-    "asOf": "2026-10-16"
+    "value": 496.35,
+    "asOf": "2026-10-19"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
@@ -83501,8 +83565,8 @@
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 505.05,
-    "asOf": "2026-10-16"
+    "value": 475.45,
+    "asOf": "2026-10-19"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
@@ -106975,6 +107039,22 @@
    "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
   },
   {
+   "name": "EAAA India Alternatives",
+   "date": "2026-10-23",
+   "amountCr": null,
+   "issueSizeCr": 1200.0,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-11-28",
+   "lockIn90": "2027-01-27",
+   "anchor": "bid 23 Oct · lock-in ends 28 Nov (half) and 27 Jan",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
    "name": "Core4 Engineers",
    "date": "2026-10-22",
    "amountCr": null,
@@ -114039,8 +114119,8 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1211.2,
-    "asOf": "2026-10-16"
+    "value": 1202.0,
+    "asOf": "2026-10-19"
    },
    "parentTicker": "RELIANCE",
    "sources": [
@@ -114092,8 +114172,8 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 134.84,
-    "asOf": "2026-10-16"
+    "value": 128.16,
+    "asOf": "2026-10-19"
    },
    "parentTicker": "EDELWEISS",
    "sources": [
@@ -114247,8 +114327,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 417.2,
-    "asOf": "2026-10-16"
+    "value": 411.7,
+    "asOf": "2026-10-19"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -114491,8 +114571,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 417.2,
-    "asOf": "2026-10-16"
+    "value": 411.7,
+    "asOf": "2026-10-19"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -119774,6 +119854,244 @@
     "website": "https://core4engineers.com/",
     "process": "Book Build Issue"
    }
+  },
+  "1635": {
+   "name": "EAAA India Alternatives",
+   "fetchedAt": "2026-10-20T11:29:07+05:30",
+   "about": [
+    "EAAA India Alternatives Limited operates an alternative investment management platform in India, offering diversified investment strategies across large, underpenetrated, and rapidly expanding alternative asset classes. The company primarily focuses on providing income-generating and yield-oriented investment solutions to its clients through a multi-strategy business model. The company's principal business segments comprise (i) Real Assets and (ii) Private Credit. Through these strategies, EAAA India seeks to capitalise on investment opportunities across alternative asset classes while addressing clients' requirements for income and yield-based solutions. Sekura India Management Limited, a wholly owned subsidiary of EAAA India Alternatives Limited, provides operational and asset management support across the company's investment strategies. Its responsibilities include operations and maintenance, performance monitoring, operational efficiency enhancement, and turnaround management. Sekura forms an integral part of the company's Portfolio Operating and Management Team (POMT), supporting the effective management and performance of portfolio assets. As of September 30, 2024, EAAA India Alternatives Limited served clients across multiple international markets, with its client base spread across India, North America, Europe, and other regions worldwide. This geographic presence reflects the company's reach beyond the domestic market."
+   ],
+   "desc": [
+    "Incorporated on May 14, 2008, EAAA India Alternatives Limited is an alternative investment management platform focused on India’s real assets and private credit markets. It manages investment funds and provides alternative investment solutions to domestic and global institutional investors, high-net-worth individuals (“HNIs”), ultra-high-net-worth individuals (“UHNIs”) and family offices.The Company operates primarily through two business verticals: Real Assets and Private Credit, along with portfolio management services and other investment solutions. Its Real Assets vertical invests in infrastructure, commercial real estate, perpetual capital and energy transition opportunities through equity, quasi-equity and debt instruments. Its Private Credit vertical provides financing solutions across performing credit, special situations, real estate credit and investment-grade credit. The Company also offers co-investment opportunities through portfolio management services. As of June 30, 2026, the Company managed assets under management (“AUM”) of ₹953,448.78 million and fee-paying assets under management (“FPAUM”) of ₹486,231.76 million. Its portfolio comprised 10 active Real Assets funds, including two Infrastructure Investment Trusts (“InvITs”), and 16 active Private Credit funds. The Company is supported by its wholly owned subsidiary, Sekura India Management Limited, which provides asset operating and management capabilities, including operations, maintenance, monitoring and efficiency improvement. The Company has a diversified client base and a technology-enabled investment platform supported by dedicated investment, asset management, coverage and enterprise teams. As of June 30, 2026, it had 277 employees across investment, asset operating and management, coverage, enterprise, legal and compliance, and other functions. Competitive Strengths Established Market Presence: Over 17 years of experience in alternative investment management. Diversified Investment Platform: Presence across real assets, private credit and portfolio management services. Strong Assets Under Management: Managed AUM of ₹953,448.78 million as of June 30, 2026. Diversified Client Base: Long-standing relationships with institutional and non-institutional investors across multiple geographies. Technology-Enabled Operations: Dedicated asset operating and management platform through Sekura India Management Limited. Comprehensive Risk Management: Structured investment assessment, portfolio monitoring and risk management systems. Experienced Management Team: Led by professionals with extensive asset management, investment and risk management experience."
+   ],
+   "promoters": "Edelweiss Financial Services Ltd., Edelweiss Securities & Investments Pvt.Ltd., Edel Finance Co.Ltd., Edelweiss Global Wealth Management Ltd.axi",
+   "financials": {
+    "head": [
+     "Period Ended",
+     "30 Jun 2026",
+     "31 Mar 2026",
+     "31 Mar 2025",
+     "31 Mar 2024"
+    ],
+    "rows": [
+     [
+      "Assets",
+      "2,101.84",
+      "2,170.28",
+      "2,085.07",
+      "1,769.66"
+     ],
+     [
+      "Total Income",
+      "336.13",
+      "963.76",
+      "786.54",
+      "584.25"
+     ],
+     [
+      "Profit After Tax",
+      "80.71",
+      "265.20",
+      "229.78",
+      "175.16"
+     ],
+     [
+      "NET Worth",
+      "1,160.38",
+      "1,075.54",
+      "966.45",
+      "729.48"
+     ],
+     [
+      "Reserves and Surplus",
+      "1,128.24",
+      "1,043.40",
+      "934.31",
+      "480.64"
+     ],
+     [
+      "Total Borrowing",
+      "399.20",
+      "441.03",
+      "507.49",
+      "444.83"
+     ],
+     [
+      "Amount in ₹ Crore"
+     ]
+    ],
+    "title": "Company Financials (Restated Consolidated)",
+    "asOf": "2026-06-30"
+   },
+   "peers": {
+    "head": [
+     "Company Name",
+     "EPS (Basic)",
+     "EPS (Diluted)",
+     "NAV (₹ per share)",
+     "P/E (x)",
+     "RoNW (%)",
+     "P/BV Ratio",
+     "Financial statements"
+    ],
+    "rows": [
+     [
+      "EAAA India Alternatives Ltd",
+      "41.26",
+      "40.36",
+      "163.69",
+      "",
+      "25.97",
+      "",
+      "Standalone"
+     ],
+     [
+      "360 One Wam Ltd.",
+      "30.16",
+      "29.19",
+      "242.17",
+      "35.67",
+      "14.39",
+      "4.30",
+      "Consolidated"
+     ],
+     [
+      "Aditya Birla Sun Life Amc Ltd.",
+      "33.76",
+      "33.68",
+      "139.94",
+      "29.84",
+      "25.10",
+      "7.22",
+      "Consolidated"
+     ],
+     [
+      "Anand Rathi Wealth Ltd.",
+      "47.87",
+      "47.17",
+      "120.23",
+      "90.69",
+      "47.54",
+      "17.82",
+      "Consolidated"
+     ],
+     [
+      "Hdfc Asset Management Co.Ltd.",
+      "66.77",
+      "66.50",
+      "215.42",
+      "33.76",
+      "32.93",
+      "10.44",
+      "Consolidated"
+     ],
+     [
+      "Gaja Alternative Asset Management Ltd.",
+      "7.17",
+      "7.17",
+      "53.73",
+      "16.47",
+      "16.47",
+      "2.74",
+      "Consolidated"
+     ],
+     [
+      "Nippon Life India Asset Management Ltd.",
+      "24.05",
+      "23.63",
+      "73.01",
+      "43.99",
+      "34.48",
+      "14.23",
+      "Consolidated"
+     ],
+     [
+      "Nuvama Wealth Management Ltd.",
+      "57.59",
+      "56.06",
+      "226.37",
+      "30.99",
+      "27.34",
+      "7.69",
+      "Consolidated"
+     ],
+     [
+      "Uti Asset Management Co.Ltd.",
+      "31.51",
+      "31.41",
+      "350.50",
+      "27.93",
+      "10.38",
+      "2.51",
+      "Consolidated"
+     ],
+     [
+      "Icici Prudential Asset Management Co.Ltd.",
+      "66.73",
+      "66.73",
+      "84.39",
+      "45.95",
+      "85.80",
+      "36.50",
+      "Consolidated"
+     ]
+    ],
+    "asOf": "2026-03-31"
+   },
+   "reservation": {
+    "head": [
+     "Investor Category",
+     "Shares"
+    ],
+    "rows": [
+     [
+      "QIB",
+      "Not more than 50% of the Net Offer"
+     ],
+     [
+      "Retail",
+      "Not less than 35% of the Net Offer"
+     ],
+     [
+      "NII",
+      "Not less than 15% of the Net Offer"
+     ]
+    ]
+   },
+   "kpiPeriods": [
+    {
+     "asOf": "2026-03-31",
+     "roe": 25.97,
+     "ronw": 25.97,
+     "patMargin": 27.52,
+     "debtEquity": 0.41
+    },
+    {
+     "asOf": "2026-06-30",
+     "roe": 28.96,
+     "ronw": 28.96,
+     "patMargin": 24.01,
+     "debtEquity": 0.34
+    }
+   ],
+   "holding": {
+    "promoterPre": 95.03,
+    "promoterPost": 95.03,
+    "sharesPre": 64655246.0,
+    "sharesPost": 64655246.0
+   },
+   "gmpHistory": [
+    {
+     "date": "2026-10-20",
+     "gmp": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
+   "company": {
+    "address": "Edelweiss House, Off C.S.T Road, Mumbai City, Kalina",
+    "website": "https://www.eaaa.in/",
+    "process": "Book Build Issue"
+   }
   }
  },
  "players": {
@@ -119800,9 +120118,9 @@
     {
      "id": "4468",
      "name": "GOVERNMENT PENSION FUND GLOBAL",
-     "ipos": 79,
-     "investedCr": 4778.47,
-     "ticketCr": 60.49
+     "ipos": 80,
+     "investedCr": 4793.47,
+     "ticketCr": 59.92
     },
     {
      "id": "15779",
@@ -119821,9 +120139,9 @@
     {
      "id": "15781",
      "name": "ICICI PRUDENTIAL LIFE INSURANCE CO.LTD.",
-     "ipos": 104,
-     "investedCr": 2943.22,
-     "ticketCr": 28.3
+     "ipos": 105,
+     "investedCr": 2978.22,
+     "ticketCr": 28.36
     },
     {
      "id": "9654",
@@ -119877,9 +120195,9 @@
     {
      "id": "177",
      "name": "ABU DHABI INVESTMENT AUTHORITY-STABLE",
-     "ipos": 31,
-     "investedCr": 1286.22,
-     "ticketCr": 41.49
+     "ipos": 32,
+     "investedCr": 1356.22,
+     "ticketCr": 42.38
     },
     {
      "id": "15784",
@@ -119919,9 +120237,9 @@
     {
      "id": "13797",
      "name": "EDELWEISS RECENTLY LISTED IPO FUND",
-     "ipos": 142,
-     "investedCr": 1010.17,
-     "ticketCr": 7.11
+     "ipos": 143,
+     "investedCr": 1015.17,
+     "ticketCr": 7.1
     }
    ],
    "2279": [
@@ -119935,9 +120253,9 @@
     {
      "id": "4468",
      "name": "GOVERNMENT PENSION FUND GLOBAL",
-     "ipos": 79,
-     "investedCr": 4778.47,
-     "ticketCr": 60.49
+     "ipos": 80,
+     "investedCr": 4793.47,
+     "ticketCr": 59.92
     },
     {
      "id": "4426",
@@ -119956,9 +120274,9 @@
     {
      "id": "15781",
      "name": "ICICI PRUDENTIAL LIFE INSURANCE CO.LTD.",
-     "ipos": 104,
-     "investedCr": 2943.22,
-     "ticketCr": 28.3
+     "ipos": 105,
+     "investedCr": 2978.22,
+     "ticketCr": 28.36
     },
     {
      "id": "9654",
@@ -119998,9 +120316,9 @@
     {
      "id": "177",
      "name": "ABU DHABI INVESTMENT AUTHORITY-STABLE",
-     "ipos": 31,
-     "investedCr": 1286.22,
-     "ticketCr": 41.49
+     "ipos": 32,
+     "investedCr": 1356.22,
+     "ticketCr": 42.38
     },
     {
      "id": "2010",
@@ -120012,9 +120330,9 @@
     {
      "id": "13797",
      "name": "EDELWEISS RECENTLY LISTED IPO FUND",
-     "ipos": 142,
-     "investedCr": 1010.17,
-     "ticketCr": 7.11
+     "ipos": 143,
+     "investedCr": 1015.17,
+     "ticketCr": 7.1
     }
    ],
    "2369": [
@@ -120659,6 +120977,7 @@
    }
   },
   "covered": [
+   "1635",
    "1728",
    "1792",
    "1842",
@@ -120691,9 +121010,9 @@
    {
     "id": "4468",
     "name": "GOVERNMENT PENSION FUND GLOBAL",
-    "ipos": 79,
-    "investedCr": 4778.47,
-    "ticketCr": 60.49
+    "ipos": 80,
+    "investedCr": 4793.47,
+    "ticketCr": 59.92
    },
    {
     "id": "15779",
@@ -120733,9 +121052,9 @@
    {
     "id": "15781",
     "name": "ICICI PRUDENTIAL LIFE INSURANCE CO.LTD.",
-    "ipos": 104,
-    "investedCr": 2943.22,
-    "ticketCr": 28.3
+    "ipos": 105,
+    "investedCr": 2978.22,
+    "ticketCr": 28.36
    },
    {
     "id": "9654",
@@ -120852,7 +121171,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-20T06:45:10+05:30",
+  "asOf": "2026-10-20T11:29:37+05:30",
   "dates": [
    "2026-01-16",
    "2026-01-19",
@@ -265123,6 +265442,10 @@
   "2229": {
    "src": "core4-engineers-logo.jpg",
    "at": "2026-10-19"
+  },
+  "1635": {
+   "src": "edelweiss-alternatives-corporate-logo.png",
+   "at": "2026-10-20"
   }
  }
 }
