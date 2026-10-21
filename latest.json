@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-21T11:08:09+05:30",
+  "asOf": "2026-10-21T11:30:56+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "21 Oct 2026, 11:08 IST",
+  "label": "21 Oct 2026, 11:30 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -1727,7 +1727,7 @@
    "ofsCr": 712.13,
    "gmp": 70.0,
    "gmpPct": 25.83,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 256.65,
     "nii": 203.21,
@@ -1737,9 +1737,9 @@
     "employee": 23.61
    },
    "shareholderQuota": null,
-   "listingPrice": null,
-   "listingGainPct": null,
-   "currentPrice": null,
+   "listingPrice": 335.0,
+   "listingGainPct": 23.62,
+   "currentPrice": 305.75,
    "sources": [
     "InvestorGain IPO list"
    ],
@@ -2228,7 +2228,7 @@
    "ofsCr": 852.18,
    "gmp": 513.0,
    "gmpPct": 73.29,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 293.56,
     "nii": 156.36,
@@ -2473,17 +2473,17 @@
    "issueSizeCr": 30213.0,
    "freshCr": 30213.0,
    "ofsCr": null,
-   "gmp": 265.0,
-   "gmpPct": 23.68,
-   "gmpTrend": "down",
+   "gmp": 277.0,
+   "gmpPct": 24.75,
+   "gmpTrend": "up",
    "sub": {
-    "qib": 3.77,
-    "nii": 0.34,
-    "retail": 0.29,
-    "total": 1.2,
-    "employee": 0.7,
-    "shareholder": 0.55,
-    "asOf": "2026-10-21T11:03:00+05:30",
+    "qib": 3.86,
+    "nii": 0.41,
+    "retail": 0.33,
+    "total": 1.27,
+    "employee": 0.78,
+    "shareholder": 0.62,
+    "asOf": "2026-10-21T11:27:00+05:30",
     "src": "nse"
    },
    "shareholderQuota": null,
@@ -2498,11 +2498,11 @@
    "igId": "2306",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-21T11:07:59+05:30",
+   "igFetchedAt": "2026-10-21T11:29:26+05:30",
    "sector": "Telecom - Cellular & Fixed line services",
    "anchorShares": 72474066,
    "logo": "jio-platform-logo.png",
-   "gmpAsOf": "2026-10-21T10:37:00+05:30",
+   "gmpAsOf": "2026-10-21T09:02:00+05:30",
    "facts": {
     "sector": "Telecom - Cellular & Fixed line services",
     "listingAt": "BSE, NSE",
@@ -2544,53 +2544,53 @@
      "rhp": "https://www.sebi.gov.in/filings/public-issues/oct-2026/jio-platforms-limited-rhp_105274.html",
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/jio-platform-anchor-book.pdf"
     },
-    "asOf": "2026-10-21T04:37:00+05:30"
+    "asOf": "2026-10-21T03:59:00+05:30"
    },
    "refund": "2026-10-27",
-   "gmpEve": 265.0,
-   "gmpEveAsOf": "2026-10-21T10:37:00+05:30",
+   "gmpEve": 277.0,
+   "gmpEveAsOf": "2026-10-21T09:02:00+05:30",
    "apps": {
     "qib": {
      "reserved": 49007828,
-     "received": 8296,
+     "received": 8317,
      "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 202470,
-     "received": 27266,
+     "received": 31974,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 134979,
-     "received": 4374,
+     "received": 5622,
      "reservedSrc": "rhp"
     },
     "snii": {
      "reserved": 67489,
-     "received": 22892,
+     "received": 26352,
      "reservedSrc": "rhp"
     },
     "retail": {
      "reserved": 7086443,
-     "received": 861192,
+     "received": 994352,
      "reservedSrc": "rhp"
     },
     "employee": {
      "reserved": 391236,
-     "received": 32710,
+     "received": 37303,
      "reservedSrc": "narada"
     },
     "shareholder": {
      "reserved": 1861781,
-     "received": 217962,
+     "received": 246184,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 58549759,
-     "received": 1147426,
+     "received": 1318130,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-21T11:08:05+05:30"
+    "asOf": "2026-10-21T11:29:28+05:30"
    }
   },
   {
@@ -2614,9 +2614,9 @@
    "sub": {
     "qib": 0.0,
     "nii": 0.02,
-    "retail": 0.24,
-    "total": 0.05,
-    "asOf": "2026-10-21T11:03:00+05:30",
+    "retail": 0.29,
+    "total": 0.06,
+    "asOf": "2026-10-21T11:27:00+05:30",
     "src": "nse"
    },
    "shareholderQuota": null,
@@ -2631,14 +2631,14 @@
    "igId": "1728",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-21T11:07:59+05:30",
+   "igFetchedAt": "2026-10-21T11:29:26+05:30",
    "refund": "2026-10-27",
    "sector": "Hospital",
    "anchorShares": 0,
    "logo": "paras-healthcare-logo.jpeg",
-   "gmpAsOf": "2026-10-21T10:37:00+05:30",
+   "gmpAsOf": "2026-10-21T09:02:00+05:30",
    "gmpEve": 52.0,
-   "gmpEveAsOf": "2026-10-21T10:37:00+05:30",
+   "gmpEveAsOf": "2026-10-21T09:02:00+05:30",
    "facts": {
     "sector": "Hospital",
     "listingAt": "BSE, NSE",
@@ -2678,7 +2678,7 @@
      "rhp": "https://www.sebi.gov.in/filings/public-issues/oct-2026/paras-healthcare-limited-rhp_105284.html",
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/parasanchorintimationletter712b481f-1fbd-41a4-b0f3-f5392a17afdf.pdf"
     },
-    "asOf": "2026-10-21T04:35:00+05:30"
+    "asOf": "2026-10-21T03:30:00+05:30"
    },
    "apps": {
     "qib": {
@@ -2688,30 +2688,30 @@
     },
     "nii": {
      "reserved": 10675,
-     "received": 156,
+     "received": 188,
      "reservedSrc": "narada"
     },
     "bnii": {
-     "reserved": 7116,
-     "received": 10,
-     "reservedSrc": "rhp"
+     "reserved": 7117,
+     "received": 15,
+     "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 3558,
-     "received": 146,
-     "reservedSrc": "rhp=narada"
+     "received": 173,
+     "reservedSrc": "narada"
     },
     "retail": {
-     "reserved": 99635,
-     "received": 16340,
-     "reservedSrc": "rhp"
+     "reserved": 99636,
+     "received": 19332,
+     "reservedSrc": "narada"
     },
     "total": {
      "reserved": 6387368,
-     "received": 16496,
+     "received": 19520,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-21T11:08:09+05:30"
+    "asOf": "2026-10-21T11:29:29+05:30"
    }
   },
   {
@@ -3890,6 +3890,34 @@
   }
  ],
  "comps": [
+  {
+   "name": "Vaibhav Vyapaar",
+   "igId": "2335",
+   "year": 2026,
+   "sme": true,
+   "total": 3.23,
+   "ret": -2.04,
+   "retClose": null,
+   "qib": 1.61,
+   "nii": 6.65,
+   "retail": 2.7,
+   "snii": 4.2,
+   "bnii": 7.87
+  },
+  {
+   "name": "HD Fire Protect",
+   "igId": "1902",
+   "year": 2026,
+   "sme": false,
+   "total": 131.73,
+   "ret": 23.62,
+   "retClose": null,
+   "qib": 256.65,
+   "nii": 203.21,
+   "retail": 30.55,
+   "snii": 137.28,
+   "bnii": 236.17
+  },
   {
    "name": "R.K.Fashion Accessories",
    "igId": "2292",
@@ -17934,6 +17962,36 @@
   "note": "7 Sep 2026 provisional NSE cash figures from NiftyTrader (single source): FII +₹280 Cr, DII +₹567 Cr; Nifty 23,779 (−0.50%). Sector rotation evidence is from NSDL first-half-August data (FPIs bought financial services Rs 6,535 cr, autos Rs 4,420 cr, consumer services Rs 3,407 cr, healthcare Rs 2,918 cr, IT Rs 2,537 cr); second-half-August sector data not yet captured. DII sector breakdown not available."
  },
  "listedPerf": [
+  {
+   "name": "Vaibhav Vyapaar",
+   "igId": "2335",
+   "date": "2026-10-21",
+   "sme": true,
+   "issue": 54.0,
+   "gmp": 3.0,
+   "gmpImplied": 57.0,
+   "listing": 52.9,
+   "close1": null,
+   "ltp": 0.0,
+   "bseCode": null,
+   "gmpEve": 3.0,
+   "gmpEveAsOf": "2026-10-20T15:37:00+05:30"
+  },
+  {
+   "name": "HD Fire Protect",
+   "igId": "1902",
+   "date": "2026-10-21",
+   "sme": false,
+   "issue": 271.0,
+   "gmp": 70.0,
+   "gmpImplied": 341.0,
+   "listing": 335.0,
+   "close1": null,
+   "ltp": 0.0,
+   "bseCode": "544994",
+   "gmpEve": 63.0,
+   "gmpEveAsOf": "2026-10-20T15:37:00+05:30"
+  },
   {
    "name": "R.K.Fashion Accessories",
    "igId": "2292",
@@ -36081,6 +36139,46 @@
  ],
  "news": [
   {
+   "title": "Jio IPO opens with a bang, issue gets fully booked as QIBs drive demand. Check GMP",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-opens-with-a-bang-issue-booked-over-90-as-qibs-drive-demand-check-gmp/articleshow/135082741.cms",
+   "date": "2026-10-21T10:40:25+05:30"
+  },
+  {
+   "title": "HD Fire Protect lists at 24% premium over IPO price after 132x subscription",
+   "url": "https://www.business-standard.com/markets/news/hd-fire-protect-lists-at-24-premium-over-ipo-price-after-132x-subscription-126102100213_1.html",
+   "date": "2026-10-21T10:01:00+05:30"
+  },
+  {
+   "title": "Jio IPO or RIL shares? Where should investors bet as Ambani's Rs 30,213 crore issue opens",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-or-ril-shares-where-should-investors-bet-as-ambanis-rs-30213-crore-issue-opens/articleshow/135081917.cms",
+   "date": "2026-10-21T09:48:06+05:30"
+  },
+  {
+   "title": "Vaibhav Vyapaar Shares to list today; Check GMP ahead of debut",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/vaibhav-vyapaar-shares-to-list-today-check-gmp-ahead-of-debut/articleshow/135081701.cms",
+   "date": "2026-10-21T09:31:20+05:30"
+  },
+  {
+   "title": "Jio IPO beyond telecom: Why the Ambanis are pitching AI, cloud and 7,220 patents as Jio’s tech future",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/jio-ipo-beyond-telecom-why-the-ambanis-are-pitching-ai-cloud-and-7220-patents-as-jios-tech-future/articleshow/135081661.cms",
+   "date": "2026-10-21T09:24:30+05:30"
+  },
+  {
+   "title": "Paras Healthcare IPO opens for subscription: Check GMP, price band and key details",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/paras-healthcare-ipo-opens-today-check-gmp-price-band-and-key-details/articleshow/135081382.cms",
+   "date": "2026-10-21T09:11:59+05:30"
+  },
+  {
+   "title": "HD Fire Protect shares list at 24% premium over IPO price on NSE",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/hd-fire-protect-shares-to-list-today-gmp-signals-26-listing-gain/articleshow/135081363.cms",
+   "date": "2026-10-21T09:11:15+05:30"
+  },
+  {
+   "title": "Jio Platforms IPO GMP Live Updates: Jio IPO sails through on Day 1, led by stellar QIB demand. Check GMP and bokerage views",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/live-blog/jio-ipo-gmp-live-updates-reliance-jio-platforms-ipo-subscription-price-band-listing-date-latest-news/liveblog/135080624.cms",
+   "date": "2026-10-21T08:24:16+05:30"
+  },
+  {
    "title": "Can Jio Platforms IPO deliver long-term growth for high-risk investors?",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/can-jio-platforms-ipo-deliver-long-term-growth-for-high-risk-investors/articleshow/135078638.cms",
    "date": "2026-10-21T05:42:32+05:30"
@@ -36164,46 +36262,6 @@
    "title": "Jio Platforms' anchor book draws record ₹2.5 trillion in bids ahead of IPO",
    "url": "https://www.business-standard.com/companies/news/jio-platforms-ipo-anchor-investor-quota-nearly-30-times-oversubscribed-126101900538_1.html",
    "date": "2026-10-19T15:30:22+05:30"
-  },
-  {
-   "title": "Jio’s mega IPO breaks all records with Rs 2.5 lakh crore anchor demand: BlackRock, GIC, LIC participate",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/jios-mega-ipo-breaks-all-records-with-rs-2-5-lakh-crore-anchor-demand-blackrock-gic-lic-participate/articleshow/135043514.cms",
-   "date": "2026-10-19T13:40:18+05:30"
-  },
-  {
-   "title": "Global Market: South Korea regulator says Solidigm US listing may breach dual-listing rules",
-   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/global-market-south-korea-regulator-says-solidigm-us-listing-may-breach-dual-listing-rules/articleshow/135041638.cms",
-   "date": "2026-10-19T11:49:13+05:30"
-  },
-  {
-   "title": "Jio Platforms IPO GMP signals 22% potential listing gain; issue opens on October 21",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-platforms-ipo-gmp-signals-22-potential-listing-gain-issue-opens-on-october-21/articleshow/135041581.cms",
-   "date": "2026-10-19T11:45:54+05:30"
-  },
-  {
-   "title": "Holding company discount after Jio IPO: What is it &amp; how will it impact RIL shares?",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/holding-company-discount-after-jio-ipo-what-is-it-how-will-it-impact-ril-shares/articleshow/135039648.cms",
-   "date": "2026-10-19T10:02:09+05:30"
-  },
-  {
-   "title": "Bonfiglioli Transmissions IPO Day 3: GMP at 22%, issue subscribed 99%; Should you apply?",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/bonfiglioli-transmissions-ipo-day-3-gmp-at-22-issue-subscribed-99-should-you-apply/articleshow/135039410.cms",
-   "date": "2026-10-19T09:42:49+05:30"
-  },
-  {
-   "title": "Sahajanand Medical Technologies IPO Day 3: GMP at 7%; check subscription status and key details",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/sahajanand-medical-technologies-ipo-day-3-gmp-at-7-check-subscription-status-and-key-details/articleshow/135039386.cms",
-   "date": "2026-10-19T09:41:09+05:30"
-  },
-  {
-   "title": "Tonbo Imaging India IPO Day 3: GMP at 74%, issue subscribed over 7x. Check key details",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/tonbo-imaging-india-ipo-day-3-gmp-at-74-issue-subscribed-over-7x-check-key-details/articleshow/135038712.cms",
-   "date": "2026-10-19T08:55:02+05:30"
-  },
-  {
-   "title": "Sebi's CAS rollback may offer new lifeline to Indian derivatives market",
-   "url": "https://www.business-standard.com/markets/news/sebi-s-cas-rollback-may-offer-new-lifeline-to-indian-derivatives-market-126101900078_1.html",
-   "date": "2026-10-19T08:39:38+05:30"
   }
  ],
  "priceHistory": {
@@ -79597,6 +79655,10 @@
    [
     "2026-10-19",
     140.06
+   ],
+   [
+    "2026-10-21",
+    122.71
    ]
   ],
   "Jindal Supreme (India)": [
@@ -79671,6 +79733,10 @@
    [
     "2026-10-19",
     158.25
+   ],
+   [
+    "2026-10-21",
+    150.1
    ]
   ],
   "SS Retail": [
@@ -79745,6 +79811,10 @@
    [
     "2026-10-19",
     700.9
+   ],
+   [
+    "2026-10-21",
+    700.15
    ]
   ],
   "Jindal Supreme": [
@@ -79889,6 +79959,10 @@
    [
     "2026-10-19",
     97.5
+   ],
+   [
+    "2026-10-21",
+    94.85
    ]
   ],
   "Axiom Gas Engineering": [
@@ -80223,6 +80297,10 @@
    [
     "2026-10-19",
     130.02
+   ],
+   [
+    "2026-10-21",
+    135.23
    ]
   ],
   "Himalaya Nutravedics": [
@@ -80335,6 +80413,10 @@
    [
     "2026-10-19",
     171.2
+   ],
+   [
+    "2026-10-21",
+    171.15
    ]
   ],
   "ArMee Infotech": [
@@ -80389,6 +80471,10 @@
    [
     "2026-10-19",
     253.3
+   ],
+   [
+    "2026-10-21",
+    251.6
    ]
   ],
   "Elevate Campuses": [
@@ -80443,6 +80529,10 @@
    [
     "2026-10-19",
     309.6
+   ],
+   [
+    "2026-10-21",
+    299.1
    ]
   ],
   "Swastika Infra": [
@@ -80497,6 +80587,10 @@
    [
     "2026-10-19",
     237.64
+   ],
+   [
+    "2026-10-21",
+    242.52
    ]
   ],
   "Core Integra Consulting": [
@@ -80655,6 +80749,10 @@
    [
     "2026-10-19",
     423.25
+   ],
+   [
+    "2026-10-21",
+    404.05
    ]
   ],
   "Moneyview": [
@@ -80705,6 +80803,10 @@
    [
     "2026-10-19",
     57.36
+   ],
+   [
+    "2026-10-21",
+    54.53
    ]
   ],
   "Acevector": [
@@ -80751,6 +80853,10 @@
    [
     "2026-10-19",
     24.15
+   ],
+   [
+    "2026-10-21",
+    22.92
    ]
   ],
   "German Green Steel": [
@@ -80797,6 +80903,10 @@
    [
     "2026-10-19",
     111.97
+   ],
+   [
+    "2026-10-21",
+    105.38
    ]
   ],
   "Orient Cables": [
@@ -80843,6 +80953,10 @@
    [
     "2026-10-19",
     388.6
+   ],
+   [
+    "2026-10-21",
+    371.85
    ]
   ],
   "Runwal Enterprises": [
@@ -80889,6 +81003,10 @@
    [
     "2026-10-19",
     249.1
+   ],
+   [
+    "2026-10-21",
+    236.0
    ]
   ],
   "SRIT India": [
@@ -80931,6 +81049,10 @@
    [
     "2026-10-19",
     119.76
+   ],
+   [
+    "2026-10-21",
+    103.47
    ]
   ],
   "Shah Investor's Home": [
@@ -80973,6 +81095,10 @@
    [
     "2026-10-19",
     140.1
+   ],
+   [
+    "2026-10-21",
+    140.0
    ]
   ],
   "Himalayan Solar": [
@@ -81163,6 +81289,10 @@
    [
     "2026-10-19",
     76.0
+   ],
+   [
+    "2026-10-21",
+    76.8
    ]
   ],
   "Vishal Nirmiti": [
@@ -81197,6 +81327,10 @@
    [
     "2026-10-19",
     142.67
+   ],
+   [
+    "2026-10-21",
+    135.54
    ]
   ],
   "Eventions": [
@@ -81246,17 +81380,32 @@
     "2026-10-19",
     68.6
    ]
+  ],
+  "HD Fire Protect": [
+   [
+    "2026-10-21",
+    305.75
+   ]
   ]
  },
  "integrity": {
-  "asOf": "2026-10-21T11:08:09+05:30",
+  "asOf": "2026-10-21T11:30:56+05:30",
   "checks": [
+   {
+    "area": "calendar",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-21T11:29:26+05:30",
+    "elapsed": 1.83,
+    "calls": 5,
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=13 carried=2 +nse=4 +bse=0 exchange-only=0: 11 mainboard, 4 sme; 2 open, 4 upcoming"
+   },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 1.04,
+    "elapsed": 0.07,
     "calls": 1,
     "note": "gmp: 11 board rows patched via investorgain; 6 active, 3 of them matched; gmp: 9 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹135, investorgain); EverestIMS Technologies (₹50, investorgain); Nityas Gems & Jewellery (₹1, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Shree TNB Polymers (₹4, investorgain); Sollfege Smart Electronics (₹10, investorgain); Vans Electroengineerings (₹103, investorgain) …"
    },
@@ -81264,8 +81413,8 @@
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-21T11:07:59+05:30",
-    "elapsed": 2.67,
+    "asOf": "2026-10-21T11:29:26+05:30",
+    "elapsed": 0.6,
     "calls": 2,
     "note": "2 records fetched for 15 identified listings (0 without an id); 0 anchor books updated, 87 on file"
    },
@@ -81273,10 +81422,127 @@
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-10-21T11:08:09+05:30",
-    "elapsed": 7.47,
-    "calls": 5,
+    "asOf": "2026-10-21T11:29:29+05:30",
+    "elapsed": 2.11,
+    "calls": 4,
     "note": "2/2 rows patched via nse"
+   },
+   {
+    "area": "listings",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 13.14,
+    "calls": 0,
+    "note": "20 names priced, 0 moved to recent, 20 history points"
+   },
+   {
+    "area": "history",
+    "method": "investorgain-566:ok, investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 3.18,
+    "calls": 2,
+    "note": "1388 listings since 2022 (987 SME); fetched 2026: 285; QIB on file for 102 of 401 mainboard issues"
+   },
+   {
+    "area": "tape",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-10-19",
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "189 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file"
+   },
+   {
+    "area": "anchorbook",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "0 anchor books read (0 without an anchor table, 0 failed); 902 on file, 589 partial (feed gave only the first names); 0 of 1388 listings still to fetch"
+   },
+   {
+    "area": "evidence",
+    "method": "computed:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 0.19,
+    "calls": 0,
+    "note": "track records: 902 of 902 anchor books have an outcome; 834 of 1381 investors with 2+; 1388 listings; windows: mainboard 125, SME 234; 4 warnings"
+   },
+   {
+    "area": "players",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 42.71,
+    "calls": 54,
+    "note": "53 of 2839 anchor investors read (0 failed); names found for 5 of 13 unlisted issues"
+   },
+   {
+    "area": "parents",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 14.84,
+    "calls": 0,
+    "note": "5/5 parent prices; 41/47 investor stocks priced"
+   },
+   {
+    "area": "filings",
+    "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 8.49,
+    "calls": 14,
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 924 announcements scanned, 0 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 3 leads held; 0 rows patched, 33 kept previous stage"
+   },
+   {
+    "area": "offers",
+    "method": "bse:blocked, bse:blocked",
+    "status": "blocked",
+    "asOf": null,
+    "elapsed": 0.07,
+    "calls": 1,
+    "note": "kept previous — HTTP 403"
+   },
+   {
+    "area": "flows",
+    "method": "nse:ok",
+    "status": "ok",
+    "asOf": "2026-10-19",
+    "elapsed": 0.33,
+    "calls": 1,
+    "note": "2026-10-19 already in history; FII -1,149 / DII +3,201 Cr"
+   },
+   {
+    "area": "deals",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-10-19",
+    "elapsed": 1.16,
+    "calls": 4,
+    "note": "bulk.csv: 126 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 126; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 30 of today's 126 deals are in this year's listings (5 stocks); 1311 kept over 60 days; 189 of 285 listings have an NSE symbol; 220 with a BSE code"
+   },
+   {
+    "area": "news",
+    "method": "rss:ok",
+    "status": "ok",
+    "asOf": "2026-10-21T10:40:25+05:30",
+    "elapsed": 2.13,
+    "calls": 3,
+    "note": "business-standard: 4/35 primary-market items; economic-times: 7/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 11 fresh, 25 kept"
+   },
+   {
+    "area": "logos",
+    "method": "none:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "58 logos on file; none to fetch"
    },
    {
     "area": "research layer",
@@ -81288,7 +81554,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "11s, 8 calls, 3/3 modules ok"
+    "note": "92s, 91 calls, 16/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -82926,53 +83192,53 @@
   "prices": {
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1202.0,
-    "asOf": "2026-10-19"
+    "value": 1223.6,
+    "asOf": "2026-10-21"
    },
    "Edelweiss Financial Services": {
     "symbol": "EDELWEISS",
-    "value": 128.16,
-    "asOf": "2026-10-19"
+    "value": 126.85,
+    "asOf": "2026-10-21"
    },
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 411.7,
-    "asOf": "2026-10-19"
+    "value": 408.05,
+    "asOf": "2026-10-21"
    },
    "Hero MotoCorp": {
     "symbol": "HEROMOTOCO",
-    "value": 5230.0,
-    "asOf": "2026-10-19"
+    "value": 5155.0,
+    "asOf": "2026-10-21"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 104.8,
-    "asOf": "2026-10-19"
+    "value": 104.3,
+    "asOf": "2026-10-21"
    },
    "Prestige Estates": {
     "symbol": "PRESTIGE",
-    "value": 1475.0,
-    "asOf": "2026-10-19"
+    "value": 1444.8,
+    "asOf": "2026-10-21"
    },
    "SIS Limited": {
     "symbol": "SIS",
-    "value": 389.3,
-    "asOf": "2026-10-19"
+    "value": 383.05,
+    "asOf": "2026-10-21"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 244.35,
-    "asOf": "2026-10-19"
+    "value": 236.25,
+    "asOf": "2026-10-21"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 6529.5,
-    "asOf": "2026-10-19"
+    "value": 6411.0,
+    "asOf": "2026-10-21"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 51.11,
-    "asOf": "2026-10-19"
+    "value": 49.66,
+    "asOf": "2026-10-21"
    },
    "Tata Motors": {
     "symbol": "TATAMOTORS",
@@ -82981,48 +83247,48 @@
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 393.35,
-    "asOf": "2026-10-19"
+    "value": 391.55,
+    "asOf": "2026-10-21"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 70.7,
-    "asOf": "2026-10-19"
+    "value": 71.75,
+    "asOf": "2026-10-21"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 225.0,
-    "asOf": "2026-10-19"
+    "value": 225.25,
+    "asOf": "2026-10-21"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 712.0,
-    "asOf": "2026-10-19"
+    "value": 708.65,
+    "asOf": "2026-10-21"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 442.3,
-    "asOf": "2026-10-19"
+    "value": 437.95,
+    "asOf": "2026-10-21"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1236.0,
-    "asOf": "2026-10-19"
+    "value": 1215.6,
+    "asOf": "2026-10-21"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1700.0,
-    "asOf": "2026-10-19"
+    "value": 1673.4,
+    "asOf": "2026-10-21"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1220.0,
-    "asOf": "2026-10-19"
+    "value": 1225.6,
+    "asOf": "2026-10-21"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 20.07,
-    "asOf": "2026-10-19"
+    "value": 19.53,
+    "asOf": "2026-10-21"
    },
    "Gretex Corporate Services": {
     "symbol": "GRETEX",
@@ -83031,8 +83297,8 @@
    },
    "Asian Energy": {
     "symbol": "ASIANENE",
-    "value": 433.4,
-    "asOf": "2026-10-19"
+    "value": 430.45,
+    "asOf": "2026-10-21"
    },
    "TechEra Engineering": {
     "symbol": "TECHERA",
@@ -83041,103 +83307,103 @@
    },
    "Beta Drugs": {
     "symbol": "BETA",
-    "value": 1719.6,
-    "asOf": "2026-10-19"
+    "value": 1645.0,
+    "asOf": "2026-10-21"
    },
    "Fineotex Chemical": {
     "symbol": "FCL",
-    "value": 55.81,
-    "asOf": "2026-10-19"
+    "value": 53.94,
+    "asOf": "2026-10-21"
    },
    "Walchandnagar Industries / Jain Resource Recycling": {
     "symbol": "WALCHANNAG",
-    "value": 214.08,
-    "asOf": "2026-10-19"
+    "value": 203.48,
+    "asOf": "2026-10-21"
    },
    "Lux Industries": {
     "symbol": "LUXIND",
-    "value": 1149.5,
-    "asOf": "2026-10-19"
+    "value": 1110.0,
+    "asOf": "2026-10-21"
    },
    "Intellect Design Arena": {
     "symbol": "INTELLECT",
-    "value": 640.5,
-    "asOf": "2026-10-19"
+    "value": 636.0,
+    "asOf": "2026-10-21"
    },
    "Zaggle Prepaid": {
     "symbol": "ZAGGLE",
-    "value": 162.78,
-    "asOf": "2026-10-19"
+    "value": 160.88,
+    "asOf": "2026-10-21"
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 97.58,
-    "asOf": "2026-10-19"
+    "value": 95.18,
+    "asOf": "2026-10-21"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1238.6,
-    "asOf": "2026-10-19"
+    "value": 1205.6,
+    "asOf": "2026-10-21"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 534.7,
-    "asOf": "2026-10-19"
+    "value": 514.0,
+    "asOf": "2026-10-21"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 292.2,
-    "asOf": "2026-10-19"
+    "value": 277.8,
+    "asOf": "2026-10-21"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 125.54,
-    "asOf": "2026-10-19"
+    "value": 122.78,
+    "asOf": "2026-10-21"
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
-    "value": 1436.5,
-    "asOf": "2026-10-19"
+    "value": 1364.7,
+    "asOf": "2026-10-21"
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1488.9,
-    "asOf": "2026-10-19"
+    "value": 1447.3,
+    "asOf": "2026-10-21"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1434.8,
-    "asOf": "2026-10-19"
+    "value": 1356.5,
+    "asOf": "2026-10-21"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 100.41,
-    "asOf": "2026-10-19"
+    "value": 97.15,
+    "asOf": "2026-10-21"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 496.35,
-    "asOf": "2026-10-19"
+    "value": 482.9,
+    "asOf": "2026-10-21"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 558.2,
-    "asOf": "2026-10-19"
+    "value": 545.0,
+    "asOf": "2026-10-21"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1162.5,
-    "asOf": "2026-10-19"
+    "value": 1110.1,
+    "asOf": "2026-10-21"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 475.45,
-    "asOf": "2026-10-19"
+    "value": 453.9,
+    "asOf": "2026-10-21"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 538.25,
-    "asOf": "2026-10-19"
+    "value": 519.0,
+    "asOf": "2026-10-21"
    },
    "Ashutosh Fibre (upcoming)": {
     "symbol": "ASHUTOSH",
@@ -113714,8 +113980,8 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1202.0,
-    "asOf": "2026-10-19"
+    "value": 1223.6,
+    "asOf": "2026-10-21"
    },
    "parentTicker": "RELIANCE",
    "sources": [
@@ -113767,8 +114033,8 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 128.16,
-    "asOf": "2026-10-19"
+    "value": 126.85,
+    "asOf": "2026-10-21"
    },
    "parentTicker": "EDELWEISS",
    "sources": [
@@ -113922,8 +114188,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 411.7,
-    "asOf": "2026-10-19"
+    "value": 408.05,
+    "asOf": "2026-10-21"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -114051,8 +114317,8 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5230.0,
-    "asOf": "2026-10-19"
+    "value": 5155.0,
+    "asOf": "2026-10-21"
    },
    "parentTicker": "HEROMOTOCO",
    "sources": [
@@ -114166,8 +114432,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 411.7,
-    "asOf": "2026-10-19"
+    "value": 408.05,
+    "asOf": "2026-10-21"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -114266,11 +114532,11 @@
    "main": {
     "window": {
      "rule": "last 12 months",
-     "n": 124,
+     "n": 125,
      "from": "2025-10-24",
-     "to": "2026-10-08"
+     "to": "2026-10-21"
     },
-    "n": 400,
+    "n": 401,
     "bands": {
      "total": {
       "window": [
@@ -114302,13 +114568,13 @@
         "p90": 23.0
        },
        {
-        "n": 45,
-        "pos": 88.9,
-        "lo": 76.5,
-        "hi": 95.2,
-        "med": 27.2,
-        "p10": 2.6,
-        "p90": 64.5
+        "n": 46,
+        "pos": 89.1,
+        "lo": 77.0,
+        "hi": 95.3,
+        "med": 26.6,
+        "p10": 3.3,
+        "p90": 64.3
        }
       ],
       "all": [
@@ -114340,13 +114606,13 @@
         "p90": 31.2
        },
        {
-        "n": 155,
+        "n": 156,
         "pos": 95.5,
         "lo": 91.0,
         "hi": 97.8,
-        "med": 33.1,
+        "med": 32.7,
         "p10": 6.7,
-        "p90": 76.9
+        "p90": 76.8
        }
       ]
      },
@@ -114371,13 +114637,13 @@
         "p90": 10.4
        },
        {
-        "n": 29,
-        "pos": 93.1,
-        "lo": 78.0,
-        "hi": 98.1,
+        "n": 30,
+        "pos": 93.3,
+        "lo": 78.7,
+        "hi": 98.2,
         "med": 16.7,
-        "p10": 5.8,
-        "p90": 27.6
+        "p10": 6.2,
+        "p90": 27.4
        },
        {
         "n": 24,
@@ -114409,11 +114675,11 @@
         "p90": 10.0
        },
        {
-        "n": 104,
-        "pos": 90.4,
-        "lo": 83.2,
+        "n": 105,
+        "pos": 90.5,
+        "lo": 83.4,
         "hi": 94.7,
-        "med": 14.5,
+        "med": 14.6,
         "p10": 0.9,
         "p90": 31.2
        },
@@ -114458,19 +114724,19 @@
         "p90": 27.6
        },
        {
-        "n": 33,
-        "pos": 93.9,
-        "lo": 80.4,
-        "hi": 98.3,
-        "med": 34.1,
-        "p10": 7.2,
-        "p90": 73.4
+        "n": 34,
+        "pos": 94.1,
+        "lo": 80.9,
+        "hi": 98.4,
+        "med": 33.6,
+        "p10": 7.3,
+        "p90": 72.4
        }
       ],
       "years": [
        2026
       ],
-      "n": 101
+      "n": 102
      },
      "retail": {
       "rows": [
@@ -114502,13 +114768,13 @@
         "p90": 27.8
        },
        {
-        "n": 24,
-        "pos": 87.5,
-        "lo": 69.0,
-        "hi": 95.7,
-        "med": 20.4,
-        "p10": 0.6,
-        "p90": 44.9
+        "n": 25,
+        "pos": 88.0,
+        "lo": 70.0,
+        "hi": 95.8,
+        "med": 21.4,
+        "p10": 0.9,
+        "p90": 44.1
        },
        {
         "n": 19,
@@ -114648,18 +114914,18 @@
        "evMean": 0.64
       },
       {
-       "n": 24,
-       "pos": 87.5,
-       "lo": 69.0,
-       "hi": 95.7,
-       "med": 20.4,
-       "p10": 0.6,
-       "p90": 44.9,
-       "oddsMed": 4.5,
-       "evMed": 1.08,
-       "evP10": -0.07,
-       "evP90": 1.88,
-       "evMean": 0.92
+       "n": 25,
+       "pos": 88.0,
+       "lo": 70.0,
+       "hi": 95.8,
+       "med": 21.4,
+       "p10": 0.9,
+       "p90": 44.1,
+       "oddsMed": 4.2,
+       "evMed": 1.02,
+       "evP10": -0.06,
+       "evP90": 1.87,
+       "evMean": 0.91
       },
       {
        "n": 19,
@@ -114684,13 +114950,13 @@
     "anchors": {
      "rows": [
       {
-       "n": 14,
-       "pos": 64.3,
-       "lo": 38.8,
-       "hi": 83.7,
-       "med": 2.9,
+       "n": 15,
+       "pos": 66.7,
+       "lo": 41.7,
+       "hi": 84.8,
+       "med": 3.3,
        "p10": -2.3,
-       "p90": 36.7
+       "p90": 37.7
       },
       {
        "n": 3,
@@ -114720,23 +114986,23 @@
        "p90": 0.6
       }
      ],
-     "n": 20,
+     "n": 21,
      "since": "2026-09-23",
      "of": 53
     },
     "fit": {
      "r377": {
-      "n": 113,
-      "a": -1.88,
+      "n": 114,
+      "a": -1.89,
       "b": 1.052,
       "r2": 0.81,
       "sd": 10.2,
-      "q10": -9.6,
+      "q10": -9.5,
       "q90": 9.7
      },
      "eve": null,
      "provisional": true,
-     "eveRows": 21
+     "eveRows": 22
     },
     "byYear": {
      "2022": {
@@ -114776,13 +115042,13 @@
       "p90": 29.4
      },
      "2026": {
-      "n": 101,
-      "pos": 66.3,
-      "lo": 56.7,
-      "hi": 74.8,
-      "med": 6.8,
+      "n": 102,
+      "pos": 66.7,
+      "lo": 57.1,
+      "hi": 75.1,
+      "med": 6.9,
       "p10": -9.2,
-      "p90": 39.6
+      "p90": 39.4
      }
     },
     "lockin": {
@@ -114800,11 +115066,11 @@
    "sme": {
     "window": {
      "rule": "last 12 months",
-     "n": 233,
+     "n": 234,
      "from": "2025-11-03",
-     "to": "2026-10-12"
+     "to": "2026-10-21"
     },
-    "n": 986,
+    "n": 987,
     "bands": {
      "total": {
       "window": [
@@ -114818,13 +115084,13 @@
         "p90": 7.7
        },
        {
-        "n": 61,
-        "pos": 47.5,
-        "lo": 35.5,
-        "hi": 59.8,
+        "n": 62,
+        "pos": 46.8,
+        "lo": 34.9,
+        "hi": 59.0,
         "med": 0.0,
         "p10": -20.0,
-        "p90": 11.3
+        "p90": 11.2
        },
        {
         "n": 29,
@@ -114856,11 +115122,11 @@
         "p90": 7.1
        },
        {
-        "n": 222,
-        "pos": 58.6,
-        "lo": 52.0,
-        "hi": 64.8,
-        "med": 2.1,
+        "n": 223,
+        "pos": 58.3,
+        "lo": 51.7,
+        "hi": 64.6,
+        "med": 2.0,
         "p10": -20.0,
         "p90": 18.4
        },
@@ -114896,13 +115162,13 @@
         "p90": 4.8
        },
        {
-        "n": 60,
-        "pos": 48.3,
-        "lo": 36.2,
-        "hi": 60.7,
+        "n": 61,
+        "pos": 47.5,
+        "lo": 35.5,
+        "hi": 59.8,
         "med": 0.0,
         "p10": -19.9,
-        "p90": 13.3
+        "p90": 13.2
        },
        {
         "n": 29,
@@ -114934,13 +115200,13 @@
         "p90": 16.7
        },
        {
-        "n": 196,
-        "pos": 58.7,
-        "lo": 51.7,
-        "hi": 65.3,
-        "med": 2.5,
-        "p10": -12.6,
-        "p90": 17.6
+        "n": 197,
+        "pos": 58.4,
+        "lo": 51.4,
+        "hi": 65.0,
+        "med": 2.4,
+        "p10": -12.3,
+        "p90": 17.4
        },
        {
         "n": 158,
@@ -114965,13 +115231,13 @@
      "qib": {
       "rows": [
        {
-        "n": 62,
-        "pos": 48.4,
-        "lo": 36.4,
-        "hi": 60.6,
+        "n": 63,
+        "pos": 47.6,
+        "lo": 35.8,
+        "hi": 59.7,
         "med": 0.0,
-        "p10": -19.8,
-        "p90": 12.8
+        "p10": -19.6,
+        "p90": 12.7
        },
        {
         "n": 26,
@@ -115004,7 +115270,7 @@
       "years": [
        2026
       ],
-      "n": 152
+      "n": 153
      },
      "retail": {
       "rows": [
@@ -115018,13 +115284,13 @@
         "p90": 7.8
        },
        {
-        "n": 60,
-        "pos": 28.3,
-        "lo": 18.5,
-        "hi": 40.8,
+        "n": 61,
+        "pos": 27.9,
+        "lo": 18.2,
+        "hi": 40.2,
         "med": 0.0,
         "p10": -20.0,
-        "p90": 7.3
+        "p90": 6.9
        },
        {
         "n": 23,
@@ -115154,17 +115420,17 @@
        "evMean": 3.14
       },
       {
-       "n": 60,
-       "pos": 28.3,
-       "lo": 18.5,
-       "hi": 40.8,
+       "n": 61,
+       "pos": 27.9,
+       "lo": 18.2,
+       "hi": 40.2,
        "med": 0.0,
        "p10": -20.0,
-       "p90": 7.3,
-       "oddsMed": 53.2,
+       "p90": 6.9,
+       "oddsMed": 52.6,
        "evMed": -0.1,
-       "evP10": -10.9,
-       "evP90": 4.1,
+       "evP10": -10.85,
+       "evP90": 4.08,
        "evMean": -1.08
       },
       {
@@ -115227,13 +115493,13 @@
        "p90": 81.5
       },
       {
-       "n": 4,
-       "pos": 75.0,
-       "lo": 30.1,
-       "hi": 95.4,
-       "med": 9.6,
-       "p10": -13.8,
-       "p90": 68.5
+       "n": 5,
+       "pos": 60.0,
+       "lo": 23.1,
+       "hi": 88.2,
+       "med": 0.8,
+       "p10": -12.8,
+       "p90": 61.4
       },
       {
        "n": 0,
@@ -115254,23 +115520,23 @@
        "p90": null
       }
      ],
-     "n": 37,
+     "n": 38,
      "since": "2026-09-24",
      "of": 53
     },
     "fit": {
      "r377": {
-      "n": 128,
-      "a": 0.94,
-      "b": 0.98,
+      "n": 129,
+      "a": 0.84,
+      "b": 0.981,
       "r2": 0.74,
-      "sd": 17.5,
-      "q10": -20.5,
+      "sd": 17.4,
+      "q10": -20.3,
       "q90": 19.5
      },
      "eve": null,
      "provisional": false,
-     "eveRows": 42,
+     "eveRows": 43,
      "r377OnSameRows": null
     },
     "byYear": {
@@ -115311,13 +115577,13 @@
       "p90": 56.9
      },
      "2026": {
-      "n": 182,
-      "pos": 56.0,
-      "lo": 48.8,
-      "hi": 63.1,
-      "med": 1.6,
+      "n": 183,
+      "pos": 55.7,
+      "lo": 48.5,
+      "hi": 62.7,
+      "med": 1.5,
       "p10": -20.0,
-      "p90": 65.2
+      "p90": 64.2
      }
     },
     "lockin": {
@@ -115469,15 +115735,15 @@
   "warnings": [
    {
     "code": "gmp-provisional-mainboard",
-    "text": "mainboard: the GMP interval is provisional. It is fitted on report 377's GMP, which is stamped on listing morning (about 09:35, before the first trade). A check on 37 recent listings found that update no closer to the outcome than the evening before, but the desk's own evening-before record has only 21 of the 30 listings needed to confirm it."
+    "text": "mainboard: the GMP interval is provisional. It is fitted on report 377's GMP, which is stamped on listing morning (about 09:35, before the first trade). A check on 37 recent listings found that update no closer to the outcome than the evening before, but the desk's own evening-before record has only 22 of the 30 listings needed to confirm it."
    },
    {
     "code": "category-one-year-mainboard",
-    "text": "mainboard: QIB and retail bands, and expected value, rest on 101 listings from 2026 alone — category books are not published for earlier years."
+    "text": "mainboard: QIB and retail bands, and expected value, rest on 102 listings from 2026 alone — category books are not published for earlier years."
    },
    {
     "code": "category-one-year-SME",
-    "text": "SME: QIB and retail bands, and expected value, rest on 181 listings from 2026 alone — category books are not published for earlier years."
+    "text": "SME: QIB and retail bands, and expected value, rest on 182 listings from 2026 alone — category books are not published for earlier years."
    },
    {
     "code": "regime-SME-2025",
@@ -115826,7 +116092,7 @@
   },
   "2306": {
    "name": "Jio Platforms",
-   "fetchedAt": "2026-10-21T11:07:59+05:30",
+   "fetchedAt": "2026-10-21T11:29:26+05:30",
    "about": [
     "Jio Platforms Limited is a leading digital technology company in India, operating primarily through its subsidiary, Reliance Jio Infocomm Limited. The company delivers a broad range of digital connectivity and technology-enabled services to consumers and enterprises across the country. As of March 31, 2026, it served more than 524 million customers through its extensive telecommunications and digital services ecosystem. The company has built an integrated, proprietary technology platform encompassing network infrastructure, software applications, operating systems, cloud capabilities, digital devices, and advanced technology solutions. Its consumer offerings include mobile and fixed broadband services, digital entertainment, gaming, cloud storage, smart home products, and AI-powered applications, supported by platforms such as MyJio, JioTV+, JioSaavn, JioGames, and JioAICloud. For enterprises, Jio Platforms provides connectivity solutions, cloud and IoT services, cybersecurity, managed services, unified communications, and private 5G networks, serving clients across sectors including banking, manufacturing, utilities, transportation, government, and information technology. As of March 31, 2026, the company and its subsidiaries employed 28,163 full-time personnel and maintained a portfolio of patent applications related to digital communications, cloud-native technologies, artificial intelligence, and other emerging innovations. Jio Platform Shareholder and Employee Reservation The company has reserved 46,94,835 shares for eligible employees and 2,23,41,376 shares for eligible shareholders. Shareholders who hold Reliance Jio Co.'s shares by record date, Oct 14, 2026, will be the eligible to apply under the shareholder quota."
    ],
@@ -116033,13 +116299,6 @@
       "NA"
      ],
      [
-      "Shareholders",
-      "2,23,41,376",
-      "",
-      "8.27%",
-      "NA"
-     ],
-     [
       "Total",
       "27,00,00,000",
       "100.00%",
@@ -116071,10 +116330,10 @@
    "gmpHistory": [
     {
      "date": "2026-10-21",
-     "gmp": 265.0,
-     "est": 1384.0,
-     "pct": 23.68,
-     "kostakSauda": "2400/36000"
+     "gmp": 277.0,
+     "est": 1396.0,
+     "pct": 24.75,
+     "kostakSauda": "2500/37500"
     },
     {
      "date": "2026-10-20",
@@ -116117,20 +116376,6 @@
      "est": 1340.0,
      "pct": 19.75,
      "kostakSauda": "2000/30000"
-    }
-   ],
-   "bidding": [
-    {
-     "asOf": "2026-10-21T10:41:00+05:30",
-     "qib": 3.25,
-     "nii": 0.26,
-     "bnii": 0.21,
-     "snii": 0.38,
-     "retail": 0.25,
-     "employee": 0.59,
-     "total": 1.03,
-     "bidCr": 22663.83,
-     "retailBidCr": 2350.61
     }
    ],
    "company": {
@@ -118737,7 +118982,7 @@
   },
   "1728": {
    "name": "Paras Healthcare",
-   "fetchedAt": "2026-10-21T11:07:59+05:30",
+   "fetchedAt": "2026-10-21T11:29:26+05:30",
    "about": [
     "Paras Health is a multi-specialty healthcare services provider that operates a network of hospitals across North India, Bihar, and Jharkhand. The company delivers healthcare services through its hospitals, catering to patients across several cities and regions. As of March 31, 2024, Paras Health had a combined capacity of 2,135 beds, ranking as the fifth-largest healthcare provider by bed capacity among its peers in the regions where it operates. The company manages eight hospitals under the Paras Health brand. These facilities are situated in Gurugram and Panchkula in Haryana, Patna and Darbhanga in Bihar, Kanpur in Uttar Pradesh, Udaipur in Rajasthan, Ranchi in Jharkhand, and Srinagar in the Union Territory of Jammu and Kashmir. Paras Health has expanded its healthcare infrastructure significantly, increasing its total bed capacity from 1,250 beds in March 2022 to 2,135 beds by March 2024. As of March 31, 2024, its hospitals were supported by a medical workforce of 1,091 doctors and 1,509 nurses, enabling the delivery of healthcare services across its network."
    ],
@@ -118967,52 +119212,20 @@
    "reservation": {
     "head": [
      "Investor Category",
-     "Shares",
-     "% of Total Issue",
-     "Max Allottees"
+     "Shares"
     ],
     "rows": [
      [
       "QIB",
-      "62,77,056",
-      "54.55%",
-      "NA"
-     ],
-     [
-      "QIB (Ex. Anchor)",
-      "62,77,056",
-      "54.55%",
-      "NA"
-     ],
-     [
-      "NII (HNI)",
-      "31,38,528",
-      "27.27%",
-      "NA"
-     ],
-     [
-      "bNII > ₹10L",
-      "20,92,352",
-      "18.18%",
-      "7,116"
-     ],
-     [
-      "sNII < ₹10L",
-      "10,46,176",
-      "9.09%",
-      "3,558"
+      "Not more than 75% of the Net Offer"
      ],
      [
       "Retail",
-      "20,92,352",
-      "18.18%",
-      "99,635"
+      "Not less than 10% of the Offer"
      ],
      [
-      "Total",
-      "1,15,07,936",
-      "100.00%",
-      ""
+      "NII",
+      "Not less than 15% of the Offer"
      ]
     ]
    },
@@ -119091,19 +119304,6 @@
      "est": 788.0,
      "pct": 13.71,
      "kostakSauda": "1500/21000"
-    }
-   ],
-   "bidding": [
-    {
-     "asOf": "2026-10-21T10:41:00+05:30",
-     "qib": 0.0,
-     "nii": 0.02,
-     "bnii": 0.01,
-     "snii": 0.04,
-     "retail": 0.19,
-     "total": 0.04,
-     "bidCr": 31.71,
-     "retailBidCr": 27.88
     }
    ],
    "company": {
@@ -121078,7 +121278,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-21T06:44:36+05:30",
+  "asOf": "2026-10-21T11:29:46+05:30",
   "dates": [
    "2026-01-19",
    "2026-01-20",
@@ -179402,8 +179602,8 @@
  "trackRecords": {
   "asOf": "2026-10-21",
   "booksOn": 902,
-  "withOutcome": 900,
-  "investors": 1379,
+  "withOutcome": 902,
+  "investors": 1381,
   "minRows": 2,
   "lead": 2,
   "rows": [
@@ -182418,6 +182618,346 @@
     ]
    },
    {
+    "key": "MONEYWISE FINANCIAL SERVICES",
+    "name": "MONEYWISE FINANCIAL SERVICES PVT.LTD.",
+    "cr": 64.2,
+    "n": 27,
+    "main": {
+     "n": 1,
+     "pos": 100.0,
+     "lo": 20.7,
+     "hi": 100.0,
+     "med": 0.8,
+     "p10": 0.8,
+     "p90": 0.8,
+     "close1": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 1.9,
+      "p10": 1.9,
+      "p90": 1.9
+     },
+     "d5": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -4.2,
+      "p10": -4.2,
+      "p90": -4.2
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": {
+     "n": 26,
+     "pos": 80.8,
+     "lo": 62.1,
+     "hi": 91.5,
+     "med": 19.0,
+     "p10": -1.0,
+     "p90": 90.0,
+     "close1": {
+      "n": 25,
+      "pos": 88.0,
+      "lo": 70.0,
+      "hi": 95.8,
+      "med": 24.3,
+      "p10": 0.4,
+      "p90": 99.5
+     },
+     "d5": {
+      "n": 3,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 56.2,
+      "med": -10.2,
+      "p10": -28.7,
+      "p90": -4.8
+     },
+     "d30": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -1.6,
+      "p10": -28.7,
+      "p90": 25.5
+     },
+     "lead": {
+      "n": 15,
+      "pos": 80.0,
+      "lo": 54.8,
+      "hi": 93.0,
+      "med": 19.5,
+      "p10": 0.0,
+      "p90": 90.0
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2335",
+      "name": "Vaibhav Vyapaar",
+      "sme": true,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 2.01,
+      "ret": -2.04
+     },
+     {
+      "igId": "1924",
+      "name": "Sai Urja Indo",
+      "sme": true,
+      "date": "2026-10-05",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 18.41
+     },
+     {
+      "igId": "2304",
+      "name": "S.K.Offset",
+      "sme": true,
+      "date": "2026-09-30",
+      "lead": true,
+      "amtCr": 5.25,
+      "ret": 0.8
+     },
+     {
+      "igId": "2305",
+      "name": "NSE",
+      "sme": false,
+      "date": "2026-09-24",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 0.84
+     },
+     {
+      "igId": "1963",
+      "name": "Paluck Technologies",
+      "sme": true,
+      "date": "2026-09-04",
+      "lead": false,
+      "amtCr": 1.01,
+      "ret": -2.5
+     },
+     {
+      "igId": "1972",
+      "name": "H.R. Hygiene Products",
+      "sme": true,
+      "date": "2026-08-05",
+      "lead": false,
+      "amtCr": 2.0,
+      "ret": 2.27
+     },
+     {
+      "igId": "1597",
+      "name": "Shreedhar Spinners",
+      "sme": true,
+      "date": "2026-07-01",
+      "lead": false,
+      "amtCr": 1.56,
+      "ret": 2.64
+     },
+     {
+      "igId": "1454",
+      "name": "Praruh Technologies",
+      "sme": true,
+      "date": "2025-10-01",
+      "lead": true,
+      "amtCr": 3.02,
+      "ret": 0.0
+     }
+    ]
+   },
+   {
+    "key": "SB OPPORTUNITIES FUND II",
+    "name": "SB OPPORTUNITIES FUND II",
+    "cr": 50.5,
+    "n": 27,
+    "main": {
+     "n": 4,
+     "pos": 75.0,
+     "lo": 30.1,
+     "hi": 95.4,
+     "med": 4.0,
+     "p10": 0.3,
+     "p90": 10.8,
+     "close1": {
+      "n": 4,
+      "pos": 100.0,
+      "lo": 51.0,
+      "hi": 100.0,
+      "med": 2.4,
+      "p10": 1.4,
+      "p90": 4.7
+     },
+     "d5": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -1.9,
+      "p10": -3.7,
+      "p90": -0.1
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": {
+     "n": 23,
+     "pos": 65.2,
+     "lo": 44.9,
+     "hi": 81.2,
+     "med": 3.7,
+     "p10": -0.1,
+     "p90": 38.2,
+     "close1": {
+      "n": 22,
+      "pos": 72.7,
+      "lo": 51.8,
+      "hi": 86.8,
+      "med": 7.5,
+      "p10": -3.8,
+      "p90": 34.4
+     },
+     "d5": {
+      "n": 9,
+      "pos": 44.4,
+      "lo": 18.9,
+      "hi": 73.3,
+      "med": -0.5,
+      "p10": -9.5,
+      "p90": 11.2
+     },
+     "d30": {
+      "n": 7,
+      "pos": 85.7,
+      "lo": 48.7,
+      "hi": 97.4,
+      "med": 8.9,
+      "p10": -4.9,
+      "p90": 38.9
+     },
+     "lead": {
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 5.4,
+      "p10": -13.9,
+      "p90": 32.7
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2335",
+      "name": "Vaibhav Vyapaar",
+      "sme": true,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": -2.04
+     },
+     {
+      "igId": "2006",
+      "name": "Acme India Industries",
+      "sme": true,
+      "date": "2026-10-09",
+      "lead": false,
+      "amtCr": 1.01,
+      "ret": 12.76
+     },
+     {
+      "igId": "1611",
+      "name": "A-One Steels",
+      "sme": false,
+      "date": "2026-10-01",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 12.35
+     },
+     {
+      "igId": "2305",
+      "name": "NSE",
+      "sme": false,
+      "date": "2026-09-24",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 0.84
+     },
+     {
+      "igId": "1887",
+      "name": "Century Business Media",
+      "sme": true,
+      "date": "2026-09-21",
+      "lead": false,
+      "amtCr": 1.21,
+      "ret": 0.0
+     },
+     {
+      "igId": "2022",
+      "name": "Raksan Transformers",
+      "sme": true,
+      "date": "2026-09-18",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "1988",
+      "name": "Phychem Technologies",
+      "sme": true,
+      "date": "2026-09-07",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 3.7
+     },
+     {
+      "igId": "1895",
+      "name": "Anawil Wire & Engineering",
+      "sme": true,
+      "date": "2026-08-10",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 22.09
+     }
+    ]
+   },
+   {
     "key": "SOCIETE GENERALE ODI",
     "name": "SOCIETE GENERALE-ODI",
     "cr": 738.5,
@@ -182584,346 +183124,6 @@
       "lead": true,
       "amtCr": 109.95,
       "ret": 0.42
-     }
-    ]
-   },
-   {
-    "key": "MONEYWISE FINANCIAL SERVICES",
-    "name": "MONEYWISE FINANCIAL SERVICES PVT.LTD.",
-    "cr": 62.2,
-    "n": 26,
-    "main": {
-     "n": 1,
-     "pos": 100.0,
-     "lo": 20.7,
-     "hi": 100.0,
-     "med": 0.8,
-     "p10": 0.8,
-     "p90": 0.8,
-     "close1": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 1.9,
-      "p10": 1.9,
-      "p90": 1.9
-     },
-     "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": {
-     "n": 25,
-     "pos": 84.0,
-     "lo": 65.3,
-     "hi": 93.6,
-     "med": 19.5,
-     "p10": 0.0,
-     "p90": 90.0,
-     "close1": {
-      "n": 25,
-      "pos": 88.0,
-      "lo": 70.0,
-      "hi": 95.8,
-      "med": 24.3,
-      "p10": 0.4,
-      "p90": 99.5
-     },
-     "d5": {
-      "n": 3,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 56.2,
-      "med": -10.2,
-      "p10": -28.7,
-      "p90": -4.8
-     },
-     "d30": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -1.6,
-      "p10": -28.7,
-      "p90": 25.5
-     },
-     "lead": {
-      "n": 15,
-      "pos": 80.0,
-      "lo": 54.8,
-      "hi": 93.0,
-      "med": 19.5,
-      "p10": 0.0,
-      "p90": 90.0
-     }
-    },
-    "ipos": [
-     {
-      "igId": "1924",
-      "name": "Sai Urja Indo",
-      "sme": true,
-      "date": "2026-10-05",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 18.41
-     },
-     {
-      "igId": "2304",
-      "name": "S.K.Offset",
-      "sme": true,
-      "date": "2026-09-30",
-      "lead": true,
-      "amtCr": 5.25,
-      "ret": 0.8
-     },
-     {
-      "igId": "2305",
-      "name": "NSE",
-      "sme": false,
-      "date": "2026-09-24",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 0.84
-     },
-     {
-      "igId": "1963",
-      "name": "Paluck Technologies",
-      "sme": true,
-      "date": "2026-09-04",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": -2.5
-     },
-     {
-      "igId": "1972",
-      "name": "H.R. Hygiene Products",
-      "sme": true,
-      "date": "2026-08-05",
-      "lead": false,
-      "amtCr": 2.0,
-      "ret": 2.27
-     },
-     {
-      "igId": "1597",
-      "name": "Shreedhar Spinners",
-      "sme": true,
-      "date": "2026-07-01",
-      "lead": false,
-      "amtCr": 1.56,
-      "ret": 2.64
-     },
-     {
-      "igId": "1454",
-      "name": "Praruh Technologies",
-      "sme": true,
-      "date": "2025-10-01",
-      "lead": true,
-      "amtCr": 3.02,
-      "ret": 0.0
-     },
-     {
-      "igId": "1319",
-      "name": "GLEN Industries",
-      "sme": true,
-      "date": "2025-07-15",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 61.86
-     }
-    ]
-   },
-   {
-    "key": "SB OPPORTUNITIES FUND II",
-    "name": "SB OPPORTUNITIES FUND II",
-    "cr": 49.5,
-    "n": 26,
-    "main": {
-     "n": 4,
-     "pos": 75.0,
-     "lo": 30.1,
-     "hi": 95.4,
-     "med": 4.0,
-     "p10": 0.3,
-     "p90": 10.8,
-     "close1": {
-      "n": 4,
-      "pos": 100.0,
-      "lo": 51.0,
-      "hi": 100.0,
-      "med": 2.4,
-      "p10": 1.4,
-      "p90": 4.7
-     },
-     "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -1.9,
-      "p10": -3.7,
-      "p90": -0.1
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": {
-     "n": 22,
-     "pos": 68.2,
-     "lo": 47.3,
-     "hi": 83.6,
-     "med": 3.8,
-     "p10": -0.1,
-     "p90": 40.2,
-     "close1": {
-      "n": 22,
-      "pos": 72.7,
-      "lo": 51.8,
-      "hi": 86.8,
-      "med": 7.5,
-      "p10": -3.8,
-      "p90": 34.4
-     },
-     "d5": {
-      "n": 9,
-      "pos": 44.4,
-      "lo": 18.9,
-      "hi": 73.3,
-      "med": -0.5,
-      "p10": -9.5,
-      "p90": 11.2
-     },
-     "d30": {
-      "n": 7,
-      "pos": 85.7,
-      "lo": 48.7,
-      "hi": 97.4,
-      "med": 8.9,
-      "p10": -4.9,
-      "p90": 38.9
-     },
-     "lead": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 5.4,
-      "p10": -13.9,
-      "p90": 32.7
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2006",
-      "name": "Acme India Industries",
-      "sme": true,
-      "date": "2026-10-09",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": 12.76
-     },
-     {
-      "igId": "1611",
-      "name": "A-One Steels",
-      "sme": false,
-      "date": "2026-10-01",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 12.35
-     },
-     {
-      "igId": "2305",
-      "name": "NSE",
-      "sme": false,
-      "date": "2026-09-24",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 0.84
-     },
-     {
-      "igId": "1887",
-      "name": "Century Business Media",
-      "sme": true,
-      "date": "2026-09-21",
-      "lead": false,
-      "amtCr": 1.21,
-      "ret": 0.0
-     },
-     {
-      "igId": "2022",
-      "name": "Raksan Transformers",
-      "sme": true,
-      "date": "2026-09-18",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "1988",
-      "name": "Phychem Technologies",
-      "sme": true,
-      "date": "2026-09-07",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 3.7
-     },
-     {
-      "igId": "1895",
-      "name": "Anawil Wire & Engineering",
-      "sme": true,
-      "date": "2026-08-10",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 22.09
-     },
-     {
-      "igId": "2078",
-      "name": "Silverstorm Parks & Resorts",
-      "sme": true,
-      "date": "2026-07-31",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": -0.08
      }
     ]
    },
@@ -184370,6 +184570,132 @@
     ]
    },
    {
+    "key": "BAJAJ LIFE INSURANCE",
+    "name": "BAJAJ LIFE INSURANCE LTD.",
+    "cr": 355.2,
+    "n": 22,
+    "main": {
+     "n": 22,
+     "pos": 81.8,
+     "lo": 61.5,
+     "hi": 92.7,
+     "med": 11.7,
+     "p10": 0.0,
+     "p90": 37.4,
+     "close1": {
+      "n": 21,
+      "pos": 81.0,
+      "lo": 60.0,
+      "hi": 92.3,
+      "med": 13.0,
+      "p10": -0.6,
+      "p90": 34.6
+     },
+     "d5": {
+      "n": 17,
+      "pos": 64.7,
+      "lo": 41.3,
+      "hi": 82.7,
+      "med": 2.1,
+      "p10": -6.2,
+      "p90": 20.5
+     },
+     "d30": {
+      "n": 15,
+      "pos": 66.7,
+      "lo": 41.7,
+      "hi": 84.8,
+      "med": 8.2,
+      "p10": -11.0,
+      "p90": 43.0
+     },
+     "lead": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": 0.0,
+      "p10": 0.0,
+      "p90": 0.0
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 7.48,
+      "ret": 23.62
+     },
+     {
+      "igId": "2231",
+      "name": "Rentomojo",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 19.42
+     },
+     {
+      "igId": "1848",
+      "name": "Asset Reconstruction",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "1619",
+      "name": "Lumino Industries",
+      "sme": false,
+      "date": "2026-09-03",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 34.15
+     },
+     {
+      "igId": "2069",
+      "name": "Symbiotec Pharmalab",
+      "sme": false,
+      "date": "2026-09-01",
+      "lead": false,
+      "amtCr": 16.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "1828",
+      "name": "Gaja Alternative Asset Management",
+      "sme": false,
+      "date": "2026-08-26",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 15.62
+     },
+     {
+      "igId": "1799",
+      "name": "Lalithaa Jewellery Mart",
+      "sme": false,
+      "date": "2026-08-24",
+      "lead": false,
+      "amtCr": 20.7,
+      "ret": 31.84
+     },
+     {
+      "igId": "2122",
+      "name": "Dhoot Transmission",
+      "sme": false,
+      "date": "2026-08-17",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 37.77
+     }
+    ]
+   },
+   {
     "key": "GOVERNMENT OF SINGAPORE",
     "name": "GOVERNMENT OF SINGAPORE",
     "cr": 2637.9,
@@ -184496,136 +184822,10 @@
     ]
    },
    {
-    "key": "BAJAJ LIFE INSURANCE",
-    "name": "BAJAJ LIFE INSURANCE LTD.",
-    "cr": 347.7,
-    "n": 21,
-    "main": {
-     "n": 21,
-     "pos": 81.0,
-     "lo": 60.0,
-     "hi": 92.3,
-     "med": 10.5,
-     "p10": 0.0,
-     "p90": 37.8,
-     "close1": {
-      "n": 21,
-      "pos": 81.0,
-      "lo": 60.0,
-      "hi": 92.3,
-      "med": 13.0,
-      "p10": -0.6,
-      "p90": 34.6
-     },
-     "d5": {
-      "n": 17,
-      "pos": 64.7,
-      "lo": 41.3,
-      "hi": 82.7,
-      "med": 2.1,
-      "p10": -6.2,
-      "p90": 20.5
-     },
-     "d30": {
-      "n": 15,
-      "pos": 66.7,
-      "lo": 41.7,
-      "hi": 84.8,
-      "med": 8.2,
-      "p10": -11.0,
-      "p90": 43.0
-     },
-     "lead": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": 0.0,
-      "p10": 0.0,
-      "p90": 0.0
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2231",
-      "name": "Rentomojo",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 19.42
-     },
-     {
-      "igId": "1848",
-      "name": "Asset Reconstruction",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "1619",
-      "name": "Lumino Industries",
-      "sme": false,
-      "date": "2026-09-03",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 34.15
-     },
-     {
-      "igId": "2069",
-      "name": "Symbiotec Pharmalab",
-      "sme": false,
-      "date": "2026-09-01",
-      "lead": false,
-      "amtCr": 16.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "1828",
-      "name": "Gaja Alternative Asset Management",
-      "sme": false,
-      "date": "2026-08-26",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 15.62
-     },
-     {
-      "igId": "1799",
-      "name": "Lalithaa Jewellery Mart",
-      "sme": false,
-      "date": "2026-08-24",
-      "lead": false,
-      "amtCr": 20.7,
-      "ret": 31.84
-     },
-     {
-      "igId": "2122",
-      "name": "Dhoot Transmission",
-      "sme": false,
-      "date": "2026-08-17",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 37.77
-     },
-     {
-      "igId": "1865",
-      "name": "Molbio Diagnostics",
-      "sme": false,
-      "date": "2026-08-17",
-      "lead": false,
-      "amtCr": 7.15,
-      "ret": 21.44
-     }
-    ]
-   },
-   {
     "key": "TIGER STRATEGIES FUND 1",
     "name": "TIGER STRATEGIES FUND 1",
-    "cr": 59.7,
-    "n": 20,
+    "cr": 62.6,
+    "n": 21,
     "main": {
      "n": 3,
      "pos": 100.0,
@@ -184672,13 +184872,13 @@
      }
     },
     "sme": {
-     "n": 17,
-     "pos": 88.2,
-     "lo": 65.7,
-     "hi": 96.7,
-     "med": 19.1,
-     "p10": 1.3,
-     "p90": 76.0,
+     "n": 18,
+     "pos": 83.3,
+     "lo": 60.8,
+     "hi": 94.2,
+     "med": 16.0,
+     "p10": -0.1,
+     "p90": 73.7,
      "close1": {
       "n": 17,
       "pos": 88.2,
@@ -184707,16 +184907,25 @@
       "p90": 37.4
      },
      "lead": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 24.2,
-      "p10": 9.7,
-      "p90": 38.6
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 6.1,
+      "p10": -0.4,
+      "p90": 35.0
      }
     },
     "ipos": [
+     {
+      "igId": "2335",
+      "name": "Vaibhav Vyapaar",
+      "sme": true,
+      "date": "2026-10-21",
+      "lead": true,
+      "amtCr": 2.85,
+      "ret": -2.04
+     },
      {
       "igId": "2360",
       "name": "Acme Universal Safezone 9",
@@ -184779,15 +184988,6 @@
       "lead": false,
       "amtCr": 1.02,
       "ret": 9.9
-     },
-     {
-      "igId": "1932",
-      "name": "Shankesh Jewellers",
-      "sme": false,
-      "date": "2026-08-25",
-      "lead": true,
-      "amtCr": 17.14,
-      "ret": 11.08
      }
     ]
    },
@@ -186524,6 +186724,176 @@
     ]
    },
    {
+    "key": "INVICTA CONTINUUM FUND I",
+    "name": "INVICTA CONTINUUM FUND I",
+    "cr": 61.0,
+    "n": 17,
+    "main": {
+     "n": 2,
+     "pos": 100.0,
+     "lo": 34.2,
+     "hi": 100.0,
+     "med": 9.8,
+     "p10": 7.7,
+     "p90": 12.0,
+     "close1": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 9.7,
+      "p10": 2.9,
+      "p90": 16.4
+     },
+     "d5": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": {
+     "n": 15,
+     "pos": 60.0,
+     "lo": 35.7,
+     "hi": 80.2,
+     "med": 19.1,
+     "p10": -4.5,
+     "p90": 90.0,
+     "close1": {
+      "n": 14,
+      "pos": 64.3,
+      "lo": 38.8,
+      "hi": 83.7,
+      "med": 24.3,
+      "p10": -6.2,
+      "p90": 99.5
+     },
+     "d5": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": 0.0,
+      "p10": 0.0,
+      "p90": 0.0
+     },
+     "d30": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 4.7,
+      "p10": 4.7,
+      "p90": 4.7
+     },
+     "lead": {
+      "n": 10,
+      "pos": 50.0,
+      "lo": 23.7,
+      "hi": 76.3,
+      "med": 1.5,
+      "p10": -6.7,
+      "p90": 90.0
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2335",
+      "name": "Vaibhav Vyapaar",
+      "sme": true,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 2.01,
+      "ret": -2.04
+     },
+     {
+      "igId": "2225",
+      "name": "Teamtech Formwork Solutions",
+      "sme": true,
+      "date": "2026-05-26",
+      "lead": false,
+      "amtCr": 1.99,
+      "ret": 19.05
+     },
+     {
+      "igId": "1516",
+      "name": "Workmates Core2Cloud",
+      "sme": true,
+      "date": "2025-11-18",
+      "lead": true,
+      "amtCr": 10.06,
+      "ret": 90.0
+     },
+     {
+      "igId": "1450",
+      "name": "Telge Projects",
+      "sme": true,
+      "date": "2025-10-03",
+      "lead": true,
+      "amtCr": 1.01,
+      "ret": 2.95
+     },
+     {
+      "igId": "1448",
+      "name": "Justo Realfintech",
+      "sme": true,
+      "date": "2025-10-01",
+      "lead": true,
+      "amtCr": 2.46,
+      "ret": -0.08
+     },
+     {
+      "igId": "1428",
+      "name": "Sampat Aluminium",
+      "sme": true,
+      "date": "2025-09-24",
+      "lead": true,
+      "amtCr": 1.47,
+      "ret": 0.0
+     },
+     {
+      "igId": "1400",
+      "name": "Sattva Engineering Construction",
+      "sme": true,
+      "date": "2025-09-03",
+      "lead": true,
+      "amtCr": 2.15,
+      "ret": 26.8
+     },
+     {
+      "igId": "1375",
+      "name": "Shreeji Shipping Global",
+      "sme": false,
+      "date": "2025-08-26",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 7.14
+     }
+    ]
+   },
+   {
     "key": "ASTRONE CAPITAL VCC",
     "name": "ASTRONE CAPITAL VCC",
     "cr": 29.3,
@@ -187412,172 +187782,128 @@
     ]
    },
    {
-    "key": "INVICTA CONTINUUM FUND I",
-    "name": "INVICTA CONTINUUM FUND I",
-    "cr": 59.0,
+    "key": "HDFC INNOVATION FUND",
+    "name": "HDFC INNOVATION FUND",
+    "cr": 173.2,
     "n": 16,
     "main": {
-     "n": 2,
-     "pos": 100.0,
-     "lo": 34.2,
-     "hi": 100.0,
-     "med": 9.8,
-     "p10": 7.7,
-     "p90": 12.0,
+     "n": 16,
+     "pos": 93.8,
+     "lo": 71.7,
+     "hi": 98.9,
+     "med": 24.8,
+     "p10": 9.0,
+     "p90": 55.9,
      "close1": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 9.7,
-      "p10": 2.9,
-      "p90": 16.4
+      "n": 15,
+      "pos": 93.3,
+      "lo": 70.2,
+      "hi": 98.8,
+      "med": 34.6,
+      "p10": 12.6,
+      "p90": 56.5
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 11,
+      "pos": 63.6,
+      "lo": 35.4,
+      "hi": 84.8,
+      "med": 5.6,
+      "p10": -9.1,
+      "p90": 20.8
      },
      "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 8,
+      "pos": 37.5,
+      "lo": 13.7,
+      "hi": 69.4,
+      "med": -5.7,
+      "p10": -9.8,
+      "p90": 39.2
      },
      "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 23.1,
+      "p10": 4.6,
+      "p90": 25.4
      }
     },
-    "sme": {
-     "n": 14,
-     "pos": 64.3,
-     "lo": 38.8,
-     "hi": 83.7,
-     "med": 22.9,
-     "p10": -4.3,
-     "p90": 90.0,
-     "close1": {
-      "n": 14,
-      "pos": 64.3,
-      "lo": 38.8,
-      "hi": 83.7,
-      "med": 24.3,
-      "p10": -6.2,
-      "p90": 99.5
-     },
-     "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": 0.0,
-      "p10": 0.0,
-      "p90": 0.0
-     },
-     "d30": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 4.7,
-      "p10": 4.7,
-      "p90": 4.7
-     },
-     "lead": {
-      "n": 10,
-      "pos": 50.0,
-      "lo": 23.7,
-      "hi": 76.3,
-      "med": 1.5,
-      "p10": -6.7,
-      "p90": 90.0
-     }
-    },
+    "sme": null,
     "ipos": [
      {
-      "igId": "2225",
-      "name": "Teamtech Formwork Solutions",
-      "sme": true,
-      "date": "2026-05-26",
-      "lead": false,
-      "amtCr": 1.99,
-      "ret": 19.05
-     },
-     {
-      "igId": "1516",
-      "name": "Workmates Core2Cloud",
-      "sme": true,
-      "date": "2025-11-18",
-      "lead": true,
-      "amtCr": 10.06,
-      "ret": 90.0
-     },
-     {
-      "igId": "1450",
-      "name": "Telge Projects",
-      "sme": true,
-      "date": "2025-10-03",
-      "lead": true,
-      "amtCr": 1.01,
-      "ret": 2.95
-     },
-     {
-      "igId": "1448",
-      "name": "Justo Realfintech",
-      "sme": true,
-      "date": "2025-10-01",
-      "lead": true,
-      "amtCr": 2.46,
-      "ret": -0.08
-     },
-     {
-      "igId": "1428",
-      "name": "Sampat Aluminium",
-      "sme": true,
-      "date": "2025-09-24",
-      "lead": true,
-      "amtCr": 1.47,
-      "ret": 0.0
-     },
-     {
-      "igId": "1400",
-      "name": "Sattva Engineering Construction",
-      "sme": true,
-      "date": "2025-09-03",
-      "lead": true,
-      "amtCr": 2.15,
-      "ret": 26.8
-     },
-     {
-      "igId": "1375",
-      "name": "Shreeji Shipping Global",
+      "igId": "1902",
+      "name": "HD Fire Protect",
       "sme": false,
-      "date": "2025-08-26",
+      "date": "2026-10-21",
       "lead": false,
-      "amtCr": 5.0,
-      "ret": 7.14
+      "amtCr": 8.74,
+      "ret": 23.62
      },
      {
-      "igId": "1368",
-      "name": "Star Imaging",
-      "sme": true,
-      "date": "2025-08-18",
+      "igId": "2198",
+      "name": "Moneyview",
+      "sme": false,
+      "date": "2026-10-01",
+      "lead": false,
+      "amtCr": 20.0,
+      "ret": 61.76
+     },
+     {
+      "igId": "2231",
+      "name": "Rentomojo",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 8.0,
+      "ret": 19.42
+     },
+     {
+      "igId": "1622",
+      "name": "Karamtara Engineering",
+      "sme": false,
+      "date": "2026-09-17",
       "lead": true,
-      "amtCr": 5.98,
-      "ret": 0.0
+      "amtCr": 30.0,
+      "ret": 25.98
+     },
+     {
+      "igId": "1619",
+      "name": "Lumino Industries",
+      "sme": false,
+      "date": "2026-09-03",
+      "lead": false,
+      "amtCr": 5.39,
+      "ret": 34.15
+     },
+     {
+      "igId": "1934",
+      "name": "Tempsens Instruments (India)",
+      "sme": false,
+      "date": "2026-08-28",
+      "lead": false,
+      "amtCr": 6.24,
+      "ret": 111.33
+     },
+     {
+      "igId": "1790",
+      "name": "Shiprocket",
+      "sme": false,
+      "date": "2026-08-19",
+      "lead": false,
+      "amtCr": 6.02,
+      "ret": 35.05
+     },
+     {
+      "igId": "2122",
+      "name": "Dhoot Transmission",
+      "sme": false,
+      "date": "2026-08-17",
+      "lead": false,
+      "amtCr": 9.6,
+      "ret": 37.77
      }
     ]
    },
@@ -187830,132 +188156,6 @@
       "lead": false,
       "amtCr": 1.04,
       "ret": 20.03
-     }
-    ]
-   },
-   {
-    "key": "HDFC INNOVATION FUND",
-    "name": "HDFC INNOVATION FUND",
-    "cr": 164.5,
-    "n": 15,
-    "main": {
-     "n": 15,
-     "pos": 93.3,
-     "lo": 70.2,
-     "hi": 98.8,
-     "med": 26.0,
-     "p10": 8.6,
-     "p90": 57.1,
-     "close1": {
-      "n": 15,
-      "pos": 93.3,
-      "lo": 70.2,
-      "hi": 98.8,
-      "med": 34.6,
-      "p10": 12.6,
-      "p90": 56.5
-     },
-     "d5": {
-      "n": 11,
-      "pos": 63.6,
-      "lo": 35.4,
-      "hi": 84.8,
-      "med": 5.6,
-      "p10": -9.1,
-      "p90": 20.8
-     },
-     "d30": {
-      "n": 8,
-      "pos": 37.5,
-      "lo": 13.7,
-      "hi": 69.4,
-      "med": -5.7,
-      "p10": -9.8,
-      "p90": 39.2
-     },
-     "lead": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 23.1,
-      "p10": 4.6,
-      "p90": 25.4
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2198",
-      "name": "Moneyview",
-      "sme": false,
-      "date": "2026-10-01",
-      "lead": false,
-      "amtCr": 20.0,
-      "ret": 61.76
-     },
-     {
-      "igId": "2231",
-      "name": "Rentomojo",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 8.0,
-      "ret": 19.42
-     },
-     {
-      "igId": "1622",
-      "name": "Karamtara Engineering",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": true,
-      "amtCr": 30.0,
-      "ret": 25.98
-     },
-     {
-      "igId": "1619",
-      "name": "Lumino Industries",
-      "sme": false,
-      "date": "2026-09-03",
-      "lead": false,
-      "amtCr": 5.39,
-      "ret": 34.15
-     },
-     {
-      "igId": "1934",
-      "name": "Tempsens Instruments (India)",
-      "sme": false,
-      "date": "2026-08-28",
-      "lead": false,
-      "amtCr": 6.24,
-      "ret": 111.33
-     },
-     {
-      "igId": "1790",
-      "name": "Shiprocket",
-      "sme": false,
-      "date": "2026-08-19",
-      "lead": false,
-      "amtCr": 6.02,
-      "ret": 35.05
-     },
-     {
-      "igId": "2122",
-      "name": "Dhoot Transmission",
-      "sme": false,
-      "date": "2026-08-17",
-      "lead": false,
-      "amtCr": 9.6,
-      "ret": 37.77
-     },
-     {
-      "igId": "1865",
-      "name": "Molbio Diagnostics",
-      "sme": false,
-      "date": "2026-08-17",
-      "lead": false,
-      "amtCr": 8.75,
-      "ret": 21.44
      }
     ]
    },
@@ -190032,6 +190232,176 @@
     ]
    },
    {
+    "key": "MOTILAL OSWAL FINVEST",
+    "name": "MOTILAL OSWAL FINVEST LTD.",
+    "cr": 110.0,
+    "n": 12,
+    "main": {
+     "n": 3,
+     "pos": 100.0,
+     "lo": 43.8,
+     "hi": 100.0,
+     "med": 23.6,
+     "p10": 11.5,
+     "p90": 24.6,
+     "close1": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 14.4,
+      "p10": 10.7,
+      "p90": 18.0
+     },
+     "d5": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 5.0,
+      "p10": -16.8,
+      "p90": 26.8
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 24.9,
+      "p10": 24.9,
+      "p90": 24.9
+     }
+    },
+    "sme": {
+     "n": 9,
+     "pos": 100.0,
+     "lo": 70.1,
+     "hi": 100.0,
+     "med": 21.5,
+     "p10": 3.5,
+     "p90": 62.9,
+     "close1": {
+      "n": 9,
+      "pos": 100.0,
+      "lo": 70.1,
+      "hi": 100.0,
+      "med": 27.6,
+      "p10": 7.6,
+      "p90": 71.1
+     },
+     "d5": {
+      "n": 8,
+      "pos": 37.5,
+      "lo": 13.7,
+      "hi": 69.4,
+      "med": -2.8,
+      "p10": -7.2,
+      "p90": 11.1
+     },
+     "d30": {
+      "n": 8,
+      "pos": 62.5,
+      "lo": 30.6,
+      "hi": 86.3,
+      "med": 24.9,
+      "p10": -17.8,
+      "p90": 31.7
+     },
+     "lead": {
+      "n": 7,
+      "pos": 100.0,
+      "lo": 64.6,
+      "hi": 100.0,
+      "med": 19.2,
+      "p10": 3.1,
+      "p90": 50.3
+     }
+    },
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 8.36,
+      "ret": 23.62
+     },
+     {
+      "igId": "2006",
+      "name": "Acme India Industries",
+      "sme": true,
+      "date": "2026-10-09",
+      "lead": true,
+      "amtCr": 8.5,
+      "ret": 12.76
+     },
+     {
+      "igId": "2119",
+      "name": "Kanohar Electricals",
+      "sme": false,
+      "date": "2026-09-16",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 8.47
+     },
+     {
+      "igId": "2081",
+      "name": "Deepa Jewellers",
+      "sme": false,
+      "date": "2026-09-08",
+      "lead": true,
+      "amtCr": 35.96,
+      "ret": 24.86
+     },
+     {
+      "igId": "2252",
+      "name": "Credent Connect",
+      "sme": true,
+      "date": "2026-08-20",
+      "lead": false,
+      "amtCr": 4.0,
+      "ret": 90.0
+     },
+     {
+      "igId": "2246",
+      "name": "G.V. Electricals",
+      "sme": true,
+      "date": "2026-08-12",
+      "lead": true,
+      "amtCr": 5.02,
+      "ret": 21.54
+     },
+     {
+      "igId": "1895",
+      "name": "Anawil Wire & Engineering",
+      "sme": true,
+      "date": "2026-08-10",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 22.09
+     },
+     {
+      "igId": "2215",
+      "name": "Poojaa Precision Engg.",
+      "sme": true,
+      "date": "2026-08-04",
+      "lead": true,
+      "amtCr": 5.5,
+      "ret": 56.15
+     }
+    ]
+   },
+   {
     "key": "ABU DHABI INVESTMENT AUTHORITY MONSOON",
     "name": "ABU DHABI INVESTMENT AUTHORITY-MONSOON",
     "cr": 752.2,
@@ -190450,6 +190820,132 @@
       "lead": true,
       "amtCr": 5.0,
       "ret": 4.4
+     }
+    ]
+   },
+   {
+    "key": "ASHOKA WHITEOAK ICAV ASHOKA WHITEOAK EMERGING MARKETS EQUITY FUND",
+    "name": "ASHOKA WHITEOAK ICAV-ASHOKA WHITEOAK EMERGING MARKETS EQUITY FUND",
+    "cr": 355.8,
+    "n": 12,
+    "main": {
+     "n": 12,
+     "pos": 83.3,
+     "lo": 55.2,
+     "hi": 95.3,
+     "med": 13.2,
+     "p10": 0.1,
+     "p90": 63.3,
+     "close1": {
+      "n": 11,
+      "pos": 90.9,
+      "lo": 62.3,
+      "hi": 98.4,
+      "med": 13.6,
+      "p10": 1.9,
+      "p90": 53.0
+     },
+     "d5": {
+      "n": 8,
+      "pos": 75.0,
+      "lo": 40.9,
+      "hi": 92.9,
+      "med": 6.2,
+      "p10": -6.7,
+      "p90": 24.2
+     },
+     "d30": {
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 18.7,
+      "p10": 0.2,
+      "p90": 49.3
+     },
+     "lead": {
+      "n": 5,
+      "pos": 60.0,
+      "lo": 23.1,
+      "hi": 88.2,
+      "med": 13.6,
+      "p10": -7.5,
+      "p90": 57.0
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 22.8,
+      "ret": 23.62
+     },
+     {
+      "igId": "1832",
+      "name": "Orient Cables",
+      "sme": false,
+      "date": "2026-10-05",
+      "lead": true,
+      "amtCr": 14.0,
+      "ret": 65.44
+     },
+     {
+      "igId": "2305",
+      "name": "NSE",
+      "sme": false,
+      "date": "2026-09-24",
+      "lead": false,
+      "amtCr": 69.13,
+      "ret": 0.84
+     },
+     {
+      "igId": "2119",
+      "name": "Kanohar Electricals",
+      "sme": false,
+      "date": "2026-09-16",
+      "lead": false,
+      "amtCr": 21.0,
+      "ret": 8.47
+     },
+     {
+      "igId": "2069",
+      "name": "Symbiotec Pharmalab",
+      "sme": false,
+      "date": "2026-09-01",
+      "lead": true,
+      "amtCr": 45.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "1934",
+      "name": "Tempsens Instruments (India)",
+      "sme": false,
+      "date": "2026-08-28",
+      "lead": false,
+      "amtCr": 16.63,
+      "ret": 111.33
+     },
+     {
+      "igId": "2122",
+      "name": "Dhoot Transmission",
+      "sme": false,
+      "date": "2026-08-17",
+      "lead": false,
+      "amtCr": 45.0,
+      "ret": 37.77
+     },
+     {
+      "igId": "2217",
+      "name": "Manipal Health Enterprises",
+      "sme": false,
+      "date": "2026-08-05",
+      "lead": false,
+      "amtCr": 35.46,
+      "ret": 10.51
      }
     ]
    },
@@ -191464,176 +191960,6 @@
       "lead": false,
       "amtCr": 2.0,
       "ret": 2.86
-     }
-    ]
-   },
-   {
-    "key": "MOTILAL OSWAL FINVEST",
-    "name": "MOTILAL OSWAL FINVEST LTD.",
-    "cr": 101.7,
-    "n": 11,
-    "main": {
-     "n": 2,
-     "pos": 100.0,
-     "lo": 34.2,
-     "hi": 100.0,
-     "med": 16.7,
-     "p10": 10.1,
-     "p90": 23.2,
-     "close1": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 14.4,
-      "p10": 10.7,
-      "p90": 18.0
-     },
-     "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 5.0,
-      "p10": -16.8,
-      "p90": 26.8
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 24.9,
-      "p10": 24.9,
-      "p90": 24.9
-     }
-    },
-    "sme": {
-     "n": 9,
-     "pos": 100.0,
-     "lo": 70.1,
-     "hi": 100.0,
-     "med": 21.5,
-     "p10": 3.5,
-     "p90": 62.9,
-     "close1": {
-      "n": 9,
-      "pos": 100.0,
-      "lo": 70.1,
-      "hi": 100.0,
-      "med": 27.6,
-      "p10": 7.6,
-      "p90": 71.1
-     },
-     "d5": {
-      "n": 8,
-      "pos": 37.5,
-      "lo": 13.7,
-      "hi": 69.4,
-      "med": -2.8,
-      "p10": -7.2,
-      "p90": 11.1
-     },
-     "d30": {
-      "n": 8,
-      "pos": 62.5,
-      "lo": 30.6,
-      "hi": 86.3,
-      "med": 24.9,
-      "p10": -17.8,
-      "p90": 31.7
-     },
-     "lead": {
-      "n": 7,
-      "pos": 100.0,
-      "lo": 64.6,
-      "hi": 100.0,
-      "med": 19.2,
-      "p10": 3.1,
-      "p90": 50.3
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2006",
-      "name": "Acme India Industries",
-      "sme": true,
-      "date": "2026-10-09",
-      "lead": true,
-      "amtCr": 8.5,
-      "ret": 12.76
-     },
-     {
-      "igId": "2119",
-      "name": "Kanohar Electricals",
-      "sme": false,
-      "date": "2026-09-16",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 8.47
-     },
-     {
-      "igId": "2081",
-      "name": "Deepa Jewellers",
-      "sme": false,
-      "date": "2026-09-08",
-      "lead": true,
-      "amtCr": 35.96,
-      "ret": 24.86
-     },
-     {
-      "igId": "2252",
-      "name": "Credent Connect",
-      "sme": true,
-      "date": "2026-08-20",
-      "lead": false,
-      "amtCr": 4.0,
-      "ret": 90.0
-     },
-     {
-      "igId": "2246",
-      "name": "G.V. Electricals",
-      "sme": true,
-      "date": "2026-08-12",
-      "lead": true,
-      "amtCr": 5.02,
-      "ret": 21.54
-     },
-     {
-      "igId": "1895",
-      "name": "Anawil Wire & Engineering",
-      "sme": true,
-      "date": "2026-08-10",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 22.09
-     },
-     {
-      "igId": "2215",
-      "name": "Poojaa Precision Engg.",
-      "sme": true,
-      "date": "2026-08-04",
-      "lead": true,
-      "amtCr": 5.5,
-      "ret": 56.15
-     },
-     {
-      "igId": "1870",
-      "name": "Clay Craft",
-      "sme": true,
-      "date": "2026-06-24",
-      "lead": true,
-      "amtCr": 4.9,
-      "ret": 3.94
      }
     ]
    },
@@ -193026,132 +193352,6 @@
       "lead": false,
       "amtCr": 1.0,
       "ret": 25.77
-     }
-    ]
-   },
-   {
-    "key": "ASHOKA WHITEOAK ICAV ASHOKA WHITEOAK EMERGING MARKETS EQUITY FUND",
-    "name": "ASHOKA WHITEOAK ICAV-ASHOKA WHITEOAK EMERGING MARKETS EQUITY FUND",
-    "cr": 333.0,
-    "n": 11,
-    "main": {
-     "n": 11,
-     "pos": 81.8,
-     "lo": 52.3,
-     "hi": 94.9,
-     "med": 12.8,
-     "p10": 0.0,
-     "p90": 65.4,
-     "close1": {
-      "n": 11,
-      "pos": 90.9,
-      "lo": 62.3,
-      "hi": 98.4,
-      "med": 13.6,
-      "p10": 1.9,
-      "p90": 53.0
-     },
-     "d5": {
-      "n": 8,
-      "pos": 75.0,
-      "lo": 40.9,
-      "hi": 92.9,
-      "med": 6.2,
-      "p10": -6.7,
-      "p90": 24.2
-     },
-     "d30": {
-      "n": 5,
-      "pos": 80.0,
-      "lo": 37.6,
-      "hi": 96.4,
-      "med": 18.7,
-      "p10": 0.2,
-      "p90": 49.3
-     },
-     "lead": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 13.6,
-      "p10": -7.5,
-      "p90": 57.0
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "1832",
-      "name": "Orient Cables",
-      "sme": false,
-      "date": "2026-10-05",
-      "lead": true,
-      "amtCr": 14.0,
-      "ret": 65.44
-     },
-     {
-      "igId": "2305",
-      "name": "NSE",
-      "sme": false,
-      "date": "2026-09-24",
-      "lead": false,
-      "amtCr": 69.13,
-      "ret": 0.84
-     },
-     {
-      "igId": "2119",
-      "name": "Kanohar Electricals",
-      "sme": false,
-      "date": "2026-09-16",
-      "lead": false,
-      "amtCr": 21.0,
-      "ret": 8.47
-     },
-     {
-      "igId": "2069",
-      "name": "Symbiotec Pharmalab",
-      "sme": false,
-      "date": "2026-09-01",
-      "lead": true,
-      "amtCr": 45.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "1934",
-      "name": "Tempsens Instruments (India)",
-      "sme": false,
-      "date": "2026-08-28",
-      "lead": false,
-      "amtCr": 16.63,
-      "ret": 111.33
-     },
-     {
-      "igId": "2122",
-      "name": "Dhoot Transmission",
-      "sme": false,
-      "date": "2026-08-17",
-      "lead": false,
-      "amtCr": 45.0,
-      "ret": 37.77
-     },
-     {
-      "igId": "2217",
-      "name": "Manipal Health Enterprises",
-      "sme": false,
-      "date": "2026-08-05",
-      "lead": false,
-      "amtCr": 35.46,
-      "ret": 10.51
-     },
-     {
-      "igId": "1594",
-      "name": "Indo-MIM",
-      "sme": false,
-      "date": "2026-07-30",
-      "lead": true,
-      "amtCr": 50.0,
-      "ret": 44.33
      }
     ]
    },
@@ -196242,6 +196442,132 @@
     ]
    },
    {
+    "key": "ISIF EQUITY LONG SHORT FUND",
+    "name": "ISIF EQUITY LONG-SHORT FUND",
+    "cr": 42.6,
+    "n": 9,
+    "main": {
+     "n": 9,
+     "pos": 100.0,
+     "lo": 70.1,
+     "hi": 100.0,
+     "med": 23.6,
+     "p10": 8.5,
+     "p90": 48.6,
+     "close1": {
+      "n": 8,
+      "pos": 100.0,
+      "lo": 67.6,
+      "hi": 100.0,
+      "med": 32.7,
+      "p10": 11.0,
+      "p90": 50.1
+     },
+     "d5": {
+      "n": 8,
+      "pos": 62.5,
+      "lo": 30.6,
+      "hi": 86.3,
+      "med": 2.3,
+      "p10": -7.2,
+      "p90": 21.3
+     },
+     "d30": {
+      "n": 7,
+      "pos": 71.4,
+      "lo": 35.9,
+      "hi": 91.8,
+      "med": 8.2,
+      "p10": -12.0,
+      "p90": 42.9
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 8.29,
+      "ret": 23.62
+     },
+     {
+      "igId": "1832",
+      "name": "Orient Cables",
+      "sme": false,
+      "date": "2026-10-05",
+      "lead": false,
+      "amtCr": 7.0,
+      "ret": 65.44
+     },
+     {
+      "igId": "2122",
+      "name": "Dhoot Transmission",
+      "sme": false,
+      "date": "2026-08-17",
+      "lead": false,
+      "amtCr": 2.76,
+      "ret": 37.77
+     },
+     {
+      "igId": "1865",
+      "name": "Molbio Diagnostics",
+      "sme": false,
+      "date": "2026-08-17",
+      "lead": false,
+      "amtCr": 3.0,
+      "ret": 21.44
+     },
+     {
+      "igId": "1809",
+      "name": "Juniper Green Energy",
+      "sme": false,
+      "date": "2026-08-06",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 8.89
+     },
+     {
+      "igId": "2217",
+      "name": "Manipal Health Enterprises",
+      "sme": false,
+      "date": "2026-08-05",
+      "lead": false,
+      "amtCr": 4.99,
+      "ret": 10.51
+     },
+     {
+      "igId": "1594",
+      "name": "Indo-MIM",
+      "sme": false,
+      "date": "2026-07-30",
+      "lead": false,
+      "amtCr": 1.5,
+      "ret": 44.33
+     },
+     {
+      "igId": "2210",
+      "name": "SBI Funds Management",
+      "sme": false,
+      "date": "2026-07-21",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 6.85
+     }
+    ]
+   },
+   {
     "key": "FIDELITY FUNDS INDIA FOCUS FUND",
     "name": "FIDELITY FUNDS-INDIA FOCUS FUND",
     "cr": 550.7,
@@ -197290,6 +197616,132 @@
       "lead": true,
       "amtCr": 2.01,
       "ret": 3.03
+     }
+    ]
+   },
+   {
+    "key": "HDFC MULTI CAP FUND",
+    "name": "HDFC MULTI CAP FUND",
+    "cr": 234.4,
+    "n": 9,
+    "main": {
+     "n": 9,
+     "pos": 77.8,
+     "lo": 45.3,
+     "hi": 93.7,
+     "med": 23.6,
+     "p10": -1.3,
+     "p90": 60.0,
+     "close1": {
+      "n": 8,
+      "pos": 100.0,
+      "lo": 67.6,
+      "hi": 100.0,
+      "med": 37.1,
+      "p10": 3.3,
+      "p90": 81.1
+     },
+     "d5": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 1.1,
+      "p10": -7.1,
+      "p90": 16.9
+     },
+     "d30": {
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -8.4,
+      "p10": -11.7,
+      "p90": 50.5
+     },
+     "lead": {
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": 28.1,
+      "p10": -4.7,
+      "p90": 69.2
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 17.48,
+      "ret": 23.62
+     },
+     {
+      "igId": "1790",
+      "name": "Shiprocket",
+      "sme": false,
+      "date": "2026-08-19",
+      "lead": false,
+      "amtCr": 18.05,
+      "ret": 35.05
+     },
+     {
+      "igId": "1594",
+      "name": "Indo-MIM",
+      "sme": false,
+      "date": "2026-07-30",
+      "lead": false,
+      "amtCr": 13.33,
+      "ret": 44.33
+     },
+     {
+      "igId": "2210",
+      "name": "SBI Funds Management",
+      "sme": false,
+      "date": "2026-07-21",
+      "lead": false,
+      "amtCr": 11.62,
+      "ret": 6.85
+     },
+     {
+      "igId": "1253",
+      "name": "Leela Hotels",
+      "sme": false,
+      "date": "2025-06-02",
+      "lead": true,
+      "amtCr": 53.08,
+      "ret": -6.67
+     },
+     {
+      "igId": "844",
+      "name": "Aadhar Housing Finance",
+      "sme": false,
+      "date": "2024-05-15",
+      "lead": true,
+      "amtCr": 36.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "828",
+      "name": "VI",
+      "sme": false,
+      "date": "2024-04-25",
+      "lead": false,
+      "amtCr": 43.15,
+      "ret": 9.09
+     },
+     {
+      "igId": "689",
+      "name": "Gandhar Oil Refinery",
+      "sme": false,
+      "date": "2023-11-30",
+      "lead": true,
+      "amtCr": 26.73,
+      "ret": 74.79
      }
     ]
    },
@@ -198474,132 +198926,6 @@
       "lead": false,
       "amtCr": 4.57,
       "ret": 12.84
-     }
-    ]
-   },
-   {
-    "key": "ISIF EQUITY LONG SHORT FUND",
-    "name": "ISIF EQUITY LONG-SHORT FUND",
-    "cr": 34.4,
-    "n": 8,
-    "main": {
-     "n": 8,
-     "pos": 100.0,
-     "lo": 67.6,
-     "hi": 100.0,
-     "med": 28.6,
-     "p10": 8.3,
-     "p90": 50.7,
-     "close1": {
-      "n": 8,
-      "pos": 100.0,
-      "lo": 67.6,
-      "hi": 100.0,
-      "med": 32.7,
-      "p10": 11.0,
-      "p90": 50.1
-     },
-     "d5": {
-      "n": 8,
-      "pos": 62.5,
-      "lo": 30.6,
-      "hi": 86.3,
-      "med": 2.3,
-      "p10": -7.2,
-      "p90": 21.3
-     },
-     "d30": {
-      "n": 7,
-      "pos": 71.4,
-      "lo": 35.9,
-      "hi": 91.8,
-      "med": 8.2,
-      "p10": -12.0,
-      "p90": 42.9
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "1832",
-      "name": "Orient Cables",
-      "sme": false,
-      "date": "2026-10-05",
-      "lead": false,
-      "amtCr": 7.0,
-      "ret": 65.44
-     },
-     {
-      "igId": "2122",
-      "name": "Dhoot Transmission",
-      "sme": false,
-      "date": "2026-08-17",
-      "lead": false,
-      "amtCr": 2.76,
-      "ret": 37.77
-     },
-     {
-      "igId": "1865",
-      "name": "Molbio Diagnostics",
-      "sme": false,
-      "date": "2026-08-17",
-      "lead": false,
-      "amtCr": 3.0,
-      "ret": 21.44
-     },
-     {
-      "igId": "1809",
-      "name": "Juniper Green Energy",
-      "sme": false,
-      "date": "2026-08-06",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 8.89
-     },
-     {
-      "igId": "2217",
-      "name": "Manipal Health Enterprises",
-      "sme": false,
-      "date": "2026-08-05",
-      "lead": false,
-      "amtCr": 4.99,
-      "ret": 10.51
-     },
-     {
-      "igId": "1594",
-      "name": "Indo-MIM",
-      "sme": false,
-      "date": "2026-07-30",
-      "lead": false,
-      "amtCr": 1.5,
-      "ret": 44.33
-     },
-     {
-      "igId": "2210",
-      "name": "SBI Funds Management",
-      "sme": false,
-      "date": "2026-07-21",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 6.85
-     },
-     {
-      "igId": "1595",
-      "name": "Kusumgar",
-      "sme": false,
-      "date": "2026-07-15",
-      "lead": false,
-      "amtCr": 5.11,
-      "ret": 35.8
      }
     ]
    },
@@ -200034,132 +200360,6 @@
     ]
    },
    {
-    "key": "HDFC MULTI CAP FUND",
-    "name": "HDFC MULTI CAP FUND",
-    "cr": 217.0,
-    "n": 8,
-    "main": {
-     "n": 8,
-     "pos": 75.0,
-     "lo": 40.9,
-     "hi": 92.9,
-     "med": 22.1,
-     "p10": -2.0,
-     "p90": 61.8,
-     "close1": {
-      "n": 8,
-      "pos": 100.0,
-      "lo": 67.6,
-      "hi": 100.0,
-      "med": 37.1,
-      "p10": 3.3,
-      "p90": 81.1
-     },
-     "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 1.1,
-      "p10": -7.1,
-      "p90": 16.9
-     },
-     "d30": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -8.4,
-      "p10": -11.7,
-      "p90": 50.5
-     },
-     "lead": {
-      "n": 4,
-      "pos": 50.0,
-      "lo": 15.0,
-      "hi": 85.0,
-      "med": 28.1,
-      "p10": -4.7,
-      "p90": 69.2
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "1790",
-      "name": "Shiprocket",
-      "sme": false,
-      "date": "2026-08-19",
-      "lead": false,
-      "amtCr": 18.05,
-      "ret": 35.05
-     },
-     {
-      "igId": "1594",
-      "name": "Indo-MIM",
-      "sme": false,
-      "date": "2026-07-30",
-      "lead": false,
-      "amtCr": 13.33,
-      "ret": 44.33
-     },
-     {
-      "igId": "2210",
-      "name": "SBI Funds Management",
-      "sme": false,
-      "date": "2026-07-21",
-      "lead": false,
-      "amtCr": 11.62,
-      "ret": 6.85
-     },
-     {
-      "igId": "1253",
-      "name": "Leela Hotels",
-      "sme": false,
-      "date": "2025-06-02",
-      "lead": true,
-      "amtCr": 53.08,
-      "ret": -6.67
-     },
-     {
-      "igId": "844",
-      "name": "Aadhar Housing Finance",
-      "sme": false,
-      "date": "2024-05-15",
-      "lead": true,
-      "amtCr": 36.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "828",
-      "name": "VI",
-      "sme": false,
-      "date": "2024-04-25",
-      "lead": false,
-      "amtCr": 43.15,
-      "ret": 9.09
-     },
-     {
-      "igId": "689",
-      "name": "Gandhar Oil Refinery",
-      "sme": false,
-      "date": "2023-11-30",
-      "lead": true,
-      "amtCr": 26.73,
-      "ret": 74.79
-     },
-     {
-      "igId": "692",
-      "name": "IREDA",
-      "sme": false,
-      "date": "2023-11-29",
-      "lead": true,
-      "amtCr": 15.0,
-      "ret": 56.25
-     }
-    ]
-   },
-   {
     "key": "ICICI PRUDENTIAL INNOVATION FUND",
     "name": "ICICI PRUDENTIAL INNOVATION FUND",
     "cr": 276.0,
@@ -201273,6 +201473,123 @@
     ]
    },
    {
+    "key": "AXIS MAX LIFE INSURANCE UEGFH HIGH GROWTH FUND II",
+    "name": "AXIS MAX LIFE INSURANCE LTD.-UEGFH-HIGH GROWTH FUND II",
+    "cr": 31.9,
+    "n": 7,
+    "main": {
+     "n": 7,
+     "pos": 100.0,
+     "lo": 64.6,
+     "hi": 100.0,
+     "med": 23.6,
+     "p10": 4.4,
+     "p90": 71.1,
+     "close1": {
+      "n": 6,
+      "pos": 100.0,
+      "lo": 61.0,
+      "hi": 100.0,
+      "med": 27.6,
+      "p10": 4.1,
+      "p90": 74.3
+     },
+     "d5": {
+      "n": 6,
+      "pos": 50.0,
+      "lo": 18.8,
+      "hi": 81.2,
+      "med": 8.1,
+      "p10": -10.8,
+      "p90": 26.5
+     },
+     "d30": {
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": 10.1,
+      "p10": -10.3,
+      "p90": 53.3
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 3.74,
+      "ret": 23.62
+     },
+     {
+      "igId": "2305",
+      "name": "NSE",
+      "sme": false,
+      "date": "2026-09-24",
+      "lead": false,
+      "amtCr": 5.5,
+      "ret": 0.84
+     },
+     {
+      "igId": "2119",
+      "name": "Kanohar Electricals",
+      "sme": false,
+      "date": "2026-09-16",
+      "lead": false,
+      "amtCr": 4.94,
+      "ret": 8.47
+     },
+     {
+      "igId": "1934",
+      "name": "Tempsens Instruments (India)",
+      "sme": false,
+      "date": "2026-08-28",
+      "lead": false,
+      "amtCr": 2.02,
+      "ret": 111.33
+     },
+     {
+      "igId": "2122",
+      "name": "Dhoot Transmission",
+      "sme": false,
+      "date": "2026-08-17",
+      "lead": false,
+      "amtCr": 3.15,
+      "ret": 37.77
+     },
+     {
+      "igId": "1594",
+      "name": "Indo-MIM",
+      "sme": false,
+      "date": "2026-07-30",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 44.33
+     },
+     {
+      "igId": "2210",
+      "name": "SBI Funds Management",
+      "sme": false,
+      "date": "2026-07-21",
+      "lead": false,
+      "amtCr": 7.5,
+      "ret": 6.85
+     }
+    ]
+   },
+   {
     "key": "WHITEOAK CAPITAL EQUITY FUND",
     "name": "WHITEOAK CAPITAL EQUITY FUND",
     "cr": 35.2,
@@ -201869,6 +202186,123 @@
       "lead": false,
       "amtCr": 5.0,
       "ret": -0.89
+     }
+    ]
+   },
+   {
+    "key": "APEX HYBRID LONG SHORT FUND",
+    "name": "APEX HYBRID LONG-SHORT FUND",
+    "cr": 9.2,
+    "n": 7,
+    "main": {
+     "n": 7,
+     "pos": 100.0,
+     "lo": 64.6,
+     "hi": 100.0,
+     "med": 23.6,
+     "p10": 1.5,
+     "p90": 81.6,
+     "close1": {
+      "n": 6,
+      "pos": 100.0,
+      "lo": 61.0,
+      "hi": 100.0,
+      "med": 29.6,
+      "p10": 2.6,
+      "p90": 77.3
+     },
+     "d5": {
+      "n": 6,
+      "pos": 33.3,
+      "lo": 9.7,
+      "hi": 70.0,
+      "med": -2.2,
+      "p10": -10.8,
+      "p90": 13.8
+     },
+     "d30": {
+      "n": 4,
+      "pos": 25.0,
+      "lo": 4.6,
+      "hi": 69.9,
+      "med": -2.6,
+      "p10": -10.3,
+      "p90": 45.6
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 0.95,
+      "ret": 23.62
+     },
+     {
+      "igId": "2198",
+      "name": "Moneyview",
+      "sme": false,
+      "date": "2026-10-01",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 61.76
+     },
+     {
+      "igId": "2305",
+      "name": "NSE",
+      "sme": false,
+      "date": "2026-09-24",
+      "lead": false,
+      "amtCr": 1.36,
+      "ret": 0.84
+     },
+     {
+      "igId": "1934",
+      "name": "Tempsens Instruments (India)",
+      "sme": false,
+      "date": "2026-08-28",
+      "lead": false,
+      "amtCr": 1.04,
+      "ret": 111.33
+     },
+     {
+      "igId": "2346",
+      "name": "Cube Highways Trust InvIT",
+      "sme": false,
+      "date": "2026-07-31",
+      "lead": false,
+      "amtCr": 1.8,
+      "ret": 1.97
+     },
+     {
+      "igId": "1594",
+      "name": "Indo-MIM",
+      "sme": false,
+      "date": "2026-07-30",
+      "lead": false,
+      "amtCr": 2.0,
+      "ret": 44.33
+     },
+     {
+      "igId": "2210",
+      "name": "SBI Funds Management",
+      "sme": false,
+      "date": "2026-07-21",
+      "lead": false,
+      "amtCr": 1.06,
+      "ret": 6.85
      }
     ]
    },
@@ -203244,6 +203678,123 @@
       "lead": true,
       "amtCr": 9.5,
       "ret": 38.24
+     }
+    ]
+   },
+   {
+    "key": "KOTAK INFRASTRUCTURE ECONOMIC REFORM FUND",
+    "name": "KOTAK INFRASTRUCTURE & ECONOMIC REFORM FUND",
+    "cr": 138.7,
+    "n": 7,
+    "main": {
+     "n": 7,
+     "pos": 85.7,
+     "lo": 48.7,
+     "hi": 97.4,
+     "med": 17.8,
+     "p10": 3.6,
+     "p90": 58.7,
+     "close1": {
+      "n": 6,
+      "pos": 83.3,
+      "lo": 43.6,
+      "hi": 97.0,
+      "med": 18.5,
+      "p10": 0.8,
+      "p90": 71.2
+     },
+     "d5": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 9.6,
+      "p10": -8.1,
+      "p90": 27.8
+     },
+     "d30": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 27.4,
+      "p10": 1.3,
+      "p90": 53.6
+     },
+     "lead": {
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 17.8,
+      "p10": 3.3,
+      "p90": 23.1
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": true,
+      "amtCr": 22.8,
+      "ret": 23.62
+     },
+     {
+      "igId": "2119",
+      "name": "Kanohar Electricals",
+      "sme": false,
+      "date": "2026-09-16",
+      "lead": false,
+      "amtCr": 8.0,
+      "ret": 8.47
+     },
+     {
+      "igId": "1934",
+      "name": "Tempsens Instruments (India)",
+      "sme": false,
+      "date": "2026-08-28",
+      "lead": false,
+      "amtCr": 15.03,
+      "ret": 111.33
+     },
+     {
+      "igId": "2054",
+      "name": "MV Electrosystems",
+      "sme": false,
+      "date": "2026-08-06",
+      "lead": true,
+      "amtCr": 23.86,
+      "ret": 22.35
+     },
+     {
+      "igId": "1562",
+      "name": "KSH International",
+      "sme": false,
+      "date": "2025-12-23",
+      "lead": true,
+      "amtCr": 30.0,
+      "ret": -3.65
+     },
+     {
+      "igId": "1446",
+      "name": "Atlanta Electricals",
+      "sme": false,
+      "date": "2025-09-29",
+      "lead": true,
+      "amtCr": 20.0,
+      "ret": 13.66
+     },
+     {
+      "igId": "1155",
+      "name": "Concord Enviro Systems",
+      "sme": false,
+      "date": "2024-12-27",
+      "lead": true,
+      "amtCr": 19.01,
+      "ret": 17.83
      }
     ]
    },
@@ -205898,6 +206449,114 @@
     ]
    },
    {
+    "key": "BANDHAN INNOVATION FUND",
+    "name": "BANDHAN INNOVATION FUND",
+    "cr": 49.5,
+    "n": 6,
+    "main": {
+     "n": 6,
+     "pos": 100.0,
+     "lo": 61.0,
+     "hi": 100.0,
+     "med": 27.7,
+     "p10": 15.0,
+     "p90": 35.4,
+     "close1": {
+      "n": 5,
+      "pos": 100.0,
+      "lo": 56.6,
+      "hi": 100.0,
+      "med": 32.2,
+      "p10": 17.3,
+      "p90": 46.5
+     },
+     "d5": {
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 1.1,
+      "p10": -3.8,
+      "p90": 4.7
+     },
+     "d30": {
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": -0.1,
+      "p10": -10.7,
+      "p90": 39.6
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 5.51,
+      "ret": 23.62
+     },
+     {
+      "igId": "2231",
+      "name": "Rentomojo",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 15.0,
+      "ret": 19.42
+     },
+     {
+      "igId": "1799",
+      "name": "Lalithaa Jewellery Mart",
+      "sme": false,
+      "date": "2026-08-24",
+      "lead": false,
+      "amtCr": 9.09,
+      "ret": 31.84
+     },
+     {
+      "igId": "1790",
+      "name": "Shiprocket",
+      "sme": false,
+      "date": "2026-08-19",
+      "lead": false,
+      "amtCr": 6.45,
+      "ret": 35.05
+     },
+     {
+      "igId": "2217",
+      "name": "Manipal Health Enterprises",
+      "sme": false,
+      "date": "2026-08-05",
+      "lead": false,
+      "amtCr": 12.5,
+      "ret": 10.51
+     },
+     {
+      "igId": "1595",
+      "name": "Kusumgar",
+      "sme": false,
+      "date": "2026-07-15",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 35.8
+     }
+    ]
+   },
+   {
     "key": "SAGEONE FLAGSHIP GROWTH OE FUND",
     "name": "SAGEONE-FLAGSHIP GROWTH OE FUND",
     "cr": 54.8,
@@ -206310,44 +206969,44 @@
     ]
    },
    {
-    "key": "AXIS MAX LIFE INSURANCE UEGFH HIGH GROWTH FUND II",
-    "name": "AXIS MAX LIFE INSURANCE LTD.-UEGFH-HIGH GROWTH FUND II",
-    "cr": 28.1,
+    "key": "AXIS MAX LIFE INSURANCE ULIF 01715 02 13 PENSMAXIMI 104 PENSION MAXIMISER FUND",
+    "name": "AXIS MAX LIFE INSURANCE LTD.-ULIF 01715/02/13 PENSMAXIMI 104-PENSION MAXIMISER FUND",
+    "cr": 12.4,
     "n": 6,
     "main": {
      "n": 6,
      "pos": 100.0,
      "lo": 61.0,
      "hi": 100.0,
-     "med": 23.1,
-     "p10": 3.8,
-     "p90": 77.8,
+     "med": 22.5,
+     "p10": 7.7,
+     "p90": 73.2,
      "close1": {
-      "n": 6,
+      "n": 5,
       "pos": 100.0,
-      "lo": 61.0,
+      "lo": 56.6,
       "hi": 100.0,
-      "med": 27.6,
-      "p10": 4.1,
-      "p90": 74.3
+      "med": 29.1,
+      "p10": 11.3,
+      "p90": 76.5
      },
      "d5": {
-      "n": 6,
-      "pos": 50.0,
-      "lo": 18.8,
-      "hi": 81.2,
-      "med": 8.1,
-      "p10": -10.8,
-      "p90": 26.5
+      "n": 5,
+      "pos": 60.0,
+      "lo": 23.1,
+      "hi": 88.2,
+      "med": 1.1,
+      "p10": -11.1,
+      "p90": 28.3
      },
      "d30": {
       "n": 4,
-      "pos": 50.0,
-      "lo": 15.0,
-      "hi": 85.0,
-      "med": 10.1,
-      "p10": -10.3,
-      "p90": 53.3
+      "pos": 25.0,
+      "lo": 4.6,
+      "hi": 69.9,
+      "med": -6.8,
+      "p10": -11.3,
+      "p90": 18.1
      },
      "lead": {
       "n": 0,
@@ -206362,13 +207021,13 @@
     "sme": null,
     "ipos": [
      {
-      "igId": "2305",
-      "name": "NSE",
+      "igId": "1902",
+      "name": "HD Fire Protect",
       "sme": false,
-      "date": "2026-09-24",
+      "date": "2026-10-21",
       "lead": false,
-      "amtCr": 5.5,
-      "ret": 0.84
+      "amtCr": 2.24,
+      "ret": 23.62
      },
      {
       "igId": "2119",
@@ -206376,7 +207035,7 @@
       "sme": false,
       "date": "2026-09-16",
       "lead": false,
-      "amtCr": 4.94,
+      "amtCr": 1.59,
       "ret": 8.47
      },
      {
@@ -206385,26 +207044,26 @@
       "sme": false,
       "date": "2026-08-28",
       "lead": false,
-      "amtCr": 2.02,
+      "amtCr": 0.67,
       "ret": 111.33
      },
      {
-      "igId": "2122",
-      "name": "Dhoot Transmission",
+      "igId": "1790",
+      "name": "Shiprocket",
+      "sme": false,
+      "date": "2026-08-19",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 35.05
+     },
+     {
+      "igId": "1865",
+      "name": "Molbio Diagnostics",
       "sme": false,
       "date": "2026-08-17",
       "lead": false,
-      "amtCr": 3.15,
-      "ret": 37.77
-     },
-     {
-      "igId": "1594",
-      "name": "Indo-MIM",
-      "sme": false,
-      "date": "2026-07-30",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 44.33
+      "amtCr": 0.92,
+      "ret": 21.44
      },
      {
       "igId": "2210",
@@ -206412,7 +207071,7 @@
       "sme": false,
       "date": "2026-07-21",
       "lead": false,
-      "amtCr": 7.5,
+      "amtCr": 6.0,
       "ret": 6.85
      }
     ]
@@ -206630,114 +207289,6 @@
       "lead": false,
       "amtCr": 5.0,
       "ret": 9.09
-     }
-    ]
-   },
-   {
-    "key": "APEX HYBRID LONG SHORT FUND",
-    "name": "APEX HYBRID LONG-SHORT FUND",
-    "cr": 8.3,
-    "n": 6,
-    "main": {
-     "n": 6,
-     "pos": 100.0,
-     "lo": 61.0,
-     "hi": 100.0,
-     "med": 25.6,
-     "p10": 1.4,
-     "p90": 86.5,
-     "close1": {
-      "n": 6,
-      "pos": 100.0,
-      "lo": 61.0,
-      "hi": 100.0,
-      "med": 29.6,
-      "p10": 2.6,
-      "p90": 77.3
-     },
-     "d5": {
-      "n": 6,
-      "pos": 33.3,
-      "lo": 9.7,
-      "hi": 70.0,
-      "med": -2.2,
-      "p10": -10.8,
-      "p90": 13.8
-     },
-     "d30": {
-      "n": 4,
-      "pos": 25.0,
-      "lo": 4.6,
-      "hi": 69.9,
-      "med": -2.6,
-      "p10": -10.3,
-      "p90": 45.6
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2198",
-      "name": "Moneyview",
-      "sme": false,
-      "date": "2026-10-01",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 61.76
-     },
-     {
-      "igId": "2305",
-      "name": "NSE",
-      "sme": false,
-      "date": "2026-09-24",
-      "lead": false,
-      "amtCr": 1.36,
-      "ret": 0.84
-     },
-     {
-      "igId": "1934",
-      "name": "Tempsens Instruments (India)",
-      "sme": false,
-      "date": "2026-08-28",
-      "lead": false,
-      "amtCr": 1.04,
-      "ret": 111.33
-     },
-     {
-      "igId": "2346",
-      "name": "Cube Highways Trust InvIT",
-      "sme": false,
-      "date": "2026-07-31",
-      "lead": false,
-      "amtCr": 1.8,
-      "ret": 1.97
-     },
-     {
-      "igId": "1594",
-      "name": "Indo-MIM",
-      "sme": false,
-      "date": "2026-07-30",
-      "lead": false,
-      "amtCr": 2.0,
-      "ret": 44.33
-     },
-     {
-      "igId": "2210",
-      "name": "SBI Funds Management",
-      "sme": false,
-      "date": "2026-07-21",
-      "lead": false,
-      "amtCr": 1.06,
-      "ret": 6.85
      }
     ]
    },
@@ -209662,114 +210213,6 @@
     ]
    },
    {
-    "key": "KOTAK INFRASTRUCTURE ECONOMIC REFORM FUND",
-    "name": "KOTAK INFRASTRUCTURE & ECONOMIC REFORM FUND",
-    "cr": 115.9,
-    "n": 6,
-    "main": {
-     "n": 6,
-     "pos": 83.3,
-     "lo": 43.6,
-     "hi": 97.0,
-     "med": 15.7,
-     "p10": 2.4,
-     "p90": 66.8,
-     "close1": {
-      "n": 6,
-      "pos": 83.3,
-      "lo": 43.6,
-      "hi": 97.0,
-      "med": 18.5,
-      "p10": 0.8,
-      "p90": 71.2
-     },
-     "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 9.6,
-      "p10": -8.1,
-      "p90": 27.8
-     },
-     "d30": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 27.4,
-      "p10": 1.3,
-      "p90": 53.6
-     },
-     "lead": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 15.7,
-      "p10": 1.5,
-      "p90": 21.0
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2119",
-      "name": "Kanohar Electricals",
-      "sme": false,
-      "date": "2026-09-16",
-      "lead": false,
-      "amtCr": 8.0,
-      "ret": 8.47
-     },
-     {
-      "igId": "1934",
-      "name": "Tempsens Instruments (India)",
-      "sme": false,
-      "date": "2026-08-28",
-      "lead": false,
-      "amtCr": 15.03,
-      "ret": 111.33
-     },
-     {
-      "igId": "2054",
-      "name": "MV Electrosystems",
-      "sme": false,
-      "date": "2026-08-06",
-      "lead": true,
-      "amtCr": 23.86,
-      "ret": 22.35
-     },
-     {
-      "igId": "1562",
-      "name": "KSH International",
-      "sme": false,
-      "date": "2025-12-23",
-      "lead": true,
-      "amtCr": 30.0,
-      "ret": -3.65
-     },
-     {
-      "igId": "1446",
-      "name": "Atlanta Electricals",
-      "sme": false,
-      "date": "2025-09-29",
-      "lead": true,
-      "amtCr": 20.0,
-      "ret": 13.66
-     },
-     {
-      "igId": "1155",
-      "name": "Concord Enviro Systems",
-      "sme": false,
-      "date": "2024-12-27",
-      "lead": true,
-      "amtCr": 19.01,
-      "ret": 17.83
-     }
-    ]
-   },
-   {
     "key": "TATA DIVIDEND YIELD FUND",
     "name": "TATA DIVIDEND YIELD FUND",
     "cr": 57.5,
@@ -212304,105 +212747,6 @@
     ]
    },
    {
-    "key": "BANDHAN INNOVATION FUND",
-    "name": "BANDHAN INNOVATION FUND",
-    "cr": 44.0,
-    "n": 5,
-    "main": {
-     "n": 5,
-     "pos": 100.0,
-     "lo": 56.6,
-     "hi": 100.0,
-     "med": 31.8,
-     "p10": 14.1,
-     "p90": 35.5,
-     "close1": {
-      "n": 5,
-      "pos": 100.0,
-      "lo": 56.6,
-      "hi": 100.0,
-      "med": 32.2,
-      "p10": 17.3,
-      "p90": 46.5
-     },
-     "d5": {
-      "n": 5,
-      "pos": 80.0,
-      "lo": 37.6,
-      "hi": 96.4,
-      "med": 1.1,
-      "p10": -3.8,
-      "p90": 4.7
-     },
-     "d30": {
-      "n": 4,
-      "pos": 50.0,
-      "lo": 15.0,
-      "hi": 85.0,
-      "med": -0.1,
-      "p10": -10.7,
-      "p90": 39.6
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2231",
-      "name": "Rentomojo",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 15.0,
-      "ret": 19.42
-     },
-     {
-      "igId": "1799",
-      "name": "Lalithaa Jewellery Mart",
-      "sme": false,
-      "date": "2026-08-24",
-      "lead": false,
-      "amtCr": 9.09,
-      "ret": 31.84
-     },
-     {
-      "igId": "1790",
-      "name": "Shiprocket",
-      "sme": false,
-      "date": "2026-08-19",
-      "lead": false,
-      "amtCr": 6.45,
-      "ret": 35.05
-     },
-     {
-      "igId": "2217",
-      "name": "Manipal Health Enterprises",
-      "sme": false,
-      "date": "2026-08-05",
-      "lead": false,
-      "amtCr": 12.5,
-      "ret": 10.51
-     },
-     {
-      "igId": "1595",
-      "name": "Kusumgar",
-      "sme": false,
-      "date": "2026-07-15",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 35.8
-     }
-    ]
-   },
-   {
     "key": "HSBC CONSUMPTION FUND",
     "name": "HSBC CONSUMPTION FUND",
     "cr": 49.0,
@@ -212596,6 +212940,105 @@
       "date": "2025-07-02",
       "lead": false,
       "amtCr": 37.0,
+      "ret": 12.84
+     }
+    ]
+   },
+   {
+    "key": "ALLIANZ GLOBAL INVESTORS FUND ALLIANZ INDIA EQUITY",
+    "name": "ALLIANZ GLOBAL INVESTORS FUND-ALLIANZ INDIA EQUITY",
+    "cr": 112.5,
+    "n": 5,
+    "main": {
+     "n": 5,
+     "pos": 100.0,
+     "lo": 56.6,
+     "hi": 100.0,
+     "med": 12.8,
+     "p10": 9.3,
+     "p90": 32.1,
+     "close1": {
+      "n": 4,
+      "pos": 100.0,
+      "lo": 51.0,
+      "hi": 100.0,
+      "med": 16.3,
+      "p10": 13.2,
+      "p90": 31.1
+     },
+     "d5": {
+      "n": 3,
+      "pos": 100.0,
+      "lo": 43.8,
+      "hi": 100.0,
+      "med": 20.3,
+      "p10": 6.7,
+      "p90": 29.9
+     },
+     "d30": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 16.8,
+      "p10": 9.9,
+      "p90": 23.7
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 8.82,
+      "ret": 23.62
+     },
+     {
+      "igId": "2119",
+      "name": "Kanohar Electricals",
+      "sme": false,
+      "date": "2026-09-16",
+      "lead": false,
+      "amtCr": 14.0,
+      "ret": 8.47
+     },
+     {
+      "igId": "2122",
+      "name": "Dhoot Transmission",
+      "sme": false,
+      "date": "2026-08-17",
+      "lead": false,
+      "amtCr": 20.0,
+      "ret": 37.77
+     },
+     {
+      "igId": "2217",
+      "name": "Manipal Health Enterprises",
+      "sme": false,
+      "date": "2026-08-05",
+      "lead": false,
+      "amtCr": 50.0,
+      "ret": 10.51
+     },
+     {
+      "igId": "1276",
+      "name": "HDB Financial",
+      "sme": false,
+      "date": "2025-07-02",
+      "lead": false,
+      "amtCr": 19.72,
       "ret": 12.84
      }
     ]
@@ -212795,105 +213238,6 @@
       "lead": false,
       "amtCr": 6.19,
       "ret": 1.81
-     }
-    ]
-   },
-   {
-    "key": "AXIS MAX LIFE INSURANCE ULIF 01715 02 13 PENSMAXIMI 104 PENSION MAXIMISER FUND",
-    "name": "AXIS MAX LIFE INSURANCE LTD.-ULIF 01715/02/13 PENSMAXIMI 104-PENSION MAXIMISER FUND",
-    "cr": 10.2,
-    "n": 5,
-    "main": {
-     "n": 5,
-     "pos": 100.0,
-     "lo": 56.6,
-     "hi": 100.0,
-     "med": 21.4,
-     "p10": 7.5,
-     "p90": 80.8,
-     "close1": {
-      "n": 5,
-      "pos": 100.0,
-      "lo": 56.6,
-      "hi": 100.0,
-      "med": 29.1,
-      "p10": 11.3,
-      "p90": 76.5
-     },
-     "d5": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 1.1,
-      "p10": -11.1,
-      "p90": 28.3
-     },
-     "d30": {
-      "n": 4,
-      "pos": 25.0,
-      "lo": 4.6,
-      "hi": 69.9,
-      "med": -6.8,
-      "p10": -11.3,
-      "p90": 18.1
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2119",
-      "name": "Kanohar Electricals",
-      "sme": false,
-      "date": "2026-09-16",
-      "lead": false,
-      "amtCr": 1.59,
-      "ret": 8.47
-     },
-     {
-      "igId": "1934",
-      "name": "Tempsens Instruments (India)",
-      "sme": false,
-      "date": "2026-08-28",
-      "lead": false,
-      "amtCr": 0.67,
-      "ret": 111.33
-     },
-     {
-      "igId": "1790",
-      "name": "Shiprocket",
-      "sme": false,
-      "date": "2026-08-19",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 35.05
-     },
-     {
-      "igId": "1865",
-      "name": "Molbio Diagnostics",
-      "sme": false,
-      "date": "2026-08-17",
-      "lead": false,
-      "amtCr": 0.92,
-      "ret": 21.44
-     },
-     {
-      "igId": "2210",
-      "name": "SBI Funds Management",
-      "sme": false,
-      "date": "2026-07-21",
-      "lead": false,
-      "amtCr": 6.0,
-      "ret": 6.85
      }
     ]
    },
@@ -216286,6 +216630,105 @@
     ]
    },
    {
+    "key": "PGIM INDIA SMALL CAP FUND",
+    "name": "PGIM INDIA SMALL CAP FUND",
+    "cr": 60.0,
+    "n": 5,
+    "main": {
+     "n": 5,
+     "pos": 80.0,
+     "lo": 37.6,
+     "hi": 96.4,
+     "med": 23.6,
+     "p10": 6.6,
+     "p90": 36.7,
+     "close1": {
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 34.3,
+      "p10": 2.1,
+      "p90": 44.5
+     },
+     "d5": {
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 3.3,
+      "p10": -2.7,
+      "p90": 15.9
+     },
+     "d30": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 8.5,
+      "p10": -5.0,
+      "p90": 22.0
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 8.36,
+      "ret": 23.62
+     },
+     {
+      "igId": "1917",
+      "name": "Elevate Campuses",
+      "sme": false,
+      "date": "2026-09-30",
+      "lead": false,
+      "amtCr": 19.9,
+      "ret": -1.91
+     },
+     {
+      "igId": "2231",
+      "name": "Rentomojo",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 7.93,
+      "ret": 19.42
+     },
+     {
+      "igId": "1790",
+      "name": "Shiprocket",
+      "sme": false,
+      "date": "2026-08-19",
+      "lead": false,
+      "amtCr": 12.48,
+      "ret": 35.05
+     },
+     {
+      "igId": "2122",
+      "name": "Dhoot Transmission",
+      "sme": false,
+      "date": "2026-08-17",
+      "lead": false,
+      "amtCr": 11.29,
+      "ret": 37.77
+     }
+    ]
+   },
+   {
     "key": "WHITEOAK CAPITAL BANKING FINANCIAL SERVICES FUND",
     "name": "WHITEOAK CAPITAL BANKING & FINANCIAL SERVICES FUND",
     "cr": 29.9,
@@ -217866,6 +218309,105 @@
       "lead": true,
       "amtCr": 3.55,
       "ret": 4.58
+     }
+    ]
+   },
+   {
+    "key": "ICICI PRUDENTIAL ENERGY OPPORTUNITIES FUND",
+    "name": "ICICI PRUDENTIAL ENERGY OPPORTUNITIES FUND",
+    "cr": 145.3,
+    "n": 5,
+    "main": {
+     "n": 5,
+     "pos": 80.0,
+     "lo": 37.6,
+     "hi": 96.4,
+     "med": 8.9,
+     "p10": 1.3,
+     "p90": 31.4,
+     "close1": {
+      "n": 4,
+      "pos": 100.0,
+      "lo": 51.0,
+      "hi": 100.0,
+      "med": 8.6,
+      "p10": 1.3,
+      "p90": 24.3
+     },
+     "d5": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -1.4,
+      "p10": -1.4,
+      "p90": -1.4
+     },
+     "d30": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 8.2,
+      "p10": 8.2,
+      "p90": 8.2
+     },
+     "lead": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 3.3,
+      "p10": 0.7,
+      "p90": 29.9
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 14.51,
+      "ret": 23.62
+     },
+     {
+      "igId": "1809",
+      "name": "Juniper Green Energy",
+      "sme": false,
+      "date": "2026-08-06",
+      "lead": false,
+      "amtCr": 35.0,
+      "ret": 8.89
+     },
+     {
+      "igId": "1517",
+      "name": "Emmvee Photovoltaic",
+      "sme": false,
+      "date": "2025-11-18",
+      "lead": true,
+      "amtCr": 59.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "1268",
+      "name": "Oswal Pumps",
+      "sme": false,
+      "date": "2025-06-20",
+      "lead": true,
+      "amtCr": 13.75,
+      "ret": 3.26
+     },
+     {
+      "igId": "1149",
+      "name": "Transrail Lighting",
+      "sme": false,
+      "date": "2024-12-27",
+      "lead": true,
+      "amtCr": 23.0,
+      "ret": 36.57
      }
     ]
    },
@@ -219849,57 +220391,66 @@
     ]
    },
    {
-    "key": "ALLIANZ GLOBAL INVESTORS FUND ALLIANZ INDIA EQUITY",
-    "name": "ALLIANZ GLOBAL INVESTORS FUND-ALLIANZ INDIA EQUITY",
-    "cr": 103.7,
+    "key": "MIRAE ASSET SMALL CAP FUND",
+    "name": "MIRAE ASSET SMALL CAP FUND",
+    "cr": 57.5,
     "n": 4,
     "main": {
      "n": 4,
      "pos": 100.0,
      "lo": 51.0,
      "hi": 100.0,
-     "med": 11.7,
-     "p10": 9.1,
-     "p90": 30.3,
+     "med": 20.2,
+     "p10": 11.0,
+     "p90": 41.9,
      "close1": {
-      "n": 4,
-      "pos": 100.0,
-      "lo": 51.0,
-      "hi": 100.0,
-      "med": 16.3,
-      "p10": 13.2,
-      "p90": 31.1
-     },
-     "d5": {
       "n": 3,
       "pos": 100.0,
       "lo": 43.8,
       "hi": 100.0,
-      "med": 20.3,
-      "p10": 6.7,
-      "p90": 29.9
+      "med": 22.8,
+      "p10": 19.7,
+      "p90": 37.1
      },
-     "d30": {
+     "d5": {
       "n": 2,
       "pos": 100.0,
       "lo": 34.2,
       "hi": 100.0,
-      "med": 16.8,
-      "p10": 9.9,
-      "p90": 23.7
+      "med": 22.8,
+      "p10": 15.2,
+      "p90": 30.4
+     },
+     "d30": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -5.8,
+      "p10": -5.8,
+      "p90": -5.8
      },
      "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 49.8,
+      "p10": 49.8,
+      "p90": 49.8
      }
     },
     "sme": null,
     "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 8.77,
+      "ret": 23.62
+     },
      {
       "igId": "2119",
       "name": "Kanohar Electricals",
@@ -219910,31 +220461,22 @@
       "ret": 8.47
      },
      {
-      "igId": "2122",
-      "name": "Dhoot Transmission",
+      "igId": "1923",
+      "name": "Laser Power & Infra",
       "sme": false,
-      "date": "2026-08-17",
+      "date": "2026-07-16",
       "lead": false,
-      "amtCr": 20.0,
-      "ret": 37.77
+      "amtCr": 12.0,
+      "ret": 16.82
      },
      {
-      "igId": "2217",
-      "name": "Manipal Health Enterprises",
+      "igId": "1335",
+      "name": "GNG Electronics",
       "sme": false,
-      "date": "2026-08-05",
-      "lead": false,
-      "amtCr": 50.0,
-      "ret": 10.51
-     },
-     {
-      "igId": "1276",
-      "name": "HDB Financial",
-      "sme": false,
-      "date": "2025-07-02",
-      "lead": false,
-      "amtCr": 19.72,
-      "ret": 12.84
+      "date": "2025-07-30",
+      "lead": true,
+      "amtCr": 22.71,
+      "ret": 49.79
      }
     ]
    },
@@ -220429,6 +220971,96 @@
       "lead": false,
       "amtCr": 2.0,
       "ret": 38.89
+     }
+    ]
+   },
+   {
+    "key": "UTI SMALL CAP FUND",
+    "name": "UTI SMALL CAP FUND",
+    "cr": 56.8,
+    "n": 4,
+    "main": {
+     "n": 4,
+     "pos": 100.0,
+     "lo": 51.0,
+     "hi": 100.0,
+     "med": 25.2,
+     "p10": 7.3,
+     "p90": 32.6,
+     "close1": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 28.1,
+      "p10": 5.2,
+      "p90": 44.0
+     },
+     "d5": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 1.1,
+      "p10": 1.1,
+      "p90": 1.1
+     },
+     "d30": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -8.4,
+      "p10": -8.4,
+      "p90": -8.4
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 3.56,
+      "ret": 23.62
+     },
+     {
+      "igId": "1790",
+      "name": "Shiprocket",
+      "sme": false,
+      "date": "2026-08-19",
+      "lead": false,
+      "amtCr": 25.28,
+      "ret": 35.05
+     },
+     {
+      "igId": "1317",
+      "name": "Anthem Biosciences",
+      "sme": false,
+      "date": "2025-07-21",
+      "lead": false,
+      "amtCr": 18.0,
+      "ret": 26.85
+     },
+     {
+      "igId": "446",
+      "name": "KFin Technologies",
+      "sme": false,
+      "date": "2022-12-29",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 0.27
      }
     ]
    },
@@ -221599,6 +222231,96 @@
       "lead": false,
       "amtCr": 6.29,
       "ret": 12.84
+     }
+    ]
+   },
+   {
+    "key": "ADITYA BIRLA SUN LIFE INFRASTRUCTURE FUND",
+    "name": "ADITYA BIRLA SUN LIFE INFRASTRUCTURE FUND",
+    "cr": 42.1,
+    "n": 4,
+    "main": {
+     "n": 4,
+     "pos": 100.0,
+     "lo": 51.0,
+     "hi": 100.0,
+     "med": 34.0,
+     "p10": 13.0,
+     "p90": 78.7,
+     "close1": {
+      "n": 3,
+      "pos": 100.0,
+      "lo": 43.8,
+      "hi": 100.0,
+      "med": 53.0,
+      "p10": 23.7,
+      "p90": 84.8
+     },
+     "d5": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 17.8,
+      "p10": 15.3,
+      "p90": 20.2
+     },
+     "d30": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 43.4,
+      "p10": 26.0,
+      "p90": 60.8
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 9.98,
+      "ret": 23.62
+     },
+     {
+      "igId": "1862",
+      "name": "Lohia Corp",
+      "sme": false,
+      "date": "2026-07-30",
+      "lead": false,
+      "amtCr": 7.33,
+      "ret": 8.47
+     },
+     {
+      "igId": "1594",
+      "name": "Indo-MIM",
+      "sme": false,
+      "date": "2026-07-30",
+      "lead": false,
+      "amtCr": 20.0,
+      "ret": 44.33
+     },
+     {
+      "igId": "554",
+      "name": "ideaForge Technology",
+      "sme": false,
+      "date": "2023-07-07",
+      "lead": false,
+      "amtCr": 4.8,
+      "ret": 93.45
      }
     ]
    },
@@ -223085,96 +223807,6 @@
     ]
    },
    {
-    "key": "PGIM INDIA SMALL CAP FUND",
-    "name": "PGIM INDIA SMALL CAP FUND",
-    "cr": 51.6,
-    "n": 4,
-    "main": {
-     "n": 4,
-     "pos": 75.0,
-     "lo": 30.1,
-     "hi": 95.4,
-     "med": 27.2,
-     "p10": 4.5,
-     "p90": 37.0,
-     "close1": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 34.3,
-      "p10": 2.1,
-      "p90": 44.5
-     },
-     "d5": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 3.3,
-      "p10": -2.7,
-      "p90": 15.9
-     },
-     "d30": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 8.5,
-      "p10": -5.0,
-      "p90": 22.0
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "1917",
-      "name": "Elevate Campuses",
-      "sme": false,
-      "date": "2026-09-30",
-      "lead": false,
-      "amtCr": 19.9,
-      "ret": -1.91
-     },
-     {
-      "igId": "2231",
-      "name": "Rentomojo",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 7.93,
-      "ret": 19.42
-     },
-     {
-      "igId": "1790",
-      "name": "Shiprocket",
-      "sme": false,
-      "date": "2026-08-19",
-      "lead": false,
-      "amtCr": 12.48,
-      "ret": 35.05
-     },
-     {
-      "igId": "2122",
-      "name": "Dhoot Transmission",
-      "sme": false,
-      "date": "2026-08-17",
-      "lead": false,
-      "amtCr": 11.29,
-      "ret": 37.77
-     }
-    ]
-   },
-   {
     "key": "HELIOS SMALL CAP FUND",
     "name": "HELIOS SMALL CAP FUND",
     "cr": 39.5,
@@ -224161,96 +224793,6 @@
       "lead": true,
       "amtCr": 100.0,
       "ret": 5.59
-     }
-    ]
-   },
-   {
-    "key": "ICICI PRUDENTIAL ENERGY OPPORTUNITIES FUND",
-    "name": "ICICI PRUDENTIAL ENERGY OPPORTUNITIES FUND",
-    "cr": 130.8,
-    "n": 4,
-    "main": {
-     "n": 4,
-     "pos": 75.0,
-     "lo": 30.1,
-     "hi": 95.4,
-     "med": 6.1,
-     "p10": 1.0,
-     "p90": 28.3,
-     "close1": {
-      "n": 4,
-      "pos": 100.0,
-      "lo": 51.0,
-      "hi": 100.0,
-      "med": 8.6,
-      "p10": 1.3,
-      "p90": 24.3
-     },
-     "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -1.4,
-      "p10": -1.4,
-      "p90": -1.4
-     },
-     "d30": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 8.2,
-      "p10": 8.2,
-      "p90": 8.2
-     },
-     "lead": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 3.3,
-      "p10": 0.7,
-      "p90": 29.9
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "1809",
-      "name": "Juniper Green Energy",
-      "sme": false,
-      "date": "2026-08-06",
-      "lead": false,
-      "amtCr": 35.0,
-      "ret": 8.89
-     },
-     {
-      "igId": "1517",
-      "name": "Emmvee Photovoltaic",
-      "sme": false,
-      "date": "2025-11-18",
-      "lead": true,
-      "amtCr": 59.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "1268",
-      "name": "Oswal Pumps",
-      "sme": false,
-      "date": "2025-06-20",
-      "lead": true,
-      "amtCr": 13.75,
-      "ret": 3.26
-     },
-     {
-      "igId": "1149",
-      "name": "Transrail Lighting",
-      "sme": false,
-      "date": "2024-12-27",
-      "lead": true,
-      "amtCr": 23.0,
-      "ret": 36.57
      }
     ]
    },
@@ -226905,6 +227447,168 @@
     ]
    },
    {
+    "key": "APEX EQUITY LONG SHORT FUND",
+    "name": "APEX EQUITY LONG-SHORT FUND",
+    "cr": 3.0,
+    "n": 3,
+    "main": {
+     "n": 3,
+     "pos": 100.0,
+     "lo": 43.8,
+     "hi": 100.0,
+     "med": 23.6,
+     "p10": 20.3,
+     "p90": 54.1,
+     "close1": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 45.6,
+      "p10": 34.9,
+      "p90": 56.2
+     },
+     "d5": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 6.2,
+      "p10": 5.7,
+      "p90": 6.7
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 0.95,
+      "ret": 23.62
+     },
+     {
+      "igId": "2198",
+      "name": "Moneyview",
+      "sme": false,
+      "date": "2026-10-01",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 61.76
+     },
+     {
+      "igId": "2231",
+      "name": "Rentomojo",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 19.42
+     }
+    ]
+   },
+   {
+    "key": "APEX EQUITY EX TOP 100 LONG SHORT FUND",
+    "name": "APEX EQUITY EX-TOP 100 LONG-SHORT FUND",
+    "cr": 4.0,
+    "n": 3,
+    "main": {
+     "n": 3,
+     "pos": 100.0,
+     "lo": 43.8,
+     "hi": 100.0,
+     "med": 23.6,
+     "p10": 20.3,
+     "p90": 54.1,
+     "close1": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 45.6,
+      "p10": 34.9,
+      "p90": 56.2
+     },
+     "d5": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 6.2,
+      "p10": 5.7,
+      "p90": 6.7
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 0.95,
+      "ret": 23.62
+     },
+     {
+      "igId": "2198",
+      "name": "Moneyview",
+      "sme": false,
+      "date": "2026-10-01",
+      "lead": false,
+      "amtCr": 2.0,
+      "ret": 61.76
+     },
+     {
+      "igId": "2231",
+      "name": "Rentomojo",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 19.42
+     }
+    ]
+   },
+   {
     "key": "ABAKKUS FLEXI EDGE FUND 1",
     "name": "ABAKKUS FLEXI EDGE FUND 1",
     "cr": 27.8,
@@ -227269,87 +227973,6 @@
       "lead": false,
       "amtCr": 5.52,
       "ret": 37.77
-     }
-    ]
-   },
-   {
-    "key": "MIRAE ASSET SMALL CAP FUND",
-    "name": "MIRAE ASSET SMALL CAP FUND",
-    "cr": 48.7,
-    "n": 3,
-    "main": {
-     "n": 3,
-     "pos": 100.0,
-     "lo": 43.8,
-     "hi": 100.0,
-     "med": 16.8,
-     "p10": 10.1,
-     "p90": 43.2,
-     "close1": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 22.8,
-      "p10": 19.7,
-      "p90": 37.1
-     },
-     "d5": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 22.8,
-      "p10": 15.2,
-      "p90": 30.4
-     },
-     "d30": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -5.8,
-      "p10": -5.8,
-      "p90": -5.8
-     },
-     "lead": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 49.8,
-      "p10": 49.8,
-      "p90": 49.8
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2119",
-      "name": "Kanohar Electricals",
-      "sme": false,
-      "date": "2026-09-16",
-      "lead": false,
-      "amtCr": 14.0,
-      "ret": 8.47
-     },
-     {
-      "igId": "1923",
-      "name": "Laser Power & Infra",
-      "sme": false,
-      "date": "2026-07-16",
-      "lead": false,
-      "amtCr": 12.0,
-      "ret": 16.82
-     },
-     {
-      "igId": "1335",
-      "name": "GNG Electronics",
-      "sme": false,
-      "date": "2025-07-30",
-      "lead": true,
-      "amtCr": 22.71,
-      "ret": 49.79
      }
     ]
    },
@@ -228815,87 +229438,6 @@
       "lead": true,
       "amtCr": 1.16,
       "ret": 16.96
-     }
-    ]
-   },
-   {
-    "key": "UTI SMALL CAP FUND",
-    "name": "UTI SMALL CAP FUND",
-    "cr": 53.3,
-    "n": 3,
-    "main": {
-     "n": 3,
-     "pos": 100.0,
-     "lo": 43.8,
-     "hi": 100.0,
-     "med": 26.9,
-     "p10": 5.6,
-     "p90": 33.4,
-     "close1": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 28.1,
-      "p10": 5.2,
-      "p90": 44.0
-     },
-     "d5": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 1.1,
-      "p10": 1.1,
-      "p90": 1.1
-     },
-     "d30": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -8.4,
-      "p10": -8.4,
-      "p90": -8.4
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "1790",
-      "name": "Shiprocket",
-      "sme": false,
-      "date": "2026-08-19",
-      "lead": false,
-      "amtCr": 25.28,
-      "ret": 35.05
-     },
-     {
-      "igId": "1317",
-      "name": "Anthem Biosciences",
-      "sme": false,
-      "date": "2025-07-21",
-      "lead": false,
-      "amtCr": 18.0,
-      "ret": 26.85
-     },
-     {
-      "igId": "446",
-      "name": "KFin Technologies",
-      "sme": false,
-      "date": "2022-12-29",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 0.27
      }
     ]
    },
@@ -231941,44 +232483,44 @@
     ]
    },
    {
-    "key": "ADITYA BIRLA SUN LIFE INFRASTRUCTURE FUND",
-    "name": "ADITYA BIRLA SUN LIFE INFRASTRUCTURE FUND",
-    "cr": 32.1,
+    "key": "UTI INFRASTRUCTURE FUND",
+    "name": "UTI INFRASTRUCTURE FUND",
+    "cr": 27.9,
     "n": 3,
     "main": {
      "n": 3,
      "pos": 100.0,
      "lo": 43.8,
      "hi": 100.0,
-     "med": 44.3,
-     "p10": 15.6,
-     "p90": 83.6,
+     "med": 23.6,
+     "p10": 6.2,
+     "p90": 40.2,
      "close1": {
-      "n": 3,
+      "n": 2,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 53.0,
-      "p10": 23.7,
-      "p90": 84.8
+      "med": 30.2,
+      "p10": 11.9,
+      "p90": 48.4
      },
      "d5": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 17.8,
-      "p10": 15.3,
-      "p90": 20.2
+      "med": 20.8,
+      "p10": 20.8,
+      "p90": 20.8
      },
      "d30": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 43.4,
-      "p10": 26.0,
-      "p90": 60.8
+      "med": 65.2,
+      "p10": 65.2,
+      "p90": 65.2
      },
      "lead": {
       "n": 0,
@@ -231993,13 +232535,13 @@
     "sme": null,
     "ipos": [
      {
-      "igId": "1862",
-      "name": "Lohia Corp",
+      "igId": "1902",
+      "name": "HD Fire Protect",
       "sme": false,
-      "date": "2026-07-30",
+      "date": "2026-10-21",
       "lead": false,
-      "amtCr": 7.33,
-      "ret": 8.47
+      "amtCr": 2.84,
+      "ret": 23.62
      },
      {
       "igId": "1594",
@@ -232007,17 +232549,17 @@
       "sme": false,
       "date": "2026-07-30",
       "lead": false,
-      "amtCr": 20.0,
+      "amtCr": 15.05,
       "ret": 44.33
      },
      {
-      "igId": "554",
-      "name": "ideaForge Technology",
+      "igId": "1377",
+      "name": "Vikram Solar",
       "sme": false,
-      "date": "2023-07-07",
+      "date": "2025-08-26",
       "lead": false,
-      "amtCr": 4.8,
-      "ret": 93.45
+      "amtCr": 10.0,
+      "ret": 1.81
      }
     ]
    },
@@ -238155,6 +238697,87 @@
     ]
    },
    {
+    "key": "GETFIVE OPPORTUNITY FUND I",
+    "name": "GETFIVE OPPORTUNITY FUND I",
+    "cr": 7.5,
+    "n": 3,
+    "main": null,
+    "sme": {
+     "n": 3,
+     "pos": 66.7,
+     "lo": 20.8,
+     "hi": 93.9,
+     "med": 9.6,
+     "p10": 0.3,
+     "p90": 17.2,
+     "close1": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 15.3,
+      "p10": 15.1,
+      "p90": 15.4
+     },
+     "d5": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 15.8,
+      "p10": 3.2,
+      "p90": 28.5
+     },
+     "d30": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 17.9,
+      "p10": 7.3,
+      "p90": 28.5
+     },
+     "lead": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 3.8,
+      "p10": -0.9,
+      "p90": 8.5
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2335",
+      "name": "Vaibhav Vyapaar",
+      "sme": true,
+      "date": "2026-10-21",
+      "lead": true,
+      "amtCr": 3.0,
+      "ret": -2.04
+     },
+     {
+      "igId": "2088",
+      "name": "Sotefin Bharat",
+      "sme": true,
+      "date": "2026-07-23",
+      "lead": true,
+      "amtCr": 3.01,
+      "ret": 9.63
+     },
+     {
+      "igId": "2225",
+      "name": "Teamtech Formwork Solutions",
+      "sme": true,
+      "date": "2026-05-26",
+      "lead": false,
+      "amtCr": 1.5,
+      "ret": 19.05
+     }
+    ]
+   },
+   {
     "key": "BAJAJ FINSERV BANKING FINANCIAL SERVICES FUND",
     "name": "BAJAJ FINSERV BANKING & FINANCIAL SERVICES FUND",
     "cr": 17.0,
@@ -238718,6 +239341,87 @@
       "lead": true,
       "amtCr": 5.01,
       "ret": 31.25
+     }
+    ]
+   },
+   {
+    "key": "AMUNDI FUNDS INDIA EQUITY CONTRA",
+    "name": "AMUNDI FUNDS INDIA EQUITY CONTRA",
+    "cr": 25.0,
+    "n": 3,
+    "main": {
+     "n": 3,
+     "pos": 66.7,
+     "lo": 20.8,
+     "hi": 93.9,
+     "med": 20.1,
+     "p10": 2.5,
+     "p90": 22.9,
+     "close1": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 4.3,
+      "p10": -7.8,
+      "p90": 16.5
+     },
+     "d5": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -4.3,
+      "p10": -4.3,
+      "p90": -4.3
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 23.62
+     },
+     {
+      "igId": "1917",
+      "name": "Elevate Campuses",
+      "sme": false,
+      "date": "2026-09-30",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": -1.91
+     },
+     {
+      "igId": "1556",
+      "name": "ICICI Prudential AMC",
+      "sme": false,
+      "date": "2025-12-19",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 20.09
      }
     ]
    },
@@ -240005,150 +240709,6 @@
       "lead": false,
       "amtCr": 10.0,
       "ret": 35.05
-     }
-    ]
-   },
-   {
-    "key": "APEX EQUITY LONG SHORT FUND",
-    "name": "APEX EQUITY LONG SHORT FUND",
-    "cr": 2.0,
-    "n": 2,
-    "main": {
-     "n": 2,
-     "pos": 100.0,
-     "lo": 34.2,
-     "hi": 100.0,
-     "med": 40.6,
-     "p10": 23.7,
-     "p90": 57.5,
-     "close1": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 45.6,
-      "p10": 34.9,
-      "p90": 56.2
-     },
-     "d5": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 6.2,
-      "p10": 5.7,
-      "p90": 6.7
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2198",
-      "name": "Moneyview",
-      "sme": false,
-      "date": "2026-10-01",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 61.76
-     },
-     {
-      "igId": "2231",
-      "name": "Rentomojo",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 19.42
-     }
-    ]
-   },
-   {
-    "key": "APEX EQUITY EX TOP 100 LONG SHORT FUND",
-    "name": "APEX EQUITY EX-TOP 100 LONG-SHORT FUND",
-    "cr": 3.0,
-    "n": 2,
-    "main": {
-     "n": 2,
-     "pos": 100.0,
-     "lo": 34.2,
-     "hi": 100.0,
-     "med": 40.6,
-     "p10": 23.7,
-     "p90": 57.5,
-     "close1": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 45.6,
-      "p10": 34.9,
-      "p90": 56.2
-     },
-     "d5": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 6.2,
-      "p10": 5.7,
-      "p90": 6.7
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2198",
-      "name": "Moneyview",
-      "sme": false,
-      "date": "2026-10-01",
-      "lead": false,
-      "amtCr": 2.0,
-      "ret": 61.76
-     },
-     {
-      "igId": "2231",
-      "name": "Rentomojo",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 19.42
      }
     ]
    },
@@ -246753,44 +247313,44 @@
     ]
    },
    {
-    "key": "UTI INFRASTRUCTURE FUND",
-    "name": "UTI INFRASTRUCTURE FUND",
-    "cr": 25.1,
+    "key": "ADITYA BIRLA SUN LIFE MANUFACTURING EQUITY FUND",
+    "name": "ADITYA BIRLA SUN LIFE MANUFACTURING EQUITY FUND",
+    "cr": 17.3,
     "n": 2,
     "main": {
      "n": 2,
      "pos": 100.0,
      "lo": 34.2,
      "hi": 100.0,
-     "med": 23.1,
-     "p10": 6.1,
-     "p90": 40.1,
+     "med": 16.0,
+     "p10": 10.0,
+     "p90": 22.1,
      "close1": {
-      "n": 2,
+      "n": 1,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 20.7,
       "hi": 100.0,
-      "med": 30.2,
-      "p10": 11.9,
-      "p90": 48.4
+      "med": 16.4,
+      "p10": 16.4,
+      "p90": 16.4
      },
      "d5": {
       "n": 1,
       "pos": 100.0,
       "lo": 20.7,
       "hi": 100.0,
-      "med": 20.8,
-      "p10": 20.8,
-      "p90": 20.8
+      "med": 14.7,
+      "p10": 14.7,
+      "p90": 14.7
      },
      "d30": {
       "n": 1,
       "pos": 100.0,
       "lo": 20.7,
       "hi": 100.0,
-      "med": 65.2,
-      "p10": 65.2,
-      "p90": 65.2
+      "med": 21.6,
+      "p10": 21.6,
+      "p90": 21.6
      },
      "lead": {
       "n": 0,
@@ -246805,22 +247365,22 @@
     "sme": null,
     "ipos": [
      {
-      "igId": "1594",
-      "name": "Indo-MIM",
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 9.98,
+      "ret": 23.62
+     },
+     {
+      "igId": "1862",
+      "name": "Lohia Corp",
       "sme": false,
       "date": "2026-07-30",
       "lead": false,
-      "amtCr": 15.05,
-      "ret": 44.33
-     },
-     {
-      "igId": "1377",
-      "name": "Vikram Solar",
-      "sme": false,
-      "date": "2025-08-26",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 1.81
+      "amtCr": 7.33,
+      "ret": 8.47
      }
     ]
    },
@@ -247657,78 +248217,6 @@
       "lead": false,
       "amtCr": 15.0,
       "ret": 17.98
-     }
-    ]
-   },
-   {
-    "key": "GETFIVE OPPORTUNITY FUND I",
-    "name": "GETFIVE OPPORTUNITY FUND I",
-    "cr": 4.5,
-    "n": 2,
-    "main": null,
-    "sme": {
-     "n": 2,
-     "pos": 100.0,
-     "lo": 34.2,
-     "hi": 100.0,
-     "med": 14.3,
-     "p10": 10.6,
-     "p90": 18.1,
-     "close1": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 15.3,
-      "p10": 15.1,
-      "p90": 15.4
-     },
-     "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 15.8,
-      "p10": 3.2,
-      "p90": 28.5
-     },
-     "d30": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 17.9,
-      "p10": 7.3,
-      "p90": 28.5
-     },
-     "lead": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 9.6,
-      "p10": 9.6,
-      "p90": 9.6
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2088",
-      "name": "Sotefin Bharat",
-      "sme": true,
-      "date": "2026-07-23",
-      "lead": true,
-      "amtCr": 3.01,
-      "ret": 9.63
-     },
-     {
-      "igId": "2225",
-      "name": "Teamtech Formwork Solutions",
-      "sme": true,
-      "date": "2026-05-26",
-      "lead": false,
-      "amtCr": 1.5,
-      "ret": 19.05
      }
     ]
    },
@@ -251705,6 +252193,78 @@
       "lead": false,
       "amtCr": 30.59,
       "ret": 50.01
+     }
+    ]
+   },
+   {
+    "key": "MAGNUM EQUITY EX TOP 100 LONG SHORT FUND",
+    "name": "MAGNUM EQUITY EX-TOP 100 LONG-SHORT FUND",
+    "cr": 43.7,
+    "n": 2,
+    "main": {
+     "n": 2,
+     "pos": 100.0,
+     "lo": 34.2,
+     "hi": 100.0,
+     "med": 35.4,
+     "p10": 26.0,
+     "p90": 44.8,
+     "close1": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 80.5,
+      "p10": 80.5,
+      "p90": 80.5
+     },
+     "d5": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -1.9,
+      "p10": -1.9,
+      "p90": -1.9
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 35.4,
+      "p10": 26.0,
+      "p90": 44.8
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": true,
+      "amtCr": 26.22,
+      "ret": 23.62
+     },
+     {
+      "igId": "2076",
+      "name": "SS Retail",
+      "sme": false,
+      "date": "2026-09-23",
+      "lead": true,
+      "amtCr": 17.5,
+      "ret": 47.17
      }
     ]
    },
@@ -258669,6 +259229,78 @@
     ]
    },
    {
+    "key": "AXIS MAX LIFE INSURANCE SMART INNOVATION FUND",
+    "name": "AXIS MAX LIFE INSURANCE LTD.-SMART INNOVATION FUND",
+    "cr": 2.5,
+    "n": 2,
+    "main": {
+     "n": 2,
+     "pos": 50.0,
+     "lo": 9.5,
+     "hi": 90.5,
+     "med": 6.2,
+     "p10": -7.8,
+     "p90": 20.1,
+     "close1": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -10.9,
+      "p10": -10.9,
+      "p90": -10.9
+     },
+     "d5": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 9.8,
+      "p10": 9.8,
+      "p90": 9.8
+     },
+     "d30": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 11.4,
+      "p10": 11.4,
+      "p90": 11.4
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1902",
+      "name": "HD Fire Protect",
+      "sme": false,
+      "date": "2026-10-21",
+      "lead": false,
+      "amtCr": 1.5,
+      "ret": 23.62
+     },
+     {
+      "igId": "1885",
+      "name": "Turtlemint Fintech Solutions",
+      "sme": false,
+      "date": "2026-06-29",
+      "lead": false,
+      "amtCr": 0.99,
+      "ret": -11.25
+     }
+    ]
+   },
+   {
     "key": "SBI SMALL CAP FUND",
     "name": "SBI SMALL CAP FUND",
     "cr": 345.0,
@@ -258953,78 +259585,6 @@
       "lead": true,
       "amtCr": 2.0,
       "ret": 0.0
-     }
-    ]
-   },
-   {
-    "key": "AMUNDI FUNDS INDIA EQUITY CONTRA",
-    "name": "AMUNDI FUNDS INDIA EQUITY CONTRA",
-    "cr": 20.0,
-    "n": 2,
-    "main": {
-     "n": 2,
-     "pos": 50.0,
-     "lo": 9.5,
-     "hi": 90.5,
-     "med": 9.1,
-     "p10": 0.3,
-     "p90": 17.9,
-     "close1": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 4.3,
-      "p10": -7.8,
-      "p90": 16.5
-     },
-     "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.3,
-      "p10": -4.3,
-      "p90": -4.3
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "1917",
-      "name": "Elevate Campuses",
-      "sme": false,
-      "date": "2026-09-30",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": -1.91
-     },
-     {
-      "igId": "1556",
-      "name": "ICICI Prudential AMC",
-      "sme": false,
-      "date": "2025-12-19",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 20.09
      }
     ]
    },
@@ -264088,6 +264648,18 @@
     "side": "net seller",
     "netCr": -6.65,
     "d5": 35.2,
+    "d20": null,
+    "done": false
+   },
+   {
+    "client": "INNOVATIVE VISION FUND",
+    "key": "INNOVATIVE VISION FUND",
+    "stock": "Nityas Gems & Jewellery",
+    "sme": false,
+    "date": "2026-10-13",
+    "side": "net seller",
+    "netCr": -2.83,
+    "d5": -2.2,
     "d20": null,
     "done": false
    }
