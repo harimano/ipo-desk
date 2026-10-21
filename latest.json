@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-21T17:38:08+05:30",
+  "asOf": "2026-10-21T18:15:44+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "21 Oct 2026, 17:38 IST",
+  "label": "21 Oct 2026, 18:15 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -203,6 +203,26 @@
    ],
    "stage": "DRHP filed 30 Oct 2025",
    "window": null
+  },
+  {
+   "name": "Hunger Pangs",
+   "window": null,
+   "stage": "DRHP filed 21 Oct 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 21 Oct",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/oct-2026/hunger-pangs-limited-drhp_105347.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-10-21",
+    "title": "Hunger Pangs Limited - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/oct-2026/hunger-pangs-limited-drhp_105347.html"
+   }
   },
   {
    "name": "Paramotor Digital Technology",
@@ -844,26 +864,6 @@
     "date": "2026-10-01",
     "title": "Royal Chain Limited – Draft Abridged Prospectus",
     "url": "https://www.sebi.gov.in/filings/public-issues/oct-2026/royal-chain-limited-drhp_104015.html"
-   }
-  },
-  {
-   "name": "Jagatjit Agri Engineering",
-   "window": null,
-   "stage": "DRHP filed 1 Oct 2026",
-   "sizeCr": null,
-   "sizeText": "DRHP 1 Oct",
-   "note": null,
-   "parent": null,
-   "sources": [
-    "https://www.sebi.gov.in/filings/public-issues/oct-2026/jagatjit-agri-engineering-limited-drhp_104866.html"
-   ],
-   "auto": true,
-   "lastFiling": {
-    "register": "DRHP",
-    "kind": "Prospectus",
-    "date": "2026-10-01",
-    "title": "JAGATJIT AGRI ENGINEERING LIMITED - Draft Abridged Prospectus",
-    "url": "https://www.sebi.gov.in/filings/public-issues/oct-2026/jagatjit-agri-engineering-limited-drhp_104866.html"
    }
   }
  ],
@@ -1707,6 +1707,16 @@
    "shares": 1200,
    "price": 93.0,
    "listDate": "2026-10-30"
+  },
+  "SFC Environmental Technologies": {
+   "shares": 45,
+   "price": 330.0,
+   "listDate": "2026-11-03"
+  },
+  "EAAA India Alternatives": {
+   "shares": 9,
+   "price": 1665.0,
+   "listDate": "2026-11-02"
   }
  },
  "mainboard": [
@@ -1739,7 +1749,7 @@
    "shareholderQuota": null,
    "listingPrice": 335.0,
    "listingGainPct": 23.62,
-   "currentPrice": 305.75,
+   "currentPrice": 306.75,
    "sources": [
     "InvestorGain IPO list"
    ],
@@ -2350,9 +2360,9 @@
    "issueSizeCr": 5012.33,
    "freshCr": 2830.0,
    "ofsCr": 2182.33,
-   "gmp": 1.5,
-   "gmpPct": 0.99,
-   "gmpTrend": "up",
+   "gmp": 0.5,
+   "gmpPct": 0.33,
+   "gmpTrend": "down",
    "sub": {
     "qib": 4.71,
     "nii": 1.45,
@@ -2474,17 +2484,17 @@
    "issueSizeCr": 30213.0,
    "freshCr": 30213.0,
    "ofsCr": null,
-   "gmp": 255.0,
-   "gmpPct": 22.79,
-   "gmpTrend": "flat",
+   "gmp": 253.0,
+   "gmpPct": 22.61,
+   "gmpTrend": "down",
    "sub": {
-    "qib": 9.02,
-    "nii": 1.6,
-    "retail": 0.69,
-    "total": 3.02,
-    "employee": 1.31,
-    "shareholder": 1.39,
-    "asOf": "2026-10-21T17:33:00+05:30",
+    "qib": 9.04,
+    "nii": 1.63,
+    "retail": 0.71,
+    "total": 3.04,
+    "employee": 1.34,
+    "shareholder": 1.42,
+    "asOf": "2026-10-21T18:09:00+05:30",
     "src": "nse"
    },
    "shareholderQuota": null,
@@ -2499,11 +2509,11 @@
    "igId": "2306",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-21T17:38:04+05:30",
+   "igFetchedAt": "2026-10-21T18:14:13+05:30",
    "sector": "Telecom - Cellular & Fixed line services",
    "anchorShares": 72474066,
    "logo": "jio-platform-logo.png",
-   "gmpAsOf": "2026-10-21T14:02:00+05:30",
+   "gmpAsOf": "2026-10-21T16:02:00+05:30",
    "facts": {
     "sector": "Telecom - Cellular & Fixed line services",
     "listingAt": "BSE, NSE",
@@ -2548,50 +2558,50 @@
     "asOf": "2026-10-21T04:37:00+05:30"
    },
    "refund": "2026-10-27",
-   "gmpEve": 255.0,
-   "gmpEveAsOf": "2026-10-21T14:02:00+05:30",
+   "gmpEve": 253.0,
+   "gmpEveAsOf": "2026-10-21T16:02:00+05:30",
    "apps": {
     "qib": {
      "reserved": 49007828,
-     "received": 272,
+     "received": 296,
      "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 202470,
-     "received": 86124,
+     "received": 88584,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 134979,
-     "received": 19371,
+     "received": 20175,
      "reservedSrc": "rhp"
     },
     "snii": {
      "reserved": 67489,
-     "received": 66753,
+     "received": 68409,
      "reservedSrc": "rhp"
     },
     "retail": {
      "reserved": 7086443,
-     "received": 2221198,
+     "received": 2282960,
      "reservedSrc": "rhp"
     },
     "employee": {
      "reserved": 391236,
-     "received": 78714,
+     "received": 82425,
      "reservedSrc": "narada"
     },
     "shareholder": {
      "reserved": 1861781,
-     "received": 516286,
+     "received": 527365,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 58549759,
-     "received": 2902594,
+     "received": 2981630,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-21T17:38:07+05:30"
+    "asOf": "2026-10-21T18:14:16+05:30"
    }
   },
   {
@@ -2609,9 +2619,9 @@
    "issueSizeCr": 1450.0,
    "freshCr": 500.0,
    "ofsCr": 950.0,
-   "gmp": 45.0,
-   "gmpPct": 6.49,
-   "gmpTrend": "flat",
+   "gmp": 35.0,
+   "gmpPct": 5.05,
+   "gmpTrend": "down",
    "sub": {
     "qib": 0.0,
     "nii": 0.08,
@@ -2632,14 +2642,14 @@
    "igId": "1728",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-21T17:38:04+05:30",
+   "igFetchedAt": "2026-10-21T18:14:13+05:30",
    "refund": "2026-10-27",
    "sector": "Hospital",
-   "anchorShares": 0,
+   "anchorShares": 9415584,
    "logo": "paras-healthcare-logo.jpeg",
-   "gmpAsOf": "2026-10-21T14:02:00+05:30",
-   "gmpEve": 45.0,
-   "gmpEveAsOf": "2026-10-21T14:02:00+05:30",
+   "gmpAsOf": "2026-10-21T17:37:00+05:30",
+   "gmpEve": 35.0,
+   "gmpEveAsOf": "2026-10-21T17:37:00+05:30",
    "facts": {
     "sector": "Hospital",
     "listingAt": "BSE, NSE",
@@ -2679,7 +2689,7 @@
      "rhp": "https://www.sebi.gov.in/filings/public-issues/oct-2026/paras-healthcare-limited-rhp_105284.html",
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/parasanchorintimationletter712b481f-1fbd-41a4-b0f3-f5392a17afdf.pdf"
     },
-    "asOf": "2026-10-21T04:35:00+05:30"
+    "asOf": "2026-10-21T17:20:00+05:30"
    },
    "apps": {
     "qib": {
@@ -2712,7 +2722,7 @@
      "received": 50099,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-21T17:38:08+05:30"
+    "asOf": "2026-10-21T18:14:22+05:30"
    }
   },
   {
@@ -2870,9 +2880,9 @@
    "issueSizeCr": 667.53,
    "freshCr": 150.0,
    "ofsCr": 517.53,
-   "gmp": 0.0,
-   "gmpPct": 0.0,
-   "gmpTrend": "flat",
+   "gmp": 31.0,
+   "gmpPct": 9.39,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3738,9 +3748,9 @@
    "issueSizeCr": 59.97,
    "freshCr": 54.07,
    "ofsCr": null,
-   "gmp": 35.0,
-   "gmpPct": 19.55,
-   "gmpTrend": "up",
+   "gmp": 25.0,
+   "gmpPct": 13.97,
+   "gmpTrend": "down",
    "sub": {
     "qib": 41.92,
     "nii": 86.41,
@@ -17718,26 +17728,21 @@
  ],
  "flows": {
   "latest": {
-   "date": "2026-10-19",
-   "fiiNetCr": -1148.64,
-   "diiNetCr": 3201.19,
+   "date": "2026-10-21",
+   "fiiNetCr": 1022.32,
+   "diiNetCr": 1614.32,
    "previousDay": {
-    "date": "2026-10-16",
-    "fiiNetCr": 1165.92,
-    "diiNetCr": -3661.28
+    "date": "2026-10-19",
+    "fiiNetCr": -1148.64,
+    "diiNetCr": 3201.19
    },
    "source": "NSE provisional (fiidiiTradeReact)",
-   "fiiBuyCr": 11240.64,
-   "fiiSellCr": 12389.28,
-   "diiBuyCr": 14781.31,
-   "diiSellCr": 11580.12
+   "fiiBuyCr": 17003.9,
+   "fiiSellCr": 15981.58,
+   "diiBuyCr": 14931.57,
+   "diiSellCr": 13317.25
   },
   "history": [
-   [
-    "2026-08-10",
-    1974.8,
-    -1290.3
-   ],
    [
     "2026-08-11",
     258.55,
@@ -17932,6 +17937,11 @@
     "2026-10-19",
     -1148.64,
     3201.19
+   ],
+   [
+    "2026-10-21",
+    1022.32,
+    1614.32
    ]
   ],
   "monthly": [
@@ -36154,7 +36164,67 @@
  ],
  "news": [
   {
-   "title": "Jio IPO opens with a bang, issue gets fully booked as QIBs drive demand. Check GMP",
+   "title": "SFC Environmental Technologies IPO opens Oct 27, price band at ₹313-330",
+   "url": "https://www.business-standard.com/markets/news/sfc-environmental-technologies-ipo-opens-oct-27-price-band-at-313-330-126102100484_1.html",
+   "date": "2026-10-21T17:56:09+05:30"
+  },
+  {
+   "title": "Jane Street appeal: SAT reserves order on plea for additional Sebi records",
+   "url": "https://www.business-standard.com/markets/news/jane-street-appeal-sat-reserves-order-on-plea-for-additional-sebi-records-126102100972_1.html",
+   "date": "2026-10-21T17:24:17+05:30"
+  },
+  {
+   "title": "Jio Platforms' IPO-linked inflows boost rupee; elevated oil prices spur caution",
+   "url": "https://economictimes.indiatimes.com/markets/forex/forex-news/jio-platforms-ipo-linked-inflows-boost-rupee-elevated-oil-prices-spur-caution/articleshow/135089592.cms",
+   "date": "2026-10-21T16:07:48+05:30"
+  },
+  {
+   "title": "Jio IPO: Nithin Kamath explains how Jio played an important role in making what Zerodha is today",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-nithin-kamath-explains-how-jio-played-an-important-role-in-making-what-zerodha-is-today/articleshow/135086123.cms",
+   "date": "2026-10-21T13:35:07+05:30"
+  },
+  {
+   "title": "Carlsberg said to near public filing for $700 million India IPO",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/carlsberg-said-to-near-public-filing-for-700-million-india-ipo/articleshow/135086210.cms",
+   "date": "2026-10-21T13:32:27+05:30"
+  },
+  {
+   "title": "Rs 30,213 crore, 100 minutes, Rs 2.5 lakh crore: How Jio IPO broke 3 records even before listing",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/rs-30213-crore-100-minutes-rs-2-5-lakh-crore-how-jio-ipo-broke-3-records-even-before-listing/articleshow/135085644.cms",
+   "date": "2026-10-21T13:01:37+05:30"
+  },
+  {
+   "title": "Reliance Industries shares jump 3% as Jio’s Rs 30,213 crore IPO gets fully subscribed on Day 1. What lies ahead?",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/reliance-industries-shares-jump-3-as-jios-rs-30213-crore-ipo-gets-fully-subscribed-on-day-1-what-lies-ahead/articleshow/135085466.cms",
+   "date": "2026-10-21T12:58:48+05:30"
+  },
+  {
+   "title": "Bonfiglioli Transmissions IPO allotment today; GMP signals 23% listing gain. Here's how to check status",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/bonfiglioli-transmissions-ipo-allotment-today-gmp-signals-23-listing-gain-heres-how-to-check-status/articleshow/135085301.cms",
+   "date": "2026-10-21T12:54:03+05:30"
+  },
+  {
+   "title": "Paras Healthcare IPO: Occupancy, execution key monitorable, say analysts",
+   "url": "https://www.business-standard.com/markets/news/paras-healthcare-ipo-analysts-mixed-say-occupancy-execution-key-watch-126102100464_1.html",
+   "date": "2026-10-21T12:45:59+05:30"
+  },
+  {
+   "title": "EAAA India Alternatives fixes price band for Rs 1,200 IPO; issue opens on October 26",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/eaaa-india-alternatives-fixes-price-band-for-rs-1200-ipo-issue-opens-on-october-26/articleshow/135084124.cms",
+   "date": "2026-10-21T11:58:53+05:30"
+  },
+  {
+   "title": "AI-led IPOs may add up to $100 billion to India's market-cap: Goldman Sachs",
+   "url": "https://www.business-standard.com/markets/news/ai-led-ipos-may-add-up-to-100-billion-to-india-s-market-cap-goldman-sachs-126102100382_1.html",
+   "date": "2026-10-21T11:51:24+05:30"
+  },
+  {
+   "title": "Jio Platforms IPO fully subscribed in less than 100 minutes of opening",
+   "url": "https://www.business-standard.com/markets/ipo/jio-platforms-ipo-subscription-qib-retail-anchor-investor-126102100328_1.html",
+   "date": "2026-10-21T11:21:31+05:30"
+  },
+  {
+   "title": "Jio IPO Day 1: Issue subscribed 3 times on strong QIB push; retail portion booked 68%. Check GMP",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-opens-with-a-bang-issue-booked-over-90-as-qibs-drive-demand-check-gmp/articleshow/135082741.cms",
    "date": "2026-10-21T10:40:25+05:30"
   },
@@ -36217,66 +36287,6 @@
    "title": "EAAA India Alternatives to float Rs 1,200-cr IPO on Oct 26",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/eaaa-india-alternatives-to-float-rs-1200-cr-ipo-on-oct-26/articleshow/135064394.cms",
    "date": "2026-10-20T13:21:09+05:30"
-  },
-  {
-   "title": "Jio IPO all set to open: How can investors maximise allotment chances under Rs 2,500 crore RIL shareholders quota",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/jio-ipo-opens-tomorrow-how-can-investors-maximise-allotment-chances-under-rs-2500-crore-ril-shareholders-quota/articleshow/135064168.cms",
-   "date": "2026-10-20T13:05:56+05:30"
-  },
-  {
-   "title": "Tonbo Imaging’s Rs 852 crore IPO subscribed 140x. Check GMP, allotment, other details",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/tonbo-imagings-rs-852-crore-ipo-subscribed-140x-check-gmp-allotment-other-details/articleshow/135062276.cms",
-   "date": "2026-10-20T11:15:38+05:30"
-  },
-  {
-   "title": "Paras Healthcare secures Rs 652 cr from anchor investors; IPO to open on Oct 21",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/paras-healthcare-secures-rs-652-cr-from-anchor-investors-ipo-to-open-on-oct-21/articleshow/135061692.cms",
-   "date": "2026-10-20T10:28:38+05:30"
-  },
-  {
-   "title": "Jio IPO’s GMP rises to 22% as India’s largest ever issue set to open on October 21. Should you subscribe?",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipos-gmp-rises-to-22-as-indias-largest-ever-issue-set-to-open-on-october-21-should-you-subscribe/articleshow/135061297.cms",
-   "date": "2026-10-20T09:52:31+05:30"
-  },
-  {
-   "title": "Jio IPO vs Airtel shares: Which telecom giant offers greater valuation comfort to investors?",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-vs-airtel-shares-which-telecom-giant-offers-greater-valuation-comfort-to-investors/articleshow/135053174.cms",
-   "date": "2026-10-20T09:30:00+05:30"
-  },
-  {
-   "title": "Global Market: South Korea's Elice shares plunge 28% in market debut as data centre stocks shunned",
-   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-south-koreas-elice-shares-plunge-28-in-market-debut-as-data-centre-stocks-shunned/articleshow/135060541.cms",
-   "date": "2026-10-20T08:53:42+05:30"
-  },
-  {
-   "title": "Jio Platforms' IPO draws Rs 2.5 lakh crore in anchor bids",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-platforms-ipo-draws-rs-2-5-lakh-crore-in-anchor-bids/articleshow/135059075.cms",
-   "date": "2026-10-20T05:56:17+05:30"
-  },
-  {
-   "title": "Jio IPO anchor book sees over 30x demand, draws record bids worth ₹2.5 trn",
-   "url": "https://www.business-standard.com/markets/ipo/jio-ipo-anchor-book-sees-over-30x-demand-draws-record-bids-worth-2-5-trn-126101901316_1.html",
-   "date": "2026-10-19T23:54:36+05:30"
-  },
-  {
-   "title": "Jio IPO: LIC, BlackRock, Fidelity, GIC among 212 anchor investors to pour Rs 8,110 crore",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-lic-blackrock-fidelity-gic-among-212-anchor-investors-pour-rs-8110-crore/articleshow/135053762.cms",
-   "date": "2026-10-19T23:04:53+05:30"
-  },
-  {
-   "title": "Tonbo Imaging India IPO subscribed nearly 136 times, led by QIB demand",
-   "url": "https://www.business-standard.com/markets/news/tonbo-imaging-india-ipo-subscribed-nearly-136-times-led-by-qib-demand-126101901284_1.html",
-   "date": "2026-10-19T22:59:36+05:30"
-  },
-  {
-   "title": "Jio IPO draws Rs 2.5 lakh crore in anchor bids from over 70 investors",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-draws-rs-2-5-lakh-crore-in-anchor-bids-from-over-70-investors/articleshow/135047685.cms",
-   "date": "2026-10-19T16:59:33+05:30"
-  },
-  {
-   "title": "Jio Platforms' anchor book draws record ₹2.5 trillion in bids ahead of IPO",
-   "url": "https://www.business-standard.com/companies/news/jio-platforms-ipo-anchor-investor-quota-nearly-30-times-oversubscribed-126101900538_1.html",
-   "date": "2026-10-19T15:30:22+05:30"
   }
  ],
  "priceHistory": {
@@ -81404,34 +81414,160 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-21T17:38:08+05:30",
+  "asOf": "2026-10-21T18:15:44+05:30",
   "checks": [
+   {
+    "area": "calendar",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-21T18:14:12+05:30",
+    "elapsed": 1.71,
+    "calls": 5,
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=13 carried=2 +nse=4 +bse=0 exchange-only=0: 11 mainboard, 4 sme; 2 open, 4 upcoming"
+   },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.21,
+    "elapsed": 0.78,
     "calls": 1,
-    "note": "gmp: 11 board rows patched via investorgain; 6 active, 3 of them matched; gmp: 9 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹135, investorgain); EverestIMS Technologies (₹50, investorgain); Nityas Gems & Jewellery (₹1, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Shree TNB Polymers (₹4, investorgain); Sollfege Smart Electronics (₹10, investorgain); Vans Electroengineerings (₹103, investorgain) …"
+    "note": "gmp: 12 board rows patched via investorgain; 6 active, 4 of them matched; gmp: 9 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹135, investorgain); EverestIMS Technologies (₹50, investorgain); Nityas Gems & Jewellery (₹1, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Shree TNB Polymers (₹4, investorgain); Sollfege Smart Electronics (₹10, investorgain); Vans Electroengineerings (₹103, investorgain) …"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-21T17:38:04+05:30",
-    "elapsed": 0.58,
+    "asOf": "2026-10-21T18:14:13+05:30",
+    "elapsed": 1.33,
     "calls": 2,
-    "note": "2 records fetched for 15 identified listings (0 without an id); 0 anchor books updated, 87 on file"
+    "note": "2 records fetched for 15 identified listings (0 without an id); 1 anchor books updated, 87 on file"
    },
    {
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-10-21T17:38:08+05:30",
-    "elapsed": 2.84,
-    "calls": 5,
+    "asOf": "2026-10-21T18:14:22+05:30",
+    "elapsed": 6.84,
+    "calls": 4,
     "note": "2/2 rows patched via nse"
+   },
+   {
+    "area": "listings",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 16.14,
+    "calls": 0,
+    "note": "20 names priced, 0 moved to recent, 0 history points"
+   },
+   {
+    "area": "history",
+    "method": "investorgain-566:ok, investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 3.2,
+    "calls": 2,
+    "note": "1388 listings since 2022 (987 SME); fetched 2026: 285; QIB on file for 102 of 401 mainboard issues"
+   },
+   {
+    "area": "tape",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-10-19",
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "189 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file"
+   },
+   {
+    "area": "anchorbook",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "0 anchor books read (0 without an anchor table, 0 failed); 902 on file, 589 partial (feed gave only the first names); 0 of 1388 listings still to fetch"
+   },
+   {
+    "area": "evidence",
+    "method": "computed:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 0.17,
+    "calls": 0,
+    "note": "track records: 902 of 902 anchor books have an outcome; 834 of 1381 investors with 2+; 1388 listings; windows: mainboard 125, SME 234; 4 warnings"
+   },
+   {
+    "area": "players",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 33.47,
+    "calls": 54,
+    "note": "53 of 2839 anchor investors read (0 failed); names found for 5 of 13 unlisted issues"
+   },
+   {
+    "area": "parents",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 17.8,
+    "calls": 0,
+    "note": "5/5 parent prices; 41/47 investor stocks priced"
+   },
+   {
+    "area": "filings",
+    "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 8.3,
+    "calls": 14,
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1207 announcements scanned, 0 subsidiary-offer leads; expected: 42 names; 1 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 3 leads held; 0 rows patched, 33 kept previous stage"
+   },
+   {
+    "area": "offers",
+    "method": "bse:blocked, bse:blocked",
+    "status": "blocked",
+    "asOf": null,
+    "elapsed": 0.08,
+    "calls": 1,
+    "note": "kept previous — HTTP 403"
+   },
+   {
+    "area": "flows",
+    "method": "nse:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 0.3,
+    "calls": 1,
+    "note": "appended 2026-10-21; FII +1,022 / DII +1,614 Cr"
+   },
+   {
+    "area": "deals",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-10-19",
+    "elapsed": 1.1,
+    "calls": 4,
+    "note": "bulk.csv: 126 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 126; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 30 of today's 126 deals are in this year's listings (5 stocks); 1311 kept over 60 days; 189 of 285 listings have an NSE symbol; 220 with a BSE code"
+   },
+   {
+    "area": "news",
+    "method": "rss:ok",
+    "status": "ok",
+    "asOf": "2026-10-21T17:56:09+05:30",
+    "elapsed": 0.95,
+    "calls": 3,
+    "note": "business-standard: 8/35 primary-market items; economic-times: 11/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 19 fresh, 25 kept"
+   },
+   {
+    "area": "logos",
+    "method": "none:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "58 logos on file; none to fetch"
    },
    {
     "area": "research layer",
@@ -81443,7 +81579,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "4s, 8 calls, 3/3 modules ok"
+    "note": "93s, 91 calls, 16/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -83081,52 +83217,52 @@
   "prices": {
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1223.6,
+    "value": 1209.0,
     "asOf": "2026-10-21"
    },
    "Edelweiss Financial Services": {
     "symbol": "EDELWEISS",
-    "value": 126.85,
+    "value": 124.39,
     "asOf": "2026-10-21"
    },
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 408.05,
+    "value": 407.5,
     "asOf": "2026-10-21"
    },
    "Hero MotoCorp": {
     "symbol": "HEROMOTOCO",
-    "value": 5155.0,
+    "value": 5153.5,
     "asOf": "2026-10-21"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 104.3,
+    "value": 103.28,
     "asOf": "2026-10-21"
    },
    "Prestige Estates": {
     "symbol": "PRESTIGE",
-    "value": 1444.8,
+    "value": 1445.0,
     "asOf": "2026-10-21"
    },
    "SIS Limited": {
     "symbol": "SIS",
-    "value": 383.05,
+    "value": 380.15,
     "asOf": "2026-10-21"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 236.25,
+    "value": 238.65,
     "asOf": "2026-10-21"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 6411.0,
+    "value": 6340.0,
     "asOf": "2026-10-21"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 49.66,
+    "value": 49.08,
     "asOf": "2026-10-21"
    },
    "Tata Motors": {
@@ -83136,47 +83272,47 @@
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 391.55,
+    "value": 392.05,
     "asOf": "2026-10-21"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 71.75,
+    "value": 72.65,
     "asOf": "2026-10-21"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 225.25,
+    "value": 225.62,
     "asOf": "2026-10-21"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 708.65,
+    "value": 706.95,
     "asOf": "2026-10-21"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 437.95,
+    "value": 437.8,
     "asOf": "2026-10-21"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1215.6,
+    "value": 1210.0,
     "asOf": "2026-10-21"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1673.4,
+    "value": 1690.0,
     "asOf": "2026-10-21"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1225.6,
+    "value": 1235.2,
     "asOf": "2026-10-21"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 19.53,
+    "value": 19.71,
     "asOf": "2026-10-21"
    },
    "Gretex Corporate Services": {
@@ -83186,7 +83322,7 @@
    },
    "Asian Energy": {
     "symbol": "ASIANENE",
-    "value": 430.45,
+    "value": 426.15,
     "asOf": "2026-10-21"
    },
    "TechEra Engineering": {
@@ -83196,57 +83332,57 @@
    },
    "Beta Drugs": {
     "symbol": "BETA",
-    "value": 1645.0,
+    "value": 1664.7,
     "asOf": "2026-10-21"
    },
    "Fineotex Chemical": {
     "symbol": "FCL",
-    "value": 53.94,
+    "value": 52.73,
     "asOf": "2026-10-21"
    },
    "Walchandnagar Industries / Jain Resource Recycling": {
     "symbol": "WALCHANNAG",
-    "value": 203.48,
+    "value": 205.34,
     "asOf": "2026-10-21"
    },
    "Lux Industries": {
     "symbol": "LUXIND",
-    "value": 1110.0,
+    "value": 1102.8,
     "asOf": "2026-10-21"
    },
    "Intellect Design Arena": {
     "symbol": "INTELLECT",
-    "value": 636.0,
+    "value": 624.75,
     "asOf": "2026-10-21"
    },
    "Zaggle Prepaid": {
     "symbol": "ZAGGLE",
-    "value": 160.88,
+    "value": 159.56,
     "asOf": "2026-10-21"
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 95.18,
+    "value": 94.95,
     "asOf": "2026-10-21"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1205.6,
+    "value": 1208.4,
     "asOf": "2026-10-21"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 514.0,
+    "value": 512.85,
     "asOf": "2026-10-21"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 277.8,
+    "value": 277.6,
     "asOf": "2026-10-21"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 122.78,
+    "value": 121.63,
     "asOf": "2026-10-21"
    },
    "ESDS Software Solution": {
@@ -83256,42 +83392,42 @@
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1447.3,
+    "value": 1429.9,
     "asOf": "2026-10-21"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1356.5,
+    "value": 1322.6,
     "asOf": "2026-10-21"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 97.15,
+    "value": 96.67,
     "asOf": "2026-10-21"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 482.9,
+    "value": 478.8,
     "asOf": "2026-10-21"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 545.0,
+    "value": 529.6,
     "asOf": "2026-10-21"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1110.1,
+    "value": 1124.0,
     "asOf": "2026-10-21"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 453.9,
+    "value": 447.4,
     "asOf": "2026-10-21"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 519.0,
+    "value": 517.25,
     "asOf": "2026-10-21"
    },
    "Ashutosh Fibre (upcoming)": {
@@ -106839,7 +106975,7 @@
   {
    "name": "Paras Healthcare",
    "date": "2026-10-19",
-   "amountCr": null,
+   "amountCr": 652.5,
    "issueSizeCr": 1450.0,
    "count": null,
    "topTierShare": null,
@@ -106851,8 +106987,11 @@
    "auto": true,
    "lockIn30": "2026-11-25",
    "lockIn90": "2027-01-24",
-   "anchor": "bid 19 Oct · lock-in ends 25 Nov (half) and 24 Jan",
-   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+   "anchor": "₹652.50 Cr anchor book · bid 19 Oct · 45% of the issue · lock-in ends 25 Nov (half) and 24 Jan",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read.",
+   "anchorShares": 9415584,
+   "price": 693.0,
+   "amountBasis": "exchange-json"
   },
   {
    "name": "Sahajanand Medical Technologies",
@@ -113869,7 +114008,7 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1223.6,
+    "value": 1209.0,
     "asOf": "2026-10-21"
    },
    "parentTicker": "RELIANCE",
@@ -113922,7 +114061,7 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 126.85,
+    "value": 124.39,
     "asOf": "2026-10-21"
    },
    "parentTicker": "EDELWEISS",
@@ -114077,7 +114216,7 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 408.05,
+    "value": 407.5,
     "asOf": "2026-10-21"
    },
    "parentTicker": "COALINDIA",
@@ -114206,7 +114345,7 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5155.0,
+    "value": 5153.5,
     "asOf": "2026-10-21"
    },
    "parentTicker": "HEROMOTOCO",
@@ -114321,7 +114460,7 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 408.05,
+    "value": 407.5,
     "asOf": "2026-10-21"
    },
    "parentTicker": "COALINDIA",
@@ -115981,7 +116120,7 @@
   },
   "2306": {
    "name": "Jio Platforms",
-   "fetchedAt": "2026-10-21T17:38:04+05:30",
+   "fetchedAt": "2026-10-21T18:14:13+05:30",
    "about": [
     "Jio Platforms Limited is a leading digital technology company in India, operating primarily through its subsidiary, Reliance Jio Infocomm Limited. The company delivers a broad range of digital connectivity and technology-enabled services to consumers and enterprises across the country. As of March 31, 2026, it served more than 524 million customers through its extensive telecommunications and digital services ecosystem. The company has built an integrated, proprietary technology platform encompassing network infrastructure, software applications, operating systems, cloud capabilities, digital devices, and advanced technology solutions. Its consumer offerings include mobile and fixed broadband services, digital entertainment, gaming, cloud storage, smart home products, and AI-powered applications, supported by platforms such as MyJio, JioTV+, JioSaavn, JioGames, and JioAICloud. For enterprises, Jio Platforms provides connectivity solutions, cloud and IoT services, cybersecurity, managed services, unified communications, and private 5G networks, serving clients across sectors including banking, manufacturing, utilities, transportation, government, and information technology. As of March 31, 2026, the company and its subsidiaries employed 28,163 full-time personnel and maintained a portfolio of patent applications related to digital communications, cloud-native technologies, artificial intelligence, and other emerging innovations. Jio Platform Shareholder and Employee Reservation The company has reserved 46,94,835 shares for eligible employees and 2,23,41,376 shares for eligible shareholders. Shareholders who hold Reliance Jio Co.'s shares by record date, Oct 14, 2026, will be the eligible to apply under the shareholder quota."
    ],
@@ -116226,9 +116365,9 @@
    "gmpHistory": [
     {
      "date": "2026-10-21",
-     "gmp": 255.0,
-     "est": 1374.0,
-     "pct": 22.79,
+     "gmp": 253.0,
+     "est": 1372.0,
+     "pct": 22.61,
      "kostakSauda": "2300/34500"
     },
     {
@@ -116276,16 +116415,16 @@
    ],
    "bidding": [
     {
-     "asOf": "2026-10-21T14:11:00+05:30",
-     "qib": 6.72,
-     "nii": 0.82,
-     "bnii": 0.74,
-     "snii": 0.97,
-     "retail": 0.57,
-     "employee": 1.1,
-     "total": 2.21,
-     "bidCr": 48794.1,
-     "retailBidCr": 5401.82
+     "asOf": "2026-10-21T16:11:00+05:30",
+     "qib": 8.97,
+     "nii": 1.46,
+     "bnii": 1.59,
+     "snii": 1.21,
+     "retail": 0.67,
+     "employee": 1.25,
+     "total": 2.96,
+     "bidCr": 65411.44,
+     "retailBidCr": 6365.76
     }
    ],
    "company": {
@@ -118906,7 +119045,7 @@
   },
   "1728": {
    "name": "Paras Healthcare",
-   "fetchedAt": "2026-10-21T17:38:04+05:30",
+   "fetchedAt": "2026-10-21T18:14:13+05:30",
    "about": [
     "Paras Health is a multi-specialty healthcare services provider that operates a network of hospitals across North India, Bihar, and Jharkhand. The company delivers healthcare services through its hospitals, catering to patients across several cities and regions. As of March 31, 2024, Paras Health had a combined capacity of 2,135 beds, ranking as the fifth-largest healthcare provider by bed capacity among its peers in the regions where it operates. The company manages eight hospitals under the Paras Health brand. These facilities are situated in Gurugram and Panchkula in Haryana, Patna and Darbhanga in Bihar, Kanpur in Uttar Pradesh, Udaipur in Rajasthan, Ranchi in Jharkhand, and Srinagar in the Union Territory of Jammu and Kashmir. Paras Health has expanded its healthcare infrastructure significantly, increasing its total bed capacity from 1,250 beds in March 2022 to 2,135 beds by March 2024. As of March 31, 2024, its hospitals were supported by a medical workforce of 1,091 doctors and 1,509 nurses, enabling the delivery of healthcare services across its network."
    ],
@@ -119143,43 +119282,49 @@
     "rows": [
      [
       "QIB",
-      "62,77,056",
-      "54.55%",
+      "1,56,92,640",
+      "75.00%",
+      "NA"
+     ],
+     [
+      "Anchor Investor",
+      "94,15,584",
+      "45.00%",
       "NA"
      ],
      [
       "QIB (Ex. Anchor)",
       "62,77,056",
-      "54.55%",
+      "30.00%",
       "NA"
      ],
      [
       "NII (HNI)",
       "31,38,528",
-      "27.27%",
+      "15.00%",
       "NA"
      ],
      [
       "bNII > ₹10L",
       "20,92,352",
-      "18.18%",
+      "10.00%",
       "7,116"
      ],
      [
       "sNII < ₹10L",
       "10,46,176",
-      "9.09%",
+      "5.00%",
       "3,558"
      ],
      [
       "Retail",
       "20,92,352",
-      "18.18%",
+      "10.00%",
       "99,635"
      ],
      [
       "Total",
-      "1,15,07,936",
+      "2,09,23,520",
       "100.00%",
       ""
      ]
@@ -119214,10 +119359,10 @@
    "gmpHistory": [
     {
      "date": "2026-10-21",
-     "gmp": 45.0,
-     "est": 738.0,
-     "pct": 6.49,
-     "kostakSauda": "700/9800"
+     "gmp": 35.0,
+     "est": 728.0,
+     "pct": 5.05,
+     "kostakSauda": "600/8400"
     },
     {
      "date": "2026-10-20",
@@ -119264,15 +119409,15 @@
    ],
    "bidding": [
     {
-     "asOf": "2026-10-21T14:11:00+05:30",
+     "asOf": "2026-10-21T17:09:00+05:30",
      "qib": 0.0,
-     "nii": 0.05,
-     "bnii": 0.03,
-     "snii": 0.1,
-     "retail": 0.57,
-     "total": 0.12,
-     "bidCr": 95.18,
-     "retailBidCr": 83.24
+     "nii": 0.08,
+     "bnii": 0.05,
+     "snii": 0.14,
+     "retail": 0.73,
+     "total": 0.15,
+     "bidCr": 123.59,
+     "retailBidCr": 105.89
     }
    ],
    "company": {
@@ -121259,7 +121404,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-21T11:29:46+05:30",
+  "asOf": "2026-10-21T18:14:41+05:30",
   "dates": [
    "2026-01-19",
    "2026-01-20",
