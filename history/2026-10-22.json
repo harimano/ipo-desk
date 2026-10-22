@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-22T17:38:18+05:30",
+  "asOf": "2026-10-22T18:15:51+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "22 Oct 2026, 17:38 IST",
+  "label": "22 Oct 2026, 18:15 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -1717,6 +1717,11 @@
    "shares": 9,
    "price": 1665.0,
    "listDate": "2026-11-02"
+  },
+  "Wiscon Industries": {
+   "shares": 600,
+   "price": 204.0,
+   "listDate": "2026-11-03"
   }
  },
  "mainboard": [
@@ -1747,9 +1752,9 @@
     "employee": 23.61
    },
    "shareholderQuota": null,
-   "listingPrice": 297.9,
-   "listingGainPct": 9.93,
-   "currentPrice": 294.55,
+   "listingPrice": 335.0,
+   "listingGainPct": 23.62,
+   "currentPrice": 276.7,
    "sources": [
     "InvestorGain IPO list"
    ],
@@ -1876,7 +1881,7 @@
    "shareholderQuota": null,
    "listingPrice": 305.0,
    "listingGainPct": 5.54,
-   "currentPrice": 299.95,
+   "currentPrice": 289.65,
    "sources": [
     "InvestorGain IPO list"
    ],
@@ -2241,9 +2246,9 @@
    "issueSizeCr": 852.18,
    "freshCr": null,
    "ofsCr": 852.18,
-   "gmp": 445.0,
-   "gmpPct": 63.57,
-   "gmpTrend": "flat",
+   "gmp": 441.0,
+   "gmpPct": 63.0,
+   "gmpTrend": "down",
    "sub": {
     "qib": 293.56,
     "nii": 156.36,
@@ -2489,17 +2494,17 @@
    "issueSizeCr": 30213.0,
    "freshCr": 30213.0,
    "ofsCr": null,
-   "gmp": 244.0,
-   "gmpPct": 21.81,
-   "gmpTrend": "flat",
+   "gmp": 240.0,
+   "gmpPct": 21.45,
+   "gmpTrend": "down",
    "sub": {
-    "qib": 12.45,
-    "nii": 5.59,
-    "retail": 1.5,
-    "total": 5.25,
-    "employee": 2.04,
-    "shareholder": 3.89,
-    "asOf": "2026-10-22T17:33:00+05:30",
+    "qib": 13.14,
+    "nii": 5.71,
+    "retail": 1.52,
+    "total": 5.46,
+    "employee": 2.06,
+    "shareholder": 3.94,
+    "asOf": "2026-10-22T18:09:00+05:30",
     "src": "nse"
    },
    "shareholderQuota": null,
@@ -2514,11 +2519,11 @@
    "igId": "2306",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-22T17:38:09+05:30",
+   "igFetchedAt": "2026-10-22T18:14:17+05:30",
    "sector": "Telecom - Cellular & Fixed line services",
    "anchorShares": 72474066,
    "logo": "jio-platform-logo.png",
-   "gmpAsOf": "2026-10-22T15:37:00+05:30",
+   "gmpAsOf": "2026-10-22T17:37:00+05:30",
    "facts": {
     "sector": "Telecom - Cellular & Fixed line services",
     "listingAt": "BSE, NSE",
@@ -2563,50 +2568,50 @@
     "asOf": "2026-10-21T18:10:00+05:30"
    },
    "refund": "2026-10-27",
-   "gmpEve": 244.0,
-   "gmpEveAsOf": "2026-10-22T15:37:00+05:30",
+   "gmpEve": 240.0,
+   "gmpEveAsOf": "2026-10-22T17:37:00+05:30",
    "apps": {
     "qib": {
      "reserved": 49007828,
-     "received": 2753,
+     "received": 1352,
      "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 202470,
-     "received": 363395,
+     "received": 369890,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 134979,
-     "received": 127253,
+     "received": 129981,
      "reservedSrc": "rhp"
     },
     "snii": {
      "reserved": 67489,
-     "received": 236142,
+     "received": 239909,
      "reservedSrc": "rhp"
     },
     "retail": {
      "reserved": 7086443,
-     "received": 5297318,
+     "received": 5364013,
      "reservedSrc": "rhp"
     },
     "employee": {
      "reserved": 391236,
-     "received": 139440,
+     "received": 141853,
      "reservedSrc": "narada"
     },
     "shareholder": {
      "reserved": 1861781,
-     "received": 1197944,
+     "received": 1210711,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 58549759,
-     "received": 7000850,
+     "received": 7087819,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-22T17:38:16+05:30"
+    "asOf": "2026-10-22T18:14:23+05:30"
    }
   },
   {
@@ -2624,9 +2629,9 @@
    "issueSizeCr": 1450.0,
    "freshCr": 500.0,
    "ofsCr": 950.0,
-   "gmp": 13.0,
-   "gmpPct": 1.88,
-   "gmpTrend": "flat",
+   "gmp": 10.0,
+   "gmpPct": 1.44,
+   "gmpTrend": "down",
    "sub": {
     "qib": 0.06,
     "nii": 0.25,
@@ -2647,14 +2652,14 @@
    "igId": "1728",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-22T17:38:09+05:30",
+   "igFetchedAt": "2026-10-22T18:14:17+05:30",
    "refund": "2026-10-27",
    "sector": "Hospital",
    "anchorShares": 9415584,
    "logo": "paras-healthcare-logo.jpeg",
-   "gmpAsOf": "2026-10-22T15:37:00+05:30",
-   "gmpEve": 13.0,
-   "gmpEveAsOf": "2026-10-22T15:37:00+05:30",
+   "gmpAsOf": "2026-10-22T17:37:00+05:30",
+   "gmpEve": 10.0,
+   "gmpEveAsOf": "2026-10-22T17:37:00+05:30",
    "facts": {
     "sector": "Hospital",
     "listingAt": "BSE, NSE",
@@ -2727,7 +2732,7 @@
      "received": 96619,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-22T17:38:18+05:30"
+    "asOf": "2026-10-22T18:14:24+05:30"
    }
   },
   {
@@ -2742,7 +2747,7 @@
    "bandLow": 1585.0,
    "bandHigh": 1665.0,
    "lotSize": 9,
-   "issueSizeCr": 1200.0,
+   "issueSizeCr": 1260.57,
    "freshCr": null,
    "ofsCr": 1200.0,
    "gmp": 0.0,
@@ -2756,8 +2761,8 @@
    "sources": [
     "InvestorGain IPO list"
    ],
-   "symbol": null,
-   "series": null,
+   "symbol": "EDELALTS",
+   "series": "EQ",
    "igId": "1635",
    "bseIpoNo": null,
    "bseScripCode": null,
@@ -2815,9 +2820,9 @@
    "issueSizeCr": 255.0,
    "freshCr": 255.0,
    "ofsCr": null,
-   "gmp": 29.0,
-   "gmpPct": 19.33,
-   "gmpTrend": "flat",
+   "gmp": 30.0,
+   "gmpPct": 20.0,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2826,8 +2831,8 @@
    "sources": [
     "InvestorGain IPO list"
    ],
-   "symbol": null,
-   "series": null,
+   "symbol": "BLSPOLY",
+   "series": "EQ",
    "igId": "1849",
    "bseIpoNo": null,
    "bseScripCode": null,
@@ -2896,8 +2901,8 @@
    "sources": [
     "InvestorGain IPO list"
    ],
-   "symbol": null,
-   "series": null,
+   "symbol": "SFCTECH",
+   "series": "EQ",
    "igId": "1642",
    "bseIpoNo": null,
    "bseScripCode": null,
@@ -2940,6 +2945,67 @@
    "gmpAsOf": "2026-10-22T12:37:00+05:30",
    "gmpEve": 31.0,
    "gmpEveAsOf": "2026-10-22T12:37:00+05:30"
+  },
+  {
+   "name": "Bombay Coated and Special Steels",
+   "slug": "bombay-coated-and-special-steels",
+   "type": "Mainboard",
+   "status": "Upcoming",
+   "open": "2026-10-29",
+   "close": "2026-11-02",
+   "allotment": "2026-11-03",
+   "listing": "2026-11-05",
+   "bandLow": null,
+   "bandHigh": null,
+   "lotSize": null,
+   "issueSizeCr": 183.06,
+   "freshCr": 183.06,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "1936",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-10-22T18:14:17+05:30",
+   "refund": "2026-11-04",
+   "sector": "Iron & Steel Products",
+   "anchorShares": 0,
+   "logo": "bombay-coated-special-steels-logo.png",
+   "facts": {
+    "sector": "Iron & Steel Products",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-06-30",
+     "roe": 11.65,
+     "roce": 7.01,
+     "debtEquity": 2.0,
+     "ronw": 11.03,
+     "patMargin": 3.8,
+     "ebitdaMargin": 8.1,
+     "eps": 7.54,
+     "promoterPre": 97.78
+    },
+    "registrar": "Kfin Technologies Ltd.",
+    "leadManagers": [
+     "Smart Horizon Capital Advisors Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://nsearchives.nseindia.com/corporate/aartic_29012026120040_DRHPBombayCoated.pdf",
+     "rhp": "https://www.chittorgarh.net/reports/ipo_notes/bombay-coated-special-steels-ltd-rhp.pdf"
+    },
+    "asOf": "2026-10-22T11:31:00+05:30"
+   }
   }
  ],
  "offers": {
@@ -3246,10 +3312,10 @@
    "type": "Mainboard",
    "listingDate": "2026-10-21",
    "issuePrice": 271.0,
-   "listingPrice": 297.9,
-   "gainPct": 9.93,
-   "closeDay1": 294.55,
-   "closeDay1GainPct": 8.69,
+   "listingPrice": 335.0,
+   "gainPct": 23.62,
+   "closeDay1": 306.75,
+   "closeDay1GainPct": 13.19,
    "sources": [
     "InvestorGain IPO list"
    ],
@@ -3724,9 +3790,9 @@
    "issueSizeCr": 59.97,
    "freshCr": 54.07,
    "ofsCr": null,
-   "gmp": 5.0,
-   "gmpPct": 2.79,
-   "gmpTrend": "flat",
+   "gmp": 7.0,
+   "gmpPct": 3.91,
+   "gmpTrend": "up",
    "sub": {
     "qib": 41.92,
     "nii": 86.41,
@@ -3957,6 +4023,69 @@
    "gmpAsOf": "2026-10-22T15:28:00+05:30",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-10-22T15:28:00+05:30"
+  },
+  {
+   "name": "Carver Roboweld",
+   "slug": "carver-roboweld",
+   "type": "BSE SME",
+   "status": "Upcoming",
+   "open": "2026-10-28",
+   "close": "2026-10-30",
+   "allotment": "2026-11-02",
+   "listing": "2026-11-04",
+   "bandLow": null,
+   "bandHigh": null,
+   "lotSize": null,
+   "issueSizeCr": 0.34,
+   "freshCr": null,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "2393",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-10-22T18:14:17+05:30",
+   "refund": "2026-11-02",
+   "sector": "Industrial Products",
+   "anchorShares": 996800,
+   "logo": "carver-roboweld-ltd-logo.png",
+   "facts": {
+    "sector": "Industrial Products",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 33.63,
+     "roce": 21.64,
+     "debtEquity": 0.97,
+     "ronw": 21.57,
+     "patMargin": 12.87,
+     "ebitdaMargin": 30.94,
+     "eps": 3.64,
+     "epsPost": 2.65,
+     "promoterPre": 90.07,
+     "promoterPost": 0.0
+    },
+    "registrar": "Bigshare Services Pvt.Ltd.",
+    "leadManagers": [
+     "Smart Horizon Capital Advisors Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/398782/SME_IPO%20InPrinciple/DRHP_Carver_20260825235407.pdf",
+     "rhp": "https://www.chittorgarh.net/reports/ipo_notes/rhp_carver.pdf"
+    },
+    "asOf": "2026-10-22T11:35:00+05:30"
+   }
   }
  ],
  "comps": [
@@ -17801,26 +17930,21 @@
  ],
  "flows": {
   "latest": {
-   "date": "2026-10-21",
-   "fiiNetCr": 1022.32,
-   "diiNetCr": 1614.32,
+   "date": "2026-10-22",
+   "fiiNetCr": -3458.7,
+   "diiNetCr": 2891.32,
    "previousDay": {
-    "date": "2026-10-19",
-    "fiiNetCr": -1148.64,
-    "diiNetCr": 3201.19
+    "date": "2026-10-21",
+    "fiiNetCr": 1022.32,
+    "diiNetCr": 1614.32
    },
    "source": "NSE provisional (fiidiiTradeReact)",
-   "fiiBuyCr": 17003.9,
-   "fiiSellCr": 15981.58,
-   "diiBuyCr": 14931.57,
-   "diiSellCr": 13317.25
+   "fiiBuyCr": 13627.54,
+   "fiiSellCr": 17086.24,
+   "diiBuyCr": 16242.83,
+   "diiSellCr": 13351.51
   },
   "history": [
-   [
-    "2026-08-11",
-    258.55,
-    800
-   ],
    [
     "2026-08-13",
     -510.69,
@@ -18015,6 +18139,11 @@
     "2026-10-21",
     1022.32,
     1614.32
+   ],
+   [
+    "2026-10-22",
+    -3458.7,
+    2891.32
    ]
   ],
   "monthly": [
@@ -36267,6 +36396,31 @@
  ],
  "news": [
   {
+   "title": "Nippon Life India AMC gets Sebi nod to settle Yes Bank AT-1 bond case",
+   "url": "https://www.business-standard.com/markets/news/nippon-life-india-amc-gets-sebi-nod-to-settle-yes-bank-at-1-bond-case-126102201003_1.html",
+   "date": "2026-10-22T16:41:45+05:30"
+  },
+  {
+   "title": "Jio leverage play pops up at SBI as India brokers lure IPO bets",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-leverage-play-pops-up-at-sbi-as-india-brokers-lure-ipo-bets/articleshow/135114335.cms",
+   "date": "2026-10-22T14:51:01+05:30"
+  },
+  {
+   "title": "RIL stock: Jio's listing could unlock value, but will it drive a re-rating?",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/ril-stock-jios-listing-could-unlock-value-but-will-it-drive-a-re-rating/articleshow/135113747.cms",
+   "date": "2026-10-22T14:38:51+05:30"
+  },
+  {
+   "title": "Swiggy slips 26% in 1 month, hits record low; stock down 46% from IPO price",
+   "url": "https://www.business-standard.com/markets/news/swiggy-slips-26-in-1-month-hits-record-low-stock-down-46-from-ipo-price-126102200468_1.html",
+   "date": "2026-10-22T12:29:48+05:30"
+  },
+  {
+   "title": "Jio Platforms IPO: Retail quota full, subscribed 3.47 times on day two",
+   "url": "https://www.business-standard.com/markets/ipo/retail-investors-fully-subscribe-ambani-s-jio-ipo-on-second-day-126102200394_1.html",
+   "date": "2026-10-22T12:12:14+05:30"
+  },
+  {
    "title": "Paras Healthcare IPO Day 2: GMP at 4%; check subscription status and key details",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/paras-healthcare-ipo-day-2-gmp-at-4-check-subscription-status-and-key-details/articleshow/135108249.cms",
    "date": "2026-10-22T10:46:11+05:30"
@@ -36365,31 +36519,6 @@
    "title": "EAAA India Alternatives fixes price band for Rs 1,200 IPO; issue opens on October 26",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/eaaa-india-alternatives-fixes-price-band-for-rs-1200-ipo-issue-opens-on-october-26/articleshow/135084124.cms",
    "date": "2026-10-21T11:58:53+05:30"
-  },
-  {
-   "title": "AI-led IPOs may add up to $100 billion to India's market-cap: Goldman Sachs",
-   "url": "https://www.business-standard.com/markets/news/ai-led-ipos-may-add-up-to-100-billion-to-india-s-market-cap-goldman-sachs-126102100382_1.html",
-   "date": "2026-10-21T11:51:24+05:30"
-  },
-  {
-   "title": "Jio Platforms IPO fully subscribed in 100 mins; booked 3.16x on Day 1",
-   "url": "https://www.business-standard.com/markets/ipo/jio-platforms-ipo-subscription-qib-retail-anchor-investor-126102100328_1.html",
-   "date": "2026-10-21T11:21:42+05:30"
-  },
-  {
-   "title": "Jio IPO Day 1: Issue subscribed 3 times on strong QIB push; retail portion booked 68%. Check GMP",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-opens-with-a-bang-issue-booked-over-90-as-qibs-drive-demand-check-gmp/articleshow/135082741.cms",
-   "date": "2026-10-21T10:40:25+05:30"
-  },
-  {
-   "title": "HD Fire Protect lists at 24% premium over IPO price after 132x subscription",
-   "url": "https://www.business-standard.com/markets/news/hd-fire-protect-lists-at-24-premium-over-ipo-price-after-132x-subscription-126102100213_1.html",
-   "date": "2026-10-21T10:01:00+05:30"
-  },
-  {
-   "title": "Jio IPO or RIL shares? Where should investors bet as Ambani's Rs 30,213 crore issue opens",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-or-ril-shares-where-should-investors-bet-as-ambanis-rs-30213-crore-issue-opens/articleshow/135081917.cms",
-   "date": "2026-10-21T09:48:06+05:30"
   }
  ],
  "priceHistory": {
@@ -82001,34 +82130,160 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-22T17:38:18+05:30",
+  "asOf": "2026-10-22T18:15:51+05:30",
   "checks": [
+   {
+    "area": "calendar",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-22T18:14:15+05:30",
+    "elapsed": 2.21,
+    "calls": 5,
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=14 carried=4 +nse=7 +bse=0 exchange-only=0: 12 mainboard, 6 sme; 2 open, 7 upcoming"
+   },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.24,
+    "elapsed": 1.95,
     "calls": 1,
-    "note": "gmp: 11 board rows patched via investorgain; 7 active, 4 of them matched; gmp: 7 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹77, investorgain); EverestIMS Technologies (₹50, investorgain); Nityas Gems & Jewellery (₹1, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Shree TNB Polymers (₹4, investorgain); Vishal Nirmiti (₹2, investorgain)"
+    "note": "gmp: 11 board rows patched via investorgain; 7 active, 4 of them matched; gmp: 7 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹75, investorgain); EverestIMS Technologies (₹50, investorgain); Nityas Gems & Jewellery (₹1, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Shree TNB Polymers (₹4, investorgain); Vishal Nirmiti (₹2, investorgain)"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-22T17:38:09+05:30",
-    "elapsed": 0.85,
-    "calls": 3,
-    "note": "3 records fetched for 16 identified listings (0 without an id); 0 anchor books updated, 88 on file"
+    "asOf": "2026-10-22T18:14:17+05:30",
+    "elapsed": 4.6,
+    "calls": 4,
+    "note": "4 records fetched for 18 identified listings (0 without an id); 2 anchor books updated, 90 on file"
    },
    {
     "area": "subscription",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-10-22T17:38:18+05:30",
-    "elapsed": 7.46,
-    "calls": 5,
+    "asOf": "2026-10-22T18:14:24+05:30",
+    "elapsed": 2.31,
+    "calls": 4,
     "note": "2/2 rows patched via nse"
+   },
+   {
+    "area": "listings",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-10-22",
+    "elapsed": 15.28,
+    "calls": 0,
+    "note": "19 names priced, 1 moved to recent, 0 history points"
+   },
+   {
+    "area": "history",
+    "method": "investorgain-566:ok, investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-22",
+    "elapsed": 3.52,
+    "calls": 2,
+    "note": "1390 listings since 2022 (988 SME); fetched 2026: 287; QIB on file for 103 of 402 mainboard issues"
+   },
+   {
+    "area": "tape",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "191 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 186 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 186 days on file"
+   },
+   {
+    "area": "anchorbook",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-22",
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "0 anchor books read (0 without an anchor table, 0 failed); 904 on file, 589 partial (feed gave only the first names); 0 of 1390 listings still to fetch"
+   },
+   {
+    "area": "evidence",
+    "method": "computed:ok",
+    "status": "ok",
+    "asOf": "2026-10-22",
+    "elapsed": 0.21,
+    "calls": 0,
+    "note": "track records: 904 of 904 anchor books have an outcome; 836 of 1382 investors with 2+; 1390 listings; windows: mainboard 126, SME 235; 4 warnings"
+   },
+   {
+    "area": "players",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-22",
+    "elapsed": 40.58,
+    "calls": 54,
+    "note": "53 of 2839 anchor investors read (0 failed); names found for 4 of 14 unlisted issues"
+   },
+   {
+    "area": "parents",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-10-22",
+    "elapsed": 16.28,
+    "calls": 0,
+    "note": "5/5 parent prices; 41/47 investor stocks priced"
+   },
+   {
+    "area": "filings",
+    "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
+    "status": "ok",
+    "asOf": "2026-10-22",
+    "elapsed": 7.13,
+    "calls": 14,
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1472 announcements scanned, 0 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 3 leads held; 0 rows patched, 33 kept previous stage"
+   },
+   {
+    "area": "offers",
+    "method": "bse:blocked, bse:blocked",
+    "status": "blocked",
+    "asOf": null,
+    "elapsed": 0.03,
+    "calls": 1,
+    "note": "kept previous — HTTP 403"
+   },
+   {
+    "area": "flows",
+    "method": "nse:ok",
+    "status": "ok",
+    "asOf": "2026-10-22",
+    "elapsed": 0.25,
+    "calls": 1,
+    "note": "appended 2026-10-22; FII -3,459 / DII +2,891 Cr"
+   },
+   {
+    "area": "deals",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-10-21",
+    "elapsed": 1.13,
+    "calls": 4,
+    "note": "bulk.csv: 134 deals; block.csv: 10 deals; 0 tracked-investor deals of 144; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 37 of today's 144 deals are in this year's listings (13 stocks); 1348 kept over 60 days; 191 of 287 listings have an NSE symbol; 221 with a BSE code"
+   },
+   {
+    "area": "news",
+    "method": "rss:ok",
+    "status": "ok",
+    "asOf": "2026-10-22T16:41:45+05:30",
+    "elapsed": 1.31,
+    "calls": 3,
+    "note": "business-standard: 4/35 primary-market items; economic-times: 3/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 7 fresh, 25 kept"
+   },
+   {
+    "area": "logos",
+    "method": "chittorgarh.net:ok",
+    "status": "ok",
+    "asOf": "2026-10-22",
+    "elapsed": 0.46,
+    "calls": 2,
+    "note": "2 logos made, 0 missing, 0 errors; 0 left; 61 on file"
    },
    {
     "area": "research layer",
@@ -82040,7 +82295,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "9s, 9 calls, 3/3 modules ok"
+    "note": "98s, 95 calls, 16/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -83678,52 +83933,52 @@
   "prices": {
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1195.8,
+    "value": 1184.5,
     "asOf": "2026-10-22"
    },
    "Edelweiss Financial Services": {
     "symbol": "EDELWEISS",
-    "value": 120.72,
+    "value": 119.77,
     "asOf": "2026-10-22"
    },
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 398.5,
+    "value": 402.55,
     "asOf": "2026-10-22"
    },
    "Hero MotoCorp": {
     "symbol": "HEROMOTOCO",
-    "value": 5213.5,
+    "value": 5128.0,
     "asOf": "2026-10-22"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 103.55,
+    "value": 104.0,
     "asOf": "2026-10-22"
    },
    "Prestige Estates": {
     "symbol": "PRESTIGE",
-    "value": 1428.8,
+    "value": 1430.0,
     "asOf": "2026-10-22"
    },
    "SIS Limited": {
     "symbol": "SIS",
-    "value": 381.7,
+    "value": 379.85,
     "asOf": "2026-10-22"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 233.75,
+    "value": 233.55,
     "asOf": "2026-10-22"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 6363.0,
+    "value": 6180.0,
     "asOf": "2026-10-22"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 48.75,
+    "value": 48.25,
     "asOf": "2026-10-22"
    },
    "Tata Motors": {
@@ -83733,57 +83988,57 @@
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 388.85,
+    "value": 387.5,
     "asOf": "2026-10-22"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 72.23,
+    "value": 72.38,
     "asOf": "2026-10-22"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 225.63,
+    "value": 225.0,
     "asOf": "2026-10-22"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 697.35,
+    "value": 694.05,
     "asOf": "2026-10-22"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 436.75,
+    "value": 437.0,
     "asOf": "2026-10-22"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1208.3,
+    "value": 1212.0,
     "asOf": "2026-10-22"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1684.0,
+    "value": 1678.0,
     "asOf": "2026-10-22"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1223.7,
+    "value": 1217.5,
     "asOf": "2026-10-22"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 19.07,
+    "value": 18.97,
     "asOf": "2026-10-22"
    },
    "Gretex Corporate Services": {
     "symbol": "GRETEX",
     "value": 214.0,
-    "asOf": "2026-10-19"
+    "asOf": "2026-10-21"
    },
    "Asian Energy": {
     "symbol": "ASIANENE",
-    "value": 420.0,
+    "value": 402.05,
     "asOf": "2026-10-22"
    },
    "TechEra Engineering": {
@@ -83793,57 +84048,57 @@
    },
    "Beta Drugs": {
     "symbol": "BETA",
-    "value": 1827.8,
+    "value": 1971.0,
     "asOf": "2026-10-22"
    },
    "Fineotex Chemical": {
     "symbol": "FCL",
-    "value": 52.8,
+    "value": 51.55,
     "asOf": "2026-10-22"
    },
    "Walchandnagar Industries / Jain Resource Recycling": {
     "symbol": "WALCHANNAG",
-    "value": 204.09,
+    "value": 199.47,
     "asOf": "2026-10-22"
    },
    "Lux Industries": {
     "symbol": "LUXIND",
-    "value": 1078.0,
+    "value": 1069.9,
     "asOf": "2026-10-22"
    },
    "Intellect Design Arena": {
     "symbol": "INTELLECT",
-    "value": 616.0,
+    "value": 605.85,
     "asOf": "2026-10-22"
    },
    "Zaggle Prepaid": {
     "symbol": "ZAGGLE",
-    "value": 158.14,
+    "value": 156.81,
     "asOf": "2026-10-22"
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 94.51,
+    "value": 93.83,
     "asOf": "2026-10-22"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1200.4,
+    "value": 1197.5,
     "asOf": "2026-10-22"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 514.25,
+    "value": 506.2,
     "asOf": "2026-10-22"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 282.95,
+    "value": 272.85,
     "asOf": "2026-10-22"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 123.48,
+    "value": 121.85,
     "asOf": "2026-10-22"
    },
    "ESDS Software Solution": {
@@ -83853,42 +84108,42 @@
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1406.0,
+    "value": 1401.4,
     "asOf": "2026-10-22"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1284.0,
+    "value": 1259.7,
     "asOf": "2026-10-22"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 95.83,
+    "value": 94.25,
     "asOf": "2026-10-22"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 471.55,
+    "value": 471.7,
     "asOf": "2026-10-22"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 524.3,
+    "value": 522.7,
     "asOf": "2026-10-22"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1123.5,
+    "value": 1096.9,
     "asOf": "2026-10-22"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 455.45,
+    "value": 450.95,
     "asOf": "2026-10-22"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 506.1,
+    "value": 516.8,
     "asOf": "2026-10-22"
    },
    "Ashutosh Fibre (upcoming)": {
@@ -107986,6 +108241,40 @@
  },
  "anchors": [
   {
+   "name": "Bombay Coated and Special Steels",
+   "date": "2026-10-28",
+   "amountCr": null,
+   "issueSizeCr": 183.06,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-12-03",
+   "lockIn90": "2027-02-01",
+   "anchor": "bid 28 Oct · lock-in ends 3 Dec (half) and 1 Feb",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "Carver Roboweld",
+   "date": "2026-10-27",
+   "amountCr": null,
+   "issueSizeCr": 0.34,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-12-02",
+   "lockIn90": "2027-01-31",
+   "anchorShares": 996800,
+   "price": null,
+   "anchor": "bid 27 Oct · lock-in ends 2 Dec (half) and 31 Jan",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
    "name": "BLS Polymers",
    "date": "2026-10-26",
    "amountCr": null,
@@ -115125,7 +115414,7 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1195.8,
+    "value": 1184.5,
     "asOf": "2026-10-22"
    },
    "parentTicker": "RELIANCE",
@@ -115178,7 +115467,7 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 120.72,
+    "value": 119.77,
     "asOf": "2026-10-22"
    },
    "parentTicker": "EDELWEISS",
@@ -115333,7 +115622,7 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 398.5,
+    "value": 402.55,
     "asOf": "2026-10-22"
    },
    "parentTicker": "COALINDIA",
@@ -115462,7 +115751,7 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5213.5,
+    "value": 5128.0,
     "asOf": "2026-10-22"
    },
    "parentTicker": "HEROMOTOCO",
@@ -115577,7 +115866,7 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 398.5,
+    "value": 402.55,
     "asOf": "2026-10-22"
    },
    "parentTicker": "COALINDIA",
@@ -116095,13 +116384,13 @@
     "anchors": {
      "rows": [
       {
-       "n": 15,
-       "pos": 66.7,
-       "lo": 41.7,
-       "hi": 84.8,
-       "med": 3.3,
+       "n": 16,
+       "pos": 68.8,
+       "lo": 44.4,
+       "hi": 85.8,
+       "med": 4.0,
        "p10": -2.3,
-       "p90": 37.7
+       "p90": 35.4
       },
       {
        "n": 3,
@@ -116131,7 +116420,7 @@
        "p90": 0.6
       }
      ],
-     "n": 21,
+     "n": 22,
      "since": "2026-09-23",
      "of": 53
     },
@@ -116638,13 +116927,13 @@
        "p90": 81.5
       },
       {
-       "n": 5,
-       "pos": 60.0,
-       "lo": 23.1,
-       "hi": 88.2,
-       "med": 0.8,
-       "p10": -12.8,
-       "p90": 61.4
+       "n": 6,
+       "pos": 50.0,
+       "lo": 18.8,
+       "hi": 81.2,
+       "med": 0.4,
+       "p10": -11.0,
+       "p90": 54.2
       },
       {
        "n": 0,
@@ -116665,7 +116954,7 @@
        "p90": null
       }
      ],
-     "n": 38,
+     "n": 39,
      "since": "2026-09-24",
      "of": 53
     },
@@ -117253,7 +117542,7 @@
   },
   "2306": {
    "name": "Jio Platforms",
-   "fetchedAt": "2026-10-22T17:38:09+05:30",
+   "fetchedAt": "2026-10-22T18:14:17+05:30",
    "about": [
     "Jio Platforms Limited is a leading digital technology company in India, operating primarily through its subsidiary, Reliance Jio Infocomm Limited. The company delivers a broad range of digital connectivity and technology-enabled services to consumers and enterprises across the country. As of March 31, 2026, it served more than 524 million customers through its extensive telecommunications and digital services ecosystem. The company has built an integrated, proprietary technology platform encompassing network infrastructure, software applications, operating systems, cloud capabilities, digital devices, and advanced technology solutions. Its consumer offerings include mobile and fixed broadband services, digital entertainment, gaming, cloud storage, smart home products, and AI-powered applications, supported by platforms such as MyJio, JioTV+, JioSaavn, JioGames, and JioAICloud. For enterprises, Jio Platforms provides connectivity solutions, cloud and IoT services, cybersecurity, managed services, unified communications, and private 5G networks, serving clients across sectors including banking, manufacturing, utilities, transportation, government, and information technology. As of March 31, 2026, the company and its subsidiaries employed 28,163 full-time personnel and maintained a portfolio of patent applications related to digital communications, cloud-native technologies, artificial intelligence, and other emerging innovations. Jio Platform Shareholder and Employee Reservation The company has reserved 46,94,835 shares for eligible employees and 2,23,41,376 shares for eligible shareholders. Shareholders who hold Reliance Jio Co.'s shares by record date, Oct 14, 2026, will be the eligible to apply under the shareholder quota."
    ],
@@ -117498,9 +117787,9 @@
    "gmpHistory": [
     {
      "date": "2026-10-22",
-     "gmp": 244.0,
-     "est": 1363.0,
-     "pct": 21.81,
+     "gmp": 240.0,
+     "est": 1359.0,
+     "pct": 21.45,
      "kostakSauda": "2200/33000"
     },
     {
@@ -117560,16 +117849,16 @@
      "retailBidCr": 6912.43
     },
     {
-     "asOf": "2026-10-22T15:41:00+05:30",
-     "qib": 10.13,
-     "nii": 4.88,
-     "bnii": 5.45,
-     "snii": 3.73,
-     "retail": 1.44,
-     "employee": 1.96,
-     "total": 4.48,
-     "bidCr": 98928.32,
-     "retailBidCr": 13716.69
+     "asOf": "2026-10-22T17:41:00+05:30",
+     "qib": 12.87,
+     "nii": 5.63,
+     "bnii": 6.33,
+     "snii": 4.21,
+     "retail": 1.54,
+     "employee": 2.04,
+     "total": 5.38,
+     "bidCr": 118992.22,
+     "retailBidCr": 14668.84
     }
    ],
    "company": {
@@ -120197,7 +120486,7 @@
   },
   "1728": {
    "name": "Paras Healthcare",
-   "fetchedAt": "2026-10-22T17:38:09+05:30",
+   "fetchedAt": "2026-10-22T18:14:17+05:30",
    "about": [
     "Paras Health is a multi-specialty healthcare services provider that operates a network of hospitals across North India, Bihar, and Jharkhand. The company delivers healthcare services through its hospitals, catering to patients across several cities and regions. As of March 31, 2024, Paras Health had a combined capacity of 2,135 beds, ranking as the fifth-largest healthcare provider by bed capacity among its peers in the regions where it operates. The company manages eight hospitals under the Paras Health brand. These facilities are situated in Gurugram and Panchkula in Haryana, Patna and Darbhanga in Bihar, Kanpur in Uttar Pradesh, Udaipur in Rajasthan, Ranchi in Jharkhand, and Srinagar in the Union Territory of Jammu and Kashmir. Paras Health has expanded its healthcare infrastructure significantly, increasing its total bed capacity from 1,250 beds in March 2022 to 2,135 beds by March 2024. As of March 31, 2024, its hospitals were supported by a medical workforce of 1,091 doctors and 1,509 nurses, enabling the delivery of healthcare services across its network."
    ],
@@ -120511,9 +120800,9 @@
    "gmpHistory": [
     {
      "date": "2026-10-22",
-     "gmp": 13.0,
-     "est": 706.0,
-     "pct": 1.88,
+     "gmp": 10.0,
+     "est": 703.0,
+     "pct": 1.44,
      "kostakSauda": "200/2800"
     },
     {
@@ -120572,15 +120861,15 @@
      "retailBidCr": 105.89
     },
     {
-     "asOf": "2026-10-22T15:41:00+05:30",
+     "asOf": "2026-10-22T17:10:00+05:30",
      "qib": 0.07,
-     "nii": 0.22,
-     "bnii": 0.18,
-     "snii": 0.28,
-     "retail": 1.31,
-     "total": 0.33,
-     "bidCr": 265.97,
-     "retailBidCr": 189.28
+     "nii": 0.26,
+     "bnii": 0.23,
+     "snii": 0.33,
+     "retail": 1.37,
+     "total": 0.36,
+     "bidCr": 285.95,
+     "retailBidCr": 198.99
     }
    ],
    "company": {
@@ -121739,6 +122028,492 @@
     "website": "https://wiscon.in/",
     "process": "Book Build Issue"
    }
+  },
+  "2393": {
+   "name": "Carver Roboweld",
+   "fetchedAt": "2026-10-22T18:14:17+05:30",
+   "about": [
+    "Carver Roboweld Limited manufactures a range of welding consumables, including metal cored wires, welding rods and gauging electrodes. The Company also supplies welding spare parts and accessories and has diversified into value-added engineering services for the forging industry, such as forging die regeneration and welding robot rentals. The Company's main manufacturing facility is situated in Bamanbore, Rajkot, Gujarat, while its service units are located in Pune, Hosur and Ludhiana. This operational network enables it to cater to industrial customers across major manufacturing hubs in India. As of July 11, 2026, the Company had an installed production capacity of 650 tonnes per annum for metal cored wires and welding rods. Its production capacity recorded an approximate CAGR of 30% between Fiscal 2025 and Fiscal 2026. In September 2025, the Company acquired Carver Engineering Private Limited, a subsidiary engaged in the reconditioning and refurbishment of industrial plant and machinery. The subsidiary serves multiple sectors, including forging, casting, cement, steel, sugar, power, petroleum, automotive and fabrication. Its service portfolio covers heavy-duty machining, structural fabrication, repair and refurbishment of industrial hammers and components, and execution of turnkey engineering projects. Carver Roboweld Limited serves customers across various Indian states through its welding consumables and engineering service offerings. The Company holds ISO 9001:2015 certification and is a Sustaining Corporate Member of the American Welding Society (AWS), demonstrating its commitment to quality management practices and recognised welding industry standards. As of June 30, 2026, the Company employed 68 permanent employees and engaged 75 contract workers to support its manufacturing and service operations. Competitive Strengths Strategic Manufacturing and Service Locations: Its manufacturing facility and service units are positioned to support customers across important industrial centres. Established Domestic Market Reach: The Company serves industrial customers across multiple Indian states through its diversified product and service portfolio. Customer-Centric Quality Approach: Emphasis on customer-specific requirements, product quality and established quality management practices. Integrated Product and Engineering Capabilities: A combination of welding consumables manufacturing and specialised engineering services enables the Company to address a broader range of industrial requirements. Experienced Leadership: The promoter and management team brings experience and expertise in the welding industry. Recurring Business Opportunities Through Robot Rentals: Its welding robot rental services support ongoing customer relationships and create opportunities for repeat business and recurring revenue."
+   ],
+   "desc": [
+    "Incorporated in August 2009, Carver Roboweld Limited is engaged in the manufacturing of welding consumables, including Metal Cored Wires, Welding Rods and Gauging Electrodes, along with the supply of welding spare parts and accessories. The Company has also expanded its offerings to provide value-added engineering solutions to the forging industry, including forging die regeneration and welding robot rental services. The Company operates its primary manufacturing facility in Bamanbore, Rajkot, Gujarat, with additional service units in Pune, Hosur and Ludhiana, enabling it to serve customers across key industrial markets in India. As of July 11, 2026, the Company had an aggregate installed production capacity of 650 tonnes per annum for Metal Cored Wires and Welding Rods, reflecting a capacity CAGR of approximately 30% between Fiscal 2025 and Fiscal 2026. Through its subsidiary, Carver Engineering Private Limited, acquired in September 2025, the Company also provides re-conditioning and refurbishment services for plant and machinery across industries such as forging, casting, cement, steel, sugar, power, petroleum, automotive and fabrication. Its engineering services include heavy-duty machining, structural fabrication, repair and refurbishment of hammers and components, and turnkey engineering projects. The Company has a presence across several Indian states and caters to industrial customers through its welding consumables and engineering solutions. It is ISO 9001:2015 certified and is a Sustaining Corporate Member of the American Welding Society (AWS), reflecting its focus on quality management and adherence to international welding standards. As of June 30, 2026, the Company had 68 permanent employees and 75 contract workers. Competitive Strengths Strategically located manufacturing facility and service units. Strategic market coverage across domestic industrial markets. Focus on meeting customer specifications and quality standards. Integrated manufacturing and value-added engineering service capabilities. Experienced promoter and management team with strong welding industry expertise. Robot rental model supporting long-term customer engagement and recurring revenue."
+   ],
+   "promoters": "Ranjit Chandrabhai Bose, Rajit Chandra Bose, Deval Ranjitbhai Bose",
+   "objects": {
+    "head": [
+     "#",
+     "Issue Objects",
+     "Est Amt (₹ Cr.)"
+    ],
+    "rows": [
+     [
+      "1",
+      "Funding the capital expenditure requirements of the Company towards the purchase of Welding Robots",
+      "11.99"
+     ],
+     [
+      "2",
+      "Repayment and/or prepayment, in full or in part, of certain outstanding borrowings availed by the Company from banks and financial institutions",
+      "8.60"
+     ],
+     [
+      "3",
+      "General Corporate Purpose",
+      ""
+     ],
+     [
+      "",
+      "Total",
+      "20.59"
+     ]
+    ]
+   },
+   "financials": {
+    "head": [
+     "Period Ended",
+     "30 Jun 2026",
+     "31 Mar 2026",
+     "31 Mar 2025",
+     "31 Mar 2024"
+    ],
+    "rows": [
+     [
+      "Assets",
+      "39.45",
+      "38.26",
+      "32.69",
+      "21.59"
+     ],
+     [
+      "Total Income",
+      "7.71",
+      "27.12",
+      "24.97",
+      "21.67"
+     ],
+     [
+      "Profit After Tax",
+      "1.49",
+      "3.48",
+      "1.45",
+      "1.01"
+     ],
+     [
+      "EBITDA",
+      "2.84",
+      "8.36",
+      "4.92",
+      "4.12"
+     ],
+     [
+      "NET Worth",
+      "17.62",
+      "16.13",
+      "4.56",
+      "3.11"
+     ],
+     [
+      "Reserves and Surplus",
+      "9.62",
+      "8.42",
+      "3.61",
+      "2.16"
+     ],
+     [
+      "Total Borrowing",
+      "12.27",
+      "15.65",
+      "22.32",
+      "13.39"
+     ],
+     [
+      "Amount in ₹ Crore"
+     ]
+    ],
+    "title": "Company Financials (Restated Consolidated)",
+    "asOf": "2026-03-31"
+   },
+   "peers": {
+    "head": [
+     "Company Name",
+     "EPS (Basic)",
+     "EPS (Diluted)",
+     "NAV (₹ per share)",
+     "P/E (x)",
+     "RoNW (%)",
+     "Financial statements"
+    ],
+    "rows": [
+     [
+      "Standalone",
+      "3.78",
+      "3.78",
+      "16.86",
+      "",
+      "21.57",
+      "Standalone"
+     ],
+     [
+      "Consolidated",
+      "5.80",
+      "5.80",
+      "18.80",
+      "",
+      "29.67",
+      "Consolidated"
+     ],
+     [
+      "Royal Arc Electrodes",
+      "9.05",
+      "9.05",
+      "73.21",
+      "18.18",
+      "12.36",
+      ""
+     ],
+     [
+      "Diffusion Engineers",
+      "11.98",
+      "11.98",
+      "102.73",
+      "34.52",
+      "11.61",
+      ""
+     ],
+     [
+      "Classic Electrodes (India)",
+      "7.04",
+      "7.04",
+      "52.99",
+      "7.03",
+      "13.28",
+      ""
+     ]
+    ],
+    "asOf": "2026-03-31"
+   },
+   "reservation": {
+    "head": [
+     "Investor Category",
+     "Shares",
+     "% of Net Issue",
+     "% of Total Issue"
+    ],
+    "rows": [
+     [
+      "QIB",
+      "16,65,600",
+      "49.60%",
+      "47.10%"
+     ],
+     [
+      "Anchor Investor",
+      "9,96,800",
+      "",
+      "28.19%"
+     ],
+     [
+      "QIB (Ex. Anchor)",
+      "6,68,800",
+      "",
+      "18.91%"
+     ],
+     [
+      "NII (HNI)",
+      "5,12,000",
+      "15.25%",
+      "14.48%"
+     ],
+     [
+      "bNII > ₹10L",
+      "3,40,800",
+      "",
+      "9.64%"
+     ],
+     [
+      "sNII < ₹10L",
+      "1,71,200",
+      "",
+      "4.84%"
+     ],
+     [
+      "Retail",
+      "11,80,800",
+      "35.16%",
+      "33.39%"
+     ],
+     [
+      "Firm Reservations"
+     ],
+     [
+      "Market Maker",
+      "1,77,600",
+      "",
+      "5.02%"
+     ],
+     [
+      "Total",
+      "35,36,000",
+      "100.00%",
+      "100.00%"
+     ]
+    ]
+   },
+   "kpiPeriods": [
+    {
+     "asOf": "2026-06-30",
+     "roe": 8.48,
+     "roce": 8.27,
+     "ronw": 8.48,
+     "patMargin": 19.37,
+     "ebitdaMargin": 36.9,
+     "debtEquity": 0.7
+    },
+    {
+     "asOf": "2026-03-31",
+     "roe": 33.63,
+     "roce": 21.64,
+     "ronw": 21.57,
+     "patMargin": 12.87,
+     "ebitdaMargin": 30.94,
+     "debtEquity": 0.97
+    }
+   ],
+   "holding": {
+    "promoterPre": 90.07,
+    "promoterPost": 0.0,
+    "sharesPre": 9566805.0,
+    "sharesPost": 13102805.0
+   },
+   "gmpHistory": [
+    {
+     "date": "2026-10-22",
+     "gmp": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
+   "company": {
+    "address": "Office no. 1403, Space Odyssey, Near KKV Hall, 150 Feet Ring Road, Mota Mava",
+    "website": "https://www.carverroboweld.com/",
+    "process": "Book Build Issue"
+   }
+  },
+  "1936": {
+   "name": "Bombay Coated and Special Steels",
+   "fetchedAt": "2026-10-22T18:14:17+05:30",
+   "about": [
+    "Bombay Coated & Special Steels operates as a steel processing centre in India, specialising in the conversion of steel coils into finished and semi-finished products, including slit coils, blanks and sheets. Its processing capabilities include slitting, cut-to-length operations, shearing and embossing, enabling it to deliver steel products tailored to customer requirements. The Company's products cater to Original Equipment Manufacturers (OEMs) and Original Design Manufacturers (ODMs) across a range of industries. Key applications include home and commercial appliances such as air conditioners, refrigerators, washing machines and water heaters, as well as general engineering segments covering automotive components, electrical parts, cleanrooms and ventilation systems. Since 2021, the Company has served as an authorised service partner of JSW Steel Coated Products Limited (JSWCPL), which is one of its sources of steel coils. It also procures raw materials from other suppliers and processes them using modern machinery to meet the required product specifications and quality standards. Bombay Coated & Special Steels operates processing facilities in Wada, Bhiwandi, Ghiloth and Sricity, with a combined area of 42,209 square metres. Its Rajasthan facility holds GEM 4 certification for green manufacturing. The Company's installed annual processing capacity for slitting, cut-to-length, shearing and embossing stood at 350,411 metric tonnes per annum (MTPA). As of July 31, 2025, the Company employed 153 permanent employees across its operations. Business Strengths Established Supplier Association: An ongoing relationship with JSW Steel Coated Products Limited supports the procurement of steel coils for processing activities. Strategically Positioned Facilities: Processing units across multiple locations help the Company serve customers in key industrial markets. Advanced Processing Infrastructure: Existing facilities and precision processing equipment support the production of steel products according to customer specifications. Established Customer Relationships: Long-standing associations with OEMs and ODMs across multiple end-use industries contribute to business continuity. Supplier-Related Entry Barriers: Established supplier arrangements and operational capabilities may create barriers to entry for prospective competitors. Experienced Management Team: The Company benefits from the industry knowledge of its promoters and the expertise of its professional management team."
+   ],
+   "desc": [
+    "Incorporated in December 2019, Bombay Coated and Special Steels Limited is a steel processing centre engaged in converting steel coils into value-added processed steel products for Original Equipment Manufacturers (“OEMs”) and Original Design Manufacturers (“ODMs”). The Company specialises in precision slitting, cut-to-length processing, shearing and embossing of steel coils to manufacture slit coils, embossed slit coils, blanks, embossed blanks and sheared blanks. Its products serve multiple end-use industries, including home and commercial appliances, automotive and auto components, electrical equipment, pharmaceutical cleanroom infrastructure, ventilation systems and general engineering. In addition to processing steel coils, the Company provides logistics and inventory management services and supports customers through just-in-time delivery solutions. The Company operates four strategically located manufacturing facilities at Wada and Bhiwandi in Maharashtra, Ghiloth in Rajasthan, and Sri City in Andhra Pradesh. Spread across an aggregate area of 42,209 square metres, these facilities are equipped with slitting, cut-to-length, shearing and embossing lines. The Company has an authorised service partnership with JSW Steel Coated Products Limited (“JSWSCPL”) and/or its holding company since 2021, supporting regular access to steel coils. As of June 30, 2026, its aggregate installed processing capacity was 1,23,153 metric tonnes per annum, calculated on a quarterly basis for Fiscal 2027. The Company serves a diversified customer base across consumer durables, home appliances, refrigeration, automotive, electrical equipment, electronics, industrial engineering and other manufacturing sectors. Its customers include OEMs and ODMs such as Haier Appliances India Private Limited, IFB Refrigeration Limited, Dixon Electro Manufacturing Private Limited, Amber Enterprises India Limited and Western Refrigeration Private Limited. As of June 30, 2026, the Company had 164 personnel, comprising 160 permanent employees and 4 employees on retainership. Competitive Strengths High Entry Barriers. Growing Processing Capacity. Integrated Steel Processing Infrastructure. Strategically Located Manufacturing Network. Long-Standing Customer Relationships. Established Relationship with JSWSCPL."
+   ],
+   "promoters": "Vijaykumar Himatrai Gupta, Nitin Vijaykumar Gupta, Bhawna Nitin Gupta",
+   "objects": {
+    "head": [
+     "#",
+     "Issue Objects",
+     "Est Amt (₹ Cr.)"
+    ],
+    "rows": [
+     [
+      "1",
+      "Repayment/pre-payment, in full or in part, of certain borrowings availed by Company",
+      "125.00"
+     ],
+     [
+      "2",
+      "Financing the cost towards acquisition of capital equipment under existing lease arrangements with Siemens Financial Services Pvt.Ltd.",
+      "15.77"
+     ],
+     [
+      "3",
+      "General Corporate Purposes",
+      ""
+     ],
+     [
+      "",
+      "Total",
+      "140.77"
+     ]
+    ]
+   },
+   "financials": {
+    "head": [
+     "Period Ended",
+     "30 Jun 2026",
+     "31 Mar 2026",
+     "31 Mar 2025",
+     "31 Mar 2024"
+    ],
+    "rows": [
+     [
+      "Assets",
+      "526.11",
+      "571.47",
+      "458.21",
+      "350.21"
+     ],
+     [
+      "Total Income",
+      "397.55",
+      "1,269.83",
+      "1,058.65",
+      "765.41"
+     ],
+     [
+      "Profit After Tax",
+      "15.08",
+      "30.54",
+      "28.67",
+      "21.14"
+     ],
+     [
+      "EBITDA",
+      "32.17",
+      "86.09",
+      "74.09",
+      "49.17"
+     ],
+     [
+      "NET Worth",
+      "136.62",
+      "121.58",
+      "83.05",
+      "54.36"
+     ],
+     [
+      "Reserves and Surplus",
+      "96.12",
+      "81.08",
+      "73.15",
+      "44.46"
+     ],
+     [
+      "Total Borrowing",
+      "273.69",
+      "338.45",
+      "276.96",
+      "234.16"
+     ],
+     [
+      "Amount in ₹ Crore"
+     ]
+    ],
+    "title": "Company Financials (Restated)",
+    "asOf": "2026-06-30"
+   },
+   "peers": {
+    "head": [
+     "Company Name",
+     "EPS (Basic)",
+     "EPS (Diluted)",
+     "NAV (₹ per share)",
+     "P/E (x)",
+     "RoNW (%)",
+     "P/BV Ratio",
+     "Financial statements"
+    ],
+    "rows": [
+     [
+      "Bombay Coated and Special Steels",
+      "7.64",
+      "7.64",
+      "30.41",
+      "",
+      "25.12",
+      "",
+      "Restated"
+     ],
+     [
+      "Bmw Industries Ltd.",
+      "3.63",
+      "3.35",
+      "35.85",
+      "14.98",
+      "10.15",
+      "1.46",
+      "Standalone"
+     ],
+     [
+      "Manaksia Coated Metals & Industries Ltd.",
+      "4.25",
+      "4.18",
+      "32.46",
+      "31.03",
+      "11.96",
+      "4.03",
+      "Standalone"
+     ],
+     [
+      "Shiv Aum Steels Ltd.",
+      "5.47",
+      "5.47",
+      "88.86",
+      "98.54",
+      "4.73",
+      "6.13",
+      "Standalone"
+     ]
+    ],
+    "asOf": "2026-03-31"
+   },
+   "reservation": {
+    "head": [
+     "Investor Category",
+     "Shares"
+    ],
+    "rows": [
+     [
+      "QIB",
+      "Not more than 50% of the Issue"
+     ],
+     [
+      "Retail",
+      "Not more than 35% of the Issue"
+     ],
+     [
+      "NII",
+      "Not less than 15% of the Issue"
+     ]
+    ]
+   },
+   "kpiPeriods": [
+    {
+     "asOf": "2026-03-31",
+     "roe": 29.92,
+     "roce": 16.4,
+     "ronw": 25.12,
+     "patMargin": 2.41,
+     "ebitdaMargin": 6.8,
+     "debtEquity": 2.78
+    },
+    {
+     "asOf": "2026-06-30",
+     "roe": 11.65,
+     "roce": 7.01,
+     "ronw": 11.03,
+     "patMargin": 3.8,
+     "ebitdaMargin": 8.1,
+     "debtEquity": 2.0
+    }
+   ],
+   "holding": {
+    "promoterPre": 97.78,
+    "sharesPre": 40500091.0,
+    "sharesPost": 0.0
+   },
+   "gmpHistory": [
+    {
+     "date": "2026-10-22",
+     "gmp": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
+   "company": {
+    "address": "2602, Parinee I, 7-A Shah Industrial Estate, Andheri (West)",
+    "website": "https://www.bcsspl.in/",
+    "process": "Book Build Issue"
+   }
   }
  },
  "players": {
@@ -122649,13 +123424,15 @@
    "1728",
    "1842",
    "1849",
+   "1936",
    "2124",
    "2228",
    "2229",
    "2279",
    "2306",
    "2356",
-   "2369"
+   "2369",
+   "2393"
   ],
   "league": [
    {
@@ -122836,7 +123613,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-22T11:36:28+05:30",
+  "asOf": "2026-10-22T18:14:43+05:30",
   "dates": [
    "2026-01-19",
    "2026-01-20",
@@ -268683,6 +269460,14 @@
   },
   "2356": {
    "src": "wiscon_logo.jpg",
+   "at": "2026-10-22"
+  },
+  "1936": {
+   "src": "bombay-coated-special-steels-logo.png",
+   "at": "2026-10-22"
+  },
+  "2393": {
+   "src": "carver-roboweld-ltd-logo.png",
    "at": "2026-10-22"
   }
  }
