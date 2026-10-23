@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-23T06:45:57+05:30",
+  "asOf": "2026-10-23T11:08:23+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "23 Oct 2026, 06:45 IST",
+  "label": "23 Oct 2026, 11:08 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -39,7 +39,8 @@
   ],
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
-   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics"
+   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
+   "[gmp] gmp: no grey-market print found for open issue Core4 Engineers"
   ]
  },
  "expected": [
@@ -2123,8 +2124,8 @@
    "issueSizeCr": 852.18,
    "freshCr": null,
    "ofsCr": 852.18,
-   "gmp": 450.0,
-   "gmpPct": 64.29,
+   "gmp": 452.0,
+   "gmpPct": 64.57,
    "gmpTrend": "flat",
    "sub": {
     "qib": 293.56,
@@ -2249,8 +2250,8 @@
    "issueSizeCr": 5012.33,
    "freshCr": 2830.0,
    "ofsCr": 2182.33,
-   "gmp": 1.0,
-   "gmpPct": 0.66,
+   "gmp": 1.2,
+   "gmpPct": 0.79,
    "gmpTrend": "flat",
    "sub": {
     "qib": 4.71,
@@ -2376,17 +2377,17 @@
    "issueSizeCr": 30213.0,
    "freshCr": 30213.0,
    "ofsCr": null,
-   "gmp": 240.0,
-   "gmpPct": 21.45,
-   "gmpTrend": "up",
+   "gmp": 232.0,
+   "gmpPct": 20.73,
+   "gmpTrend": "down",
    "sub": {
-    "qib": 13.29,
-    "nii": 5.97,
-    "retail": 1.54,
-    "total": 5.57,
-    "employee": 2.1,
-    "shareholder": 4.04,
-    "asOf": "2026-10-22T18:57:00+05:30",
+    "qib": 13.83,
+    "nii": 8.18,
+    "retail": 1.88,
+    "total": 6.4,
+    "employee": 2.37,
+    "shareholder": 5.24,
+    "asOf": "2026-10-23T11:03:00+05:30",
     "src": "nse"
    },
    "shareholderQuota": null,
@@ -2401,11 +2402,11 @@
    "igId": "2306",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-23T06:44:23+05:30",
+   "igFetchedAt": "2026-10-23T11:08:16+05:30",
    "sector": "Telecom - Cellular & Fixed line services",
    "anchorShares": 72474066,
    "logo": "jio-platform-logo.png",
-   "gmpAsOf": "2026-10-23T06:02:00+05:30",
+   "gmpAsOf": "2026-10-23T10:37:00+05:30",
    "facts": {
     "sector": "Telecom - Cellular & Fixed line services",
     "listingAt": "BSE, NSE",
@@ -2450,50 +2451,50 @@
     "asOf": "2026-10-21T18:10:00+05:30"
    },
    "refund": "2026-10-27",
-   "gmpEve": 240.0,
-   "gmpEveAsOf": "2026-10-23T06:02:00+05:30",
+   "gmpEve": 232.0,
+   "gmpEveAsOf": "2026-10-23T10:37:00+05:30",
    "apps": {
     "qib": {
      "reserved": 49007828,
-     "received": 1646,
+     "received": 1999,
      "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 202470,
-     "received": 382015,
+     "received": 536351,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 134979,
-     "received": 135744,
+     "received": 199134,
      "reservedSrc": "rhp"
     },
     "snii": {
      "reserved": 67489,
-     "received": 246271,
+     "received": 337217,
      "reservedSrc": "rhp"
     },
     "retail": {
      "reserved": 7086443,
-     "received": 5446056,
+     "received": 6776472,
      "reservedSrc": "rhp"
     },
     "employee": {
      "reserved": 391236,
-     "received": 143947,
+     "received": 169360,
      "reservedSrc": "narada"
     },
     "shareholder": {
      "reserved": 1861781,
-     "received": 1230686,
+     "received": 1540355,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 58549759,
-     "received": 7204350,
+     "received": 9024537,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-23T06:44:42+05:30"
+    "asOf": "2026-10-23T11:08:22+05:30"
    }
   },
   {
@@ -2511,15 +2512,15 @@
    "issueSizeCr": 1450.0,
    "freshCr": 500.0,
    "ofsCr": 950.0,
-   "gmp": 13.0,
-   "gmpPct": 1.88,
-   "gmpTrend": "flat",
+   "gmp": 9.0,
+   "gmpPct": 1.3,
+   "gmpTrend": "down",
    "sub": {
-    "qib": 0.06,
-    "nii": 0.25,
-    "retail": 1.31,
-    "total": 0.34,
-    "asOf": "2026-10-22T17:00:00+05:30",
+    "qib": 0.07,
+    "nii": 0.31,
+    "retail": 1.52,
+    "total": 0.4,
+    "asOf": "2026-10-23T11:03:00+05:30",
     "src": "nse"
    },
    "shareholderQuota": null,
@@ -2534,14 +2535,14 @@
    "igId": "1728",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-23T06:44:23+05:30",
+   "igFetchedAt": "2026-10-23T11:08:16+05:30",
    "refund": "2026-10-27",
    "sector": "Hospital",
    "anchorShares": 9415584,
    "logo": "paras-healthcare-logo.jpeg",
-   "gmpAsOf": "2026-10-23T06:02:00+05:30",
-   "gmpEve": 13.0,
-   "gmpEveAsOf": "2026-10-23T06:02:00+05:30",
+   "gmpAsOf": "2026-10-23T10:37:00+05:30",
+   "gmpEve": 9.0,
+   "gmpEveAsOf": "2026-10-23T10:37:00+05:30",
    "facts": {
     "sector": "Hospital",
     "listingAt": "BSE, NSE",
@@ -2586,35 +2587,35 @@
    "apps": {
     "qib": {
      "reserved": 6277056,
-     "received": 7,
+     "received": 8,
      "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 10675,
-     "received": 1185,
+     "received": 1525,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 7116,
-     "received": 233,
+     "received": 293,
      "reservedSrc": "rhp"
     },
     "snii": {
      "reserved": 3558,
-     "received": 952,
+     "received": 1232,
      "reservedSrc": "rhp=narada"
     },
     "retail": {
      "reserved": 99635,
-     "received": 95427,
+     "received": 111894,
      "reservedSrc": "rhp"
     },
     "total": {
      "reserved": 6387367,
-     "received": 96619,
+     "received": 113427,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-23T06:44:48+05:30"
+    "asOf": "2026-10-23T11:08:23+05:30"
    }
   },
   {
@@ -3441,7 +3442,7 @@
    "bandLow": 105.0,
    "bandHigh": 112.0,
    "lotSize": 1200,
-   "issueSizeCr": 110.21,
+   "issueSizeCr": 116.05,
    "freshCr": 110.21,
    "ofsCr": null,
    "gmp": 1.0,
@@ -3555,7 +3556,7 @@
    "bandLow": 170.0,
    "bandHigh": 179.0,
    "lotSize": 800,
-   "issueSizeCr": 54.07,
+   "issueSizeCr": 59.97,
    "freshCr": 54.07,
    "ofsCr": null,
    "gmp": 7.0,
@@ -3673,7 +3674,14 @@
    "gmp": 0.0,
    "gmpPct": 0.0,
    "gmpTrend": "flat",
-   "sub": null,
+   "sub": {
+    "nii": 0.01,
+    "snii": 0.03,
+    "retail": 0.05,
+    "total": 0.03,
+    "asOf": "2026-10-23T11:08:23+05:30",
+    "src": "narada"
+   },
    "shareholderQuota": null,
    "listingPrice": null,
    "listingGainPct": null,
@@ -3681,19 +3689,19 @@
    "sources": [
     "InvestorGain IPO list"
    ],
-   "symbol": null,
+   "symbol": "CORE4",
    "series": null,
    "igId": "2229",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-23T06:44:23+05:30",
+   "igFetchedAt": "2026-10-23T11:08:16+05:30",
    "refund": "2026-10-29",
    "sector": "Civil Construction",
    "anchorShares": 0,
    "logo": "core4-engineers-logo.jpg",
-   "gmpAsOf": "2026-10-23T06:01:00+05:30",
+   "gmpAsOf": "2026-10-23T10:33:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-23T06:01:00+05:30",
+   "gmpEveAsOf": "2026-10-23T10:33:00+05:30",
    "facts": {
     "sector": "Civil Construction",
     "listingAt": "BSE SME",
@@ -3720,9 +3728,43 @@
     ],
     "docs": {
      "drhp": "https://www.bsesme.com/download/364707/SME_IPO%20InPrinciple/CORE4DRHP_20260329204004.pdf",
-     "rhp": "https://core4engineers.com/pdf/ipo/RedHerringProspectus.pdf"
+     "rhp": "https://www.bseindia.com/downloads/ipo/Core4%20Engineers%20Limited_RHP&GID_221020261932.zip",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/core4-engineers-anchor-book.pdf"
     },
-    "asOf": "2026-10-22T12:41:00+05:30"
+    "asOf": "2026-10-23T04:40:00+05:30"
+   },
+   "apps": {
+    "qib": {
+     "reserved": 862,
+     "received": 0,
+     "reservedSrc": "narada"
+    },
+    "nii": {
+     "reserved": 216,
+     "received": 2,
+     "reservedSrc": "narada"
+    },
+    "bnii": {
+     "reserved": 144,
+     "received": 0,
+     "reservedSrc": "narada"
+    },
+    "snii": {
+     "reserved": 72,
+     "received": 2,
+     "reservedSrc": "narada"
+    },
+    "retail": {
+     "reserved": 755,
+     "received": 35,
+     "reservedSrc": "narada"
+    },
+    "total": {
+     "reserved": 1833,
+     "received": 37,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-23T11:08:23+05:30"
    }
   },
   {
@@ -82294,160 +82336,34 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-23T06:45:57+05:30",
+  "asOf": "2026-10-23T11:08:23+05:30",
   "checks": [
-   {
-    "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-23T06:44:22+05:30",
-    "elapsed": 1.42,
-    "calls": 5,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=14 carried=4 +nse=7 +bse=0 exchange-only=0: 11 mainboard, 5 sme; 3 open, 6 upcoming"
-   },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:blocked, ipopremium:blocked",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.74,
+    "elapsed": 0.29,
     "calls": 3,
-    "note": "gmp: 12 board rows patched via investorgain; 9 active, 4 of them matched; gmp: 7 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹66, investorgain); EverestIMS Technologies (₹50, investorgain); Nityas Gems & Jewellery (₹1, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Shree TNB Polymers (₹4, investorgain); Vishal Nirmiti (₹2, investorgain); mainboard: 1 patched names not on the board: HD Fire Protect; sme: 1 patched names not on the board: Vaibhav Vyapaar"
+    "note": "gmp: 10 board rows patched via investorgain; 9 active, 4 of them matched; gmp: 9 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹66, investorgain); HD Fire Protect (₹70, investorgain); Nityas Gems & Jewellery (₹1, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Shree TNB Polymers (₹4, investorgain); Sollfege Smart Electronics (₹10, investorgain); Vaibhav Vyapaar (₹3, investorgain) …"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-23T06:44:23+05:30",
-    "elapsed": 13.5,
-    "calls": 16,
-    "note": "16 records fetched for 16 identified listings (0 without an id); 0 anchor books updated, 90 on file"
+    "asOf": "2026-10-23T11:08:16+05:30",
+    "elapsed": 2.77,
+    "calls": 3,
+    "note": "3 records fetched for 16 identified listings (0 without an id); 0 anchor books updated, 90 on file"
    },
    {
     "area": "subscription",
-    "method": "nse:ok",
+    "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-10-23T06:44:48+05:30",
-    "elapsed": 11.55,
-    "calls": 4,
-    "note": "2/3 rows patched via nse"
-   },
-   {
-    "area": "listings",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-10-22",
-    "elapsed": 10.88,
-    "calls": 0,
-    "note": "19 names priced, 2 moved to recent, 0 history points; mainboard: 1 patched names not on the board: HD Fire Protect"
-   },
-   {
-    "area": "history",
-    "method": "investorgain-566:ok, investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-23",
-    "elapsed": 2.63,
-    "calls": 2,
-    "note": "1390 listings since 2022 (988 SME); fetched 2026: 287; QIB on file for 103 of 402 mainboard issues"
-   },
-   {
-    "area": "tape",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-10-22",
-    "elapsed": 0.01,
-    "calls": 0,
-    "note": "191 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 187 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 187 days on file"
-   },
-   {
-    "area": "anchorbook",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-23",
-    "elapsed": 0.68,
-    "calls": 1,
-    "note": "0 anchor books read (1 without an anchor table, 0 failed); 904 on file, 589 partial (feed gave only the first names); 0 of 1390 listings still to fetch"
-   },
-   {
-    "area": "evidence",
-    "method": "computed:ok",
-    "status": "ok",
-    "asOf": "2026-10-23",
-    "elapsed": 0.28,
-    "calls": 0,
-    "note": "track records: 904 of 904 anchor books have an outcome; 836 of 1382 investors with 2+; 1390 listings; windows: mainboard 126, SME 235; 4 warnings"
-   },
-   {
-    "area": "players",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-23",
-    "elapsed": 28.22,
-    "calls": 54,
-    "note": "53 of 2839 anchor investors read (0 failed); names found for 4 of 14 unlisted issues"
-   },
-   {
-    "area": "parents",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-10-22",
-    "elapsed": 11.99,
-    "calls": 0,
-    "note": "5/5 parent prices; 41/47 investor stocks priced"
-   },
-   {
-    "area": "filings",
-    "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
-    "status": "ok",
-    "asOf": "2026-10-23",
-    "elapsed": 9.73,
-    "calls": 14,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1607 announcements scanned, 0 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 3 leads held; 0 rows patched, 33 kept previous stage"
-   },
-   {
-    "area": "offers",
-    "method": "bse:blocked, bse:blocked",
-    "status": "blocked",
-    "asOf": null,
-    "elapsed": 0.03,
-    "calls": 1,
-    "note": "kept previous — HTTP 403"
-   },
-   {
-    "area": "flows",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-10-22",
-    "elapsed": 0.41,
-    "calls": 1,
-    "note": "2026-10-22 already in history; FII -3,459 / DII +2,891 Cr"
-   },
-   {
-    "area": "deals",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-10-22",
-    "elapsed": 1.82,
+    "asOf": "2026-10-23T11:08:23+05:30",
+    "elapsed": 3.63,
     "calls": 6,
-    "note": "bulk.csv: 111 deals; block.csv: 4 deals; 0 tracked-investor deals of 115; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 32 of today's 115 deals are in this year's listings (11 stocks); 1380 kept over 60 days; 191 of 287 listings have an NSE symbol; 221 with a BSE code"
-   },
-   {
-    "area": "news",
-    "method": "rss:ok",
-    "status": "ok",
-    "asOf": "2026-10-23T05:48:22+05:30",
-    "elapsed": 0.53,
-    "calls": 3,
-    "note": "business-standard: 7/35 primary-market items; economic-times: 6/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 13 fresh, 25 kept"
-   },
-   {
-    "area": "logos",
-    "method": "none:ok",
-    "status": "ok",
-    "asOf": "2026-10-23",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "61 logos on file; none to fetch"
+    "note": "3/3 rows patched via narada, nse"
    },
    {
     "area": "research layer",
@@ -82459,7 +82375,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "96s, 110 calls, 16/17 modules ok"
+    "note": "7s, 12 calls, 3/3 modules ok"
    }
   ],
   "discrepancies": [
@@ -109031,7 +108947,9 @@
    "count": null,
    "topTierShare": null,
    "investors": [],
-   "sources": [],
+   "sources": [
+    "https://www.chittorgarh.net/reports/anchor-investor/core4-engineers-anchor-book.pdf"
+   ],
    "source": "exchange-json",
    "auto": true,
    "lockIn30": "2026-11-27",
@@ -117894,7 +117812,7 @@
  "records": {
   "2306": {
    "name": "Jio Platforms",
-   "fetchedAt": "2026-10-23T06:44:23+05:30",
+   "fetchedAt": "2026-10-23T11:08:16+05:30",
    "about": [
     "Jio Platforms Limited is a leading digital technology company in India, operating primarily through its subsidiary, Reliance Jio Infocomm Limited. The company delivers a broad range of digital connectivity and technology-enabled services to consumers and enterprises across the country. As of March 31, 2026, it served more than 524 million customers through its extensive telecommunications and digital services ecosystem. The company has built an integrated, proprietary technology platform encompassing network infrastructure, software applications, operating systems, cloud capabilities, digital devices, and advanced technology solutions. Its consumer offerings include mobile and fixed broadband services, digital entertainment, gaming, cloud storage, smart home products, and AI-powered applications, supported by platforms such as MyJio, JioTV+, JioSaavn, JioGames, and JioAICloud. For enterprises, Jio Platforms provides connectivity solutions, cloud and IoT services, cybersecurity, managed services, unified communications, and private 5G networks, serving clients across sectors including banking, manufacturing, utilities, transportation, government, and information technology. As of March 31, 2026, the company and its subsidiaries employed 28,163 full-time personnel and maintained a portfolio of patent applications related to digital communications, cloud-native technologies, artificial intelligence, and other emerging innovations. Jio Platform Shareholder and Employee Reservation The company has reserved 46,94,835 shares for eligible employees and 2,23,41,376 shares for eligible shareholders. Shareholders who hold Reliance Jio Co.'s shares by record date, Oct 14, 2026, will be the eligible to apply under the shareholder quota."
    ],
@@ -118139,10 +118057,10 @@
    "gmpHistory": [
     {
      "date": "2026-10-23",
-     "gmp": 240.0,
-     "est": 1359.0,
-     "pct": 21.45,
-     "kostakSauda": "2200/33000"
+     "gmp": 232.0,
+     "est": 1351.0,
+     "pct": 20.73,
+     "kostakSauda": "2100/31500"
     },
     {
      "date": "2026-10-22",
@@ -118211,6 +118129,18 @@
      "total": 5.4,
      "bidCr": 119303.56,
      "retailBidCr": 14749.18
+    },
+    {
+     "asOf": "2026-10-23T10:41:00+05:30",
+     "qib": 13.62,
+     "nii": 7.84,
+     "bnii": 8.96,
+     "snii": 5.61,
+     "retail": 1.87,
+     "employee": 2.33,
+     "total": 6.25,
+     "bidCr": 138141.84,
+     "retailBidCr": 17796.5
     }
    ],
    "company": {
@@ -120511,7 +120441,7 @@
   },
   "1728": {
    "name": "Paras Healthcare",
-   "fetchedAt": "2026-10-23T06:44:23+05:30",
+   "fetchedAt": "2026-10-23T11:08:16+05:30",
    "about": [
     "Paras Health is a multi-specialty healthcare services provider that operates a network of hospitals across North India, Bihar, and Jharkhand. The company delivers healthcare services through its hospitals, catering to patients across several cities and regions. As of March 31, 2024, Paras Health had a combined capacity of 2,135 beds, ranking as the fifth-largest healthcare provider by bed capacity among its peers in the regions where it operates. The company manages eight hospitals under the Paras Health brand. These facilities are situated in Gurugram and Panchkula in Haryana, Patna and Darbhanga in Bihar, Kanpur in Uttar Pradesh, Udaipur in Rajasthan, Ranchi in Jharkhand, and Srinagar in the Union Territory of Jammu and Kashmir. Paras Health has expanded its healthcare infrastructure significantly, increasing its total bed capacity from 1,250 beds in March 2022 to 2,135 beds by March 2024. As of March 31, 2024, its hospitals were supported by a medical workforce of 1,091 doctors and 1,509 nurses, enabling the delivery of healthcare services across its network."
    ],
@@ -120825,10 +120755,10 @@
    "gmpHistory": [
     {
      "date": "2026-10-23",
-     "gmp": 13.0,
-     "est": 706.0,
-     "pct": 1.88,
-     "kostakSauda": "200/2800"
+     "gmp": 9.0,
+     "est": 702.0,
+     "pct": 1.3,
+     "kostakSauda": "100/1400"
     },
     {
      "date": "2026-10-22",
@@ -120895,6 +120825,17 @@
      "total": 0.36,
      "bidCr": 285.95,
      "retailBidCr": 198.99
+    },
+    {
+     "asOf": "2026-10-23T10:41:00+05:30",
+     "qib": 0.07,
+     "nii": 0.32,
+     "bnii": 0.28,
+     "snii": 0.4,
+     "retail": 1.56,
+     "total": 0.41,
+     "bidCr": 325.02,
+     "retailBidCr": 225.77
     }
    ],
    "company": {
@@ -121153,7 +121094,7 @@
   },
   "2229": {
    "name": "Core4 Engineers",
-   "fetchedAt": "2026-10-23T06:44:23+05:30",
+   "fetchedAt": "2026-10-23T11:08:16+05:30",
    "about": [
     "Core4 Engineers Ltd. is an Engineering, Procurement, Construction and Commissioning (EPCC) company specializing in integrated infrastructure development across railway electrification, power transmission and distribution, and water and wastewater management. The company provides comprehensive project solutions covering planning, design, engineering, material procurement, installation, testing, commissioning, and operation and maintenance (O&M). The company operates an in-house manufacturing facility dedicated to producing High-Tension (HT) and Low-Tension (LT) electrical panels and compact substations. These products cater to the requirements of its infrastructure projects as well as external customers. Its subsidiary, Core4 Energy Ltd., further strengthens its manufacturing capabilities and generates product-related revenue through the production of electrical distribution and control panels. Core4 Engineers Ltd. serves a diverse client base comprising Indian Railways, public sector undertakings (PSUs), and infrastructure development contractors. Its project portfolio includes railway electrification, traction and power substations, transmission and distribution networks, and water treatment infrastructure. As of September 30, 2025, the company employed 433 personnel, including employees and project-based workers. Key Business Segments 1. Railway Electrification (RE) The company undertakes railway electrification projects involving 25 kV overhead equipment (OHE), traction substations, and associated electrical infrastructure under the EPCC model. 2. Railway Infrastructure This segment covers integrated civil, electrical, and mechanical works for railway station redevelopment, modernization, and infrastructure improvement projects. 3. Extra-High-Voltage (EHT) Transmission and Distribution Core4 Engineers executes turnkey power infrastructure projects up to 220 kV, encompassing substations, transformers, transmission facilities, and electricity distribution systems. 4. Water and Wastewater Treatment The company delivers EPCC projects for water treatment plants (WTPs), sewage treatment plants (STPs), and effluent treatment plants (ETPs), utilizing technologies such as Moving Bed Biofilm Reactor (MBBR) and Sequencing Batch Reactor (SBR). 5. Automation and SCADA Solutions This business vertical focuses on PLC-based automation, supervisory monitoring, and control systems designed to improve operational efficiency and facilitate real-time monitoring of infrastructure installations. 6. HT/LT Electrical Panel Manufacturing The company manufactures and supplies a range of electrical panels, including Power Control Centres (PCC), Motor Control Centres (MCC), Automatic Power Factor Correction (APFC) panels, and customized automation panels for industrial and infrastructure applications."
    ],
@@ -121290,20 +121231,61 @@
    "reservation": {
     "head": [
      "Investor Category",
-     "Shares"
+     "Shares",
+     "% of Net Issue",
+     "% of Total Issue"
     ],
     "rows": [
      [
       "QIB",
-      "Not more than 50% of the Net Issue"
+      "10,40,400",
+      "28.66%",
+      "23.92%"
+     ],
+     [
+      "QIB (Ex. Anchor)",
+      "10,40,400",
+      "",
+      "23.92%"
+     ],
+     [
+      "NII (HNI)",
+      "7,77,600",
+      "21.42%",
+      "17.88%"
+     ],
+     [
+      "bNII > ₹10L",
+      "5,18,400",
+      "",
+      "11.92%"
+     ],
+     [
+      "sNII < ₹10L",
+      "2,59,200",
+      "",
+      "5.96%"
      ],
      [
       "Retail",
-      "Not less than 35% of the Net Issue"
+      "18,12,000",
+      "49.92%",
+      "41.66%"
      ],
      [
-      "NII",
-      "Not less than 15% of the Net Issue"
+      "Firm Reservations"
+     ],
+     [
+      "Market Maker",
+      "7,20,000",
+      "",
+      "16.55%"
+     ],
+     [
+      "Total",
+      "43,50,000",
+      "100.00%",
+      "100.00%"
      ]
     ]
    },
@@ -121340,6 +121322,19 @@
      "est": 93.0,
      "pct": 0.0,
      "kostakSauda": "--"
+    }
+   ],
+   "bidding": [
+    {
+     "asOf": "2026-10-23T10:41:00+05:30",
+     "qib": 0.0,
+     "nii": 0.01,
+     "bnii": 0.0,
+     "snii": 0.02,
+     "retail": 0.03,
+     "total": 0.02,
+     "bidCr": 0.56,
+     "retailBidCr": 0.51
     }
    ],
    "company": {
