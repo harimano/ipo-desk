@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-24T06:46:00+05:30",
+  "asOf": "2026-10-24T11:18:43+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "24 Oct 2026, 06:46 IST",
+  "label": "24 Oct 2026, 11:18 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -2013,7 +2013,7 @@
    "bandLow": 665.0,
    "bandHigh": 700.0,
    "lotSize": 21,
-   "issueSizeCr": 852.09,
+   "issueSizeCr": 852.18,
    "freshCr": null,
    "ofsCr": 852.09,
    "gmp": 452.0,
@@ -2271,7 +2271,7 @@
    "ofsCr": null,
    "gmp": 250.0,
    "gmpPct": 22.34,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 70.55,
     "nii": 14.0,
@@ -2386,7 +2386,7 @@
      "received": 13452260,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-24T06:44:27+05:30"
+    "asOf": "2026-10-24T11:17:29+05:30"
    }
   },
   {
@@ -2507,7 +2507,7 @@
      "received": 152732,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-24T06:44:32+05:30"
+    "asOf": "2026-10-24T11:17:34+05:30"
    }
   },
   {
@@ -2527,7 +2527,7 @@
    "ofsCr": 1200.0,
    "gmp": 121.0,
    "gmpPct": 7.27,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2596,9 +2596,9 @@
    "issueSizeCr": 255.0,
    "freshCr": 255.0,
    "ofsCr": null,
-   "gmp": 38.0,
-   "gmpPct": 25.33,
-   "gmpTrend": "flat",
+   "gmp": 33.0,
+   "gmpPct": 22.0,
+   "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3469,7 +3469,7 @@
    "bandLow": 170.0,
    "bandHigh": 179.0,
    "lotSize": 800,
-   "issueSizeCr": 54.07,
+   "issueSizeCr": 59.97,
    "freshCr": 54.07,
    "ofsCr": null,
    "gmp": 7.0,
@@ -3594,7 +3594,7 @@
     "snii": 0.1,
     "retail": 0.14,
     "total": 0.08,
-    "asOf": "2026-10-24T06:44:32+05:30",
+    "asOf": "2026-10-24T11:17:34+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3609,14 +3609,14 @@
    "igId": "2229",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-24T06:44:20+05:30",
+   "igFetchedAt": "2026-10-24T11:17:20+05:30",
    "refund": "2026-10-29",
    "sector": "Civil Construction",
    "anchorShares": 1544400,
    "logo": "core4-engineers-logo.jpg",
-   "gmpAsOf": "2026-10-23T23:32:00+05:30",
+   "gmpAsOf": "2026-10-24T10:53:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-23T23:32:00+05:30",
+   "gmpEveAsOf": "2026-10-24T10:53:00+05:30",
    "facts": {
     "sector": "Civil Construction",
     "listingAt": "BSE SME",
@@ -3679,7 +3679,7 @@
      "received": 115,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-24T06:44:32+05:30"
+    "asOf": "2026-10-24T11:17:34+05:30"
    }
   },
   {
@@ -3752,6 +3752,73 @@
    "gmpEveAsOf": "2026-10-23T23:30:00+05:30"
   },
   {
+   "name": "Ajwa Projects",
+   "slug": "ajwa-projects",
+   "type": "BSE SME",
+   "status": "Upcoming",
+   "open": "2026-10-28",
+   "close": "2026-10-30",
+   "allotment": "2026-11-02",
+   "listing": "2026-11-04",
+   "bandLow": null,
+   "bandHigh": 203.0,
+   "lotSize": 600,
+   "issueSizeCr": 36.13,
+   "freshCr": 28.53,
+   "ofsCr": 7.6,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "2017",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-10-24T11:17:20+05:30",
+   "refund": "2026-11-03",
+   "sector": "Civil Construction",
+   "anchorShares": 0,
+   "logo": "ajwa-projects-logo.png",
+   "facts": {
+    "sector": "Civil Construction",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-06-30",
+     "roe": 8.42,
+     "roce": 7.56,
+     "debtEquity": 0.72,
+     "ronw": 8.42,
+     "patMargin": 12.55,
+     "ebitdaMargin": 19.71,
+     "pb": 4.21,
+     "eps": 13.56,
+     "epsPost": 11.33,
+     "pe": 14.97,
+     "pePost": 17.92,
+     "mcapCr": 111.65,
+     "promoterPre": 98.9,
+     "promoterPost": 65.12
+    },
+    "registrar": "Kfin Technologies Ltd.",
+    "leadManagers": [
+     "Wealth Mine Networks Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/355566/SME_IPO%20InPrinciple/DraftProspectusAjwaProjects_20251009230442.pdf",
+     "prospectus": "https://www.ajwaprojects.com/assets/image/pdf/prospectus-ajwa-with-binders.pdf"
+    },
+    "asOf": "2026-10-24T08:41:00+05:30"
+   }
+  },
+  {
    "name": "Carver Roboweld",
    "slug": "carver-roboweld",
    "type": "BSE SME",
@@ -3819,6 +3886,72 @@
    "gmpAsOf": "2026-10-23T23:30:00+05:30",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-10-23T23:30:00+05:30"
+  },
+  {
+   "name": "Antala Industries",
+   "slug": "antala-industries",
+   "type": "BSE SME",
+   "status": "Upcoming",
+   "open": "2026-10-29",
+   "close": "2026-11-02",
+   "allotment": "2026-11-03",
+   "listing": "2026-11-05",
+   "bandLow": 63.0,
+   "bandHigh": 67.0,
+   "lotSize": 2000,
+   "issueSizeCr": 22.15,
+   "freshCr": 22.15,
+   "ofsCr": null,
+   "gmp": null,
+   "gmpPct": null,
+   "gmpTrend": null,
+   "sub": null,
+   "shareholderQuota": null,
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "2375",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-10-24T11:17:20+05:30",
+   "refund": "2026-11-04",
+   "sector": "Packaging",
+   "anchorShares": 0,
+   "logo": "antala-industries-ltd-logo.png",
+   "facts": {
+    "sector": "Packaging",
+    "listingAt": "BSE SME",
+    "kpis": {
+     "asOf": "2026-03-31",
+     "roe": 24.88,
+     "roce": 42.23,
+     "debtEquity": 0.25,
+     "ronw": 24.88,
+     "patMargin": 8.91,
+     "ebitdaMargin": 12.97,
+     "pb": 3.24,
+     "eps": 4.88,
+     "epsPost": 3.48,
+     "pe": 13.73,
+     "pePost": 19.25,
+     "mcapCr": 81.45,
+     "promoterPre": 72.93,
+     "promoterPost": 0.0
+    },
+    "registrar": "Bigshare Services Pvt.Ltd.",
+    "leadManagers": [
+     "Vatsa Capital Venture Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://www.bsesme.com/download/389949/SME_IPO%20InPrinciple/ANTALA_DRHP_20260814032436.zip"
+    },
+    "asOf": "2026-10-24T08:56:00+05:30"
+   }
   }
  ],
  "comps": [
@@ -36274,6 +36407,21 @@
  ],
  "news": [
   {
+   "title": "Sebi orders Avadhut Sathe, academy to refund Rs 546 crore",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-orders-avadhut-sathe-academy-to-refund-rs-546-crore/articleshow/135162877.cms",
+   "date": "2026-10-24T11:01:13+05:30"
+  },
+  {
+   "title": "Anthropic IPO: What should investors consider when valuing the AI company? Aswath Damodaran explains",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/anthropic-ipo-what-should-investors-consider-when-valuing-the-ai-company-aswath-damodaran-explains/articleshow/135162319.cms",
+   "date": "2026-10-24T10:33:17+05:30"
+  },
+  {
+   "title": "Friday blockbuster for Jio IPO: Rs 7.4 lakh crore bids, 22x subscription",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/friday-blockbuster-for-jio-ipo-rs-7-4-lakh-crore-bids-22x-subscription/articleshow/135160249.cms",
+   "date": "2026-10-24T08:16:08+05:30"
+  },
+  {
    "title": "Sebi mulls automatic approval for investments, activities by exchanges",
    "url": "https://www.business-standard.com/markets/news/sebi-mulls-automatic-approval-for-investments-activities-by-exchanges-126102301079_1.html",
    "date": "2026-10-23T23:45:57+05:30"
@@ -36382,21 +36530,6 @@
    "title": "Core4 Engineers SME IPO opens today: Check price band and other key details",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/core4-engineers-sme-ipo-opens-today-check-price-band-and-other-key-details/articleshow/135133511.cms",
    "date": "2026-10-23T09:08:07+05:30"
-  },
-  {
-   "title": "Jio IPO closes today: Will it deliver a double-digit listing gain or become a long-term compounder?",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-closes-today-will-it-deliver-a-double-digit-listing-gain-or-become-a-long-term-compounder/articleshow/135133412.cms",
-   "date": "2026-10-23T09:02:38+05:30"
-  },
-  {
-   "title": "Jio Platforms IPO subscribed 5.57 times on day 2 on strong interest",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-platforms-ipo-subscribed-5-57-times-on-day-2-on-strong-interest/articleshow/135130103.cms",
-   "date": "2026-10-23T05:48:22+05:30"
-  },
-  {
-   "title": "IPO-bound companies defer launches to avoid Jio mega issue",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/ipo-bound-companies-defer-launches-to-avoid-jio-mega-issue/articleshow/135130261.cms",
-   "date": "2026-10-23T05:47:11+05:30"
   }
  ],
  "priceHistory": {
@@ -83416,41 +83549,41 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-24T06:46:00+05:30",
+  "asOf": "2026-10-24T11:18:43+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-24T06:44:18+05:30",
-    "elapsed": 2.35,
+    "asOf": "2026-10-24T11:17:19+05:30",
+    "elapsed": 1.6,
     "calls": 5,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=10 carried=7 +nse=8 +bse=0 exchange-only=0: 11 mainboard, 4 sme; 1 open, 7 upcoming"
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=12 carried=5 +nse=8 +bse=0 exchange-only=0: 11 mainboard, 6 sme; 1 open, 9 upcoming"
    },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.99,
+    "elapsed": 0.91,
     "calls": 1,
-    "note": "gmp: 12 board rows patched via investorgain; 10 active, 6 of them matched; gmp: 9 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹66, investorgain); HD Fire Protect (₹70, investorgain); Nityas Gems & Jewellery (₹1, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Shree TNB Polymers (₹4, investorgain); Sollfege Smart Electronics (₹10, investorgain); Vaibhav Vyapaar (₹3, investorgain) …; mainboard: 1 patched names not on the board: Fusion CX; sme: 1 patched names not on the board: Ravita Engineering Services"
+    "note": "gmp: 10 board rows patched via investorgain; 8 active, 4 of them matched; gmp: 10 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹66, investorgain); EverestIMS Technologies (₹50, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Ravita Engineering Services (₹1, investorgain); Shree TNB Polymers (₹4, investorgain) …"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-24T06:44:20+05:30",
-    "elapsed": 5.14,
-    "calls": 15,
-    "note": "15 records fetched for 15 identified listings (0 without an id); 1 anchor books updated, 91 on file"
+    "asOf": "2026-10-24T11:17:20+05:30",
+    "elapsed": 3.23,
+    "calls": 3,
+    "note": "3 records fetched for 17 identified listings (0 without an id); 0 anchor books updated, 91 on file"
    },
    {
     "area": "subscription",
     "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-10-24T06:44:32+05:30",
-    "elapsed": 7.49,
+    "asOf": "2026-10-24T11:17:34+05:30",
+    "elapsed": 11.24,
     "calls": 5,
     "note": "3/3 rows patched via narada, nse"
    },
@@ -83459,16 +83592,16 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-23",
-    "elapsed": 12.56,
+    "elapsed": 8.9,
     "calls": 0,
-    "note": "26 names priced, 5 moved to recent, 0 history points; mainboard: 1 patched names not on the board: Fusion CX"
+    "note": "25 names priced, 4 moved to recent, 0 history points"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-24",
-    "elapsed": 3.47,
+    "elapsed": 3.35,
     "calls": 2,
     "note": "1395 listings since 2022 (989 SME); fetched 2026: 292; QIB on file for 107 of 406 mainboard issues"
    },
@@ -83495,7 +83628,7 @@
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-10-24",
-    "elapsed": 0.2,
+    "elapsed": 0.22,
     "calls": 0,
     "note": "track records: 909 of 909 anchor books have an outcome; 864 of 1420 investors with 2+; 1395 listings; windows: mainboard 130, SME 236; 4 warnings"
    },
@@ -83504,34 +83637,34 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-24",
-    "elapsed": 43.17,
+    "elapsed": 35.29,
     "calls": 54,
-    "note": "53 of 2839 anchor investors read (0 failed); names found for 2 of 10 unlisted issues"
+    "note": "53 of 2839 anchor investors read (0 failed); names found for 2 of 12 unlisted issues"
    },
    {
     "area": "parents",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-23",
-    "elapsed": 16.59,
+    "elapsed": 9.26,
     "calls": 0,
-    "note": "5/5 parent prices; 39/45 investor stocks priced"
+    "note": "5/5 parent prices; 38/43 investor stocks priced"
    },
    {
     "area": "filings",
     "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-10-24",
-    "elapsed": 7.55,
+    "elapsed": 7.52,
     "calls": 14,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1794 announcements scanned, 0 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 3 leads held; 0 rows patched, 33 kept previous stage"
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1812 announcements scanned, 0 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 3 leads held; 0 rows patched, 33 kept previous stage"
    },
    {
     "area": "offers",
     "method": "bse:blocked, bse:blocked",
     "status": "blocked",
     "asOf": null,
-    "elapsed": 0.09,
+    "elapsed": 0.03,
     "calls": 1,
     "note": "kept previous — HTTP 403"
    },
@@ -83540,7 +83673,7 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-10-23",
-    "elapsed": 0.35,
+    "elapsed": 0.28,
     "calls": 1,
     "note": "2026-10-23 already in history; FII +888 / DII +3,235 Cr"
    },
@@ -83549,7 +83682,7 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-10-23",
-    "elapsed": 0.98,
+    "elapsed": 1.13,
     "calls": 4,
     "note": "bulk.csv: 118 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 118; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 42 of today's 118 deals are in this year's listings (8 stocks); 1421 kept over 60 days; 196 of 293 listings have an NSE symbol; 227 with a BSE code"
    },
@@ -83557,19 +83690,19 @@
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
-    "asOf": "2026-10-23T23:45:57+05:30",
-    "elapsed": 1.11,
+    "asOf": "2026-10-24T11:01:13+05:30",
+    "elapsed": 1.06,
     "calls": 3,
-    "note": "business-standard: 8/35 primary-market items; economic-times: 8/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 16 fresh, 25 kept"
+    "note": "business-standard: 8/35 primary-market items; economic-times: 7/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 15 fresh, 25 kept"
    },
    {
     "area": "logos",
-    "method": "none:ok",
+    "method": "chittorgarh.net:ok",
     "status": "ok",
     "asOf": "2026-10-24",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "62 logos on file; none to fetch"
+    "elapsed": 0.48,
+    "calls": 2,
+    "note": "2 logos made, 0 missing, 0 errors; 0 left; 64 on file"
    },
    {
     "area": "research layer",
@@ -83581,7 +83714,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "104s, 105 calls, 16/17 modules ok"
+    "note": "86s, 95 calls, 16/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -85260,16 +85393,6 @@
    "Asian Energy": {
     "symbol": "ASIANENE",
     "value": 402.05,
-    "asOf": "2026-10-22"
-   },
-   "TechEra Engineering": {
-    "symbol": "TECHERA",
-    "value": null,
-    "asOf": null
-   },
-   "Beta Drugs": {
-    "symbol": "BETA",
-    "value": 1971.0,
     "asOf": "2026-10-22"
    },
    "Lux Industries": {
@@ -122362,7 +122485,7 @@
   },
   "2229": {
    "name": "Core4 Engineers",
-   "fetchedAt": "2026-10-24T06:44:20+05:30",
+   "fetchedAt": "2026-10-24T11:17:20+05:30",
    "about": [
     "Core4 Engineers Ltd. is an Engineering, Procurement, Construction and Commissioning (EPCC) company specializing in integrated infrastructure development across railway electrification, power transmission and distribution, and water and wastewater management. The company provides comprehensive project solutions covering planning, design, engineering, material procurement, installation, testing, commissioning, and operation and maintenance (O&M). The company operates an in-house manufacturing facility dedicated to producing High-Tension (HT) and Low-Tension (LT) electrical panels and compact substations. These products cater to the requirements of its infrastructure projects as well as external customers. Its subsidiary, Core4 Energy Ltd., further strengthens its manufacturing capabilities and generates product-related revenue through the production of electrical distribution and control panels. Core4 Engineers Ltd. serves a diverse client base comprising Indian Railways, public sector undertakings (PSUs), and infrastructure development contractors. Its project portfolio includes railway electrification, traction and power substations, transmission and distribution networks, and water treatment infrastructure. As of September 30, 2025, the company employed 433 personnel, including employees and project-based workers. Key Business Segments 1. Railway Electrification (RE) The company undertakes railway electrification projects involving 25 kV overhead equipment (OHE), traction substations, and associated electrical infrastructure under the EPCC model. 2. Railway Infrastructure This segment covers integrated civil, electrical, and mechanical works for railway station redevelopment, modernization, and infrastructure improvement projects. 3. Extra-High-Voltage (EHT) Transmission and Distribution Core4 Engineers executes turnkey power infrastructure projects up to 220 kV, encompassing substations, transformers, transmission facilities, and electricity distribution systems. 4. Water and Wastewater Treatment The company delivers EPCC projects for water treatment plants (WTPs), sewage treatment plants (STPs), and effluent treatment plants (ETPs), utilizing technologies such as Moving Bed Biofilm Reactor (MBBR) and Sequencing Batch Reactor (SBR). 5. Automation and SCADA Solutions This business vertical focuses on PLC-based automation, supervisory monitoring, and control systems designed to improve operational efficiency and facilitate real-time monitoring of infrastructure installations. 6. HT/LT Electrical Panel Manufacturing The company manufactures and supplies a range of electrical panels, including Power Control Centres (PCC), Motor Control Centres (MCC), Automatic Power Factor Correction (APFC) panels, and customized automation panels for industrial and infrastructure applications."
    ],
@@ -122591,7 +122714,7 @@
    },
    "gmpHistory": [
     {
-     "date": "2026-10-23",
+     "date": "2026-10-24",
      "gmp": 0.0,
      "est": 93.0,
      "pct": 0.0,
@@ -124061,6 +124184,414 @@
     "website": "https://www.mkjewels.in/",
     "process": "Book Build Issue"
    }
+  },
+  "2017": {
+   "name": "Ajwa Projects",
+   "fetchedAt": "2026-10-24T11:17:20+05:30",
+   "about": [
+    "Ajwa Projects is a multi-disciplinary industrial services company delivering end-to-end solutions across fabrication, erection, piping, pressure equipment, prefabricated structures, civil construction, and maintenance. The company specializes in turning project plans into real, functional industrial assets. Key Services: Fabrication: Manufacture and sell structural components, pressure vessels, boilers, tanks, ducts, and precision parts for various industries. Erection: On-site installation and integration of heavy structures, equipment, and piping systems with strict focus on safety and precision. Piping: Fabrication and installation of process and utility pipelines for chemicals, gases, steam, and fluids. Pressure Equipment: Fabrication, assembly, and erection of pressure vessels and related heavy-duty equipment. Civil Construction: Site development, foundations, industrial buildings, silos, tanks, and other civil works. Prefabricated Structures: Modular and portable buildings for industrial and commercial use. Maintenance & Mechanical Services: Preventive maintenance, PSV calibration, NDT testing, blasting & painting, and plant shutdown support. The company caters to a wide range of industries such as oil & gas, petrochemicals, refineries, power generation, steel, heavy metals, cement, nuclear power, bridges, metro rail, bullet train infrastructure, and other industrial and infrastructure projects. It has a workforce of over 550 skilled and semi-skilled professionals. Competitive Strengths: Experienced management team Comprehensive Portfolio with Sectoral Diversity Strong and diverse Order Book: As of Sep 30, 2025, its order book stood at Rs 1,982.05 lakhs. Flexible Execution Model (On-Site and Off-Site) Integrated Fabrication and Erection Expertise Quality and Safety Framework Skilled Workforce and Operational Capability"
+   ],
+   "desc": [
+    "Incorporated in 2011, Ajwa Projects is a multi-disciplinary industrial services company delivering end-to-end solutions across fabrication, erection, piping, pressure equipment, prefabricated structures, civil construction, and maintenance. The company specializes in turning project plans into real, functional industrial assets. The company manufacture technological frameworks, industrial buildings, girders, heavy modules, platforms, and crane girders that are critical for plant construction and infrastructure projects. They also fabricate specialised components such as dish ends, crowns, petals, and customised parts, including diesel engine components for railway applications that require a high degree of precision and strict compliance with industry standards. Key Services: Fabrication: Manufacture and sell structural components, pressure vessels, boilers, tanks, ducts, and precision parts for various industries. Erection: On-site installation and integration of heavy structures, equipment, and piping systems with strict focus on safety and precision. Piping: Fabrication and installation of process and utility pipelines for chemicals, gases, steam, and fluids. Pressure Equipment: Fabrication, assembly, and erection of pressure vessels and related heavy-duty equipment. Civil Construction: Site development, foundations, industrial buildings, silos, tanks, and other civil works. Prefabricated Structures: Modular and portable buildings for industrial and commercial use. Maintenance & Mechanical Services: Preventive maintenance, PSV calibration, NDT testing, blasting & painting, and plant shutdown support. The company caters to a wide range of industries such as oil & gas, petrochemicals, refineries, power generation, steel, heavy metals, cement, nuclear power, bridges, metro rail, bullet train infrastructure, and other industrial and infrastructure projects. It has a workforce of over 557 skilled and semi-skilled professionals. Competitive Strengths: Experienced management team Comprehensive Portfolio with Sectoral Diversity Strong and diverse Order Book: As of Sep 30, 2025, its order book stood at Rs 1,982.05 lakhs. Flexible Execution Model (On-Site and Off-Site) Integrated Fabrication and Erection Expertise Quality and Safety Framework Skilled Workforce and Operational Capability"
+   ],
+   "promoters": "Mohammad Khurshid Alam Khan, Zarinbegum Khurshid Alam Khan, Riyaz Rafiq Padela",
+   "objects": {
+    "head": [
+     "#",
+     "Issue Objects",
+     "Est Amt (₹ Cr.)"
+    ],
+    "rows": [
+     [
+      "1",
+      "Funding capital expenditure requirements towards acquisition of plant & machinery, transport vehicle/assets",
+      "8.10"
+     ],
+     [
+      "2",
+      "Repayment or prepayment, in full or in part, of borrowings availed by Company",
+      "9.35"
+     ],
+     [
+      "3",
+      "Working Capital Requirement",
+      "4.00"
+     ],
+     [
+      "4",
+      "General Corporate Purposes",
+      "4.43"
+     ],
+     [
+      "",
+      "Total",
+      "25.88"
+     ]
+    ]
+   },
+   "financials": {
+    "head": [
+     "Period Ended",
+     "30 Jun 2026",
+     "31 Mar 2026",
+     "31 Mar 2025",
+     "31 Mar 2024"
+    ],
+    "rows": [
+     [
+      "Assets",
+      "41.97",
+      "36.37",
+      "25.57",
+      "25.00"
+     ],
+     [
+      "Total Income",
+      "12.44",
+      "48.56",
+      "36.87",
+      "34.38"
+     ],
+     [
+      "Profit After Tax",
+      "1.56",
+      "5.42",
+      "3.28",
+      "2.95"
+     ],
+     [
+      "EBITDA",
+      "2.45",
+      "9.03",
+      "6.41",
+      "5.68"
+     ],
+     [
+      "NET Worth",
+      "19.27",
+      "17.71",
+      "12.29",
+      "8.90"
+     ],
+     [
+      "Reserves and Surplus",
+      "15.27",
+      "13.71",
+      "8.29",
+      "8.81"
+     ],
+     [
+      "Total Borrowing",
+      "13.84",
+      "12.52",
+      "7.96",
+      "10.85"
+     ],
+     [
+      "Amount in ₹ Crore"
+     ]
+    ],
+    "title": "Company Financials (Restated)",
+    "asOf": "2026-06-30"
+   },
+   "peers": {
+    "head": [
+     "Company Name",
+     "EPS (Basic)",
+     "EPS (Diluted)",
+     "NAV (₹ per share)",
+     "P/E (x)",
+     "RoNW (%)",
+     "P/BV Ratio",
+     "Financial statements"
+    ],
+    "rows": [
+     [
+      "Ajwa Projects Ltd.",
+      "13.56",
+      "13.56",
+      "44.28",
+      "14.97",
+      "36.15",
+      "4.61",
+      "Restated"
+     ],
+     [
+      "Atmastco Ltd.",
+      "7.33",
+      "7.33",
+      "59.15",
+      "15.97",
+      "13.93",
+      "1.98",
+      ""
+     ],
+     [
+      "Samay Project Services Ltd.",
+      "4.77",
+      "4.77",
+      "26.02",
+      "9.52",
+      "22.64",
+      "1.73",
+      ""
+     ]
+    ],
+    "asOf": "2026-03-31"
+   },
+   "reservation": {
+    "head": [
+     "Investor Category",
+     "Shares",
+     "% of Net Issue",
+     "% of Total Issue"
+    ],
+    "rows": [
+     [
+      "NII (HNI)",
+      "8,90,400",
+      "50.03%",
+      "47.50%"
+     ],
+     [
+      "Retail",
+      "8,89,200",
+      "49.97%",
+      "47.44%"
+     ],
+     [
+      "Firm Reservations"
+     ],
+     [
+      "Market Maker",
+      "94,800",
+      "",
+      "5.06%"
+     ],
+     [
+      "Total",
+      "18,74,400",
+      "100.00%",
+      "100.00%"
+     ]
+    ]
+   },
+   "kpiPeriods": [
+    {
+     "asOf": "2026-03-31",
+     "roe": 36.15,
+     "roce": 34.75,
+     "ronw": 36.15,
+     "patMargin": 11.2,
+     "ebitdaMargin": 18.66,
+     "debtEquity": 0.71
+    },
+    {
+     "asOf": "2026-06-30",
+     "roe": 8.42,
+     "roce": 7.56,
+     "ronw": 8.42,
+     "patMargin": 12.55,
+     "ebitdaMargin": 19.71,
+     "debtEquity": 0.72
+    }
+   ],
+   "holding": {
+    "promoterPre": 98.9,
+    "promoterPost": 65.12,
+    "sharesPre": 4000000.0,
+    "sharesPost": 5500000.0
+   },
+   "gmpHistory": [
+    {
+     "date": "2026-10-24",
+     "gmp": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
+   "company": {
+    "address": "M/71, Silver Spring Near Bhulkabhavan School, Adajan",
+    "website": "https://www.ajwaprojects.com/",
+    "process": "Fixed Price Issue"
+   }
+  },
+  "2375": {
+   "name": "Antala Industries",
+   "fetchedAt": "2026-10-24T11:17:20+05:30",
+   "about": [
+    "```html Antala Industries Limited is engaged in the production, processing, printing, lamination and supply of industrial and commercial packaging materials. Its product range includes BOPP bags, BOPP printing rolls, BOPP lamination rolls, PP woven bags and PP woven lamination rolls, catering to industries such as food processing, fertilizers, chemicals, cement and seeds. The Company operates an integrated manufacturing facility in Rajkot, Gujarat, equipped with extrusion, coating and lamination, rotogravure printing, stitching and finishing capabilities. The Company offers customized packaging solutions designed to provide strength, durability, moisture resistance, superior print quality and improved product presentation. Its integrated production infrastructure supports in-house operations ranging from printing and lamination to cutting, stitching, finishing and final packaging, enabling effective quality management, efficient production and timely order fulfilment. The Company holds ISO 9001:2015, ISO 14001:2015, ISO 22000:2018 and ISO 45001:2018 certifications. Its promoters bring nearly three decades of experience in the packaging industry. As of July 21, 2026, the Company employed 11 personnel across various functions, including accounts and finance, management, administration, sales, secretarial and production. Its competitive advantages include experienced promoters and management, a broad and customizable packaging portfolio, a presence across diverse industries, integrated manufacturing operations, a customer-oriented approach and well-established relationships with suppliers and customers. Strengths: Promoters and management with substantial experience in the packaging industry. Wide range of packaging products with flexibility to meet customized customer requirements. Established presence across several industrial and commercial end-use sectors. Integrated manufacturing infrastructure supporting production control and operational efficiency. Focus on product quality, customized solutions and timely delivery. Established business relationships with customers and suppliers."
+   ],
+   "desc": [
+    "Incorporated in August 2024, Antala Industries Limited is engaged in the manufacturing, processing, printing, laminating and supply of industrial and commercial packaging products. The Company specializes in BOPP bags, BOPP printing rolls, BOPP lamination rolls, PP woven bags and PP woven lamination rolls, serving customers across industries such as food processing, fertilizers, chemicals, cement and seeds. The Company operates an integrated manufacturing facility in Rajkot, Gujarat, with capabilities including extrusion, coating and lamination, rotogravure printing, stitching and finishing. The Company provides customized packaging solutions focused on strength, durability, moisture resistance, high-quality printability and enhanced product visibility. Its integrated manufacturing setup enables in-house processing from printing and lamination to cutting, stitching, finishing and packaging, supporting quality control, production efficiency and timely delivery. The Company holds ISO 9001:2015, ISO 14001:2015, ISO 22000:2018 and ISO 45001:2018 certifications and is backed by promoters with nearly three decades of experience in the packaging industry. As of July 21, 2026, the Company had 11 employees across accounts and finance, management, administration, sales, secretarial and production functions. Its key strengths include experienced promoters and management, a diversified and customizable product portfolio, presence across multiple end-user industries, customer-focused manufacturing and delivery capabilities, and established supplier and customer relationships. Strengths : Experienced promoters and management team with extensive packaging industry expertise. Diversified product portfolio with customization capabilities. Presence across multiple end-user industries. Integrated manufacturing capabilities supporting operational efficiency. Customer-focused manufacturing and delivery process. Established supplier and customer relationships."
+   ],
+   "promoters": "Rajeshkumar Chandulal Antala, Lataben Rajeshbhai Antala, Pankajkumar Chandulal Antala, Hetalben Pankajkumar Antala, Nevil Pankajbhai Antala, Aaryan Rajesh Antala, Shaily Rajeshkumar Antala",
+   "objects": {
+    "head": [
+     "#",
+     "Issue Objects",
+     "Est Amt (₹ Cr.)"
+    ],
+    "rows": [
+     [
+      "1",
+      "To meet Working Capital Requirements",
+      "10.68"
+     ],
+     [
+      "2",
+      "To meet the requirements of Capital Expenditure towards Purchase of Machinery",
+      "7.32"
+     ],
+     [
+      "3",
+      "General Corporate Purposes",
+      ""
+     ],
+     [
+      "",
+      "Total",
+      "18.00"
+     ]
+    ]
+   },
+   "financials": {
+    "head": [
+     "Period Ended",
+     "31 Mar 2026",
+     "31 Mar 2025",
+     "31 Mar 2024"
+    ],
+    "rows": [
+     [
+      "Assets",
+      "28.41",
+      "25.47",
+      "5.97"
+     ],
+     [
+      "Total Income",
+      "47.53",
+      "31.98",
+      "12.59"
+     ],
+     [
+      "Profit After Tax",
+      "4.24",
+      "1.82",
+      "0.89"
+     ],
+     [
+      "EBITDA",
+      "6.15",
+      "2.82",
+      "1.36"
+     ],
+     [
+      "NET Worth",
+      "17.03",
+      "12.19",
+      "3.54"
+     ],
+     [
+      "Reserves and Surplus",
+      "8.79",
+      "3.02",
+      ""
+     ],
+     [
+      "Total Borrowing",
+      "4.19",
+      "3.85",
+      "0.36"
+     ],
+     [
+      "Amount in ₹ Crore"
+     ]
+    ],
+    "title": "Company Financials (Restated)",
+    "asOf": "2026-03-31"
+   },
+   "peers": {
+    "head": [
+     "Company Name",
+     "EPS (Basic)",
+     "NAV (₹ per share)",
+     "P/E (x)",
+     "RoNW (%)",
+     "P/BV Ratio",
+     "Financial statements"
+    ],
+    "rows": [
+     [
+      "Knack Packaging Ltd",
+      "8.94",
+      "30.48",
+      "24.62",
+      "34.41",
+      "6.83",
+      "Standalone"
+     ],
+     [
+      "Dhaval Packaging Ltd",
+      "8.08",
+      "30.78",
+      "18.50",
+      "31.58",
+      "3.60",
+      "Standalone"
+     ]
+    ],
+    "asOf": "2026-03-31"
+   },
+   "reservation": {
+    "head": [
+     "Investor Category",
+     "Shares"
+    ],
+    "rows": [
+     [
+      "QIB",
+      "Not more than 50% of the Offer"
+     ],
+     [
+      "Retail",
+      "Not less than 35% of the Offer"
+     ],
+     [
+      "NII",
+      "Not less than 15% of the Offer"
+     ]
+    ]
+   },
+   "kpiPeriods": [
+    {
+     "asOf": "2026-03-31",
+     "roe": 24.88,
+     "roce": 42.23,
+     "ronw": 24.88,
+     "patMargin": 8.91,
+     "ebitdaMargin": 12.97,
+     "debtEquity": 0.25
+    }
+   ],
+   "holding": {
+    "promoterPre": 72.93,
+    "promoterPost": 0.0,
+    "sharesPre": 8674736.0,
+    "sharesPost": 12156736.0
+   },
+   "gmpHistory": [
+    {
+     "date": "2026-10-24",
+     "gmp": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
+   "company": {
+    "address": "Shapar RS No.84, Plot No.1, Opp. Shreeji Tiles, Veraval (Shapar), Kotda Sanghani",
+    "website": "https://antalalimited.in/",
+    "process": "Book Build Issue"
+   }
   }
  },
  "players": {
@@ -124907,10 +125438,12 @@
    "1728",
    "1849",
    "1936",
+   "2017",
    "2229",
    "2288",
    "2306",
    "2356",
+   "2375",
    "2393"
   ],
   "league": [
@@ -125092,7 +125625,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-24T06:44:49+05:30",
+  "asOf": "2026-10-24T11:17:47+05:30",
   "dates": [
    "2026-01-20",
    "2026-01-21",
@@ -276039,6 +276572,14 @@
   "2288": {
    "src": "mk-sons-fine-jewels-logo.png",
    "at": "2026-10-23"
+  },
+  "2375": {
+   "src": "antala-industries-ltd-logo.png",
+   "at": "2026-10-24"
+  },
+  "2017": {
+   "src": "ajwa-projects-logo.png",
+   "at": "2026-10-24"
   }
  }
 }
