@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-25T18:15:31+05:30",
+  "asOf": "2026-10-25T22:20:39+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "25 Oct 2026, 18:15 IST",
+  "label": "25 Oct 2026, 22:20 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -1766,9 +1766,9 @@
    "issueSizeCr": 30213.0,
    "freshCr": 30213.0,
    "ofsCr": null,
-   "gmp": 250.0,
-   "gmpPct": 22.34,
-   "gmpTrend": "up",
+   "gmp": 246.0,
+   "gmpPct": 21.98,
+   "gmpTrend": "down",
    "sub": {
     "qib": 67.15,
     "nii": 13.99,
@@ -1900,9 +1900,9 @@
    "issueSizeCr": 1450.0,
    "freshCr": 500.0,
    "ofsCr": 950.0,
-   "gmp": 12.0,
-   "gmpPct": 1.73,
-   "gmpTrend": "flat",
+   "gmp": 9.0,
+   "gmpPct": 1.3,
+   "gmpTrend": "down",
    "sub": {
     "qib": 3.25,
     "nii": 0.69,
@@ -2020,8 +2020,8 @@
    "issueSizeCr": 1200.0,
    "freshCr": null,
    "ofsCr": 1200.0,
-   "gmp": 36.0,
-   "gmpPct": 2.16,
+   "gmp": 33.0,
+   "gmpPct": 1.98,
    "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
@@ -2984,7 +2984,7 @@
     "snii": 0.1,
     "retail": 0.14,
     "total": 0.08,
-    "asOf": "2026-10-25T18:14:29+05:30",
+    "asOf": "2026-10-25T22:19:30+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -2999,14 +2999,14 @@
    "igId": "2229",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-25T18:14:18+05:30",
+   "igFetchedAt": "2026-10-25T22:19:28+05:30",
    "refund": "2026-10-29",
    "sector": "Civil Construction",
    "anchorShares": 1544400,
    "logo": "core4-engineers-logo.jpg",
-   "gmpAsOf": "2026-10-25T17:33:00+05:30",
+   "gmpAsOf": "2026-10-25T21:36:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-25T17:33:00+05:30",
+   "gmpEveAsOf": "2026-10-25T21:36:00+05:30",
    "facts": {
     "sector": "Civil Construction",
     "listingAt": "BSE SME",
@@ -3069,7 +3069,7 @@
      "received": 115,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-25T18:14:29+05:30"
+    "asOf": "2026-10-25T22:19:30+05:30"
    }
   },
   {
@@ -82945,14 +82945,14 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-25T18:15:31+05:30",
+  "asOf": "2026-10-25T22:20:39+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-25T18:14:18+05:30",
-    "elapsed": 1.83,
+    "asOf": "2026-10-25T22:19:27+05:30",
+    "elapsed": 1.42,
     "calls": 5,
     "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=12 carried=0 +nse=4 +bse=0 exchange-only=0: 7 mainboard, 5 sme; 1 open, 9 upcoming"
    },
@@ -82961,7 +82961,7 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.64,
+    "elapsed": 0.67,
     "calls": 1,
     "note": "gmp: 7 board rows patched via investorgain; 10 active, 5 of them matched; gmp: 14 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹66, investorgain); EverestIMS Technologies (₹50, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Ravita Engineering Services (₹1, investorgain); Sahajanand Medical Technologies (₹17, investorgain) …"
    },
@@ -82969,17 +82969,17 @@
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-25T18:14:18+05:30",
-    "elapsed": 9.45,
-    "calls": 12,
-    "note": "12 records fetched for 12 identified listings (0 without an id); 0 anchor books updated, 91 on file"
+    "asOf": "2026-10-25T22:19:28+05:30",
+    "elapsed": 0.88,
+    "calls": 1,
+    "note": "1 records fetched for 12 identified listings (0 without an id); 0 anchor books updated, 91 on file"
    },
    {
     "area": "subscription",
     "method": "narada:ok",
     "status": "ok",
-    "asOf": "2026-10-25T18:14:29+05:30",
-    "elapsed": 1.05,
+    "asOf": "2026-10-25T22:19:30+05:30",
+    "elapsed": 1.13,
     "calls": 1,
     "note": "1/1 rows patched via narada"
    },
@@ -82988,7 +82988,7 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-23",
-    "elapsed": 9.33,
+    "elapsed": 12.02,
     "calls": 0,
     "note": "21 names priced, 0 moved to recent, 0 history points"
    },
@@ -82997,7 +82997,7 @@
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-25",
-    "elapsed": 2.55,
+    "elapsed": 2.65,
     "calls": 2,
     "note": "1395 listings since 2022 (989 SME); fetched 2026: 292; QIB on file for 107 of 406 mainboard issues"
    },
@@ -83024,7 +83024,7 @@
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-10-25",
-    "elapsed": 0.2,
+    "elapsed": 0.19,
     "calls": 0,
     "note": "track records: 909 of 909 anchor books have an outcome; 864 of 1420 investors with 2+; 1395 listings; windows: mainboard 129, SME 236; 4 warnings"
    },
@@ -83033,7 +83033,7 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-25",
-    "elapsed": 28.07,
+    "elapsed": 29.27,
     "calls": 54,
     "note": "53 of 2839 anchor investors read (0 failed); names found for 2 of 12 unlisted issues"
    },
@@ -83042,7 +83042,7 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-23",
-    "elapsed": 10.29,
+    "elapsed": 11.93,
     "calls": 0,
     "note": "5/5 parent prices; 38/43 investor stocks priced"
    },
@@ -83051,16 +83051,16 @@
     "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-10-25",
-    "elapsed": 8.38,
+    "elapsed": 10.35,
     "calls": 14,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1978 announcements scanned, 1 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 4 leads held; 0 rows patched, 33 kept previous stage"
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1983 announcements scanned, 1 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 4 leads held; 0 rows patched, 33 kept previous stage"
    },
    {
     "area": "offers",
     "method": "bse:blocked, bse:blocked",
     "status": "blocked",
     "asOf": null,
-    "elapsed": 0.05,
+    "elapsed": 0.04,
     "calls": 1,
     "note": "kept previous — HTTP 403"
    },
@@ -83069,7 +83069,7 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-10-23",
-    "elapsed": 0.3,
+    "elapsed": 0.36,
     "calls": 1,
     "note": "2026-10-23 already in history; FII +888 / DII +3,235 Cr"
    },
@@ -83078,7 +83078,7 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-10-23",
-    "elapsed": 1.06,
+    "elapsed": 0.83,
     "calls": 4,
     "note": "bulk.csv: 118 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 118; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 42 of today's 118 deals are in this year's listings (8 stocks); 1421 kept over 60 days; 196 of 292 listings have an NSE symbol; 226 with a BSE code"
    },
@@ -83087,9 +83087,9 @@
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-10-25T13:06:49+05:30",
-    "elapsed": 0.78,
+    "elapsed": 0.59,
     "calls": 3,
-    "note": "business-standard: 7/35 primary-market items; economic-times: 8/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 15 fresh, 25 kept"
+    "note": "business-standard: 6/35 primary-market items; economic-times: 8/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 14 fresh, 25 kept"
    },
    {
     "area": "logos",
@@ -83110,7 +83110,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "75s, 98 calls, 16/17 modules ok"
+    "note": "73s, 87 calls, 16/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -120260,7 +120260,7 @@
   },
   "2229": {
    "name": "Core4 Engineers",
-   "fetchedAt": "2026-10-25T18:14:18+05:30",
+   "fetchedAt": "2026-10-25T22:19:28+05:30",
    "about": [
     "Core4 Engineers Ltd. is an Engineering, Procurement, Construction and Commissioning (EPCC) company specializing in integrated infrastructure development across railway electrification, power transmission and distribution, and water and wastewater management. The company provides comprehensive project solutions covering planning, design, engineering, material procurement, installation, testing, commissioning, and operation and maintenance (O&M). The company operates an in-house manufacturing facility dedicated to producing High-Tension (HT) and Low-Tension (LT) electrical panels and compact substations. These products cater to the requirements of its infrastructure projects as well as external customers. Its subsidiary, Core4 Energy Ltd., further strengthens its manufacturing capabilities and generates product-related revenue through the production of electrical distribution and control panels. Core4 Engineers Ltd. serves a diverse client base comprising Indian Railways, public sector undertakings (PSUs), and infrastructure development contractors. Its project portfolio includes railway electrification, traction and power substations, transmission and distribution networks, and water treatment infrastructure. As of September 30, 2025, the company employed 433 personnel, including employees and project-based workers. Key Business Segments 1. Railway Electrification (RE) The company undertakes railway electrification projects involving 25 kV overhead equipment (OHE), traction substations, and associated electrical infrastructure under the EPCC model. 2. Railway Infrastructure This segment covers integrated civil, electrical, and mechanical works for railway station redevelopment, modernization, and infrastructure improvement projects. 3. Extra-High-Voltage (EHT) Transmission and Distribution Core4 Engineers executes turnkey power infrastructure projects up to 220 kV, encompassing substations, transformers, transmission facilities, and electricity distribution systems. 4. Water and Wastewater Treatment The company delivers EPCC projects for water treatment plants (WTPs), sewage treatment plants (STPs), and effluent treatment plants (ETPs), utilizing technologies such as Moving Bed Biofilm Reactor (MBBR) and Sequencing Batch Reactor (SBR). 5. Automation and SCADA Solutions This business vertical focuses on PLC-based automation, supervisory monitoring, and control systems designed to improve operational efficiency and facilitate real-time monitoring of infrastructure installations. 6. HT/LT Electrical Panel Manufacturing The company manufactures and supplies a range of electrical panels, including Power Control Centres (PCC), Motor Control Centres (MCC), Automatic Power Factor Correction (APFC) panels, and customized automation panels for industrial and infrastructure applications."
    ],
@@ -123548,7 +123548,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-25T18:14:41+05:30",
+  "asOf": "2026-10-25T22:19:45+05:30",
   "dates": [
    "2026-01-21",
    "2026-01-22",
