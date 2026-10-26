@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-26T22:14:02+05:30",
+  "asOf": "2026-10-27T00:06:43+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "26 Oct 2026, 22:14 IST",
+  "label": "27 Oct 2026, 00:06 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -40,7 +40,8 @@
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
    "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
-   "[gmp] gmp: no grey-market print found for open issue Core4 Engineers"
+   "[gmp] gmp: no grey-market print found for open issue Core4 Engineers",
+   "[subscription] subscription missing for BLS Polymers, SFC Environmental Technologies — check NSE/BSE ids on the row"
   ]
  },
  "expected": [
@@ -1766,9 +1767,9 @@
    "issueSizeCr": 30187.65,
    "freshCr": 30187.65,
    "ofsCr": null,
-   "gmp": 248.0,
-   "gmpPct": 22.16,
-   "gmpTrend": "up",
+   "gmp": 245.0,
+   "gmpPct": 21.89,
+   "gmpTrend": "down",
    "sub": {
     "qib": 67.15,
     "nii": 13.99,
@@ -2022,8 +2023,8 @@
    "issueSizeCr": 1200.0,
    "freshCr": null,
    "ofsCr": 1200.0,
-   "gmp": 23.0,
-   "gmpPct": 1.38,
+   "gmp": 15.0,
+   "gmpPct": 0.9,
    "gmpTrend": "down",
    "sub": {
     "qib": 0.08,
@@ -2045,7 +2046,7 @@
    "igId": "1635",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-26T22:13:43+05:30",
+   "igFetchedAt": "2026-10-27T00:06:17+05:30",
    "refund": "2026-10-30",
    "sector": "Asset Management Company",
    "anchorShares": 2162161,
@@ -2089,9 +2090,9 @@
     },
     "asOf": "2026-10-26T04:40:00+05:30"
    },
-   "gmpAsOf": "2026-10-26T21:37:00+05:30",
-   "gmpEve": 23.0,
-   "gmpEveAsOf": "2026-10-26T21:37:00+05:30",
+   "gmpAsOf": "2026-10-26T23:37:00+05:30",
+   "gmpEve": 15.0,
+   "gmpEveAsOf": "2026-10-26T23:37:00+05:30",
    "apps": {
     "qib": {
      "reserved": 1441443,
@@ -2123,7 +2124,7 @@
      "received": 10339,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-26T22:14:02+05:30"
+    "asOf": "2026-10-27T00:06:31+05:30"
    }
   },
   {
@@ -2143,7 +2144,7 @@
    "ofsCr": null,
    "gmp": 40.0,
    "gmpPct": 26.67,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -2157,14 +2158,14 @@
    "igId": "1849",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-26T22:13:43+05:30",
+   "igFetchedAt": "2026-10-27T00:06:17+05:30",
    "refund": "2026-11-02",
    "sector": "Plastic Products - Industrial",
    "anchorShares": 5100000,
    "logo": "bls-polymers-logo.png",
-   "gmpAsOf": "2026-10-26T21:37:00+05:30",
+   "gmpAsOf": "2026-10-26T23:37:00+05:30",
    "gmpEve": 40.0,
-   "gmpEveAsOf": "2026-10-26T21:37:00+05:30",
+   "gmpEveAsOf": "2026-10-26T23:37:00+05:30",
    "facts": {
     "sector": "Plastic Products - Industrial",
     "listingAt": "BSE, NSE",
@@ -2194,7 +2195,7 @@
      "rhp": "https://www.sebi.gov.in/filings/public-issues/oct-2026/bls-polymers-limited-rhp_105327.html",
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/anchor_intimation_letter_company-bls-polymers.pdf"
     },
-    "asOf": "2026-10-26T19:31:00+05:30"
+    "asOf": "2026-10-26T17:30:00+05:30"
    }
   },
   {
@@ -2212,8 +2213,8 @@
    "issueSizeCr": 667.53,
    "freshCr": 150.0,
    "ofsCr": 517.53,
-   "gmp": 22.0,
-   "gmpPct": 6.67,
+   "gmp": 20.0,
+   "gmpPct": 6.06,
    "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": null,
@@ -2228,7 +2229,7 @@
    "igId": "1642",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-26T22:13:43+05:30",
+   "igFetchedAt": "2026-10-27T00:06:17+05:30",
    "refund": "2026-11-02",
    "sector": "Waste Management",
    "anchorShares": 0,
@@ -2262,11 +2263,11 @@
      "drhp": "https://www.bseindia.com/corporates/download/329313/IPO%20Prior/DRHP_August_25_2025_20250825140721.pdf",
      "rhp": "https://sfcenvironment.com/wp-content/uploads/2026/10/SFC-Environmental-Technologies-Ltd_RHP-1.pdf"
     },
-    "asOf": "2026-10-21T17:30:00+05:30"
+    "asOf": "2026-10-26T17:30:00+05:30"
    },
-   "gmpAsOf": "2026-10-26T21:37:00+05:30",
-   "gmpEve": 22.0,
-   "gmpEveAsOf": "2026-10-26T21:37:00+05:30"
+   "gmpAsOf": "2026-10-26T23:37:00+05:30",
+   "gmpEve": 20.0,
+   "gmpEveAsOf": "2026-10-26T23:37:00+05:30"
   },
   {
    "name": "M.K.Sons Fine Jewels",
@@ -2285,7 +2286,7 @@
    "ofsCr": 55.08,
    "gmp": 8.0,
    "gmpPct": 4.94,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3027,7 +3028,7 @@
     "snii": 0.28,
     "retail": 0.4,
     "total": 0.91,
-    "asOf": "2026-10-26T22:14:02+05:30",
+    "asOf": "2026-10-27T00:06:43+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3042,14 +3043,14 @@
    "igId": "2229",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-26T22:13:43+05:30",
+   "igFetchedAt": "2026-10-27T00:06:17+05:30",
    "refund": "2026-10-29",
    "sector": "Civil Construction",
    "anchorShares": 1544400,
    "logo": "core4-engineers-logo.jpg",
-   "gmpAsOf": "2026-10-26T21:35:00+05:30",
+   "gmpAsOf": "2026-10-26T23:30:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-26T21:35:00+05:30",
+   "gmpEveAsOf": "2026-10-26T23:30:00+05:30",
    "facts": {
     "sector": "Civil Construction",
     "listingAt": "BSE SME",
@@ -3112,7 +3113,7 @@
      "received": 486,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-26T22:14:02+05:30"
+    "asOf": "2026-10-27T00:06:43+05:30"
    }
   },
   {
@@ -3146,7 +3147,7 @@
    "igId": "2356",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-26T22:13:43+05:30",
+   "igFetchedAt": "2026-10-27T00:06:17+05:30",
    "refund": "2026-11-02",
    "sector": "Consumer Electronics",
    "anchorShares": 1225800,
@@ -3181,9 +3182,9 @@
     },
     "asOf": "2026-10-26T19:46:00+05:30"
    },
-   "gmpAsOf": "2026-10-26T21:33:00+05:30",
+   "gmpAsOf": "2026-10-26T23:36:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-26T21:33:00+05:30"
+   "gmpEveAsOf": "2026-10-26T23:36:00+05:30"
   },
   {
    "name": "Ajwa Projects",
@@ -3197,12 +3198,12 @@
    "bandLow": null,
    "bandHigh": 203.0,
    "lotSize": 600,
-   "issueSizeCr": 36.13,
+   "issueSizeCr": 38.05,
    "freshCr": 28.53,
    "ofsCr": 7.6,
    "gmp": 10.0,
    "gmpPct": 4.93,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": null,
    "listingPrice": null,
@@ -36323,10 +36324,6 @@
   ],
   "Alpine Texworld": [
    [
-    "2026-07-28",
-    77.21
-   ],
-   [
     "2026-07-29",
     73.35
    ],
@@ -37534,10 +37531,6 @@
    ]
   ],
   "Caliber Mining": [
-   [
-    "2026-07-28",
-    566.35
-   ],
    [
     "2026-07-29",
     561.3
@@ -41413,10 +41406,6 @@
   ],
   "Metalic Technoforge": [
    [
-    "2026-07-28",
-    87
-   ],
-   [
     "2026-07-29",
     87.2
    ],
@@ -41668,10 +41657,6 @@
    ]
   ],
   "Millworks Technologies": [
-   [
-    "2026-07-28",
-    758.95
-   ],
    [
     "2026-07-29",
     747.75
@@ -43241,10 +43226,6 @@
   ],
   "SBI Funds Management": [
    [
-    "2026-07-28",
-    576.35
-   ],
-   [
     "2026-07-29",
     576.05
    ],
@@ -43986,10 +43967,6 @@
    ]
   ],
   "Sotefin Bharat": [
-   [
-    "2026-07-28",
-    210.05
-   ],
    [
     "2026-07-29",
     208.0
@@ -45617,10 +45594,6 @@
   ],
   "Om Power Transmission": [
    [
-    "2026-07-28",
-    167.74
-   ],
-   [
     "2026-07-29",
     164.07
    ],
@@ -45997,10 +45970,6 @@
   ],
   "Vinit Mobile": [
    [
-    "2026-07-28",
-    71.05
-   ],
-   [
     "2026-07-29",
     74.6
    ],
@@ -46234,10 +46203,6 @@
    ]
   ],
   "OnEMI Technology": [
-   [
-    "2026-07-28",
-    342.8
-   ],
    [
     "2026-07-29",
     343.45
@@ -46691,10 +46656,6 @@
   ],
   "Aye Finance": [
    [
-    "2026-07-28",
-    162.92
-   ],
-   [
     "2026-07-29",
     166.06
    ],
@@ -46936,10 +46897,6 @@
    ]
   ],
   "Knack Packaging": [
-   [
-    "2026-07-28",
-    191.0
-   ],
    [
     "2026-07-29",
     189.51
@@ -47183,10 +47140,6 @@
   ],
   "Shreedhar Spinners": [
    [
-    "2026-07-28",
-    89.0
-   ],
-   [
     "2026-07-29",
     87.0
    ],
@@ -47412,10 +47365,6 @@
    ]
   ],
   "IC Electricals": [
-   [
-    "2026-07-28",
-    149.8
-   ],
    [
     "2026-07-29",
     156.0
@@ -47659,10 +47608,6 @@
   ],
   "Turtlemint Fintech Solutions": [
    [
-    "2026-07-28",
-    121.84
-   ],
-   [
     "2026-07-29",
     117.73
    ],
@@ -47905,10 +47850,6 @@
   ],
   "Happy Steels": [
    [
-    "2026-07-28",
-    61.15
-   ],
-   [
     "2026-07-29",
     61.65
    ],
@@ -48146,10 +48087,6 @@
    ]
   ],
   "Sai Parenteral's": [
-   [
-    "2026-07-28",
-    547.4
-   ],
    [
     "2026-07-29",
     552.65
@@ -48393,10 +48330,6 @@
   ],
   "Clean Max Enviro Energy Solutions": [
    [
-    "2026-07-28",
-    1317.1
-   ],
-   [
     "2026-07-29",
     1328.2
    ],
@@ -48639,10 +48572,6 @@
   ],
   "Utkal Speciality": [
    [
-    "2026-07-28",
-    42.25
-   ],
-   [
     "2026-07-29",
     44.35
    ],
@@ -48868,10 +48797,6 @@
    ]
   ],
   "Laser Power & Infra": [
-   [
-    "2026-07-28",
-    285.66
-   ],
    [
     "2026-07-29",
     306.67
@@ -49114,10 +49039,6 @@
    ]
   ],
   "Advit Jewels": [
-   [
-    "2026-07-28",
-    187.26
-   ],
    [
     "2026-07-29",
     185.93
@@ -49531,10 +49452,6 @@
   ],
   "Clay Craft": [
    [
-    "2026-07-28",
-    159.15
-   ],
-   [
     "2026-07-29",
     165.15
    ],
@@ -49776,10 +49693,6 @@
    ]
   ],
   "Omnitech Engineering": [
-   [
-    "2026-07-28",
-    595.75
-   ],
    [
     "2026-07-29",
     597.8
@@ -50023,10 +49936,6 @@
   ],
   "PNGS Reva Diamond Jewellery": [
    [
-    "2026-07-28",
-    423.95
-   ],
-   [
     "2026-07-29",
     447.5
    ],
@@ -50269,10 +50178,6 @@
   ],
   "Amba Auto Sales & Services": [
    [
-    "2026-07-28",
-    78.6
-   ],
-   [
     "2026-07-29",
     79.9
    ],
@@ -50507,10 +50412,6 @@
   ],
   "Mobilise App": [
    [
-    "2026-07-28",
-    114.0
-   ],
-   [
     "2026-07-29",
     111.5
    ],
@@ -50660,10 +50561,6 @@
    ]
   ],
   "Armour Security": [
-   [
-    "2026-07-28",
-    18.0
-   ],
    [
     "2026-07-29",
     18.6
@@ -51017,10 +50914,6 @@
   ],
   "Avana Electrosystems": [
    [
-    "2026-07-28",
-    159.7
-   ],
-   [
     "2026-07-29",
     155.0
    ],
@@ -51258,10 +51151,6 @@
    ]
   ],
   "E to E Transportation Infrastructure": [
-   [
-    "2026-07-28",
-    275.75
-   ],
    [
     "2026-07-29",
     274.35
@@ -51687,10 +51576,6 @@
   ],
   "Grover Jewells": [
    [
-    "2026-07-28",
-    155.0
-   ],
-   [
     "2026-07-29",
     156.6
    ],
@@ -52055,10 +51940,6 @@
   ],
   "Manilam Industries": [
    [
-    "2026-07-28",
-    53.9
-   ],
-   [
     "2026-07-29",
     53.3
    ],
@@ -52379,10 +52260,6 @@
   ],
   "Waterways Leisure Tourism": [
    [
-    "2026-07-28",
-    804.2
-   ],
-   [
     "2026-07-29",
     806.2
    ],
@@ -52624,10 +52501,6 @@
    ]
   ],
   "Fractal Analytics": [
-   [
-    "2026-07-28",
-    792.1
-   ],
    [
     "2026-07-29",
     786.4
@@ -53097,10 +52970,6 @@
   ],
   "Shree Ram Twistex": [
    [
-    "2026-07-28",
-    40.07
-   ],
-   [
     "2026-07-29",
     40.8
    ],
@@ -53343,10 +53212,6 @@
   ],
   "Vivid Electromech": [
    [
-    "2026-07-28",
-    1254.0
-   ],
-   [
     "2026-07-29",
     1191.3
    ],
@@ -53588,10 +53453,6 @@
    ]
   ],
   "Simca Advertising": [
-   [
-    "2026-07-28",
-    217.95
-   ],
    [
     "2026-07-29",
     216.1
@@ -53937,10 +53798,6 @@
   ],
   "Kusumgar": [
    [
-    "2026-07-28",
-    566.55
-   ],
-   [
     "2026-07-29",
     592.1
    ],
@@ -54183,10 +54040,6 @@
   ],
   "Hexagon Nutrition": [
    [
-    "2026-07-28",
-    62.61
-   ],
-   [
     "2026-07-29",
     62.06
    ],
@@ -54428,10 +54281,6 @@
    ]
   ],
   "Biopol Chemicals": [
-   [
-    "2026-07-28",
-    107.15
-   ],
    [
     "2026-07-29",
     104.7
@@ -54809,10 +54658,6 @@
   ],
   "Bio Medica Laboratories": [
    [
-    "2026-07-28",
-    141.05
-   ],
-   [
     "2026-07-29",
     158.55
    ],
@@ -55038,10 +54883,6 @@
    ]
   ],
   "GSP Crop Science": [
-   [
-    "2026-07-28",
-    546.4
-   ],
    [
     "2026-07-29",
     582.65
@@ -55285,10 +55126,6 @@
   ],
   "SEDEMAC Mechatronics": [
    [
-    "2026-07-28",
-    2705.4
-   ],
-   [
     "2026-07-29",
     2657.8
    ],
@@ -55530,10 +55367,6 @@
    ]
   ],
   "Avience Biomedicals": [
-   [
-    "2026-07-28",
-    259.65
-   ],
    [
     "2026-07-29",
     257.95
@@ -55777,10 +55610,6 @@
   ],
   "Teamtech Formwork Solutions": [
    [
-    "2026-07-28",
-    119.25
-   ],
-   [
     "2026-07-29",
     116.1
    ],
@@ -56019,10 +55848,6 @@
   ],
   "Teja Engineering Industries": [
    [
-    "2026-07-28",
-    665.25
-   ],
-   [
     "2026-07-29",
     658.1
    ],
@@ -56256,10 +56081,6 @@
    ]
   ],
   "CKK Retail Mart": [
-   [
-    "2026-07-28",
-    142.95
-   ],
    [
     "2026-07-29",
     145.95
@@ -56498,10 +56319,6 @@
    ]
   ],
   "Central Mine Planning": [
-   [
-    "2026-07-28",
-    242.96
-   ],
    [
     "2026-07-29",
     244.61
@@ -56745,10 +56562,6 @@
   ],
   "Shadowfax Technologies": [
    [
-    "2026-07-28",
-    207.52
-   ],
-   [
     "2026-07-29",
     216.19
    ],
@@ -56990,10 +56803,6 @@
    ]
   ],
   "CMR Green Technologies": [
-   [
-    "2026-07-28",
-    215.1
-   ],
    [
     "2026-07-29",
     215.15
@@ -57237,10 +57046,6 @@
   ],
   "Amagi Media Labs": [
    [
-    "2026-07-28",
-    622.7
-   ],
-   [
     "2026-07-29",
     650.9
    ],
@@ -57482,10 +57287,6 @@
    ]
   ],
   "Amir Chand Jagdish Kumar": [
-   [
-    "2026-07-28",
-    185.28
-   ],
    [
     "2026-07-29",
     182.53
@@ -57729,10 +57530,6 @@
   ],
   "Value 360 Communications": [
    [
-    "2026-07-28",
-    79.45
-   ],
-   [
     "2026-07-29",
     75.6
    ],
@@ -57950,10 +57747,6 @@
    ]
   ],
   "Striders Impex": [
-   [
-    "2026-07-28",
-    67.45
-   ],
    [
     "2026-07-29",
     65.7
@@ -58247,10 +58040,6 @@
   ],
   "Srinibas Pradhan Constructions": [
    [
-    "2026-07-28",
-    127.1
-   ],
-   [
     "2026-08-03",
     127.1
    ],
@@ -58416,10 +58205,6 @@
    ]
   ],
   "Brandman Retail": [
-   [
-    "2026-07-28",
-    182.0
-   ],
    [
     "2026-07-29",
     176.85
@@ -58663,10 +58448,6 @@
   ],
   "Gaudium IVF": [
    [
-    "2026-07-28",
-    145.9
-   ],
-   [
     "2026-07-29",
     142.99
    ],
@@ -58909,10 +58690,6 @@
   ],
   "RFBL Flexi Pack": [
    [
-    "2026-07-28",
-    95.7
-   ],
-   [
     "2026-07-30",
     90.95
    ],
@@ -59082,10 +58859,6 @@
    ]
   ],
   "Rajputana Stainless": [
-   [
-    "2026-07-28",
-    139.45
-   ],
    [
     "2026-07-29",
     140.53
@@ -59507,10 +59280,6 @@
   ],
   "Genxai Analytics": [
    [
-    "2026-07-28",
-    70.55
-   ],
-   [
     "2026-07-29",
     72.0
    ],
@@ -59752,10 +59521,6 @@
    ]
   ],
   "Adisoft Technologies": [
-   [
-    "2026-07-28",
-    172.9
-   ],
    [
     "2026-07-29",
     176.65
@@ -59999,10 +59764,6 @@
   ],
   "Apsis Aerocom": [
    [
-    "2026-07-28",
-    443.1
-   ],
-   [
     "2026-07-29",
     434.25
    ],
@@ -60245,10 +60006,6 @@
   ],
   "Yaap Digital": [
    [
-    "2026-07-28",
-    157.35
-   ],
-   [
     "2026-07-29",
     152.25
    ],
@@ -60486,10 +60243,6 @@
    ]
   ],
   "CSM Technologies": [
-   [
-    "2026-07-28",
-    100.6
-   ],
    [
     "2026-07-29",
     96.14
@@ -60733,10 +60486,6 @@
   ],
   "Marushika Technology": [
    [
-    "2026-07-28",
-    94.25
-   ],
-   [
     "2026-07-29",
     101.9
    ],
@@ -60934,10 +60683,6 @@
    ]
   ],
   "KRM Ayurveda": [
-   [
-    "2026-07-28",
-    252.7
-   ],
    [
     "2026-07-29",
     257.05
@@ -61589,10 +61334,6 @@
   ],
   "Powerica": [
    [
-    "2026-07-28",
-    548.15
-   ],
-   [
     "2026-07-29",
     533.7
    ],
@@ -62041,10 +61782,6 @@
   ],
   "NFP Sampoorna Foods": [
    [
-    "2026-07-28",
-    23.2
-   ],
-   [
     "2026-07-29",
     23.75
    ],
@@ -62266,10 +62003,6 @@
    ]
   ],
   "Innovision": [
-   [
-    "2026-07-28",
-    283.25
-   ],
    [
     "2026-07-29",
     282.15
@@ -62513,10 +62246,6 @@
   ],
   "Q-Line Biotec": [
    [
-    "2026-07-28",
-    496.55
-   ],
-   [
     "2026-07-29",
     508.1
    ],
@@ -62758,10 +62487,6 @@
    ]
   ],
   "Aastha Spintex": [
-   [
-    "2026-07-28",
-    81.9
-   ],
    [
     "2026-07-29",
     76.09
@@ -63281,10 +63006,6 @@
   ],
   "Bharat Coking Coal": [
    [
-    "2026-07-28",
-    34.27
-   ],
-   [
     "2026-07-29",
     34.27
    ],
@@ -63526,10 +63247,6 @@
    ]
   ],
   "Propshare Celestia": [
-   [
-    "2026-07-28",
-    1006600.0
-   ],
    [
     "2026-07-30",
     1006600.0
@@ -64085,10 +63802,6 @@
   ],
   "Accord Transformer & Switchgear": [
    [
-    "2026-07-28",
-    58.66
-   ],
-   [
     "2026-07-29",
     58.21
    ],
@@ -64331,10 +64044,6 @@
   ],
   "Mehul Telecom": [
    [
-    "2026-07-28",
-    92.0
-   ],
-   [
     "2026-07-29",
     87.0
    ],
@@ -64548,10 +64257,6 @@
    ]
   ],
   "Highness Microelectronics": [
-   [
-    "2026-07-28",
-    176.4
-   ],
    [
     "2026-07-29",
     180.35
@@ -64782,10 +64487,6 @@
    ]
   ],
   "Digilogic Systems": [
-   [
-    "2026-07-28",
-    118.8
-   ],
    [
     "2026-07-29",
     118.2
@@ -65255,10 +64956,6 @@
   ],
   "Novus Loyalty": [
    [
-    "2026-07-28",
-    127.0
-   ],
-   [
     "2026-07-29",
     138.4
    ],
@@ -65501,10 +65198,6 @@
   ],
   "Defrail Technologies": [
    [
-    "2026-07-28",
-    70.0
-   ],
-   [
     "2026-07-30",
     67.1
    ],
@@ -65686,10 +65379,6 @@
    ]
   ],
   "Rajnandini Fashion India": [
-   [
-    "2026-07-28",
-    33.51
-   ],
    [
     "2026-07-29",
     34.6
@@ -65909,10 +65598,6 @@
   ],
   "Seemax Resources": [
    [
-    "2026-07-28",
-    55.3
-   ],
-   [
     "2026-07-29",
     58.05
    ],
@@ -66102,10 +65787,6 @@
    ]
   ],
   "Modern Diagnostic": [
-   [
-    "2026-07-28",
-    51.0
-   ],
    [
     "2026-07-29",
     52.0
@@ -66341,10 +66022,6 @@
   ],
   "Hannah Joseph Hospital": [
    [
-    "2026-07-28",
-    112.6
-   ],
-   [
     "2026-07-29",
     115.8
    ],
@@ -66571,10 +66248,6 @@
   ],
   "Elfin Agro India": [
    [
-    "2026-07-28",
-    82.79
-   ],
-   [
     "2026-07-30",
     83.0
    ],
@@ -66792,10 +66465,6 @@
    ]
   ],
   "Horizon Reclaim (India)": [
-   [
-    "2026-07-28",
-    142.0
-   ],
    [
     "2026-07-29",
     139.85
@@ -67039,10 +66708,6 @@
   ],
   "Kratikal Tech": [
    [
-    "2026-07-28",
-    168.85
-   ],
-   [
     "2026-07-29",
     165.4
    ],
@@ -67284,10 +66949,6 @@
    ]
   ],
   "GRE Renew Enertech": [
-   [
-    "2026-07-28",
-    190.0
-   ],
    [
     "2026-07-29",
     187.0
@@ -67907,10 +67568,6 @@
   ],
   "Riyaasat Lifestyle": [
    [
-    "2026-07-28",
-    60.0
-   ],
-   [
     "2026-07-29",
     60.0
    ],
@@ -68077,10 +67734,6 @@
   ],
   "Vahh Chemicals": [
    [
-    "2026-07-28",
-    50.2
-   ],
-   [
     "2026-07-29",
     48.34
    ],
@@ -68230,10 +67883,6 @@
    ]
   ],
   "SMR Jewels": [
-   [
-    "2026-07-28",
-    85.7
-   ],
    [
     "2026-07-29",
     87.2
@@ -68567,10 +68216,6 @@
   ],
   "Merritronix": [
    [
-    "2026-07-28",
-    346.1
-   ],
-   [
     "2026-07-29",
     350.3
    ],
@@ -68813,10 +68458,6 @@
   ],
   "Sampark India Logistics": [
    [
-    "2026-07-28",
-    95.15
-   ],
-   [
     "2026-07-29",
     93.33
    ],
@@ -69046,10 +68687,6 @@
    ]
   ],
   "Adon Agro Commodities": [
-   [
-    "2026-07-28",
-    83.33
-   ],
    [
     "2026-07-29",
     81.5
@@ -69293,10 +68930,6 @@
   ],
   "Atharva Polyplast": [
    [
-    "2026-07-28",
-    76.81
-   ],
-   [
     "2026-07-29",
     77.8
    ],
@@ -69538,10 +69171,6 @@
    ]
   ],
   "Susan Electricals India": [
-   [
-    "2026-07-28",
-    216.55
-   ],
    [
     "2026-07-29",
     218.8
@@ -70185,10 +69814,6 @@
   ],
   "Goldline Pharmaceutical": [
    [
-    "2026-07-28",
-    37.66
-   ],
-   [
     "2026-07-30",
     40.11
    ],
@@ -70489,10 +70114,6 @@
   ],
   "Recode Studios": [
    [
-    "2026-07-28",
-    224.45
-   ],
-   [
     "2026-07-29",
     224.75
    ],
@@ -70734,10 +70355,6 @@
    ]
   ],
   "Citius Transnet InvIT": [
-   [
-    "2026-07-28",
-    109.17
-   ],
    [
     "2026-07-29",
     109.85
@@ -71191,10 +70808,6 @@
   ],
   "UHM Vacation": [
    [
-    "2026-07-28",
-    33.8
-   ],
-   [
     "2026-07-29",
     34.54
    ],
@@ -71436,10 +71049,6 @@
    ]
   ],
   "Kiaasa Retail": [
-   [
-    "2026-07-28",
-    34.4
-   ],
    [
     "2026-07-29",
     34.05
@@ -71683,10 +71292,6 @@
   ],
   "Aureate Tradde": [
    [
-    "2026-07-28",
-    33.15
-   ],
-   [
     "2026-07-29",
     32.65
    ],
@@ -71916,10 +71521,6 @@
    ]
   ],
   "Yaashvi Jewellers": [
-   [
-    "2026-07-28",
-    64.25
-   ],
    [
     "2026-07-29",
     72.35
@@ -72155,10 +71756,6 @@
   ],
   "Jivial Industries": [
    [
-    "2026-07-28",
-    83.8
-   ],
-   [
     "2026-07-29",
     83.0
    ],
@@ -72328,10 +71925,6 @@
    ]
   ],
   "Yashhtej Industries (India)": [
-   [
-    "2026-07-28",
-    54.0
-   ],
    [
     "2026-07-29",
     55.0
@@ -72879,10 +72472,6 @@
   ],
   "Emiac Technologies": [
    [
-    "2026-07-28",
-    96.7
-   ],
-   [
     "2026-07-29",
     96.7
    ],
@@ -73069,10 +72658,6 @@
   ],
   "Shayona Engineering": [
    [
-    "2026-07-28",
-    141.0
-   ],
-   [
     "2026-07-29",
     140.0
    ],
@@ -73246,10 +72831,6 @@
    ]
   ],
   "Gabion Technologies": [
-   [
-    "2026-07-28",
-    82.48
-   ],
    [
     "2026-07-29",
     82.5
@@ -73492,10 +73073,6 @@
    ]
   ],
   "Tipco Engineering": [
-   [
-    "2026-07-28",
-    181.0
-   ],
    [
     "2026-07-29",
     179.55
@@ -73945,10 +73522,6 @@
   ],
   "Safety Controls": [
    [
-    "2026-07-28",
-    68.01
-   ],
-   [
     "2026-07-29",
     69.5
    ],
@@ -74186,10 +73759,6 @@
    ]
   ],
   "Bagmane REIT": [
-   [
-    "2026-07-28",
-    105.05
-   ],
    [
     "2026-07-29",
     104.93
@@ -74721,10 +74290,6 @@
   ],
   "Anubhav Plast": [
    [
-    "2026-07-28",
-    49.75
-   ],
-   [
     "2026-07-29",
     50.0
    ],
@@ -74918,10 +74483,6 @@
    ]
   ],
   "Vegorama Punjabi Angithi": [
-   [
-    "2026-07-28",
-    173.0
-   ],
    [
     "2026-07-29",
     168.05
@@ -75160,10 +74721,6 @@
    ]
   ],
   "Aritas Vinyl": [
-   [
-    "2026-07-28",
-    13.01
-   ],
    [
     "2026-07-29",
     13.1
@@ -75568,10 +75125,6 @@
    ]
   ],
   "Fractal Industries": [
-   [
-    "2026-07-28",
-    211.8
-   ],
    [
     "2026-07-30",
     214.45
@@ -76071,10 +75624,6 @@
   ],
   "INDO SMC": [
    [
-    "2026-07-28",
-    447.45
-   ],
-   [
     "2026-07-29",
     430.7
    ],
@@ -76448,10 +75997,6 @@
    ]
   ],
   "Devson Catalyst": [
-   [
-    "2026-07-28",
-    210.0
-   ],
    [
     "2026-07-29",
     204.2
@@ -77011,10 +76556,6 @@
   ],
   "Crazy Snacks": [
    [
-    "2026-07-28",
-    59.01
-   ],
-   [
     "2026-07-29",
     59.01
    ],
@@ -77156,10 +76697,6 @@
    ]
   ],
   "Harikanta Overseas": [
-   [
-    "2026-07-28",
-    75.8
-   ],
    [
     "2026-07-29",
     78.95
@@ -77593,10 +77130,6 @@
   ],
   "Diksha Polymers": [
    [
-    "2026-07-28",
-    119.0
-   ],
-   [
     "2026-07-29",
     120.0
    ],
@@ -77726,10 +77259,6 @@
    ]
   ],
   "Kasturi Metal Composite": [
-   [
-    "2026-07-28",
-    50.5
-   ],
    [
     "2026-07-31",
     60.0
@@ -78015,10 +77544,6 @@
   ],
   "Autofurnish": [
    [
-    "2026-07-28",
-    58.0
-   ],
-   [
     "2026-07-29",
     58.0
    ],
@@ -78252,10 +77777,6 @@
    ]
   ],
   "Raajmarg Infra Investment Trust": [
-   [
-    "2026-07-28",
-    116.5
-   ],
    [
     "2026-07-29",
     117.09
@@ -78498,10 +78019,6 @@
    ]
   ],
   "Liotech Industries": [
-   [
-    "2026-07-28",
-    88.9
-   ],
    [
     "2026-07-29",
     93.3
@@ -78907,10 +78424,6 @@
   ],
   "Leapfrog Engineering": [
    [
-    "2026-07-28",
-    22.35
-   ],
-   [
     "2026-07-29",
     22.0
    ],
@@ -79124,10 +78637,6 @@
    ]
   ],
   "Gulf Lloyds": [
-   [
-    "2026-07-28",
-    90.25
-   ],
    [
     "2026-07-29",
     85.74
@@ -79366,10 +78875,6 @@
    ]
   ],
   "Msafe Equipments": [
-   [
-    "2026-07-28",
-    187.0
-   ],
    [
     "2026-07-29",
     181.2
@@ -79747,10 +79252,6 @@
   ],
   "Speciality Medicines": [
    [
-    "2026-07-28",
-    187.0
-   ],
-   [
     "2026-07-31",
     178.1
    ],
@@ -79972,10 +79473,6 @@
    ]
   ],
   "Yajur Fibres": [
-   [
-    "2026-07-28",
-    37.52
-   ],
    [
     "2026-07-29",
     36.42
@@ -82593,14 +82090,14 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-26T22:14:02+05:30",
+  "asOf": "2026-10-27T00:06:43+05:30",
   "checks": [
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.94,
+    "elapsed": 1.04,
     "calls": 1,
     "note": "gmp: 8 board rows patched via investorgain; 10 active, 6 of them matched; gmp: 14 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹66, investorgain); EverestIMS Technologies (₹50, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Ravita Engineering Services (₹1, investorgain); Sahajanand Medical Technologies (₹17, investorgain) …"
    },
@@ -82608,19 +82105,19 @@
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-26T22:13:43+05:30",
-    "elapsed": 11.57,
-    "calls": 12,
-    "note": "12 records fetched for 12 identified listings (0 without an id); 1 anchor books updated, 91 on file"
+    "asOf": "2026-10-27T00:06:17+05:30",
+    "elapsed": 5.41,
+    "calls": 5,
+    "note": "5 records fetched for 12 identified listings (0 without an id); 0 anchor books updated, 91 on file"
    },
    {
     "area": "subscription",
     "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-10-26T22:14:02+05:30",
-    "elapsed": 7.91,
-    "calls": 4,
-    "note": "2/2 rows patched via narada, nse"
+    "asOf": "2026-10-27T00:06:43+05:30",
+    "elapsed": 20.64,
+    "calls": 9,
+    "note": "2/5 rows patched via narada, nse; no subscription for: BLS Polymers, SFC Environmental Technologies"
    },
    {
     "area": "research layer",
@@ -82632,7 +82129,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "21s, 17 calls, 3/3 modules ok"
+    "note": "27s, 15 calls, 3/3 modules ok"
    }
   ],
   "discrepancies": [
@@ -119519,7 +119016,7 @@
   },
   "1849": {
    "name": "BLS Polymers",
-   "fetchedAt": "2026-10-26T22:13:43+05:30",
+   "fetchedAt": "2026-10-27T00:06:17+05:30",
    "about": [
     "BLS Polymers specializes in the development and manufacturing of customized polymer compounds for essential infrastructure industries, including telecommunications, power, railways, water management, and oil and gas distribution. Product Portfolio: The company offers a broad range of polymer-based materials, including high-density polyethylene (HDPE), medium-density polyethylene (MDPE), linear low-density polyethylene (LLDPE), cross-linked polyethylene (XLPE), halogen-free flame-retardant (HFFR) compounds, polyvinyl chloride (PVC), cable filling compounds (CFC), and adhesive coating compounds. Domestic Reach and Customer Base: BLS Polymers has developed an extensive distribution network spanning 24 Indian states and union territories. During Fiscal 2025, the company catered to 113 repeat customers and added 53 new customers to its portfolio. Geographical Market Presence: The company serves both domestic and international markets, exporting its products to countries such as Bangladesh, Egypt, Oman, Saudi Arabia, Turkey, the United Arab Emirates, the United States of America, and Zambia. In Fiscal 2025, domestic sales accounted for 91.57% of total revenue, while exports contributed the remaining 8.43%. Manufacturing Infrastructure: BLS Polymers operates a manufacturing facility in Goa covering approximately 24,220 square feet. The facility is equipped with advanced machinery to support its polymer compound manufacturing operations. Competitive Advantages Approved supplier status with established government agencies, supported by a portfolio of pre-approved products. A diversified product range serving multiple industries and infrastructure applications. Established customer relationships built through long-term business associations. A broad pan-India distribution network covering 24 states and union territories. Integrated product development capabilities that support customized polymer solutions."
    ],
@@ -119785,7 +119282,7 @@
   },
   "2229": {
    "name": "Core4 Engineers",
-   "fetchedAt": "2026-10-26T22:13:43+05:30",
+   "fetchedAt": "2026-10-27T00:06:17+05:30",
    "about": [
     "Core4 Engineers Ltd. is an Engineering, Procurement, Construction and Commissioning (EPCC) company specializing in integrated infrastructure development across railway electrification, power transmission and distribution, and water and wastewater management. The company provides comprehensive project solutions covering planning, design, engineering, material procurement, installation, testing, commissioning, and operation and maintenance (O&M). The company operates an in-house manufacturing facility dedicated to producing High-Tension (HT) and Low-Tension (LT) electrical panels and compact substations. These products cater to the requirements of its infrastructure projects as well as external customers. Its subsidiary, Core4 Energy Ltd., further strengthens its manufacturing capabilities and generates product-related revenue through the production of electrical distribution and control panels. Core4 Engineers Ltd. serves a diverse client base comprising Indian Railways, public sector undertakings (PSUs), and infrastructure development contractors. Its project portfolio includes railway electrification, traction and power substations, transmission and distribution networks, and water treatment infrastructure. As of September 30, 2025, the company employed 433 personnel, including employees and project-based workers. Key Business Segments 1. Railway Electrification (RE) The company undertakes railway electrification projects involving 25 kV overhead equipment (OHE), traction substations, and associated electrical infrastructure under the EPCC model. 2. Railway Infrastructure This segment covers integrated civil, electrical, and mechanical works for railway station redevelopment, modernization, and infrastructure improvement projects. 3. Extra-High-Voltage (EHT) Transmission and Distribution Core4 Engineers executes turnkey power infrastructure projects up to 220 kV, encompassing substations, transformers, transmission facilities, and electricity distribution systems. 4. Water and Wastewater Treatment The company delivers EPCC projects for water treatment plants (WTPs), sewage treatment plants (STPs), and effluent treatment plants (ETPs), utilizing technologies such as Moving Bed Biofilm Reactor (MBBR) and Sequencing Batch Reactor (SBR). 5. Automation and SCADA Solutions This business vertical focuses on PLC-based automation, supervisory monitoring, and control systems designed to improve operational efficiency and facilitate real-time monitoring of infrastructure installations. 6. HT/LT Electrical Panel Manufacturing The company manufactures and supplies a range of electrical panels, including Power Control Centres (PCC), Motor Control Centres (MCC), Automatic Power Factor Correction (APFC) panels, and customized automation panels for industrial and infrastructure applications."
    ],
@@ -120053,7 +119550,7 @@
   },
   "1635": {
    "name": "EAAA India Alternatives",
-   "fetchedAt": "2026-10-26T22:13:43+05:30",
+   "fetchedAt": "2026-10-27T00:06:17+05:30",
    "about": [
     "EAAA India Alternatives Limited operates an alternative investment management platform in India, offering diversified investment strategies across large, underpenetrated, and rapidly expanding alternative asset classes. The company primarily focuses on providing income-generating and yield-oriented investment solutions to its clients through a multi-strategy business model. The company's principal business segments comprise (i) Real Assets and (ii) Private Credit. Through these strategies, EAAA India seeks to capitalise on investment opportunities across alternative asset classes while addressing clients' requirements for income and yield-based solutions. Sekura India Management Limited, a wholly owned subsidiary of EAAA India Alternatives Limited, provides operational and asset management support across the company's investment strategies. Its responsibilities include operations and maintenance, performance monitoring, operational efficiency enhancement, and turnaround management. Sekura forms an integral part of the company's Portfolio Operating and Management Team (POMT), supporting the effective management and performance of portfolio assets. As of September 30, 2024, EAAA India Alternatives Limited served clients across multiple international markets, with its client base spread across India, North America, Europe, and other regions worldwide. This geographic presence reflects the company's reach beyond the domestic market."
    ],
@@ -120317,10 +119814,10 @@
    "gmpHistory": [
     {
      "date": "2026-10-26",
-     "gmp": 23.0,
-     "est": 1688.0,
-     "pct": 1.38,
-     "kostakSauda": "200/2800"
+     "gmp": 15.0,
+     "est": 1680.0,
+     "pct": 0.9,
+     "kostakSauda": "100/1400"
     },
     {
      "date": "2026-10-25",
@@ -120365,7 +119862,7 @@
   },
   "1642": {
    "name": "SFC Environmental Technologies",
-   "fetchedAt": "2026-10-26T22:13:43+05:30",
+   "fetchedAt": "2026-10-27T00:06:17+05:30",
    "about": [
     "SFC Environmental Technologies Limited provides advanced technologies and integrated engineering solutions for wastewater treatment (WWT), wastewater recycling and reuse (WRR), and solid waste treatment (SWT). Its services cover the design, engineering, manufacturing, supply, installation supervision, and commissioning of wastewater treatment systems and related equipment. The company's wastewater treatment technologies have a reported treatment capacity of approximately 14,812.86 million litres per day (MLD). In the solid waste treatment segment, it offers end-to-end solutions encompassing design, engineering, financing, construction, equipment supply, installation, commissioning, performance testing, turnkey project execution, and operations and maintenance (O&M). For solid waste processing, the company has developed Organic Extraction (OREX), a proprietary technology designed to separate biodegradable organic matter from inorganic materials and lignocellulosic fibres in mixed municipal waste. This technology supports the efficient processing and recovery of useful components from municipal solid waste. The company's wastewater treatment portfolio includes its proprietary C-Tech Cyclic Activated Sludge Technology, which is based on the Sequencing Batch Reactor (SBR) process. This technology is designed to treat domestic sewage and industrial wastewater efficiently, offering advantages such as high treatment performance, lower life-cycle costs, operational simplicity, and space-efficient plant design. Its business activities are primarily organised around wastewater treatment, wastewater treatment business solutions, and solid waste treatment. SFC Environmental Technologies Limited primarily operates on a business-to-business (B2B) model, catering to institutional, infrastructure, municipal, and industrial customers. The company has reported commissioning approximately 639 C-Tech systems, with different disclosures indicating installations ranging from 621 to 639 systems in its wastewater treatment business. Its technologies have been associated with wastewater treatment capacities exceeding 15,000 MLD, and the company has reported an approximately 80% market share in India's SBR-based wastewater treatment technology segment. Its wastewater treatment customers include Enviro Control Private Limited, Vishvaraj Environment Private Limited, Khilari Infrastructure Private Limited, SMC Infrastructures Private Limited, Rajkamal Builders Infrastructure Private Limited, Ramky Infrastructure Private Limited, GVPR Engineers Limited, HNB Engineers Private Limited, and Gharpure Engineering & Constructions Private Limited, among others. These customers contribute substantially to revenue generated from the wastewater treatment business. Competitive Strengths Technology-led market position: The company benefits from specialised wastewater treatment technologies and an established presence in the SBR-based treatment segment. Technology integration and continuous innovation: Its focus on developing and improving proprietary technologies supports operational efficiency and strengthens its engineering capabilities. Repeat business and order book visibility: Established customer relationships, repeat orders, and a strong order book support business continuity and revenue visibility. Experienced management team: The company draws on management expertise and industry experience to execute projects and develop its environmental technology business."
    ],
@@ -120571,10 +120068,10 @@
    "gmpHistory": [
     {
      "date": "2026-10-26",
-     "gmp": 22.0,
-     "est": 352.0,
-     "pct": 6.67,
-     "kostakSauda": "800/11200"
+     "gmp": 20.0,
+     "est": 350.0,
+     "pct": 6.06,
+     "kostakSauda": "700/9800"
     },
     {
      "date": "2026-10-25",
@@ -120620,7 +120117,7 @@
   },
   "2356": {
    "name": "Wiscon Industries",
-   "fetchedAt": "2026-10-26T22:13:43+05:30",
+   "fetchedAt": "2026-10-27T00:06:17+05:30",
    "about": [
     "Wiscon Industries Limited is headquartered in Delhi and is engaged in the distribution and trading of consumer electronics and related products across the Indian market. Operating under its flagship Wiscon brand, the company offers a variety of household appliances and electronic products, including LED televisions, air coolers, washing machines and air conditioners. Its product portfolio also extends to electric scooters procured from third-party manufacturers and brands. The Company caters to a diverse customer base comprising businesses and individual consumers through both business-to-business (B2B) and business-to-consumer (B2C) channels. Its distribution model combines a network of offline dealers and distributors with its own online sales platform, facilitating access to customers in different parts of India. A dedicated sales team operates from the registered office to coordinate and manage sales activities. Wiscon Industries has recorded considerable growth in its operating revenue since its incorporation. Revenue from operations rose from ₹321.45 lakh in FY 2023-24 to ₹1,449.27 lakh in FY 2024-25, before reaching ₹7,339.16 lakh in FY 2025-26, indicating a substantial increase in the scale of its business. As of June 30, 2026, the Company had 76 permanent employees engaged in supporting its business activities and day-to-day operations. Competitive Strengths A diverse range of consumer electronics and household appliances serving varied market requirements. A multi-channel distribution strategy covering institutional buyers, dealers, distributors and retail consumers. An established after-sales support network serving customers across different regions of India. An experienced leadership team with capabilities in managing business operations and implementing growth strategies. A dedicated workforce contributing to operational execution and the Company's business development."
    ],
