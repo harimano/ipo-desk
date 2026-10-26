@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-26T17:38:20+05:30",
+  "asOf": "2026-10-26T18:15:30+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "26 Oct 2026, 17:38 IST",
+  "label": "26 Oct 2026, 18:15 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -223,6 +223,26 @@
     "date": "2026-10-21",
     "title": "Hunger Pangs Limited - Draft Abridged Prospectus",
     "url": "https://www.sebi.gov.in/filings/public-issues/oct-2026/hunger-pangs-limited-drhp_105347.html"
+   }
+  },
+  {
+   "name": "GAMP Services",
+   "window": null,
+   "stage": "DRHP filed 21 Oct 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 21 Oct",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/oct-2026/gamp-services-limited-drhp_105424.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-10-21",
+    "title": "GAMP Services Limited - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/oct-2026/gamp-services-limited-drhp_105424.html"
    }
   },
   {
@@ -845,26 +865,6 @@
     "date": "2026-10-01",
     "title": "J Infratech Limited - Draft Abridged Prospectus",
     "url": "https://www.sebi.gov.in/filings/public-issues/oct-2026/j-infratech-limited-drhp_104846.html"
-   }
-  },
-  {
-   "name": "Royal Chain",
-   "window": null,
-   "stage": "DRHP filed 1 Oct 2026",
-   "sizeCr": null,
-   "sizeText": "DRHP 1 Oct",
-   "note": null,
-   "parent": null,
-   "sources": [
-    "https://www.sebi.gov.in/filings/public-issues/oct-2026/royal-chain-limited-drhp_104015.html"
-   ],
-   "auto": true,
-   "lastFiling": {
-    "register": "DRHP",
-    "kind": "Prospectus",
-    "date": "2026-10-01",
-    "title": "Royal Chain Limited – Draft Abridged Prospectus",
-    "url": "https://www.sebi.gov.in/filings/public-issues/oct-2026/royal-chain-limited-drhp_104015.html"
    }
   }
  ],
@@ -1901,9 +1901,9 @@
    "issueSizeCr": 1450.0,
    "freshCr": 500.0,
    "ofsCr": 950.0,
-   "gmp": 5.0,
-   "gmpPct": 0.72,
-   "gmpTrend": "flat",
+   "gmp": 11.0,
+   "gmpPct": 1.59,
+   "gmpTrend": "up",
    "sub": {
     "qib": 3.25,
     "nii": 0.69,
@@ -2022,9 +2022,9 @@
    "issueSizeCr": 1200.0,
    "freshCr": null,
    "ofsCr": 1200.0,
-   "gmp": 37.0,
-   "gmpPct": 2.22,
-   "gmpTrend": "flat",
+   "gmp": 36.0,
+   "gmpPct": 2.16,
+   "gmpTrend": "down",
    "sub": {
     "qib": 0.08,
     "nii": 0.32,
@@ -2045,7 +2045,7 @@
    "igId": "1635",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-26T17:38:12+05:30",
+   "igFetchedAt": "2026-10-26T18:14:22+05:30",
    "refund": "2026-10-30",
    "sector": "Asset Management Company",
    "anchorShares": 2162161,
@@ -2089,9 +2089,9 @@
     },
     "asOf": "2026-10-26T04:40:00+05:30"
    },
-   "gmpAsOf": "2026-10-26T14:02:00+05:30",
-   "gmpEve": 37.0,
-   "gmpEveAsOf": "2026-10-26T14:02:00+05:30",
+   "gmpAsOf": "2026-10-26T15:02:00+05:30",
+   "gmpEve": 36.0,
+   "gmpEveAsOf": "2026-10-26T15:02:00+05:30",
    "apps": {
     "qib": {
      "reserved": 1441443,
@@ -2123,7 +2123,7 @@
      "received": 10339,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-26T17:38:20+05:30"
+    "asOf": "2026-10-26T18:14:24+05:30"
    }
   },
   {
@@ -2363,8 +2363,8 @@
    "sources": [
     "InvestorGain IPO list"
    ],
-   "symbol": null,
-   "series": null,
+   "symbol": "BCSSL",
+   "series": "EQ",
    "igId": "1936",
    "bseIpoNo": null,
    "bseScripCode": null,
@@ -3026,7 +3026,7 @@
     "snii": 0.28,
     "retail": 0.4,
     "total": 0.91,
-    "asOf": "2026-10-26T17:38:20+05:30",
+    "asOf": "2026-10-26T18:14:24+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3041,14 +3041,14 @@
    "igId": "2229",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-26T17:38:12+05:30",
+   "igFetchedAt": "2026-10-26T18:14:22+05:30",
    "refund": "2026-10-29",
    "sector": "Civil Construction",
    "anchorShares": 1544400,
    "logo": "core4-engineers-logo.jpg",
-   "gmpAsOf": "2026-10-26T14:34:00+05:30",
+   "gmpAsOf": "2026-10-26T14:53:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-26T14:34:00+05:30",
+   "gmpEveAsOf": "2026-10-26T14:53:00+05:30",
    "facts": {
     "sector": "Civil Construction",
     "listingAt": "BSE SME",
@@ -3111,7 +3111,7 @@
      "received": 486,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-26T17:38:20+05:30"
+    "asOf": "2026-10-26T18:14:24+05:30"
    }
   },
   {
@@ -35845,6 +35845,11 @@
  ],
  "news": [
   {
+   "title": "Tonbo Imaging shares soar another 17% after a 64% listing pop. Buy, sell or hold the stock?",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/tonbo-imaging-shares-soar-another-17-after-a-64-listing-pop-buy-sell-or-hold-the-stock/articleshow/135204062.cms",
+   "date": "2026-10-26T11:23:41+05:30"
+  },
+  {
    "title": "Jio’s record India IPO falls short of record payday for bankers",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jios-record-india-ipo-falls-short-of-record-payday-for-bankers/articleshow/135203965.cms",
    "date": "2026-10-26T11:16:31+05:30"
@@ -35963,11 +35968,6 @@
    "title": "Jio IPO becomes first public issue globally to cross 1 crore applications; record puts spotlight on depth of India’s retail investor base",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-becomes-first-public-issue-globally-to-cross-1-crore-applications-record-puts-spotlight-on-depth-of-indias-retail-investor-base/articleshow/135144742.cms",
    "date": "2026-10-23T17:26:48+05:30"
-  },
-  {
-   "title": "D-Street bleeds! Market value of all BSE-listed firms falls below Rs 450 lakh crore for first time since April. More pain ahead?",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/d-street-bleeds-market-value-of-all-bse-listed-firms-falls-below-rs-450-lakh-crore-for-first-time-since-april-more-pain-ahead/articleshow/135140291.cms",
-   "date": "2026-10-23T13:59:38+05:30"
   }
  ],
  "priceHistory": {
@@ -82591,14 +82591,23 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-26T17:38:20+05:30",
+  "asOf": "2026-10-26T18:15:30+05:30",
   "checks": [
+   {
+    "area": "calendar",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-26T18:14:22+05:30",
+    "elapsed": 2.33,
+    "calls": 5,
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=12 carried=0 +nse=6 +bse=0 exchange-only=0: 7 mainboard, 5 sme; 2 open, 8 upcoming"
+   },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.21,
+    "elapsed": 0.05,
     "calls": 1,
     "note": "gmp: 7 board rows patched via investorgain; 10 active, 5 of them matched; gmp: 14 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹66, investorgain); EverestIMS Technologies (₹50, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Ravita Engineering Services (₹1, investorgain); Sahajanand Medical Technologies (₹17, investorgain) …"
    },
@@ -82606,8 +82615,8 @@
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-26T17:38:12+05:30",
-    "elapsed": 0.59,
+    "asOf": "2026-10-26T18:14:22+05:30",
+    "elapsed": 0.53,
     "calls": 2,
     "note": "2 records fetched for 12 identified listings (0 without an id); 0 anchor books updated, 91 on file"
    },
@@ -82615,10 +82624,127 @@
     "area": "subscription",
     "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-10-26T17:38:20+05:30",
-    "elapsed": 7.44,
-    "calls": 4,
+    "asOf": "2026-10-26T18:14:24+05:30",
+    "elapsed": 1.57,
+    "calls": 3,
     "note": "2/2 rows patched via narada, nse"
+   },
+   {
+    "area": "listings",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-10-26",
+    "elapsed": 9.72,
+    "calls": 0,
+    "note": "21 names priced, 0 moved to recent, 0 history points"
+   },
+   {
+    "area": "history",
+    "method": "investorgain-566:ok, investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-26",
+    "elapsed": 2.77,
+    "calls": 2,
+    "note": "1395 listings since 2022 (989 SME); fetched 2026: 292; QIB on file for 107 of 406 mainboard issues"
+   },
+   {
+    "area": "tape",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-10-23",
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "196 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file"
+   },
+   {
+    "area": "anchorbook",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-26",
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "0 anchor books read (0 without an anchor table, 0 failed); 909 on file, 589 partial (feed gave only the first names); 0 of 1395 listings still to fetch"
+   },
+   {
+    "area": "evidence",
+    "method": "computed:ok",
+    "status": "ok",
+    "asOf": "2026-10-26",
+    "elapsed": 0.2,
+    "calls": 0,
+    "note": "track records: 909 of 909 anchor books have an outcome; 864 of 1420 investors with 2+; 1395 listings; windows: mainboard 129, SME 236; 4 warnings"
+   },
+   {
+    "area": "players",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-26",
+    "elapsed": 30.9,
+    "calls": 54,
+    "note": "53 of 2839 anchor investors read (0 failed); names found for 2 of 12 unlisted issues"
+   },
+   {
+    "area": "parents",
+    "method": "angelone:down, yahoo:ok",
+    "status": "ok",
+    "asOf": "2026-10-26",
+    "elapsed": 10.46,
+    "calls": 0,
+    "note": "5/5 parent prices; 37/42 investor stocks priced"
+   },
+   {
+    "area": "filings",
+    "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
+    "status": "ok",
+    "asOf": "2026-10-26",
+    "elapsed": 7.63,
+    "calls": 14,
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1917 announcements scanned, 2 subsidiary-offer leads; expected: 42 names; 1 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 5 leads held; 0 rows patched, 33 kept previous stage"
+   },
+   {
+    "area": "offers",
+    "method": "bse:blocked, bse:blocked",
+    "status": "blocked",
+    "asOf": null,
+    "elapsed": 0.13,
+    "calls": 1,
+    "note": "kept previous — HTTP 403"
+   },
+   {
+    "area": "flows",
+    "method": "nse:ok",
+    "status": "ok",
+    "asOf": "2026-10-23",
+    "elapsed": 0.34,
+    "calls": 1,
+    "note": "2026-10-23 already in history; FII +888 / DII +3,235 Cr"
+   },
+   {
+    "area": "deals",
+    "method": "nsearchives:ok",
+    "status": "ok",
+    "asOf": "2026-10-23",
+    "elapsed": 1.06,
+    "calls": 4,
+    "note": "bulk.csv: 118 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 118; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 42 of today's 118 deals are in this year's listings (8 stocks); 1421 kept over 60 days; 196 of 292 listings have an NSE symbol; 226 with a BSE code"
+   },
+   {
+    "area": "news",
+    "method": "rss:ok",
+    "status": "ok",
+    "asOf": "2026-10-26T11:23:41+05:30",
+    "elapsed": 1.52,
+    "calls": 3,
+    "note": "business-standard: 2/35 primary-market items; economic-times: 3/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 5 fresh, 25 kept"
+   },
+   {
+    "area": "logos",
+    "method": "none:ok",
+    "status": "ok",
+    "asOf": "2026-10-26",
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "64 logos on file; none to fetch"
    },
    {
     "area": "research layer",
@@ -82630,7 +82756,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "8s, 7 calls, 3/3 modules ok"
+    "note": "71s, 90 calls, 16/17 modules ok"
    }
   ],
   "discrepancies": [
@@ -84190,52 +84316,52 @@
   "prices": {
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1191.2,
+    "value": 1201.8,
     "asOf": "2026-10-26"
    },
    "Edelweiss Financial Services": {
     "symbol": "EDELWEISS",
-    "value": 124.38,
+    "value": 122.91,
     "asOf": "2026-10-26"
    },
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 401.9,
+    "value": 405.0,
     "asOf": "2026-10-26"
    },
    "Hero MotoCorp": {
     "symbol": "HEROMOTOCO",
-    "value": 5053.5,
+    "value": 5199.0,
     "asOf": "2026-10-26"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 102.97,
+    "value": 103.5,
     "asOf": "2026-10-26"
    },
    "Prestige Estates": {
     "symbol": "PRESTIGE",
-    "value": 1376.9,
+    "value": 1396.6,
     "asOf": "2026-10-26"
    },
    "SIS Limited": {
     "symbol": "SIS",
-    "value": 378.15,
+    "value": 375.15,
     "asOf": "2026-10-26"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 228.5,
+    "value": 229.35,
     "asOf": "2026-10-26"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 5882.5,
+    "value": 5908.0,
     "asOf": "2026-10-26"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 49.79,
+    "value": 49.0,
     "asOf": "2026-10-26"
    },
    "Tata Motors": {
@@ -84245,47 +84371,47 @@
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 381.1,
+    "value": 380.95,
     "asOf": "2026-10-26"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 70.15,
+    "value": 70.56,
     "asOf": "2026-10-26"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 227.28,
+    "value": 228.44,
     "asOf": "2026-10-26"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 687.4,
+    "value": 688.05,
     "asOf": "2026-10-26"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 438.5,
+    "value": 440.75,
     "asOf": "2026-10-26"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1215.9,
+    "value": 1220.0,
     "asOf": "2026-10-26"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1652.9,
+    "value": 1670.9,
     "asOf": "2026-10-26"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1186.9,
+    "value": 1196.6,
     "asOf": "2026-10-26"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 17.73,
+    "value": 17.58,
     "asOf": "2026-10-26"
    },
    "Gretex Corporate Services": {
@@ -84295,87 +84421,87 @@
    },
    "Asian Energy": {
     "symbol": "ASIANENE",
-    "value": 390.3,
+    "value": 399.25,
     "asOf": "2026-10-26"
    },
    "Intellect Design Arena": {
     "symbol": "INTELLECT",
-    "value": 589.9,
+    "value": 603.7,
     "asOf": "2026-10-26"
    },
    "Zaggle Prepaid": {
     "symbol": "ZAGGLE",
-    "value": 150.77,
+    "value": 151.46,
     "asOf": "2026-10-26"
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 91.66,
+    "value": 92.56,
     "asOf": "2026-10-26"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1231.7,
+    "value": 1229.8,
     "asOf": "2026-10-26"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 495.75,
+    "value": 492.8,
     "asOf": "2026-10-26"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 280.05,
+    "value": 285.3,
     "asOf": "2026-10-26"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 120.43,
+    "value": 120.06,
     "asOf": "2026-10-26"
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
-    "value": 1260.3,
+    "value": 1293.2,
     "asOf": "2026-10-26"
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1366.1,
+    "value": 1411.7,
     "asOf": "2026-10-26"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1259.1,
+    "value": 1273.5,
     "asOf": "2026-10-26"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 89.7,
+    "value": 89.87,
     "asOf": "2026-10-26"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 441.65,
+    "value": 452.05,
     "asOf": "2026-10-26"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 511.3,
+    "value": 516.85,
     "asOf": "2026-10-26"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1053.4,
+    "value": 1075.8,
     "asOf": "2026-10-26"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 442.15,
+    "value": 440.65,
     "asOf": "2026-10-26"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 496.7,
+    "value": 501.3,
     "asOf": "2026-10-26"
    },
    "Ashutosh Fibre (upcoming)": {
@@ -116934,7 +117060,7 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1191.2,
+    "value": 1201.8,
     "asOf": "2026-10-26"
    },
    "parentTicker": "RELIANCE",
@@ -116987,7 +117113,7 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 124.38,
+    "value": 122.91,
     "asOf": "2026-10-26"
    },
    "parentTicker": "EDELWEISS",
@@ -117142,7 +117268,7 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 401.9,
+    "value": 405.0,
     "asOf": "2026-10-26"
    },
    "parentTicker": "COALINDIA",
@@ -117271,7 +117397,7 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5053.5,
+    "value": 5199.0,
     "asOf": "2026-10-26"
    },
    "parentTicker": "HEROMOTOCO",
@@ -117386,7 +117512,7 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 401.9,
+    "value": 405.0,
     "asOf": "2026-10-26"
    },
    "parentTicker": "COALINDIA",
@@ -119772,7 +119898,7 @@
   },
   "2229": {
    "name": "Core4 Engineers",
-   "fetchedAt": "2026-10-26T17:38:12+05:30",
+   "fetchedAt": "2026-10-26T18:14:22+05:30",
    "about": [
     "Core4 Engineers Ltd. is an Engineering, Procurement, Construction and Commissioning (EPCC) company specializing in integrated infrastructure development across railway electrification, power transmission and distribution, and water and wastewater management. The company provides comprehensive project solutions covering planning, design, engineering, material procurement, installation, testing, commissioning, and operation and maintenance (O&M). The company operates an in-house manufacturing facility dedicated to producing High-Tension (HT) and Low-Tension (LT) electrical panels and compact substations. These products cater to the requirements of its infrastructure projects as well as external customers. Its subsidiary, Core4 Energy Ltd., further strengthens its manufacturing capabilities and generates product-related revenue through the production of electrical distribution and control panels. Core4 Engineers Ltd. serves a diverse client base comprising Indian Railways, public sector undertakings (PSUs), and infrastructure development contractors. Its project portfolio includes railway electrification, traction and power substations, transmission and distribution networks, and water treatment infrastructure. As of September 30, 2025, the company employed 433 personnel, including employees and project-based workers. Key Business Segments 1. Railway Electrification (RE) The company undertakes railway electrification projects involving 25 kV overhead equipment (OHE), traction substations, and associated electrical infrastructure under the EPCC model. 2. Railway Infrastructure This segment covers integrated civil, electrical, and mechanical works for railway station redevelopment, modernization, and infrastructure improvement projects. 3. Extra-High-Voltage (EHT) Transmission and Distribution Core4 Engineers executes turnkey power infrastructure projects up to 220 kV, encompassing substations, transformers, transmission facilities, and electricity distribution systems. 4. Water and Wastewater Treatment The company delivers EPCC projects for water treatment plants (WTPs), sewage treatment plants (STPs), and effluent treatment plants (ETPs), utilizing technologies such as Moving Bed Biofilm Reactor (MBBR) and Sequencing Batch Reactor (SBR). 5. Automation and SCADA Solutions This business vertical focuses on PLC-based automation, supervisory monitoring, and control systems designed to improve operational efficiency and facilitate real-time monitoring of infrastructure installations. 6. HT/LT Electrical Panel Manufacturing The company manufactures and supplies a range of electrical panels, including Power Control Centres (PCC), Motor Control Centres (MCC), Automatic Power Factor Correction (APFC) panels, and customized automation panels for industrial and infrastructure applications."
    ],
@@ -120021,15 +120147,15 @@
      "retailBidCr": 2.41
     },
     {
-     "asOf": "2026-10-26T14:32:00+05:30",
+     "asOf": "2026-10-26T15:12:00+05:30",
      "qib": 0.0,
-     "nii": 1.08,
-     "bnii": 1.54,
-     "snii": 0.15,
-     "retail": 0.35,
-     "total": 0.41,
-     "bidCr": 13.77,
-     "retailBidCr": 5.98
+     "nii": 2.0,
+     "bnii": 2.91,
+     "snii": 0.17,
+     "retail": 0.37,
+     "total": 0.61,
+     "bidCr": 20.63,
+     "retailBidCr": 6.18
     }
    ],
    "company": {
@@ -120040,7 +120166,7 @@
   },
   "1635": {
    "name": "EAAA India Alternatives",
-   "fetchedAt": "2026-10-26T17:38:12+05:30",
+   "fetchedAt": "2026-10-26T18:14:22+05:30",
    "about": [
     "EAAA India Alternatives Limited operates an alternative investment management platform in India, offering diversified investment strategies across large, underpenetrated, and rapidly expanding alternative asset classes. The company primarily focuses on providing income-generating and yield-oriented investment solutions to its clients through a multi-strategy business model. The company's principal business segments comprise (i) Real Assets and (ii) Private Credit. Through these strategies, EAAA India seeks to capitalise on investment opportunities across alternative asset classes while addressing clients' requirements for income and yield-based solutions. Sekura India Management Limited, a wholly owned subsidiary of EAAA India Alternatives Limited, provides operational and asset management support across the company's investment strategies. Its responsibilities include operations and maintenance, performance monitoring, operational efficiency enhancement, and turnaround management. Sekura forms an integral part of the company's Portfolio Operating and Management Team (POMT), supporting the effective management and performance of portfolio assets. As of September 30, 2024, EAAA India Alternatives Limited served clients across multiple international markets, with its client base spread across India, North America, Europe, and other regions worldwide. This geographic presence reflects the company's reach beyond the domestic market."
    ],
@@ -120304,10 +120430,10 @@
    "gmpHistory": [
     {
      "date": "2026-10-26",
-     "gmp": 37.0,
-     "est": 1702.0,
-     "pct": 2.22,
-     "kostakSauda": "300/4200"
+     "gmp": 36.0,
+     "est": 1701.0,
+     "pct": 2.16,
+     "kostakSauda": "200/2800"
     },
     {
      "date": "2026-10-25",
@@ -120333,15 +120459,15 @@
    ],
    "bidding": [
     {
-     "asOf": "2026-10-26T14:21:00+05:30",
+     "asOf": "2026-10-26T15:11:00+05:30",
      "qib": 0.08,
-     "nii": 0.17,
-     "bnii": 0.25,
+     "nii": 0.22,
+     "bnii": 0.32,
      "snii": 0.02,
      "retail": 0.03,
-     "total": 0.07,
-     "bidCr": 62.79,
-     "retailBidCr": 12.11
+     "total": 0.09,
+     "bidCr": 73.54,
+     "retailBidCr": 13.73
     }
    ],
    "company": {
@@ -123112,7 +123238,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-26T11:37:35+05:30",
+  "asOf": "2026-10-26T18:14:37+05:30",
   "dates": [
    "2026-01-22",
    "2026-01-23",
@@ -273845,6 +273971,16 @@
   ]
  },
  "quotaLeads": [
+  {
+   "parentSymbol": "BIGBLOC",
+   "parentName": "Bigbloc Construction Limited",
+   "kind": "ipo",
+   "text": "'Intimation under Regulation 30 of the SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 Proposed Initial Public Offering by Bigbloc Building Elements Limited, a material subsidiary of the Company'.",
+   "url": "https://nsearchives.nseindia.com/corporate/BIGBLOC_26102026130237_BSENSE_IPO.pdf",
+   "date": "2026-10-26",
+   "seqId": "106828239",
+   "sme": false
+  },
   {
    "parentSymbol": "KPIL",
    "parentName": "Kalpataru Projects International Limited",
