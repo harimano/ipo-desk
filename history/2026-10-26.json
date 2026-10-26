@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-26T06:45:34+05:30",
+  "asOf": "2026-10-26T11:08:19+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "26 Oct 2026, 06:45 IST",
+  "label": "26 Oct 2026, 11:08 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -40,8 +40,7 @@
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
    "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
-   "[gmp] gmp: no grey-market print found for open issue Core4 Engineers",
-   "[subscription] subscription missing for EAAA India Alternatives — check NSE/BSE ids on the row"
+   "[gmp] gmp: no grey-market print found for open issue Core4 Engineers"
   ]
  },
  "expected": [
@@ -1764,11 +1763,11 @@
    "bandLow": 1065.0,
    "bandHigh": 1119.0,
    "lotSize": 12,
-   "issueSizeCr": 30213.0,
+   "issueSizeCr": 30187.65,
    "freshCr": 30213.0,
    "ofsCr": null,
-   "gmp": 247.0,
-   "gmpPct": 22.07,
+   "gmp": 248.0,
+   "gmpPct": 22.16,
    "gmpTrend": "up",
    "sub": {
     "qib": 67.15,
@@ -2021,10 +2020,17 @@
    "issueSizeCr": 1200.0,
    "freshCr": null,
    "ofsCr": 1200.0,
-   "gmp": 33.0,
-   "gmpPct": 1.98,
+   "gmp": 36.0,
+   "gmpPct": 2.16,
    "gmpTrend": "flat",
-   "sub": null,
+   "sub": {
+    "qib": 0.0,
+    "nii": 0.04,
+    "retail": 0.01,
+    "total": 0.02,
+    "asOf": "2026-10-26T11:06:00+05:30",
+    "src": "nse"
+   },
    "shareholderQuota": null,
    "listingPrice": null,
    "listingGainPct": null,
@@ -2037,7 +2043,7 @@
    "igId": "1635",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-26T06:44:23+05:30",
+   "igFetchedAt": "2026-10-26T11:08:10+05:30",
    "refund": "2026-10-30",
    "sector": "Asset Management Company",
    "anchorShares": 2162161,
@@ -2076,14 +2082,47 @@
     ],
     "docs": {
      "drhp": "https://www.sebi.gov.in/filings/public-issues/jan-2026/eaaa-india-alternatives-limited-drhp_99257.html",
-     "rhp": "https://www.eaaa.in/wp-content/uploads/2026/09/Red-Herring-Prospectus.pdf",
+     "rhp": "https://listing.bseindia.com/download/8888888/preanchor/rhpgid_20261021183023.zip",
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/eaaa_india_alternatives_ltd_mainboard_anchor_1792771003.pdf"
     },
-    "asOf": "2026-10-24T23:55:00+05:30"
+    "asOf": "2026-10-26T03:30:00+05:30"
    },
-   "gmpAsOf": "2026-10-25T23:37:00+05:30",
-   "gmpEve": 33.0,
-   "gmpEveAsOf": "2026-10-25T23:37:00+05:30"
+   "gmpAsOf": "2026-10-26T09:37:00+05:30",
+   "gmpEve": 36.0,
+   "gmpEveAsOf": "2026-10-26T09:37:00+05:30",
+   "apps": {
+    "qib": {
+     "reserved": 1441442,
+     "received": 0,
+     "reservedSrc": "narada"
+    },
+    "nii": {
+     "reserved": 8580,
+     "received": 87,
+     "reservedSrc": "narada"
+    },
+    "bnii": {
+     "reserved": 6008,
+     "received": 76,
+     "reservedSrc": "rhp"
+    },
+    "snii": {
+     "reserved": 3004,
+     "received": 11,
+     "reservedSrc": "rhp"
+    },
+    "retail": {
+     "reserved": 294426,
+     "received": 2636,
+     "reservedSrc": "rhp"
+    },
+    "total": {
+     "reserved": 1730302,
+     "received": 2723,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-10-26T11:08:18+05:30"
+   }
   },
   {
    "name": "BLS Polymers",
@@ -2980,12 +3019,12 @@
    "gmpPct": 0.0,
    "gmpTrend": "flat",
    "sub": {
-    "nii": 0.05,
-    "bnii": 0.02,
-    "snii": 0.1,
-    "retail": 0.14,
-    "total": 0.08,
-    "asOf": "2026-10-26T06:44:33+05:30",
+    "nii": 0.59,
+    "bnii": 0.83,
+    "snii": 0.12,
+    "retail": 0.26,
+    "total": 0.26,
+    "asOf": "2026-10-26T11:08:19+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3000,14 +3039,14 @@
    "igId": "2229",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-26T06:44:23+05:30",
+   "igFetchedAt": "2026-10-26T11:08:10+05:30",
    "refund": "2026-10-29",
    "sector": "Civil Construction",
    "anchorShares": 1544400,
    "logo": "core4-engineers-logo.jpg",
-   "gmpAsOf": "2026-10-25T23:33:00+05:30",
+   "gmpAsOf": "2026-10-26T09:35:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-10-25T23:33:00+05:30",
+   "gmpEveAsOf": "2026-10-26T09:35:00+05:30",
    "facts": {
     "sector": "Civil Construction",
     "listingAt": "BSE SME",
@@ -3047,30 +3086,30 @@
     },
     "nii": {
      "reserved": 216,
-     "received": 7,
+     "received": 45,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 144,
-     "received": 1,
+     "received": 38,
      "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 72,
-     "received": 6,
+     "received": 7,
      "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 755,
-     "received": 108,
+     "received": 197,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 1838,
-     "received": 115,
+     "received": 242,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-26T06:44:33+05:30"
+    "asOf": "2026-10-26T11:08:19+05:30"
    }
   },
   {
@@ -82466,23 +82505,14 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-26T06:45:34+05:30",
+  "asOf": "2026-10-26T11:08:19+05:30",
   "checks": [
-   {
-    "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-26T06:44:22+05:30",
-    "elapsed": 1.61,
-    "calls": 5,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=12 carried=0 +nse=5 +bse=0 exchange-only=0: 7 mainboard, 5 sme; 2 open, 8 upcoming"
-   },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.71,
+    "elapsed": 1.07,
     "calls": 1,
     "note": "gmp: 7 board rows patched via investorgain; 10 active, 5 of them matched; gmp: 14 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹66, investorgain); EverestIMS Technologies (₹50, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Ravita Engineering Services (₹1, investorgain); Sahajanand Medical Technologies (₹17, investorgain) …"
    },
@@ -82490,136 +82520,19 @@
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-26T06:44:23+05:30",
-    "elapsed": 3.83,
-    "calls": 12,
-    "note": "12 records fetched for 12 identified listings (0 without an id); 0 anchor books updated, 91 on file"
+    "asOf": "2026-10-26T11:08:10+05:30",
+    "elapsed": 0.42,
+    "calls": 2,
+    "note": "2 records fetched for 12 identified listings (0 without an id); 0 anchor books updated, 91 on file"
    },
    {
     "area": "subscription",
-    "method": "narada:ok",
+    "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-10-26T06:44:33+05:30",
-    "elapsed": 6.15,
+    "asOf": "2026-10-26T11:08:19+05:30",
+    "elapsed": 8.02,
     "calls": 4,
-    "note": "1/2 rows patched via narada; no subscription for: EAAA India Alternatives"
-   },
-   {
-    "area": "listings",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-10-23",
-    "elapsed": 9.94,
-    "calls": 0,
-    "note": "21 names priced, 0 moved to recent, 0 history points"
-   },
-   {
-    "area": "history",
-    "method": "investorgain-566:ok, investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-26",
-    "elapsed": 2.72,
-    "calls": 2,
-    "note": "1395 listings since 2022 (989 SME); fetched 2026: 292; QIB on file for 107 of 406 mainboard issues"
-   },
-   {
-    "area": "tape",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-10-23",
-    "elapsed": 0.01,
-    "calls": 0,
-    "note": "196 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file"
-   },
-   {
-    "area": "anchorbook",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-26",
-    "elapsed": 0.04,
-    "calls": 1,
-    "note": "0 anchor books read (1 without an anchor table, 0 failed); 909 on file, 589 partial (feed gave only the first names); 0 of 1395 listings still to fetch"
-   },
-   {
-    "area": "evidence",
-    "method": "computed:ok",
-    "status": "ok",
-    "asOf": "2026-10-26",
-    "elapsed": 0.21,
-    "calls": 0,
-    "note": "track records: 909 of 909 anchor books have an outcome; 864 of 1420 investors with 2+; 1395 listings; windows: mainboard 129, SME 236; 4 warnings"
-   },
-   {
-    "area": "players",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-10-26",
-    "elapsed": 28.26,
-    "calls": 54,
-    "note": "53 of 2839 anchor investors read (0 failed); names found for 2 of 12 unlisted issues"
-   },
-   {
-    "area": "parents",
-    "method": "angelone:down, yahoo:ok",
-    "status": "ok",
-    "asOf": "2026-10-23",
-    "elapsed": 9.79,
-    "calls": 0,
-    "note": "5/5 parent prices; 38/43 investor stocks priced"
-   },
-   {
-    "area": "filings",
-    "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
-    "status": "ok",
-    "asOf": "2026-10-26",
-    "elapsed": 7.64,
-    "calls": 14,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1533 announcements scanned, 1 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 4 leads held; 0 rows patched, 33 kept previous stage"
-   },
-   {
-    "area": "offers",
-    "method": "bse:blocked, bse:blocked",
-    "status": "blocked",
-    "asOf": null,
-    "elapsed": 0.02,
-    "calls": 1,
-    "note": "kept previous — HTTP 403"
-   },
-   {
-    "area": "flows",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-10-23",
-    "elapsed": 0.3,
-    "calls": 1,
-    "note": "2026-10-23 already in history; FII +888 / DII +3,235 Cr"
-   },
-   {
-    "area": "deals",
-    "method": "nsearchives:ok",
-    "status": "ok",
-    "asOf": "2026-10-23",
-    "elapsed": 0.99,
-    "calls": 4,
-    "note": "bulk.csv: 118 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 118; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 42 of today's 118 deals are in this year's listings (8 stocks); 1421 kept over 60 days; 196 of 292 listings have an NSE symbol; 226 with a BSE code"
-   },
-   {
-    "area": "news",
-    "method": "rss:ok",
-    "status": "ok",
-    "asOf": "2026-10-26T05:41:58+05:30",
-    "elapsed": 0.39,
-    "calls": 3,
-    "note": "business-standard: 6/35 primary-market items; economic-times: 8/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 14 fresh, 25 kept"
-   },
-   {
-    "area": "logos",
-    "method": "none:ok",
-    "status": "ok",
-    "asOf": "2026-10-26",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "64 logos on file; none to fetch"
+    "note": "2/2 rows patched via narada, nse"
    },
    {
     "area": "research layer",
@@ -82631,7 +82544,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "74s, 102 calls, 16/17 modules ok"
+    "note": "10s, 7 calls, 3/3 modules ok"
    }
   ],
   "discrepancies": [
@@ -119768,7 +119681,7 @@
   },
   "2229": {
    "name": "Core4 Engineers",
-   "fetchedAt": "2026-10-26T06:44:23+05:30",
+   "fetchedAt": "2026-10-26T11:08:10+05:30",
    "about": [
     "Core4 Engineers Ltd. is an Engineering, Procurement, Construction and Commissioning (EPCC) company specializing in integrated infrastructure development across railway electrification, power transmission and distribution, and water and wastewater management. The company provides comprehensive project solutions covering planning, design, engineering, material procurement, installation, testing, commissioning, and operation and maintenance (O&M). The company operates an in-house manufacturing facility dedicated to producing High-Tension (HT) and Low-Tension (LT) electrical panels and compact substations. These products cater to the requirements of its infrastructure projects as well as external customers. Its subsidiary, Core4 Energy Ltd., further strengthens its manufacturing capabilities and generates product-related revenue through the production of electrical distribution and control panels. Core4 Engineers Ltd. serves a diverse client base comprising Indian Railways, public sector undertakings (PSUs), and infrastructure development contractors. Its project portfolio includes railway electrification, traction and power substations, transmission and distribution networks, and water treatment infrastructure. As of September 30, 2025, the company employed 433 personnel, including employees and project-based workers. Key Business Segments 1. Railway Electrification (RE) The company undertakes railway electrification projects involving 25 kV overhead equipment (OHE), traction substations, and associated electrical infrastructure under the EPCC model. 2. Railway Infrastructure This segment covers integrated civil, electrical, and mechanical works for railway station redevelopment, modernization, and infrastructure improvement projects. 3. Extra-High-Voltage (EHT) Transmission and Distribution Core4 Engineers executes turnkey power infrastructure projects up to 220 kV, encompassing substations, transformers, transmission facilities, and electricity distribution systems. 4. Water and Wastewater Treatment The company delivers EPCC projects for water treatment plants (WTPs), sewage treatment plants (STPs), and effluent treatment plants (ETPs), utilizing technologies such as Moving Bed Biofilm Reactor (MBBR) and Sequencing Batch Reactor (SBR). 5. Automation and SCADA Solutions This business vertical focuses on PLC-based automation, supervisory monitoring, and control systems designed to improve operational efficiency and facilitate real-time monitoring of infrastructure installations. 6. HT/LT Electrical Panel Manufacturing The company manufactures and supplies a range of electrical panels, including Power Control Centres (PCC), Motor Control Centres (MCC), Automatic Power Factor Correction (APFC) panels, and customized automation panels for industrial and infrastructure applications."
    ],
@@ -119997,7 +119910,7 @@
    },
    "gmpHistory": [
     {
-     "date": "2026-10-25",
+     "date": "2026-10-26",
      "gmp": 0.0,
      "est": 93.0,
      "pct": 0.0,
@@ -120025,7 +119938,7 @@
   },
   "1635": {
    "name": "EAAA India Alternatives",
-   "fetchedAt": "2026-10-26T06:44:23+05:30",
+   "fetchedAt": "2026-10-26T11:08:10+05:30",
    "about": [
     "EAAA India Alternatives Limited operates an alternative investment management platform in India, offering diversified investment strategies across large, underpenetrated, and rapidly expanding alternative asset classes. The company primarily focuses on providing income-generating and yield-oriented investment solutions to its clients through a multi-strategy business model. The company's principal business segments comprise (i) Real Assets and (ii) Private Credit. Through these strategies, EAAA India seeks to capitalise on investment opportunities across alternative asset classes while addressing clients' requirements for income and yield-based solutions. Sekura India Management Limited, a wholly owned subsidiary of EAAA India Alternatives Limited, provides operational and asset management support across the company's investment strategies. Its responsibilities include operations and maintenance, performance monitoring, operational efficiency enhancement, and turnaround management. Sekura forms an integral part of the company's Portfolio Operating and Management Team (POMT), supporting the effective management and performance of portfolio assets. As of September 30, 2024, EAAA India Alternatives Limited served clients across multiple international markets, with its client base spread across India, North America, Europe, and other regions worldwide. This geographic presence reflects the company's reach beyond the domestic market."
    ],
@@ -120287,6 +120200,13 @@
     "sharesPost": 64655246.0
    },
    "gmpHistory": [
+    {
+     "date": "2026-10-26",
+     "gmp": 36.0,
+     "est": 1701.0,
+     "pct": 2.16,
+     "kostakSauda": "200/2800"
+    },
     {
      "date": "2026-10-25",
      "gmp": 33.0,
