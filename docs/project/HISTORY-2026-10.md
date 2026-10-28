@@ -133,3 +133,7 @@ had to be added** under Integrations → Identity providers before the login pag
 lessons: wrangler-action's default wrangler 3 rejects `run_worker_first` (pinned 4.154.0), and it refuses an empty
 `--var`, so the Access variables are `pending` until the real values exist. Unauthenticated: the Worker URL 302s to
 the team login page. Pages still serves the public copy; the switch-over waits on the readers' emails being added.
+
+Later that evening Hari chose self-service over an allowlist: the policy rule is Everyone. Access still makes each
+reader sign in with an email code and remembers them a month; the link is the key. Verified signed in: the page loads
+the live parts behind the gate, no console errors, `/whoami` prints the email.

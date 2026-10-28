@@ -28,8 +28,10 @@ and both run side by side until you switch.
    the `workers.dev` row → **Enable Cloudflare Access**. That creates an Access application for the Worker's
    address, with a policy that allows only your Cloudflare email. Then Zero Trust → Access → Applications →
    open it:
-   - Policies → edit the one policy: Action *Allow*, Include → *Emails* → your address, your dad's, your
-     friend's. Save. (Remove an address here to lock someone out; they are gone at their next request.)
+   - Policies → the policy: Action *Allow*, Include → **Everyone** (Hari's choice, 28 Oct 2026: the link is sent, the
+     reader signs in with their own email and code, no list kept by hand — so a forwarded link also gets in; the
+     sign-ins are listed by email under Zero Trust → Logs → Access, and an *Exclude → Emails* rule blocks one).
+     The allowlist variant is Include → *Emails* with the addresses.
    - Overview / settings: **Session duration** — 1 month is fine for a family dashboard; **Application Audience
      (AUD) Tag** — copy it (it is an identifier, not a secret).
    - Authentication: *One-time PIN* is on by default; leave it as the only method.
