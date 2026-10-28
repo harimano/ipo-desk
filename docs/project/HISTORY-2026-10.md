@@ -111,3 +111,15 @@ agreed in September). Newest section last. `CLAUDE.md` is the short working brie
   matters: the failed run stays red, 06:43 and 18:13 retry and fail loudly, and a push to main (a fix) changes the sha
   and the next intraday goes too. Proven: both paths live from the Mac against the real runs (the 13:53 refusal reproduced
   verbatim), four tests (314), ruff, and one intraday dispatch on the edited workflow.
+
+## 28 Oct 2026 — the gate, built and parked
+
+Hari's dad and a friend now read the dashboard, and the Pages URL is public, so the first step of the roadmap's
+"login" item was built: `ops/site-worker/` — a Worker serving `_site` (Workers static assets, `run_worker_first`) that
+verifies Cloudflare Access's RS256 JWT (team certs cached an hour; `exp`, `iss`, `aud` checked) on every request and
+fails closed without it. Access itself does the login (email one-time PIN, an allowlist of three addresses, free
+plan); no password, no code of ours. `deploy.yml` gained a `cloudflare` job gated on the repo variable `SITE_WORKER`,
+so Pages keeps serving until the switch; the README in the folder has the clicks and the switch-over list. The step
+that actually hides the data is making the repo private — the Worker alone leaves `data/latest.json` readable on
+github.com. Not pushed on the day it was written: the current readers were on the page. Not yet run anywhere (no
+Node on the Mac; the first deploy is the Actions job).

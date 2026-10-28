@@ -80,3 +80,37 @@ jobs:
         with: { path: _site }
       - id: deployment
         uses: actions/deploy-pages@v5
+
+  # The gated copy (ops/site-worker): the same _site, served by a Cloudflare Worker behind Cloudflare Access.
+  # Off until the repo variable SITE_WORKER is "on", so Pages keeps serving meanwhile; both can run side by side
+  # during the switch. Needs secrets CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID and variables ACCESS_TEAM_DOMAIN +
+  # ACCESS_AUD — ops/site-worker/README.md walks through every one.
+  cloudflare:
+    needs: guard
+    if: vars.SITE_WORKER == 'on'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with: { ref: data, path: _data, fetch-depth: 1 }
+      - uses: actions/setup-python@v7
+        with: { python-version: "3.12" }
+      - name: Build _site — page, split data files, research, logos
+        run: |
+          cp _data/latest.json data/latest.json
+          mkdir -p data/logos && cp -R _data/logos/. data/logos/ 2>/dev/null || true
+          python site/build.py
+      - name: Deploy the Worker (wrangler)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: ops/site-worker
+          command: deploy
+          vars: |
+            TEAM_DOMAIN
+            POLICY_AUD
+        env:
+          TEAM_DOMAIN: ${{ vars.ACCESS_TEAM_DOMAIN }}
+          POLICY_AUD: ${{ vars.ACCESS_AUD }}

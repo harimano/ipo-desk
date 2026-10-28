@@ -1,0 +1,16 @@
+# The gated site: a Worker that serves _site/ (what site/build.py writes) behind Cloudflare Access.
+# Deployed by deploy.yml's `cloudflare` job with `wrangler deploy` once the repo variable SITE_WORKER is "on";
+# the job builds _site first, exactly as the Pages job does. Nothing here is a secret.
+#
+# TEAM_DOMAIN and POLICY_AUD are passed at deploy time from repo variables (ACCESS_TEAM_DOMAIN, ACCESS_AUD),
+# so they are not written here; without them the Worker refuses every request (503), never serves open.
+name = "ipo-desk-site"                 # NOT "ipo-desk": that name is the trigger Worker (ops/trigger-worker)
+main = "worker.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[assets]
+directory = "../../_site"
+binding = "ASSETS"
+run_worker_first = true                # every request goes through worker.js (the Access check) before an asset is served
+not_found_handling = "none"

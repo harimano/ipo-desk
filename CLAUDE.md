@@ -25,6 +25,9 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
   A workflow's push does not trigger other workflows: `collect.yml` dispatches `deploy.yml`; a page-only change needs
   `gh workflow run deploy.yml`. An intraday run whose predecessor refused at the gate on the same commit skips green with one
   `::warning::` carrying the refusal (`scripts/prev_gate.py`); the full runs and any push to main retry and fail loudly.
+- Gated site (built 28 Oct 2026, not switched on): `ops/site-worker/` serves `_site` from a Worker behind Cloudflare
+  Access (email one-time PIN, allowlist); `deploy.yml`'s `cloudflare` job runs only when repo variable `SITE_WORKER` is
+  `on`. Setup and the switch-over (repo private, Pages off) are in its README.
 - Hari's Mac: no Homebrew, no Node. `uv` and `gh` in `~/.local/bin`; `.venv/bin/python -m collector`, `.venv/bin/pytest`.
   Preview: `.claude/launch.json` server `site` serves `_site` on 8765.
 
