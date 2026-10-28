@@ -123,3 +123,13 @@ so Pages keeps serving until the switch; the README in the folder has the clicks
 that actually hides the data is making the repo private — the Worker alone leaves `data/latest.json` readable on
 github.com. Not pushed on the day it was written: the current readers were on the page. Not yet run anywhere (no
 Node on the Mac; the first deploy is the Actions job).
+
+Set up the same evening (28 Oct): secrets + variables on GitHub; Zero Trust Free activated (team `super-pond-6304`,
+auto-named; a card is required even at $0); Access put in front of the Worker from its own **Access** tab ("Protect this
+Worker behind Access", scope All traffic) with a reusable policy `ipo-desk readers` (Emails allowlist, 1-month session)
+made under Zero Trust → Access controls → Policies — the two pre-configured policies the dialog offers are "Cloudflare
+account" and "Email domain", neither an allowlist. A new Zero Trust org has only the Cloudflare login: **One-time PIN
+had to be added** under Integrations → Identity providers before the login page offered "Send login code". Two deploy
+lessons: wrangler-action's default wrangler 3 rejects `run_worker_first` (pinned 4.154.0), and it refuses an empty
+`--var`, so the Access variables are `pending` until the real values exist. Unauthenticated: the Worker URL 302s to
+the team login page. Pages still serves the public copy; the switch-over waits on the readers' emails being added.
