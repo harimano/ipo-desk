@@ -6,9 +6,9 @@ they type their email, get a 6-digit code by mail, and are in for the session le
 password anywhere, and no login code of ours to maintain — `worker.js` only verifies Access's signed token on
 every request, so a removed or misconfigured Access application fails CLOSED (401 / 503), never open.
 
-`deploy.yml`'s `cloudflare` job builds `_site` exactly like the Pages job and runs `wrangler deploy` from this
-folder. It is off until the repo variable `SITE_WORKER` is `on`, so Pages keeps serving while you set this up,
-and both run side by side until you switch.
+`deploy.yml`'s `cloudflare` job builds `_site` and runs `wrangler deploy` from this folder on every push to main and
+after every collect. (While it was being set up it sat behind a repo variable `SITE_WORKER` so Pages kept serving;
+that variable and the Pages job are gone.)
 
 ## Setup (about 20 minutes, all in the browser; nothing is pasted into chat or a file)
 
@@ -17,7 +17,6 @@ and both run side by side until you switch.
    **Account ID** — Workers & Pages → Overview: it is in the right-hand column.
 2. **GitHub** — repo → Settings → Secrets and variables → Actions:
    - Secrets: `CLOUDFLARE_API_TOKEN` (the token), `CLOUDFLARE_ACCOUNT_ID`.
-   - Variables: `SITE_WORKER` = `on`.
    Then Actions → deploy → Run workflow. The `cloudflare` job creates the Worker `ipo-desk-site`. Its URL
    (`https://ipo-desk-site.<your-subdomain>.workers.dev`) answers **503 "gate is not configured"** — correct: the
    Worker exists but will not serve until Access is in front and the two variables below are set.
@@ -42,16 +41,21 @@ and both run side by side until you switch.
    list is refused; yours gets a code and then the dashboard. `/whoami` prints the signed-in email; `/logout` signs
    out. Open it on your phone too.
 
-## Switching over (when you are ready; nothing below is done by the deploy)
+## Where this landed (28 Oct 2026)
 
-- Send the new URL to your dad and friend; the Pages URL keeps working until the next step.
-- **Make the repo private** (Settings → General → Danger Zone → Change visibility). This is the step that
-  actually hides the data: as long as the repo is public, `data/latest.json` is readable on github.com whatever
-  the Worker does. Pages stops on a private repo of a free account, which is what we want.
-- In `deploy.yml`, delete the `publish` job and the `pages: write` / `id-token: write` permissions; drop
-  `if: vars.SITE_WORKER == 'on'` from the `cloudflare` job. Update the live URL in `CLAUDE.md` and `README.md`.
-- `collect.yml` and the trigger Worker are untouched: data still lands on the `data` branch and `collect.yml`
-  still dispatches `deploy.yml`.
+- The Worker behind Access is the ONLY door to the page: GitHub Pages is switched off (repo Settings → Pages, and the
+  `publish` job is gone from `deploy.yml`). The link to send is `https://ipo-desk-site.ipodesk.workers.dev/` — the
+  account's workers.dev subdomain was renamed to `ipodesk` so no name is in it.
+- The repo stays PUBLIC, by choice. The readers are a handful of friends; hiding the code would protect against a copier
+  who does not exist, and a private repo loses GitHub's free Actions minutes (the market-hours live loop alone is
+  ~240 min a day against a 2,000-a-month allowance). If that ever changes, the design is written down in
+  HISTORY-2026-10 (28 Oct): whole repo private, the live loop ported to a Cloudflare Worker on cron with KV, collect +
+  deploy staying on GitHub within the free minutes — after a reachability survey of NSE / InvestorGain from
+  Cloudflare's addresses, which nobody has done.
+- Consequences of public: `data/latest.json` and the history are readable on github.com's `data` branch, so are the
+  research sheets on main and the Actions logs. Fine for this audience; the gate is about strangers and the page.
+- `collect.yml` and the trigger Worker are untouched: data still lands on the `data` branch and `collect.yml` still
+  dispatches `deploy.yml`, which now builds and deploys the Worker on every run.
 
 ## What the Worker does not do
 

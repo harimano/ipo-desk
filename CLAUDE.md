@@ -1,8 +1,9 @@
 # CLAUDE.md — read this first
 
 India IPO desk for one retail investor (Hari). A deterministic collector on GitHub Actions writes one JSON document; a
-static vanilla-JS page renders it; Claude is never in the daily path. Live at https://harimano.github.io/ipo-desk/ from
-https://github.com/harimano/ipo-desk (public). This file is the working brief — kept short on purpose, because every
+static vanilla-JS page renders it; Claude is never in the daily path. Live at https://ipo-desk-site.ipodesk.workers.dev/
+(a Cloudflare Worker behind Cloudflare Access: email code, anyone with the link) from https://github.com/harimano/ipo-desk
+(public, by choice — `ops/site-worker/README.md` says why; GitHub Pages is off since 28 Oct 2026). This file is the working brief — kept short on purpose, because every
 session pays for it. The long story (why each thing is the way it is, every lesson with its date) is
 `docs/project/HISTORY-2026-09.md` (Sep: state of play, roadmap, rules) and `HISTORY-2026-10.md` (Oct onward); read the part
 you need when you touch that area.
@@ -25,9 +26,9 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
   A workflow's push does not trigger other workflows: `collect.yml` dispatches `deploy.yml`; a page-only change needs
   `gh workflow run deploy.yml`. An intraday run whose predecessor refused at the gate on the same commit skips green with one
   `::warning::` carrying the refusal (`scripts/prev_gate.py`); the full runs and any push to main retry and fail loudly.
-- Gated site (built 28 Oct 2026, not switched on): `ops/site-worker/` serves `_site` from a Worker behind Cloudflare
-  Access (email one-time PIN, allowlist); `deploy.yml`'s `cloudflare` job runs only when repo variable `SITE_WORKER` is
-  `on`. Setup and the switch-over (repo private, Pages off) are in its README.
+- The site: `ops/site-worker/` serves `_site` from a Worker behind Cloudflare Access (email one-time PIN, policy
+  Everyone — the link is the key); `deploy.yml` builds and deploys it after every collect and push. Its README has the
+  setup, the Cloudflare clicks and why the repo stays public.
 - Hari's Mac: no Homebrew, no Node. `uv` and `gh` in `~/.local/bin`; `.venv/bin/python -m collector`, `.venv/bin/pytest`.
   Preview: `.claude/launch.json` server `site` serves `_site` on 8765.
 

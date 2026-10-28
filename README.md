@@ -13,7 +13,7 @@ screen.
   GMP ─┤          │  write latest.json + history/<date>.json
  …   ─┘          │  commit them to the `data` branch, dispatch deploy
                   ▼
-   data branch (ipo-desk-bot) ──▶ deploy.yml ──▶ _site/ ──▶ GitHub Pages
+   data branch (ipo-desk-bot) ──▶ deploy.yml ──▶ _site/ ──▶ Cloudflare Worker behind Access
                                         │
    Claude ──▶ data/research/ ───────────┤  guard: latest.json may only change
    Claude ──▶ data/quota-reviews/ ──────┤  under the bot's name

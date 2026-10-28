@@ -142,3 +142,11 @@ The account's workers.dev subdomain was renamed from Hari's name to `ipodesk` (o
 Subdomain → Edit): the gated page is https://ipo-desk-site.ipodesk.workers.dev/ and the old name stops resolving at once.
 Access followed the Worker (same AUD, same policy); the new name took about five minutes to answer. The trigger Worker
 moved too, which changes nothing — it is called by cron, never by URL.
+
+Decision, same evening: the gate is enough. Readers are a handful of friends, so the repo stays public and GitHub Pages
+is switched off (the `publish` job and `pages` permissions removed from `deploy.yml`, Pages disabled in repo settings,
+`SITE_WORKER` deleted — the `cloudflare` job now runs unconditionally). Considered and parked: whole-repo private
+costs the free Actions minutes (live loop ~240 min/day vs 2,000/month); the fix would be the live loop as a Cloudflare
+Worker on cron + KV, taking over the trigger's fifth cron slot, preceded by a reachability survey of NSE/IG from
+Cloudflare's egress. Hosting on the Mac was rejected: it must run unattended. Cloudflare costs start at 50 Zero Trust
+users a month ($7 a seat beyond) and 100k Worker requests a day (errors, not charges, beyond that).
