@@ -34,7 +34,8 @@ and both run side by side until you switch.
      (AUD) Tag** — copy it (it is an identifier, not a secret).
    - Authentication: *One-time PIN* is on by default; leave it as the only method.
 5. **GitHub variables** — `ACCESS_TEAM_DOMAIN` = `<team>.cloudflareaccess.com` (no `https://`),
-   `ACCESS_AUD` = the AUD tag. Run the deploy workflow again.
+   `ACCESS_AUD` = the AUD tag. Run the deploy workflow again. (Both must exist from the first deploy on — wrangler
+   refuses an empty var — so they start as the placeholder `pending`, which the Worker treats as "sign-in required".)
 6. **Check** — open the Worker URL in a private window: Access's page asks for an email; an address not on the
    list is refused; yours gets a code and then the dashboard. `/whoami` prints the signed-in email; `/logout` signs
    out. Open it on your phone too.

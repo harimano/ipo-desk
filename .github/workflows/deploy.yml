@@ -107,6 +107,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: ops/site-worker
+          wranglerVersion: "4.154.0"      # the action's default is wrangler 3, which does not know [assets] run_worker_first
           command: deploy
           vars: |
             TEAM_DOMAIN
