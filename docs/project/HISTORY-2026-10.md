@@ -137,3 +137,8 @@ the team login page. Pages still serves the public copy; the switch-over waits o
 Later that evening Hari chose self-service over an allowlist: the policy rule is Everyone. Access still makes each
 reader sign in with an email code and remembers them a month; the link is the key. Verified signed in: the page loads
 the live parts behind the gate, no console errors, `/whoami` prints the email.
+
+The account's workers.dev subdomain was renamed from Hari's name to `ipodesk` (one-time, from Workers & Pages → Overview →
+Subdomain → Edit): the gated page is https://ipo-desk-site.ipodesk.workers.dev/ and the old name stops resolving at once.
+Access followed the Worker (same AUD, same policy); the new name took about five minutes to answer. The trigger Worker
+moved too, which changes nothing — it is called by cron, never by URL.
