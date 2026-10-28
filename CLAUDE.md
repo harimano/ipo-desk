@@ -1,8 +1,8 @@
 # CLAUDE.md — read this first
 
 India IPO desk for one retail investor (Hari). A deterministic collector on GitHub Actions writes one JSON document; a
-static vanilla-JS page renders it; Claude is never in the daily path. Live at https://ipo-desk-site.ipodesk.workers.dev/
-(a Cloudflare Worker behind Cloudflare Access: email code, anyone with the link) from https://github.com/harimano/ipo-desk
+static vanilla-JS page renders it; Claude is never in the daily path. Live at https://ipodesk.dev/ (a Cloudflare
+Worker behind Cloudflare Access: email code, anyone with the link; the workers.dev name still answers) from https://github.com/harimano/ipo-desk
 (public, by choice — `ops/site-worker/README.md` says why; GitHub Pages is off since 28 Oct 2026). This file is the working brief — kept short on purpose, because every
 session pays for it. The long story (why each thing is the way it is, every lesson with its date) is
 `docs/project/HISTORY-2026-09.md` (Sep: state of play, roadmap, rules) and `HISTORY-2026-10.md` (Oct onward); read the part
@@ -51,7 +51,7 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
    (`Matcher.match` can return an alias target that is not in the list searched — always `.get`); fix spellings in
    `data/aliases.json`. A row is matched by `igId`, else by name AND opening date.
 7. Secrets (Angel One, `NTFY_TOPIC`, Cloudflare `GITHUB_TOKEN`) are entered by Hari, never pasted in chat or written to a
-   file. The Book (applications, holdings, P&L) never goes in the repo. No paid services. No React / Node.
+   file. The Book (applications, holdings, P&L) never goes in the repo. No paid services, except the domain `ipodesk.dev` (Cloudflare Registrar, ~$12 a year, auto-renews; bought 28 Oct 2026). No React / Node.
 8. localStorage keys must survive: `ipo-interest`, `ipo-holdings`, `ipo-apps`, `ipo-tasks-done`, `ipo-tasks-custom`,
    `ipo-investors`, `ipo-theme`, `ipo-tab`, `ipo-research-sel`, `ipo-seen`.
 9. **Dependencies are a run-time risk, not a footnote** (6 Oct 2026: selectolax 1.0 dropped `selectolax.parser`; every

@@ -150,3 +150,10 @@ costs the free Actions minutes (live loop ~240 min/day vs 2,000/month); the fix 
 Worker on cron + KV, taking over the trigger's fifth cron slot, preceded by a reachability survey of NSE/IG from
 Cloudflare's egress. Hosting on the Mac was rejected: it must run unattended. Cloudflare costs start at 50 Zero Trust
 users a month ($7 a seat beyond) and 100k Worker requests a day (errors, not charges, beyond that).
+
+ipodesk.dev, same evening: bought through Cloudflare Registrar ($8.20 the first year, renews $12.20; WHOIS redacted) —
+the one paid line item, written into rule 7. Attached as the Worker's custom domain (Worker → Domains → Add Domain,
+root, production); the certificate took about a minute and the Worker-level Access policy covers the new hostname (302
+to the team login for ipodesk.dev, same AUD). The page's "Run ↗" link to the collector on GitHub is gone: it carried
+Hari's GitHub handle and the repo to every reader, and the terminal / Actions tab do the same job. Checked: .in is not
+sold by Cloudflare; .ai is $160 for two years then $80.

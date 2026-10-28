@@ -44,7 +44,8 @@ that variable and the Pages job are gone.)
 ## Where this landed (28 Oct 2026)
 
 - The Worker behind Access is the ONLY door to the page: GitHub Pages is switched off (repo Settings → Pages, and the
-  `publish` job is gone from `deploy.yml`). The link to send is `https://ipo-desk-site.ipodesk.workers.dev/` — the
+  `publish` job is gone from `deploy.yml`). The link to send is **`https://ipodesk.dev/`** (a custom domain on the Worker: Worker → Domains → Add Domain;
+  the registrar is Cloudflare, ~$12 a year, WHOIS redacted). `ipo-desk-site.ipodesk.workers.dev` still answers — the
   account's workers.dev subdomain was renamed to `ipodesk` so no name is in it.
 - The repo stays PUBLIC, by choice. The readers are a handful of friends; hiding the code would protect against a copier
   who does not exist, and a private repo loses GitHub's free Actions minutes (the market-hours live loop alone is

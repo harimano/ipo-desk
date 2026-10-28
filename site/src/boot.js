@@ -112,22 +112,6 @@ async function refresh(reason) {
   } finally { busy = false; }
 }
 
-/* ---------- after "Run": a collect + deploy takes two to three minutes; look every 30 s for 8 ---------- */
-let watch = null;
-function watchForRun() {
-  if (watch) return;
-  const from = lastAsOf, until = Date.now() + 8 * 60000;
-  setPill("Waiting for the new run…", "busy");
-  watch = setInterval(async () => {
-    if (document.visibilityState === "visible") await refresh("watch");
-    const landed = lastAsOf !== from;
-    if (landed || Date.now() > until) {
-      clearInterval(watch); watch = null;
-      if (!landed) setPill("No new run yet — tap the data stamp to check again", "done");
-    } else setPill("Waiting for the new run…", "busy");
-  }, 30000);
-}
-
 /* ---------- live.json: the five-minute loop's file, on the `live` branch. GitHub's API serves it fresh (raw.github…
    caches for five minutes, so it is only the fallback). 60 unauthenticated calls an hour per visitor: one a minute
    is inside that, and only in market hours with the tab in view. ---------- */
@@ -159,7 +143,6 @@ try {
   const tape = document.getElementById("tape");
   if (tape) tape.addEventListener("click", e => {
     if (e.target.closest(".asof")) refresh("tap");
-    if (e.target.closest(".runnow")) watchForRun();
   });
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") refresh("visible");
