@@ -213,3 +213,39 @@ Hari: "the runs need to scroll, too long a page — a dashboard, each card to se
 (four columns at 1,500 px, one on a phone), every card scrolling inside itself at 28% of the screen height, the
 verdict and tiles above: one screen, no page scroll on a 900 px display.
 
+
+## 29 Oct 2026 — friends-ready: accounts (branch `friends-ready`)
+
+The desk opens to a small group. Each reader's state (stars, held parents, applications, done / snoozed, tasks, followed
+investors, theme) moved from this browser's un-namespaced `ipo-*` keys to an account: `site/src/account.js` keeps the
+parts, caches them per email (`ipo-u:<email>:<part>`), PUTs each changed part to the Worker after 600 ms with a retry at
+2 → 60 s, and paints a Saved / Saving / Not saved pill in the header with the account menu (email, export, restore,
+reset, sign out) behind it. The Worker (`ops/site-worker/worker.js` `handleApi`) keys everything by the email of the
+Access token it already verified; D1 table `user_state(email, part, body, updated)`; the binding is a commented block in
+`wrangler.toml` until Hari creates the database (`SETUP.md`), and without it `/api` answers 503 while the page keeps a
+local copy and says so. Chosen over KV: KV's free tier is 1,000 writes a day shared with the visitors ledger and reads
+can lag a minute across edges; D1 is consistent and allows 100,000 row writes a day.
+
+Decisions: a PUT replaces a whole part (lists of tens of names; idempotent, retry-safe, last writer wins per part) rather
+than PATCHing records. Tab, research sheet and "since you last looked" stay per device. The theme syncs (the only
+setting). On sign-out the cached identity is forgotten so the next person on a shared device never paints from it.
+Legacy keys are offered once for import, then renamed `ipo-legacy-*` and never read again.
+
+Also: the footer is built from `meta` + `integrity` (last run, sources, unverified count); the 15 hand-written
+`marketNotes` / `newFindings` / `quotaSourceNote` the collector carries forward sit folded in a "notes archive" (the
+collector was not touched — the brief said so). Every screen has a "data as of HH:MM IST" stamp with a "feed N late"
+pill when the document is older than the timetable allows (75 min on a weekday 09–18 IST, else 14.5 h). The privacy
+sweep of `_site` found no PAN / demat / phone / personal positions; the author's first name in three code comments is
+gone. `boot_old.js` and the always-hidden flows "Source note" are gone. The header overflowed below 1340 px once the
+pill was in it: the command bar's hint hides under 1400 px and the tabs wrap under 1180 px. A pre-existing phone bug:
+the queue card's one-column rule sat before the base `.q` rules and lost, so titles wrapped one word a line.
+
+Testing without Node (none on the Mac): `scripts/preview.py` serves `_site` with an in-memory `/api` keyed by a dev
+cookie (`/dev/as/<email>`); `ops/site-worker/test/cases.mjs` signs real RS256 tokens with WebCrypto against a stubbed
+certs URL and an in-memory D1 — 32 cases, run in the browser (`harness.html`) and by `node --test` in `ci.yml`.
+That grid was "by far the worst design, so unusable": four narrow columns, every line wrapping. Redone as tables —
+one line per run, module, change and visitor, columns aligned, ellipsis with the full text on hover — in two wide
+rows (Runs | Freshness; diff | audit | Visitors) and a short third (smoke test, security, links), six tiles above
+with a Readers count. Shown as a screenshot and approved before the push. Lesson: a dashboard is tables, not cards
+of prose; and show the picture first.
+
