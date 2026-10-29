@@ -165,7 +165,7 @@ async function visitors(env) {
 // One row per (email, part). The email is the VERIFIED Access claim — never anything the client sends. A part is a
 // whole JSON value (a list of a few dozen names at most) replaced on each PUT: idempotent, so a retry can never
 // double-apply, and last writer wins per part. Nothing about one reader is ever readable under another's email.
-const PARTS = ["holdings", "interest", "apps", "tasks-done", "tasks-custom", "investors", "theme"];
+const PARTS = ["holdings", "interest", "apps", "tasks-done", "tasks-custom", "investors", "theme", "budget"];
 const PART_MAX_BYTES = 64 * 1024;
 let schemaReady = null;                      // per isolate: the CREATE TABLE IF NOT EXISTS statements run once
 const SCHEMA = [

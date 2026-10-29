@@ -12,7 +12,7 @@
    `ipo-legacy-*` and never read again. */
 window.__ipoAccount = (function () {
 "use strict";
-const PARTS = ["holdings", "interest", "apps", "tasks-done", "tasks-custom", "investors", "theme"];
+const PARTS = ["holdings", "interest", "apps", "tasks-done", "tasks-custom", "investors", "theme", "budget"];
 const LOCAL = ["tab", "research-sel", "seen", "intro"];
 const API = "/api/state", NS = "ipo-u:";
 const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
