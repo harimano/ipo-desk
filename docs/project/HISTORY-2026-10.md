@@ -187,3 +187,9 @@ change breaks an install (not done in this change). Deploy copies `data/history`
 Not built: the gate's own verdict beside latest.json (validate.py still speaks only in the Actions log) and a visitor
 log in KV — both listed as phase 2.
 
+Same afternoon, first live look: three "?" tiles. The page's own calls to api.github.com are unauthenticated — 60 an hour
+per address, and the survey from Hari's network had spent them. So the deploy now snapshots the run list and the live
+branch's last commit with the Actions token (`scripts/runs_snapshot.py` → `admin/runs.json`, at most one run old since
+every collect deploys), the live loop is read from raw live.json (no call limit, cached five minutes), and the browser's
+GitHub call only freshens the list when it can. The headline tiles never depend on a rate-limited call again.
+

@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  actions: read         # the cloudflare job snapshots the run list for /admin
 
 concurrency: { group: deploy, cancel-in-progress: true }
 
@@ -75,6 +76,15 @@ jobs:
           mkdir -p data/logos && cp -R _data/logos/. data/logos/ 2>/dev/null || true
           mkdir -p data/history && cp -R _data/history/. data/history/ 2>/dev/null || true   # /admin's "since yesterday"
           python site/build.py
+      - name: Snapshot the run list for /admin (the Actions token has no 60-an-hour limit; the browser's own call is a bonus)
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          gh api "repos/${{ github.repository }}/actions/runs?per_page=40" \
+            --jq '[.workflow_runs[] | {id, name, event, status, conclusion, run_started_at, created_at, updated_at, html_url, display_title, run_attempt}]' \
+            > /tmp/runs.json || echo '[]' > /tmp/runs.json
+          gh api "repos/${{ github.repository }}/commits?sha=live&per_page=1" \
+            --jq '.[0] | {at: .commit.committer.date, msg: .commit.message}' > /tmp/live.json || echo 'null' > /tmp/live.json
+          python scripts/runs_snapshot.py /tmp/runs.json /tmp/live.json _site/admin/runs.json
       - name: Deploy the Worker (wrangler)
         uses: cloudflare/wrangler-action@v3
         with:

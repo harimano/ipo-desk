@@ -112,30 +112,50 @@ function runRow(r) {
   const txt = r.status !== "completed" ? r.status.replace("_", " ") : r.conclusion;
   return row(`${hhmm(toIST(started))} ${r.name}`, `<a href="${esc(r.html_url)}" target="_blank" rel="noopener">${esc(r.display_title || r.name)}</a> <span class="mu">· ${esc(how)} · ${secs}s${r.run_attempt > 1 ? " · attempt " + r.run_attempt : ""}</span>`, pill(lvl, txt));
 }
-async function renderRuns() {
-  let runs;
-  try { runs = (await getJson(API + "/actions/runs?per_page=40")).workflow_runs || []; }
-  catch (e) { $("#runs").innerHTML = `<div class="empty">GitHub did not answer (${esc(e.message)}). The limit is 60 calls an hour per address; try again in a while.</div>`; tile("#tRun", "?", "warn", "GitHub unreachable"); tile("#tDeploy", "?", "warn", ""); return; }
-  const byDay = {}; let today = null;
-  for (const r of runs) { const d = toIST(r.run_started_at || r.created_at); const k = `${d.getDate()} ${["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][d.getMonth()]}`; if (!today) today = k; (byDay[k] = byDay[k] || []).push(r); }
-  $("#runs").innerHTML = Object.entries(byDay).map(([day, rs], i) => (i === 0 ? rs.map(runRow).join("") : `<details><summary>${esc(day)} · ${rs.length} runs${rs.some(r => r.conclusion && r.conclusion !== "success" && r.conclusion !== "cancelled") ? " · " + pill("bad", "a failure") : ""}</summary>${rs.map(runRow).join("")}</details>`)).join("") || `<div class="empty">No runs.</div>`;
+function paintRuns(runs, source) {
+  const byDay = {};
+  for (const r of runs) { const d = toIST(r.run_started_at || r.created_at); const k = `${d.getDate()} ${["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][d.getMonth()]}`; (byDay[k] = byDay[k] || []).push(r); }
+  $("#runs").innerHTML = `<div class="dt" id="runsSrc" style="padding:4px 0 6px">${source}</div>`
+    + (Object.entries(byDay).map(([day, rs], i) => (i === 0 ? rs.map(runRow).join("") : `<details><summary>${esc(day)} · ${rs.length} runs${rs.some(r => r.conclusion && r.conclusion !== "success" && r.conclusion !== "cancelled") ? " · " + pill("bad", "a failure") : ""}</summary>${rs.map(runRow).join("")}</details>`)).join("") || `<div class="empty">No runs.</div>`);
   const last = name => runs.find(r => r.name === name && r.status === "completed");
   const c = last("collect"), dp = last("deploy");
-  const failed = runs.filter(r => r.status === "completed" && !["success", "cancelled", "skipped"].includes(r.conclusion));
   tile("#tRun", c ? hhmm(toIST(c.run_started_at)) : "—", c ? (c.conclusion === "success" ? "ok" : "bad") : "", c ? `${esc(c.conclusion)} · ${ago(c.run_started_at)} · ${c.event === "schedule" ? "cron" : "dispatched"}` : "");
   tile("#tDeploy", dp ? hhmm(toIST(dp.run_started_at)) : "—", dp ? (dp.conclusion === "success" ? "ok" : "bad") : "", dp ? `${esc(dp.conclusion)} · ${ago(dp.run_started_at)}` : "");
+}
+function judgeRuns(runs) {
+  const failed = runs.filter(r => r.status === "completed" && !["success", "cancelled", "skipped"].includes(r.conclusion));
   if (failed.length) addVerdict("bad", `${failed.length} run${failed.length > 1 ? "s" : ""} failed in the last ${runs.length} (${failed.map(r => r.name).join(", ")})`, "runs");
   const crons = runs.filter(r => r.name === "collect" && r.event === "schedule").length, disp = runs.filter(r => r.name === "collect" && r.event === "workflow_dispatch").length;
   if (crons > disp) addVerdict("warn", `the trigger Worker dispatched only ${disp} of the last ${crons + disp} collects — GitHub's cron carried the rest`, "runs");
 }
-async function renderLive() {
+/* The run list has TWO sources. runs.json is written by deploy.yml with the Actions token (no call limit) and is as
+   fresh as the last deploy — every collect deploys, so at most one run old. GitHub's public API, called from here, is
+   fresher but limited to 60 calls an hour per address, shared with the page's own live polling: it freshens the list
+   when it can and is never the only source. */
+let SNAP = null;
+async function snapshot() { if (SNAP === null) { try { SNAP = await getJson("runs.json?t=" + Date.now(), { cache: "no-store" }); } catch (e) { SNAP = false; } } return SNAP; }
+async function renderRuns() {
+  const snap = await snapshot();
+  if (snap && snap.runs) paintRuns(snap.runs, `as of the last deploy, ${ago(snap.at)} · asking GitHub for newer…`);
   try {
-    const c = (await getJson(API + "/commits?sha=live&per_page=1"))[0];
-    const at = c.commit.committer.date, m = /live: (\S+)/.exec(c.commit.message || ""), asOf = m ? m[1] : at;
-    const [lvl, why] = liveExpectation(asOf);
-    tile("#tLive", hhmm(toIST(asOf)), lvl, `${ago(asOf)} · ${esc(why)}`);
-    if (lvl === "bad") addVerdict("bad", why, "runs");
-  } catch (e) { tile("#tLive", "?", "warn", "could not read the live branch: " + esc(e.message)); }
+    const live = (await getJson(API + "/actions/runs?per_page=40")).workflow_runs || [];
+    paintRuns(live, "live from GitHub"); judgeRuns(live);
+  } catch (e) {
+    if (snap && snap.runs) { judgeRuns(snap.runs); $("#runsSrc").textContent = `as of the last deploy, ${ago(snap.at)} · GitHub itself did not answer (${e.message})`; }
+    else { $("#runs").innerHTML = `<div class="empty">No runs.json (a local build) and GitHub did not answer (${esc(e.message)}).</div>`; tile("#tRun", "?", "warn", "no run data"); tile("#tDeploy", "?", "warn", ""); }
+  }
+}
+/* The live loop: live.json's own asOf, read raw from the live branch (cached up to five minutes, no call limit); the
+   deploy's snapshot of the branch's last commit is the fallback. */
+const LIVE_RAW = "https://raw.githubusercontent.com/harimano/ipo-desk/live/live.json";
+async function renderLive() {
+  let asOf = null, note = "";
+  try { asOf = (await getJson(LIVE_RAW)).asOf; }
+  catch (e) { const snap = await snapshot(); if (snap && snap.live) { asOf = snap.live.asOf; note = " · from the last deploy's snapshot"; } }
+  if (!asOf) { tile("#tLive", "?", "warn", "could not read live.json"); return; }
+  const [lvl, why] = liveExpectation(asOf);
+  tile("#tLive", hhmm(toIST(asOf)), lvl, `${ago(asOf)} · ${esc(why)}${note}`);
+  if (lvl === "bad") addVerdict("bad", why, "runs");
 }
 
 /* ---------- the verdict can grow after the audit: runs and the live loop are read here, not by audit.py ---------- */
