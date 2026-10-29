@@ -215,6 +215,20 @@ async function renderVisitors(me) {
   })) + note(srcs.join(" · "));
 }
 
+/* ---------- "Wrong number?" reports: what readers flagged (Worker /admin/reports.json ← D1 reports) ---------- */
+async function renderReports() {
+  const box = $("#reports");
+  let v;
+  try { v = await getJson("/admin/reports.json", { cache: "no-store" }); }
+  catch (e) { box.innerHTML = empty(`No reports answered (${esc(e.message)}) — a local preview without one, or no D1 binding.`); return; }
+  const list = v.reports || [], open = list.filter(r => r.status === "open");
+  $("#repSum").textContent = list.length ? `${open.length} open · ${list.length} in all` : "nothing flagged yet";
+  if (!list.length) { box.innerHTML = empty("No reader has flagged a number." + (v.error ? " " + esc(v.error) : "")); return; }
+  box.innerHTML = table(["when|fit", "who", "IPO", "number", "shown|fit", "note"], list.slice(0, 60).map(r =>
+    `<tr>${td(`${fmtIST(r.at)} <span class="mu">${ago(r.at)}</span>`, "fit")}${td(esc(r.email), "who", r.email)}${td(esc(r.issue), "", r.ig_id ? "IG " + r.ig_id : "")}${td(esc(r.field))}${td(esc(r.shown || ""), "fit mu", r.data_as_of ? "data as of " + r.data_as_of : "")}${td(esc(r.note || ""), "", r.note || "")}</tr>`))
+    + note("A report never changes a number. Mark one done in the D1 console: UPDATE reports SET status='done' WHERE id=…");
+}
+
 /* ---------- the smoke test: the page in a hidden same-origin frame, every tab, every sheet ---------- */
 const TAP = `<script>window.__smoke={errors:[]};addEventListener("error",e=>__smoke.errors.push(String(e.message||e)));addEventListener("unhandledrejection",e=>__smoke.errors.push("rejection: "+String(e.reason&&e.reason.message||e.reason)));const _ce=console.error.bind(console);console.error=(...a)=>{__smoke.errors.push(a.map(String).join(" "));_ce(...a)};<\/script>`;
 async function smoke() {
@@ -267,7 +281,7 @@ async function main() {
   } catch (e) { tile("#tDoc", "?", "bad", "meta.json did not load: " + esc(e.message)); addVerdict("bad", "the page's own data did not load", "runs"); }
   try { renderAudit(await getJson("audit.json?t=" + Date.now(), { cache: "no-store" })); }
   catch (e) { $("#vTitle").textContent = "No audit.json"; $("#vSub").textContent = "site/build.py writes admin/audit.json from scripts/audit.py — " + e.message; $("#verdict").className = "bad"; }
-  await Promise.all([renderRuns(), renderLive(), renderSecurity().then(renderVisitors)]);
+  await Promise.all([renderRuns(), renderLive(), renderSecurity().then(renderVisitors), renderReports()]);
 }
 $("#reload").addEventListener("click", () => location.reload());
 $("#smoke").addEventListener("click", smoke);

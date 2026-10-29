@@ -381,6 +381,40 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
 /* queue cards on a phone: one column, the amount and the buttons on a row under the text (the earlier rule at the top of
    this sheet lost to the base `.q` rules declared after it, so the title wrapped one word a line) */
 @media (max-width:760px) { .q { grid-template-columns:1fr; gap:10px; } .q .r { flex-direction:row; align-items:center; justify-content:space-between; flex-wrap:wrap; } .q.lead .ttl { font-size:18px; } }
+/* ---- How to read this desk (intro.js) and Add to home screen (install.js): one overlay shell, a card with steps ---- */
+.ovl { position:fixed; inset:0; z-index:60; background:rgba(15,22,38,.45); display:flex; align-items:center; justify-content:center; padding:16px; overflow:auto; }
+.ovl[hidden] { display:none; } body.intro-open { overflow:hidden; }
+.walk { width:100%; max-width:560px; max-height:calc(100vh - 32px); overflow:auto; background:var(--surface); border:1px solid var(--line); border-radius:var(--r); box-shadow:0 12px 40px rgba(0,0,0,.25); }
+.walk .top { display:flex; align-items:center; gap:10px; padding:14px 20px 0; }
+.walk .dots { display:flex; gap:6px; } .walk .dots i { width:22px; height:5px; border-radius:3px; background:var(--line-2); } .walk .dots i.on { background:var(--accent); } .walk .dots i.done { background:var(--accent-line); }
+.walk .skip { margin-left:auto; font-size:12px; font-weight:700; color:var(--ink-3); } .walk .skip:hover { color:var(--accent); }
+.walk .body { padding:18px 20px 6px; }
+.walk .n { font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); }
+.walk h2 { font-size:22px; font-weight:800; letter-spacing:-.02em; line-height:1.2; margin:6px 0 8px; }
+.walk p { font-size:14.5px; color:var(--ink-2); max-width:46ch; } .walk p b { color:var(--ink); }
+.walk .pic { margin:16px 0 10px; padding:14px 16px; border:1px solid var(--line); border-radius:var(--r-sm); background:var(--surface-2); }
+.walk .where { font-size:12.5px; color:var(--ink-3); line-height:1.5; } .walk .where b { color:var(--ink-2); }
+.walk .foot { display:flex; gap:8px; align-items:center; padding:12px 20px 18px; }
+.walk .foot .back { color:var(--ink-3); font-weight:700; padding:0 6px; } .walk .foot .back:hover { color:var(--accent); } .walk .foot .next { margin-left:auto; }
+.walk .iq { display:grid; grid-template-columns:1fr auto; gap:14px; align-items:center; } .walk .iq .ttl { font-size:16px; font-weight:800; margin:4px 0 2px; } .walk .iq .desc { font-size:12.5px; color:var(--ink-2); }
+.walk .iq .big { font-size:18px; font-weight:700; text-align:right; } .walk .iq .acts { display:flex; gap:6px; margin-top:6px; justify-content:flex-end; }
+.walk .ikv { display:flex; gap:22px; flex-wrap:wrap; } .walk .ikv > div { min-width:120px; } .walk .ikv .k { font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:700; } .walk .ikv .v { font-size:17px; font-weight:800; margin-top:2px; }
+.walk .irange { margin-top:10px; height:8px; border-radius:4px; background:var(--line); position:relative; } .walk .irange i { position:absolute; top:0; bottom:0; left:35%; width:40%; border-radius:4px; background:var(--up); opacity:.6; } .walk .irange b { position:absolute; top:-4px; left:58%; width:3px; height:16px; background:var(--ink); border-radius:2px; }
+.walk .isb { display:flex; align-items:center; gap:10px; font-size:12.5px; margin-top:5px; } .walk .isb .l { width:46px; color:var(--ink-3); font-weight:700; } .walk .isb .bar { flex:1; height:8px; border-radius:4px; background:var(--line); overflow:hidden; } .walk .isb .bar i { display:block; height:100%; background:var(--accent); } .walk .isb .n { width:48px; text-align:right; font-weight:800; }
+.walk .ipipe { display:flex; gap:8px; align-items:center; flex-wrap:wrap; } .walk .ipipe .chip { border:1px solid var(--line-2); border-radius:9px; padding:6px 10px; background:var(--surface); font-size:12.5px; } .walk .ipipe .chip b { display:block; } .walk .ipipe .arrow { color:var(--ink-3); font-weight:800; }
+.walk .isrc { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px; } .walk .isrc span { font-size:11.5px; font-weight:800; padding:3px 9px; border-radius:10px; background:var(--accent-soft); color:var(--accent); }
+.walk .iperks { display:grid; gap:6px; font-size:12.5px; color:var(--ink-2); } .walk .iperks b { color:var(--ink); }
+.walk .iex { font-size:12.5px; color:var(--ink-2); line-height:1.6; } .walk .iex b { color:var(--ink); }
+.walk .ihome { display:flex; align-items:center; gap:12px; margin-bottom:10px; } .walk .ihome .ic img { display:block; border-radius:14px; box-shadow:var(--el); } .walk .ihome .nm { font-weight:700; }
+.walk .isteps { margin:8px 0 12px 18px; padding:0; font-size:14px; color:var(--ink-2); line-height:1.6; } .walk .isteps b { color:var(--ink); }
+@media (max-width:600px) { .walk h2 { font-size:19px; } .walk .iq { grid-template-columns:1fr; } .walk .iq .big { text-align:left; } .walk .iq .acts { justify-content:flex-start; } }
+/* ---- Wrong number? (report.js): a quiet line under an IPO's figures, a three-field form in place ---- */
+.wn { font-size:12px; color:var(--ink-3); margin-top:6px; } .wn a { color:var(--ink-3); text-decoration:underline dotted; } .wn a:hover { color:var(--accent); }
+.wform { margin-top:6px; display:grid; grid-template-columns:minmax(150px, 200px) 1fr auto auto; gap:8px; align-items:start; padding:10px 12px; border:1px dashed var(--line-2); border-radius:var(--r-sm); background:var(--surface-2); }
+.wform select, .wform input { font:inherit; font-size:13px; height:32px; border:1px solid var(--line-2); border-radius:7px; padding:0 9px; background:var(--surface); color:var(--ink); width:100%; min-width:0; }
+.wform .btn { height:32px; } .wform .meta { grid-column:1 / -1; font-size:11.5px; color:var(--ink-3); }
+.wn .sent { font-size:12.5px; color:var(--up); font-weight:700; }
+@media (max-width:760px) { .wform { grid-template-columns:1fr 1fr; } .wform input { grid-column:1 / -1; } }
 </style>
 
 <div class="hdr"><div class="hdr-in">
@@ -406,6 +440,9 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
 </div></div>
 <div class="acct-menu" id="acctMenu" hidden role="menu" aria-label="Account">
   <div class="who">Signed in as<b id="acctWho">—</b></div>
+  <button role="menuitem" data-intro-open>How to read this desk <span class="dim">7 steps</span></button>
+  <button role="menuitem" data-install-open>Add to home screen</button>
+  <hr>
   <button role="menuitem" data-acct="export">Export my data <span class="dim">JSON</span></button>
   <button role="menuitem" data-acct="restore">Restore from a file…</button>
   <hr>
@@ -569,3 +606,5 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
   <div class="cmd-help"><span><b>JIO</b> open sheet</span><span><b>HOLD RELIANCE</b> toggle parent held</span><span><b>STAR DEEPA</b></span><span><b>APP DEEPA 2 RETAIL</b> log application</span><span><b>BOARD</b> · <b>PIPE</b> · <b>BOOK</b></span><span><b>DARK</b> · <b>LIGHT</b> · <b>SYSTEM</b></span></div>
 </div></div>
 <div class="toast" id="toast" hidden></div>
+<div class="ovl" id="intro" hidden role="dialog" aria-modal="true" aria-label="How to read this desk"><div class="walk"></div></div>
+<div class="ovl" id="install" hidden role="dialog" aria-modal="true" aria-label="Add to home screen"><div class="walk"></div></div>

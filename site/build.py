@@ -37,7 +37,16 @@ HEAD = """<!DOCTYPE html>
 <meta name="color-scheme" content="light dark">
 <title>India IPO Command Center</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+<link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="theme-color" content="#2f6fed">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="IPO Desk">
 """
+# Home-screen install (site/src/install.js): the manifest is fetched WITH the Access cookie (crossorigin=use-credentials),
+# or the gated Worker would answer the login redirect and the browser would call the page uninstallable.
 
 
 def main() -> int:
@@ -70,6 +79,11 @@ def main() -> int:
     kb = lambda n: f"{n / 1024:.1f} KB"
     print(f"fallback {kb(len(fb_js))}  render {kb(len(app) + len(boot))}  -> {out.relative_to(ROOT)} {kb(out.stat().st_size)}")
 
+    shutil.copy(SRC / "manifest.webmanifest", SITE / "manifest.webmanifest")
+    icons = SITE / "icons"
+    if icons.exists():
+        shutil.rmtree(icons)
+    shutil.copytree(SRC / "icons", icons)
     data_out = SITE / "data"
     if data_out.exists():
         shutil.rmtree(data_out)

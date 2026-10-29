@@ -13,7 +13,7 @@
 window.__ipoAccount = (function () {
 "use strict";
 const PARTS = ["holdings", "interest", "apps", "tasks-done", "tasks-custom", "investors", "theme"];
-const LOCAL = ["tab", "research-sel", "seen"];
+const LOCAL = ["tab", "research-sel", "seen", "intro"];
 const API = "/api/state", NS = "ipo-u:";
 const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
 const lsSet = (k, v) => { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { /* storage blocked: memory only */ } };

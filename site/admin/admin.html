@@ -68,7 +68,7 @@ button.primary { background:var(--accent); color:var(--accent-ink); border-color
 /* cards */
 .dash { display:grid; grid-template-columns:repeat(12, minmax(0, 1fr)); gap:12px; align-items:start; }
 .card { background:var(--surface); border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--el); display:flex; flex-direction:column; min-width:0; }
-.c6 { grid-column:span 6; } .c4 { grid-column:span 4; } .c3 { grid-column:span 3; } .c12 { grid-column:span 12; }
+.c6 { grid-column:span 6; } .c4 { grid-column:span 4; } .c3 { grid-column:span 3; } .c2 { grid-column:span 2; } .c12 { grid-column:span 12; }
 .ch { display:flex; align-items:baseline; gap:10px; padding:10px 16px 8px; flex-wrap:wrap; border-bottom:1px solid var(--line); }
 .ch h3 { font-size:14px; font-weight:800; letter-spacing:-.01em; display:inline-flex; align-items:center; gap:8px; }
 .ch h3::before { content:""; width:8px; height:8px; border-radius:2px; background:var(--accent); display:inline-block; }
@@ -122,9 +122,10 @@ table.t { width:100%; border-collapse:collapse; }
 <div class="card c3"><div class="ch"><h3 class="i-amber">Data audit</h3><span class="sub">soft checks the gate lets through</span></div><div class="cb" id="audit"></div></div>
 <div class="card c6"><div class="ch"><h3 class="i-peach">Visitors</h3><span class="sub" id="visSum"></span></div><div class="cb" id="visitors"><div class="empty">Loading…</div></div></div>
 
-<div class="card c4 slim"><div class="ch"><h3 class="i-up">Page smoke test</h3><span class="right"><button id="smoke" class="primary">Run smoke test</button></span></div><div class="cb" id="smokeOut"><div class="empty">Opens / in a hidden frame, clicks all seven tabs, fires every Research sheet, counts console errors.</div></div></div>
-<div class="card c4 slim"><div class="ch"><h3 class="i-lav">Security</h3><span class="sub">the gate as served to this browser</span></div><div class="cb" id="sec"></div></div>
-<div class="card c4 slim"><div class="ch"><h3>Links</h3></div><div class="cb" id="links">
+<div class="card c4 slim"><div class="ch"><h3 class="i-amber">Wrong numbers</h3><span class="sub" id="repSum">what readers flagged</span></div><div class="cb" id="reports"><div class="empty">Loading…</div></div></div>
+<div class="card c3 slim"><div class="ch"><h3 class="i-up">Page smoke test</h3><span class="right"><button id="smoke" class="primary">Run smoke test</button></span></div><div class="cb" id="smokeOut"><div class="empty">Opens / in a hidden frame, clicks all seven tabs, fires every Research sheet, counts console errors.</div></div></div>
+<div class="card c3 slim"><div class="ch"><h3 class="i-lav">Security</h3><span class="sub">the gate as served to this browser</span></div><div class="cb" id="sec"></div></div>
+<div class="card c2 slim"><div class="ch"><h3>Links</h3></div><div class="cb" id="links">
   <a href="/" target="_blank" rel="noopener">the page ↗</a>
   <a href="https://github.com/harimano/ipo-desk/actions/workflows/collect.yml" target="_blank" rel="noopener">collect runs ↗</a>
   <a href="https://github.com/harimano/ipo-desk/actions/workflows/live.yml" target="_blank" rel="noopener">live runs ↗</a>

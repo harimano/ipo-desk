@@ -111,3 +111,11 @@ jobs:
         run: |
           printf '%s' "$CF_ACCESS_LOGS_TOKEN" | npx --yes wrangler@4.154.0 secret put CF_ACCESS_LOGS_TOKEN
           printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | npx --yes wrangler@4.154.0 secret put CF_ACCOUNT_ID
+      - name: Hand the Worker the ntfy topic (only when NTFY_TOPIC exists; "Wrong number?" reports ping it)
+        working-directory: ops/site-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        if: env.NTFY_TOPIC != ''
+        run: printf '%s' "$NTFY_TOPIC" | npx --yes wrangler@4.154.0 secret put NTFY_TOPIC
