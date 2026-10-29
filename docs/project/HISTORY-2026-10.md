@@ -213,3 +213,14 @@ Hari: "the runs need to scroll, too long a page — a dashboard, each card to se
 (four columns at 1,500 px, one on a phone), every card scrolling inside itself at 28% of the screen height, the
 verdict and tiles above: one screen, no page scroll on a 900 px display.
 
+That grid was "by far the worst design, so unusable": four narrow columns, every line wrapping. Redone as tables —
+one line per run, module, change and visitor, columns aligned, ellipsis with the full text on hover — in two wide
+rows (Runs | Freshness; diff | audit | Visitors) and a short third (smoke test, security, links), six tiles above
+with a Readers count. Shown as a screenshot and approved before the push. Lesson: a dashboard is tables, not cards
+of prose; and show the picture first.
+
+The push of that layout carried two commits from another session working on the `friends-ready` branch in the same
+checkout (a per-reader saved dashboard on D1, unfinished: its ci step failed) and deployed them. Rolled back at
+Hari's word: main re-pointed at the layout commit alone, the other work left on its branch. Two sessions in one
+working copy are two writers on the same files; the second should have had its own worktree.
+

@@ -11,7 +11,7 @@
 :root { color-scheme: light dark;
   --paper:#f5f7fb; --surface:#ffffff; --surface-2:#eef2f8; --line:#dbe3ef; --ink:#172033; --ink-2:#55627a; --ink-3:#7f8ba0;
   --accent:#2f6fed; --ok:#1d8a5b; --ok-soft:#dcf5ea; --bad:#d64545; --bad-soft:#fde4e4; --warn:#b26a00; --warn-soft:#fff0cc;
-  --known:#6c5ce7; --known-soft:#ebe7fd; --r:14px; --r-sm:8px; --mono:"SF Mono",SFMono-Regular,ui-monospace,Menlo,Consolas,monospace; }
+  --known:#6c5ce7; --known-soft:#ebe7fd; --r:12px; --r-sm:8px; --mono:"SF Mono",SFMono-Regular,ui-monospace,Menlo,Consolas,monospace; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --paper:#0f1626; --surface:#161f33; --surface-2:#1d2840; --line:#27334d; --ink:#e8edf7; --ink-2:#aab6cc; --ink-3:#7484a0;
   --accent:#7aa5ff; --ok:#5fd39a; --ok-soft:#153328; --bad:#ff7b7b; --bad-soft:#3d1f24; --warn:#f5c04a; --warn-soft:#3a2f14;
@@ -21,53 +21,57 @@
   --accent:#7aa5ff; --ok:#5fd39a; --ok-soft:#153328; --bad:#ff7b7b; --bad-soft:#3d1f24; --warn:#f5c04a; --warn-soft:#3a2f14;
   --known:#b3a6ff; --known-soft:#2a2650; }
 * { box-sizing:border-box; margin:0; }
-body { background:var(--paper); color:var(--ink); font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif; }
+body { background:var(--paper); color:var(--ink); font:13.5px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif; }
 a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
-main { max-width:1700px; margin:0 auto; padding:12px 16px 30px; }
+main { max-width:1800px; margin:0 auto; padding:10px 16px 24px; }
 header { display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:2px 0 10px; }
-header h1 { font-size:18px; font-weight:600; } header .sub { color:var(--ink-3); font-size:13px; } header .right { margin-left:auto; display:flex; gap:10px; align-items:center; font-size:13px; color:var(--ink-2); }
-button { font:inherit; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:var(--r-sm); padding:6px 12px; cursor:pointer; }
+header h1 { font-size:17px; font-weight:600; } header .sub { color:var(--ink-3); font-size:12.5px; } header .right { margin-left:auto; display:flex; gap:10px; align-items:center; font-size:12.5px; color:var(--ink-2); }
+button { font:inherit; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:var(--r-sm); padding:5px 11px; cursor:pointer; }
 button:hover { border-color:var(--accent); } button:disabled { opacity:.5; cursor:default; }
-.mono { font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:12.5px; }
-.dt { color:var(--ink-2); font-size:13px; } .mu { color:var(--ink-3); }
+.mono { font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:12px; }
+.dt { color:var(--ink-2); font-size:12.5px; } .mu { color:var(--ink-3); }
 
-/* the verdict: one line you read first */
-#verdict { border-radius:var(--r); padding:12px 20px; margin-bottom:12px; border:1px solid var(--line); background:var(--surface); display:flex; gap:16px; align-items:flex-start; }
-#verdict .dot { width:18px; height:18px; border-radius:50%; flex:none; margin-top:4px; background:var(--ink-3); }
+#verdict { border-radius:var(--r); padding:10px 18px; margin-bottom:10px; border:1px solid var(--line); background:var(--surface); display:flex; gap:14px; align-items:flex-start; }
+#verdict .dot { width:16px; height:16px; border-radius:50%; flex:none; margin-top:4px; background:var(--ink-3); }
 #verdict.ok .dot { background:var(--ok); } #verdict.warn .dot { background:var(--warn); } #verdict.bad .dot { background:var(--bad); }
-#verdict h2 { font-size:20px; font-weight:600; line-height:1.3; } #verdict ul { margin:8px 0 0 18px; } #verdict li { margin:2px 0; }
+#verdict h2 { font-size:18px; font-weight:600; line-height:1.3; } #verdict ul { margin:4px 0 0 18px; } #verdict li { margin:1px 0; }
 #verdict.ok { border-color:var(--ok); } #verdict.warn { border-color:var(--warn); } #verdict.bad { border-color:var(--bad); }
 
-.tiles { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:12px; margin-bottom:12px; }
-.tile { background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:8px 14px; }
-.tile .lbl { font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:.04em; }
-.tile .val { font-size:20px; font-weight:600; margin:1px 0; } .tile .val.s { font-size:17px; } .tile .dt { min-height:20px; }
+.tiles { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:10px; margin-bottom:10px; }
+.tile { background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:8px 14px; min-width:0; }
+.tile .lbl { font-size:11px; color:var(--ink-3); text-transform:uppercase; letter-spacing:.05em; }
+.tile .val { font-size:20px; font-weight:600; margin:1px 0; } .tile .dt { min-height:18px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .tile.ok .val { color:var(--ok); } .tile.warn .val { color:var(--warn); } .tile.bad .val { color:var(--bad); }
 
-.dash { display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:12px; align-items:start; }
-.card { background:var(--surface); border:1px solid var(--line); border-radius:var(--r); display:flex; flex-direction:column; min-height:120px; }
-.card .cb { overflow:auto; max-height:clamp(180px, 28vh, 440px); overscroll-behavior:contain; }
-.card .cb::-webkit-scrollbar { width:8px; } .card .cb::-webkit-scrollbar-thumb { background:var(--line); border-radius:4px; }
-
-.ch { display:flex; align-items:baseline; gap:10px; padding:10px 16px 6px; flex-wrap:wrap; border-bottom:1px solid var(--line); } .ch h3 { font-size:15px; font-weight:600; } .ch .sub { color:var(--ink-3); font-size:13px; } .ch .right { margin-left:auto; }
-.cb { padding:4px 16px 10px; }
-.row { display:grid; grid-template-columns:minmax(90px, 120px) 1fr auto; gap:12px; padding:7px 0; border-top:1px solid var(--line); align-items:center; }
-.row:first-child { border-top:0; } .row .k { font-family:var(--mono); font-size:12.5px; color:var(--ink-2); }
-.row .v { min-width:0; overflow-wrap:anywhere; } .row .v small { color:var(--ink-3); display:block; }
-.pill { display:inline-block; font-size:11.5px; font-weight:600; padding:2px 9px; border-radius:10px; white-space:nowrap; }
+.dash { display:grid; grid-template-columns:repeat(12, minmax(0, 1fr)); gap:10px; align-items:start; }
+.card { background:var(--surface); border:1px solid var(--line); border-radius:var(--r); display:flex; flex-direction:column; min-width:0; }
+.c6 { grid-column:span 6; } .c4 { grid-column:span 4; } .c3 { grid-column:span 3; } .c12 { grid-column:span 12; }
+.ch { display:flex; align-items:baseline; gap:10px; padding:8px 14px 6px; flex-wrap:wrap; border-bottom:1px solid var(--line); }
+.ch h3 { font-size:14px; font-weight:600; } .ch .sub { color:var(--ink-3); font-size:12px; } .ch .right { margin-left:auto; }
+.cb { overflow:auto; max-height:var(--cb, clamp(220px, 31vh, 460px)); overscroll-behavior:contain; padding:0 6px 6px; }
+.card.slim { --cb:170px; }
+.cb::-webkit-scrollbar { width:8px; height:8px; } .cb::-webkit-scrollbar-thumb { background:var(--line); border-radius:4px; }
+.note { padding:6px 8px 2px; color:var(--ink-3); font-size:12px; }
+table.t { width:100%; border-collapse:collapse; }
+.t th { text-align:left; font-size:11px; font-weight:500; color:var(--ink-3); text-transform:uppercase; letter-spacing:.04em; padding:6px 8px 4px; position:sticky; top:0; background:var(--surface); z-index:1; }
+.t td { padding:4px 8px; border-top:1px solid var(--line); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:0; vertical-align:middle; }
+.t td.w { white-space:normal; } .t td.n, .t th.n { text-align:right; font-variant-numeric:tabular-nums; } .t td.k, .t td .k { font-family:var(--mono); font-size:12px; }
+.t td.fit, .t th.fit { width:1%; white-space:nowrap; max-width:none; } .t td.who { width:38%; }
+.t tr.sep td { border-top:2px solid var(--line); }
+.pill { display:inline-block; font-size:11px; font-weight:600; padding:1px 8px; border-radius:10px; white-space:nowrap; line-height:1.5; }
 .pill.ok { background:var(--ok-soft); color:var(--ok); } .pill.warn { background:var(--warn-soft); color:var(--warn); }
 .pill.bad { background:var(--bad-soft); color:var(--bad); } .pill.known { background:var(--known-soft); color:var(--known); } .pill.nt { background:var(--surface-2); color:var(--ink-2); }
-.empty { color:var(--ink-3); padding:8px 0; }
-details > summary { cursor:pointer; color:var(--ink-2); font-size:13px; padding:6px 0; } details .row .k { padding-left:8px; }
-@media (max-width:640px) { .row { grid-template-columns:1fr; gap:3px; } .row .pill { justify-self:start; } .dash { grid-template-columns:1fr; } .card .cb { max-height:50vh; } }
+.empty { color:var(--ink-3); padding:10px 8px; }
+#links { padding:6px 10px 8px; display:flex; flex-wrap:wrap; gap:4px 16px; } #links a { white-space:nowrap; }
 #frame { width:1px; height:1px; opacity:0; position:absolute; left:-9999px; border:0; }
-#links a { display:block; padding:3px 0; }
+@media (max-width:1100px) { .c6, .c4, .c3 { grid-column:span 12; } }
+@media (max-width:640px) { .tile .dt { white-space:normal; } }
 </style>
 </head>
 <body>
 <main>
 <header>
-  <h1>ipodesk.dev · admin</h1><span class="sub">what the collector, the gate and the page are doing · you alone see this</span>
+  <h1>ipodesk.dev · admin</h1><span class="sub">the collector, the gate and the page · you alone see this</span>
   <div class="right"><span id="who" class="mono"></span><span id="clock" class="mono"></span><button id="reload">Refresh</button></div>
 </header>
 
@@ -79,23 +83,20 @@ details > summary { cursor:pointer; color:var(--ink-2); font-size:13px; padding:
   <div class="tile" id="tRun"><div class="lbl">Last collect</div><div class="val">—</div><div class="dt"></div></div>
   <div class="tile" id="tDeploy"><div class="lbl">Last deploy</div><div class="val">—</div><div class="dt"></div></div>
   <div class="tile" id="tPage"><div class="lbl">Page smoke test</div><div class="val">—</div><div class="dt"></div></div>
+  <div class="tile" id="tVis"><div class="lbl">Readers</div><div class="val">—</div><div class="dt"></div></div>
 </div>
 
 <div class="dash">
-<div class="card"><div class="ch"><h3>Runs</h3><span class="sub">GitHub Actions, newest first · cron is the fallback, the trigger Worker dispatches the rest</span><a class="right" href="https://github.com/harimano/ipo-desk/actions" target="_blank" rel="noopener">all runs ↗</a></div><div class="cb" id="runs"><div class="empty">Loading…</div></div></div>
+<div class="card c6"><div class="ch"><h3>Runs</h3><span class="sub" id="runsSrc">GitHub Actions, newest first</span><a class="right" href="https://github.com/harimano/ipo-desk/actions" target="_blank" rel="noopener">all runs ↗</a></div><div class="cb" id="runs"><div class="empty">Loading…</div></div></div>
+<div class="card c6"><div class="ch"><h3>Freshness by module</h3><span class="sub">each module's last answer and the source that gave it</span></div><div class="cb" id="modules"></div></div>
 
-<div class="card"><div class="ch"><h3>Freshness by module</h3><span class="sub">each module's last answer and which source gave it</span></div><div class="cb" id="modules"></div></div>
-<div class="card"><div class="ch"><h3>Since the previous document</h3><span class="sub" id="diffSub"></span></div><div class="cb" id="diff"></div></div>
+<div class="card c3"><div class="ch"><h3>Since the previous document</h3><span class="sub" id="diffSub"></span></div><div class="cb" id="diff"></div></div>
+<div class="card c3"><div class="ch"><h3>Data audit</h3><span class="sub">soft checks the gate lets through</span></div><div class="cb" id="audit"></div></div>
+<div class="card c6"><div class="ch"><h3>Visitors</h3><span class="sub" id="visSum"></span></div><div class="cb" id="visitors"><div class="empty">Loading…</div></div></div>
 
-<div class="card"><div class="ch"><h3>Data audit</h3><span class="sub">soft checks the gate does not refuse · each names its rows</span></div><div class="cb" id="audit"></div></div>
-
-<div class="card"><div class="ch"><h3>Page smoke test</h3><span class="sub">loads / in a hidden frame, opens all seven tabs, fires every Research sheet, counts console errors</span><span class="right"><button id="smoke">Run smoke test</button></span></div><div class="cb" id="smokeOut"><div class="empty">Not run yet this visit.</div></div></div>
-
-<div class="card"><div class="ch"><h3>Visitors</h3><span class="sub">who has opened the page, from the Worker's own ledger · Cloudflare's full sign-in log is under Zero Trust → Logs → Access</span><span class="right" id="visSum"></span></div><div class="cb" id="visitors"><div class="empty">Loading…</div></div></div>
-
-<div class="card"><div class="ch"><h3>Security</h3><span class="sub">the gate as it is actually served, read from this browser</span></div><div class="cb" id="sec"></div></div>
-
-<div class="card"><div class="ch"><h3>Links</h3></div><div class="cb" id="links">
+<div class="card c4 slim"><div class="ch"><h3>Page smoke test</h3><span class="right"><button id="smoke">Run smoke test</button></span></div><div class="cb" id="smokeOut"><div class="empty">Opens / in a hidden frame, clicks all seven tabs, fires every Research sheet, counts console errors.</div></div></div>
+<div class="card c4 slim"><div class="ch"><h3>Security</h3><span class="sub">the gate as served to this browser</span></div><div class="cb" id="sec"></div></div>
+<div class="card c4 slim"><div class="ch"><h3>Links</h3></div><div class="cb" id="links">
   <a href="/" target="_blank" rel="noopener">the page ↗</a>
   <a href="https://github.com/harimano/ipo-desk/actions/workflows/collect.yml" target="_blank" rel="noopener">collect runs ↗</a>
   <a href="https://github.com/harimano/ipo-desk/actions/workflows/live.yml" target="_blank" rel="noopener">live runs ↗</a>
