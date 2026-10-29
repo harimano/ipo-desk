@@ -264,3 +264,19 @@ rows (Runs | Freshness; diff | audit | Visitors) and a short third (smoke test, 
 with a Readers count. Shown as a screenshot and approved before the push. Lesson: a dashboard is tables, not cards
 of prose; and show the picture first.
 
+## 29 Oct 2026 — launch polish (branch `launch-polish`, on top of friends-ready)
+
+Three things a friend needs on day one, mocked first and approved as pictures. **How to read this desk** (`intro.js`):
+seven steps, one idea each, a static picture of the real element and a "where" line — Today, GMP, odds and EV, the
+book, quota, "five sources, one desk" (Hari: "we are a data aggregator, show the perks"), evidence never a verdict.
+It opens once per device (flag `intro`, in the account's local cache so a shared device does not hide it from the next
+person) and again from the account menu or the footer. Hari asked for a flow in a few steps, not the six-term sheet
+first mocked, and parked hover explainers until the platform is done. **Wrong number?** (`report.js`): a line under
+every Today card and Board detail opens a three-field form in place; `POST /api/report` stores it in D1 `reports`
+under the verified email (20 a reader a day), pings `NTFY_TOPIC` when the Worker has it, and `/admin` lists them. A
+report never changes a figure. **Add to home screen** (`install.js`): a web manifest and PNG icons drawn once with
+Pillow (`site/src/icons/`), linked with `crossorigin="use-credentials"` so the manifest fetch carries the Access cookie.
+No service worker (the plan wanted no offline copy), so Chrome offers Install only from its own menu and never fires
+`beforeinstallprompt` (developer.chrome.com/blog/update-install-criteria); the card shows the device's own steps instead
+of a button that cannot work. Verified in the preview: no console error on seven tabs and 34 sheets, phone width with
+no horizontal scroll, the Worker harness, the admin card.

@@ -13,6 +13,8 @@
 // Secrets (uploaded by deploy.yml from GitHub secrets of the same name, when they exist):
 //   CF_ACCESS_LOGS_TOKEN  an API token with only Account · Access: Audit Logs · Read — the sign-in history for /admin
 //   CF_ACCOUNT_ID         the account the token reads (from the existing GitHub secret CLOUDFLARE_ACCOUNT_ID)
+//   NTFY_TOPIC            (optional) the ntfy.sh topic a reader's "Wrong number?" report is pushed to — the same secret
+//                         the collector's alerts use; absent, reports are only listed on /admin
 //
 // Access puts the JWT in the Cf-Access-Jwt-Assertion header (and a CF_Authorization cookie). It is RS256-signed
 // by keys published at https://<team>.cloudflareaccess.com/cdn-cgi/access/certs; those are cached an hour.
@@ -165,14 +167,40 @@ async function visitors(env) {
 // double-apply, and last writer wins per part. Nothing about one reader is ever readable under another's email.
 const PARTS = ["holdings", "interest", "apps", "tasks-done", "tasks-custom", "investors", "theme"];
 const PART_MAX_BYTES = 64 * 1024;
-let schemaReady = null;                      // per isolate: the CREATE TABLE IF NOT EXISTS runs once
+let schemaReady = null;                      // per isolate: the CREATE TABLE IF NOT EXISTS statements run once
+const SCHEMA = [
+  "CREATE TABLE IF NOT EXISTS user_state (email TEXT NOT NULL, part TEXT NOT NULL, body TEXT NOT NULL, updated TEXT NOT NULL, PRIMARY KEY (email, part))",
+  "CREATE TABLE IF NOT EXISTS reports (id INTEGER PRIMARY KEY AUTOINCREMENT, at TEXT NOT NULL, email TEXT NOT NULL, issue TEXT NOT NULL, ig_id TEXT, field TEXT NOT NULL, shown TEXT, note TEXT, page TEXT, data_as_of TEXT, status TEXT NOT NULL DEFAULT 'open')",
+];
 function ensureSchema(db) {
-  if (!schemaReady) schemaReady = db.prepare(
-    "CREATE TABLE IF NOT EXISTS user_state (email TEXT NOT NULL, part TEXT NOT NULL, body TEXT NOT NULL, updated TEXT NOT NULL, PRIMARY KEY (email, part))"
-  ).run().catch(e => { schemaReady = null; throw e; });
+  if (!schemaReady) schemaReady = SCHEMA.reduce((p, sql) => p.then(() => db.prepare(sql).run()), Promise.resolve()).catch(e => { schemaReady = null; throw e; });
   return schemaReady;
 }
-export async function handleApi(request, env, claims, url) {
+// "Wrong number?" (site/src/report.js): a reader flags a figure. Stored under the VERIFIED email, capped per reader per
+// day, pushed to NTFY_TOPIC when set. A report never changes a number; it is a note to a person.
+const REPORT_MAX_PER_DAY = 20, clip = (v, n) => v == null ? null : String(v).slice(0, n);
+async function storeReport(request, env, email, ctx) {
+  let body; try { body = await request.json(); } catch (e) { return json({ error: "body is not JSON" }, 400); }
+  if (!body || typeof body !== "object" || !body.issue || !body.field) return json({ error: "issue and field are required" }, 400);
+  const since = new Date(Date.now() - 86400000).toISOString();
+  const { results } = await env.DB.prepare("SELECT COUNT(*) AS n FROM reports WHERE email = ?1 AND at > ?2").bind(email, since).all();
+  if (((results || [])[0] || {}).n >= REPORT_MAX_PER_DAY) return json({ error: "that is plenty for one day — thank you; Hari has them" }, 429);
+  const at = new Date().toISOString();
+  const row = [at, email, clip(body.issue, 120), clip(body.igId, 20), clip(body.field, 40), clip(body.shown, 80), clip(body.note, 500), clip(body.page, 80), clip(body.dataAsOf, 40)];
+  await env.DB.prepare("INSERT INTO reports (at, email, issue, ig_id, field, shown, note, page, data_as_of) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)").bind(...row).run();
+  if (env.NTFY_TOPIC) {
+    const ping = fetch(`https://ntfy.sh/${encodeURIComponent(env.NTFY_TOPIC)}`, { method: "POST", headers: { Title: `Wrong number? ${row[2]} - ${row[4]}`, Tags: "mag", Click: "https://ipodesk.dev/admin" },
+      body: `${row[2]} · ${row[4]}${row[5] ? ` (shown ${row[5]})` : ""}${row[6] ? `\n${row[6]}` : ""}\nfrom ${email} · data as of ${row[8] || "?"}` }).catch(() => {});
+    if (ctx && ctx.waitUntil) ctx.waitUntil(ping); else await ping;
+  }
+  return json({ ok: true, at });
+}
+export async function listReports(env, limit) {
+  await ensureSchema(env.DB);
+  const { results } = await env.DB.prepare("SELECT id, at, email, issue, ig_id, field, shown, note, page, data_as_of, status FROM reports ORDER BY id DESC LIMIT ?1").bind(limit || 200).all();
+  return { reports: results || [] };
+}
+export async function handleApi(request, env, claims, url, ctx) {
   const email = (claims.email || "").toLowerCase();
   if (!email) return json({ error: "no email in the sign-in token" }, 401);
   if (!env.DB) return json({ error: "accounts are not configured on this deployment (no D1 binding — ops/site-worker/SETUP.md)" }, 503);
@@ -203,7 +231,8 @@ export async function handleApi(request, env, claims, url) {
     return json({ ok: true, part, updated });
   }
   if (path === "/api/whoami" && request.method === "GET") return json({ email });
-  return json({ error: "no such API route" }, path.startsWith("/api/state") ? 405 : 404);
+  if (path === "/api/report" && request.method === "POST") return storeReport(request, env, email, ctx);
+  return json({ error: "no such API route" }, path.startsWith("/api/state") || path === "/api/report" ? 405 : 404);
 }
 
 const json = (body, status) => new Response(JSON.stringify(body), { status: status || 200, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } });
@@ -225,7 +254,7 @@ export default {
     if (url.pathname === "/logout") return Response.redirect(`https://${env.TEAM_DOMAIN}/cdn-cgi/access/logout`, 302);
     if (url.pathname === "/whoami") return text(claims.email || "(no email claim)", 200);
     if (url.pathname === "/api" || url.pathname.startsWith("/api/")) {
-      try { return await handleApi(request, env, claims, url); }
+      try { return await handleApi(request, env, claims, url, ctx); }
       catch (e) { return json({ error: "state store failed: " + (e && e.message) }, 500); }
     }
 
@@ -237,6 +266,7 @@ export default {
       if ((claims.email || "").toLowerCase() !== admin) return text("ipo-desk: this page is for the admin only.", 403);
       if (url.pathname === "/admin/me.json") return json({ email: claims.email, team: env.TEAM_DOMAIN, adminEmailSet: true, visitors: !!env.VISITS });
       if (url.pathname === "/admin/visitors.json") return json(await visitors(env));
+      if (url.pathname === "/admin/reports.json") { if (!env.DB) return json({ error: "no D1 binding", reports: [] }, 503); try { return json(await listReports(env, 200)); } catch (e) { return json({ error: "reports failed: " + (e && e.message), reports: [] }, 500); } }
     }
 
     ctx.waitUntil(noteVisit(request, env, claims, url).catch(() => {}));   // never in the way of the page, never fatal

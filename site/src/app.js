@@ -175,9 +175,9 @@ function renderToday() {
   const moves = Object.entries(CHG).flatMap(([n, c]) => [c.s ? `${esc(n)} book ${c.s[0]}x → <b>${c.s[1]}x</b>` : null, c.g ? `${esc(n)} GMP ${inr(c.g[0])} → <b class="${c.g[1] > c.g[0] ? "up" : "down"}">${inr(c.g[1])}</b>` : null]).filter(Boolean);
   const since = moves.length || NEWN.length ? `<div class="card" style="padding:10px 16px;margin-bottom:12px"><span class="lbl">Since you last looked</span> &nbsp;<span style="font-size:13px">${[...moves.slice(0, 6), NEWN.length ? "new on the board: " + NEWN.slice(0, 6).map(esc).join(", ") + (NEWN.length > 6 ? ` +${NEWN.length - 6}` : "") : null].filter(Boolean).join(" · ")}${moves.length > 6 ? ` · +${moves.length - 6} more` : ""}</span></div>` : "";
   $("#queue").innerHTML = since + pre + (top.length ? top.map((p, i) => `<div class="card q${i === 0 ? " lead" : ""}" data-row data-id="${esc(p.id)}" data-name="${esc(nm(p))}">
-    <div class="l"><div class="tags"><span class="pill ${p.tag[0]}">${esc(p.tag[1])}</span><span class="lbl">${esc(p.lbl)}</span></div><div class="ttl">${esc(p.ttl)}</div><div class="desc">${p.desc}</div></div>
+    <div class="l"><div class="tags"><span class="pill ${p.tag[0]}">${esc(p.tag[1])}</span><span class="lbl">${esc(p.lbl)}</span></div><div class="ttl">${esc(p.ttl)}</div><div class="desc">${p.desc}</div>${p.b ? reportLink(p.b, "today") : ""}</div>
     <div class="r"><div class="big mono ${p.bigCls || ""}">${esc(p.big || "")}</div><div class="acts">${acts(p)}</div></div></div>`).join("") : `<div class="card empty">Nothing urgent. ${later.length ? "The rest is below." : "Snoozed and done items are in Book."}</div>`)
-    + (later.length ? `<div class="card"><div class="ch">Everything else <span class="sub">${later.length} item${later.length > 1 ? "s" : ""}</span></div>${later.map(p => `<div class="q" data-row data-id="${esc(p.id)}" data-name="${esc(nm(p))}" style="padding:10px 18px;border-top:1px solid var(--line)"><div class="l"><div class="tags"><span class="pill ${p.tag[0]}">${esc(p.tag[1])}</span><span class="lbl">${esc(p.lbl)}</span><span style="font-weight:700">${esc(p.ttl)}</span></div><div class="desc" style="font-size:12.5px">${p.desc}</div></div><div class="r"><div class="acts">${acts(p)}</div></div></div>`).join("")}</div>` : "");
+    + (later.length ? `<div class="card"><div class="ch">Everything else <span class="sub">${later.length} item${later.length > 1 ? "s" : ""}</span></div>${later.map(p => `<div class="q" data-row data-id="${esc(p.id)}" data-name="${esc(nm(p))}" style="padding:10px 18px;border-top:1px solid var(--line)"><div class="l"><div class="tags"><span class="pill ${p.tag[0]}">${esc(p.tag[1])}</span><span class="lbl">${esc(p.lbl)}</span><span style="font-weight:700">${esc(p.ttl)}</span></div><div class="desc" style="font-size:12.5px">${p.desc}</div>${p.b ? reportLink(p.b, "today") : ""}</div><div class="r"><div class="acts">${acts(p)}</div></div></div>`).join("")}</div>` : "");
   $("#c-today").textContent = urgent || "";
 
   // KPIs
@@ -322,7 +322,7 @@ function boardRow(b) {
     <td class="r">${bookCell}</td><td class="r">${gmpCell}</td><td class="r">${gainCell}</td><td class="r">${evCell}${reserved}</td>
     <td style="min-width:170px">${S0.total != null && !isSme ? subBar("QIB", S0.qib) + subBar("NII", S0.nii) + subBar("Retail", S0.retail) + subBar("Total", S0.total) + `<div class="dt">${S0.asOf ? (hasTime(S0.asOf) ? ago(S0.asOf) : "as of " + fmtD(S0.asOf)) : ""}</div>` + delta((CHG[b.name] || {}).s, v => v + "x") + spark(((LIVE || {}).timeline || {})[b.name]) : S0.total != null ? subBar("Total", S0.total) + spark(((LIVE || {}).timeline || {})[b.name]) : `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`}</td>
     <td class="r"><button class="tg" data-more title="details">▾</button></td></tr>
-    <tr class="bx" hidden><td></td><td colspan="8">${more}</td></tr>`;
+    <tr class="bx" hidden><td></td><td colspan="8">${more}${reportLink(b, "board")}</td></tr>`;
 }
 function renderBoard() {
   const order = { Open: 0, Closed: 1, Upcoming: 2, Listed: 3 };
@@ -812,6 +812,9 @@ document.addEventListener("keydown", e => {
 /* @include records.js */
 /* @include research.js */
 /* @include scoreboard.js */
+/* @include intro.js */
+/* @include report.js */
+/* @include install.js */
 /* ---------- "data as of" on every screen, and the footer — both from run metadata, never hand-written ----------
    The collector's timetable (RUNS_IST) says how old a document may be: on a weekday in run hours an intraday run lands every
    30 min, otherwise the next full run is at 06:43 / 18:13 IST. Older than that window (plus slack) reads as stale. */
@@ -837,7 +840,7 @@ function renderFooter() {
   const unres = M.unresolved || [];
   $("#foot").innerHTML = `<div>Last collector run <b>${esc(M.label || istClock(M.asOf))}</b>${src.length ? ` · sources this run: ${esc(src.join(", "))}` : ""}${unres.length ? ` · <details class="inl"><summary>unverified this cycle: ${unres.length}</summary><ul>${unres.map(u => `<li>${esc(u)}</li>`).join("")}</ul></details>` : ""}</div>
     ${notes.length ? `<details class="inl"><summary>Collector notes archive · ${notes.length} hand-written note${notes.length > 1 ? "s" : ""} carried from earlier runs, not refreshed</summary><ul>${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul></details>` : ""}
-    <div>Aggregated public data and analytical synthesis with both sides shown — not investment advice. Nothing here places orders. Press <b>?</b> for keys.</div>`;
+    <div>Aggregated public data and analytical synthesis with both sides shown — not investment advice. Nothing here places orders. Press <b>?</b> for keys · <a href="#" data-intro-open>How to read this desk</a> · <a href="#" data-install-open>Add to home screen</a></div>`;
 }
 function renderAll() { renderTape(); renderToday(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); renderStamps(); }
 renderFooter();

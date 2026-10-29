@@ -24,6 +24,14 @@ for everyone.
 Free tier: 5 GB, 5 million rows read and 100,000 rows written a day. Fifty readers saving a few dozen things a day
 use well under one percent of that.
 
+## 1b. "Wrong number?" reports and the ntfy ping (optional)
+
+The same database holds `reports` (schema.sql): what a reader flagged under an IPO, with the value that was on screen
+and the run it came from. Nothing to create. To be pinged on your phone, add the GitHub secret `NTFY_TOPIC` (the topic
+you subscribe to in the ntfy app — the collector's alerts use the same secret); `deploy.yml` hands it to the Worker on
+the next deploy. Without it, reports are only listed on /admin. Mark one handled in the D1 console:
+`UPDATE reports SET status='done' WHERE id=…`.
+
 ## 2. Access: who gets in
 
 The Access application in front of the Worker (Zero Trust → Access → Applications → the `ipo-desk-site` app) decides

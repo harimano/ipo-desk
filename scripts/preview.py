@@ -27,6 +27,7 @@ PARTS = {"holdings", "interest", "apps", "tasks-done", "tasks-custom", "investor
 PART_MAX = 64 * 1024
 
 STORE: dict[str, dict[str, tuple[str, str]]] = {}      # email -> part -> (body, updated)
+REPORTS: list[dict] = []                               # "Wrong number?" reports, newest last
 LOCK = threading.Lock()
 
 
@@ -101,6 +102,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(raw)
             return
+        if path == "/admin/reports.json":
+            return self.send_json({"reports": list(reversed(REPORTS))})
         if path.startswith("/api"):
             return self.api("GET", path.rstrip("/") or "/api", b"")
         return super().do_GET()
@@ -114,6 +117,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         n = int(self.headers.get("Content-Length") or 0)
         body = self.rfile.read(n) if n else b""
         return self.api("PUT", urllib.parse.urlsplit(self.path).path.rstrip("/"), body)
+
+    def do_POST(self):
+        n = int(self.headers.get("Content-Length") or 0)
+        body = self.rfile.read(n) if n else b""
+        return self.api("POST", urllib.parse.urlsplit(self.path).path.rstrip("/"), body)
 
     def do_DELETE(self):
         return self.api("DELETE", urllib.parse.urlsplit(self.path).path.rstrip("/"), b"")
@@ -134,6 +142,19 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 return self.send_json({"ok": True, "email": email, "parts": {}, "updated": {}})
             if path == "/api/whoami" and method == "GET":
                 return self.send_json({"email": email})
+            if path == "/api/report" and method == "POST":
+                try:
+                    rep = json.loads(body or b"x")
+                except ValueError:
+                    return self.send_json({"error": "body is not JSON"}, 400)
+                if not isinstance(rep, dict) or not rep.get("issue") or not rep.get("field"):
+                    return self.send_json({"error": "issue and field are required"}, 400)
+                row = {"id": len(REPORTS) + 1, "at": now(), "email": email, "status": "open"}
+                row.update({k: rep.get(k) for k in ("issue", "field", "shown", "note", "page")})
+                row["ig_id"], row["data_as_of"] = rep.get("igId"), rep.get("dataAsOf")
+                REPORTS.append(row)
+                sys.stderr.write(f"report: {email} {row['issue']} {row['field']} {row.get('note') or ''}\n")
+                return self.send_json({"ok": True, "at": row["at"]})
             if path.startswith("/api/state/") and method == "PUT":
                 part = path[len("/api/state/"):]
                 if part not in PARTS:
@@ -147,7 +168,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 u = now()
                 acct[part] = (body.decode("utf8"), u)
                 return self.send_json({"ok": True, "part": part, "updated": u})
-        return self.send_json({"error": "no such API route"}, 405 if path.startswith("/api/state") else 404)
+        return self.send_json({"error": "no such API route"}, 405 if path.startswith("/api/state") or path == "/api/report" else 404)
 
 
 def main() -> int:

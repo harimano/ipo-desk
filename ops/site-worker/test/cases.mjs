@@ -29,16 +29,21 @@ async function signer() {
 // D1 in memory: the four statements worker.js uses, matched by their first word and parameters
 function fakeD1() {
   const rows = new Map();                       // "email\0part" -> {email, part, body, updated}
+  const reports = [];
   const stmt = sql => ({ bind: (...a) => ({
     run: async () => {
       if (/^CREATE TABLE/i.test(sql)) return { success: true };
       if (/^DELETE/i.test(sql)) { for (const k of [...rows.keys()]) if (k.startsWith(a[0] + "\0")) rows.delete(k); return { success: true }; }
+      if (/INTO reports/i.test(sql)) { reports.push({ id: reports.length + 1, at: a[0], email: a[1], issue: a[2], ig_id: a[3], field: a[4], shown: a[5], note: a[6], page: a[7], data_as_of: a[8], status: "open" }); return { success: true }; }
       if (/^INSERT/i.test(sql)) { rows.set(a[0] + "\0" + a[1], { email: a[0], part: a[1], body: a[2], updated: a[3] }); return { success: true }; }
       throw new Error("unexpected sql: " + sql);
     },
-    all: async () => { if (!/^SELECT/i.test(sql)) throw new Error("unexpected sql: " + sql); return { results: [...rows.values()].filter(r => r.email === a[0]) }; },
+    all: async () => { if (!/^SELECT/i.test(sql)) throw new Error("unexpected sql: " + sql);
+      if (/COUNT\(\*\) AS n FROM reports/i.test(sql)) return { results: [{ n: reports.filter(r => r.email === a[0] && r.at > a[1]).length }] };
+      if (/FROM reports/i.test(sql)) return { results: reports.slice().reverse().slice(0, a[0]) };
+      return { results: [...rows.values()].filter(r => r.email === a[0]) }; },
   }), run: async () => { if (/^CREATE TABLE/i.test(sql)) return { success: true }; throw new Error("bind first: " + sql); } });
-  return { prepare: stmt, _rows: rows };
+  return { prepare: stmt, _rows: rows, _reports: reports };
 }
 
 export async function runCases() {
@@ -124,6 +129,27 @@ export async function runCases() {
     r = await call("/", {}, bob);
     ok(r.status === 200 && (await r.text()).includes("<html>"), "the page is served to a signed-in reader");
     ok(r.headers.get("X-Robots-Tag") === "noindex, nofollow", "noindex header on the page");
+
+    // "Wrong number?": stored under the verified email, never the body's; capped; the admin list is gated
+    r = await call("/api/report", { method: "POST", body: JSON.stringify({ issue: "Lenskart Solutions", igId: "2305", field: "gmp", shown: "73", note: "IG shows 65", email: "mallory@example.com", dataAsOf: "2026-10-29T15:08:47+05:30" }) }, bob);
+    ok(r.status === 200 && (await r.json()).ok, `a report -> 200 (got ${r.status})`);
+    ok(DB._reports.length === 1 && DB._reports[0].email === "bob@example.com" && DB._reports[0].issue === "Lenskart Solutions" && DB._reports[0].field === "gmp", "the report carries the token's email, not the body's");
+    r = await call("/api/report", { method: "POST", body: JSON.stringify({ note: "no issue named" }) }, bob);
+    ok(r.status === 400, "a report without issue and field -> 400");
+    r = await call("/api/report", { method: "POST", body: "{nope" }, bob);
+    ok(r.status === 400, "a report that is not JSON -> 400");
+    r = await call("/api/report", {}, bob);
+    ok(r.status === 405, "GET /api/report -> 405");
+    for (let i = 0; i < 19; i++) await call("/api/report", { method: "POST", body: JSON.stringify({ issue: "X", field: "other" }) }, bob);
+    r = await call("/api/report", { method: "POST", body: JSON.stringify({ issue: "X", field: "other" }) }, bob);
+    ok(r.status === 429 && DB._reports.length === 20, `the 21st report in a day -> 429 (got ${r.status}, ${DB._reports.length} stored)`);
+    r = await call("/admin/reports.json", {}, bob);
+    ok(r.status === 404, "reports.json with no ADMIN_EMAIL -> 404 (fail closed)");
+    r = await worker.fetch(new Request("https://ipodesk.dev/admin/reports.json", { headers: { "Cf-Access-Jwt-Assertion": bob } }), Object.assign({}, env, { ADMIN_EMAIL: "alice@example.com" }), ctx);
+    ok(r.status === 403, "reports.json as a non-admin -> 403");
+    r = await worker.fetch(new Request("https://ipodesk.dev/admin/reports.json", { headers: { "Cf-Access-Jwt-Assertion": alice } }), Object.assign({}, env, { ADMIN_EMAIL: "alice@example.com" }), ctx);
+    b = await r.json();
+    ok(r.status === 200 && b.reports.length === 20 && b.reports[0].issue === "X" && b.reports[19].note === "IG shows 65", "the admin lists the reports, newest first");
 
     // no binding: fail closed on the API, the page still serves
     const env2 = Object.assign({}, env, { DB: undefined });

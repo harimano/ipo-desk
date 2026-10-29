@@ -8,3 +8,19 @@ CREATE TABLE IF NOT EXISTS user_state (
   updated TEXT NOT NULL,   -- ISO time of the last PUT
   PRIMARY KEY (email, part)
 );
+
+-- "Wrong number?" (site/src/report.js → POST /api/report): a reader flags a figure; Hari reads them on /admin.
+-- A report never changes a number. Capped at 20 a reader a day. `status` is for Hari ('open' → 'done'), by hand in the console.
+CREATE TABLE IF NOT EXISTS reports (
+  id         INTEGER PRIMARY KEY AUTOINCREMENT,
+  at         TEXT NOT NULL,   -- ISO time the Worker received it
+  email      TEXT NOT NULL,   -- the verified Access email of the reader
+  issue      TEXT NOT NULL,   -- the IPO's row name
+  ig_id      TEXT,            -- its InvestorGain id, when the row has one
+  field      TEXT NOT NULL,   -- gmp | book | retail | qib | band | dates | odds | status | other
+  shown      TEXT,            -- the value on screen at the time
+  note       TEXT,            -- what the reader typed (500 chars)
+  page       TEXT,
+  data_as_of TEXT,            -- meta.asOf of the document the page was showing
+  status     TEXT NOT NULL DEFAULT 'open'
+);
