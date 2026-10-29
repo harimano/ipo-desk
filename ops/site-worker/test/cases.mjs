@@ -50,8 +50,10 @@ export async function runCases() {
   const out = [], ok = (cond, msg) => out.push({ ok: !!cond, msg });
   const s = await signer();
   const realFetch = globalThis.fetch;
-  globalThis.fetch = async (url) => {
+  const pings = [];
+  globalThis.fetch = async (url, init) => {
     if (String(url) === `https://${TEAM}/cdn-cgi/access/certs`) return new Response(JSON.stringify({ keys: [s.jwk] }), { headers: { "Content-Type": "application/json" } });
+    if (String(url).startsWith("https://ntfy.sh/")) { pings.push({ url: String(url), title: init && init.headers && init.headers.Title }); return new Response("{}", { status: 200 }); }
     throw new Error("unexpected fetch " + url);
   };
   try {
@@ -134,13 +136,16 @@ export async function runCases() {
     r = await call("/api/report", { method: "POST", body: JSON.stringify({ issue: "Lenskart Solutions", igId: "2305", field: "gmp", shown: "73", note: "IG shows 65", email: "mallory@example.com", dataAsOf: "2026-10-29T15:08:47+05:30" }) }, bob);
     ok(r.status === 200 && (await r.json()).ok, `a report -> 200 (got ${r.status})`);
     ok(DB._reports.length === 1 && DB._reports[0].email === "bob@example.com" && DB._reports[0].issue === "Lenskart Solutions" && DB._reports[0].field === "gmp", "the report carries the token's email, not the body's");
+    r = await worker.fetch(new Request("https://ipodesk.dev/api/report", { method: "POST", body: JSON.stringify({ issue: "Ajwa Projects — SME", field: "gmp" }), headers: { "Cf-Access-Jwt-Assertion": bob } }), Object.assign({}, env, { NTFY_TOPIC: "ipodesk-test\n" }), ctx);
+    b = await r.json();
+    ok(r.status === 200 && b.ping === 200 && pings.length === 1 && pings[0].url === "https://ntfy.sh/ipodesk-test" && !/[^\x20-\x7e]/.test(pings[0].title), `with NTFY_TOPIC the ping goes to the trimmed topic with an ASCII title (got ${JSON.stringify(pings[0])}, ping ${b.ping})`);
     r = await call("/api/report", { method: "POST", body: JSON.stringify({ note: "no issue named" }) }, bob);
     ok(r.status === 400, "a report without issue and field -> 400");
     r = await call("/api/report", { method: "POST", body: "{nope" }, bob);
     ok(r.status === 400, "a report that is not JSON -> 400");
     r = await call("/api/report", {}, bob);
     ok(r.status === 405, "GET /api/report -> 405");
-    for (let i = 0; i < 19; i++) await call("/api/report", { method: "POST", body: JSON.stringify({ issue: "X", field: "other" }) }, bob);
+    for (let i = 0; i < 18; i++) await call("/api/report", { method: "POST", body: JSON.stringify({ issue: "X", field: "other" }) }, bob);
     r = await call("/api/report", { method: "POST", body: JSON.stringify({ issue: "X", field: "other" }) }, bob);
     ok(r.status === 429 && DB._reports.length === 20, `the 21st report in a day -> 429 (got ${r.status}, ${DB._reports.length} stored)`);
     r = await call("/admin/reports.json", {}, bob);

@@ -188,12 +188,19 @@ async function storeReport(request, env, email, ctx) {
   const at = new Date().toISOString();
   const row = [at, email, clip(body.issue, 120), clip(body.igId, 20), clip(body.field, 40), clip(body.shown, 80), clip(body.note, 500), clip(body.page, 80), clip(body.dataAsOf, 40)];
   await env.DB.prepare("INSERT INTO reports (at, email, issue, ig_id, field, shown, note, page, data_as_of) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)").bind(...row).run();
-  if (env.NTFY_TOPIC) {
-    const ping = fetch(`https://ntfy.sh/${encodeURIComponent(env.NTFY_TOPIC)}`, { method: "POST", headers: { Title: `Wrong number? ${row[2]} - ${row[4]}`, Tags: "mag", Click: "https://ipodesk.dev/admin" },
-      body: `${row[2]} · ${row[4]}${row[5] ? ` (shown ${row[5]})` : ""}${row[6] ? `\n${row[6]}` : ""}\nfrom ${email} · data as of ${row[8] || "?"}` }).catch(() => {});
-    if (ctx && ctx.waitUntil) ctx.waitUntil(ping); else await ping;
+  // The topic is trimmed (a secret pasted with a trailing newline would otherwise go to a topic nobody reads) and the
+  // Title header is kept to ASCII (fetch throws on a non-Latin-1 header value, and an issue name may carry one).
+  const topic = String(env.NTFY_TOPIC || "").trim();
+  let ping = null;
+  if (topic) {
+    const ascii = v => String(v).replace(/[^\x20-\x7e]/g, "?");
+    try {
+      const r = await fetch(`https://ntfy.sh/${encodeURIComponent(topic)}`, { method: "POST", headers: { Title: ascii(`Wrong number? ${row[2]} - ${row[4]}`), Tags: "mag", Click: "https://ipodesk.dev/admin" },
+        body: `${row[2]} · ${row[4]}${row[5] ? ` (shown ${row[5]})` : ""}${row[6] ? `\n${row[6]}` : ""}\nfrom ${email} · data as of ${row[8] || "?"}` });
+      ping = r.status;
+    } catch (e) { ping = "failed: " + (e && e.message); }
   }
-  return json({ ok: true, at });
+  return json({ ok: true, at, ping });
 }
 export async function listReports(env, limit) {
   await ensureSchema(env.DB);
