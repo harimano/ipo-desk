@@ -377,3 +377,4 @@ Nothing on the page changed. What was proved, and how:
 - **Logs** of the last three deploy and collect runs: no `ntfy.sh/`, `Bearer`, `ghp_` or Angel key values; Cloudflare and
   `NTFY_TOPIC` appear as `***`. `collector/notify.py` logs `ntfy: sent to <base>/<topic>`: Actions masks it today, but it is the one
   place the topic is formatted into a log line.
+- **Drill, end to end.** The first drill returned 200 but never reached the phone: the GitHub `NTFY_TOPIC` secret (15 characters) was not the topic the ntfy app subscribes to (ntfy.sh accepts a post to any name). After Hari reset the secret to the app's topic (16 characters), the second drill ([run 40902199527](https://github.com/harimano/ipo-desk/actions/runs/40902199527)) arrived on his phone. `fail_ping.py` prints the topic's length, never the topic, so a silent phone can be compared.
