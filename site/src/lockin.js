@@ -37,7 +37,7 @@ function renderLockins() {
     ev.innerHTML = `<b>Measured, not assumed:</b> ${line("main")} · ${line("sme")}. The record started 22 Sep 2026 and only grows.`; }
 }
 
-/* ---- the trackers on the Today queue: only for listings the reader holds or starred, and for names they follow ---- */
+/* ---- the trackers on the Today queue: only for listings Hari holds or starred, and for names he follows ---- */
 function trackerQueueItems() {
   const P = [], mineOf = n => held(n) ? "you hold" : S.interest.has(n) ? "starred" : null;
   const perf = new Map((DATA.listedPerf || []).map(p => [p.name, p])), deals = (DATA.investors || {}).listingDeals || [];

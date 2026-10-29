@@ -54,10 +54,8 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
    `data/aliases.json`. A row is matched by `igId`, else by name AND opening date.
 7. Secrets (Angel One, `NTFY_TOPIC`, Cloudflare `GITHUB_TOKEN`) are entered by Hari, never pasted in chat or written to a
    file. The Book (applications, holdings, P&L) never goes in the repo. No paid services, except the domain `ipodesk.dev` (Cloudflare Registrar, ~$12 a year, auto-renews; bought 28 Oct 2026). No React / Node.
-8. A reader's state lives in their account (`site/src/account.js` → the Worker's `/api/state`, D1, keyed by the VERIFIED
-   Access email; `ops/site-worker/SETUP.md`). Part names must survive: `holdings`, `interest`, `apps`, `tasks-done`,
-   `tasks-custom`, `investors`, `theme` (synced) and `tab`, `research-sel`, `seen` (per device). The browser cache is
-   `ipo-u:<email>:<part>`; the old un-namespaced `ipo-*` keys are read ONCE, for the import banner, then renamed `ipo-legacy-*`.
+8. localStorage keys must survive: `ipo-interest`, `ipo-holdings`, `ipo-apps`, `ipo-tasks-done`, `ipo-tasks-custom`,
+   `ipo-investors`, `ipo-theme`, `ipo-tab`, `ipo-research-sel`, `ipo-seen`.
 9. **Dependencies are a run-time risk, not a footnote** (6 Oct 2026: selectolax 1.0 dropped `selectolax.parser`; every
    collect run failed at import for a morning — the gate refused to write, the board went stale). HTML parsing is the
    lexbor backend only (`from selectolax.lexbor import LexborHTMLParser as HTMLParser`). A declared package must be
@@ -153,13 +151,8 @@ document as assembled so far; `prev` is yesterday's.
 
 ## The page (`site/src/`)
 
-`account.js` runs first (`window.__ipoAccount`: the reader's parts, cache, debounced PUTs with retry, the header pill and
-account menu, export / restore / reset, the one-time legacy import). `app.js` is the db-era monolith (closure
-`window.__ipoInit`; nothing inside is a global — inspect charts with `Chart.getChart(id)`); its `store` reads and writes
-through the account, `loadState()` rebuilds `S` when `/api/state` answers; the footer and every screen's "data as of"
-stamp come from `meta` + `integrity` (`renderFooter`, `renderStamps`), never hand-written. Local preview is
-`scripts/preview.py` (`_site` + an in-memory `/api`, sign in at `/dev/as/<email>`). New screens go in their own file,
-pulled in by `/* @include name.js */`:
+`app.js` is the db-era monolith (closure `window.__ipoInit`; nothing inside is a global — inspect charts with
+`Chart.getChart(id)`). New screens go in their own file, pulled in by `/* @include name.js */`:
 `research.js` (fetched sheet, "issues like this one") · `players.js` (Anchors on the board: one line per current issue, line-up behind a `who` expander, past-books line from the anchors band) · `quota.js` (quota
 planner, Pipeline tab) · `quotaradar.js` (Possible quotas under the planner: `expected[].quotaCandidate`, strong vs
 group-name, and the `quotaLeads` list folded; a `quota?` mark on Market's pipeline chips) · `hold.js` (hold-or-sell meter: Today, Board row, Scoreboard) · `deals.js` (Market > Superinvestors: one tracker card per listing with deals — price vs issue, round-trip / net buyer / net seller counts per client×stock, sold│bought bar, rows folded under; Money that stayed; Repeat clients; `Mine` = held or starred; counts only) ·
@@ -173,6 +166,6 @@ when dataset types are mixed. Market has a sticky section bar built from `.sec-h
 
 ## Next
 
-Hari to do: create the D1 database and paste its id (`ops/site-worker/SETUP.md`), switch the Access policy to the
-friends' emails, set the `NTFY_TOPIC` secret (alerts are built and in dry-run). Then: capital planner and calendar
-(reports 554 / 607) → provenance on hover, source-health strip → alerts with deep links, weekly digest → the AI layer, last.
+Hari to do: set the `NTFY_TOPIC` secret (alerts are built and in dry-run). Then: login + Book sync on Cloudflare free tier (Access + Worker + KV,
+encrypted in the browser; state the design, get a go) → capital planner and calendar (reports 554 / 607) → provenance on
+hover, source-health strip → alerts with deep links, weekly digest → the AI layer, last.
