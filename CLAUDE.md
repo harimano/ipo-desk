@@ -26,6 +26,8 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
   A workflow's push does not trigger other workflows: `collect.yml` dispatches `deploy.yml`; a page-only change needs
   `gh workflow run deploy.yml`. An intraday run whose predecessor refused at the gate on the same commit skips green with one
   `::warning::` carrying the refusal (`scripts/prev_gate.py`); the full runs and any push to main retry and fail loudly.
+  `digest.yml` (Sunday 18:30 IST, `collector/digest.py`) sends the weekly digest from the data branch; the Worker has no cron slot
+  left, so Sunday's 18:13 full collect dispatches it too and the workflow skips if one already went out that day.
 - The site: `ops/site-worker/` serves `_site` from a Worker behind Cloudflare Access (email one-time PIN, policy
   Everyone — the link is the key); `deploy.yml` builds and deploys it after every collect and push. Its README has the
   setup, the Cloudflare clicks and why the repo stays public. `/admin` (`site/admin/`, Hari only via `ACCESS_ADMIN_EMAIL`)

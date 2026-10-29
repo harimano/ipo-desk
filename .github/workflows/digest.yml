@@ -1,0 +1,74 @@
+name: digest
+# The weekly digest: one message every Sunday at 18:30 IST that sums up the week on the desk (collector/digest.py),
+# read from the documents already on the data branch — no collecting, no commit, nothing to gate.
+#
+# Two starts, one message: GitHub's cron below is best-effort (hours late some days), and the trigger Worker has no
+# cron slot to spare (five per account, all used — ops/trigger-worker/wrangler.toml), so collect.yml's Sunday 18:13 IST
+# full run dispatches this workflow after its commit. Whichever start comes first sends; the "already sent today?"
+# step makes the other one skip green.
+on:
+  schedule:
+    - cron: "0 13 * * 0"        # 18:30 IST Sunday
+  workflow_dispatch:
+    inputs:
+      week:
+        description: "the week's Monday, YYYY-MM-DD (blank = this week)"
+        required: false
+        default: ""
+      dry_run:
+        description: "true = print the message and send nothing"
+        type: boolean
+        default: false
+
+concurrency: { group: digest, cancel-in-progress: false }
+
+permissions:
+  contents: read
+  actions: read         # to see whether a digest already went out today
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with: { fetch-depth: 1 }
+      - uses: actions/checkout@v7
+        with: { ref: data, path: _data, fetch-depth: 1 }
+
+      - name: Already sent today? (a dispatch from the Sunday collect run and the cron both land here)
+        id: sent
+        if: github.event.inputs.dry_run != 'true'
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          TODAY="$(TZ=Asia/Kolkata date +%F)"
+          N=$(gh run list --workflow digest.yml --status success --json databaseId,createdAt,conclusion \
+                --jq "[.[] | select(.databaseId != ${{ github.run_id }}) | select((.createdAt | sub(\"Z$\"; \"+00:00\") | fromdate + 19800 | strftime(\"%Y-%m-%d\")) == \"$TODAY\")] | length" 2>/dev/null || echo 0)
+          echo "digests sent today (IST): $N"
+          if [ "$N" -gt 0 ]; then echo "skip=1" >> "$GITHUB_OUTPUT"; echo "**Skipped:** a digest already went out today" >> "$GITHUB_STEP_SUMMARY"; fi
+
+      - uses: actions/setup-python@v7
+        if: steps.sent.outputs.skip != '1'
+        with: { python-version: "3.12", cache: "pip" }
+      - name: Install
+        if: steps.sent.outputs.skip != '1'
+        run: pip install -e .
+
+      - name: Digest
+        if: steps.sent.outputs.skip != '1'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+          NTFY_TOPIC:         ${{ secrets.NTFY_TOPIC }}
+        run: |
+          WEEK="${{ github.event.inputs.week }}"
+          if [ "${{ github.event.inputs.dry_run }}" = true ] || [ -z "$TELEGRAM_BOT_TOKEN$NTFY_TOPIC" ]; then SEND=--dry-run; else SEND=--send; fi
+          python -m collector.digest --data _data ${WEEK:+--week "$WEEK"} $SEND | tee digest.log
+          # the topics configured today are Hari's own, so the health section goes with it (--no-health for a shared topic)
+
+      - uses: actions/upload-artifact@v7
+        if: always() && steps.sent.outputs.skip != '1'
+        with:
+          name: digest-${{ github.run_number }}
+          path: digest.log
+          retention-days: 30
