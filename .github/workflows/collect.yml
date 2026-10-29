@@ -161,6 +161,16 @@ jobs:
         env: { GH_TOKEN: "${{ github.token }}" }
         run: gh workflow run deploy.yml --ref main
 
+      # Sunday's evening run also starts the weekly digest (digest.yml): the trigger Worker has no cron slot left and
+      # GitHub's own cron is best-effort. digest.yml skips if one already went out today, so the two starts never double-send.
+      - name: Weekly digest — Sunday's full run starts it after the commit
+        if: steps.commit.outputs.pushed == '1' && steps.mode.outputs.mode == 'full'
+        continue-on-error: true
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          [ "$(TZ=Asia/Kolkata date +%u)" = 7 ] && [ "$(TZ=Asia/Kolkata date +%H)" -ge 12 ] || { echo "not Sunday evening"; exit 0; }
+          gh workflow run digest.yml --ref main
+
       # After the commit and never able to fail the run: a message is a courtesy, the document is the product.
       # Silent unless a rule became true since the previous document (collector/alerts.py). No secrets = dry run.
       - name: Alerts

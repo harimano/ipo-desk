@@ -405,3 +405,14 @@ row as **Closed** (`byClock`) and every reader of status follows — the pill, t
 "Closed today, 5 pm · final book with the next run · allotment … · lists …". The minute timer recomputes before it
 repaints. Rule: a clock-derived state is applied where the rows are built, never patched into one renderer.
 
+### 29 Oct, late — the weekly digest
+
+One message every Sunday at 18:30 IST (`collector/digest.py`, `digest.yml`): the week's listings scored (the desk's own
+evening-before GMP, the band it sat in with n and Wilson, how it opened and closed), next week's calendar one line a day,
+open issues with the band beside the book and GMP, pipeline moves as the diff of the previous Sunday's snapshot and the
+latest document, and a health section for Hari (snapshots missed, feeds not ok or stale; "Wrong number?" counts live in
+D1 which only the Worker reads, so the line points at /admin). No new statistics: every rate is `evidence`'s. Same three
+bodies as the alerts (text, ntfy Markdown with a link per name, Telegram HTML). The trigger Worker's five cron slots are
+all used, so Sunday's 18:13 full collect dispatches the digest after its commit and GitHub's own cron is the fallback;
+the workflow asks `gh run list` whether one already went out that day. Dry run over the real week of 26 Oct: 33 lines.
+
