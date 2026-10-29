@@ -26,7 +26,22 @@ from collector import layout
 
 BOARDS = ("mainboard", "sme")
 KNOWN_BLOCKED = {"offers": "api.bseindia.com answers 403 to GitHub's runners (CLAUDE.md known gaps)"}
+# Sources that are down BY DESIGN from the runners: a module on one of these is on its working fallback, every day, and
+# that is a known state, not a warning (30 Oct 2026: /admin had said "listings on a fallback" since the day it was built).
+# A fallback past a source NOT listed here still warns — sebi:changed on 29 Oct was transient and worth a look.
+KNOWN_SOURCES = {"angelone": "no Angel One secrets are set (CLAUDE.md known gaps); Yahoo is the working source",
+                 "bse_ann": "api.bseindia.com answers 403 to GitHub's runners (CLAUDE.md known gaps); NSE announcements carry the radar"}
 FALLBACK_WORDS = ("down", "blocked", "changed", "fallback")
+
+
+def fallback_sources(method: str) -> list[tuple[str, str]]:
+    """'angelone:down, yahoo:ok' -> [('angelone', 'down')]: the sources that did not answer, in order."""
+    out = []
+    for part in str(method or "").split(","):
+        name, _, state = part.strip().partition(":")
+        if name and state and state != "ok":
+            out.append((name, state))
+    return out
 MAX_DOC_BYTES = 6 * 1024 * 1024          # scripts/validate.py MAX_DOC_BYTES
 LISTED_GRACE_DAYS = 1                    # collector/modules/calendar.py: a Listed row leaves the board the day after listing
 COUNT_KEYS = ("mainboard", "sme", "recent", "expected", "offers", "quota", "anchors", "listedPerf", "priceHistory",
@@ -75,10 +90,15 @@ def modules(doc: dict) -> list[dict]:
         if status != "ok":
             level = "known" if area in KNOWN_BLOCKED else ("bad" if status in ("fail", "error", "down") else "warn")
         elif any(w in method for w in FALLBACK_WORDS):
-            level = "warn"                                   # it answered, but not from its first source
+            missed = fallback_sources(method)                # it answered, but not from its first source …
+            if missed and all(name in KNOWN_SOURCES for name, _ in missed):
+                level = "known"                              # … and every source it passed is down by design
+            else:
+                level = "warn"
+        known = KNOWN_BLOCKED.get(area) or ("; ".join(KNOWN_SOURCES[n] for n, _ in fallback_sources(method) if n in KNOWN_SOURCES) if level == "known" else None)
         out.append({"area": area, "status": status, "method": method, "level": level, "asOf": _iso(c.get("asOf")),
                     "asOfRaw": c.get("asOf"), "elapsed": c.get("elapsed"), "calls": c.get("calls"),
-                    "note": c.get("note") or "", "known": KNOWN_BLOCKED.get(area)})
+                    "note": c.get("note") or "", "known": known or None})
     return out
 
 

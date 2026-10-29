@@ -43,9 +43,9 @@ def test_anomalies_name_the_rows_and_the_check():
     assert "Listed with no listing price" not in finds          # Done Co has one
 
 
-def test_a_fallback_source_is_a_warn_and_a_known_block_is_known():
+def test_a_fallback_past_a_by_design_source_is_known_and_a_known_block_is_known():
     m = {x["area"]: x for x in audit.modules(doc())}
-    assert m["listings"]["level"] == "warn"
+    assert m["listings"]["level"] == "known" and "Angel One" in m["listings"]["known"]   # angelone is down by design (no secrets)
     assert m["offers"]["level"] == "known" and m["offers"]["known"]
     assert m["gmp"]["asOf"] is None and m["gmp"]["asOfRaw"] == "9-Oct 9:37"      # never an age from a source's own stamp
 

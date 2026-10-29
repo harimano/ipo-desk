@@ -61,15 +61,15 @@ function liveExpectation(asOf) {
 }
 
 /* ---------- the verdict line: the audit's items first; runs, the live loop and the smoke test add theirs ---------- */
-const ORDER = { bad: 0, warn: 1, ok: 2 };
+const ORDER = { bad: 0, warn: 1, ok: 2, nt: 3 };     // nt: a note in the list that never colours the verdict
 function setTitle() {
-  const n = $("#vList").children.length, l = $("#verdict").className;
+  const n = $("#vList").querySelectorAll("li:not(.nt)").length, l = $("#verdict").className;
   $("#vTitle").textContent = l === "ok" ? "Nothing needs you." : l === "bad" ? (n > 1 ? `${n} things need a look.` : "One thing needs a look.") : (n > 1 ? `${n} things are worth a look.` : "One thing is worth a look.");
 }
 function addVerdict(level, text, where) {
   const vb = $("#verdict");
   if (ORDER[level] < (ORDER[vb.className] ?? 9)) vb.className = level;
-  $("#vList").insertAdjacentHTML("beforeend", `<li>${pill(level, level)} ${esc(text)} <a href="#${esc(where)}" class="mu">→ ${esc(where)}</a></li>`);
+  $("#vList").insertAdjacentHTML("beforeend", `<li class="${level === "nt" ? "nt" : ""}">${pill(level, level === "nt" ? "note" : level)} ${esc(text)} <a href="#${esc(where)}" class="mu">→ ${esc(where)}</a></li>`);
   setTitle();
 }
 
@@ -146,7 +146,7 @@ function judgeRuns(runs) {
   const failed = done.filter(r => r.conclusion !== "success");
   const live = failed.filter(r => latest[r.name] === r), past = failed.filter(r => latest[r.name] !== r);
   if (live.length) addVerdict("bad", `${live.map(r => r.name).join(", ")}: the latest run failed`, "runs");
-  if (past.length) addVerdict("warn", `${past.length} run${past.length > 1 ? "s" : ""} failed and recovered in the last ${runs.length} (${[...new Set(past.map(r => r.name))].join(", ")})`, "runs");
+  if (past.length) addVerdict("nt", `${past.length} run${past.length > 1 ? "s" : ""} failed and recovered in the last ${runs.length} (${[...new Set(past.map(r => r.name))].join(", ")})`, "runs");
   const crons = runs.filter(r => r.name === "collect" && r.event === "schedule").length, disp = runs.filter(r => r.name === "collect" && r.event === "workflow_dispatch").length;
   if (crons > disp) addVerdict("warn", `the trigger Worker dispatched only ${disp} of the last ${crons + disp} collects — GitHub's cron carried the rest`, "runs");
 }
