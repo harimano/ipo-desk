@@ -8,7 +8,7 @@ const esc = s => s == null ? "" : String(s).replace(/[&<>"]/g, c => ({"&":"&amp;
 const DAY = 86400000;
 let asOf = new Date(DATA.meta.asOf);
 let today = new Date(asOf.getFullYear(), asOf.getMonth(), asOf.getDate());
-const iso = dt => dt.toISOString().slice(0, 10);
+const iso = dt => dt.getFullYear() + "-" + String(dt.getMonth() + 1).padStart(2, "0") + "-" + String(dt.getDate()).padStart(2, "0");   // LOCAL date, like today and d(): toISOString is UTC, a day early in IST
 const d = s => s ? new Date(String(s).slice(0, 10) + "T00:00:00") : null;   // date part only: values may be ISO datetimes
 const fmtT = s => { const m = /T(\d{2}:\d{2})/.exec(String(s || "")); return m ? ", " + m[1] : ""; };
 const days = s => { const x = d(s); return x ? Math.round((x - today) / DAY) : null; };
@@ -824,7 +824,7 @@ document.addEventListener("keydown", e => {
 function expectedGapMin() { const ist = new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000), h = ist.getHours(), wk = ist.getDay() % 6 !== 0;
   return wk && h >= 9 && h < 18 ? 75 : 14 * 60 + 30; }
 const istClock = s => { const x = s ? new Date(s) : null; if (!x || isNaN(x)) return "—"; const t = new Date(x.getTime() + (330 + x.getTimezoneOffset()) * 60000);
-  const sameDay = iso(new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000)) === iso(t); return (sameDay ? "" : fmtD(t.toISOString().slice(0, 10)) + " ") + String(t.getHours()).padStart(2, "0") + ":" + String(t.getMinutes()).padStart(2, "0") + " IST"; };
+  const sameDay = iso(new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000)) === iso(t); return (sameDay ? "" : fmtD(iso(t)) + " ") + String(t.getHours()).padStart(2, "0") + ":" + String(t.getMinutes()).padStart(2, "0") + " IST"; };
 function stampFor(id) {
   const docMin = (Date.now() - new Date(DATA.meta.asOf)) / 60000, stale = docMin > expectedGapMin();
   const bits = [`data as of <b>${istClock(DATA.meta.asOf)}</b>`];
