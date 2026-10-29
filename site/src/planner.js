@@ -47,7 +47,8 @@ function renderPlanner() {
   const seg = sme => SEG(sme);
   const tr = ({ id, it, b }) => {
     const sme = !!it.sme, sg = seg(sme), S0 = b.sub || {}, n = days(it.close), lastDay = n === 0, early = it.status === "Open" && !(lastDay && istNow().getHours() >= 14);
-    const when = it.status !== "Open" ? `<span class="pill plan">opens ${fmtD(it.open)}</span><div class="dt">closes ${fmtD(it.close)}</div>` : lastDay ? `<span class="pill now">today · 5 pm</span><div class="dt">${fmtD(it.close)}</div>` : `<span class="pill ${n <= 1 ? "now" : n <= 3 ? "soon" : "plan"}">${rel(n)}</span><div class="dt">${fmtD(it.close)}</div>`;
+    const BW = bidWord(b);
+    const when = !BW ? `<span class="pill plan">opens ${fmtD(it.open)}</span><div class="dt">closes ${fmtD(it.close)}</div>` : `<span class="pill ${BW.plan[0]}">${BW.plan[1]}</span><div class="dt">${fmtD(it.close)}</div>`;
     const blocks = it.blocks || {};
     const cats = CAT_ORDER.filter(k => blocks[k]);
     const catRows = cats.length ? cats.map(k => { const v = blocks[k], key = id + ":" + k; return `<div class="cat"><label><input type="checkbox" data-pick="${esc(key)}"${picked.has(key) ? " checked" : ""}><span class="k">${CAT_NAME[k]}</span></label><span class="num">${inLakh(v.amount)}</span><span class="dt">${v.lots} lot${v.lots === 1 ? "" : "s"}${v.discount ? ` · ₹${v.discount} off` : ""}</span></div>`; }).join("")

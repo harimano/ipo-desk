@@ -151,7 +151,7 @@ function buildQueue() {
     const star = S.interest.has(b.name), g = expGain(b), c = lotCost(b);
     const money = c ? `1 lot = ${b.lotSize} sh = <b>${inr0(c)}</b>${g != null ? ` · GMP ${inr(b.gmp)} (${pct(b.gmpPct, true)}) → about <b class="${cls(g)}">${sgn(g)} per lot</b>` : ""}` : "lot size TBA";
     const sub = b.sub && b.sub.total != null ? ` Book ${xx(b.sub.total)}${b.sub.retail != null ? ", retail " + xx(b.sub.retail) + " (" + odds(b.sub.retail) + appOdds(b, "retail", "; ").replace(/<[^>]+>/g, "") + ")" : ""}.` : "";
-    if (b.status === "Open") P.push({ id: "apply:" + b.name, pri: days(b.close) <= 1 ? 1 : 2, tag: [days(b.close) <= 1 ? "now" : "soon", days(b.close) === 0 ? "Closes today" : "Closes " + rel(days(b.close))], lbl: "Mainboard" + (star ? " · starred" : ""), ttl: `${b.name} — apply or pass`, desc: `Band ${inr(b.bandLow)}–${inr(b.bandHigh)} · ${money}.${sub}`, big: fmtD(b.close), bigCls: days(b.close) <= 1 ? "down" : "", acts: [["app", "Log application"], ["done", "Pass"], ["sheet", "Sheet"]], b });
+    if (b.status === "Open") { const BW = bidWord(b); P.push({ id: "apply:" + b.name, pri: BW.over ? 2 : days(b.close) <= 1 ? 1 : 2, tag: BW.tag, lbl: "Mainboard" + (star ? " · starred" : ""), ttl: `${b.name} — apply or pass`, desc: `Band ${inr(b.bandLow)}–${inr(b.bandHigh)} · ${money}.${sub}`, big: fmtD(b.close), bigCls: days(b.close) <= 1 ? "down" : "", acts: [["app", "Log application"], ["done", "Pass"], ["sheet", "Sheet"]], b }); }
     else if (b.status === "Upcoming" && (star || (b.gmpPct || 0) >= 15)) P.push({ id: "prep:" + b.name, pri: 5, tag: ["plan", "Opens " + rel(days(b.open))], lbl: "Mainboard" + (star ? " · starred" : " · strong GMP"), ttl: `${b.name} opens ${fmtD(b.open)}`, desc: `${b.bandHigh ? "Band " + inr(b.bandLow) + "–" + inr(b.bandHigh) + " · " : "Band TBA · "}${money}. Keep funds ready in UPI/ASBA.`, big: fmtD(b.open), acts: [["star", star ? "Starred ★" : "Star"], ["done", "Skip"], ["sheet", "Sheet"]], b });
     else if (b.status === "Closed" && (star || S.apps.some(a => a.name === b.name))) P.push({ id: "allot:" + b.name, pri: 4, tag: ["ok", "Lists " + rel(days(b.listing))], lbl: "Allotment", ttl: `Check ${b.name} allotment`, desc: `Lists ${fmtDY(b.listing)}${g != null ? ` · expected ${sgn(g)} per lot at GMP ${inr(b.gmp)}` : ""}.`, big: fmtD(b.listing), acts: [["done", "Checked"]], b });
   });
@@ -283,12 +283,43 @@ const evTxt = s => !s || !s.n ? "no past cases in this band" : `${Math.round(s.p
 const evShort = s => !s || !s.n ? "no past cases" : `${Math.round(s.pos)}% of ${s.n} up <span title="95% range: with ${s.n} cases the true rate could be anywhere in here">(${Math.round(s.lo)}–${Math.round(s.hi)}%)</span> · median ${pct(s.med, true)}${s.n < (EVD().minN || 30) ? " · thin" : ""}`;
 const evLong = s => !s || !s.n ? "no past cases" : `${evTxt(s)} · 1 in 10 did worse than ${pct(s.p10, true)}, 1 in 10 better than ${pct(s.p90, true)}`;
 const istNow = () => new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000);
+/* ---- the market clock: the page reads the IST clock against the dates it already has (the collector's Open / Closed
+   status is untouched; a row flips to Closed on the next run). IPO bidding on the exchange platform is 10:00–17:00 IST
+   on weekdays; exchange holidays the page does not know read as weekdays. One helper feeds the tape pill, the Today
+   tag, the Board "When" and the planner, so "closes today, 5 pm" never outlives 5 pm. */
+const BID_OPEN = 10, BID_CLOSE = 17;
+function clock() {
+  const n = istNow(), h = n.getHours() + n.getMinutes() / 60, wd = n.getDay(), weekend = wd === 0 || wd === 6;
+  const phase = weekend ? "weekend" : h < BID_OPEN ? "pre" : h < BID_CLOSE ? "open" : "after";
+  const left = Math.max(0, Math.round((BID_CLOSE - h) * 60));                                  // minutes to 5 pm, while open
+  const nextOpen = weekend ? "Mon 10 am" : phase === "after" ? (wd === 5 ? "Mon 10 am" : "tomorrow 10 am") : "10 am";
+  return { h, wd, weekend, phase, left, nextOpen };
+}
+const fmtLeft = m => m >= 60 ? `${Math.floor(m / 60)} h${m % 60 ? " " + (m % 60) + " min" : ""}` : `${m} min`;
+const clockKey = () => { const c = clock(); return c.phase + (c.phase === "open" && c.left <= 120 ? ":" + c.left : ""); };
+// for an Open row: the Today tag [class, label], the Board "When" html, the planner pill [class, label]; null when not Open
+function bidWord(b) {
+  if (b.status !== "Open") return null;
+  const c = clock(), n = days(b.close), lastDay = n === 0;
+  if (lastDay) {
+    if (c.phase === "pre") return { tag: ["soon", "Last day · opens 10 am"], when: `<b>Last day</b><div class="dt">bidding 10 am – 5 pm · QIBs bid late, the picture firms after 2 pm</div>`, plan: ["soon", "today · 10 am – 5 pm"], over: false };
+    if (c.phase === "open") { const soon = c.left <= 120; return { tag: ["now", soon ? `Closes in ${fmtLeft(c.left)}` : "Closes today · 5 pm"], when: `<b class="down">Closes today, 5 pm</b><div class="dt">${fmtLeft(c.left)} left · ${c.h >= 14 ? "the book is close to final" : "QIBs bid late — the picture firms after 2 pm"}</div>`, plan: ["now", soon ? `today · ${fmtLeft(c.left)}` : "today · 5 pm"], over: false }; }
+    return { tag: ["bid", "Closed for the day"], when: `<b>Closed for the day</b><div class="dt">bidding ended 5 pm · final book with the next run${b.allotment ? " · allotment " + fmtD(b.allotment) : ""}</div>`, plan: ["bid", "closed · 5 pm"], over: true };
+  }
+  const shut = c.phase !== "open";
+  return { tag: [n <= 1 ? "now" : "soon", "Closes " + rel(n)], when: `Closes ${fmtD(b.close)} · ${rel(n)}<div class="dt">${shut ? "bidding closed for today · reopens " + c.nextOpen : "QIBs bid on the last afternoon — early QIB figures say little"}</div>`, plan: [n <= 1 ? "now" : n <= 3 ? "soon" : "plan", rel(n)], over: false };
+}
+function marketPill() {
+  const c = clock();
+  const [cls, txt] = c.phase === "open" ? ["open", `IPO bidding open · till 5 pm`] : c.phase === "weekend" ? ["bid", "Weekend · bidding Mon 10 am"] : ["bid", `Bidding closed · opens ${c.nextOpen}`];
+  return `<span class="pill ${cls} mkt" title="IPO bidding on the exchange platform runs 10 am – 5 pm IST on weekdays (NSE trading 9:15 – 3:30). Exchange holidays the page does not know read as weekdays."><i></i>${txt}</span>`;
+}
 
 function boardRow(b) {
   const isSme = /SME/i.test(b.type), g = expGain(b), c = lotCost(b), seg = SEG(isSme), B = seg ? seg.bands : null, segLbl = isSme ? "SME" : "mainboard", W = seg ? winLbl(seg.window) : "";
-  const lastDay = b.status === "Open" && days(b.close) === 0, late = istNow().getHours() >= 14;
-  const when = b.status === "Upcoming" ? `Opens ${fmtD(b.open)}${b.close ? "–" + fmtD(b.close) : ""}`
-    : b.status === "Open" ? (lastDay ? `<b class="down">Closes today, 5 pm</b><div class="dt">${late ? "the book is close to final" : "QIBs bid late — the picture firms after 2 pm"}</div>` : `Closes ${fmtD(b.close)} · ${rel(days(b.close))}<div class="dt">QIBs bid on the last afternoon — early QIB figures say little</div>`)
+  const lastDay = b.status === "Open" && days(b.close) === 0, late = istNow().getHours() >= 14, CK = clock();
+  const when = b.status === "Upcoming" ? `Opens ${fmtD(b.open)}${b.close ? "–" + fmtD(b.close) : ""}${CK.weekend && days(b.open) <= 2 ? `<div class="dt">weekend · bidding Mon 10 am</div>` : days(b.open) === 0 && CK.phase === "pre" ? `<div class="dt">opens today, 10 am</div>` : ""}`
+    : b.status === "Open" ? bidWord(b).when
     : b.status === "Closed" ? `Allotment ${fmtD(b.allotment)}<div class="dt">lists ${fmtD(b.listing)} · ${rel(days(b.listing))}</div>` : `Listed ${fmtD(b.listing)}`;
   const band = b.bandLow != null && b.bandHigh != null && b.bandLow !== b.bandHigh ? `${inr(b.bandLow)}–${inr(b.bandHigh)}` : b.bandHigh != null ? inr(b.bandHigh) : "TBA";
   const S0 = b.sub || {}, early = b.status === "Open" && !(lastDay && late);
@@ -716,7 +747,8 @@ function drawPosCharts() {
 /* ================= TAPE ================= */
 function renderTape() {
   const t = [];
-  board.filter(b => b.status === "Open").forEach(b => t.push(`<span class="t"><b>${esc(b.name.split(" ")[0].toUpperCase())}</b><span class="${cls(b.gmpPct)} num">${pct(b.gmpPct, true)}</span><span class="dim">closes ${fmtD(b.close)}</span></span>`));
+  t.push(marketPill());
+  board.filter(b => b.status === "Open").forEach(b => { const BW = bidWord(b); t.push(`<span class="t"><b>${esc(b.name.split(" ")[0].toUpperCase())}</b><span class="${cls(b.gmpPct)} num">${pct(b.gmpPct, true)}</span><span class="dim">${BW.over ? "closed today" : days(b.close) === 0 ? "closes today" : "closes " + fmtD(b.close)}</span></span>`); });
   board.filter(b => b.status === "Closed").slice(0, 2).forEach(b => t.push(`<span class="t"><b>${esc(b.name.split(" ")[0].toUpperCase())}</b><span class="${cls(b.gmpPct)} num">${pct(b.gmpPct, true)}</span><span class="dim">lists ${fmtD(b.listing)}</span></span>`));
   const F = DATA.flows && DATA.flows.latest; if (F) t.push(`<span class="t"><b>FII</b><span class="${cls(F.fiiNetCr)} num">${sgn(F.fiiNetCr)}</span><b>DII</b><span class="${cls(F.diiNetCr)} num">${sgn(F.diiNetCr)}</span><span class="dim">${fmtD(F.date)}</span></span>`);
   const rec = live.filter(q => q.recordDate).sort((a, b) => a.recordDate.localeCompare(b.recordDate))[0];
@@ -864,6 +896,8 @@ function liveText() { const el = $("#liveTxt"); if (!el) return; const mins = (D
   const lv = LIVE && LIVE.asOf && (Date.now() - new Date(LIVE.asOf)) < 20 * 60000;
   el.textContent = (mins > 36 * 60 ? "Stale · " : "Live · ") + (lv ? "book " + ago(LIVE.asOf) + " · full run " + ago(DATA.meta.asOf) : "updated " + ago(DATA.meta.asOf)) + (nx ? " · next " + nx + " IST" : ""); el.parentElement.classList.toggle("stale", mins > 36 * 60); }
 setInterval(() => { liveText(); renderStamps(); }, 30000);
+let clockWas = clockKey();                                   // the market clock: repaint only when a phrase would change
+setInterval(() => { const k = clockKey(); if (k !== clockWas) { clockWas = k; renderAll(); } }, 60000);
 const savedTab = store.get("ipo-tab", "today");
 if (!followHash(location.hash, true)) show(["today", "pipe", "board", "market", "research", "book", "score"].includes(savedTab) ? savedTab : "today");   // links.js: a deep link wins this load (its name lands after the first update)
 

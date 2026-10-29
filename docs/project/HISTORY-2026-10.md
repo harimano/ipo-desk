@@ -386,3 +386,15 @@ the repo on purpose, grepped case-insensitively across the whole built `_site` (
 the repository source and the research sheets. Zero hits in all three. With that, every item of the friends-launch
 plan is built, merged and verified, and the drill ping of a failed collect run reached Hari's phone.
 
+### 29 Oct, night — the market clock
+
+Hari, at 9 pm: "if it's night and listings are closed it should say closed for the day, not closes today 5 pm — it's
+already gone." The page knew only dates; the collector's Open status flips on the next run. Mocked (a tape pill in three
+states; the same card at four moments of the last day) and approved. One helper reads the IST clock against the row's
+dates: before 10 am "Last day · opens 10 am", open "Closes today · 5 pm" then "Closes in 1 h 10 min" inside two hours,
+after 5 pm "Closed for the day · bidding ended 5 pm · final book with the next run"; a non-last day after hours says
+"bidding closed for today · reopens 10 am"; weekends say so. The tape opens with the pill. Collector untouched;
+holidays the page does not know read as weekdays. Verified by pinning Date.now in the preview to 08:30, 15:50, 21:15
+and a Saturday. First build crashed the whole page with "Identifier W has already been declared": the planner's row
+function already had a `W`; renamed. The rule stands: a new const in a 900-line closure gets a name nobody else used.
+
