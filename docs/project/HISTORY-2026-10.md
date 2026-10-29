@@ -243,3 +243,9 @@ the queue card's one-column rule sat before the base `.q` rules and lost, so tit
 Testing without Node (none on the Mac): `scripts/preview.py` serves `_site` with an in-memory `/api` keyed by a dev
 cookie (`/dev/as/<email>`); `ops/site-worker/test/cases.mjs` signs real RS256 tokens with WebCrypto against a stubbed
 certs URL and an in-memory D1 — 32 cases, run in the browser (`harness.html`) and by `node --test` in `ci.yml`.
+That grid was "by far the worst design, so unusable": four narrow columns, every line wrapping. Redone as tables —
+one line per run, module, change and visitor, columns aligned, ellipsis with the full text on hover — in two wide
+rows (Runs | Freshness; diff | audit | Visitors) and a short third (smoke test, security, links), six tiles above
+with a Readers count. Shown as a screenshot and approved before the push. Lesson: a dashboard is tables, not cards
+of prose; and show the picture first.
+
