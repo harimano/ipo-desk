@@ -1,10 +1,8 @@
 /* ================= ADMIN — /admin, served to ADMIN_EMAIL only (ops/site-worker/worker.js) =================
    Reads: audit.json (scripts/audit.py, written by site/build.py from the same document the page shows),
-   runs.json (deploy.yml's snapshot of GitHub's run list, taken with the Actions token), data/meta.json (the
-   document's asOf), raw live.json from the live branch, GitHub's public API (only to freshen the run list — the
-   repo is public, 60 calls an hour per address, never the only source), /admin/me.json and /admin/visitors.json
-   (the Worker's own view of the gate and its ledger). Everything here is "time since" and rendering; the facts
-   come from the audit and the Worker. Every list is a table: one line per record, columns aligned.                */
+   data/meta.json (the document's asOf), GitHub's public API (runs; the live branch's last commit — the repo is
+   public, no token, 60 calls an hour per IP, a visit costs about four), /admin/me.json (the Worker's own view
+   of the gate). Everything here is "time since" and rendering; the facts come from the audit.                     */
 (function () {
 "use strict";
 const $ = (s, r) => (r || document).querySelector(s);
@@ -14,10 +12,8 @@ const IST = 330;
 const nowIST = () => new Date(Date.now() + (IST + new Date().getTimezoneOffset()) * 60000);   // wall clock in IST
 const pad = n => String(n).padStart(2, "0");
 const hhmm = d => pad(d.getHours()) + ":" + pad(d.getMinutes());
-const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const toIST = iso => { const d = new Date(iso); return isNaN(d) ? null : new Date(d.getTime() + (IST + d.getTimezoneOffset()) * 60000); };
-const fmtIST = iso => { const d = toIST(iso); return d ? `${d.getDate()} ${MON[d.getMonth()]} ${hhmm(d)}` : "—"; };
-const dayIST = iso => { const d = toIST(iso); return d ? `${d.getDate()} ${MON[d.getMonth()]}` : "—"; };
+const fmtIST = iso => { const d = toIST(iso); return d ? d.getDate() + " " + ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][d.getMonth()] + " " + hhmm(d) : "—"; };
 const ago = iso => {
   const t = new Date(iso).getTime(); if (isNaN(t)) return "";
   const m = Math.round((Date.now() - t) / 60000);
@@ -25,12 +21,9 @@ const ago = iso => {
 };
 const minsAgo = iso => (Date.now() - new Date(iso).getTime()) / 60000;
 const pill = (lvl, txt) => `<span class="pill ${lvl}">${esc(txt)}</span>`;
+const row = (k, v, p, sub) => `<div class="row"><span class="k">${esc(k)}</span><span class="v">${v}${sub ? `<small>${sub}</small>` : ""}</span>${p || ""}</div>`;
 const LVL = { ok: "ok", warn: "warn", bad: "bad", known: "known" };
-const tile = (id, val, lvl, sub) => { const t = $(id); t.className = "tile " + (lvl || ""); $(".val", t).textContent = val; $(".dt", t).innerHTML = sub || ""; $(".dt", t).title = $(".dt", t).textContent; };
-const td = (html, cls, title) => `<td${cls ? ` class="${cls}"` : ""}${title ? ` title="${esc(title)}"` : ""}>${html}</td>`;
-const table = (heads, rows) => rows.length ? `<table class="t"><thead><tr>${heads.map(h => `<th${h.endsWith("|n") ? ' class="n"' : h.endsWith("|fit") ? ' class="fit"' : ""}>${esc(h.split("|")[0])}</th>`).join("")}</tr></thead><tbody>${rows.join("")}</tbody></table>` : "";
-const empty = txt => `<div class="empty">${txt}</div>`;
-const note = txt => `<div class="note">${txt}</div>`;
+const tile = (id, val, lvl, sub) => { const t = $(id); t.className = "tile " + (lvl || ""); $(".val", t).textContent = val; $(".dt", t).innerHTML = sub || ""; };
 
 async function getJson(url, opts) {
   const ctl = new AbortController(); const tm = setTimeout(() => ctl.abort(), 15000);
@@ -42,7 +35,8 @@ async function getJson(url, opts) {
       throw new Error("HTTP " + r.status);
     }
     return await r.json();
-  } finally { clearTimeout(tm); }
+  }
+  finally { clearTimeout(tm); }
 }
 
 /* ---------- what "fresh" means, from collect.yml / live.yml's crons (IST) ---------- */
@@ -55,84 +49,74 @@ function docExpectation(asOf) {
 function liveExpectation(asOf) {
   const n = nowIST(), wd = n.getDay() % 6 !== 0, m = n.getHours() * 60 + n.getMinutes();
   const open = wd && m >= 9 * 60 && m <= 17 * 60 + 40;
-  if (!open) return ["ok", "market closed · runs 08:55–17:40 IST on weekdays"];
+  if (!open) return ["ok", "market closed · the loop runs 08:55–17:40 IST on weekdays"];
   const age = minsAgo(asOf);
   return age > 20 ? ["bad", "the five-minute loop has not written for " + Math.round(age) + " min"] : age > 9 ? ["warn", "loop late"] : ["ok", "writing every five minutes"];
 }
 
-/* ---------- the verdict line: the audit's items first; runs, the live loop and the smoke test add theirs ---------- */
-const ORDER = { bad: 0, warn: 1, ok: 2 };
-function setTitle() {
-  const n = $("#vList").children.length, l = $("#verdict").className;
-  $("#vTitle").textContent = l === "ok" ? "Nothing needs you." : l === "bad" ? (n > 1 ? `${n} things need a look.` : "One thing needs a look.") : (n > 1 ? `${n} things are worth a look.` : "One thing is worth a look.");
-}
-function addVerdict(level, text, where) {
-  const vb = $("#verdict");
-  if (ORDER[level] < (ORDER[vb.className] ?? 9)) vb.className = level;
-  $("#vList").insertAdjacentHTML("beforeend", `<li>${pill(level, level)} ${esc(text)} <a href="#${esc(where)}" class="mu">→ ${esc(where)}</a></li>`);
-  setTitle();
-}
-
-/* ---------- the audit (scripts/audit.py): verdict, modules, diff, audit ---------- */
+/* ---------- the audit (scripts/audit.py) ---------- */
+let AUDIT = null;
 function renderAudit(a) {
   const v = a.verdict || { level: "ok", items: [] };
-  $("#verdict").className = v.level;
+  const vb = $("#verdict"); vb.className = v.level;
+  $("#vTitle").textContent = v.level === "ok" ? "Nothing needs you." : v.level === "bad" ? `${v.items.length} thing${v.items.length > 1 ? "s" : ""} need a look.` : `${v.items.length} thing${v.items.length > 1 ? "s are" : " is"} worth a look.`;
   $("#vList").innerHTML = v.items.map(i => `<li>${pill(i.level, i.level)} ${esc(i.text)} <a href="#${esc(i.where)}" class="mu">→ ${esc(i.where)}</a></li>`).join("");
-  setTitle();
   const b = a.doc.boards || {}, cnt = s => Object.entries(b[s] || {}).map(([k, n]) => `${n} ${k.toLowerCase()}`).join(", ");
   $("#vSub").textContent = `Document ${a.doc.label || a.doc.asOf} · mainboard ${cnt("mainboard") || "empty"} · SME ${cnt("sme") || "empty"} · ${(a.doc.bytesCompact / 1048576).toFixed(2)} MB of ${(a.doc.capBytes / 1048576).toFixed(0)} MB cap · audit built ${fmtIST(a.generated)} IST`;
 
-  // modules: one line each
+  // modules
   const mods = a.modules || [];
-  $("#modules").innerHTML = mods.length ? table(["module", "source", "when|fit", "note", "|fit"], mods.map(m => {
-    const when = m.asOf ? (m.asOf.length > 10 ? ago(m.asOf) : dayIST(m.asOf)) : (m.asOfRaw ? esc(m.asOfRaw) : "");
+  $("#modules").innerHTML = mods.length ? mods.map(m => {
+    const when = m.asOf ? `${fmtIST(m.asOf)}${m.asOf.length > 10 ? " · " + ago(m.asOf) : ""}` : (m.asOfRaw ? "stamped " + esc(m.asOfRaw) : "");
     const txt = m.level === "known" ? "known gap" : m.level === "warn" ? "fallback" : m.status;
-    return `<tr>${td(esc(m.area), "k")}${td(esc(m.method) + (m.carried ? ' <span class="mu">· carried</span>' : ""), "", m.method)}${td(esc(when), "fit mu", m.asOfRaw || "")}${td(esc(m.note || m.known || ""), "mu", (m.note || "") + (m.known ? "\n" + m.known : ""))}${td(pill(LVL[m.level] || "nt", txt), "fit")}</tr>`;
-  })) : empty("No integrity checks in the document.");
+    const note = m.note.length > 150 ? `<span title="${esc(m.note)}">${esc(m.note.slice(0, 150))}…</span>` : esc(m.note);
+    return row(m.area, `${esc(m.method)}${m.carried ? " <span class='mu'>· carried from an earlier run</span>" : ""}`, pill(LVL[m.level] || "nt", txt),
+      esc(when) + (when && note ? " · " : "") + note + (m.known ? `<br>${esc(m.known)}` : ""));
+  }).join("") : `<div class="empty">No integrity checks in the document.</div>`;
 
-  // diff: what | detail | change
+  // diff
   const d = a.diff || {};
-  $("#diffSub").textContent = d.prevAsOf ? `previous: ${fmtIST(d.prevAsOf)} IST` : "no earlier document to compare";
-  const rows = [];
+  $("#diffSub").textContent = d.prevAsOf ? `previous: ${fmtIST(d.prevAsOf)} IST (data/history)` : "no earlier document to compare";
+  const parts = [];
   for (const [bd, x] of Object.entries(d.boards || {})) {
     const bits = [];
-    if (x.added.length) bits.push(`+${x.added.length} new: ${x.added.join(", ")}`);
-    if (x.retired.length) bits.push(`−${x.retired.length} retired on schedule: ${x.retired.join(", ")}`);
-    if (x.vanished.length) bits.push(`−${x.vanished.length} LEFT EARLY: ${x.vanished.join(", ")}`);
-    rows.push(`<tr>${td(esc(bd), "k fit")}${td(esc(bits.join(" · ") || "no rows in or out"), bits.length ? "" : "mu", bits.join("\n"))}${td(pill(x.vanished.length ? "bad" : "nt", `${x.prev} → ${x.now}`), "fit")}</tr>`);
+    if (x.added.length) bits.push(`+${x.added.length} new: ${esc(x.added.join(", "))}`);
+    if (x.retired.length) bits.push(`−${x.retired.length} retired on schedule: ${esc(x.retired.join(", "))}`);
+    if (x.vanished.length) bits.push(`<b>−${x.vanished.length} left early: ${esc(x.vanished.join(", "))}</b>`);
+    parts.push(row(bd, bits.join("<br>") || "<span class='mu'>no rows in or out</span>", pill(x.vanished.length ? "bad" : "nt", `${x.prev} → ${x.now}`)));
   }
-  for (const s of d.statusMoves || []) rows.push(`<tr>${td("status", "k fit")}${td(esc(s.name), "", s.name)}${td(`<span class="mu">${esc(s.from)} →</span> ${esc(s.to)}`, "fit")}</tr>`);
-  for (const s of d.sourceSwitches || []) rows.push(`<tr>${td("source", "k fit")}${td(`${esc(s.area)}: <span class="mu">${esc(s.from)} →</span> ${esc(s.to)}`, "", `${s.from} → ${s.to}`)}${td(pill("warn", "switched"), "fit")}</tr>`);
+  if ((d.statusMoves || []).length) parts.push(row("status", d.statusMoves.map(s => `${esc(s.name)} <span class='mu'>${esc(s.from)} →</span> ${esc(s.to)}`).join("<br>"), pill("nt", d.statusMoves.length + " moved")));
+  if ((d.sourceSwitches || []).length) parts.push(row("sources", d.sourceSwitches.map(s => `${esc(s.area)}: <span class='mu'>${esc(s.from)} →</span> ${esc(s.to)}`).join("<br>"), pill("warn", "switched")));
   const w = d.warnings || {};
-  for (const c of w.added || []) rows.push(`<tr>${td("warning", "k fit")}${td(esc(c))}${td(pill("nt", "new"), "fit")}</tr>`);
-  for (const c of w.removed || []) rows.push(`<tr>${td("warning", "k fit")}${td(esc(c))}${td(pill("nt", "gone"), "fit")}</tr>`);
-  for (const [k, [p, n]] of Object.entries(d.counts || {})) if (p !== n) rows.push(`<tr>${td("count", "k fit")}${td(esc(k))}${td(`<span class="mu">${p} →</span> ${n}`, "fit n")}</tr>`);
-  $("#diff").innerHTML = rows.length ? table(["what|fit", "detail", "change|fit"], rows) : empty("Nothing moved.");
+  if ((w.added || []).length || (w.removed || []).length) parts.push(row("warnings", `${w.added.length ? "+ " + esc(w.added.join(", ")) : ""}${w.added.length && w.removed.length ? "<br>" : ""}${w.removed.length ? "− " + esc(w.removed.join(", ")) : ""}`, pill("nt", "changed")));
+  const moved = Object.entries(d.counts || {}).filter(([, [p, n]]) => p !== n);
+  if (moved.length) parts.push(row("counts", moved.map(([k, [p, n]]) => `${esc(k)} <span class='mu'>${p} →</span> ${n}`).join(" · "), ""));
+  $("#diff").innerHTML = parts.join("") || `<div class="empty">Nothing moved.</div>`;
 
-  // audit: check | rows | n
+  // audit
   const au = a.audit || [], extra = [];
-  const arow = (k, items, p, lvl) => `<tr>${td(esc(k), "k fit")}${td(esc(items.join(", ")), "", items.join("\n"))}${td(pill(lvl, p), "fit")}</tr>`;
-  const main_ = au.map(f => arow(f.check, f.rows, f.rows.length, f.level));
-  if ((a.unresolved || []).length) extra.push(arow("unresolved", a.unresolved, a.unresolved.length, "warn"));
-  if ((a.warnings || []).length) extra.push(arow("evidence warnings", a.warnings.map(x => x.code), a.warnings.length, "nt"));
-  if ((a.awaiting || []).length) extra.push(arow("awaiting data", a.awaiting, a.awaiting.length, "nt"));
-  if ((a.discrepancies || []).length) extra.push(arow("discrepancies", a.discrepancies.slice(-8).map(x => typeof x === "string" ? x : JSON.stringify(x)), a.discrepancies.length, "nt"));
-  $("#audit").innerHTML = (main_.length ? "" : note(`${pill("ok", "clean")} every board row passes the soft checks`))
-    + table(["check|fit", "rows", "|fit"], main_.concat(extra.map((r, i) => i === 0 ? r.replace("<tr>", '<tr class="sep">') : r)));
+  if ((a.warnings || []).length) extra.push(row("evidence warnings", a.warnings.map(x => `<b>${esc(x.code)}</b> ${esc(x.text)}`).join("<br>"), pill("nt", a.warnings.length), "shown on the page's Scoreboard too"));
+  if ((a.unresolved || []).length) extra.push(row("unresolved", a.unresolved.map(esc).join("<br>"), pill("warn", a.unresolved.length), "meta.unresolved — what a module could not settle"));
+  if ((a.awaiting || []).length) extra.push(row("awaiting data", esc(a.awaiting.join(", ")), pill("nt", a.awaiting.length), "expected issues with no record yet"));
+  if ((a.discrepancies || []).length) extra.push(row("discrepancies", a.discrepancies.slice(-8).map(x => esc(typeof x === "string" ? x : JSON.stringify(x))).join("<br>"), pill("nt", a.discrepancies.length), "integrity.discrepancies — where two sources disagreed"));
+  $("#audit").innerHTML = (au.length ? au.map(f => row(f.check, f.rows.map(esc).join("<br>"), pill(f.level, f.rows.length))).join("")
+    : `<div class="row"><span class="k">rows</span><span class="v">Every board row passes the soft checks.</span>${pill("ok", "clean")}</div>`)
+    + (extra.length ? `<details><summary>Also in the document (${extra.length})</summary>${extra.join("")}</details>` : "");
 }
 
-/* ---------- runs: deploy.yml's snapshot first, GitHub's own list when it answers ---------- */
-function runRow(r, prev) {
+/* ---------- GitHub: runs and the live branch ---------- */
+function runRow(r) {
   const started = r.run_started_at || r.created_at, secs = Math.round((new Date(r.updated_at) - new Date(started)) / 1000);
-  const how = r.event === "schedule" ? "cron" : r.event === "workflow_dispatch" ? "dispatched" : r.event;
+  const how = r.event === "schedule" ? "cron (the fallback clock)" : r.event === "workflow_dispatch" ? "dispatched" : r.event;
   const lvl = r.status !== "completed" ? "nt" : r.conclusion === "success" ? "ok" : r.conclusion === "cancelled" ? "nt" : "bad";
   const txt = r.status !== "completed" ? r.status.replace("_", " ") : r.conclusion;
-  const d = toIST(started), day = dayIST(started), newDay = prev && dayIST(prev.run_started_at || prev.created_at) !== day;
-  return `<tr${newDay ? ' class="sep"' : ""}>${td(`${!prev || newDay ? day + " " : ""}${hhmm(d)}`, "k fit")}${td(`<a href="${esc(r.html_url)}" target="_blank" rel="noopener">${esc(r.name)}</a>`, "fit")}${td(esc(r.display_title === r.name ? "" : r.display_title || ""), "mu", r.display_title)}${td(esc(how), "fit mu")}${td(secs + "s", "fit n mu")}${td(pill(lvl, txt), "fit")}</tr>`;
+  return row(`${hhmm(toIST(started))} ${r.name}`, `<a href="${esc(r.html_url)}" target="_blank" rel="noopener">${esc(r.display_title || r.name)}</a> <span class="mu">· ${esc(how)} · ${secs}s${r.run_attempt > 1 ? " · attempt " + r.run_attempt : ""}</span>`, pill(lvl, txt));
 }
 function paintRuns(runs, source) {
-  $("#runsSrc").textContent = source;
-  $("#runs").innerHTML = runs.length ? table(["when|fit", "workflow|fit", "commit", "how|fit", "took|n", "|fit"], runs.map((r, i) => runRow(r, runs[i - 1]))) : empty("No runs.");
+  const byDay = {};
+  for (const r of runs) { const d = toIST(r.run_started_at || r.created_at); const k = `${d.getDate()} ${["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][d.getMonth()]}`; (byDay[k] = byDay[k] || []).push(r); }
+  $("#runs").innerHTML = `<div class="dt" id="runsSrc" style="padding:4px 0 6px">${source}</div>`
+    + (Object.entries(byDay).map(([day, rs], i) => (i === 0 ? rs.map(runRow).join("") : `<details><summary>${esc(day)} · ${rs.length} runs${rs.some(r => r.conclusion && r.conclusion !== "success" && r.conclusion !== "cancelled") ? " · " + pill("bad", "a failure") : ""}</summary>${rs.map(runRow).join("")}</details>`)).join("") || `<div class="empty">No runs.</div>`);
   const last = name => runs.find(r => r.name === name && r.status === "completed");
   const c = last("collect"), dp = last("deploy");
   tile("#tRun", c ? hhmm(toIST(c.run_started_at)) : "—", c ? (c.conclusion === "success" ? "ok" : "bad") : "", c ? `${esc(c.conclusion)} · ${ago(c.run_started_at)} · ${c.event === "schedule" ? "cron" : "dispatched"}` : "");
@@ -144,6 +128,10 @@ function judgeRuns(runs) {
   const crons = runs.filter(r => r.name === "collect" && r.event === "schedule").length, disp = runs.filter(r => r.name === "collect" && r.event === "workflow_dispatch").length;
   if (crons > disp) addVerdict("warn", `the trigger Worker dispatched only ${disp} of the last ${crons + disp} collects — GitHub's cron carried the rest`, "runs");
 }
+/* The run list has TWO sources. runs.json is written by deploy.yml with the Actions token (no call limit) and is as
+   fresh as the last deploy — every collect deploys, so at most one run old. GitHub's public API, called from here, is
+   fresher but limited to 60 calls an hour per address, shared with the page's own live polling: it freshens the list
+   when it can and is never the only source. */
 let SNAP = null;
 async function snapshot() { if (SNAP === null) { try { SNAP = await getJson("runs.json?t=" + Date.now(), { cache: "no-store" }); } catch (e) { SNAP = false; } } return SNAP; }
 async function renderRuns() {
@@ -151,76 +139,87 @@ async function renderRuns() {
   if (snap && snap.runs) paintRuns(snap.runs, `as of the last deploy, ${ago(snap.at)} · asking GitHub for newer…`);
   try {
     const live = (await getJson(API + "/actions/runs?per_page=40")).workflow_runs || [];
-    paintRuns(live, "live from GitHub Actions, newest first"); judgeRuns(live);
+    paintRuns(live, "live from GitHub"); judgeRuns(live);
   } catch (e) {
     if (snap && snap.runs) { judgeRuns(snap.runs); $("#runsSrc").textContent = `as of the last deploy, ${ago(snap.at)} · GitHub itself did not answer (${e.message})`; }
-    else { $("#runs").innerHTML = empty(`No runs.json (a local build) and GitHub did not answer (${esc(e.message)}).`); tile("#tRun", "?", "warn", "no run data"); tile("#tDeploy", "?", "warn", ""); }
+    else { $("#runs").innerHTML = `<div class="empty">No runs.json (a local build) and GitHub did not answer (${esc(e.message)}).</div>`; tile("#tRun", "?", "warn", "no run data"); tile("#tDeploy", "?", "warn", ""); }
   }
 }
+/* The live loop: live.json's own asOf, read raw from the live branch (cached up to five minutes, no call limit); the
+   deploy's snapshot of the branch's last commit is the fallback. */
 const LIVE_RAW = "https://raw.githubusercontent.com/harimano/ipo-desk/live/live.json";
 async function renderLive() {
-  let asOf = null, from = "";
+  let asOf = null, note = "";
   try { asOf = (await getJson(LIVE_RAW)).asOf; }
-  catch (e) { const snap = await snapshot(); if (snap && snap.live) { asOf = snap.live.asOf; from = " · from the last deploy's snapshot"; } }
+  catch (e) { const snap = await snapshot(); if (snap && snap.live) { asOf = snap.live.asOf; note = " · from the last deploy's snapshot"; } }
   if (!asOf) { tile("#tLive", "?", "warn", "could not read live.json"); return; }
   const [lvl, why] = liveExpectation(asOf);
-  tile("#tLive", hhmm(toIST(asOf)), lvl, `${ago(asOf)} · ${esc(why)}${from}`);
+  tile("#tLive", hhmm(toIST(asOf)), lvl, `${ago(asOf)} · ${esc(why)}${note}`);
   if (lvl === "bad") addVerdict("bad", why, "runs");
+}
+
+/* ---------- the verdict can grow after the audit: runs and the live loop are read here, not by audit.py ---------- */
+const ORDER = { bad: 0, warn: 1, ok: 2 };
+function addVerdict(level, text, where) {
+  const vb = $("#verdict"), cur = vb.className;
+  if (ORDER[level] < (ORDER[cur] ?? 9)) { vb.className = level; }
+  $("#vList").insertAdjacentHTML("beforeend", `<li>${pill(level, level)} ${esc(text)} <a href="#${esc(where)}" class="mu">→ ${esc(where)}</a></li>`);
+  const n = $("#vList").children.length, l = vb.className;
+  $("#vTitle").textContent = l === "ok" ? "Nothing needs you." : l === "bad" ? `${n} thing${n > 1 ? "s" : ""} need a look.` : `${n} thing${n > 1 ? "s are" : " is"} worth a look.`;
 }
 
 /* ---------- security: what this browser is actually served ---------- */
 async function renderSecurity() {
-  const rows = [];
-  const srow = (k, v, p, title) => `<tr>${td(esc(k), "k fit")}${td(v, "", title || "")}${td(p, "fit")}</tr>`;
+  const out = [];
   let me = null;
   try { me = await getJson("/admin/me.json", { cache: "no-store" }); } catch (e) { me = { error: e.message }; }
-  const local = location.hostname === "localhost" || location.hostname.startsWith("127.");
   if (me && !me.error) {
     $("#who").textContent = me.email || "";
-    rows.push(srow("gate", `Access on ${esc(me.team || "?")} · JWT re-verified by the Worker on every request`, pill("ok", "on"), me.team));
-    rows.push(srow("/admin", me.adminEmailSet ? "served only to ADMIN_EMAIL; everyone else gets 403" : "ADMIN_EMAIL is not set — /admin answers 404 to everyone", pill(me.adminEmailSet ? "ok" : "bad", me.adminEmailSet ? "gated" : "unset")));
+    out.push(row("access", `team ${esc(me.team || "?")} · you are ${esc(me.email || "?")} · JWT re-verified by the Worker on every request`, pill("ok", "on")));
+    out.push(row("/admin", me.adminEmailSet ? "served only to ADMIN_EMAIL; everyone else gets 403" : "<b>ADMIN_EMAIL is not set — /admin answers 404 to everyone, including you</b>", pill(me.adminEmailSet ? "ok" : "bad", me.adminEmailSet ? "gated" : "unset")));
   } else {
-    rows.push(srow("gate", `no gate answered (${esc(me.error)}) — ${local ? "a local preview" : "the Worker is not in front"}`, pill(local ? "nt" : "bad", local ? "local" : "open?")));
+    out.push(row("access", `no gate answered (${esc(me.error)}) — a local preview, or the Worker is not in front`, pill(location.hostname === "localhost" || location.hostname === "127.0.0.1" ? "nt" : "bad", location.hostname.startsWith("127.") || location.hostname === "localhost" ? "local" : "open?")));
   }
   try {
     const r = await fetch("/", { method: "HEAD", cache: "no-store" });
     const want = { "x-robots-tag": "noindex", "referrer-policy": "no-referrer", "x-content-type-options": "nosniff" };
     const got = Object.entries(want).map(([h, v]) => [h, (r.headers.get(h) || "").includes(v)]);
-    rows.push(srow("headers on /", got.map(([h, ok]) => `${ok ? "✓" : "✗"} ${esc(h)}`).join(" · "), pill(got.every(([, ok]) => ok) ? "ok" : local ? "nt" : "warn", `${got.filter(([, ok]) => ok).length}/${got.length}`), "set by the Worker; a local preview has none"));
-  } catch (e) { rows.push(srow("headers on /", esc(e.message), pill("warn", "?"))); }
-  rows.push(srow("repo", "public by choice · the document lives on the data branch · the Book never leaves the browser · secrets are GitHub secrets", pill("nt", "note"), "ops/site-worker/README.md says why"));
-  $("#sec").innerHTML = table(["what|fit", "detail", "|fit"], rows);
+    out.push(row("headers on /", got.map(([h, ok]) => `${ok ? "✓" : "✗"} ${esc(h)}`).join(" · "), pill(got.every(([, ok]) => ok) ? "ok" : "warn", `${got.filter(([, ok]) => ok).length}/${got.length}`), "set by the Worker; a local preview has none of them"));
+  } catch (e) { out.push(row("headers on /", esc(e.message), pill("warn", "?"))); }
+  out.push(row("repo", "public by choice (ops/site-worker/README.md) · the document is on the data branch, the Book never leaves the browser · secrets are GitHub secrets, never in the repo", pill("nt", "note")));
+  $("#sec").innerHTML = out.join("");
   return me && !me.error ? me : null;
 }
 
-/* ---------- visitors: Cloudflare's Access log + the Worker's KV ledger (/admin/visitors.json) ---------- */
+/* ---------- visitors: the Worker's KV ledger (/admin/visitors.json) ---------- */
 const dayKey = iso => { const d = toIST(iso); return d ? `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}` : ""; };
 async function renderVisitors(me) {
   const box = $("#visitors");
   let v;
   try { v = await getJson("/admin/visitors.json", { cache: "no-store" }); }
-  catch (e) { box.innerHTML = empty(`No ledger answered (${esc(e.message)}) — a local preview, or the Worker is not in front.`); tile("#tVis", "?", "", "no ledger"); return; }
+  catch (e) { box.innerHTML = `<div class="empty">No ledger answered (${esc(e.message)}) — a local preview, or the Worker is not in front.</div>`; return; }
   const list = v.visitors || [], today = dayKey(new Date().toISOString()), week = Date.now() - 7 * 86400000;
   const mine = (me && me.email || "").toLowerCase();
   const todayN = list.filter(x => dayKey(x.last) === today).length, weekN = list.filter(x => Date.parse(x.last) > week).length;
   $("#visSum").textContent = list.length ? `${list.length} people · ${todayN} today · ${weekN} this week` : "";
-  tile("#tVis", String(list.length), list.length ? "ok" : "", list.length ? `${todayN} today · ${weekN} this week` : "nobody yet");
   const srcs = [];
-  if (v.accessLog && !v.accessLog.error) srcs.push(`sign-ins: Cloudflare's Access log, ${v.accessLog.records} records since the gate went up`); else srcs.push(`<b>no sign-in history</b>: ${esc(v.accessLog && v.accessLog.error || "?")}`);
-  srcs.push(v.ledger ? "loads: the Worker's ledger since 29 Oct 2026, one per person per ten minutes" : "<b>no ledger</b>: the VISITS KV binding is missing");
-  if (!list.length) { box.innerHTML = empty("Nobody recorded yet.") + note(srcs.join(" · ")); return; }
-  box.innerHTML = table(["who", "first|fit", "last|fit", "sign-ins|n", "loads|n", "|fit"], list.map(x => {
-    const flags = [x.country, x.failed ? `${x.failed} failed` : "", x.admin && x.email !== mine ? "tried /admin" : ""].filter(Boolean).join(" · ");
-    return `<tr>${td(x.email === mine ? "<b>you</b>" : esc(x.email), "who", x.email)}${td(dayIST(x.first), "fit mu")}${td(`${fmtIST(x.last)} <span class="mu">${ago(x.last)}</span>`, "fit")}${td(String(x.signins), "n")}${td(String(x.loads), "n")}${td(flags ? pill(x.failed ? "warn" : "nt", flags) : "", "fit")}</tr>`;
-  })) + note(srcs.join(" · "));
+  srcs.push(v.accessLog && !v.accessLog.error ? `sign-ins from Cloudflare's Access log (${v.accessLog.records} records, since the gate went up)` : `<b>no sign-in history</b>: ${esc(v.accessLog && v.accessLog.error || "?")}`);
+  srcs.push(v.ledger ? "page loads from the Worker's ledger (since 29 Oct 2026)" : "<b>no ledger</b>: the VISITS KV binding is missing");
+  const head = `<div class="dt" style="padding:2px 0 8px">${srcs.join(" · ")}</div>`;
+  if (!list.length) { box.innerHTML = head + `<div class="empty">Nobody recorded yet.</div>`; return; }
+  box.innerHTML = head
+    + `<div class="row" style="border-top:0"><span class="k mu">who</span><span class="v mu">first seen · last seen</span><span class="mu">sign-ins · loads</span></div>`
+    + list.map(x => row(x.email === mine ? "you" : x.email,
+        `${fmtIST(x.first)} · <b>${fmtIST(x.last)}</b> <span class="mu">${ago(x.last)}${x.country ? " · " + esc(x.country) : ""}${x.failed ? ` · ${x.failed} failed attempt${x.failed > 1 ? "s" : ""}` : ""}${x.admin && x.email !== mine ? " · tried /admin" : ""}</span>`,
+        `${pill(x.failed ? "warn" : dayKey(x.last) === today ? "ok" : "nt", x.signins)} ${pill("nt", x.loads)}`)).join("")
+    + `<div class="dt" style="padding-top:8px">Sign-ins = email codes completed at the gate (Access remembers a person a month, so a regular reader signs in rarely). Loads = page opens the Worker saw, at most one every ten minutes a person. Someone who got the link and never finished the code shows only as failed attempts, if at all.</div>`;
 }
 
 /* ---------- the smoke test: the page in a hidden same-origin frame, every tab, every sheet ---------- */
 const TAP = `<script>window.__smoke={errors:[]};addEventListener("error",e=>__smoke.errors.push(String(e.message||e)));addEventListener("unhandledrejection",e=>__smoke.errors.push("rejection: "+String(e.reason&&e.reason.message||e.reason)));const _ce=console.error.bind(console);console.error=(...a)=>{__smoke.errors.push(a.map(String).join(" "));_ce(...a)};<\/script>`;
 async function smoke() {
-  const btn = $("#smoke"), out = $("#smokeOut"), fr = $("#frame"); btn.disabled = true; out.innerHTML = empty("Loading the page…"); tile("#tPage", "…", "", "running");
-  const t0 = performance.now(), rows = [];
-  const srow = (k, v, p) => `<tr>${td(esc(k), "k fit")}${td(v, "w")}${td(p, "fit")}</tr>`;
+  const btn = $("#smoke"), out = $("#smokeOut"), fr = $("#frame"); btn.disabled = true; out.innerHTML = `<div class="empty">Loading the page…</div>`; tile("#tPage", "…", "", "running");
+  const t0 = performance.now(), steps = [];
   try {
     const html = await (await fetch("/", { cache: "no-store" })).text();
     fr.hidden = false;
@@ -228,31 +227,29 @@ async function smoke() {
     const w = fr.contentWindow, d = fr.contentDocument;
     const until = async (f, ms) => { const t = Date.now(); while (!f() && Date.now() - t < ms) await new Promise(r => setTimeout(r, 100)); return f(); };
     const live = await until(() => w.__ipo && d.querySelectorAll("#rsel option").length > 0, 12000);
-    rows.push(srow("boot", live ? "page booted, data fetched" : "the page did not finish booting in 12 s", pill(live ? "ok" : "bad", live ? "ok" : "slow")));
+    steps.push(live ? "page booted, data fetched" : "the page did not finish booting in 12 s");
     const tabs = [...d.querySelectorAll("#nav button[data-s]")];
     for (const b of tabs) { b.click(); await new Promise(r => setTimeout(r, 60)); }
+    steps.push(`${tabs.length} tabs opened`);
     const sel = d.querySelector("#rsel"), opts = sel ? [...sel.options] : [];
     for (const o of opts) { sel.value = o.value; if (typeof sel.onchange === "function") sel.onchange(); else sel.dispatchEvent(new w.Event("change")); }
-    let liveOk = true;
-    try { if (w.__ipo && w.__ipo.live) w.__ipo.live({ asOf: new Date().toISOString(), rows: {} }); } catch (e) { liveOk = false; w.__smoke.errors.push("live(): " + e.message); }
+    steps.push(`${opts.length} Research sheets rendered`);
+    try { if (w.__ipo && w.__ipo.live) { w.__ipo.live({ asOf: new Date().toISOString(), rows: {} }); steps.push("live overlay called"); } } catch (e) { w.__smoke.errors.push("live(): " + e.message); }
     const errs = (w.__smoke && w.__smoke.errors) || [];
-    rows.push(srow("tabs", `${tabs.length} opened`, pill(tabs.length === 7 ? "ok" : "warn", tabs.length)));
-    rows.push(srow("sheets", `${opts.length} Research sheets rendered`, pill(opts.length ? "ok" : "warn", opts.length)));
-    rows.push(srow("live()", liveOk ? "overlay called" : "threw", pill(liveOk ? "ok" : "bad", liveOk ? "ok" : "error")));
     const meta = await getJson("/data/meta.json?t=" + Date.now(), { cache: "no-store" });
     const files = Object.entries(meta.files || {});
-    const heads = await Promise.all(files.map(([n, f]) => fetch(`/data/${n}.json?h=${f.hash}`, { method: "HEAD" }).then(r => [n, r.ok])));
+    const heads = await Promise.all(files.map(([n, f]) => fetch(`/data/${n}.json?h=${f.hash}`, { method: "HEAD" }).then(r => [n, r.ok, r.headers.get("content-length")])));
     const badParts = heads.filter(([, ok]) => !ok);
-    rows.push(srow("data parts", `${files.length} answer${badParts.length ? ", MISSING: " + badParts.map(x => x[0]).join(", ") : ""}`, pill(badParts.length ? "bad" : "ok", files.length - badParts.length + "/" + files.length)));
-    rows.push(srow("chart.js", w.Chart ? "loaded " + esc(w.Chart.version) : "not loaded", pill(w.Chart ? "ok" : "bad", w.Chart ? "ok" : "missing")));
-    rows.push(srow("console", errs.length ? errs.slice(0, 20).map(esc).join("<br>") : "no errors", pill(errs.length ? "bad" : "ok", errs.length)));
+    steps.push(`${files.length} data parts answer${badParts.length ? ", MISSING: " + badParts.map(x => x[0]).join(", ") : ""}`);
     const secs = ((performance.now() - t0) / 1000).toFixed(1);
     const lvl = errs.length || badParts.length || !live ? "bad" : "ok";
-    out.innerHTML = table(["check|fit", "result", "|fit"], rows) + note(`${secs} s · ${new Date().toLocaleTimeString()}`);
+    out.innerHTML = row("result", steps.map(esc).join(" · "), pill(lvl, lvl === "ok" ? "clean" : "errors"), `${secs} s · ${new Date().toLocaleTimeString()}`)
+      + (errs.length ? row("console errors", errs.slice(0, 20).map(esc).join("<br>"), pill("bad", errs.length)) : "")
+      + row("chart.js", (w.Chart ? "loaded " + esc(w.Chart.version) : "<b>not loaded</b>"), pill(w.Chart ? "ok" : "bad", w.Chart ? "ok" : "missing"), "pinned with an integrity hash in site/build.py");
     tile("#tPage", lvl === "ok" ? "clean" : `${errs.length || "!"} errors`, lvl, `${tabs.length} tabs · ${opts.length} sheets · ${secs} s`);
     if (lvl !== "ok") addVerdict("bad", `the page smoke test found ${errs.length} console error${errs.length === 1 ? "" : "s"}${badParts.length ? " and missing data parts" : ""}`, "smokeOut");
   } catch (e) {
-    out.innerHTML = table(["check|fit", "result", "|fit"], [srow("result", esc(e.message), pill("bad", "failed"))]); tile("#tPage", "failed", "bad", esc(e.message));
+    out.innerHTML = row("result", esc(e.message), pill("bad", "failed")); tile("#tPage", "failed", "bad", esc(e.message));
   } finally { btn.disabled = false; fr.srcdoc = ""; fr.hidden = true; }
 }
 
@@ -265,7 +262,7 @@ async function main() {
     tile("#tDoc", hhmm(toIST(meta.meta.asOf)), lvl, `${ago(meta.meta.asOf)} · ${esc(why)}`);
     if (lvl !== "ok") addVerdict(lvl, "the document is stale: " + why, "runs");
   } catch (e) { tile("#tDoc", "?", "bad", "meta.json did not load: " + esc(e.message)); addVerdict("bad", "the page's own data did not load", "runs"); }
-  try { renderAudit(await getJson("audit.json?t=" + Date.now(), { cache: "no-store" })); }
+  try { AUDIT = await getJson("audit.json?t=" + Date.now(), { cache: "no-store" }); renderAudit(AUDIT); }
   catch (e) { $("#vTitle").textContent = "No audit.json"; $("#vSub").textContent = "site/build.py writes admin/audit.json from scripts/audit.py — " + e.message; $("#verdict").className = "bad"; }
   await Promise.all([renderRuns(), renderLive(), renderSecurity().then(renderVisitors)]);
 }
