@@ -167,3 +167,22 @@ Column "Ref" = `ipo_portal/sources.py` line unless another file is given. Field 
 10. **NSE `/api/ipo-chart-demand?symbol=&exchange=ALL`** (N22) and **BSE `Pubissues_BSEDemandSchedule_otb_ng/w`** (B19) — price-wise cumulative demand curves for the subscription window. Reliability: NSE caveats / BSE cloud-safe; only populated while the issue is open.
 
 Runners-up: NSE `/api/public-past-issues` (N3, full history incl. issue price and listing date, 380 KB), NSE `/api/offer-documents-abridged-prospectus?pan_no=&type=` (N24, structured promoter/BRLM/objects/SHP — mainboard only), SEBI filings listing (S1, earliest DRHP signal), NSE rights/OFS live feeds (N6–N8).
+
+## InvestorGain reports 554 and 607 (surveyed 29 Oct 2026, for the capital planner)
+
+Same URL shape as 331: `/cloud/v2/report/data-read/<id>/1/{month}/{year}/{fy}/0/all`, same headers.
+
+- **554, event calendar** — one row per calendar DAY of the month asked for (`~OrderbyEventDt` `01-Oct-2026`, `Date` `Thu 01-Oct`), five
+  columns of HTML link lists: `Open`, `Close`, `BOA` (basis of allotment), `Unblock` (ASBA money back = the record's `timetable_refunds_dt`),
+  `Listing`. Each link is `<a href="/ipo/<slug>/<igId>/" title="<name> IPO <event>">` plus a status badge and, in Close, the GMP as text
+  (not read). A day with no event is still a row, so December answers 31 empty rows: a month with no events is a quiet month, a month with
+  no rows is a changed source. October 2026 held 189 events, November 45, December 0 — the site dates about five weeks ahead.
+- **607, allotment planner** — one row per current / upcoming MAINBOARD issue (`~IPO_Category` is always `IPO`; no SME row seen): `Name`
+  (link with the id), `~ipo`, `Size(Cr)`, `Rtl Size(Cr)`, `Rtl Allotees` (the most retail allottees the quota can take = the reservation
+  table's Max Allottees; 0 while upcoming), `` ~lot` ``, `~ipo_price1`, `Rtl Lot` / `Rtl Amt` / `~Retail_shares` / `~no_of_lots`,
+  `~Srt_close1`, `~Srt_BoA_Dt`, `Sub`, `~GMP`, `GMP %`, `~P/E`, and the fund-reuse chain: `~Fund Group`, `~Fund IPO #` (comma-separated
+  ids of the earlier issues whose unblock lands before this one closes), `Fund Reuse` (their names, `<br/>`-joined). Five rows on 29 Oct.
+- What neither adds that the per-IPO record (`ipo-detail-read`) does not already carry: dates (open / close / BOA / refund / credit /
+  listing / anchor lock-ins), lot size and `min_order_amount`, and the sNII / bNII floors (`min_hni_amt`, `min_bhni_amt`, with lot counts)
+  are all on the record, SME included. 554 adds issues past the board's grace or not yet in `list-read`; 607 adds the retail allottee count
+  (mainboard) and the fund-reuse chain. The record's `max_retail_qty` equals its `min_hni_qty` on every record read — not a retail ceiling.

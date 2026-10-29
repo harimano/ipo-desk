@@ -56,7 +56,7 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
    file. The Book (applications, holdings, P&L) never goes in the repo. No paid services, except the domain `ipodesk.dev` (Cloudflare Registrar, ~$12 a year, auto-renews; bought 28 Oct 2026). No React / Node.
 8. A reader's state lives in their account (`site/src/account.js` → the Worker's `/api/state`, D1, keyed by the VERIFIED
    Access email; `ops/site-worker/SETUP.md`). Part names must survive: `holdings`, `interest`, `apps`, `tasks-done`,
-   `tasks-custom`, `investors`, `theme` (synced) and `tab`, `research-sel`, `seen`, `intro` (per device). The browser cache is
+   `tasks-custom`, `investors`, `theme`, `budget` (synced) and `tab`, `research-sel`, `seen`, `intro` (per device). The browser cache is
    `ipo-u:<email>:<part>`; the old un-namespaced `ipo-*` keys are read ONCE, for the import banner, then renamed `ipo-legacy-*`.
 9. **Dependencies are a run-time risk, not a footnote** (6 Oct 2026: selectolax 1.0 dropped `selectolax.parser`; every
    collect run failed at import for a morning — the gate refused to write, the board went stale). HTML parsing is the
@@ -86,7 +86,7 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
 ## The collector
 
 `MODULES` order IS the fallback logic (a later patch wins):
-`calendar, gmp, details, subscription, listings, history, tape, anchorbook, evidence, players, parents, filings, offers, flows, deals, news, logos`.
+`calendar, gmp, details, subscription, listings, history, tape, anchorbook, evidence, players, parents, filings, planner, offers, flows, deals, news, logos`.
 Ownership is enforced by `schema.OWNERS` / `ROW_PATCHERS`; a failed module changes nothing. `Result.doc` is today's
 document as assembled so far; `prev` is yesterday's.
 
@@ -123,6 +123,12 @@ document as assembled so far; `prev` is yesterday's.
   day-one close, 5/30-day moves from the tape, lead-anchor subset; `minRows` on screen. Rule 3 applies: rates with
   intervals, sorted by n — no score, no verdict. Same key: `dealRows` / `deals` = the tape's names (net buyer / net seller
   per client × stock × day) and the stock's 5- / 20-day move after, frozen once the 20-day move exists — accrues from 22 Sep 2026.
+- `planner` (owns `calendar`, its own part): every dated event in a −7/+45 day window — the board rows' open / close / allotment /
+  refund / listing, `anchors[]` lock-ins, `quota[]` record dates, and InvestorGain report 554 (the event calendar, one call a month;
+  a board row's day wins, a disagreement goes to `conflicts` and `meta.unresolved`, an issue off the board comes from the report alone)
+  — plus `issues{igId}`: what one application blocks per category (`row.apply`, which `details` copies from the record: retail lot,
+  sNII / bNII floors, employee / shareholder at the discount), the unblock day and days blocked, and report 607's retail allottee
+  count and fund-reuse chain (mainboard only). The page's week strip and capital planner (`planner.js`) render it and compute nothing.
 - `parents` prices sheet parents AND every live quota row's `ticker` into `investors.prices[parent]` (the quota planner).
 - `filings` (quota radar) also discovers parents it does not know: NSE's market-wide `/api/corporate-announcements` (one call a
   board, 4 days, ~3,900 rows; works from the runners, BSE's does not) → `quotaLeads[]` (a listed company on a subsidiary's offer,
@@ -175,5 +181,5 @@ when dataset types are mixed. Market has a sticky section bar built from `.sec-h
 
 Accounts are live (D1 `ipo-desk-accounts`, APAC, bound 29 Oct 2026; Saved pill green on the live site). Hari to do: switch
 the Access policy to the friends' emails and invite the first few, set the `NTFY_TOPIC` secret (alerts and "Wrong number?"
-pings are built and wait on it). Then: capital planner and calendar (reports 554 / 607) → Phase 4 ops (nightly D1 backup
+pings are built and wait on it). Capital planner and calendar shipped (reports 554 / 607, `planner` → `planner.js`). Then: Phase 4 ops (nightly D1 backup
 to R2, Access group, daily-active count) → alerts with deep links, weekly digest → the AI layer, last.

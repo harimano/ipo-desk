@@ -394,6 +394,7 @@ def normalise_detail(raw) -> dict:
         "anchorShares": anchor_shares,
         "anchorCr": round(anchor_shares * (final or band_hi) / 1e7, 2) if anchor_shares and (final or band_hi) else None,
         "sub": sub, "gmp": gmp, "listingPrice": _num(g("listing_price")),
+        "apply": apply_terms(ipo, band_hi),
         "facts": _drop_empty({"sector": strip_tags(g("company_sector")), "isin": strip_tags(g("isin")), "listingAt": strip_tags(g("ipo_listing_at")),
                               "kpis": kpis, "recs": recs, "registrar": registrar,
                               "leadManagers": [strip_tags(m.get("comp_name")) for m in (raw.get("ipoLeadManagersList") or [])
@@ -405,6 +406,35 @@ def normalise_detail(raw) -> dict:
         "sheet": build_sheet(raw, ipo),
         "updated": _stamp(g("last_updated")),
     }
+
+
+def apply_terms(ipo: dict, band_hi: float | None) -> dict | None:
+    """What ONE application blocks, per category, as the record states it (at the cap price): retail = the minimum lot,
+    sNII / bNII = the category floors (min_hni_amt / min_bhni_amt, with their lot counts), and the reserved categories the
+    issue has (employee / shareholder: flags and shares offered; their minimum is one lot at the cap less the discount, where
+    the record gives a discount). Nothing here is derived from prose; a field the
+    record lacks is left out, and an issue with no lot or no cap price has no terms at all."""
+    g = ipo.get
+    lot = int(_num(g("market_lot_size")) or 0)
+    if not lot or not band_hi:
+        return None
+    def cat(amt_key, qty_key):
+        amt, qty = _num(g(amt_key)), _num(g(qty_key))
+        if not amt or not qty:
+            return None
+        return {"amount": round(amt), "shares": int(qty), "lots": round(qty / lot)}
+    out = {"retail": cat("min_order_amount", "min_order_qty") or {"amount": round(lot * band_hi), "shares": lot, "lots": 1},
+           "snii": cat("min_hni_amt", "min_hni_qty"), "bnii": cat("min_bhni_amt", "min_bhni_qty")}
+    # `max_retail_qty` is NOT published: on every record read it equals the sNII floor (Jindal 2,254 = 14 lots, BLS 1,400), so
+    # it is not the retail ceiling it is named for. The 2 lakh cap is a rule the page already applies; a wrong field is worse than none.
+    for ours, flag, shares_key, disc_key in (("employee", "employee_reservation_flag", "shares_offered_emp", "discount_employee"),
+                                             ("shareholder", "shareholder_reservation_flag", "shares_offered_shareholders", "discount_shareholder")):
+        shares = _num(g(shares_key)) or 0
+        if str(g(flag) or "0") not in ("1", "1.0", "true", "True") and shares <= 0:
+            continue
+        disc = _num(g(disc_key)) or 0
+        out[ours] = _drop_empty({"amount": round(lot * (band_hi - disc)), "shares": lot, "lots": 1, "discount": disc or None, "offered": int(shares) or None})
+    return {k: v for k, v in out.items() if v}
 
 
 def fetch_detail(session, ig_id: str) -> dict:
@@ -515,3 +545,82 @@ def fetch(session, today: dt.date | None = None) -> list[dict]:
     d = today or dt.datetime.now(IST).date()
     data = session.get_json(url_for(d), source=SOURCE, headers=HEADERS)
     return parse_investorgain(data)
+
+
+# ---------------------------------------------------------------------------------------------
+# report 554 — the event calendar: one row per calendar DAY of a month, five columns of HTML link lists
+# (Open / Close / BOA / Unblock / Listing), each link `/ipo/<slug>/<id>/` with a title "<name> IPO <event>". One call a
+# month; a day with no event is still a row, so an EMPTY month is not a changed source — a month with no rows is.
+# BOA is the basis-of-allotment day, Unblock the day ASBA money comes back (the record's `refund`).
+#
+# report 607 — the allotment planner: one row per current / upcoming mainboard issue with the retail lot and amount, the
+# most retail allottees the quota can take (`Rtl Allotees`), close and allotment days, and "Fund Reuse": the earlier issues
+# whose unblock lands before this one closes (`~Fund IPO #`, ids). The free report lists mainboard only (`~IPO_Category`).
+# ---------------------------------------------------------------------------------------------
+EVENT_REPORT, PLANNER_REPORT = 554, 607
+_EVENT_COLS = {"Open": "open", "Close": "close", "BOA": "allotment", "Unblock": "refund", "Listing": "listing"}
+_LINK = re.compile(r'<a href="/(?:ipo|gmp)/[^/"]+/(\d+)/"[^>]*title="([^"]*)"')
+_TITLE_SFX = re.compile(r"\s+IPO\s+\w+$", re.IGNORECASE)
+
+
+def _report_url(report: int, d: dt.date) -> str:
+    return f"https://webnodejs.investorgain.com/cloud/v2/report/data-read/{report}/1/{d.month}/{d.year}/{fiscal_year(d)}/0/all"
+
+
+def parse_event_calendar(data, month: dt.date) -> list[dict]:
+    """[{date, kind, igId, name}] for one month, kind in open|close|allotment|refund|listing. Raises on no rows, on a row
+    without a date, or on a month that should have events (the current one) and has a column the report no longer carries."""
+    what = f"report {EVENT_REPORT} {month:%Y-%m}"
+    rows = data.get("reportTableData") if isinstance(data, dict) else None
+    if not isinstance(rows, list) or not rows:
+        raise SourceChanged(SOURCE, f"{what}: reportTableData missing or empty (msg={data.get('msg') if isinstance(data, dict) else None!r})", what)
+    missing = [c for c in _EVENT_COLS if c not in rows[0]]
+    if missing:
+        raise SourceChanged(SOURCE, f"{what}: columns {missing} are gone (have {sorted(rows[0])[:8]})", what)
+    out = []
+    for r in rows:
+        if not isinstance(r, dict):
+            continue
+        day = _day(r.get("~OrderbyEventDt"))
+        if not day:
+            raise SourceChanged(SOURCE, f"{what}: a row without a date ({r.get('~OrderbyEventDt')!r})", what)
+        for col, kind in _EVENT_COLS.items():
+            for ig_id, title in _LINK.findall(str(r.get(col) or "")):
+                name = clean(_TITLE_SFX.sub("", title))
+                if name:
+                    out.append({"date": day, "kind": kind, "igId": ig_id, "name": name})
+    return out
+
+
+def fetch_event_calendar(session, month: dt.date) -> list[dict]:
+    return parse_event_calendar(session.get_json(_report_url(EVENT_REPORT, month.replace(day=1)), source=SOURCE, headers=HEADERS), month)
+
+
+def parse_allotment_planner(data) -> list[dict]:
+    """[{igId, name, sme, close, allotment, lot, price, retailAmount, retailSlots, retailSizeCr, sizeCr, fundReuse[]}]."""
+    what = f"report {PLANNER_REPORT}"
+    rows = data.get("reportTableData") if isinstance(data, dict) else None
+    if not isinstance(rows, list) or not rows:
+        raise SourceChanged(SOURCE, f"{what}: reportTableData missing or empty (msg={data.get('msg') if isinstance(data, dict) else None!r})", what)
+    out = []
+    for r in rows:
+        if not isinstance(r, dict):
+            continue
+        m = _LINK.search(str(r.get("Name") or ""))
+        if not m:
+            continue
+        reuse = [x.strip() for x in str(r.get("~Fund IPO #") or "").split(",") if x.strip().isdigit()]
+        slots = _num(r.get("Rtl Allotees"))
+        out.append(_drop_empty({"igId": m.group(1), "name": clean(str(r.get("~ipo") or m.group(2))), "sme": strip_tags(r.get("~IPO_Category")).upper() == "SME",
+                                "close": _day(r.get("~Srt_close1")), "allotment": _day(r.get("~Srt_BoA_Dt")), "lot": int(_num(r.get("~lot`")) or 0) or None,
+                                "price": _num(r.get("~ipo_price1")), "retailAmount": _num(r.get("Rtl Amt")),
+                                "retailSlots": int(slots) if slots else None, "retailSizeCr": _num(r.get("Rtl Size(Cr)")) or None,
+                                "sizeCr": _num(r.get("Size(Cr)")), "fundReuse": reuse}))
+    if not out:
+        raise SourceChanged(SOURCE, f"{what}: {len(rows)} rows, none with a linked name (keys: {sorted(rows[0])[:8]})", what)
+    return out
+
+
+def fetch_allotment_planner(session, today: dt.date | None = None) -> list[dict]:
+    d = today or dt.datetime.now(IST).date()
+    return parse_allotment_planner(session.get_json(_report_url(PLANNER_REPORT, d), source=SOURCE, headers=HEADERS))

@@ -85,3 +85,18 @@ listedPerf[].bseCode — the BSE scrip code from report 377's Symbol column ('KA
 
 logos{igId}: {src (the logo file the thumbnail was made from), at (date), missing? (true: the source had no image; retried
   after 7 days)} — a thumbnail exists at data/logos/<igId>.webp (96x48 WebP) for every entry without `missing`. Owner: logos.
+
+calendar: {asOf, from, to, events[], issues{}, unlinked[], conflicts[], sources{}} — owned by `planner`, its own part (`calendar.json`):
+  every dated event in a −7 / +45 day window and what one application blocks, so the page's week strip and capital planner compute nothing.
+  - events[{date, kind open|close|allotment|refund|listing|lockin30|lockin90|record, name, igId?, sme?, src record|anchors|quota|ig554,
+    amountCr? (lock-ins: the half of the anchor book freed), parent? (record dates)}], sorted by date then kind. A board row's dates win;
+    the same event from report 554 is not repeated; a different day there goes to `conflicts[{igId, name, kind, record, report}]` and
+    meta.unresolved. An issue the board no longer carries (or does not yet) comes from the report alone (`src: "ig554"`, listed in `unlinked`).
+  - issues{igId: {name, sme, status, open, close, allotment, refund, listing, lockIn30?, lockIn90?, blocks{retail|snii|bnii|employee|shareholder:
+    {amount, shares, lots, discount?, offered?}}, releaseDate, releaseSrc refund|allotment+1, blockedDays (release − close), retailSlots?,
+    retailSizeCr?, fundReuse[igId]}} — every unlisted board row with an id. `blocks` is the row's `apply` (below); `retailSlots` (the most
+    retail allottees the quota can take) and `fundReuse` (issues whose unblock lands before this one closes) are report 607's, mainboard only.
+  - sources{ig554{months[], events}, ig607{rows, matched}}.
+mainboard[] / sme[] rows also carry `apply` (details, from the per-IPO record, at the cap price): {retail{amount, shares, lots}, snii{…},
+  bnii{…}, employee?{amount, shares, lots, discount?, offered?}, shareholder?{…}} — what ONE application blocks per category; a category the
+  issue does not reserve is absent, never zero. The record's `max_retail_qty` is not published (it equals the sNII floor on every record read).
