@@ -24,3 +24,14 @@ jobs:
         run: ruff check .
       - name: Tests
         run: pytest -q
+
+  # The gated site's Worker (ops/site-worker): its Access check and the per-reader /api/state, against an in-memory D1
+  # and tokens signed in the test. Node only lives here — Hari's Mac has none; the browser harness runs the same cases.
+  worker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: node --test ops/site-worker/test/api.test.mjs     # Node 22 wants a file or a glob, not a directory
