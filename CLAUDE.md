@@ -179,7 +179,9 @@ when dataset types are mixed. Market has a sticky section bar built from `.sec-h
 
 ## Next
 
-Accounts are live (D1 `ipo-desk-accounts`, APAC, bound 29 Oct 2026; Saved pill green on the live site). Hari to do: switch
-the Access policy to the friends' emails and invite the first few, set the `NTFY_TOPIC` secret (alerts and "Wrong number?"
-pings are built and wait on it). Capital planner and calendar shipped (reports 554 / 607, `planner` → `planner.js`). Then: Phase 4 ops (nightly D1 backup
-to R2, Access group, daily-active count) → alerts with deep links, weekly digest → the AI layer, last.
+Accounts are live (D1 `ipo-desk-accounts`, APAC, bound 29 Oct 2026; Saved pill green on the live site). The Access policy
+STAYS *Everyone* by Hari's decision (29 Oct 2026): anyone with the link who completes the email code gets in; the link is
+the key, each reader's state is keyed to their verified email — do not propose an allow-list or an Access group again.
+Hari to do: invite the first friends, set the `NTFY_TOPIC` secret (alerts and "Wrong number?" pings are built and wait
+on it). Capital planner and calendar shipped (reports 554 / 607, `planner` → `planner.js`). Then: Phase 4 ops (nightly D1
+backup to R2, daily-active count) → alerts with deep links, weekly digest → the AI layer, last.

@@ -34,6 +34,10 @@ the next deploy. Without it, reports are only listed on /admin. Mark one handled
 
 ## 2. Access: who gets in
 
+**Decision, 29 Oct 2026: the policy stays *Include → Everyone*.** The link is the key; the email code identifies each
+reader and the Worker keys their saved state to that verified address. The allow-list steps below are kept only in case
+that ever changes.
+
 The Access application in front of the Worker (Zero Trust → Access → Applications → the `ipo-desk-site` app) decides
 who can sign in. Today its policy is *Include → Everyone* (anyone with the link who completes the email code). For an
 allow-list of up to 50 friends:
