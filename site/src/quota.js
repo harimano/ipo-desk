@@ -13,7 +13,7 @@ function renderQuotaPlanner() {
   const P = Object.values(parents), open = P.filter(p => !p.has), cost = open.reduce((s, p) => s + (p.px || 0), 0), unpriced = open.filter(p => !p.px).length;
   const kpi = (l, v, d2) => `<div class="card kpi"><div class="lbl">${l}</div><div class="v mono">${v}</div><div class="d">${d2}</div></div>`;
   const near = rows.filter(r => !r.has && (r.q.bucket === "approved" || r.rd != null));
-  const when = r => r.rd != null ? (r.rd < 0 ? `<span class="dim">record date passed ${fmtD(r.q.recordDate)}</span>` : `<b class="${r.rd <= 7 ? "down" : "amb"}">record date ${fmtD(r.q.recordDate)}</b><div class="dt">buy by ${fmtD(new Date(d(r.q.recordDate).getTime() - 2 * DAY).toISOString().slice(0, 10))} · shares settle T+1</div>`)
+  const when = r => r.rd != null ? (r.rd < 0 ? `<span class="dim">record date passed ${fmtD(r.q.recordDate)}</span>` : `<b class="${r.rd <= 7 ? "down" : "amb"}">record date ${fmtD(r.q.recordDate)}</b><div class="dt">buy by ${fmtD(iso(new Date(d(r.q.recordDate).getTime() - 2 * DAY)))} · shares settle T+1</div>`)
     : r.q.bucket === "approved" ? `<span class="amb">not announced</span><div class="dt">comes with the RHP, often with a few days' notice</div>` : `<span class="dim">not yet</span><div class="dt">${r.q.bucket === "drhp" ? "DRHP filed — approval comes first" : "no DRHP yet"}</div>`;
   el.innerHTML = `<div class="kpis">${kpi("Parents covered", `${P.length - open.length} of ${P.length}`, `${rows.length} pipeline IPOs hang off them`)}
       ${kpi("To cover the rest", inr0(cost), `one share each of ${open.length} parent${open.length === 1 ? "" : "s"}${unpriced ? ` · ${unpriced} without a price` : ""}`)}
