@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-10-29T18:16:22+05:30",
+  "asOf": "2026-10-29T18:26:56+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "29 Oct 2026, 18:16 IST",
+  "label": "29 Oct 2026, 18:26 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -2056,7 +2056,7 @@
    "ofsCr": 1200.0,
    "gmp": 38.0,
    "gmpPct": 2.28,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 13.13,
     "nii": 4.58,
@@ -2155,7 +2155,7 @@
      "received": 96814,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-29T18:14:37+05:30"
+    "asOf": "2026-10-29T18:25:17+05:30"
    }
   },
   {
@@ -2175,13 +2175,13 @@
    "ofsCr": null,
    "gmp": 63.0,
    "gmpPct": 42.0,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 200.25,
     "nii": 559.2,
     "retail": 128.36,
     "total": 241.22,
-    "asOf": "2026-10-29T18:12:00+05:30",
+    "asOf": "2026-10-29T18:21:00+05:30",
     "src": "nse"
    },
    "shareholderQuota": null,
@@ -2196,7 +2196,7 @@
    "igId": "1849",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-29T18:14:14+05:30",
+   "igFetchedAt": "2026-10-29T18:25:13+05:30",
    "refund": "2026-11-02",
    "sector": "Plastic Products - Industrial",
    "anchorShares": 5100000,
@@ -2251,7 +2251,7 @@
     },
     "nii": {
      "reserved": 1821,
-     "received": 427652,
+     "received": 427654,
      "reservedSrc": "narada"
     },
     "bnii": {
@@ -2261,20 +2261,37 @@
     },
     "snii": {
      "reserved": 607,
-     "received": 280974,
+     "received": 280976,
      "reservedSrc": "rhp=narada"
     },
     "retail": {
      "reserved": 59500,
-     "received": 5708231,
+     "received": 5708254,
      "reservedSrc": "rhp=narada"
     },
     "total": {
      "reserved": 3461321,
-     "received": 6136954,
+     "received": 6136979,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-29T18:14:37+05:30"
+    "asOf": "2026-10-29T18:25:23+05:30"
+   },
+   "apply": {
+    "retail": {
+     "amount": 15000,
+     "shares": 100,
+     "lots": 1
+    },
+    "snii": {
+     "amount": 210000,
+     "shares": 1400,
+     "lots": 14
+    },
+    "bnii": {
+     "amount": 1005000,
+     "shares": 6700,
+     "lots": 67
+    }
    }
   },
   {
@@ -2294,13 +2311,13 @@
    "ofsCr": 517.53,
    "gmp": 18.5,
    "gmpPct": 5.61,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 18.81,
     "nii": 12.81,
     "retail": 2.71,
     "total": 9.47,
-    "asOf": "2026-10-29T18:09:00+05:30",
+    "asOf": "2026-10-29T18:21:00+05:30",
     "src": "nse"
    },
    "shareholderQuota": null,
@@ -2315,7 +2332,7 @@
    "igId": "1642",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-29T18:14:14+05:30",
+   "igFetchedAt": "2026-10-29T18:25:13+05:30",
    "refund": "2026-11-02",
    "sector": "Waste Management",
    "anchorShares": 6068460,
@@ -2371,7 +2388,7 @@
     },
     "nii": {
      "reserved": 4816,
-     "received": 24190,
+     "received": 24194,
      "reservedSrc": "narada"
     },
     "bnii": {
@@ -2381,20 +2398,37 @@
     },
     "snii": {
      "reserved": 1605,
-     "received": 14856,
+     "received": 14860,
      "reservedSrc": "rhp=narada"
     },
     "retail": {
      "reserved": 157330,
-     "received": 263363,
+     "received": 263622,
      "reservedSrc": "rhp=narada"
     },
     "total": {
      "reserved": 4207788,
-     "received": 287668,
+     "received": 287931,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-29T18:14:38+05:30"
+    "asOf": "2026-10-29T18:25:24+05:30"
+   },
+   "apply": {
+    "retail": {
+     "amount": 14850,
+     "shares": 45,
+     "lots": 1
+    },
+    "snii": {
+     "amount": 207900,
+     "shares": 630,
+     "lots": 14
+    },
+    "bnii": {
+     "amount": 1009800,
+     "shares": 3060,
+     "lots": 68
+    }
    }
   },
   {
@@ -2414,7 +2448,7 @@
    "ofsCr": 55.08,
    "gmp": 10.5,
    "gmpPct": 6.48,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 0.99,
     "nii": 2.2,
@@ -2435,7 +2469,7 @@
    "igId": "2288",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-29T18:14:14+05:30",
+   "igFetchedAt": "2026-10-29T18:25:13+05:30",
    "refund": "2026-11-03",
    "sector": "Gems, Jewellery And Watches",
    "anchorShares": 5100000,
@@ -2513,7 +2547,24 @@
      "received": 48071,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-29T18:14:39+05:30"
+    "asOf": "2026-10-29T18:25:29+05:30"
+   },
+   "apply": {
+    "retail": {
+     "amount": 14742,
+     "shares": 91,
+     "lots": 1
+    },
+    "snii": {
+     "amount": 206388,
+     "shares": 1274,
+     "lots": 14
+    },
+    "bnii": {
+     "amount": 1002456,
+     "shares": 6188,
+     "lots": 68
+    }
    }
   },
   {
@@ -2554,7 +2605,7 @@
    "igId": "1936",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-29T18:14:14+05:30",
+   "igFetchedAt": "2026-10-29T18:25:13+05:30",
    "refund": "2026-11-04",
    "sector": "Iron & Steel Products",
    "anchorShares": 6597500,
@@ -2631,7 +2682,24 @@
      "received": 43915,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-29T18:14:44+05:30"
+    "asOf": "2026-10-29T18:25:29+05:30"
+   },
+   "apply": {
+    "retail": {
+     "amount": 14924,
+     "shares": 182,
+     "lots": 1
+    },
+    "snii": {
+     "amount": 208936,
+     "shares": 2548,
+     "lots": 14
+    },
+    "bnii": {
+     "amount": 1014832,
+     "shares": 12376,
+     "lots": 68
+    }
    }
   }
  ],
@@ -3324,7 +3392,7 @@
     "snii": 0.51,
     "retail": 0.66,
     "total": 1.27,
-    "asOf": "2026-10-29T18:14:45+05:30",
+    "asOf": "2026-10-29T18:25:32+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3339,7 +3407,7 @@
    "igId": "2356",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-29T18:14:14+05:30",
+   "igFetchedAt": "2026-10-29T18:25:13+05:30",
    "refund": "2026-11-02",
    "sector": "Consumer Electronics",
    "anchorShares": 1225800,
@@ -3408,7 +3476,24 @@
      "received": 1077,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-29T18:14:45+05:30"
+    "asOf": "2026-10-29T18:25:32+05:30"
+   },
+   "apply": {
+    "retail": {
+     "amount": 244800,
+     "shares": 1200,
+     "lots": 2
+    },
+    "snii": {
+     "amount": 244800,
+     "shares": 1800,
+     "lots": 3
+    },
+    "bnii": {
+     "amount": 1101600,
+     "shares": 1800,
+     "lots": 3
+    }
    }
   },
   {
@@ -3433,7 +3518,7 @@
     "other": 0.29,
     "retail": 1.57,
     "total": 0.93,
-    "asOf": "2026-10-29T18:14:45+05:30",
+    "asOf": "2026-10-29T18:25:32+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3448,7 +3533,7 @@
    "igId": "2017",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-29T18:14:14+05:30",
+   "igFetchedAt": "2026-10-29T18:25:13+05:30",
    "refund": "2026-11-03",
    "sector": "Civil Construction",
    "anchorShares": 0,
@@ -3502,7 +3587,24 @@
      "received": 1266,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-29T18:14:45+05:30"
+    "asOf": "2026-10-29T18:25:32+05:30"
+   },
+   "apply": {
+    "retail": {
+     "amount": 243600,
+     "shares": 1200,
+     "lots": 2
+    },
+    "snii": {
+     "amount": 243600,
+     "shares": 1800,
+     "lots": 3
+    },
+    "bnii": {
+     "amount": 1096200,
+     "shares": 1800,
+     "lots": 3
+    }
    }
   },
   {
@@ -3529,7 +3631,7 @@
     "snii": 1.06,
     "retail": 0.65,
     "total": 0.9,
-    "asOf": "2026-10-29T18:14:46+05:30",
+    "asOf": "2026-10-29T18:25:33+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3544,7 +3646,7 @@
    "igId": "2393",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-29T18:14:14+05:30",
+   "igFetchedAt": "2026-10-29T18:25:13+05:30",
    "refund": "2026-11-02",
    "sector": "Industrial Products",
    "anchorShares": 996800,
@@ -3613,7 +3715,24 @@
      "received": 340,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-29T18:14:46+05:30"
+    "asOf": "2026-10-29T18:25:33+05:30"
+   },
+   "apply": {
+    "retail": {
+     "amount": 256000,
+     "shares": 3200,
+     "lots": 2
+    },
+    "snii": {
+     "amount": 256000,
+     "shares": 4800,
+     "lots": 3
+    },
+    "bnii": {
+     "amount": 1024000,
+     "shares": 4800,
+     "lots": 3
+    }
    }
   },
   {
@@ -3641,7 +3760,7 @@
     "snii": 0.04,
     "retail": 0.05,
     "total": 0.82,
-    "asOf": "2026-10-29T18:14:46+05:30",
+    "asOf": "2026-10-29T18:25:33+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3656,7 +3775,7 @@
    "igId": "2375",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-10-29T18:14:14+05:30",
+   "igFetchedAt": "2026-10-29T18:25:13+05:30",
    "refund": "2026-11-04",
    "sector": "Packaging",
    "anchorShares": 0,
@@ -3724,7 +3843,24 @@
      "received": 38,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-10-29T18:14:46+05:30"
+    "asOf": "2026-10-29T18:25:33+05:30"
+   },
+   "apply": {
+    "retail": {
+     "amount": 268000,
+     "shares": 4000,
+     "lots": 2
+    },
+    "snii": {
+     "amount": 268000,
+     "shares": 6000,
+     "lots": 3
+    },
+    "bnii": {
+     "amount": 1072000,
+     "shares": 6000,
+     "lots": 3
+    }
    }
   },
   {
@@ -84736,17 +84872,17 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-10-29T18:16:22+05:30",
+  "asOf": "2026-10-29T18:26:56+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-29T18:14:13+05:30",
-    "elapsed": 3.76,
+    "asOf": "2026-10-29T18:25:12+05:30",
+    "elapsed": 3.61,
     "calls": 5,
     "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=15 carried=2 +nse=13 +bse=0 exchange-only=0: 7 mainboard, 10 sme; 8 open, 5 upcoming",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84754,32 +84890,32 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.94,
+    "elapsed": 0.13,
     "calls": 1,
     "note": "gmp: 10 board rows patched via investorgain; 13 active, 7 of them matched; gmp: 11 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Ravita Engineering Services (₹1, investorgain); Sahajanand Medical Technologies (₹17, investorgain); Shellz India (₹7, investorgain) …",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-10-29T18:14:14+05:30",
-    "elapsed": 21.6,
+    "asOf": "2026-10-29T18:25:13+05:30",
+    "elapsed": 2.62,
     "calls": 8,
     "note": "8 records fetched for 17 identified listings (0 without an id); 0 anchor books updated, 95 on file",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
     "area": "subscription",
     "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-10-29T18:14:46+05:30",
-    "elapsed": 10.69,
+    "asOf": "2026-10-29T18:25:33+05:30",
+    "elapsed": 17.45,
     "calls": 14,
     "note": "9/9 rows patched via narada, nse",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84787,10 +84923,10 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-29",
-    "elapsed": 10.83,
+    "elapsed": 19.57,
     "calls": 0,
     "note": "20 names priced, 2 moved to recent, 0 history points",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84798,10 +84934,10 @@
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-29",
-    "elapsed": 3.51,
+    "elapsed": 0.49,
     "calls": 2,
     "note": "1397 listings since 2022 (989 SME); fetched 2026: 294; QIB on file for 109 of 408 mainboard issues",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84812,7 +84948,7 @@
     "elapsed": 0.01,
     "calls": 0,
     "note": "198 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 186 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 186 days on file",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84823,7 +84959,7 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 911 on file, 589 partial (feed gave only the first names); 0 of 1397 listings still to fetch",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84834,7 +84970,7 @@
     "elapsed": 0.2,
     "calls": 0,
     "note": "track records: 911 of 911 anchor books have an outcome; 904 of 1486 investors with 2+; 1397 listings; windows: mainboard 131, SME 236; 4 warnings",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84842,10 +84978,10 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-10-29",
-    "elapsed": 38.82,
+    "elapsed": 18.36,
     "calls": 54,
     "note": "53 of 2839 anchor investors read (0 failed); names found for 2 of 15 unlisted issues",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84853,10 +84989,10 @@
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-10-29",
-    "elapsed": 9.68,
+    "elapsed": 13.91,
     "calls": 0,
     "note": "5/5 parent prices; 37/41 investor stocks priced",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84864,10 +85000,21 @@
     "method": "bse_ann:changed, sebi:changed, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-10-29",
-    "elapsed": 27.53,
+    "elapsed": 22.76,
     "calls": 20,
-    "note": "discover: 3058 announcements scanned, 1 subsidiary-offer leads; discover: 4 candidates (0 by announcement, 4 by group name); 5 leads held; 0 rows patched, 33 kept previous stage",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "note": "discover: 3086 announcements scanned, 1 subsidiary-offer leads; discover: 4 candidates (0 by announcement, 4 by group name); 5 leads held; 0 rows patched, 33 kept previous stage",
+    "lastOk": "2026-10-29T18:26:56+05:30",
+    "dueBy": "2026-10-30T07:28:00+05:30"
+   },
+   {
+    "area": "planner",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-10-29",
+    "elapsed": 3.61,
+    "calls": 4,
+    "note": "175 events 2026-10-22..2026-12-13, 15 issues with terms, 7 from the report only",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84875,7 +85022,7 @@
     "method": "bse:blocked, bse:blocked",
     "status": "blocked",
     "asOf": null,
-    "elapsed": 0.04,
+    "elapsed": 0.11,
     "calls": 1,
     "note": "kept previous — HTTP 403",
     "lastOk": null,
@@ -84886,10 +85033,10 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-10-28",
-    "elapsed": 0.33,
+    "elapsed": 0.34,
     "calls": 1,
     "note": "2026-10-28 already in history; FII +872 / DII +643 Cr",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84897,10 +85044,10 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-10-29",
-    "elapsed": 1.49,
+    "elapsed": 1.13,
     "calls": 4,
     "note": "bulk.csv: 71 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 71; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 11 of today's 71 deals are in this year's listings (4 stocks); 1500 kept over 60 days; 198 of 294 listings have an NSE symbol; 228 with a BSE code",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84908,10 +85055,10 @@
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-10-29T15:23:33+05:30",
-    "elapsed": 2.05,
+    "elapsed": 1.28,
     "calls": 3,
     "note": "business-standard: 7/35 primary-market items; economic-times: 7/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 14 fresh, 25 kept",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84922,7 +85069,7 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "69 logos on file; none to fetch",
-    "lastOk": "2026-10-29T18:16:22+05:30",
+    "lastOk": "2026-10-29T18:26:56+05:30",
     "dueBy": "2026-10-30T07:28:00+05:30"
    },
    {
@@ -84935,7 +85082,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "133s, 113 calls, 16/17 modules ok"
+    "note": "107s, 117 calls, 17/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -123309,7 +123456,7 @@
   },
   "1849": {
    "name": "BLS Polymers",
-   "fetchedAt": "2026-10-29T18:14:14+05:30",
+   "fetchedAt": "2026-10-29T18:25:13+05:30",
    "about": [
     "BLS Polymers specializes in the development and manufacturing of customized polymer compounds for essential infrastructure industries, including telecommunications, power, railways, water management, and oil and gas distribution. Product Portfolio: The company offers a broad range of polymer-based materials, including high-density polyethylene (HDPE), medium-density polyethylene (MDPE), linear low-density polyethylene (LLDPE), cross-linked polyethylene (XLPE), halogen-free flame-retardant (HFFR) compounds, polyvinyl chloride (PVC), cable filling compounds (CFC), and adhesive coating compounds. Domestic Reach and Customer Base: BLS Polymers has developed an extensive distribution network spanning 24 Indian states and union territories. During Fiscal 2025, the company catered to 113 repeat customers and added 53 new customers to its portfolio. Geographical Market Presence: The company serves both domestic and international markets, exporting its products to countries such as Bangladesh, Egypt, Oman, Saudi Arabia, Turkey, the United Arab Emirates, the United States of America, and Zambia. In Fiscal 2025, domestic sales accounted for 91.57% of total revenue, while exports contributed the remaining 8.43%. Manufacturing Infrastructure: BLS Polymers operates a manufacturing facility in Goa covering approximately 24,220 square feet. The facility is equipped with advanced machinery to support its polymer compound manufacturing operations. Competitive Advantages Approved supplier status with established government agencies, supported by a portfolio of pre-approved products. A diversified product range serving multiple industries and infrastructure applications. Established customer relationships built through long-term business associations. A broad pan-India distribution network covering 24 states and union territories. Integrated product development capabilities that support customized polymer solutions."
    ],
@@ -124278,7 +124425,7 @@
   },
   "1642": {
    "name": "SFC Environmental Technologies",
-   "fetchedAt": "2026-10-29T18:14:14+05:30",
+   "fetchedAt": "2026-10-29T18:25:13+05:30",
    "about": [
     "SFC Environmental Technologies Limited provides advanced technologies and integrated engineering solutions for wastewater treatment (WWT), wastewater recycling and reuse (WRR), and solid waste treatment (SWT). Its services cover the design, engineering, manufacturing, supply, installation supervision, and commissioning of wastewater treatment systems and related equipment. The company's wastewater treatment technologies have a reported treatment capacity of approximately 14,812.86 million litres per day (MLD). In the solid waste treatment segment, it offers end-to-end solutions encompassing design, engineering, financing, construction, equipment supply, installation, commissioning, performance testing, turnkey project execution, and operations and maintenance (O&M). For solid waste processing, the company has developed Organic Extraction (OREX), a proprietary technology designed to separate biodegradable organic matter from inorganic materials and lignocellulosic fibres in mixed municipal waste. This technology supports the efficient processing and recovery of useful components from municipal solid waste. The company's wastewater treatment portfolio includes its proprietary C-Tech Cyclic Activated Sludge Technology, which is based on the Sequencing Batch Reactor (SBR) process. This technology is designed to treat domestic sewage and industrial wastewater efficiently, offering advantages such as high treatment performance, lower life-cycle costs, operational simplicity, and space-efficient plant design. Its business activities are primarily organised around wastewater treatment, wastewater treatment business solutions, and solid waste treatment. SFC Environmental Technologies Limited primarily operates on a business-to-business (B2B) model, catering to institutional, infrastructure, municipal, and industrial customers. The company has reported commissioning approximately 639 C-Tech systems, with different disclosures indicating installations ranging from 621 to 639 systems in its wastewater treatment business. Its technologies have been associated with wastewater treatment capacities exceeding 15,000 MLD, and the company has reported an approximately 80% market share in India's SBR-based wastewater treatment technology segment. Its wastewater treatment customers include Enviro Control Private Limited, Vishvaraj Environment Private Limited, Khilari Infrastructure Private Limited, SMC Infrastructures Private Limited, Rajkamal Builders Infrastructure Private Limited, Ramky Infrastructure Private Limited, GVPR Engineers Limited, HNB Engineers Private Limited, and Gharpure Engineering & Constructions Private Limited, among others. These customers contribute substantially to revenue generated from the wastewater treatment business. Competitive Strengths Technology-led market position: The company benefits from specialised wastewater treatment technologies and an established presence in the SBR-based treatment segment. Technology integration and continuous innovation: Its focus on developing and improving proprietary technologies supports operational efficiency and strengthens its engineering capabilities. Repeat business and order book visibility: Established customer relationships, repeat orders, and a strong order book support business continuity and revenue visibility. Experienced management team: The company draws on management expertise and industry experience to execute projects and develop its environmental technology business."
    ],
@@ -124613,7 +124760,7 @@
   },
   "2356": {
    "name": "Wiscon Industries",
-   "fetchedAt": "2026-10-29T18:14:14+05:30",
+   "fetchedAt": "2026-10-29T18:25:13+05:30",
    "about": [
     "Wiscon Industries Limited is headquartered in Delhi and is engaged in the distribution and trading of consumer electronics and related products across the Indian market. Operating under its flagship Wiscon brand, the company offers a variety of household appliances and electronic products, including LED televisions, air coolers, washing machines and air conditioners. Its product portfolio also extends to electric scooters procured from third-party manufacturers and brands. The Company caters to a diverse customer base comprising businesses and individual consumers through both business-to-business (B2B) and business-to-consumer (B2C) channels. Its distribution model combines a network of offline dealers and distributors with its own online sales platform, facilitating access to customers in different parts of India. A dedicated sales team operates from the registered office to coordinate and manage sales activities. Wiscon Industries has recorded considerable growth in its operating revenue since its incorporation. Revenue from operations rose from ₹321.45 lakh in FY 2023-24 to ₹1,449.27 lakh in FY 2024-25, before reaching ₹7,339.16 lakh in FY 2025-26, indicating a substantial increase in the scale of its business. As of June 30, 2026, the Company had 76 permanent employees engaged in supporting its business activities and day-to-day operations. Competitive Strengths A diverse range of consumer electronics and household appliances serving varied market requirements. A multi-channel distribution strategy covering institutional buyers, dealers, distributors and retail consumers. An established after-sales support network serving customers across different regions of India. An experienced leadership team with capabilities in managing business operations and implementing growth strategies. A dedicated workforce contributing to operational execution and the Company's business development."
    ],
@@ -124894,7 +125041,7 @@
   },
   "2393": {
    "name": "Carver Roboweld",
-   "fetchedAt": "2026-10-29T18:14:14+05:30",
+   "fetchedAt": "2026-10-29T18:25:13+05:30",
    "about": [
     "Carver Roboweld Limited manufactures a range of welding consumables, including metal cored wires, welding rods and gauging electrodes. The Company also supplies welding spare parts and accessories and has diversified into value-added engineering services for the forging industry, such as forging die regeneration and welding robot rentals. The Company's main manufacturing facility is situated in Bamanbore, Rajkot, Gujarat, while its service units are located in Pune, Hosur and Ludhiana. This operational network enables it to cater to industrial customers across major manufacturing hubs in India. As of July 11, 2026, the Company had an installed production capacity of 650 tonnes per annum for metal cored wires and welding rods. Its production capacity recorded an approximate CAGR of 30% between Fiscal 2025 and Fiscal 2026. In September 2025, the Company acquired Carver Engineering Private Limited, a subsidiary engaged in the reconditioning and refurbishment of industrial plant and machinery. The subsidiary serves multiple sectors, including forging, casting, cement, steel, sugar, power, petroleum, automotive and fabrication. Its service portfolio covers heavy-duty machining, structural fabrication, repair and refurbishment of industrial hammers and components, and execution of turnkey engineering projects. Carver Roboweld Limited serves customers across various Indian states through its welding consumables and engineering service offerings. The Company holds ISO 9001:2015 certification and is a Sustaining Corporate Member of the American Welding Society (AWS), demonstrating its commitment to quality management practices and recognised welding industry standards. As of June 30, 2026, the Company employed 68 permanent employees and engaged 75 contract workers to support its manufacturing and service operations. Competitive Strengths Strategic Manufacturing and Service Locations: Its manufacturing facility and service units are positioned to support customers across important industrial centres. Established Domestic Market Reach: The Company serves industrial customers across multiple Indian states through its diversified product and service portfolio. Customer-Centric Quality Approach: Emphasis on customer-specific requirements, product quality and established quality management practices. Integrated Product and Engineering Capabilities: A combination of welding consumables manufacturing and specialised engineering services enables the Company to address a broader range of industrial requirements. Experienced Leadership: The promoter and management team brings experience and expertise in the welding industry. Recurring Business Opportunities Through Robot Rentals: Its welding robot rental services support ongoing customer relationships and create opportunities for repeat business and recurring revenue."
    ],
@@ -125189,7 +125336,7 @@
   },
   "1936": {
    "name": "Bombay Coated and Special Steels",
-   "fetchedAt": "2026-10-29T18:14:14+05:30",
+   "fetchedAt": "2026-10-29T18:25:13+05:30",
    "about": [
     "Bombay Coated & Special Steels operates as a steel processing centre in India, specialising in the conversion of steel coils into finished and semi-finished products, including slit coils, blanks and sheets. Its processing capabilities include slitting, cut-to-length operations, shearing and embossing, enabling it to deliver steel products tailored to customer requirements. The Company's products cater to Original Equipment Manufacturers (OEMs) and Original Design Manufacturers (ODMs) across a range of industries. Key applications include home and commercial appliances such as air conditioners, refrigerators, washing machines and water heaters, as well as general engineering segments covering automotive components, electrical parts, cleanrooms and ventilation systems. Since 2021, the Company has served as an authorised service partner of JSW Steel Coated Products Limited (JSWCPL), which is one of its sources of steel coils. It also procures raw materials from other suppliers and processes them using modern machinery to meet the required product specifications and quality standards. Bombay Coated & Special Steels operates processing facilities in Wada, Bhiwandi, Ghiloth and Sricity, with a combined area of 42,209 square metres. Its Rajasthan facility holds GEM 4 certification for green manufacturing. The Company's installed annual processing capacity for slitting, cut-to-length, shearing and embossing stood at 350,411 metric tonnes per annum (MTPA). As of July 31, 2025, the Company employed 153 permanent employees across its operations. Business Strengths Established Supplier Association: An ongoing relationship with JSW Steel Coated Products Limited supports the procurement of steel coils for processing activities. Strategically Positioned Facilities: Processing units across multiple locations help the Company serve customers in key industrial markets. Advanced Processing Infrastructure: Existing facilities and precision processing equipment support the production of steel products according to customer specifications. Established Customer Relationships: Long-standing associations with OEMs and ODMs across multiple end-use industries contribute to business continuity. Supplier-Related Entry Barriers: Established supplier arrangements and operational capabilities may create barriers to entry for prospective competitors. Experienced Management Team: The Company benefits from the industry knowledge of its promoters and the expertise of its professional management team."
    ],
@@ -125502,7 +125649,7 @@
   },
   "2288": {
    "name": "M.K.Sons Fine Jewels",
-   "fetchedAt": "2026-10-29T18:14:14+05:30",
+   "fetchedAt": "2026-10-29T18:25:13+05:30",
    "about": [
     "Incorporated in 2012, M. K. Sons Fine Jewels Ltd. is engaged in the retail sale of gold, diamond, and CZ jewellery through its showroom network across Mumbai and Ahmedabad. The company offers rings, necklaces, bangles, earrings, bracelets, Mangalsutras, solitaires, bridal jewellery, and customised jewellery under multiple collections such as Pavitra, Rivaaz, Sitaare, NAQSH, Sunhere, and One & Only. The company operates 5 retail showrooms across Maharashtra and Gujarat in high-footfall locations including Bandra, Andheri, Zaveri Bazaar, C.G. Road, and Sindhu Bhavan Road. Its business model focuses on retail jewellery sales, customer-centric collections, customised jewellery offerings, and diversified designs across multiple price points. The company procures finished jewellery from third-party vendors across Western India. As on December 31, 2025, the company offered more than 17,452 SKUs, including over 13,322 gold jewellery designs and 4,130+ diamond and precious stone jewellery designs. The company caters to bridal, festive, daily wear, and premium jewellery customers with BIS Hallmark-certified jewellery products. Strengths Diversified jewellery portfolio across 11 collections Strong regional presence in Mumbai and Ahmedabad Wide range of gold, diamond, and CZ jewellery Cluster-based showroom expansion strategy BIS Hallmark-certified jewellery products Experienced promoter with jewellery industry expertise since 1999 Customer-focused retail and customised jewellery offerings"
    ],
@@ -125829,7 +125976,7 @@
   },
   "2017": {
    "name": "Ajwa Projects",
-   "fetchedAt": "2026-10-29T18:14:14+05:30",
+   "fetchedAt": "2026-10-29T18:25:13+05:30",
    "about": [
     "Ajwa Projects is a multi-disciplinary industrial services company delivering end-to-end solutions across fabrication, erection, piping, pressure equipment, prefabricated structures, civil construction, and maintenance. The company specializes in turning project plans into real, functional industrial assets. Key Services: Fabrication: Manufacture and sell structural components, pressure vessels, boilers, tanks, ducts, and precision parts for various industries. Erection: On-site installation and integration of heavy structures, equipment, and piping systems with strict focus on safety and precision. Piping: Fabrication and installation of process and utility pipelines for chemicals, gases, steam, and fluids. Pressure Equipment: Fabrication, assembly, and erection of pressure vessels and related heavy-duty equipment. Civil Construction: Site development, foundations, industrial buildings, silos, tanks, and other civil works. Prefabricated Structures: Modular and portable buildings for industrial and commercial use. Maintenance & Mechanical Services: Preventive maintenance, PSV calibration, NDT testing, blasting & painting, and plant shutdown support. The company caters to a wide range of industries such as oil & gas, petrochemicals, refineries, power generation, steel, heavy metals, cement, nuclear power, bridges, metro rail, bullet train infrastructure, and other industrial and infrastructure projects. It has a workforce of over 550 skilled and semi-skilled professionals. Competitive Strengths: Experienced management team Comprehensive Portfolio with Sectoral Diversity Strong and diverse Order Book: As of Sep 30, 2025, its order book stood at Rs 1,982.05 lakhs. Flexible Execution Model (On-Site and Off-Site) Integrated Fabrication and Erection Expertise Quality and Safety Framework Skilled Workforce and Operational Capability"
    ],
@@ -126106,7 +126253,7 @@
   },
   "2375": {
    "name": "Antala Industries",
-   "fetchedAt": "2026-10-29T18:14:14+05:30",
+   "fetchedAt": "2026-10-29T18:25:13+05:30",
    "about": [
     "Antala Industries Limited is engaged in the production, processing, printing, lamination and supply of industrial and commercial packaging materials. Its product range includes BOPP bags, BOPP printing rolls, BOPP lamination rolls, PP woven bags and PP woven lamination rolls, catering to industries such as food processing, fertilizers, chemicals, cement and seeds. The Company operates an integrated manufacturing facility in Rajkot, Gujarat, equipped with extrusion, coating and lamination, rotogravure printing, stitching and finishing capabilities. The Company offers customized packaging solutions designed to provide strength, durability, moisture resistance, superior print quality and improved product presentation. Its integrated production infrastructure supports in-house operations ranging from printing and lamination to cutting, stitching, finishing and final packaging, enabling effective quality management, efficient production and timely order fulfilment. The Company holds ISO 9001:2015, ISO 14001:2015, ISO 22000:2018 and ISO 45001:2018 certifications. Its promoters bring nearly three decades of experience in the packaging industry. As of July 21, 2026, the Company employed 11 personnel across various functions, including accounts and finance, management, administration, sales, secretarial and production. Its competitive advantages include experienced promoters and management, a broad and customizable packaging portfolio, a presence across diverse industries, integrated manufacturing operations, a customer-oriented approach and well-established relationships with suppliers and customers. Strengths: Promoters and management with substantial experience in the packaging industry. Wide range of packaging products with flexibility to meet customized customer requirements. Established presence across several industrial and commercial end-use sectors. Integrated manufacturing infrastructure supporting production control and operational efficiency. Focus on product quality, customized solutions and timely delivery. Established business relationships with customers and suppliers."
    ],
@@ -128457,7 +128604,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-10-29T18:15:01+05:30",
+  "asOf": "2026-10-29T18:25:53+05:30",
   "dates": [
    "2026-01-27",
    "2026-01-28",
@@ -285962,6 +286109,1937 @@
   "2297": {
    "src": "vedant-poly-fabs-logo.png",
    "at": "2026-10-28"
+  }
+ },
+ "calendar": {
+  "asOf": "2026-10-29",
+  "from": "2026-10-22",
+  "to": "2026-12-13",
+  "events": [
+   {
+    "date": "2026-10-22",
+    "kind": "refund",
+    "name": "Bonfiglioli Transmissions",
+    "igId": "2124",
+    "src": "ig554"
+   },
+   {
+    "date": "2026-10-22",
+    "kind": "refund",
+    "name": "Sahajanand Medical Technologies",
+    "igId": "1842",
+    "src": "ig554"
+   },
+   {
+    "date": "2026-10-22",
+    "kind": "refund",
+    "name": "Shellz India",
+    "igId": "2228",
+    "src": "ig554"
+   },
+   {
+    "date": "2026-10-22",
+    "kind": "refund",
+    "name": "Tonbo Imaging India",
+    "igId": "2369",
+    "src": "ig554"
+   },
+   {
+    "date": "2026-10-22",
+    "kind": "refund",
+    "name": "Zetwerk",
+    "igId": "2279",
+    "src": "ig554"
+   },
+   {
+    "date": "2026-10-22",
+    "kind": "listing",
+    "name": "Fusion CX",
+    "igId": "1792",
+    "src": "ig554"
+   },
+   {
+    "date": "2026-10-22",
+    "kind": "listing",
+    "name": "Ravita Engineering Services",
+    "igId": "2220",
+    "src": "ig554"
+   },
+   {
+    "date": "2026-10-22",
+    "kind": "lockin30",
+    "name": "Kheria Autocomp",
+    "igId": "2016",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 6.62
+   },
+   {
+    "date": "2026-10-22",
+    "kind": "lockin30",
+    "name": "SpectraA Technology Solutions",
+    "igId": "2211",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 6.04
+   },
+   {
+    "date": "2026-10-23",
+    "kind": "open",
+    "name": "Core4 Engineers",
+    "igId": "2229",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-23",
+    "kind": "close",
+    "name": "Jio Platforms",
+    "igId": "2306",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-23",
+    "kind": "close",
+    "name": "Paras Healthcare",
+    "igId": "1728",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-23",
+    "kind": "listing",
+    "name": "Bonfiglioli Transmissions",
+    "igId": "2124",
+    "src": "ig554"
+   },
+   {
+    "date": "2026-10-23",
+    "kind": "listing",
+    "name": "Sahajanand Medical Technologies",
+    "igId": "1842",
+    "src": "ig554"
+   },
+   {
+    "date": "2026-10-23",
+    "kind": "listing",
+    "name": "Shellz India",
+    "igId": "2228",
+    "src": "ig554"
+   },
+   {
+    "date": "2026-10-23",
+    "kind": "listing",
+    "name": "Tonbo Imaging India",
+    "igId": "2369",
+    "src": "ig554"
+   },
+   {
+    "date": "2026-10-23",
+    "kind": "listing",
+    "name": "Zetwerk",
+    "igId": "2279",
+    "src": "ig554"
+   },
+   {
+    "date": "2026-10-23",
+    "kind": "lockin30",
+    "name": "Axiom Gas Engineering",
+    "igId": "1682",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 2.89
+   },
+   {
+    "date": "2026-10-23",
+    "kind": "lockin30",
+    "name": "FX Multitech",
+    "igId": "1589",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 6.39
+   },
+   {
+    "date": "2026-10-24",
+    "kind": "lockin30",
+    "name": "Himalaya Nutravedics India",
+    "igId": null,
+    "sme": null,
+    "src": "anchors",
+    "amountCr": 3.77
+   },
+   {
+    "date": "2026-10-24",
+    "kind": "lockin30",
+    "name": "Varmora Granito",
+    "igId": "1852",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 106.2
+   },
+   {
+    "date": "2026-10-24",
+    "kind": "lockin30",
+    "name": "Vivekanand Cotspin",
+    "igId": "1636",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 3.15
+   },
+   {
+    "date": "2026-10-25",
+    "kind": "lockin30",
+    "name": "Robokidz Eduventures",
+    "igId": "2359",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 4.39
+   },
+   {
+    "date": "2026-10-26",
+    "kind": "open",
+    "name": "EAAA India Alternatives",
+    "igId": "1635",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-26",
+    "kind": "allotment",
+    "name": "Jio Platforms",
+    "igId": "2306",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-26",
+    "kind": "allotment",
+    "name": "Paras Healthcare",
+    "igId": "1728",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-27",
+    "kind": "open",
+    "name": "BLS Polymers",
+    "igId": "1849",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-27",
+    "kind": "open",
+    "name": "SFC Environmental Technologies",
+    "igId": "1642",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-27",
+    "kind": "open",
+    "name": "Wiscon Industries",
+    "igId": "2356",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-27",
+    "kind": "close",
+    "name": "Core4 Engineers",
+    "igId": "2229",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-27",
+    "kind": "refund",
+    "name": "Jio Platforms",
+    "igId": "2306",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-27",
+    "kind": "refund",
+    "name": "Paras Healthcare",
+    "igId": "1728",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-27",
+    "kind": "lockin30",
+    "name": "Adroit Industries",
+    "igId": "2268",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 22.61
+   },
+   {
+    "date": "2026-10-27",
+    "kind": "lockin30",
+    "name": "Elevate Campuses",
+    "igId": "1917",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 472.5
+   },
+   {
+    "date": "2026-10-27",
+    "kind": "lockin30",
+    "name": "Swastika Infra",
+    "igId": "1708",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 24.13
+   },
+   {
+    "date": "2026-10-28",
+    "kind": "open",
+    "name": "Ajwa Projects",
+    "igId": "2017",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-28",
+    "kind": "open",
+    "name": "Carver Roboweld",
+    "igId": "2393",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-28",
+    "kind": "open",
+    "name": "M.K.Sons Fine Jewels",
+    "igId": "2288",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-28",
+    "kind": "close",
+    "name": "EAAA India Alternatives",
+    "igId": "1635",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-28",
+    "kind": "allotment",
+    "name": "Core4 Engineers",
+    "igId": "2229",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-28",
+    "kind": "listing",
+    "name": "Jio Platforms",
+    "igId": "2306",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-28",
+    "kind": "listing",
+    "name": "Paras Healthcare",
+    "igId": "1728",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-28",
+    "kind": "lockin30",
+    "name": "A-One Steels",
+    "igId": "1611",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 60.45
+   },
+   {
+    "date": "2026-10-28",
+    "kind": "lockin30",
+    "name": "ArMee Infotech",
+    "igId": "1667",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 19.97
+   },
+   {
+    "date": "2026-10-28",
+    "kind": "lockin30",
+    "name": "Moneyview",
+    "igId": "2198",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 163.75
+   },
+   {
+    "date": "2026-10-28",
+    "kind": "lockin30",
+    "name": "Pooja Logistics",
+    "igId": "1982",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 6.11
+   },
+   {
+    "date": "2026-10-28",
+    "kind": "lockin30",
+    "name": "Roopa Screen",
+    "igId": "1920",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 2.66
+   },
+   {
+    "date": "2026-10-28",
+    "kind": "lockin30",
+    "name": "Unitec Fibres",
+    "igId": "2326",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 4.87
+   },
+   {
+    "date": "2026-10-29",
+    "kind": "open",
+    "name": "Antala Industries",
+    "igId": "2375",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-29",
+    "kind": "open",
+    "name": "Bombay Coated and Special Steels",
+    "igId": "1936",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-29",
+    "kind": "close",
+    "name": "BLS Polymers",
+    "igId": "1849",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-29",
+    "kind": "close",
+    "name": "SFC Environmental Technologies",
+    "igId": "1642",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-29",
+    "kind": "close",
+    "name": "Wiscon Industries",
+    "igId": "2356",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-29",
+    "kind": "allotment",
+    "name": "EAAA India Alternatives",
+    "igId": "1635",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-29",
+    "kind": "refund",
+    "name": "Core4 Engineers",
+    "igId": "2229",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-29",
+    "kind": "lockin30",
+    "name": "Acevector",
+    "igId": "1840",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 94.5
+   },
+   {
+    "date": "2026-10-29",
+    "kind": "lockin30",
+    "name": "Bench Mark Infotech Services",
+    "igId": "2366",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 6.03
+   },
+   {
+    "date": "2026-10-29",
+    "kind": "lockin30",
+    "name": "German Green Steel",
+    "igId": "1812",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 45.59
+   },
+   {
+    "date": "2026-10-29",
+    "kind": "lockin30",
+    "name": "Orient Cables",
+    "igId": "1832",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 82.8
+   },
+   {
+    "date": "2026-10-29",
+    "kind": "lockin30",
+    "name": "Runwal Enterprises",
+    "igId": "1711",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 74.47
+   },
+   {
+    "date": "2026-10-29",
+    "kind": "lockin30",
+    "name": "S.K.Offset",
+    "igId": "2304",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 3.38
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "open",
+    "name": "HGS (India)",
+    "igId": "2241",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "open",
+    "name": "Johnsoncab Electricals",
+    "igId": "2371",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "open",
+    "name": "Maxwell Engineering Solutions",
+    "igId": "1965",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "open",
+    "name": "Vectras Enprocon",
+    "igId": "1998",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "close",
+    "name": "Ajwa Projects",
+    "igId": "2017",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "close",
+    "name": "Carver Roboweld",
+    "igId": "2393",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "close",
+    "name": "M.K.Sons Fine Jewels",
+    "igId": "2288",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "allotment",
+    "name": "BLS Polymers",
+    "igId": "1849",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "allotment",
+    "name": "SFC Environmental Technologies",
+    "igId": "1642",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "allotment",
+    "name": "Wiscon Industries",
+    "igId": "2356",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "refund",
+    "name": "EAAA India Alternatives",
+    "igId": "1635",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "listing",
+    "name": "Core4 Engineers",
+    "igId": "2229",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "lockin30",
+    "name": "Himalayan Solar",
+    "igId": "1975",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 3.88
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "lockin30",
+    "name": "SRIT India",
+    "igId": "2121",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 32.76
+   },
+   {
+    "date": "2026-10-30",
+    "kind": "lockin30",
+    "name": "Shah Investor's Home",
+    "igId": "1926",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 13.53
+   },
+   {
+    "date": "2026-10-31",
+    "kind": "lockin30",
+    "name": "Sai Urja Indo",
+    "igId": "1924",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 3.31
+   },
+   {
+    "date": "2026-11-01",
+    "kind": "lockin30",
+    "name": "Acme Universal Safezone 9",
+    "igId": "2360",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 5.11
+   },
+   {
+    "date": "2026-11-02",
+    "kind": "open",
+    "name": "Vedant Poly Fabs",
+    "igId": "2297",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-02",
+    "kind": "close",
+    "name": "Antala Industries",
+    "igId": "2375",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-02",
+    "kind": "close",
+    "name": "Bombay Coated and Special Steels",
+    "igId": "1936",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-02",
+    "kind": "allotment",
+    "name": "Ajwa Projects",
+    "igId": "2017",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-02",
+    "kind": "allotment",
+    "name": "Carver Roboweld",
+    "igId": "2393",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-02",
+    "kind": "allotment",
+    "name": "M.K.Sons Fine Jewels",
+    "igId": "2288",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-02",
+    "kind": "refund",
+    "name": "BLS Polymers",
+    "igId": "1849",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-02",
+    "kind": "refund",
+    "name": "Carver Roboweld",
+    "igId": "2393",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-02",
+    "kind": "refund",
+    "name": "SFC Environmental Technologies",
+    "igId": "1642",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-02",
+    "kind": "refund",
+    "name": "Wiscon Industries",
+    "igId": "2356",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-02",
+    "kind": "listing",
+    "name": "EAAA India Alternatives",
+    "igId": "1635",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-03",
+    "kind": "close",
+    "name": "HGS (India)",
+    "igId": "2241",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-03",
+    "kind": "close",
+    "name": "Johnsoncab Electricals",
+    "igId": "2371",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-03",
+    "kind": "close",
+    "name": "Maxwell Engineering Solutions",
+    "igId": "1965",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-03",
+    "kind": "close",
+    "name": "Vectras Enprocon",
+    "igId": "1998",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-03",
+    "kind": "allotment",
+    "name": "Antala Industries",
+    "igId": "2375",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-03",
+    "kind": "allotment",
+    "name": "Bombay Coated and Special Steels",
+    "igId": "1936",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-03",
+    "kind": "refund",
+    "name": "Ajwa Projects",
+    "igId": "2017",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-03",
+    "kind": "refund",
+    "name": "M.K.Sons Fine Jewels",
+    "igId": "2288",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-03",
+    "kind": "listing",
+    "name": "BLS Polymers",
+    "igId": "1849",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-03",
+    "kind": "listing",
+    "name": "SFC Environmental Technologies",
+    "igId": "1642",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-03",
+    "kind": "listing",
+    "name": "Wiscon Industries",
+    "igId": "2356",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-03",
+    "kind": "lockin30",
+    "name": "Vans Electroengineerings",
+    "igId": "2351",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 4.75
+   },
+   {
+    "date": "2026-11-04",
+    "kind": "close",
+    "name": "Vedant Poly Fabs",
+    "igId": "2297",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-04",
+    "kind": "allotment",
+    "name": "HGS (India)",
+    "igId": "2241",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-04",
+    "kind": "allotment",
+    "name": "Johnsoncab Electricals",
+    "igId": "2371",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-04",
+    "kind": "allotment",
+    "name": "Maxwell Engineering Solutions",
+    "igId": "1965",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-04",
+    "kind": "allotment",
+    "name": "Vectras Enprocon",
+    "igId": "1998",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-04",
+    "kind": "refund",
+    "name": "Antala Industries",
+    "igId": "2375",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-04",
+    "kind": "refund",
+    "name": "Bombay Coated and Special Steels",
+    "igId": "1936",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-04",
+    "kind": "listing",
+    "name": "Ajwa Projects",
+    "igId": "2017",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-04",
+    "kind": "listing",
+    "name": "Carver Roboweld",
+    "igId": "2393",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-04",
+    "kind": "listing",
+    "name": "M.K.Sons Fine Jewels",
+    "igId": "2288",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-04",
+    "kind": "lockin30",
+    "name": "Black Opal Consultants",
+    "igId": "2052",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 7.84
+   },
+   {
+    "date": "2026-11-04",
+    "kind": "lockin30",
+    "name": "Shree TNB Polymers",
+    "igId": "2282",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 4.52
+   },
+   {
+    "date": "2026-11-05",
+    "kind": "allotment",
+    "name": "Vedant Poly Fabs",
+    "igId": "2297",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-05",
+    "kind": "refund",
+    "name": "HGS (India)",
+    "igId": "2241",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-05",
+    "kind": "refund",
+    "name": "Johnsoncab Electricals",
+    "igId": "2371",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-05",
+    "kind": "refund",
+    "name": "Maxwell Engineering Solutions",
+    "igId": "1965",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-05",
+    "kind": "refund",
+    "name": "Vectras Enprocon",
+    "igId": "1998",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-05",
+    "kind": "listing",
+    "name": "Antala Industries",
+    "igId": "2375",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-05",
+    "kind": "listing",
+    "name": "Bombay Coated and Special Steels",
+    "igId": "1936",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-05",
+    "kind": "lockin30",
+    "name": "Acme India Industries",
+    "igId": "2006",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 17.3
+   },
+   {
+    "date": "2026-11-05",
+    "kind": "lockin30",
+    "name": "Eventions",
+    "igId": "2267",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": null
+   },
+   {
+    "date": "2026-11-05",
+    "kind": "lockin30",
+    "name": "EverestIMS Technologies",
+    "igId": "1637",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 6.86
+   },
+   {
+    "date": "2026-11-05",
+    "kind": "lockin30",
+    "name": "Nityas Gems & Jewellery",
+    "igId": "2235",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": null
+   },
+   {
+    "date": "2026-11-06",
+    "kind": "refund",
+    "name": "Vedant Poly Fabs",
+    "igId": "2297",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-06",
+    "kind": "listing",
+    "name": "HGS (India)",
+    "igId": "2241",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-06",
+    "kind": "listing",
+    "name": "Johnsoncab Electricals",
+    "igId": "2371",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-06",
+    "kind": "listing",
+    "name": "Maxwell Engineering Solutions",
+    "igId": "1965",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-06",
+    "kind": "listing",
+    "name": "Vectras Enprocon",
+    "igId": "1998",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-07",
+    "kind": "lockin30",
+    "name": "TNA Solutions",
+    "igId": "2370",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 5.38
+   },
+   {
+    "date": "2026-11-09",
+    "kind": "listing",
+    "name": "Vedant Poly Fabs",
+    "igId": "2297",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-10",
+    "kind": "lockin90",
+    "name": "Dhoot Transmission",
+    "igId": "2122",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 459.13
+   },
+   {
+    "date": "2026-11-10",
+    "kind": "lockin90",
+    "name": "Molbio Diagnostics",
+    "igId": "1865",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 140.73
+   },
+   {
+    "date": "2026-11-11",
+    "kind": "lockin90",
+    "name": "Milky Mist Dairy Food",
+    "igId": "1838",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 232.65
+   },
+   {
+    "date": "2026-11-14",
+    "kind": "lockin30",
+    "name": "HD Fire Protect",
+    "igId": "1902",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 106.56
+   },
+   {
+    "date": "2026-11-14",
+    "kind": "lockin30",
+    "name": "Vaibhav Vyapaar",
+    "igId": "2335",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 5.94
+   },
+   {
+    "date": "2026-11-14",
+    "kind": "lockin90",
+    "name": "Shiprocket",
+    "igId": "1790",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 363.71
+   },
+   {
+    "date": "2026-11-17",
+    "kind": "lockin30",
+    "name": "Fusion CX",
+    "igId": "1792",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 157.95
+   },
+   {
+    "date": "2026-11-17",
+    "kind": "lockin30",
+    "name": "Ravita Engineering Services",
+    "igId": "2220",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 16.51
+   },
+   {
+    "date": "2026-11-19",
+    "kind": "lockin30",
+    "name": "Bonfigloli Transmissions",
+    "igId": null,
+    "sme": null,
+    "src": "anchors",
+    "amountCr": 379.63
+   },
+   {
+    "date": "2026-11-19",
+    "kind": "lockin30",
+    "name": "Sahajanand Medical Technologies",
+    "igId": "1842",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 70.03
+   },
+   {
+    "date": "2026-11-19",
+    "kind": "lockin30",
+    "name": "Shellz India",
+    "igId": "2228",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 8.1
+   },
+   {
+    "date": "2026-11-19",
+    "kind": "lockin30",
+    "name": "Tonbo Imaging India",
+    "igId": "2369",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 127.68
+   },
+   {
+    "date": "2026-11-19",
+    "kind": "lockin30",
+    "name": "Zetwerk",
+    "igId": "2279",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 1125.62
+   },
+   {
+    "date": "2026-11-22",
+    "kind": "lockin90",
+    "name": "Tempsens Instruments (India)",
+    "igId": "1934",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 97.28
+   },
+   {
+    "date": "2026-11-24",
+    "kind": "lockin30",
+    "name": "Jio Platforms",
+    "igId": "2306",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 4054.93
+   },
+   {
+    "date": "2026-11-24",
+    "kind": "lockin30",
+    "name": "Paras Healthcare",
+    "igId": "1728",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 326.25
+   },
+   {
+    "date": "2026-11-24",
+    "kind": "lockin90",
+    "name": "Augmont Enterprises",
+    "igId": "1938",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 123.15
+   },
+   {
+    "date": "2026-11-25",
+    "kind": "lockin90",
+    "name": "Symbiotec Pharmalab",
+    "igId": "2069",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 263.1
+   },
+   {
+    "date": "2026-11-27",
+    "kind": "lockin30",
+    "name": "Core4 Engineers",
+    "igId": "2229",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 7.18
+   },
+   {
+    "date": "2026-11-28",
+    "kind": "lockin30",
+    "name": "EAAA India Alternatives",
+    "igId": "1635",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 180.0
+   },
+   {
+    "date": "2026-11-29",
+    "kind": "lockin30",
+    "name": "BLS Polymers",
+    "igId": "1849",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 38.25
+   },
+   {
+    "date": "2026-11-29",
+    "kind": "lockin30",
+    "name": "SFC Environmental Technologies",
+    "igId": "1642",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 100.13
+   },
+   {
+    "date": "2026-11-29",
+    "kind": "lockin30",
+    "name": "Wiscon Industries",
+    "igId": "2356",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 12.51
+   },
+   {
+    "date": "2026-11-30",
+    "kind": "lockin90",
+    "name": "Lumino Industries",
+    "igId": "1619",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 103.5
+   },
+   {
+    "date": "2026-12-01",
+    "kind": "lockin90",
+    "name": "ESDS Software Solution",
+    "igId": "1607",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 108.0
+   },
+   {
+    "date": "2026-12-01",
+    "kind": "lockin90",
+    "name": "Priority Jewels",
+    "igId": "1783",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 13.72
+   },
+   {
+    "date": "2026-12-01",
+    "kind": "lockin90",
+    "name": "Purple Style Labs",
+    "igId": "1897",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 153.0
+   },
+   {
+    "date": "2026-12-02",
+    "kind": "lockin30",
+    "name": "Carver Roboweld",
+    "igId": "2393",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 3.98
+   },
+   {
+    "date": "2026-12-02",
+    "kind": "lockin30",
+    "name": "M.K.Sons Fine Jewels",
+    "igId": "2288",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 41.31
+   },
+   {
+    "date": "2026-12-02",
+    "kind": "lockin90",
+    "name": "Deepa Jewellers",
+    "igId": "2081",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 68.95
+   },
+   {
+    "date": "2026-12-02",
+    "kind": "lockin90",
+    "name": "Rays of Belief",
+    "igId": "2041",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 25.0
+   },
+   {
+    "date": "2026-12-03",
+    "kind": "lockin30",
+    "name": "Bombay Coated and Special Steels",
+    "igId": "1936",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 27.05
+   },
+   {
+    "date": "2026-12-04",
+    "kind": "lockin30",
+    "name": "HGS (India)",
+    "igId": "2241",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": null
+   },
+   {
+    "date": "2026-12-04",
+    "kind": "lockin30",
+    "name": "Johnsoncab Electricals",
+    "igId": "2371",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 7.95
+   },
+   {
+    "date": "2026-12-04",
+    "kind": "lockin30",
+    "name": "Maxwell Engineering Solutions",
+    "igId": "1965",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 8.09
+   },
+   {
+    "date": "2026-12-04",
+    "kind": "lockin30",
+    "name": "Vectras Enprocon",
+    "igId": "1998",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": null
+   },
+   {
+    "date": "2026-12-09",
+    "kind": "lockin90",
+    "name": "Glass Wall Systems (India)",
+    "igId": null,
+    "sme": null,
+    "src": "anchors",
+    "amountCr": null
+   },
+   {
+    "date": "2026-12-09",
+    "kind": "lockin90",
+    "name": "Kanohar Electricals",
+    "igId": "2119",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 158.36
+   },
+   {
+    "date": "2026-12-09",
+    "kind": "lockin90",
+    "name": "Pranav Constructions",
+    "igId": "1662",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 42.12
+   },
+   {
+    "date": "2026-12-09",
+    "kind": "lockin90",
+    "name": "Prasol Chemicals",
+    "igId": "2030",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 75.0
+   },
+   {
+    "date": "2026-12-13",
+    "kind": "lockin90",
+    "name": "Asset Reconstruction Company (India)",
+    "igId": null,
+    "sme": null,
+    "src": "anchors",
+    "amountCr": 109.94
+   },
+   {
+    "date": "2026-12-13",
+    "kind": "lockin90",
+    "name": "Karamtara Engineering",
+    "igId": "1622",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 131.25
+   },
+   {
+    "date": "2026-12-13",
+    "kind": "lockin90",
+    "name": "Rentomojo",
+    "igId": "2231",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": null
+   },
+   {
+    "date": "2026-12-13",
+    "kind": "lockin90",
+    "name": "Steamhouse India",
+    "igId": null,
+    "sme": null,
+    "src": "anchors",
+    "amountCr": null
+   }
+  ],
+  "issues": {
+   "1635": {
+    "name": "EAAA India Alternatives",
+    "sme": false,
+    "status": "Closed",
+    "open": "2026-10-26",
+    "close": "2026-10-28",
+    "allotment": "2026-10-29",
+    "refund": "2026-10-30",
+    "listing": "2026-11-02",
+    "releaseDate": "2026-10-30",
+    "releaseSrc": "refund",
+    "blockedDays": 2,
+    "fundReuse": [],
+    "lockIn30": "2026-11-28",
+    "lockIn90": "2027-01-27",
+    "retailSlots": 280280,
+    "retailSizeCr": 421.0
+   },
+   "1849": {
+    "name": "BLS Polymers",
+    "sme": false,
+    "status": "Open",
+    "open": "2026-10-27",
+    "close": "2026-10-29",
+    "allotment": "2026-10-30",
+    "refund": "2026-11-02",
+    "listing": "2026-11-03",
+    "blocks": {
+     "retail": {
+      "amount": 15000,
+      "shares": 100,
+      "lots": 1
+     },
+     "snii": {
+      "amount": 210000,
+      "shares": 1400,
+      "lots": 14
+     },
+     "bnii": {
+      "amount": 1005000,
+      "shares": 6700,
+      "lots": 67
+     }
+    },
+    "releaseDate": "2026-11-02",
+    "releaseSrc": "refund",
+    "blockedDays": 4,
+    "fundReuse": [],
+    "lockIn30": "2026-11-29",
+    "lockIn90": "2027-01-28",
+    "retailSlots": 59500,
+    "retailSizeCr": 90.0
+   },
+   "1642": {
+    "name": "SFC Environmental Technologies",
+    "sme": false,
+    "status": "Open",
+    "open": "2026-10-27",
+    "close": "2026-10-29",
+    "allotment": "2026-10-30",
+    "refund": "2026-11-02",
+    "listing": "2026-11-03",
+    "blocks": {
+     "retail": {
+      "amount": 14850,
+      "shares": 45,
+      "lots": 1
+     },
+     "snii": {
+      "amount": 207900,
+      "shares": 630,
+      "lots": 14
+     },
+     "bnii": {
+      "amount": 1009800,
+      "shares": 3060,
+      "lots": 68
+     }
+    },
+    "releaseDate": "2026-11-02",
+    "releaseSrc": "refund",
+    "blockedDays": 4,
+    "fundReuse": [],
+    "lockIn30": "2026-11-29",
+    "lockIn90": "2027-01-28",
+    "retailSlots": 157330,
+    "retailSizeCr": 234.0
+   },
+   "2288": {
+    "name": "M.K.Sons Fine Jewels",
+    "sme": false,
+    "status": "Open",
+    "open": "2026-10-28",
+    "close": "2026-10-30",
+    "allotment": "2026-11-02",
+    "refund": "2026-11-03",
+    "listing": "2026-11-04",
+    "blocks": {
+     "retail": {
+      "amount": 14742,
+      "shares": 91,
+      "lots": 1
+     },
+     "snii": {
+      "amount": 206388,
+      "shares": 1274,
+      "lots": 14
+     },
+     "bnii": {
+      "amount": 1002456,
+      "shares": 6188,
+      "lots": 68
+     }
+    },
+    "releaseDate": "2026-11-03",
+    "releaseSrc": "refund",
+    "blockedDays": 4,
+    "fundReuse": [
+     "1635"
+    ],
+    "lockIn30": "2026-12-02",
+    "lockIn90": "2027-01-31",
+    "retailSlots": 65384,
+    "retailSizeCr": 97.0
+   },
+   "1936": {
+    "name": "Bombay Coated and Special Steels",
+    "sme": false,
+    "status": "Open",
+    "open": "2026-10-29",
+    "close": "2026-11-02",
+    "allotment": "2026-11-03",
+    "refund": "2026-11-04",
+    "listing": "2026-11-05",
+    "blocks": {
+     "retail": {
+      "amount": 14924,
+      "shares": 182,
+      "lots": 1
+     },
+     "snii": {
+      "amount": 208936,
+      "shares": 2548,
+      "lots": 14
+     },
+     "bnii": {
+      "amount": 1014832,
+      "shares": 12376,
+      "lots": 68
+     }
+    },
+    "releaseDate": "2026-11-04",
+    "releaseSrc": "refund",
+    "blockedDays": 2,
+    "fundReuse": [
+     "1642",
+     "1849"
+    ],
+    "lockIn30": "2026-12-03",
+    "lockIn90": "2027-02-01"
+   },
+   "2229": {
+    "name": "Core4 Engineers",
+    "sme": true,
+    "status": "Closed",
+    "open": "2026-10-23",
+    "close": "2026-10-27",
+    "allotment": "2026-10-28",
+    "refund": "2026-10-29",
+    "listing": "2026-10-30",
+    "releaseDate": "2026-10-29",
+    "releaseSrc": "refund",
+    "blockedDays": 2,
+    "fundReuse": [],
+    "lockIn30": "2026-11-27",
+    "lockIn90": "2027-01-26"
+   },
+   "2356": {
+    "name": "Wiscon Industries",
+    "sme": true,
+    "status": "Open",
+    "open": "2026-10-27",
+    "close": "2026-10-29",
+    "allotment": "2026-10-30",
+    "refund": "2026-11-02",
+    "listing": "2026-11-03",
+    "blocks": {
+     "retail": {
+      "amount": 244800,
+      "shares": 1200,
+      "lots": 2
+     },
+     "snii": {
+      "amount": 244800,
+      "shares": 1800,
+      "lots": 3
+     },
+     "bnii": {
+      "amount": 1101600,
+      "shares": 1800,
+      "lots": 3
+     }
+    },
+    "releaseDate": "2026-11-02",
+    "releaseSrc": "refund",
+    "blockedDays": 4,
+    "fundReuse": [],
+    "lockIn30": "2026-11-29",
+    "lockIn90": "2027-01-28"
+   },
+   "2017": {
+    "name": "Ajwa Projects",
+    "sme": true,
+    "status": "Open",
+    "open": "2026-10-28",
+    "close": "2026-10-30",
+    "allotment": "2026-11-02",
+    "refund": "2026-11-03",
+    "listing": "2026-11-04",
+    "blocks": {
+     "retail": {
+      "amount": 243600,
+      "shares": 1200,
+      "lots": 2
+     },
+     "snii": {
+      "amount": 243600,
+      "shares": 1800,
+      "lots": 3
+     },
+     "bnii": {
+      "amount": 1096200,
+      "shares": 1800,
+      "lots": 3
+     }
+    },
+    "releaseDate": "2026-11-03",
+    "releaseSrc": "refund",
+    "blockedDays": 4,
+    "fundReuse": []
+   },
+   "2393": {
+    "name": "Carver Roboweld",
+    "sme": true,
+    "status": "Open",
+    "open": "2026-10-28",
+    "close": "2026-10-30",
+    "allotment": "2026-11-02",
+    "refund": "2026-11-02",
+    "listing": "2026-11-04",
+    "blocks": {
+     "retail": {
+      "amount": 256000,
+      "shares": 3200,
+      "lots": 2
+     },
+     "snii": {
+      "amount": 256000,
+      "shares": 4800,
+      "lots": 3
+     },
+     "bnii": {
+      "amount": 1024000,
+      "shares": 4800,
+      "lots": 3
+     }
+    },
+    "releaseDate": "2026-11-02",
+    "releaseSrc": "refund",
+    "blockedDays": 3,
+    "fundReuse": [],
+    "lockIn30": "2026-12-02",
+    "lockIn90": "2027-01-31"
+   },
+   "2375": {
+    "name": "Antala Industries",
+    "sme": true,
+    "status": "Open",
+    "open": "2026-10-29",
+    "close": "2026-11-02",
+    "allotment": "2026-11-03",
+    "refund": "2026-11-04",
+    "listing": "2026-11-05",
+    "blocks": {
+     "retail": {
+      "amount": 268000,
+      "shares": 4000,
+      "lots": 2
+     },
+     "snii": {
+      "amount": 268000,
+      "shares": 6000,
+      "lots": 3
+     },
+     "bnii": {
+      "amount": 1072000,
+      "shares": 6000,
+      "lots": 3
+     }
+    },
+    "releaseDate": "2026-11-04",
+    "releaseSrc": "refund",
+    "blockedDays": 2,
+    "fundReuse": []
+   },
+   "2241": {
+    "name": "HGS (India)",
+    "sme": true,
+    "status": "Upcoming",
+    "open": "2026-10-30",
+    "close": "2026-11-03",
+    "allotment": "2026-11-04",
+    "refund": "2026-11-05",
+    "listing": "2026-11-06",
+    "releaseDate": "2026-11-05",
+    "releaseSrc": "refund",
+    "blockedDays": 2,
+    "fundReuse": [],
+    "lockIn30": "2026-12-04",
+    "lockIn90": "2027-02-02"
+   },
+   "2371": {
+    "name": "Johnsoncab Electricals",
+    "sme": true,
+    "status": "Upcoming",
+    "open": "2026-10-30",
+    "close": "2026-11-03",
+    "allotment": "2026-11-04",
+    "refund": "2026-11-05",
+    "listing": "2026-11-06",
+    "releaseDate": "2026-11-05",
+    "releaseSrc": "refund",
+    "blockedDays": 2,
+    "fundReuse": [],
+    "lockIn30": "2026-12-04",
+    "lockIn90": "2027-02-02"
+   },
+   "1965": {
+    "name": "Maxwell Engineering Solutions",
+    "sme": true,
+    "status": "Upcoming",
+    "open": "2026-10-30",
+    "close": "2026-11-03",
+    "allotment": "2026-11-04",
+    "refund": "2026-11-05",
+    "listing": "2026-11-06",
+    "releaseDate": "2026-11-05",
+    "releaseSrc": "refund",
+    "blockedDays": 2,
+    "fundReuse": [],
+    "lockIn30": "2026-12-04",
+    "lockIn90": "2027-02-02"
+   },
+   "1998": {
+    "name": "Vectras Enprocon",
+    "sme": true,
+    "status": "Upcoming",
+    "open": "2026-10-30",
+    "close": "2026-11-03",
+    "allotment": "2026-11-04",
+    "refund": "2026-11-05",
+    "listing": "2026-11-06",
+    "releaseDate": "2026-11-05",
+    "releaseSrc": "refund",
+    "blockedDays": 2,
+    "fundReuse": [],
+    "lockIn30": "2026-12-04",
+    "lockIn90": "2027-02-02"
+   },
+   "2297": {
+    "name": "Vedant Poly Fabs",
+    "sme": true,
+    "status": "Upcoming",
+    "open": "2026-11-02",
+    "close": "2026-11-04",
+    "allotment": "2026-11-05",
+    "refund": "2026-11-06",
+    "listing": "2026-11-09",
+    "releaseDate": "2026-11-06",
+    "releaseSrc": "refund",
+    "blockedDays": 2,
+    "fundReuse": []
+   }
+  },
+  "unlinked": [
+   {
+    "name": "Bonfiglioli Transmissions",
+    "igId": "2124",
+    "kinds": [
+     "refund",
+     "listing"
+    ]
+   },
+   {
+    "name": "Fusion CX",
+    "igId": "1792",
+    "kinds": [
+     "listing"
+    ]
+   },
+   {
+    "name": "Ravita Engineering Services",
+    "igId": "2220",
+    "kinds": [
+     "listing"
+    ]
+   },
+   {
+    "name": "Sahajanand Medical Technologies",
+    "igId": "1842",
+    "kinds": [
+     "refund",
+     "listing"
+    ]
+   },
+   {
+    "name": "Shellz India",
+    "igId": "2228",
+    "kinds": [
+     "refund",
+     "listing"
+    ]
+   },
+   {
+    "name": "Tonbo Imaging India",
+    "igId": "2369",
+    "kinds": [
+     "refund",
+     "listing"
+    ]
+   },
+   {
+    "name": "Zetwerk",
+    "igId": "2279",
+    "kinds": [
+     "refund",
+     "listing"
+    ]
+   }
+  ],
+  "conflicts": [],
+  "sources": {
+   "ig554": {
+    "months": [
+     "2026-10",
+     "2026-11",
+     "2026-12"
+    ],
+    "events": 234
+   },
+   "ig607": {
+    "rows": 5,
+    "matched": 5
+   }
   }
  }
 }
