@@ -202,3 +202,10 @@ login + Book sync work will reuse.
 A deploy step that found or created the namespace with the deploy token was pushed, then taken out at Hari's ask:
 he created `ipo-desk-visits` in the dashboard himself and the id sits in `wrangler.toml`, plain to read. Lesson for the
 desk: an explicit id in a committed file beats deploy-time magic he cannot see.
+
+"It's not showing the people that already visited" — of course: the ledger began that minute. The Worker now also reads
+Cloudflare's Access log (`/accounts/<id>/access/logs/access_requests`, last 1,000 records, cached a minute) with a token
+that can only read Access audit logs — GitHub secret `CF_ACCESS_LOGS_TOKEN`, uploaded to the Worker by `deploy.yml`
+with `wrangler secret put` only when it exists, so a missing secret is a note on the card, never a failed deploy — and
+merges it with the ledger: one row per email, sign-ins and failed attempts from Access, page loads from KV.
+

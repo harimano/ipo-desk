@@ -198,16 +198,21 @@ async function renderVisitors(me) {
   let v;
   try { v = await getJson("/admin/visitors.json", { cache: "no-store" }); }
   catch (e) { box.innerHTML = `<div class="empty">No ledger answered (${esc(e.message)}) — a local preview, or the Worker is not in front.</div>`; return; }
-  if (v.error) { box.innerHTML = row("setup", `${esc(v.error)}<small>Workers &amp; Pages → KV → Create a namespace → paste its id into the [[kv_namespaces]] block of ops/site-worker/wrangler.toml → push. Until then nothing is recorded.</small>`, pill("warn", "KV not set up")); $("#visSum").textContent = ""; return; }
   const list = v.visitors || [], today = dayKey(new Date().toISOString()), week = Date.now() - 7 * 86400000;
   const mine = (me && me.email || "").toLowerCase();
   const todayN = list.filter(x => dayKey(x.last) === today).length, weekN = list.filter(x => Date.parse(x.last) > week).length;
   $("#visSum").textContent = list.length ? `${list.length} people · ${todayN} today · ${weekN} this week` : "";
-  if (!list.length) { box.innerHTML = `<div class="empty">Nobody recorded yet. The ledger starts with the first page load after the binding went live.</div>`; return; }
-  box.innerHTML = `<div class="row" style="border-top:0"><span class="k mu">who</span><span class="v mu">first seen · last seen</span><span class="mu">loads</span></div>`
-    + list.map(x => row(x.email === mine ? "you" : x.email, `${fmtIST(x.first)} · <b>${fmtIST(x.last)}</b> <span class="mu">${ago(x.last)}${x.country ? " · " + esc(x.country) : ""}${x.admin && x.email !== mine ? " · opened /admin" : ""}</span>`,
-        pill(dayKey(x.last) === today ? "ok" : "nt", x.n))).join("")
-    + `<div class="dt" style="padding-top:8px">A load is one page open per person, counted at most once every ten minutes. Someone who got the link and never finished the email code is not here; Cloudflare's Access log has every attempt.</div>`;
+  const srcs = [];
+  srcs.push(v.accessLog && !v.accessLog.error ? `sign-ins from Cloudflare's Access log (${v.accessLog.records} records, since the gate went up)` : `<b>no sign-in history</b>: ${esc(v.accessLog && v.accessLog.error || "?")}`);
+  srcs.push(v.ledger ? "page loads from the Worker's ledger (since 29 Oct 2026)" : "<b>no ledger</b>: the VISITS KV binding is missing");
+  const head = `<div class="dt" style="padding:2px 0 8px">${srcs.join(" · ")}</div>`;
+  if (!list.length) { box.innerHTML = head + `<div class="empty">Nobody recorded yet.</div>`; return; }
+  box.innerHTML = head
+    + `<div class="row" style="border-top:0"><span class="k mu">who</span><span class="v mu">first seen · last seen</span><span class="mu">sign-ins · loads</span></div>`
+    + list.map(x => row(x.email === mine ? "you" : x.email,
+        `${fmtIST(x.first)} · <b>${fmtIST(x.last)}</b> <span class="mu">${ago(x.last)}${x.country ? " · " + esc(x.country) : ""}${x.failed ? ` · ${x.failed} failed attempt${x.failed > 1 ? "s" : ""}` : ""}${x.admin && x.email !== mine ? " · tried /admin" : ""}</span>`,
+        `${pill(x.failed ? "warn" : dayKey(x.last) === today ? "ok" : "nt", x.signins)} ${pill("nt", x.loads)}`)).join("")
+    + `<div class="dt" style="padding-top:8px">Sign-ins = email codes completed at the gate (Access remembers a person a month, so a regular reader signs in rarely). Loads = page opens the Worker saw, at most one every ten minutes a person. Someone who got the link and never finished the code shows only as failed attempts, if at all.</div>`;
 }
 
 /* ---------- the smoke test: the page in a hidden same-origin frame, every tab, every sheet ---------- */

@@ -101,3 +101,13 @@ jobs:
           TEAM_DOMAIN: ${{ vars.ACCESS_TEAM_DOMAIN }}
           POLICY_AUD: ${{ vars.ACCESS_AUD }}
           ADMIN_EMAIL: ${{ vars.ACCESS_ADMIN_EMAIL || 'pending' }}     # who may open /admin; wrangler refuses an empty var, and the Worker reads `pending` as unset (404)
+      - name: Hand the Worker its Access-log secrets (only when CF_ACCESS_LOGS_TOKEN exists; /admin Visitors history)
+        working-directory: ops/site-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_ACCESS_LOGS_TOKEN: ${{ secrets.CF_ACCESS_LOGS_TOKEN }}
+        if: env.CF_ACCESS_LOGS_TOKEN != ''
+        run: |
+          printf '%s' "$CF_ACCESS_LOGS_TOKEN" | npx --yes wrangler@4.154.0 secret put CF_ACCESS_LOGS_TOKEN
+          printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | npx --yes wrangler@4.154.0 secret put CF_ACCOUNT_ID

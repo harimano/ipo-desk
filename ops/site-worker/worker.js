@@ -8,6 +8,9 @@
 //   POLICY_AUD   the Access application's Audience (AUD) tag — Zero Trust → Access → Applications → the app
 //   ADMIN_EMAIL  the one address that may open /admin (repo variable ACCESS_ADMIN_EMAIL); unset = /admin does not exist
 // Binding (wrangler.toml): VISITS, a KV namespace — the visitors ledger behind /admin. Optional: absent, nothing is kept.
+// Secrets (uploaded by deploy.yml from GitHub secrets of the same name, when they exist):
+//   CF_ACCESS_LOGS_TOKEN  an API token with only Account · Access: Audit Logs · Read — the sign-in history for /admin
+//   CF_ACCOUNT_ID         the account the token reads (from the existing GitHub secret CLOUDFLARE_ACCOUNT_ID)
 //
 // Access puts the JWT in the Cf-Access-Jwt-Assertion header (and a CF_Authorization cookie). It is RS256-signed
 // by keys published at https://<team>.cloudflareaccess.com/cdn-cgi/access/certs; those are cached an hour.
@@ -96,20 +99,62 @@ async function noteVisit(request, env, claims, url) {
   await env.VISITS.put(key, JSON.stringify(cur));
 }
 
-async function visitors(env) {
-  if (!env.VISITS) return { error: "no KV binding: create a namespace and put its id in ops/site-worker/wrangler.toml" };
-  const out = [];
-  let cursor;
+async function ledger(env) {
+  const out = {};
+  if (!env.VISITS) return out;
+  let cursor, n = 0;
   do {
     const page = await env.VISITS.list({ prefix: "v:", cursor, limit: 200 });
     for (const k of page.keys) {
       const v = await env.VISITS.get(k.name, "json");
-      if (v) out.push({ email: k.name.slice(2), ...v });
+      if (v) { out[k.name.slice(2)] = v; n++; }
     }
     cursor = page.list_complete ? null : page.cursor;
-  } while (cursor && out.length < 1000);
-  out.sort((a, b) => (b.last || "").localeCompare(a.last || ""));
-  return { at: new Date().toISOString(), visitors: out };
+  } while (cursor && n < 1000);
+  return out;
+}
+
+// Cloudflare's own Access log — every sign-in attempt at the gate since it went up, read with a token that can ONLY
+// read Access audit logs (Worker secrets CF_ACCESS_LOGS_TOKEN + CF_ACCOUNT_ID, uploaded by deploy.yml when the GitHub
+// secrets exist; absent, the card says so). Cached a minute per isolate so a page reload is not an API call.
+let accessCache = { at: 0, body: null };
+async function accessLog(env) {
+  if (!env.CF_ACCESS_LOGS_TOKEN || !env.CF_ACCOUNT_ID) return { error: "no Access-log token: add the GitHub secret CF_ACCESS_LOGS_TOKEN (Account · Access: Audit Logs · Read), then run deploy" };
+  if (Date.now() - accessCache.at < 60 * 1000 && accessCache.body) return accessCache.body;
+  const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/access/logs/access_requests?limit=1000&direction=desc`,
+    { headers: { Authorization: `Bearer ${env.CF_ACCESS_LOGS_TOKEN}` } });
+  if (!r.ok) return { error: `Cloudflare answered ${r.status} to the Access-log call (is the token Access: Audit Logs: Read on this account?)` };
+  const body = await r.json();
+  if (!body.success) return { error: "Access-log call failed: " + JSON.stringify((body.errors || []).slice(0, 2)) };
+  const by = {};
+  for (const e of body.result || []) {
+    const email = (e.user_email || "").toLowerCase();
+    if (!email) continue;
+    const at = e.created_at, ok = e.allowed !== false;
+    const v = by[email] || (by[email] = { first: at, last: at, signins: 0, failed: 0, country: e.country || null, lastIp: null });
+    if (at < v.first) v.first = at;
+    if (at > v.last) { v.last = at; v.country = e.country || v.country; }
+    if (ok) v.signins++; else v.failed++;
+  }
+  const out = { by, n: (body.result || []).length };
+  accessCache = { at: Date.now(), body: out };
+  return out;
+}
+
+// One row per email, from both: the Access log (sign-ins, since the gate went up) and the ledger (page loads, since
+// 29 Oct 2026). Either source may be missing; the row says which it has.
+async function visitors(env) {
+  const [led, acc] = await Promise.all([ledger(env), accessLog(env)]);
+  const rows = {};
+  for (const [email, v] of Object.entries(led)) rows[email] = { email, first: v.first, last: v.last, loads: v.n || 0, signins: 0, failed: 0, country: v.country || null, admin: !!v.admin };
+  for (const [email, a] of Object.entries(acc.by || {})) {
+    const r = rows[email] || (rows[email] = { email, first: a.first, last: a.last, loads: 0, signins: 0, failed: 0, country: null, admin: false });
+    if (a.first < r.first) r.first = a.first;
+    if (a.last > r.last) r.last = a.last;
+    r.signins = a.signins; r.failed = a.failed; r.country = r.country || a.country;
+  }
+  const out = Object.values(rows).sort((x, y) => (y.last || "").localeCompare(x.last || ""));
+  return { at: new Date().toISOString(), visitors: out, ledger: !!env.VISITS, accessLog: acc.error ? { error: acc.error } : { records: acc.n } };
 }
 
 const json = (body, status) => new Response(JSON.stringify(body), { status: status || 200, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } });

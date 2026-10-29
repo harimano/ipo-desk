@@ -40,11 +40,13 @@ that variable and the Pages job are gone.)
    `ACCESS_ADMIN_EMAIL` = the one address that may open `/admin` (the ops page, `site/admin/`; its README is the
    header of `scripts/audit.py`). Unset or `pending`, `/admin` is a 404 for everyone; any other signed-in email
    gets a 403. Set it with `gh variable set ACCESS_ADMIN_EMAIL --body <email>`.
-7. **Visitors** — `/admin` shows who has opened the page from a KV ledger the Worker keeps (one record per signed-in
-   email: first seen, last seen, page loads, country; a load counts at most once every ten minutes). The namespace
-   `ipo-desk-visits` is created once in the dashboard (Storage & Databases → KV → Create a namespace, Standard) and its
-   id goes in `wrangler.toml` under `[[kv_namespaces]]`. Cloudflare's own sign-in log (Zero Trust → Logs → Access) has
-   every attempt, including failed ones.
+7. **Visitors** — `/admin` lists everyone who has signed in, from two sources. Cloudflare's Access log (every email
+   code completed or failed at the gate since it went up) is read by the Worker with a token that can only read
+   Access audit logs: Cloudflare → My Profile → API Tokens → Create Token → Custom → permission *Account · Access:
+   Audit Logs · Read*, your account → copy → GitHub secret `CF_ACCESS_LOGS_TOKEN`. The deploy uploads it (and the
+   existing `CLOUDFLARE_ACCOUNT_ID`) to the Worker as secrets; without it the card says so and shows the ledger alone.
+   The ledger is a KV record per signed-in email (first, last, page loads, country; a load counts at most once every
+   ten minutes): namespace `ipo-desk-visits`, created once in the dashboard, id in `wrangler.toml`.
 
 ## Where this landed (28 Oct 2026)
 
