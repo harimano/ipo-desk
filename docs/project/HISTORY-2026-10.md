@@ -288,3 +288,15 @@ into main in order with merge commits, each retargeted to main after the one bel
 database in the dashboard (APAC) and gave the id in chat; it sits in `wrangler.toml` in plain sight, the deploy
 accepted it without a token change, and Hari confirmed the Saved pill green on ipodesk.dev. The Access policy is
 still Everyone and `NTFY_TOPIC` is still unset.
+
+### 29 Oct, late — the planner lands, and a deploy that refused its own new key
+
+PR 6 (capital planner and calendar: the `planner` module's `calendar` part and `planner.js` on Today, built in its own
+session from a brief, mockup approved by Hari) and PR 7 (`iso()` built the date in UTC, so after 05:30 IST "today" was
+still yesterday; now local getters) merged into main after a readiness check. The deploy then failed at its own gate:
+`validate.py` now lists `calendar` as required, and the document on the data branch was the old collector's, without it.
+`deploy.yml` validates that document before publishing, so it refused and the live site stayed on the previous deploy.
+One dispatched `collect.yml` run wrote the part and dispatched the deploy; both green. Lesson: **a change that adds a
+required top-level key must be followed by a collect run before any deploy** (a push to main triggers deploy first,
+and it validates yesterday's data). Either dispatch collect right after the merge, or make the key required only once
+`--prev` has it.
