@@ -92,3 +92,28 @@ def test_stamp_carries_forward_checks_of_modules_that_did_not_run():
     assert by["gmp"]["asOf"] == "new" and "carried" not in by["gmp"]
     assert by["tape"]["carried"] is True and by["tape"]["asOf"] == "2026-10-28"
     assert by["run"]["note"] != "old run"
+
+
+def test_stamp_writes_last_ok_and_due_by_and_keeps_last_ok_through_a_failure():
+    t1 = dt.datetime(2026, 10, 29, 9, 40, tzinfo=assemble.IST)          # a Thursday
+    data = {"integrity": {"checks": []}, "meta": {}}
+    assemble.stamp(data, [Result(module="gmp").won("investorgain", "x"), Result(module="tape").won("nsearchives", "x")],
+                   t1, [], 1, 1.0)
+    by = {c["area"]: c for c in data["integrity"]["checks"]}
+    assert by["gmp"]["lastOk"] == t1.isoformat()
+    assert by["gmp"]["dueBy"] == "2026-10-29T10:52:00+05:30"            # next slot 10:07 + 45 min
+    assert by["tape"]["dueBy"] == "2026-10-29T18:58:00+05:30"           # daily module: next full run 18:13 + 45 min
+    bad = Result(module="gmp")
+    bad.ok = False
+    bad.error = {"kind": "blocked", "detail": "403"}
+    assemble.stamp(data, [bad], t1 + dt.timedelta(hours=1), [], 1, 1.0)
+    g = {c["area"]: c for c in data["integrity"]["checks"]}["gmp"]
+    assert g["status"] == "blocked" and g["lastOk"] == t1.isoformat() and g["dueBy"] is None
+
+
+def test_due_by_has_no_intraday_slots_at_weekends():
+    fri = dt.datetime(2026, 10, 30, 17, 40, tzinfo=assemble.IST)        # after the 17:37 run
+    assert assemble.due_by("gmp", fri) == "2026-10-30T18:58:00+05:30"   # the 18:13 full run still comes today
+    sat = dt.datetime(2026, 10, 31, 7, 0, tzinfo=assemble.IST)
+    assert assemble.due_by("gmp", sat) == "2026-10-31T18:58:00+05:30"   # no intraday on Saturday
+    assert assemble.due_by("gmp", dt.datetime(2026, 11, 1, 19, 0, tzinfo=assemble.IST)) == "2026-11-02T07:28:00+05:30"

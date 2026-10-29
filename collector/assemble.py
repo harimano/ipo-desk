@@ -222,17 +222,44 @@ def merge_unresolved(prev: list[str], results: list) -> list[str]:
     return out
 
 
+# When the next good answer is due. The schedule is collect.yml's: full runs 06:43 / 18:13 IST daily; intraday (the three
+# INTRADAY modules, the rest skip) at :07/:37 from 09:37 to 17:37 on weekdays. GitHub's cron is best-effort, so `dueBy`
+# carries DUE_GRACE_MIN of slack: past it the page says "late" — a threshold the collector owns, never the page.
+FULL_RUNS = ((6, 43), (18, 13))
+INTRADAY_RUNS = tuple((h, m) for h in range(9, 18) for m in (7, 37) if (9, 37) <= (h, m) <= (17, 37))
+INTRADAY = frozenset({"gmp", "details", "subscription"})
+DUE_GRACE_MIN = 45
+
+
+def due_by(area: str, t: dt.datetime) -> str:
+    """ISO time by which `area` should have answered again after a good answer at `t` (plus DUE_GRACE_MIN)."""
+    t = t.astimezone(IST)
+    for day in range(8):
+        d = (t + dt.timedelta(days=day)).date()
+        slots = FULL_RUNS + (INTRADAY_RUNS if area in INTRADAY and d.weekday() < 5 else ())
+        for h, m in sorted(slots):
+            c = dt.datetime(d.year, d.month, d.day, h, m, tzinfo=IST)
+            if c > t:
+                return (c + dt.timedelta(minutes=DUE_GRACE_MIN)).isoformat(timespec="seconds")
+    raise AssertionError("no run slot within a week")
+
+
 def stamp(data: dict, results: list[Result], t: dt.datetime, research_notes: list[str], total_calls: int,
           elapsed: float) -> None:
     checks = []
+    before = {c.get("area"): c for c in (data.get("integrity") or {}).get("checks") or []}
     for r in results:
         status = "ok" if r.ok else ("blocked" if (r.error or {}).get("kind") == "blocked" else "stale")
         tried = ", ".join(f"{t.get('source')}:{'ok' if t.get('ok') else t.get('kind')}" for t in r.tried) or "—"
         note = "; ".join(r.notes) if r.notes else ""
         if not r.ok and r.error:
             note = (note + "; " if note else "") + f"kept previous — {r.error.get('detail')}"
+        # lastOk: when this module last answered well (this run, else what its previous check held). dueBy: when it is next
+        # expected after that answer — set only while it is ok; a failed module reads "failed", not "late".
+        last_ok = t.isoformat() if r.ok else before.get(r.module, {}).get("lastOk")
         checks.append({"area": r.module, "method": tried, "status": status, "asOf": r.asOf,
-                       "elapsed": r.elapsed, "calls": r.calls, "note": note})
+                       "elapsed": r.elapsed, "calls": r.calls, "note": note, "lastOk": last_ok,
+                       "dueBy": due_by(r.module, t) if r.ok else None})
     # A module that did not run this time (an intraday run is three of seventeen) keeps its last check, marked
     # `carried` with its own asOf: the document says when tape / anchorbook / offers last answered, not just gmp.
     # 29 Oct 2026, for /admin — before this the full run's statuses vanished at the first intraday run.
