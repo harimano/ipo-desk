@@ -416,3 +416,9 @@ bodies as the alerts (text, ntfy Markdown with a link per name, Telegram HTML). 
 all used, so Sunday's 18:13 full collect dispatches the digest after its commit and GitHub's own cron is the fallback;
 the workflow asks `gh run list` whether one already went out that day. Hari read the first dry run as cramped (six facts a line, six event kinds a calendar line); redone as one fact set a line, the bands stated once in a record block, the calendar on opens, closes and listings only with SME counted. Dry run over the real week of 26 Oct: 34 lines.
 
+Hari's phone is an iPhone, and ntfy renders Markdown on Android and web only: on iOS a `Markdown: yes` body shows the
+raw `[name](url)` brackets. So neither the alerts nor the digest send Markdown to ntfy any more: plain text, the Click
+URL, and up to three `view` action buttons (`Actions` header, every platform) — the digest's are Today / Board / Score,
+an alert's are the first three lines' links labelled by the row name. Telegram keeps the HTML links. The Markdown body
+is still built (an Android reader could have it) but `notify.send` is called without it.
+

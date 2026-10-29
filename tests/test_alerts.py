@@ -154,7 +154,20 @@ def test_markdown_and_html_escape_what_the_line_contains():
     assert m.html == '<a href="https://ipodesk.dev/#board/A%20%3Cb%3E">A &lt;b&gt; &amp; [x]_y*z</a>'
 
 
-def test_notify_sends_click_and_markdown_headers_and_the_html_body(monkeypatch):
+def test_buttons_are_the_first_three_distinct_links_with_short_labels():
+    rows = [dict(HERO, name=f"Issue {i}") for i in range(9)]
+    prev = doc("2026-09-17T06:45:00+05:30")
+    new = doc("2026-09-17T18:15:00+05:30", mainboard=rows)
+    m = message(evaluate(prev, new), prev, new)
+    assert m.actions == (("Issue 0", "https://ipodesk.dev/#board/Issue%200"), ("Issue 1", "https://ipodesk.dev/#board/Issue%201"),
+                         ("Issue 2", "https://ipodesk.dev/#board/Issue%202"))
+    from collector.alerts import buttons
+    assert buttons([("Hold Reliance Industries (RELIANCE) before 10 Oct — Reliance Jio record date in 30 days", "u1"),
+                    ("Ashish Kacholia bought Rentomojo ₹12.4 Cr (2026-09-17)", "u2"), ("x", "u2"), ("+4 more on the desk", "u3")]) == [
+        ("Hold Reliance Industries", "u1"), ("Ashish Kacholia", "u2"), ("+4 more on the desk", "u3")]
+
+
+def test_notify_sends_click_and_actions_headers_plain_text_and_the_html_body(monkeypatch):
     calls = []
 
     class R:
@@ -165,14 +178,20 @@ def test_notify_sends_click_and_markdown_headers_and_the_html_body(monkeypatch):
     monkeypatch.setenv("NTFY_TOPIC", "t")
     monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "x")
     monkeypatch.setenv("TELEGRAM_CHAT_ID", "1")
-    out = notify.send("plain <x>", html='<a href="https://ipodesk.dev/#today">plain &lt;x&gt;</a>', markdown="[plain <x>](https://ipodesk.dev/#today)",
-                      click="https://ipodesk.dev/#today")
+    out = notify.send("plain <x>", html='<a href="https://ipodesk.dev/#today">plain &lt;x&gt;</a>', click="https://ipodesk.dev/#today",
+                      actions=[("Today", "https://ipodesk.dev/#today"), ("A, b; c", "https://ipodesk.dev/#board"), ("", "u"),
+                               ("Score", "https://ipodesk.dev/#score"), ("Fourth", "https://ipodesk.dev/#pipe")])
     assert out == {"telegram": True, "ntfy": True}
     tg = next(kw for url, kw in calls if "telegram" in url)
     assert tg["json"]["text"] == '<a href="https://ipodesk.dev/#today">plain &lt;x&gt;</a>' and tg["json"]["parse_mode"] == "HTML"
     nt = next(kw for url, kw in calls if url.endswith("/t"))
-    assert nt["headers"]["Click"] == "https://ipodesk.dev/#today" and nt["headers"]["Markdown"] == "yes"
-    assert nt["content"] == b"[plain <x>](https://ipodesk.dev/#today)"
+    assert nt["headers"]["Click"] == "https://ipodesk.dev/#today" and "Markdown" not in nt["headers"]       # iPhone: plain text
+    assert nt["headers"]["Actions"] == "view, Today, https://ipodesk.dev/#today; view, A  b  c, https://ipodesk.dev/#board"
+    assert nt["content"] == b"plain <x>"
+    calls.clear()
+    notify.send("md", markdown="[md](https://ipodesk.dev/#today)", click="https://ipodesk.dev/#today")       # Android / web readers
+    nt = next(kw for url, kw in calls if url.endswith("/t"))
+    assert nt["headers"]["Markdown"] == "yes" and nt["content"] == b"[md](https://ipodesk.dev/#today)"
     calls.clear()
     notify.send("plain <x>")                         # the old shape still works: escaped text, no Click, no Markdown
     assert next(kw for url, kw in calls if "telegram" in url)["json"]["text"] == "plain &lt;x&gt;"

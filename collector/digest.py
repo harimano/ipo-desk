@@ -13,7 +13,8 @@ sides, never a verdict — the scoring says what the GMP said, what band it sat 
 empty: listings scored · next week's calendar (opens, closes, listings; mainboard by name, SME counted) · open now ·
 what the record says (the bands those issues sit in, each stated once with n and interval) · pipeline moves · desk
 health (Hari only: `--no-health` leaves it out when the message goes to a shared topic). One fact set a line, under
-MAX_LINES; ntfy gets Markdown with a link on every name, Telegram HTML. The deep-link grammar is `alerts.link` (PR 10).
+MAX_LINES; ntfy gets the plain text with Click and three action buttons (an iPhone renders no Markdown), Telegram HTML
+with a link on every name. The deep-link grammar is `alerts.link` (PR 10).
 """
 from __future__ import annotations
 
@@ -348,8 +349,9 @@ def build(first: dict, last: dict, mon: dt.date, *, snapshots: list[dt.date] | N
 
 
 def message(lines: list[Line]) -> Message:
-    """The same lines three ways (alerts.Message): plain text, ntfy Markdown (`Markdown: yes`, a link per name, a
-    blank line between lines or ntfy runs them into one paragraph), Telegram HTML. A header is a plain upper-case line."""
+    """The same lines three ways (alerts.Message): plain text (what ntfy gets, with Today / Board / Score buttons — an
+    iPhone shows Markdown raw), Markdown (a link per name, built for Android / web readers, not sent today), Telegram
+    HTML. A header is a plain upper-case line."""
     text, md, html = [], [], []
     for ln in lines:
         header = len(ln.pieces) == 1 and ln.pieces[0][1] is None
@@ -361,7 +363,8 @@ def message(lines: list[Line]) -> Message:
         html.append(f"<b>{_html(ln.text)}</b>" if header
                     else "".join(f'<a href="{_html(u)}">{_html(t)}</a>' if u else _html(t) for t, u in ln.pieces))
     return Message(text="\n".join(text), markdown="\n\n".join(md), html="\n".join(html),
-                   click=next((ln.url for ln in lines if ln.url), link("today")))
+                   click=next((ln.url for ln in lines if ln.url), link("today")),
+                   actions=(("Today", link("today")), ("Board", link("board")), ("Score", link("score"))))
 
 
 # ---------------------------------------------------------------------------------------------
@@ -415,7 +418,7 @@ def main(argv: list[str] | None = None) -> int:
         print("dry run — nothing sent (pass --send)")
         return 0
     from . import notify
-    print("sent:", notify.send(msg.text, html=msg.html, markdown=msg.markdown, click=msg.click))
+    print("sent:", notify.send(msg.text, html=msg.html, click=msg.click, actions=msg.actions))   # plain text to ntfy: iPhone
     return 0
 
 
