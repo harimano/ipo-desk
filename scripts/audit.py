@@ -202,7 +202,9 @@ def verdict(mods: list[dict], finds: list[dict], d: dict, size: int) -> dict:
 
 # ---------------------------------------------------------------- assembly
 def build(doc: dict, prev: dict | None = None, logos_dir: pathlib.Path | None = None) -> dict:
-    size = sum(len(b) for b in layout.split(doc).values())
+    parts = layout.split(doc)
+    size = sum(len(b) for n, b in parts.items() if n not in layout.LAZY)      # what boot.js fetches: the figure the cap is on
+    lazy_size = sum(len(b) for n, b in parts.items() if n in layout.LAZY)     # fetched on demand (books.json), its own cap
     mods, finds, d = modules(doc), anomalies(doc, logos_dir), diff(doc, prev)
     meta = doc.get("meta") or {}
     counts = {b: {} for b in BOARDS}
@@ -210,7 +212,7 @@ def build(doc: dict, prev: dict | None = None, logos_dir: pathlib.Path | None = 
         counts[b][r.get("status") or "?"] = counts[b].get(r.get("status") or "?", 0) + 1
     return {
         "generated": dt.datetime.now(dt.timezone(dt.timedelta(hours=5, minutes=30))).isoformat(timespec="seconds"),
-        "doc": {"asOf": meta.get("asOf"), "label": meta.get("label"), "bytesCompact": size, "capBytes": MAX_DOC_BYTES,
+        "doc": {"asOf": meta.get("asOf"), "label": meta.get("label"), "bytesCompact": size, "capBytes": MAX_DOC_BYTES, "bytesLazy": lazy_size,
                 "integrityAsOf": (doc.get("integrity") or {}).get("asOf"), "tapeAsOf": (doc.get("tape") or {}).get("asOf"),
                 "tapeLastDay": max((doc.get("tape") or {}).get("dates") or [None]) if isinstance((doc.get("tape") or {}).get("dates"), list) else None,
                 "boards": counts},

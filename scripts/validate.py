@@ -24,9 +24,14 @@ BUCKETS = {"approved", "awaited", "done", "drhp", "dropped"}
 ISO_FIELDS = {"close", "date", "disclosedDate", "listDate", "listedDate", "listing", "listingDate", "open",
               "recordDate", "stageDate"}
 FREE_TEXT = {"dates", "when"}
-MAX_DOC_BYTES = 6 * 1024 * 1024      # the document as published (compact JSON); generous, but a runaway is still a bug.
-                                     # 1 Oct 2026: the file on disk is written with indent=1 (4.9 MB) while the parts the page
-                                     # fetches are compact (3.3 MB) — the cap had been counting whitespace nobody downloads.
+MAX_DOC_BYTES = 6 * 1024 * 1024      # what the page fetches at boot (compact JSON, the lazy parts left out); generous, but a
+                                     # runaway is still a bug. 1 Oct 2026: the file on disk is written with indent=1 (4.9 MB)
+                                     # while the parts the page fetches are compact (3.3 MB) — the cap had been counting
+                                     # whitespace nobody downloads. 29 Oct 2026: the on-demand books part (anchor books and
+                                     # track records, still backfilling 1,300 IPOs) is left out too — boot.js never fetches
+                                     # it, so it was the only thing that would have hit the cap this year — and gets its own.
+MAX_LAZY_BYTES = 16 * 1024 * 1024    # the on-demand parts together (records.js fetches books.json when a reader opens that card)
+LAZY_KEYS = ("anchorBooks", "trackRecords")   # = the keys of collector/layout.py's LAZY groups; tests/test_validate_cap.py keeps them equal
 MAX_ITEM_LOSS = 0.30
 MIN_CENSUS = 8
 MIN_CENSUS_NESTED = 24     # a list summed across rows (facts.recs, anchors[].investors) must be this big before a loss counts:
@@ -130,6 +135,14 @@ def census(o, path="", acc=None, in_row=False):
     return acc
 
 
+def published_bytes(data: dict) -> tuple[int, int]:
+    """(bytes the page fetches at boot, bytes of the on-demand parts), both compact — what a reader downloads."""
+    compact = lambda obj: len(json.dumps(obj, ensure_ascii=False, separators=(",", ":")).encode("utf8"))
+    lazy = sum(compact(data[k]) for k in LAZY_KEYS if k in data)
+    boot = compact({k: v for k, v in data.items() if k not in LAZY_KEYS})
+    return boot, lazy
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("path", nargs="?", default="data/latest.json")
@@ -147,11 +160,15 @@ def main() -> int:
     except Exception as e:
         err(f"{p}: does not parse — {e}")
         return report()
-    sz = len(json.dumps(data, ensure_ascii=False, separators=(",", ":")).encode("utf8"))
+    sz, lazy = published_bytes(data)
     if sz > MAX_DOC_BYTES:
-        err(f"{p}: {sz:,} B published (compact) exceeds the {MAX_DOC_BYTES:,} B cap")
+        err(f"{p}: {sz:,} B published at boot (compact, on-demand parts left out) exceeds the {MAX_DOC_BYTES:,} B cap")
     elif sz > 0.8 * MAX_DOC_BYTES:
-        warn(f"{p}: {sz:,} B published (compact) is over 80% of the {MAX_DOC_BYTES:,} B cap")
+        warn(f"{p}: {sz:,} B published at boot (compact) is over 80% of the {MAX_DOC_BYTES:,} B cap")
+    if lazy > MAX_LAZY_BYTES:
+        err(f"{p}: {lazy:,} B of on-demand parts ({', '.join(LAZY_KEYS)}) exceeds the {MAX_LAZY_BYTES:,} B cap")
+    elif lazy > 0.8 * MAX_LAZY_BYTES:
+        warn(f"{p}: {lazy:,} B of on-demand parts is over 80% of the {MAX_LAZY_BYTES:,} B cap")
     for k in TOP_LEVEL:
         if k not in data:
             err(f"missing top-level key {k!r}")

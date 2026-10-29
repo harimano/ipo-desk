@@ -80,7 +80,7 @@ function renderAudit(a) {
   $("#vList").innerHTML = v.items.map(i => `<li>${pill(i.level, i.level)} ${esc(i.text)} <a href="#${esc(i.where)}" class="mu">→ ${esc(i.where)}</a></li>`).join("");
   setTitle();
   const b = a.doc.boards || {}, cnt = s => Object.entries(b[s] || {}).map(([k, n]) => `${n} ${k.toLowerCase()}`).join(", ");
-  $("#vSub").textContent = `Document ${a.doc.label || a.doc.asOf} · mainboard ${cnt("mainboard") || "empty"} · SME ${cnt("sme") || "empty"} · ${(a.doc.bytesCompact / 1048576).toFixed(2)} MB of ${(a.doc.capBytes / 1048576).toFixed(0)} MB cap · audit built ${fmtIST(a.generated)} IST`;
+  $("#vSub").textContent = `Document ${a.doc.label || a.doc.asOf} · mainboard ${cnt("mainboard") || "empty"} · SME ${cnt("sme") || "empty"} · ${(a.doc.bytesCompact / 1048576).toFixed(2)} MB of ${(a.doc.capBytes / 1048576).toFixed(0)} MB cap at boot${a.doc.bytesLazy ? ` + ${(a.doc.bytesLazy / 1048576).toFixed(2)} MB on demand` : ""} · audit built ${fmtIST(a.generated)} IST`;
 
   // modules: one line each
   const mods = a.modules || [];
