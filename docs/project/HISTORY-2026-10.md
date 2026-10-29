@@ -312,3 +312,32 @@ ping went to a topic nobody reads; the collector's `notify.py` had always stripp
 Title header to ASCII (fetch throws on a non-Latin-1 header value) and returns the ping's HTTP status, with a case in
 the harness (42). Re-tested live: the ping arrived. Lesson: **a value read from a secret is `.trim()`ed at the point
 of use, in every runtime, not only the Python one.**
+
+## 30 Oct 2026 — Phase 4 ops: the backup, the restore, readers by week (branch `vibrant-boyd`)
+
+- **The backup is a GitHub job, not a Worker cron.** The survey's one decisive fact: the Workers Free plan allows
+  five cron triggers per ACCOUNT (developers.cloudflare.com/workers/platform/limits/), and the trigger Worker has held all
+  five since 18 Sep (a sixth failed that deploy). So `backup.yml` runs at 02:51 IST on GitHub's cron — best-effort,
+  which a nightly copy tolerates — with `wrangler d1 export --remote` and `wrangler r2 object put` on the existing deploy
+  token: no new secret, nothing in the Worker's request path. One `nightly/<IST date>.sql` a night in R2
+  `ipo-desk-backups`; the keys dated 31–37 days back are deleted, so a missed night never leaks a file. The bucket's
+  name sits in `wrangler.toml` as a `[vars]` entry beside the D1 id — the Worker never touches the bucket (no binding),
+  but `/admin` and the workflow read the name from the one place. R2 free: 10 GB, 1 M class-A ops a month.
+- **Restore is Python over the D1 REST query endpoint** (`scripts/restore_d1.py`): no Node on the Mac. Quote-aware
+  statement splitter (a reader's note may carry `;` or a newline), batches of 40, `CREATE TABLE` made `IF NOT EXISTS`,
+  `--replace` drops the dump's tables first, and the id in `wrangler.toml` is refused without
+  `--i-mean-the-live-database`. Tested against a SQLite-backed stand-in of the endpoint (`tests/test_restore_d1.py`);
+  a real run into a scratch D1 is still to do. D1's own Time Travel (7 days on Free, in place) is written down as the
+  first resort — the dump is the copy outside the database.
+- **Daily active readers**: `daily_active(day, email_hash)`, one `INSERT OR IGNORE` per reader per IST day on a page
+  load, behind a per-isolate set — one D1 write a day a reader against the free 100,000. The hash is
+  `SHA-256(DAU_SALT + "\n" + email)`, the salt a Worker secret `deploy.yml` hands over when the GitHub secret exists
+  (the `NTFY_TOPIC` pattern, trimmed at use); no salt, no row, and the card says so. `/admin/retention.json` → the
+  *Readers by week* card: eight Monday-start IST weeks, active / new / of-week-1's, counts only. The bottom rows of
+  `/admin` widened (Wrong numbers c4→c6; smoke, security, links c4 each) so the rows stay full — the only layout change.
+- `SETUP.md` gained §1c (bucket clicks, the restore walk-through, the salt), §4 (rollback: the Deployments page or
+  `wrangler rollback`, 100 versions, bindings untouched, secrets survive) and §5 (removing one reader: the two
+  `DELETE`s, the KV key, the dumps' 30-day tail, the Access exclude rule). `scripts/preview.py` now emulates
+  `/admin/retention.json` and `/admin/me.json`, so the card renders on the preview.
+- Verified: 53 Worker cases green in the browser harness; ruff and pytest green. Not verified until Hari acts: the
+  bucket exists, the first backup file is in it, `DAU_SALT` is set and the card fills.

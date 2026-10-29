@@ -5,7 +5,9 @@
 // What must hold: no token / bad signature / wrong audience / expired -> 401 and not a byte served; each reader's
 // parts live under their verified email only; an unknown part is 400, an oversize one 413; DELETE empties one reader;
 // no D1 binding -> 503, the page is still served.
-import worker, { verify, handleApi } from "../worker.js";
+// Daily active: a page load writes one (day, hash) row — never the email — only with DAU_SALT; /admin/retention.json
+// turns the rows into 8 weeks of counts and is served to the admin alone.
+import worker, { verify, handleApi, emailHash, retentionWeeks } from "../worker.js";
 
 const TEAM = "example.cloudflareaccess.com", AUD = "aud-for-tests";
 const enc = s => btoa(String.fromCharCode(...new TextEncoder().encode(s))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
@@ -30,10 +32,13 @@ async function signer() {
 function fakeD1() {
   const rows = new Map();                       // "email\0part" -> {email, part, body, updated}
   const reports = [];
+  const daily = new Map();                      // "day|hash" -> {day, email_hash}
+  let writes = 0;                               // INSERTs that reached the table (D1 bills rows written)
   const stmt = sql => ({ bind: (...a) => ({
     run: async () => {
       if (/^CREATE TABLE/i.test(sql)) return { success: true };
       if (/^DELETE/i.test(sql)) { for (const k of [...rows.keys()]) if (k.startsWith(a[0] + "\0")) rows.delete(k); return { success: true }; }
+      if (/INTO daily_active/i.test(sql)) { const k = a[0] + "|" + a[1]; if (!daily.has(k)) { daily.set(k, { day: a[0], email_hash: a[1] }); writes++; } return { success: true }; }
       if (/INTO reports/i.test(sql)) { reports.push({ id: reports.length + 1, at: a[0], email: a[1], issue: a[2], ig_id: a[3], field: a[4], shown: a[5], note: a[6], page: a[7], data_as_of: a[8], status: "open" }); return { success: true }; }
       if (/^INSERT/i.test(sql)) { rows.set(a[0] + "\0" + a[1], { email: a[0], part: a[1], body: a[2], updated: a[3] }); return { success: true }; }
       throw new Error("unexpected sql: " + sql);
@@ -41,9 +46,10 @@ function fakeD1() {
     all: async () => { if (!/^SELECT/i.test(sql)) throw new Error("unexpected sql: " + sql);
       if (/COUNT\(\*\) AS n FROM reports/i.test(sql)) return { results: [{ n: reports.filter(r => r.email === a[0] && r.at > a[1]).length }] };
       if (/FROM reports/i.test(sql)) return { results: reports.slice().reverse().slice(0, a[0]) };
+      if (/FROM daily_active/i.test(sql)) return { results: [...daily.values()].filter(r => r.day >= a[0]) };
       return { results: [...rows.values()].filter(r => r.email === a[0]) }; },
   }), run: async () => { if (/^CREATE TABLE/i.test(sql)) return { success: true }; throw new Error("bind first: " + sql); } });
-  return { prepare: stmt, _rows: rows, _reports: reports };
+  return { prepare: stmt, _rows: rows, _reports: reports, _daily: daily, get _writes() { return writes; } };
 }
 
 export async function runCases() {
@@ -155,6 +161,35 @@ export async function runCases() {
     r = await worker.fetch(new Request("https://ipodesk.dev/admin/reports.json", { headers: { "Cf-Access-Jwt-Assertion": alice } }), Object.assign({}, env, { ADMIN_EMAIL: "alice@example.com" }), ctx);
     b = await r.json();
     ok(r.status === 200 && b.reports.length === 20 && b.reports[0].issue === "X" && b.reports[19].note === "IG shows 65", "the admin lists the reports, newest first");
+
+    // daily active: one row per reader per day, hashed, only with a salt; the admin's retention.json
+    const page = (token, e) => worker.fetch(new Request("https://ipodesk.dev/", { headers: { "Cf-Access-Jwt-Assertion": token, Accept: "text/html" } }), e || env, ctx);
+    const settle = () => new Promise(r => setTimeout(r, 20));
+    await page(alice); await settle();
+    ok(DB._daily.size === 0, "a page load with no DAU_SALT writes no daily row");
+    const salted = Object.assign({}, env, { DAU_SALT: " pepper\n", ADMIN_EMAIL: "alice@example.com" });
+    await page(alice, salted); await page(alice, salted); await page(bob, salted); await settle();
+    const h = await emailHash("Alice@Example.com", "pepper");
+    ok(DB._daily.size === 2 && DB._writes === 2, `two readers, three loads -> two daily rows, two writes (got ${DB._daily.size}, ${DB._writes})`);
+    ok([...DB._daily.values()].every(r => r.email_hash === h || r.email_hash !== "bob@example.com") && [...DB._daily.values()].some(r => r.email_hash === h), "the row holds the salted hash (salt trimmed), never the email");
+    ok(/^\d{4}-\d{2}-\d{2}$/.test([...DB._daily.values()][0].day), "the day is YYYY-MM-DD");
+    await worker.fetch(new Request("https://ipodesk.dev/data/meta.json", { headers: { "Cf-Access-Jwt-Assertion": bob, Accept: "application/json" } }), salted, ctx); await settle();
+    ok(DB._writes === 2, "a data fetch is not a page load: no write");
+    r = await worker.fetch(new Request("https://ipodesk.dev/admin/retention.json", { headers: { "Cf-Access-Jwt-Assertion": bob } }), salted, ctx);
+    ok(r.status === 403, "retention.json as a non-admin -> 403");
+    r = await worker.fetch(new Request("https://ipodesk.dev/admin/retention.json", { headers: { "Cf-Access-Jwt-Assertion": alice } }), salted, ctx);
+    b = await r.json();
+    ok(r.status === 200 && b.salted && b.weeks.length === 8 && b.weeks[7].active === 2 && b.weeks[7].new === 2 && b.rows === 2, `retention.json: 8 weeks, this week 2 active 2 new (got ${JSON.stringify(b.weeks && b.weeks[7])})`);
+    ok(!JSON.stringify(b).includes("example.com"), "retention.json names nobody");
+    // the week arithmetic on its own: Mon 2026-10-26 IST; week 1 starts 2026-09-07
+    const now = Date.parse("2026-10-29T10:00:00+05:30");
+    const rowsW = [{ day: "2026-09-08", email_hash: "A" }, { day: "2026-09-09", email_hash: "A" }, { day: "2026-09-10", email_hash: "B" }, { day: "2026-10-27", email_hash: "A" }, { day: "2026-10-27", email_hash: "C" }, { day: "2026-08-01", email_hash: "Z" }];
+    const w = retentionWeeks(rowsW, now);
+    ok(w.weeks[0].start === "2026-09-07" && w.weeks[7].start === "2026-10-26" && w.daysIntoWeek === 4 && w.firstWeekReaders === 2, `weeks run 7 Sep … 26 Oct, 4 days in, 2 in week 1 (got ${w.weeks[0].start} … ${w.weeks[7].start}, ${w.daysIntoWeek}, ${w.firstWeekReaders})`);
+    ok(w.weeks[0].active === 2 && w.weeks[0].new === 2 && w.weeks[0].ofFirst === 2 && w.weeks[7].active === 2 && w.weeks[7].new === 1 && w.weeks[7].ofFirst === 1 && w.weeks[3].active === 0, "week 1: 2 active 2 new; this week: A back (of week 1's: 1), C new; a row before the window is ignored");
+    r = await worker.fetch(new Request("https://ipodesk.dev/admin/me.json", { headers: { "Cf-Access-Jwt-Assertion": alice } }), Object.assign({}, salted, { BACKUP_BUCKET: "ipo-desk-backups" }), ctx);
+    b = await r.json();
+    ok(b.dauSalt === true && b.accounts === true && b.backupBucket === "ipo-desk-backups", "me.json reports the salt, the binding and the backup bucket");
 
     // no binding: fail closed on the API, the page still serves
     const env2 = Object.assign({}, env, { DB: undefined });

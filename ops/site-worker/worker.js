@@ -15,6 +15,8 @@
 //   CF_ACCOUNT_ID         the account the token reads (from the existing GitHub secret CLOUDFLARE_ACCOUNT_ID)
 //   NTFY_TOPIC            (optional) the ntfy.sh topic a reader's "Wrong number?" report is pushed to — the same secret
 //                         the collector's alerts use; absent, reports are only listed on /admin
+//   DAU_SALT              (optional) the salt behind daily_active's email hashes (/admin "Readers by week"); absent,
+//                         no daily row is written and the card says so
 //
 // Access puts the JWT in the Cf-Access-Jwt-Assertion header (and a CF_Authorization cookie). It is RS256-signed
 // by keys published at https://<team>.cloudflareaccess.com/cdn-cgi/access/certs; those are cached an hour.
@@ -83,13 +85,11 @@ const text = (body, status, extra) =>
 // against KV's free 1,000. No binding -> nothing is written and /admin/visitors.json says so. Emails are what Access
 // already showed us; nothing else about a reader is kept.
 const WRITE_GAP_MS = 10 * 60 * 1000;
+const isPageLoad = (request, url) => request.method === "GET" && (url.pathname === "/" || url.pathname.endsWith(".html") || url.pathname === "/admin" || url.pathname === "/admin/") && (request.headers.get("Accept") || "").includes("text/html");
 const recent = new Map();                    // email -> last write, per isolate; saves a KV read on the hot path
 
 async function noteVisit(request, env, claims, url) {
-  if (!env.VISITS || !claims.email) return;
-  const accept = request.headers.get("Accept") || "";
-  const pageLoad = request.method === "GET" && (url.pathname === "/" || url.pathname.endsWith(".html") || url.pathname === "/admin" || url.pathname === "/admin/") && accept.includes("text/html");
-  if (!pageLoad) return;
+  if (!env.VISITS || !claims.email || !isPageLoad(request, url)) return;
   const email = claims.email.toLowerCase(), now = Date.now();
   if (now - (recent.get(email) || 0) < WRITE_GAP_MS) return;
   recent.set(email, now);
@@ -101,6 +101,63 @@ async function noteVisit(request, env, claims, url) {
   cur.country = (request.cf && request.cf.country) || cur.country || null;
   cur.admin = url.pathname.startsWith("/admin") ? true : !!cur.admin;
   await env.VISITS.put(key, JSON.stringify(cur));
+}
+
+// ---- daily active readers (D1 table daily_active; /admin/retention.json) ---------------------------------------
+// One row per reader per IST day, written on a page load: INSERT OR IGNORE on the (day, hash) key, and a per-isolate
+// set in front of it, so a reader costs ONE D1 write a day however often they reload (D1 free: 100,000 writes a day).
+// The row holds no email — only SHA-256(DAU_SALT + "\n" + email), and no DAU_SALT means nothing is written at all.
+const IST_MS = 330 * 60 * 1000;
+const istDay = ms => new Date(ms + IST_MS).toISOString().slice(0, 10);
+const dauSeen = new Set();                   // "day|hash" written by this isolate already
+export async function emailHash(email, salt) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(salt + "\n" + email.toLowerCase()));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+}
+async function noteDailyActive(env, email, now) {
+  const salt = String(env.DAU_SALT || "").trim();
+  if (!env.DB || !salt || !email) return;
+  const day = istDay(now), hash = await emailHash(email, salt), k = day + "|" + hash;
+  if (dauSeen.has(k)) return;
+  dauSeen.add(k);
+  if (dauSeen.size > 5000) dauSeen.clear();
+  await ensureSchema(env.DB);
+  await env.DB.prepare("INSERT OR IGNORE INTO daily_active (day, email_hash) VALUES (?1, ?2)").bind(day, hash).run();
+}
+// The last 8 Monday-start IST weeks (the current one last, partial): readers active, readers first seen in the
+// window, and how many of week 1's readers were active that week. Counts only — nothing here names a reader.
+const WEEKS = 8;
+export function retentionWeeks(rows, nowMs) {
+  const today = istDay(nowMs), t = new Date(today + "T00:00:00Z");
+  const monday = new Date(t.getTime() - ((t.getUTCDay() + 6) % 7) * 86400000);
+  const starts = [];
+  for (let i = WEEKS - 1; i >= 0; i--) starts.push(new Date(monday.getTime() - i * 7 * 86400000).toISOString().slice(0, 10));
+  const weekOf = day => { for (let i = starts.length - 1; i >= 0; i--) if (day >= starts[i]) return i; return -1; };
+  const active = starts.map(() => new Set()), firstSeen = new Map();
+  for (const r of rows) {
+    const w = weekOf(r.day);
+    if (w < 0) continue;
+    active[w].add(r.email_hash);
+    if (!firstSeen.has(r.email_hash) || r.day < firstSeen.get(r.email_hash)) firstSeen.set(r.email_hash, r.day);
+  }
+  const first = active[0];
+  const weeks = starts.map((start, i) => {
+    let fresh = 0;
+    for (const h of active[i]) if (weekOf(firstSeen.get(h)) === i) fresh++;
+    let ofFirst = 0;
+    for (const h of active[i]) if (first.has(h)) ofFirst++;
+    return { start, active: active[i].size, new: fresh, ofFirst };
+  });
+  const daysIn = Math.round((t.getTime() - monday.getTime()) / 86400000) + 1;
+  return { from: starts[0], today, daysIntoWeek: daysIn, firstWeekReaders: first.size, weeks };
+}
+async function retention(env) {
+  if (!env.DB) return { error: "no D1 binding", weeks: [] };
+  const salted = !!String(env.DAU_SALT || "").trim();
+  await ensureSchema(env.DB);
+  const since = istDay(Date.now() - (WEEKS + 1) * 7 * 86400000);
+  const { results } = await env.DB.prepare("SELECT day, email_hash FROM daily_active WHERE day >= ?1").bind(since).all();
+  return Object.assign({ at: new Date().toISOString(), salted, rows: (results || []).length }, retentionWeeks(results || [], Date.now()));
 }
 
 async function ledger(env) {
@@ -171,6 +228,7 @@ let schemaReady = null;                      // per isolate: the CREATE TABLE IF
 const SCHEMA = [
   "CREATE TABLE IF NOT EXISTS user_state (email TEXT NOT NULL, part TEXT NOT NULL, body TEXT NOT NULL, updated TEXT NOT NULL, PRIMARY KEY (email, part))",
   "CREATE TABLE IF NOT EXISTS reports (id INTEGER PRIMARY KEY AUTOINCREMENT, at TEXT NOT NULL, email TEXT NOT NULL, issue TEXT NOT NULL, ig_id TEXT, field TEXT NOT NULL, shown TEXT, note TEXT, page TEXT, data_as_of TEXT, status TEXT NOT NULL DEFAULT 'open')",
+  "CREATE TABLE IF NOT EXISTS daily_active (day TEXT NOT NULL, email_hash TEXT NOT NULL, PRIMARY KEY (day, email_hash))",
 ];
 function ensureSchema(db) {
   if (!schemaReady) schemaReady = SCHEMA.reduce((p, sql) => p.then(() => db.prepare(sql).run()), Promise.resolve()).catch(e => { schemaReady = null; throw e; });
@@ -271,12 +329,14 @@ export default {
       const admin = (env.ADMIN_EMAIL || "").trim().toLowerCase();
       if (!admin || admin === "pending") return text("not found", 404);
       if ((claims.email || "").toLowerCase() !== admin) return text("ipo-desk: this page is for the admin only.", 403);
-      if (url.pathname === "/admin/me.json") return json({ email: claims.email, team: env.TEAM_DOMAIN, adminEmailSet: true, visitors: !!env.VISITS });
+      if (url.pathname === "/admin/me.json") return json({ email: claims.email, team: env.TEAM_DOMAIN, adminEmailSet: true, visitors: !!env.VISITS, accounts: !!env.DB, dauSalt: !!String(env.DAU_SALT || "").trim(), backupBucket: env.BACKUP_BUCKET || null });
+      if (url.pathname === "/admin/retention.json") { try { return json(await retention(env)); } catch (e) { return json({ error: "retention failed: " + (e && e.message), weeks: [] }, 500); } }
       if (url.pathname === "/admin/visitors.json") return json(await visitors(env));
       if (url.pathname === "/admin/reports.json") { if (!env.DB) return json({ error: "no D1 binding", reports: [] }, 503); try { return json(await listReports(env, 200)); } catch (e) { return json({ error: "reports failed: " + (e && e.message), reports: [] }, 500); } }
     }
 
     ctx.waitUntil(noteVisit(request, env, claims, url).catch(() => {}));   // never in the way of the page, never fatal
+    if (isPageLoad(request, url)) ctx.waitUntil(noteDailyActive(env, claims.email || "", Date.now()).catch(() => {}));
     const res = await env.ASSETS.fetch(request);
     const headers = new Headers(res.headers);
     headers.set("X-Robots-Tag", "noindex, nofollow");       // a gated page is not for search engines
