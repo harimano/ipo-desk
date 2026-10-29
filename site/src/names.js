@@ -1,4 +1,4 @@
-/* ================= YOUR NAMES — the investors Hari follows, wherever they appear =================
+/* ================= YOUR NAMES — the investors the reader follows, wherever they appear =================
    Included into app.js (`@include names.js`); shares $, $$, esc, cr, fmtD, norm2, store, toast, watchNames, anchorFor,
    allIssues. The list is the tracked-names list (`investors.watchlist` from the sweep plus `ipo-investors` in this
    browser). Every name is matched, by normalised substring, against what the collector wrote today: the books of the

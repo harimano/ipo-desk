@@ -65,7 +65,9 @@ that variable and the Pages job are gone.)
 - `collect.yml` and the trigger Worker are untouched: data still lands on the `data` branch and `collect.yml` still
   dispatches `deploy.yml`, which now builds and deploys the Worker on every run.
 
-## What the Worker does not do
+## Per-reader state: `/api/state` (29 Oct 2026)
 
-It never reads the token's email for anything but `/whoami` — no per-person content yet. A later Book sync
-(encrypted in the browser, stored per email in KV) builds on exactly this identity header.
+The token's email is also the key of each reader's own saved dashboard: `GET /api/state`, `PUT /api/state/<part>`,
+`DELETE /api/state`, one D1 row per (email, part) — `SETUP.md` has the database step, the Access allow-list and the
+local test route; `test/` has the cases (`node --test` in `ci.yml`, or `/__worker/test/harness.html` on the preview).
+Nothing in a request names the reader: the Worker takes the email from the token it verified, only ever lower-cased.

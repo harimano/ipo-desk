@@ -1,10 +1,10 @@
 """Build the whole publishable site into _site/ — what Pages serves and what a local preview serves.
 
-  python site/build.py             # reads site/src/{inner.html,app.js,boot.js} and data/
+  python site/build.py             # reads site/src/{inner.html,account.js,app.js,boot.js} and data/
                                    # writes _site/index.html, _site/data/{meta,board,...}.json (collector/layout.py),
                                    #        _site/data/latest.json, _site/data/research/, _site/data/quota-reviews/, _site/data/logos/
 
-The page is: chart.js tag + inner markup + <script>FALLBACK + app.js + boot.js</script>.
+The page is: chart.js tag + inner markup + <script>FALLBACK + account.js + app.js + boot.js</script>.
 FALLBACK is the small snapshot (meta, mainboard, sme, quota, lot) taken from data/latest.json at
 build time, so the page is never blank even if the fetch fails. CI rebuilds the page after every
 collector run, so the snapshot is at most one run old.
@@ -45,6 +45,7 @@ def main() -> int:
     app = (SRC / "app.js").read_text(encoding="utf8")
     # new screens live in their own files; `/* @include name.js */` inside app.js pulls one into its scope
     app = re.sub(r"/\* @include ([\w.-]+) \*/", lambda m: (SRC / m.group(1)).read_text(encoding="utf8"), app)
+    account = (SRC / "account.js").read_text(encoding="utf8")   # the reader's account: runs before app.js so its store is ready
     boot = (SRC / "boot.js").read_text(encoding="utf8")
     latest_path = ROOT / "data" / "latest.json"
     if not latest_path.exists():
@@ -61,7 +62,7 @@ def main() -> int:
 
     inner = inner.replace("<!--INNER-START-->", "", 1)
     fb_js = "const FALLBACK = " + json.dumps(fb, ensure_ascii=False, separators=(",", ":")) + ";\n"
-    script = "<script>\n" + fb_js + app + boot + "</script>\n"
+    script = "<script>\n" + fb_js + account + app + boot + "</script>\n"
     html = HEAD + CHARTJS + "</head>\n<body>\n" + inner + script + "</body>\n</html>\n"
     SITE.mkdir(exist_ok=True)
     out = SITE / "index.html"

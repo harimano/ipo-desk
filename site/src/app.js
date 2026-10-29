@@ -43,8 +43,9 @@ const oldTag = (iso, days) => { const x = iso ? new Date(iso) : null; return x &
 const rel = n => n == null ? "" : n === 0 ? "today" : n === 1 ? "tomorrow" : n === -1 ? "yesterday" : n > 0 ? `in ${n} days` : `${-n} days ago`;
 const sgn = n => n == null ? "—" : (n >= 0 ? "+" : "−") + inr0(Math.abs(n));
 
-/* ---------- storage (keys fixed) ---------- */
-const store = {
+/* ---------- storage: the reader's account (account.js: /api/state per verified email, cached per email in this browser) ---------- */
+const ACC = window.__ipoAccount || null;
+const store = ACC ? { get: (k, def) => ACC.get(k, def), set: (k, v) => ACC.set(k, v) } : {
   get(k, def) { try { const v = localStorage.getItem(k); if (v == null) return def; try { return JSON.parse(v); } catch (e) { return v; } } catch (e) { return def; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 };
@@ -53,13 +54,15 @@ const asList = v => Array.isArray(v) ? v : (v && typeof v === "object") ? Object
 const legacyApps = v => asList(v).filter(a => a && typeof a === "object").map(a => ({ name: a.name, cat: a.cat || "Retail", lots: +a.lots || 1, price: +a.price || 0, status: a.status || "Applied", sold: a.sold != null ? a.sold : (a.sellPrice != null ? a.sellPrice : null), added: a.added || null }));
 const legacyTasks = v => asList(v).filter(t => t && typeof t === "object").map(t => ({ id: String(t.id || ("c:" + Date.now())), text: t.text || t.title || "", added: t.added || null }));
 // ipo-holdings entries: "Parent short name" or {parent, qty, price, date}
-const S = {
-  holdings: asList(store.get("ipo-holdings", [])),
-  interest: new Set(asList(store.get("ipo-interest", []))),
-  apps: legacyApps(store.get("ipo-apps", [])),
-  done: new Set(asList(store.get("ipo-tasks-done", [])).map(String)),   // "id" = done, "id@YYYY-MM-DD" = snoozed until
-  tasksCustom: legacyTasks(store.get("ipo-tasks-custom", [])),
-};
+const S = {};
+function loadState() {                                       // from the account (or its cache); called again when /api/state answers
+  S.holdings = asList(store.get("ipo-holdings", []));
+  S.interest = new Set(asList(store.get("ipo-interest", [])));
+  S.apps = legacyApps(store.get("ipo-apps", []));
+  S.done = new Set(asList(store.get("ipo-tasks-done", [])).map(String));   // "id" = done, "id@YYYY-MM-DD" = snoozed until
+  S.tasksCustom = legacyTasks(store.get("ipo-tasks-custom", []));
+}
+loadState();
 const holdName = h => typeof h === "string" ? h : h.parent;
 const held = p => S.holdings.some(h => holdName(h) === p);
 const heldNames = () => [...new Set(S.holdings.map(holdName))];
@@ -117,6 +120,7 @@ const appLine = b => { const cats = ["retail", "snii", "bnii", "employee", "shar
   return `<div class="dt" style="margin-top:6px"><b>Applications</b> · ${cats.map(k => { const a = appRatio(b, k); return `${APP_LBL[k]} ${a.received.toLocaleString("en-IN")} for ${a.reserved.toLocaleString("en-IN")}${appOdds(b, k, " (").replace(/<\/span>$/, "</span>)")}`; }).join(" · ")}</div>`; };
 const quotaPill = q => q.quota === true ? `<span class="pill yes">quota ✓${q.quotaPct ? " " + q.quotaPct + "%" : ""}</span>` : q.quota === false ? `<span class="pill no">no quota</span>` : `<span class="pill unk">quota ?</span>`;
 const toast = m => { const t = $("#toast"); t.textContent = m; t.hidden = false; clearTimeout(toast.h); toast.h = setTimeout(() => t.hidden = true, 1800); };
+window.__ipoToast = toast;
 
 /* ---------- screens ---------- */
 let screen = "today";
@@ -151,7 +155,7 @@ function buildQueue() {
     else if (b.status === "Closed" && (star || S.apps.some(a => a.name === b.name))) P.push({ id: "allot:" + b.name, pri: 4, tag: ["ok", "Lists " + rel(days(b.listing))], lbl: "Allotment", ttl: `Check ${b.name} allotment`, desc: `Lists ${fmtDY(b.listing)}${g != null ? ` · expected ${sgn(g)} per lot at GMP ${inr(b.gmp)}` : ""}.`, big: fmtD(b.listing), acts: [["done", "Checked"]], b });
   });
   S.apps.filter(a => a.status === "Allotted — holding").forEach(a => { const b = findIssue(a.name); if (b && b.status === "Listed") P.push({ id: "exit:" + a.name, pri: 3, tag: ["soon", "Listed"], lbl: "Position", ttl: `Decide on ${a.name}`, desc: `Listed ${fmtD(b.listing)} at ${inr(b.listingPrice)} vs your ${inr(a.price)}.`, big: pct(b.listingGainPct, true), bigCls: cls(b.listingGainPct), acts: [["done", "Decided"]] }); });
-  P.push(...trackerQueueItems());                      // lock-ins and the tape, for what Hari holds, starred or follows (lockin.js)
+  P.push(...trackerQueueItems());                      // lock-ins and the tape, for what the reader holds, starred or follows (lockin.js)
   return P.sort((a, b) => a.pri - b.pri);
 }
 function renderToday() {
@@ -626,7 +630,6 @@ function renderMarket() {
   $("#flowKpis").innerHTML = L ? [["FII net", L.fiiNetCr, P0.fiiNetCr, gross(L.fiiBuyCr, L.fiiSellCr)], ["DII net", L.diiNetCr, P0.diiNetCr, gross(L.diiBuyCr, L.diiSellCr)], ["Combined", (L.fiiNetCr || 0) + (L.diiNetCr || 0), P0.fiiNetCr != null ? (P0.fiiNetCr || 0) + (P0.diiNetCr || 0) : null, "the two biggest pools together"]]
     .map(([l, v, was, d2]) => `<div class="kpi card"><div class="lbl">${l} · ${fmtD(L.date)}</div><div class="v mono ${cls(v)}">${sgn(Math.round(v))} Cr</div><div class="d">${was != null ? `previous session ${sgn(Math.round(was))} Cr` : ""}${d2 ? `<br>${d2}` : ""}</div></div>`).join("") : "";
   $("#flowCtx").innerHTML = flowContext(F.history || []);
-  $("#flowNoteWrap").hidden = true;                     // `flows.note` is db-era prose nobody refreshes; the card's header names the live source
   // ===== smart money: anchor cards =====
   const curIss = allIssues().filter(b => b.status === "Open" || b.status === "Upcoming" || (b.status === "Closed" && days(b.listing) >= 0));
   const WL = watchNames();
@@ -809,27 +812,40 @@ document.addEventListener("keydown", e => {
 /* @include records.js */
 /* @include research.js */
 /* @include scoreboard.js */
-function renderAll() { renderTape(); renderToday(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); }
-$("#foot").innerHTML = `${esc(DATA.meta.quotaSourceNote || "")}${DATA.meta.marketNotes && DATA.meta.marketNotes.length ? "<br>" + DATA.meta.marketNotes.map(esc).join("<br>") : ""}${DATA.meta.unresolved && DATA.meta.unresolved.length ? `<br>Unverified this cycle: ${esc(DATA.meta.unresolved.join(", "))}.` : ""}<br>Aggregated public data and analytical synthesis with both sides shown — not investment advice. Nothing here places orders. Press <b>?</b> for keys.`;
+/* ---------- "data as of" on every screen, and the footer — both from run metadata, never hand-written ----------
+   The collector's timetable (RUNS_IST) says how old a document may be: on a weekday in run hours an intraday run lands every
+   30 min, otherwise the next full run is at 06:43 / 18:13 IST. Older than that window (plus slack) reads as stale. */
+function expectedGapMin() { const ist = new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000), h = ist.getHours(), wk = ist.getDay() % 6 !== 0;
+  return wk && h >= 9 && h < 18 ? 75 : 14 * 60 + 30; }
+const istClock = s => { const x = s ? new Date(s) : null; if (!x || isNaN(x)) return "—"; const t = new Date(x.getTime() + (330 + x.getTimezoneOffset()) * 60000);
+  const sameDay = iso(new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000)) === iso(t); return (sameDay ? "" : fmtD(t.toISOString().slice(0, 10)) + " ") + String(t.getHours()).padStart(2, "0") + ":" + String(t.getMinutes()).padStart(2, "0") + " IST"; };
+function stampFor(id) {
+  const docMin = (Date.now() - new Date(DATA.meta.asOf)) / 60000, stale = docMin > expectedGapMin();
+  const bits = [`data as of <b>${istClock(DATA.meta.asOf)}</b>`];
+  const lv = LIVE && LIVE.asOf;
+  if ((id === "today" || id === "board") && lv) bits.push(`book ${istClock(LIVE.asOf)}`);
+  if (id === "board") { const g = allIssues().map(b => b.gmpAsOf).filter(Boolean).sort().pop(); if (g) bits.push(`GMP ${istClock(g)}${(Date.now() - new Date(g)) / 36e5 > 30 ? ' <span class="pill warn">stale</span>' : ""}`); }
+  if (id === "market") { const I = DATA.investors || {}; if (I.asOf) bits.push(`superinvestor sweep ${fmtD(I.asOf)}${(Date.now() - new Date(I.asOf)) / 864e5 > 7 ? ' <span class="pill warn">old</span>' : ""}`); }
+  if (id === "score" && DATA.evidence && DATA.evidence.asOf) bits.push(`evidence ${fmtD(DATA.evidence.asOf)}`);
+  return `<span>${bits.join(" · ")}</span>${stale ? `<span class="pill warn" title="the collector's next run was due ${expectedGapMin() < 120 ? "within the half hour" : "by the next 06:43 / 18:13 IST run"}">feed ${Math.round(docMin / 60) >= 1 ? Math.round(docMin / 60) + " h" : Math.round(docMin) + " min"} late</span>` : ""}`;
+}
+function renderStamps() { $$("section.screen").forEach(sec => { const id = sec.id.replace(/^s-/, ""); let el = sec.querySelector(":scope > .stamp"); if (!el) { el = document.createElement("div"); el.className = "stamp"; sec.insertBefore(el, sec.firstChild); } el.innerHTML = stampFor(id); }); }
+function renderFooter() {
+  const M = DATA.meta || {}, I = DATA.integrity || {}, checks = I.checks || [];
+  const src = [...new Set(checks.filter(c => c.status === "ok" && c.method).flatMap(c => String(c.method).split(":")[0].split("+")))].filter(x => x && !/^data\//.test(x) && x !== "none" && x !== "collector").map(x => ({ investorgain: "InvestorGain", nse: "NSE", bse: "BSE", narada: "Narada", nsearchives: "NSE archives", chittorgarh: "Chittorgarh" })[x] || x);
+  const notes = [...(M.marketNotes || []), ...(M.newFindings || []), ...(M.quotaSourceNote ? [M.quotaSourceNote] : [])];
+  const unres = M.unresolved || [];
+  $("#foot").innerHTML = `<div>Last collector run <b>${esc(M.label || istClock(M.asOf))}</b>${src.length ? ` · sources this run: ${esc(src.join(", "))}` : ""}${unres.length ? ` · <details class="inl"><summary>unverified this cycle: ${unres.length}</summary><ul>${unres.map(u => `<li>${esc(u)}</li>`).join("")}</ul></details>` : ""}</div>
+    ${notes.length ? `<details class="inl"><summary>Collector notes archive · ${notes.length} hand-written note${notes.length > 1 ? "s" : ""} carried from earlier runs, not refreshed</summary><ul>${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul></details>` : ""}
+    <div>Aggregated public data and analytical synthesis with both sides shown — not investment advice. Nothing here places orders. Press <b>?</b> for keys.</div>`;
+}
+function renderAll() { renderTape(); renderToday(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); renderStamps(); }
+renderFooter();
 noteChanges(store.get("ipo-seen", {}) || {}, DATA);
 try { renderAll(); renderResearchSelect(); liveText(); oldTags(); } catch (err) { document.querySelector("main").insertAdjacentHTML("afterbegin", `<div class="card" style="padding:14px 18px;border-color:var(--down);margin-bottom:16px"><b class="down">The page hit an error while rendering.</b> <span class="dim">${esc(err && err.message)}</span></div>`); console.error(err); }
-// ---- backup / restore: every "ipo-*" key, raw, so legacy shapes round-trip untouched -------------
-const backupKeys = () => { const out = {}; try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && k.startsWith("ipo-")) out[k] = localStorage.getItem(k); } } catch (e) {} return out; };
-const backupDoc = () => ({ app: "ipo-desk", version: 1, exportedAt: new Date().toISOString(), origin: location.origin, keys: backupKeys() });
-function restoreFrom(text) {
-  let doc; try { doc = JSON.parse(text); } catch (e) { toast("That is not a backup: not JSON"); return; }
-  const keys = doc && doc.app === "ipo-desk" && doc.keys && typeof doc.keys === "object" ? doc.keys : null;
-  const names = keys ? Object.keys(keys).filter(k => k.startsWith("ipo-") && typeof keys[k] === "string") : [];
-  if (!names.length) { toast("That is not an ipo-desk backup"); return; }
-  if (!confirm(`Restore ${names.length} item(s) from the backup of ${String(doc.exportedAt || "").slice(0, 10) || "unknown date"}?\n\nThis replaces the stars, holdings, applications and tasks in this browser.`)) return;
-  try { names.forEach(k => localStorage.setItem(k, keys[k])); } catch (e) { toast("Could not write to this browser's storage"); return; }
-  location.reload();
-}
-{ const n = Object.keys(backupKeys()).length; $("#bkNote").textContent = n ? "" : "nothing saved in this browser yet — restore a backup from your old dashboard"; }
-$("#bkSave").onclick = () => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(backupDoc(), null, 1)], { type: "application/json" })); a.download = `ipo-desk-backup-${iso(new Date())}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); toast("Backup saved"); };
-$("#bkLoad").onclick = () => $("#bkFile").click();
-$("#bkFile").onchange = e => { const f = e.target.files[0]; if (f) f.text().then(restoreFrom); e.target.value = ""; };
-$("#bkPaste").onclick = () => { const t = prompt("Paste the backup text here"); if (t) restoreFrom(t); };
+// ---- the account: when /api/state answers (or the reader imports / restores / resets), rebuild S and repaint ----
+if (ACC) ACC.on("change", () => { loadState(); const t0 = store.get("ipo-theme", null); applyTheme(t0 === "dark" || t0 === "light" ? t0 : null);
+  try { renderAll(); if (screen === "market") renderMarket(); if (screen === "board") drawCharts(); if (screen === "book") drawPosCharts(); } catch (err) { console.error(err); } });
 
 function oldTags() { const I = DATA.investors || {}, qd = (DATA.quota || []).map(q => q.stageDate).filter(Boolean).sort().pop();
   if ($("#invOld")) $("#invOld").innerHTML = oldTag(I.asOf, 7) ? oldTag(I.asOf, 7).replace("as of", "holdings and moves as of") + ' <span class="dt">prices live</span>' : "";
@@ -837,7 +853,7 @@ function oldTags() { const I = DATA.investors || {}, qd = (DATA.quota || []).map
 function liveText() { const el = $("#liveTxt"); if (!el) return; const mins = (Date.now() - new Date(DATA.meta.asOf)) / 60000, nx = nextRun();
   const lv = LIVE && LIVE.asOf && (Date.now() - new Date(LIVE.asOf)) < 20 * 60000;
   el.textContent = (mins > 36 * 60 ? "Stale · " : "Live · ") + (lv ? "book " + ago(LIVE.asOf) + " · full run " + ago(DATA.meta.asOf) : "updated " + ago(DATA.meta.asOf)) + (nx ? " · next " + nx + " IST" : ""); el.parentElement.classList.toggle("stale", mins > 36 * 60); }
-setInterval(liveText, 30000);
+setInterval(() => { liveText(); renderStamps(); }, 30000);
 const savedTab = store.get("ipo-tab", "today"); show(["today", "pipe", "board", "market", "research", "book", "score"].includes(savedTab) ? savedTab : "today");
 
 /* Swap in freshly fetched data without reloading the page or touching local state
@@ -850,7 +866,7 @@ return {
     store.set("ipo-seen", seenOf(DATA));
     recompute();
     try {
-      renderAll(); renderResearchSelect(); liveText(); oldTags();
+      renderAll(); renderResearchSelect(); liveText(); oldTags(); renderFooter();
       if (screen === "market") renderMarket();
       if (screen === "board") drawCharts();
       if (screen === "book") drawPosCharts();
