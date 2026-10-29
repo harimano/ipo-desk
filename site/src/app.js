@@ -61,6 +61,7 @@ function loadState() {                                       // from the account
   S.apps = legacyApps(store.get("ipo-apps", []));
   S.done = new Set(asList(store.get("ipo-tasks-done", [])).map(String));   // "id" = done, "id@YYYY-MM-DD" = snoozed until
   S.tasksCustom = legacyTasks(store.get("ipo-tasks-custom", []));
+  S.budget = normBudget(store.get("ipo-budget", null));         // the capital planner's money free + ticks (planner.js)
 }
 loadState();
 const holdName = h => typeof h === "string" ? h : h.parent;
@@ -811,6 +812,7 @@ document.addEventListener("keydown", e => {
 /* @include deals.js */
 /* @include names.js */
 /* @include lockin.js */
+/* @include planner.js */
 /* @include records.js */
 /* @include research.js */
 /* @include scoreboard.js */
@@ -845,7 +847,7 @@ function renderFooter() {
     ${notes.length ? `<details class="inl"><summary>Collector notes archive · ${notes.length} hand-written note${notes.length > 1 ? "s" : ""} carried from earlier runs, not refreshed</summary><ul>${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul></details>` : ""}
     <div>Aggregated public data and analytical synthesis with both sides shown — not investment advice. Nothing here places orders. Press <b>?</b> for keys · <a href="#" data-intro-open>How to read this desk</a> · <a href="#" data-install-open>Add to home screen</a></div>`;
 }
-function renderAll() { renderTape(); renderToday(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); renderStamps(); }
+function renderAll() { renderTape(); renderToday(); renderWeek(); renderPlanner(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); renderStamps(); }
 renderFooter();
 noteChanges(store.get("ipo-seen", {}) || {}, DATA);
 try { renderAll(); renderResearchSelect(); liveText(); oldTags(); } catch (err) { document.querySelector("main").insertAdjacentHTML("afterbegin", `<div class="card" style="padding:14px 18px;border-color:var(--down);margin-bottom:16px"><b class="down">The page hit an error while rendering.</b> <span class="dim">${esc(err && err.message)}</span></div>`); console.error(err); }

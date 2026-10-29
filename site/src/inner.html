@@ -394,6 +394,23 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
 /* queue cards on a phone: one column, the amount and the buttons on a row under the text (the earlier rule at the top of
    this sheet lost to the base `.q` rules declared after it, so the title wrapped one word a line) */
 @media (max-width:760px) { .q { grid-template-columns:1fr; gap:10px; } .q .r { flex-direction:row; align-items:center; justify-content:space-between; flex-wrap:wrap; } .q.lead .ttl { font-size:18px; } }
+/* ---- the week strip and the capital planner (planner.js) ---- */
+.week { display:grid; grid-template-columns:repeat(8, minmax(118px,1fr)); gap:8px; overflow-x:auto; }
+.wd { border-radius:var(--r-sm); background:var(--surface-2); padding:8px 9px; min-width:0; } .wd.today { background:var(--accent-soft); outline:1px solid var(--accent-line); } .wd.off { background:transparent; border:1px dashed var(--line-2); }
+.wd .d { font-weight:800; font-size:13px; } .wd .d small { font-weight:500; color:var(--ink-3); margin-left:4px; }
+.wd .ev { position:relative; margin-top:6px; padding:3px 0 3px 9px; font-size:11.5px; line-height:1.3; font-weight:600; overflow-wrap:anywhere; } .wd .ev::before { content:""; position:absolute; left:0; top:4px; bottom:4px; width:3px; border-radius:2px; background:var(--line-2); }
+.wd .ev small { display:block; font-weight:500; color:var(--ink-3); font-size:10.5px; }
+.wd .ev.open::before { background:var(--accent); } .wd .ev.close::before { background:var(--down); } .wd .ev.allot::before { background:var(--lav); } .wd .ev.back::before { background:var(--up); } .wd .ev.list::before { background:var(--mint); } .wd .ev.lock::before { background:var(--amber); } .wd .ev.rec::before { background:var(--peach); }
+.wk-leg { margin-top:10px; font-size:11.5px; color:var(--ink-3); flex-wrap:wrap; } .wk-leg span { white-space:nowrap; } .wk-leg span:last-child { white-space:normal; flex:1 1 100%; }
+.pl-in { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.pl-t th { white-space:nowrap; } .pl-t .seg { display:inline-flex; height:17px; padding:0 6px; border-radius:9px; font-size:10.5px; font-weight:700; margin-left:6px; vertical-align:1px; } .pl-t .seg.m { background:var(--amber-soft); color:var(--amber); } .pl-t .seg.s { background:var(--lav-soft); color:var(--lav); }
+.pl-t .cat { display:flex; align-items:center; gap:7px; margin:2px 0; white-space:nowrap; } .pl-t .cat label { display:flex; align-items:center; gap:6px; cursor:pointer; } .pl-t .cat input { width:15px; height:15px; margin:0; accent-color:var(--accent); } .pl-t .cat .k { font-weight:700; width:84px; color:var(--ink-2); }
+.ev-b { display:inline-block; padding:1px 7px; border-radius:9px; font-weight:700; font-size:12px; } .ev-b.hi { background:var(--up-soft); color:var(--up); } .ev-b.mid { background:var(--amber-soft); color:var(--amber); } .ev-b.lo { background:var(--down-soft); color:var(--down); } .ev-b.na { background:var(--surface-2); color:var(--ink-3); }
+.tot { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-top:14px; } .tot .kpi { border:1px solid var(--line); border-radius:var(--r); } .tot .kpi .v { font-size:22px; }
+.tot .bar { height:8px; border-radius:4px; background:var(--surface-2); margin-top:8px; overflow:hidden; } .tot .bar i { display:block; height:100%; background:var(--accent); }
+@media (max-width:760px) { .week { grid-template-columns:repeat(8, 128px); }
+  .pl-t thead { display:none; } .pl-t tr { display:block; border-bottom:1px solid var(--line); padding:8px 0; } .pl-t td { display:block; border:0; padding:4px 0; }
+  .pl-t td[data-l]:not(:first-child)::before { content:attr(data-l); display:block; font-size:10.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); margin-bottom:2px; } }
 /* ---- How to read this desk (intro.js) and Add to home screen (install.js): one overlay shell, a card with steps ---- */
 .ovl { position:fixed; inset:0; z-index:60; background:rgba(15,22,38,.45); display:flex; align-items:center; justify-content:center; padding:16px; overflow:auto; }
 .ovl[hidden] { display:none; } body.intro-open { overflow:hidden; }
@@ -469,6 +486,8 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
   <section class="screen" id="s-today">
     <div class="today-h"><h1 id="todayTitle"></h1><span class="sum" id="todaySum"></span></div>
     <div class="queue" id="queue"></div>
+    <div class="sec card"><div class="ch">This week <span class="sub" id="weekSub"></span></div><div class="cb"><div class="week" id="week"></div><div class="legend wk-leg" id="weekLeg"></div></div></div>
+    <div class="sec card"><div class="ch">Capital planner <span class="sub">this week's open and upcoming issues, in order of close · the evidence beside each · no ranking</span></div><div class="cb" id="planner"></div></div>
     <div class="sec kpis" id="kpis"></div>
     <div class="sec grid g2">
       <div class="card"><div class="ch">Quota pipeline <span class="sub">who you need to hold, by stage</span></div><div class="cb lanes" id="miniLanes"></div></div>

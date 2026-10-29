@@ -16,7 +16,7 @@ TOP_LEVEL = [
     "meta", "mainboard", "sme", "recent", "expected", "offers", "lot",
     "comps", "listedPerf", "evidence", "priceHistory", "flows", "news",
     "integrity", "investors", "anchors", "quota", "quotaLeads", "current", "sheets", "records", "players", "tape", "anchorBooks", "trackRecords",
-    "logos",
+    "logos", "calendar",
 ]
 
 STATUSES = {"Open", "Upcoming", "Closed", "Listed"}
@@ -30,7 +30,7 @@ OWNERS: dict[str, str] = {
     "recent": "listings", "listedPerf": "history", "comps": "history", "evidence": "evidence", "priceHistory": "listings",
     "flows": "flows", "news": "news", "quota": "filings", "quotaLeads": "filings", "integrity": "integrity", "meta": "integrity",
     # carried forward from the previous latest.json, refreshed by other layers:
-    "offers": "offers", "anchors": "details", "records": "details", "players": "players", "tape": "tape", "anchorBooks": "anchorbook", "trackRecords": "evidence", "logos": "logos", "investors": "carry", "current": "research", "sheets": "research",
+    "offers": "offers", "anchors": "details", "records": "details", "players": "players", "tape": "tape", "anchorBooks": "anchorbook", "trackRecords": "evidence", "logos": "logos", "calendar": "planner", "investors": "carry", "current": "research", "sheets": "research",
 }
 # Modules that patch FIELDS INTO rows another module produced (by row name).
 ROW_PATCHERS: dict[str, set[str]] = {
@@ -82,6 +82,7 @@ def empty_data() -> dict:
     d["trackRecords"] = {"asOf": None, "booksOn": 0, "withOutcome": 0, "investors": 0, "rows": []}
     d["evidence"] = {"asOf": None, "segments": {}, "warnings": []}
     d["logos"] = {}
+    d["calendar"] = {"asOf": None, "from": None, "to": None, "events": [], "issues": {}, "unlinked": [], "conflicts": [], "sources": {}}
     d["offers"] = {"asOf": None, "rights": [], "buybacks": [], "ofs": [], "ncd": []}
     d["flows"] = {"latest": None, "history": [], "monthly": [], "rotation": {"fiiSelling": [], "diiBuying": []}, "note": None}
     d["investors"] = {"asOf": None, "watchlist": [], "portfolios": [], "moves": [], "holdings": [],

@@ -23,7 +23,7 @@ from http.cookies import SimpleCookie
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = ROOT / "_site"
 WORKER = ROOT / "ops" / "site-worker"
-PARTS = {"holdings", "interest", "apps", "tasks-done", "tasks-custom", "investors", "theme"}
+PARTS = {"holdings", "interest", "apps", "tasks-done", "tasks-custom", "investors", "theme", "budget"}
 PART_MAX = 64 * 1024
 
 STORE: dict[str, dict[str, tuple[str, str]]] = {}      # email -> part -> (body, updated)

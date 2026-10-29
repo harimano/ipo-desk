@@ -106,7 +106,7 @@ def row_patch(row: dict, rec: dict, today: dt.date, now: dt.datetime, gmp_before
     p: dict = {"igId": rec["igId"], "igFetchedAt": now.replace(microsecond=0).isoformat()}
     for ours, theirs in (("allotment", "allotment"), ("listing", "listing"), ("issueSizeCr", "issueSizeCr"), ("freshCr", "freshCr"),
                          ("ofsCr", "ofsCr"), ("refund", "refund"), ("isin", "isin"), ("sector", "sector"), ("anchorShares", "anchorShares"),
-                         ("logo", "logo")):
+                         ("logo", "logo"), ("apply", "apply")):           # apply: what one application blocks, per category
         if rec.get(theirs) not in (None, ""):
             p[ours] = rec[theirs]
     for ours, theirs in (("open", "open"), ("close", "close"), ("bandLow", "bandLow"), ("bandHigh", "bandHigh"), ("lotSize", "lotSize"),

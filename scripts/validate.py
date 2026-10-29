@@ -18,7 +18,7 @@ import pathlib
 import sys
 
 TOP_LEVEL = ["meta", "mainboard", "sme", "recent", "expected", "offers", "lot", "comps", "listedPerf",
-             "priceHistory", "flows", "news", "integrity", "investors", "anchors", "quota", "current", "sheets"]
+             "priceHistory", "flows", "news", "integrity", "investors", "anchors", "quota", "current", "sheets", "calendar"]
 STATUSES = {"Open", "Upcoming", "Closed", "Listed"}
 BUCKETS = {"approved", "awaited", "done", "drhp", "dropped"}
 ISO_FIELDS = {"close", "date", "disclosedDate", "listDate", "listedDate", "listing", "listingDate", "open",
@@ -231,7 +231,9 @@ def main() -> int:
                     # /players/covered and /players/names are keyed by unlisted issue the same way: thirteen issues
                     # listing over 5-6 Oct 2026 read as "30 -> 18, 40% loss" and refused the first good run after a
                     # dependency break. Each one moved into /players/frozen, which is still gated and only ever grows.
-                    if (old < MIN_CENSUS or path.startswith(("/integrity", "/news", "/records/", "/players/books/"))
+                    # /calendar is a rolling -7/+45 day window rebuilt from scratch every run: a quiet fortnight after a
+                    # crowded one is fewer events, not a loss.
+                    if (old < MIN_CENSUS or path.startswith(("/integrity", "/news", "/records/", "/players/books/", "/calendar"))
                             or path == "/meta/unresolved"
                             or path in ("/players/covered", "/players/names")
                             or ("[]" in path and old < MIN_CENSUS_NESTED)):

@@ -3,7 +3,7 @@
 -- has to be pasted into the D1 console; it is here so the shape is readable and so a console session can run it by hand.
 CREATE TABLE IF NOT EXISTS user_state (
   email   TEXT NOT NULL,   -- the verified Access email, lower-cased; never a value the browser sent
-  part    TEXT NOT NULL,   -- holdings | interest | apps | tasks-done | tasks-custom | investors | theme
+  part    TEXT NOT NULL,   -- holdings | interest | apps | tasks-done | tasks-custom | investors | theme | budget
   body    TEXT NOT NULL,   -- the part's whole JSON value (a few KB at most; 64 KB cap)
   updated TEXT NOT NULL,   -- ISO time of the last PUT
   PRIMARY KEY (email, part)

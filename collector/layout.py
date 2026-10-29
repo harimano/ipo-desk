@@ -29,6 +29,7 @@ GROUPS: dict[str, tuple[str, ...]] = {
     "investors": ("investors",),
     "research":  ("current", "sheets", "records"),
     "history":   ("listedPerf", "comps", "evidence"),
+    "calendar":  ("calendar",),                                # every dated event in a -7/+45 day window and what one application blocks (planner)
     "books":     ("anchorBooks", "trackRecords"),            # every IPO's anchor allocation since 2022: large, changes only when a book is added
 }
 # Parts the page does not need at boot: written like the others, listed under meta.lazy (hash, bytes) instead of
