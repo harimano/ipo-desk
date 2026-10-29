@@ -34,4 +34,4 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with: { node-version: "22" }
-      - run: node --test ops/site-worker/test/
+      - run: node --test ops/site-worker/test/api.test.mjs     # Node 22 wants a file or a glob, not a directory
