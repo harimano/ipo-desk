@@ -362,6 +362,19 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
 .foot details.inl ul { margin:6px 0 8px 16px; padding:0; } .foot details.inl li { margin:2px 0; }
 .stamp { display:flex; gap:10px; align-items:center; flex-wrap:wrap; font-size:11.5px; color:var(--ink-3); margin-bottom:12px; } .stamp b { color:var(--ink-2); font-weight:600; }
 .stamp .pill, .pill.warn { background:var(--amber-soft); color:var(--amber); }
+/* the trust strip: feeds behind a screen, folded to one line; and the tap popover for provenance */
+.srcwrap { margin:-6px 0 12px; } .src { font-size:11.5px; color:var(--ink-3); }
+.src summary { list-style:none; cursor:pointer; display:flex; flex-wrap:wrap; gap:3px 12px; align-items:center; } .src summary::-webkit-details-marker { display:none; }
+.src .d { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:5px; vertical-align:1px; background:var(--ink-3); }
+.src .d.fresh { background:var(--up); } .src .d.late { background:var(--amber); } .src .d.fail { background:var(--down); }
+.src summary .more { margin-left:auto; color:var(--accent); font-weight:700; } .src .chev { font-style:normal; display:inline-block; transition:transform .15s; } .src[open] .chev { transform:rotate(180deg); }
+.src .list { margin-top:6px; border:1px solid var(--line); border-radius:var(--r-sm); background:var(--surface); overflow:hidden; }
+.src .row { display:grid; grid-template-columns:14px 130px 1fr auto; gap:8px; padding:6px 10px; border-bottom:1px solid var(--line); align-items:baseline; } .src .row:last-child { border:0; }
+.src .row b { color:var(--ink-2); } .src .row .w { color:var(--ink-3); }
+@media (max-width:560px) { .src .row { grid-template-columns:14px 1fr auto; } .src .row .w { grid-column:3; grid-row:1; } .src .row .n { grid-column:2 / 4; grid-row:2; } }
+[data-prov] { cursor:help; }
+.provpop { position:fixed; z-index:60; background:var(--surface); color:var(--ink-2); border:1px solid var(--line-2); border-radius:10px; box-shadow:0 6px 24px rgba(0,0,0,.2); padding:9px 12px; font-size:12px; line-height:1.45; }
+.provpop b { display:block; color:var(--ink); font-size:12.5px; margin-bottom:2px; }
 /* the account: a status pill in the header and its menu */
 .acct { display:inline-flex; align-items:center; gap:7px; max-width:220px; }
 .acct .dot { width:8px; height:8px; border-radius:50%; background:var(--ink-3); flex:none; }

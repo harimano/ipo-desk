@@ -38,7 +38,9 @@ quotaLeads[] (filings): NSE announcements (both boards) in which a listed compan
   60 days, ≤40, newest first: {parentSymbol, parentName, kind drhp|udrhp|rhp|observation|withdrawn|ipo, text (≤300), url (the PDF, linked,
   never read), date, seqId, sme, watched? (parent already on the quota list; its row was moved/flagged), matched? (the expected row named)}.
 news[]: {title, url, date}
-integrity: {asOf, checks[{area, method, status, note, asOf?, elapsed?, calls?}], discrepancies[]}
+integrity: {asOf, checks[{area, method, status, note, asOf?, elapsed?, calls?, lastOk?, dueBy?, carried?}], discrepancies[]}
+  - `lastOk` = when the module last answered well (kept through a failure); `dueBy` = when its next good answer is due (the run schedule +
+    45 min, `assemble.due_by`; null while failed). The page's trust strip says "late" only past `dueBy` — it holds no threshold of its own.
 current{name}: per-IPO research for open/upcoming mainboard names {research, recs, sheet}   - Claude-owned (data/research/)
 lot{name}: {shares, price, listDate}; priceHistory{name}: [[date, price]]
 offers: {asOf, rights[], buybacks[], ofs[], ncd[]}
