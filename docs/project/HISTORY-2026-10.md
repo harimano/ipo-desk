@@ -414,5 +414,5 @@ latest document, and a health section for Hari (snapshots missed, feeds not ok o
 D1 which only the Worker reads, so the line points at /admin). No new statistics: every rate is `evidence`'s. Same three
 bodies as the alerts (text, ntfy Markdown with a link per name, Telegram HTML). The trigger Worker's five cron slots are
 all used, so Sunday's 18:13 full collect dispatches the digest after its commit and GitHub's own cron is the fallback;
-the workflow asks `gh run list` whether one already went out that day. Dry run over the real week of 26 Oct: 33 lines.
+the workflow asks `gh run list` whether one already went out that day. Hari read the first dry run as cramped (six facts a line, six event kinds a calendar line); redone as one fact set a line, the bands stated once in a record block, the calendar on opens, closes and listings only with SME counted. Dry run over the real week of 26 Oct: 34 lines.
 

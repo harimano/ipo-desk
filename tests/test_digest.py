@@ -13,11 +13,11 @@ EVIDENCE = {
     "minN": 30,
     "edges": {"total": [0, 2, 10, 50, None], "gmp": [None, 0.01, 10, 30, None]},
     "segments": {
-        "main": {"bands": {"gmp": {"window": [BAND(27, 14.8, 5.9, 32.5, -3.6), BAND(47, 61.7, 47.4, 74.2, 2.5),
+        "main": {"window": {"rule": "last 12 months"}, "bands": {"gmp": {"window": [BAND(27, 14.8, 5.9, 32.5, -3.6), BAND(47, 61.7, 47.4, 74.2, 2.5),
                                               BAND(32, 90.6, 75.8, 96.8, 16.7), BAND(25, 100.0, 86.7, 100.0, 39.6)]},
                            "total": {"all": [BAND(52, 36.5, 24.8, 50.1, 0.0), BAND(101, 56.4, 46.7, 65.7, 1.4),
                                              BAND(98, 69.4, 59.7, 77.6, 7.7), BAND(157, 95.5, 91.1, 97.8, 33.1)]}}},
-        "sme": {"bands": {"gmp": {"window": [BAND(107, 37.4, 28.8, 46.8, 0.0), BAND(63, 46.0, 34.3, 58.2, 0.0),
+        "sme": {"window": {"rule": "last 12 months"}, "bands": {"gmp": {"window": [BAND(107, 37.4, 28.8, 46.8, 0.0), BAND(63, 46.0, 34.3, 58.2, 0.0),
                                              BAND(29, 89.7, 73.6, 96.4, 19.2), BAND(37, 100.0, 90.6, 100.0, 74.2)]},
                           "total": {"all": [BAND(172, 43.6, 36.4, 51.1, 0.0), BAND(224, 58.0, 51.5, 64.3, 1.9),
                                             BAND(159, 71.7, 64.2, 78.1, 6.8), BAND(434, 90.1, 86.9, 92.6, 50.0)]}}},
@@ -97,71 +97,88 @@ def lines_of(**kw):
     return [ln.text for ln in build(first, last, MON, snapshots=[MON + dt.timedelta(days=i) for i in (0, 1, 3, 4, 5)], now=NOW, **kw)]
 
 
-def test_listings_scored_with_the_collectors_band_and_never_pooled():
+def test_listings_scored_one_line_each_never_pooled():
     t = lines_of()
-    assert "This week's listings, scored" in t
-    assert ("Jio Platforms (MB, 28 Oct) · GMP eve +22% · GMP 10–30%: 91% listed up (76–97, n 32), median +17% · "
-            "opened +21%, closed +27%") in t
-    assert ("Shellz India (SME, 30 Oct) · GMP listing morning +4% · GMP 0–10%: 46% listed up (34–58, n 63), median +0% · "
-            "opened +0%, closed -5%") in t
+    assert "LISTED THIS WEEK" in t
+    assert "Jio Platforms · GMP said +22% · opened +21%, closed +27%" in t
+    assert "Shellz India (SME) · GMP said +4% (listing morning) · opened +0%, closed -5%" in t
     assert not [x for x in t if x.startswith("Tonbo")]
 
 
-def test_calendar_one_line_a_day_next_week_only_refunds_left_out():
+def test_calendar_one_line_a_day_opens_closes_listings_only():
     t = lines_of()
-    i = t.index("Next week")
-    assert t[i + 1] == "Mon 2 Nov: opens Vedant Poly Fabs (SME) · closes Bombay Coated and Special Steels"
-    assert t[i + 2] == "Tue 3 Nov: lists BLS Polymers · 1 SME lock-in ends"
-    assert t[i + 3] == "Thu 5 Nov: lock-in ends Nityas Gems & Jewellery (₹12 Cr) +1 SME"
-    assert t[i + 4] == "Fri 6 Nov: record date Reliance Jio (Reliance Industries)"
-    assert not [x for x in t if "Too Far Away" in x]
+    i = t.index("NEXT WEEK")
+    assert t[i + 1] == "Mon 2 · 1 SME opens · Bombay Coated and Special Steels closes"
+    assert t[i + 2] == "Tue 3 · BLS Polymers lists"
+    assert t[i + 3] == "PIPELINE" or t[i + 3].startswith("OPEN NOW"), "lock-ins, refunds and record dates stay on the planner"
+    assert not [x for x in t if "Too Far Away" in x or "Nityas" in x or "Vans" in x]
 
 
-def test_open_now_quotes_the_gmp_band_else_the_book_band():
+def test_open_now_mainboard_by_name_sme_counted():
     t = lines_of()
-    assert ("BLS Polymers (MB, closed, lists 3 Nov) · book 241.22x · GMP +42% · GMP over 30%: 100% listed up "
-            "(87–100, n 25 thin), median +40%") in t
-    assert ("Wiscon Industries (SME, closes 2 Nov) · book 1.27x · no GMP quote · book under 2x: 44% listed up "
-            "(36–51, n 172), median +0%") in t
+    i = t.index("OPEN NOW")
+    assert t[i + 1:i + 4] == ["BLS Polymers · closed, lists 3 Nov · book 241x · GMP +42%",
+                              "Bombay Coated and Special Steels · closes 2 Nov · book 2.7x · GMP +11%",
+                              "1 SME on the board, 1 with no GMP quote"]
+
+
+def test_record_states_each_band_once_with_n_and_interval():
+    t = lines_of()
+    i = t.index("WHAT THE RECORD SAYS · mainboard, last 12 months")
+    assert t[i + 1:i + 3] == ["GMP 10–30%: 91% listed up (76–97%, 32 cases), median +17%",      # Jio, Bombay Coated
+                              "GMP over 30%: 100% listed up (87–100%, 25 cases, thin), median +40%"]   # BLS
+    assert t[i + 3] != "GMP 0–10%: 62% listed up (47–74%, 47 cases), median +2%", "Shellz is SME: never pooled"
+    j = t.index("WHAT THE RECORD SAYS · SME, last 12 months")
+    assert t[j + 1] == "GMP 0–10%: 46% listed up (34–58%, 63 cases), median +0%"
+    assert t.count("GMP 10–30%: 91% listed up (76–97%, 32 cases), median +17%") == 1
+
+
+def test_record_uses_the_book_band_when_there_is_no_gmp_quote():
+    last = last_doc()
+    last["mainboard"] = [{"name": "Quiet Issue", "status": "Open", "close": "2026-11-02", "gmpPct": 0.0, "sub": {"total": 1.5}}]
+    last["listedPerf"] = []
+    t = [ln.text for ln in build(first_doc(), last, MON, now=NOW)]
+    assert "Quiet Issue · closes 2 Nov · book 1.5x · no GMP quote" in t
+    assert "WHAT THE RECORD SAYS · mainboard, last 12 months (book bands: all years)" in t
+    assert "book under 2x: 36% listed up (25–50%, 52 cases), median +0%" in t
 
 
 def test_pipeline_moves_are_the_diff_of_first_and_last():
     t = lines_of()
-    i = t.index("Pipeline moves this week")
+    i = t.index("PIPELINE")
     assert t[i + 1:i + 6] == [
-        "Reliance Jio (Reliance Industries): SEBI approved → RHP filed",
-        "Reliance Jio (Reliance Industries): record date 6 Nov",
-        "New: Hero FinCorp (Hero MotoCorp) — DRHP filed",
-        "Encube Ethicals: DRHP 28 Oct",
+        "Reliance Jio (Reliance Industries) · SEBI approved → RHP filed",
+        "Reliance Jio (Reliance Industries) · record date 6 Nov",
+        "New: Hero FinCorp (Hero MotoCorp) · DRHP filed",
+        "Encube Ethicals · DRHP 28 Oct",
         "+2 more on the desk",                      # GAMP Services and the Bigbloc NSE lead: the cap is five lines
     ]
     from collector.digest import pipeline
     full = [ln.text for ln in pipeline(first_doc(), last_doc(), MON, MON + dt.timedelta(days=6))]
-    assert full[4:] == ["New on the pipeline: GAMP Services — DRHP filed 21 Oct 2026",
-                        "NSE lead 26 Oct: Bigbloc Construction Limited — ipo"]
+    assert full[4:] == ["New: GAMP Services · DRHP filed 21 Oct 2026",
+                        "NSE lead 26 Oct: Bigbloc Construction · ipo"]
     assert not [ln for ln in pipeline({}, last_doc(), MON, MON) if ln.text.startswith("New")], "no baseline, no 'new' spam"
 
 
-def test_health_is_for_hari_only_and_names_what_it_cannot_count():
+def test_health_is_two_lines_for_hari_only():
     t = lines_of()
-    assert "Runs missed: no snapshot on 28 Oct, 1 Nov (2 of 7 days)" in t
-    assert "offers: blocked — kept previous — HTTP 403 (no good answer on file)" in t
-    assert "flows: ok but stale, last good answer 4 days ago" in t
-    assert not [x for x in t if x.startswith("gmp:")]
-    assert "Wrong number? reports: counted on /admin (D1 is the Worker's, the collector cannot read it)" in t
-    assert not [x for x in lines_of(personal=False) if "Hari" in x or "/admin" in x]
+    i = t.index("DESK HEALTH")
+    assert t[i + 1] == "Snapshots 5 of 7 days · offers feed blocked (HTTP 403) · flows stale 4 days"
+    assert t[i + 2] == "Wrong number? reports: on /admin (D1 is the Worker's; the collector cannot count them)"
+    assert not [x for x in lines_of(personal=False) if "HEALTH" in x or "/admin" in x]
 
 
 def test_message_three_ways_under_the_cap():
     lines = build(first_doc(), last_doc(), MON, now=NOW)
     m = message(lines)
     assert len(m.text.splitlines()) < MAX_LINES
-    assert m.text.startswith("IPO desk · week of 26 Oct – 1 Nov\n\nThis week's listings, scored\n")
+    assert m.text.startswith("IPO desk · 26 Oct – 1 Nov\n\nLISTED THIS WEEK\n")
     assert m.click == "https://ipodesk.dev/#today"
-    assert "[Jio Platforms (MB, 28 Oct) · GMP eve +22%" in m.markdown and "](https://ipodesk.dev/#sheet/Jio%20Platforms)" in m.markdown
-    assert "**Next week**" in m.markdown and "\n\n" in m.markdown
-    assert '<a href="https://ipodesk.dev/#board/BLS%20Polymers">BLS Polymers (MB, closed' in m.html
-    assert "<b>Open now</b>" in m.html and "&amp;" in m.html         # Nityas Gems & Jewellery, escaped
+    assert "[Jio Platforms](https://ipodesk.dev/#sheet/Jio%20Platforms) · GMP said +22%" in m.markdown
+    assert "**NEXT WEEK**" in m.markdown and "\n\n" in m.markdown
+    assert "[Bombay Coated and Special Steels](https://ipodesk.dev/#board/Bombay%20Coated%20and%20Special%20Steels) closes" in m.markdown
+    assert '<a href="https://ipodesk.dev/#board/BLS%20Polymers">BLS Polymers</a> · closed' in m.html
+    assert "<b>OPEN NOW</b>" in m.html and "&amp;" not in m.text and "→" in m.html
 
 
 def test_load_week_picks_the_previous_sunday_and_latest(week):
@@ -178,5 +195,5 @@ def test_cli_dry_run_prints_and_sends_nothing(week, capsys, monkeypatch):
     monkeypatch.delenv("NTFY_TOPIC", raising=False)
     assert main(["--data", str(week), "--week", "2026-10-26", "--dry-run"]) == 0
     out = capsys.readouterr().out
-    assert "Jio Platforms (MB, 28 Oct)" in out and out.rstrip().endswith("dry run — nothing sent (pass --send)")
+    assert "Jio Platforms · GMP said +22%" in out and out.rstrip().endswith("dry run — nothing sent (pass --send)")
     assert main(["--data", str(week), "--week", "2026-10-27"]) == 2
