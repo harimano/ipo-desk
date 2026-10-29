@@ -182,10 +182,11 @@ when dataset types are mixed. Market has a sticky section bar built from `.sec-h
 Accounts are live (D1 `ipo-desk-accounts`, APAC, bound 29 Oct 2026; Saved pill green on the live site). The Access policy
 STAYS *Everyone* by Hari's decision (29 Oct 2026): anyone with the link who completes the email code gets in; the link is
 the key, each reader's state is keyed to their verified email — do not propose an allow-list or an Access group again.
-Hari to do: invite the first friends, set the `NTFY_TOPIC` secret (alerts and "Wrong number?" pings are built and wait
-on it). Capital planner and calendar shipped (reports 554 / 607, `planner` → `planner.js`). Phase 4 ops built (30 Oct
-2026): `backup.yml` dumps D1 into R2 `ipo-desk-backups` nightly at 02:51 IST (a GitHub job — the account's five free
-cron triggers are the trigger Worker's; `scripts/restore_d1.py` restores by id, never the live one by default);
-`daily_active` rows (salted hash, secret `DAU_SALT`) feed `/admin` → Readers by week; `SETUP.md` §1c / §4 / §5 have the
-bucket clicks, rollback and one-reader removal. Hari to do: create the bucket, set `DAU_SALT`, run backup once. Then:
-alerts with deep links, weekly digest → the AI layer, last.
+`NTFY_TOPIC` is set and verified (a "Wrong number?" ping reached Hari's phone, 29 Oct). Capital planner and calendar
+shipped (reports 554 / 607, `planner` → `planner.js`). Phase 4 ops live (29 Oct 2026): `backup.yml` dumps D1 into R2
+`ipo-desk-backups` nightly at 02:51 IST (a GitHub job — the account's five free cron triggers are the trigger Worker's;
+first file `nightly/2026-10-29.sql` confirmed; the deploy token needed **D1 · Edit** first); `scripts/restore_d1.py`
+restores by id, never the live one by default; `daily_active` rows (salted hash, secret `DAU_SALT`, set) feed `/admin` →
+Readers by week; `SETUP.md` §1c / §4 / §5 have the bucket clicks, rollback and one-reader removal. Hari to do: invite
+the first friends. Then: Phase 5 verification (screenshots of the seven screens into docs, the health alert on a
+simulated failure, re-run the back-door and personal-data checks) → alerts with deep links, weekly digest → the AI layer, last.

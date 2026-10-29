@@ -341,3 +341,15 @@ of use, in every runtime, not only the Python one.**
   `/admin/retention.json` and `/admin/me.json`, so the card renders on the preview.
 - Verified: 53 Worker cases green in the browser harness; ruff and pytest green. Not verified until Hari acts: the
   bucket exists, the first backup file is in it, `DAU_SALT` is set and the card fills.
+
+### 29 Oct, late night — Phase 4 live: the first backup is in the bucket
+
+PR 8 (nightly D1 backup to R2 as a GitHub Action, since the account's five free Worker crons are all the trigger
+Worker's; restore script; salted daily-active rows; the "Readers by week" card on /admin) merged and deployed. Hari set
+`DAU_SALT` from his terminal in one command (generated and sent to GitHub, never printed), created the bucket
+`ipo-desk-backups` (APAC), and the first backup run failed at the export with Cloudflare's "Authentication error
+[code: 10000]": the deploy token, from the Edit Workers template, could bind D1 but not export it. He added
+**Account · D1 · Edit** to the token (R2 Edit was already in the template, which is why the picker greyed it); the
+re-run exported 4 rows and put `nightly/2026-10-29.sql` in the bucket, and the prune step's deletes of non-existent
+older keys were harmless. Lesson, now in SETUP.md: **the deploy token needs D1 · Edit before the first backup**; a
+new resource is the token's permission as much as the dashboard's click.
