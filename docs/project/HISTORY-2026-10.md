@@ -353,3 +353,28 @@ Worker's; restore script; salted daily-active rows; the "Readers by week" card o
 re-run exported 4 rows and put `nightly/2026-10-29.sql` in the bucket, and the prune step's deletes of non-existent
 older keys were harmless. Lesson, now in SETUP.md: **the deploy token needs D1 · Edit before the first backup**; a
 new resource is the token's permission as much as the dashboard's click.
+
+### 29 Oct, night — Phase 5 verification (branch `optimistic-villani`)
+
+Nothing on the page changed. What was proved, and how:
+
+- **Screens.** 31 JPEGs (7 screens x desktop|phone x light|dark, the walkthrough's step 1, `/admin`) under
+  `docs/screens/2026-10-29/`, each under 300 KB, indexed in `docs/screens/README.md`. Console errors per tab: zero on all
+  28 captures (a rate-limited `api.github.com/.../live.json` 403 shows on Today when one IP loads the page ~30 times in
+  minutes; the page reads it unauthenticated, 60 an hour per IP: a side finding, not an error in the page). The `#rsel`
+  loop over all 34 sheets threw nothing. `document.documentElement.scrollWidth` at 375 px: 375 on every tab.
+- **Health alert.** Before: a failed collect run (install error, gate refusal, source down) pinged nobody but GitHub's
+  failure mail; the Alerts step runs only after a push and only speaks when a rule became true. Now `collect.yml` ends
+  with `Ping on failure` (`if: failure()`, `scripts/fail_ping.py`): one ntfy line naming the failing step and the run,
+  a `::warning::` when the Gate refused, silent when `NTFY_TOPIC` is unset, never able to change the run's result.
+  `workflow_dispatch drill=true` runs only that step, as a DRILL, and touches no data.
+- **Back doors** (`curl -sI`): `ipodesk.dev` and `ipo-desk-site.ipodesk.workers.dev` both 302 to the Access login
+  (`/`, `/latest.json`, `/admin/`, `/api/state`, `/manifest.webmanifest` alike); `harimano.github.io/ipo-desk/` 404 (Pages is off).
+- **Personal data** in the built `_site` (103 files): no PAN pattern, no 16-digit number, no broker client id, no ntfy topic
+  or salt value. Two 10-digit hits are share counts in `research.json`. One email: `nse.ipo@in.mpms.mufg.com`, a registrar's
+  public contact on an issue's sheet. Family-name grep: the family have no trading account yet, so nothing of theirs is in the data; `scripts/names_grep.sh "Name" …` is ready (names as arguments, never stored) and was tried with placeholder names (0 hits; a planted name in a copy is found). Run it with the real names once they have accounts. The topic itself cannot be read back from a
+  secret, so "not in any file" is checked as: no literal `ntfy.sh/<topic>` anywhere (only the test topic `ipodesk-test`).
+- **Logs** of the last three deploy and collect runs: no `ntfy.sh/`, `Bearer`, `ghp_` or Angel key values; Cloudflare and
+  `NTFY_TOPIC` appear as `***`. `collector/notify.py` logs `ntfy: sent to <base>/<topic>`: Actions masks it today, but it is the one
+  place the topic is formatted into a log line.
+- **Drill, end to end.** The first drill returned 200 but never reached the phone: the GitHub `NTFY_TOPIC` secret (15 characters) was not the topic the ntfy app subscribes to (ntfy.sh accepts a post to any name). After Hari reset the secret to the app's topic (16 characters), the second drill ([run 40902199527](https://github.com/harimano/ipo-desk/actions/runs/40902199527)) arrived on his phone. `fail_ping.py` prints the topic's length, never the topic, so a silent phone can be compared.
