@@ -52,6 +52,7 @@ class Message:
     markdown: str      # ntfy body with `Markdown: yes` — each line a link
     html: str          # Telegram body, parse_mode HTML — each line a link
     click: str         # ntfy's Click header: the first line's link
+    actions: tuple[tuple[str, str], ...] = ()   # ntfy action buttons (label, url): the first lines' links, every platform
 
 
 def _date(v) -> dt.date | None:
@@ -269,9 +270,10 @@ def _html(s: str) -> str:
 
 
 def message(alerts: list[Alert], prev: dict, new: dict) -> Message | None:
-    """The same lines three ways. ntfy renders Markdown links in its web and Android apps (docs.ntfy.sh/publish
-    #markdown-formatting) and opens one Click URL on tap on every platform (#click-action): the first line's link.
-    Telegram's HTML parse mode takes <a href>. None = stay silent."""
+    """The same lines three ways. ntfy opens one Click URL on tap on every platform (docs.ntfy.sh/publish#click-action):
+    the first line's link; up to three action buttons carry the first lines' links (#action-buttons, every platform too).
+    The Markdown body (a link per line) renders on Android and web only, so it is built but NOT sent to Hari's iPhone
+    (29 Oct 2026). Telegram's HTML parse mode takes <a href>. None = stay silent."""
     if not alerts:
         return None
     pairs = _lines(alerts, prev, new)
@@ -280,7 +282,25 @@ def message(alerts: list[Alert], prev: dict, new: dict) -> Message | None:
         markdown="\n\n".join(f"[{_md(line)}]({url})" if url else _md(line) for line, url in pairs),
         html="\n".join(f'<a href="{_html(url)}">{_html(line)}</a>' if url else _html(line) for line, url in pairs),
         click=next((url for _, url in pairs if url), link("today")),
+        actions=tuple(buttons(pairs)),
     )
+
+
+def buttons(pairs: list[tuple[str, str]], n: int = 3) -> list[tuple[str, str]]:
+    """(label, url) for the first `n` distinct links: the label is the line's first words, cut at the verb or the
+    dash so a button reads 'Hero Motors', 'Hold Reliance Industries (RELIANCE)' or 'Reliance Jio'."""
+    out, seen = [], set()
+    for line, url in pairs:
+        if not url or url in seen:
+            continue
+        lbl = line.split(" — ")[0]
+        for v in (" closes", " opens", " lists", " book ", " is in ", " bought ", " sold ", " traded ", ": "):
+            lbl = lbl.split(v)[0]
+        out.append((lbl.strip()[:24], url))
+        seen.add(url)
+        if len(out) == n:
+            break
+    return out
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -302,7 +322,7 @@ def main(argv: list[str] | None = None) -> int:
         print("dry run — nothing sent (pass --send)")
         return 0
     from . import notify
-    print("sent:", notify.send(msg.text, html=msg.html, markdown=msg.markdown, click=msg.click))
+    print("sent:", notify.send(msg.text, html=msg.html, click=msg.click, actions=msg.actions))   # plain text to ntfy: iPhone
     return 0
 
 

@@ -179,6 +179,7 @@ def test_message_three_ways_under_the_cap():
     assert "[Bombay Coated and Special Steels](https://ipodesk.dev/#board/Bombay%20Coated%20and%20Special%20Steels) closes" in m.markdown
     assert '<a href="https://ipodesk.dev/#board/BLS%20Polymers">BLS Polymers</a> · closed' in m.html
     assert "<b>OPEN NOW</b>" in m.html and "&amp;" not in m.text and "→" in m.html
+    assert m.actions == (("Today", "https://ipodesk.dev/#today"), ("Board", "https://ipodesk.dev/#board"), ("Score", "https://ipodesk.dev/#score"))
 
 
 def test_load_week_picks_the_previous_sunday_and_latest(week):
