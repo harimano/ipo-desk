@@ -189,6 +189,8 @@ shipped (reports 554 / 607, `planner` → `planner.js`). Phase 4 ops live (29 Oc
 `ipo-desk-backups` nightly at 02:51 IST (a GitHub job — the account's five free cron triggers are the trigger Worker's;
 first file `nightly/2026-10-29.sql` confirmed; the deploy token needed **D1 · Edit** first); `scripts/restore_d1.py`
 restores by id, never the live one by default; `daily_active` rows (salted hash, secret `DAU_SALT`, set) feed `/admin` →
-Readers by week; `SETUP.md` §1c / §4 / §5 have the bucket clicks, rollback and one-reader removal. Hari to do: invite
-the first friends. Then: Phase 5 verification (screenshots of the seven screens into docs, the health alert on a
-simulated failure, re-run the back-door and personal-data checks) → alerts with deep links, weekly digest → the AI layer, last.
+Readers by week; `SETUP.md` §1c / §4 / §5 have the bucket clicks, rollback and one-reader removal. Phase 5 verification,
+alerts with deep links (PR 10) and the weekly digest (PR 11, Sunday 18:30 IST; first real send 1 Nov 2026) shipped 29 Oct.
+Hari reads on an iPhone: ntfy gets plain text with Click and action buttons, never Markdown (PR 12). Hari to do: invite
+the first friends. Open: the SEBI filings source raises SourceChanged (seen on /admin 29 Oct; a survey, not a guess).
+Then: the AI layer, last — design first, from `docs/AI-AND-PREDICTION.md` §3.

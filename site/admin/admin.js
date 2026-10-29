@@ -139,8 +139,14 @@ function paintRuns(runs, source) {
   tile("#tDeploy", dp ? hhmm(toIST(dp.run_started_at)) : "—", dp ? (dp.conclusion === "success" ? "ok" : "bad") : "", dp ? `${esc(dp.conclusion)} · ${ago(dp.run_started_at)}` : "");
 }
 function judgeRuns(runs) {
-  const failed = runs.filter(r => r.status === "completed" && !["success", "cancelled", "skipped"].includes(r.conclusion));
-  if (failed.length) addVerdict("bad", `${failed.length} run${failed.length > 1 ? "s" : ""} failed in the last ${runs.length} (${failed.map(r => r.name).join(", ")})`, "runs");
+  // A failure is "bad" only while it is the latest completed run of its workflow; one a later run recovered from is a
+  // note, not an alarm (29 Oct 2026: a Cloudflare API hiccup and a token fix kept the line red for two days of green runs).
+  const done = runs.filter(r => r.status === "completed" && !["cancelled", "skipped"].includes(r.conclusion));
+  const latest = {}; done.forEach(r => { if (!(r.name in latest)) latest[r.name] = r; });
+  const failed = done.filter(r => r.conclusion !== "success");
+  const live = failed.filter(r => latest[r.name] === r), past = failed.filter(r => latest[r.name] !== r);
+  if (live.length) addVerdict("bad", `${live.map(r => r.name).join(", ")}: the latest run failed`, "runs");
+  if (past.length) addVerdict("warn", `${past.length} run${past.length > 1 ? "s" : ""} failed and recovered in the last ${runs.length} (${[...new Set(past.map(r => r.name))].join(", ")})`, "runs");
   const crons = runs.filter(r => r.name === "collect" && r.event === "schedule").length, disp = runs.filter(r => r.name === "collect" && r.event === "workflow_dispatch").length;
   if (crons > disp) addVerdict("warn", `the trigger Worker dispatched only ${disp} of the last ${crons + disp} collects — GitHub's cron carried the rest`, "runs");
 }
