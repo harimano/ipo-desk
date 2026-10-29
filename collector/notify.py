@@ -1,4 +1,4 @@
-"""Telegram + ntfy senders. Stage two — nothing calls this yet.
+"""Telegram + ntfy senders, called by collector.alerts at the end of a collect run.
 
 Both read config from env and no-op (with a log line) when unconfigured:
   TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID       -> Telegram Bot API sendMessage (HTML parse mode)
@@ -86,7 +86,10 @@ def send_telegram(messages: list[str]) -> bool:
     return ok
 
 
-def send_ntfy(text: str) -> bool:
+def send_ntfy(text: str, click: str | None = None, markdown: bool = False) -> bool:
+    """`click`: the URL the notification opens on tap (ntfy's `Click` header, one per message, every platform).
+    `markdown`: the body is Markdown (`Markdown: yes`; rendered in ntfy's web and Android apps, plain text elsewhere).
+    docs.ntfy.sh/publish/#click-action and #markdown-formatting."""
     topic = os.environ.get("NTFY_TOPIC", "").strip()
     if not topic:
         log.info("ntfy: NTFY_TOPIC unset — skipping")
@@ -96,6 +99,10 @@ def send_ntfy(text: str) -> bool:
         return False
     base = os.environ.get("NTFY_BASE_URL", "https://ntfy.sh").rstrip("/")
     headers = {"Title": TITLE, "Tags": "chart_with_upwards_trend"}
+    if click:
+        headers["Click"] = click
+    if markdown:
+        headers["Markdown"] = "yes"
     user = os.environ.get("NTFY_USER", "").strip()
     pw = os.environ.get("NTFY_PASSWORD", "").strip()
     auth = (user, pw) if user and pw else None
@@ -115,13 +122,15 @@ def send_ntfy(text: str) -> bool:
         return False
 
 
-def send(text: str) -> dict[str, bool]:
-    """Send plain text to every configured channel. No-op with a log line when none is configured."""
+def send(text: str, *, html: str | None = None, markdown: str | None = None, click: str | None = None) -> dict[str, bool]:
+    """Send to every configured channel. `text` is the plain message; `html` (Telegram, already escaped, <a href> allowed)
+    and `markdown` (ntfy, with `click` as its tap URL) are richer bodies of the same lines, used when given.
+    No-op with a log line when no channel is configured."""
     cfg = configured()
     if not any(cfg.values()):
         log.info("notify: no channel configured (TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID, NTFY_TOPIC) — not sending")
         return {"telegram": False, "ntfy": False}
     return {
-        "telegram": send_telegram(chunk(_esc(text))) if cfg["telegram"] else False,
-        "ntfy": send_ntfy(text) if cfg["ntfy"] else False,
+        "telegram": send_telegram(chunk(html if html is not None else _esc(text))) if cfg["telegram"] else False,
+        "ntfy": (send_ntfy(markdown, click=click, markdown=True) if markdown is not None else send_ntfy(text, click=click)) if cfg["ntfy"] else False,
     }

@@ -124,11 +124,11 @@ const toast = m => { const t = $("#toast"); t.textContent = m; t.hidden = false;
 window.__ipoToast = toast;
 
 /* ---------- screens ---------- */
-let screen = "today";
+let screen = "today", hashNav = false;   // hashNav: a deep link is being followed (links.js) — the remembered tab stays
 function show(id) {
   screen = id; $$("#nav button").forEach(b => b.setAttribute("aria-selected", String(b.dataset.s === id)));
   $$(".screen").forEach(p => p.hidden = p.id !== "s-" + id);
-  store.set("ipo-tab", id); cursor = -1; if (id === "board") drawCharts(); if (id === "market") renderMarket(); if (id === "book") drawPosCharts(); if (id === "score") renderScore(); window.scrollTo(0, 0);
+  if (!hashNav) store.set("ipo-tab", id); cursor = -1; if (id === "board") drawCharts(); if (id === "market") renderMarket(); if (id === "book") drawPosCharts(); if (id === "score") renderScore(); window.scrollTo(0, 0);
 }
 $("#nav").addEventListener("click", e => { const b = e.target.closest("button[data-s]"); if (b) show(b.dataset.s); });
 
@@ -339,6 +339,7 @@ function renderBoard() {
   $("#board").innerHTML = `<thead><tr><th></th><th>IPO</th><th>When</th><th class="r" title="Final total subscription, against how issues in the same band listed — same segment, ${W0 ? winLbl(W0.window) : ""}">Book · track record</th><th class="r" title="Grey-market premium, against how issues in the same band listed, and where 8 in 10 landed around it">GMP · track record</th>${sortTh("gain", "If allotted", "GMP × lot size: what one lot gains if the grey market is right.")}${sortTh("ev", "EV per application", "Chance of allotment × gain, less the cost of blocked money — as % of the money blocked. The hottest books have the biggest pop and often the worst expected value.")}<th>Book</th><th></th></tr></thead><tbody>${rows.map(boardRow).join("") || `<tr><td colspan="9" class="empty">Nothing here.</td></tr>`}</tbody>`;
   const EW = (EVD().warnings || []), ew = $("#evWarn"); if (ew) { ew.hidden = !EW.length; ew.innerHTML = `<summary>Track records are for the same segment over ${W0 ? winLbl(W0.window) : "the trailing window"} · ${EW.length} caveat${EW.length === 1 ? "" : "s"} on the evidence</summary><ul class="notes">${EW.map(w => `<li>${esc(w.text)}</li>`).join("")}</ul>`; }
   $("#c-board").textContent = board.filter(b => b.status === "Open").length || "";
+  keepLanding();                                                  // links.js: a row a deep link just landed on stays open
   const R = (DATA.recent || []).slice().sort((a, b) => (b.listingDate || "").localeCompare(a.listingDate || ""));
   $("#recent").innerHTML = `<thead><tr><th>IPO</th><th>Listed</th><th class="r">Issue</th><th class="r">Listing</th><th class="r">Gain</th><th class="r">Day-1 close</th></tr></thead><tbody>` + R.map(r => `<tr><td class="nm">${esc(r.name)}</td><td>${fmtD(r.listingDate)}</td><td class="r num">${inr(r.issuePrice)}</td><td class="r num">${inr(r.listingPrice)}</td><td class="r num ${cls(r.gainPct)}">${pct(r.gainPct, true)}</td><td class="r num ${cls(r.closeDay1GainPct)}">${r.closeDay1 != null ? inr(r.closeDay1) + " · " + pct(r.closeDay1GainPct, true) : "—"}</td></tr>`).join("") + "</tbody>";
   const O = DATA.offers || {}; $("#offersAsOf").textContent = O.asOf ? "as of " + fmtDY(O.asOf) : "";
@@ -727,10 +728,10 @@ function renderTape() {
 const cmdEl = $("#cmd"), cmdIn = $("#cmdIn"), cmdList = $("#cmdList"); let cmdSel = 0, cmdItems = [];
 function catalog() {
   const items = [];
-  live.forEach(q => items.push({ k: sheets[q.name] ? "SHEET" : "PIPE", t: q.name, h: `${q.parent} · ${q.stage}${sheets[q.name] ? " · ⏎ sheet" : ""}`, run: () => { if (sheets[q.name]) openSheet(q.name); else { show("pipe"); openPipe(q.name); } }, keys: [q.name, q.parent, q.ticker || ""] }));
-  live.filter(q => sheets[q.name]).forEach(q => items.push({ k: "PIPE", t: q.name + " on the map", h: q.parent, run: () => { show("pipe"); openPipe(q.name); }, keys: [q.name, q.parent] }));
-  allIssues().forEach(b => items.push({ k: b.type.includes("SME") ? "SME" : "IPO", t: b.name, h: `${b.status}${b.gmpPct != null ? " · GMP " + pct(b.gmpPct, true) : ""}`, run: () => openSheet(b.name), keys: [b.name] }));
-  [["today", "Today"], ["pipe", "Pipeline"], ["board", "Board"], ["market", "Market"], ["research", "Research"], ["book", "Book"]].forEach(([s, l]) => items.push({ k: "GO", t: l, h: "screen", run: () => show(s), keys: [l, s] }));
+  live.forEach(q => items.push({ k: sheets[q.name] ? "SHEET" : "PIPE", t: q.name, h: `${q.parent} · ${q.stage}${sheets[q.name] ? " · ⏎ sheet" : ""}`, run: () => { if (sheets[q.name]) openSheet(q.name); else { show("pipe"); openPipe(q.name); } }, href: hashFor(sheets[q.name] ? "sheet" : "pipe", q.name), keys: [q.name, q.parent, q.ticker || ""] }));
+  live.filter(q => sheets[q.name]).forEach(q => items.push({ k: "PIPE", t: q.name + " on the map", h: q.parent, run: () => { show("pipe"); openPipe(q.name); }, href: hashFor("pipe", q.name), keys: [q.name, q.parent] }));
+  allIssues().forEach(b => items.push({ k: b.type.includes("SME") ? "SME" : "IPO", t: b.name, h: `${b.status}${b.gmpPct != null ? " · GMP " + pct(b.gmpPct, true) : ""}`, run: () => openSheet(b.name), href: hashFor("sheet", b.name), keys: [b.name] }));
+  [["today", "Today"], ["pipe", "Pipeline"], ["board", "Board"], ["market", "Market"], ["research", "Research"], ["book", "Book"], ["score", "Scoreboard"]].forEach(([s, l]) => items.push({ k: "GO", t: l, h: "screen", run: () => show(s), href: hashFor(s), keys: [l, s] }));
   [["light", "Light theme"], ["dark", "Dark theme"], [null, "Auto theme (follow system)"]].forEach(([v, l]) => items.push({ k: "SET", t: l, h: "", run: () => setTheme(v), keys: [l, l.split(" ")[0], v === "dark" ? "night" : ""] }));
   return items;
 }
@@ -757,9 +758,9 @@ cmdIn.addEventListener("input", cmdFilter);
 cmdIn.addEventListener("keydown", e => {
   if (e.key === "Escape") { closeCmd(); e.preventDefault(); }
   else if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); cmdSel = (cmdSel + (e.key === "ArrowDown" ? 1 : -1) + cmdItems.length) % Math.max(1, cmdItems.length); $$(".cmd-it", cmdList).forEach((el, i) => el.classList.toggle("sel", i === cmdSel)); }
-  else if (e.key === "Enter") { e.preventDefault(); const it = cmdItems[cmdSel]; if (it) { closeCmd(); it.run(); } }
+  else if (e.key === "Enter") { e.preventDefault(); const it = cmdItems[cmdSel]; if (it) { closeCmd(); it.run(); setHash(it.href); } }
 });
-cmdList.addEventListener("click", e => { const el = e.target.closest("[data-ix]"); if (el) { const it = cmdItems[+el.dataset.ix]; closeCmd(); it && it.run(); } });
+cmdList.addEventListener("click", e => { const el = e.target.closest("[data-ix]"); if (el) { const it = cmdItems[+el.dataset.ix]; closeCmd(); if (it) { it.run(); setHash(it.href); } } });
 cmdEl.addEventListener("click", e => { if (e.target === cmdEl) closeCmd(); });
 $("#cmdOpen").onclick = () => openCmd();
 
@@ -820,6 +821,7 @@ document.addEventListener("keydown", e => {
 /* @include report.js */
 /* @include trust.js */
 /* @include install.js */
+/* @include links.js */
 /* ---------- "data as of" on every screen, and the footer — both from run metadata, never hand-written ----------
    The collector's timetable (RUNS_IST) says how old a document may be: on a weekday in run hours an intraday run lands every
    30 min, otherwise the next full run is at 06:43 / 18:13 IST. Older than that window (plus slack) reads as stale. */
@@ -862,7 +864,8 @@ function liveText() { const el = $("#liveTxt"); if (!el) return; const mins = (D
   const lv = LIVE && LIVE.asOf && (Date.now() - new Date(LIVE.asOf)) < 20 * 60000;
   el.textContent = (mins > 36 * 60 ? "Stale · " : "Live · ") + (lv ? "book " + ago(LIVE.asOf) + " · full run " + ago(DATA.meta.asOf) : "updated " + ago(DATA.meta.asOf)) + (nx ? " · next " + nx + " IST" : ""); el.parentElement.classList.toggle("stale", mins > 36 * 60); }
 setInterval(() => { liveText(); renderStamps(); }, 30000);
-const savedTab = store.get("ipo-tab", "today"); show(["today", "pipe", "board", "market", "research", "book", "score"].includes(savedTab) ? savedTab : "today");
+const savedTab = store.get("ipo-tab", "today");
+if (!followHash(location.hash, true)) show(["today", "pipe", "board", "market", "research", "book", "score"].includes(savedTab) ? savedTab : "today");   // links.js: a deep link wins this load (its name lands after the first update)
 
 /* Swap in freshly fetched data without reloading the page or touching local state
    (starred names, held parents, applications and tasks all live in localStorage). */
@@ -878,6 +881,7 @@ return {
       if (screen === "market") renderMarket();
       if (screen === "board") drawCharts();
       if (screen === "book") drawPosCharts();
+      landPending();                                   // links.js: the deep link's name, now that the real rows are on screen
     } catch (err) { console.error(err); return false; }
     return true;
   },
