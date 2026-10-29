@@ -85,27 +85,6 @@ jobs:
           gh api "repos/${{ github.repository }}/commits?sha=live&per_page=1" \
             --jq '.[0] | {at: .commit.committer.date, msg: .commit.message}' > /tmp/live.json || echo 'null' > /tmp/live.json
           python scripts/runs_snapshot.py /tmp/runs.json /tmp/live.json _site/admin/runs.json
-      - name: The visitors ledger — find or create the KV namespace, bind it (never fatal; absent, the card says so)
-        working-directory: ops/site-worker
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          find_id() { npx --yes wrangler@4.154.0 kv namespace list 2>/dev/null | python3 -c 'import json,sys
-          try: print(next(n["id"] for n in json.load(sys.stdin) if n.get("title") == "ipo-desk-visits"))
-          except Exception: pass'; }
-          id=$(find_id)
-          if [ -z "$id" ]; then
-            echo "no KV namespace ipo-desk-visits yet: creating it"
-            npx --yes wrangler@4.154.0 kv namespace create ipo-desk-visits >/dev/null 2>&1 || true
-            id=$(find_id)
-          fi
-          if [ -n "$id" ]; then
-            printf '\n[[kv_namespaces]]\nbinding = "VISITS"\nid = "%s"\n' "$id" >> wrangler.toml
-            echo "VISITS bound to ipo-desk-visits ($id)"
-          else
-            echo "::warning::could not list or create the KV namespace (does the API token have Workers KV Storage: Edit?). The visitors ledger stays off."
-          fi
       - name: Deploy the Worker (wrangler)
         uses: cloudflare/wrangler-action@v3
         with:

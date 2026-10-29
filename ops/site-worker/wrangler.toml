@@ -15,7 +15,9 @@ binding = "ASSETS"
 run_worker_first = true                # every request goes through worker.js (the Access check) before an asset is served
 not_found_handling = "none"
 
-# The visitors ledger behind /admin (worker.js noteVisit / visitors): one KV record per signed-in email. The binding is
-# NOT written here: deploy.yml finds the namespace `ipo-desk-visits` with the deploy token (creating it on the first
-# run) and appends the [[kv_namespaces]] block to this file on the runner. Nothing to click. If the token cannot see
-# KV, the deploy warns and the card on /admin says the ledger is off.
+# The visitors ledger behind /admin (worker.js noteVisit / visitors): one KV record per signed-in email. The namespace
+# ipo-desk-visits was created by Hari in the dashboard (Storage & Databases → KV) on 29 Oct 2026; the id is an
+# identifier, not a secret. Remove this block and the Worker keeps nothing; the card on /admin says so.
+[[kv_namespaces]]
+binding = "VISITS"
+id = "453437b160ee4001871d2ef0192d21ba"
