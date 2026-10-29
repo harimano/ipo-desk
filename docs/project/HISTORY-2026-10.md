@@ -300,3 +300,15 @@ One dispatched `collect.yml` run wrote the part and dispatched the deploy; both 
 required top-level key must be followed by a collect run before any deploy** (a push to main triggers deploy first,
 and it validates yesterday's data). Either dispatch collect right after the merge, or make the key required only once
 `--prev` has it.
+
+### 29 Oct, night — Access stays Everyone; the ntfy ping, and the newline that ate it
+
+Hari decided the Access policy stays *Everyone* with a one-month policy session: the link is the key. He set the
+`NTFY_TOPIC` secret (the first topic name was printed into the chat by accident and treated as burned; a second was made
+in his terminal and never pasted). The deploy handed the secret to the Worker, a "Wrong number?" report said Sent, and no
+ping came. A curl straight to the topic from the Mac arrived, so ntfy and the phone were fine and the Worker was the
+broken link: it put `env.NTFY_TOPIC` into the URL untrimmed, so a trailing newline from the paste became `%0A` and the
+ping went to a topic nobody reads; the collector's `notify.py` had always stripped. The Worker now trims, keeps the
+Title header to ASCII (fetch throws on a non-Latin-1 header value) and returns the ping's HTTP status, with a case in
+the harness (42). Re-tested live: the ping arrived. Lesson: **a value read from a secret is `.trim()`ed at the point
+of use, in every runtime, not only the Python one.**
