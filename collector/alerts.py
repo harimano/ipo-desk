@@ -21,6 +21,7 @@ import json
 import pathlib
 import sys
 from dataclasses import dataclass
+from urllib.parse import quote
 
 MAX_LINES = 6
 GAP_HOURS = 36
@@ -28,6 +29,13 @@ RECORD_WINDOW = (30, 14, 7, 3, 1, 0)
 LAPSE_WINDOW = (14, 7, 3, 1, 0)
 SUB_MARKS = (1, 10, 50, 100)     # total subscription, while the issue is open
 _SIDE = {"BUY": "bought", "SELL": "sold"}
+SITE = "https://ipodesk.dev/"
+
+
+def link(where: str, name: str | None = None) -> str:
+    """A deep link the page honours (site/src/links.js): `#board/<name>` scrolls to the row and opens its detail,
+    `#pipe/<name>` opens the pipeline row, `#sheet/<name>` the research sheet, a bare tab name selects the tab."""
+    return SITE + "#" + where + ("/" + quote(name, safe="") if name else "")
 
 
 @dataclass(frozen=True)
@@ -35,6 +43,15 @@ class Alert:
     key: str
     rank: int          # lower = nearer the top of the message
     line: str
+    url: str = ""      # where the line lands the reader; "" only for the keyed-quiet placeholders
+
+
+@dataclass(frozen=True)
+class Message:
+    text: str          # plain lines, the dry run's output
+    markdown: str      # ntfy body with `Markdown: yes` — each line a link
+    html: str          # Telegram body, parse_mode HTML — each line a link
+    click: str         # ntfy's Click header: the first line's link
 
 
 def _date(v) -> dt.date | None:
@@ -81,21 +98,21 @@ def _quota_dates(doc: dict, today: dt.date):
             if m is not None:
                 n = (rec - today).days
                 yield Alert(f"record:{q['name']}:{rec}:{m}", 10 + n,
-                            f"Hold {who} before {_fmt(rec)} — {q['name']} record date {_in(n)}")
+                            f"Hold {who} before {_fmt(rec)} — {q['name']} record date {_in(n)}", link("pipe", q["name"]))
         lapse = _date(q.get("lapse"))
         if lapse and q.get("bucket") == "approved":
             m = _milestone((lapse - today).days, LAPSE_WINDOW)
             if m is not None:
                 n = (lapse - today).days
                 yield Alert(f"lapse:{q['name']}:{lapse}:{m}", 100 + n,
-                            f"{q['name']} ({who}): SEBI approval lapses {_fmt(lapse)}, {_in(n)}")
+                            f"{q['name']} ({who}): SEBI approval lapses {_fmt(lapse)}, {_in(n)}", link("pipe", q["name"]))
 
 
 def _quota_stages(doc: dict):
     for q in _rows(doc, "quota"):
         who = f"{q.get('parent') or '?'} ({q.get('ticker') or '?'})"
         yield Alert(f"stage:{q['name']}:{q.get('bucket')}:{q.get('stage')}", 200,
-                    f"{q['name']} — {who}: now {q.get('stage') or q.get('bucket')}")
+                    f"{q['name']} — {who}: now {q.get('stage') or q.get('bucket')}", link("pipe", q["name"]))
 
 
 def _board(doc: dict, today: dt.date):
@@ -108,23 +125,24 @@ def _board(doc: dict, today: dt.date):
                                       f"book {sub:g}x" if isinstance(sub, (int, float)) else None,
                                       f"GMP {gmp:+.1f}%" if isinstance(gmp, (int, float)) else None) if x)
         tail = f" ({facts})" if facts else ""
+        here = link("board", b["name"])
         if isinstance(sub, (int, float)) and o and c and o <= today <= c:
             crossed = [x for x in SUB_MARKS if sub >= x]
             if crossed:                       # only the highest mark speaks; lower ones are keyed so they stay quiet
                 yield Alert(f"sub:{b['name']}:{crossed[-1]}", 350,
-                            f"{b['name']} book crossed {crossed[-1]}x — now {sub:g}x, closes {_fmt(c)}")
+                            f"{b['name']} book crossed {crossed[-1]}x — now {sub:g}x, closes {_fmt(c)}", here)
                 for x in crossed[:-1]:
                     yield Alert(f"sub:{b['name']}:{x}", 999, "")
         if c and (c - today).days in (0, 1):
             n = (c - today).days
-            yield Alert(f"close:{b['name']}:{c}:{n}", 300 + n, f"{b['name']} closes {_in(n)}{tail}")
+            yield Alert(f"close:{b['name']}:{c}:{n}", 300 + n, f"{b['name']} closes {_in(n)}{tail}", here)
         if o and (o - today).days in (0, 1):
             n = (o - today).days
-            yield Alert(f"open:{b['name']}:{o}:{n}", 400 + n, f"{b['name']} opens {_in(n)}{tail}")
+            yield Alert(f"open:{b['name']}:{o}:{n}", 400 + n, f"{b['name']} opens {_in(n)}{tail}", here)
         if ls and ls == today:
             gain = b.get("listingGainPct")
             how = f" at {gain:+g}%" if isinstance(gain, (int, float)) else ""
-            yield Alert(f"list:{b['name']}:{ls}", 500, f"{b['name']} lists today{how}")
+            yield Alert(f"list:{b['name']}:{ls}", 500, f"{b['name']} lists today{how}", here)
 
 
 def _investors(doc: dict, today: dt.date):
@@ -134,7 +152,8 @@ def _investors(doc: dict, today: dt.date):
         if isinstance(d, dict) and d.get("investor") and d.get("stock"):
             val = f" ₹{d['valueCr']:g} Cr" if isinstance(d.get("valueCr"), (int, float)) else ""
             yield Alert(f"deal:{d.get('date')}:{d['investor']}:{d['stock']}:{d.get('side')}", 600,
-                        f"{d['investor']} {_SIDE.get(str(d.get('side')).upper(), 'traded')} {d['stock']}{val} ({d.get('date')})")
+                        f"{d['investor']} {_SIDE.get(str(d.get('side')).upper(), 'traded')} {d['stock']}{val} ({d.get('date')})",
+                        link("market"))
     live = {b["name"] for b in _rows(doc, "mainboard") + _rows(doc, "sme") if b.get("status") in ("Open", "Upcoming")}
     for a in _rows(doc, "anchors"):
         if a["name"] not in live:
@@ -142,7 +161,7 @@ def _investors(doc: dict, today: dt.date):
         for i in a.get("investors") or []:
             nm = str((i or {}).get("name") or "")
             if nm and any(w in nm.lower() for w in watch):
-                yield Alert(f"anchor:{a['name']}:{nm}", 650, f"{nm} is in the {a['name']} anchor book")
+                yield Alert(f"anchor:{a['name']}:{nm}", 650, f"{nm} is in the {a['name']} anchor book", link("board", a["name"]))
 
 
 def _lockins(doc: dict, today: dt.date):
@@ -156,7 +175,8 @@ def _lockins(doc: dict, today: dt.date):
             d = _date(a.get(key))
             if d and (d - today).days in (0, 1):
                 size = f" (₹{a['amountCr']:,.0f} Cr book)" if isinstance(a.get("amountCr"), (int, float)) else ""
-                yield Alert(f"lockin:{a['name']}:{key}:{d}", 550, f"{a['name']}: lock-in on {what} ends {_in((d - today).days)}{size}")
+                yield Alert(f"lockin:{a['name']}:{key}:{d}", 550, f"{a['name']}: lock-in on {what} ends {_in((d - today).days)}{size}",
+                            link("market"))
 
 
 REC_MIN_N, REC_MIN_POS = 5, 70     # an anchor "with a record": this many IPOs on file and this share listed up (stated in the line)
@@ -183,7 +203,7 @@ def _records(doc: dict, today: dt.date):
                     continue
                 yield Alert(f"rec:{b['name']}:{r['key']}", 380,
                             f"{r['name']} is in the {b['name']} book — {s['n']} {'SME' if seg == 'sme' else 'mainboard'} IPOs anchored, "
-                            f"{s['pos']:.0f}% listed up ({s['lo']:.0f}–{s['hi']:.0f}%), median {s['med']:+g}%")
+                            f"{s['pos']:.0f}% listed up ({s['lo']:.0f}–{s['hi']:.0f}%), median {s['med']:+g}%", link("board", b["name"]))
 
 
 def _all(doc: dict, today: dt.date) -> dict[str, Alert]:
@@ -214,25 +234,53 @@ def evaluate(prev: dict, new: dict) -> list[Alert]:
             if not prev:                                   # no baseline: every stage would look new
                 continue
             if name not in prev_quota:
-                a = Alert(a.key, 150, "New quota IPO: " + a.line)
+                a = Alert(a.key, 150, "New quota IPO: " + a.line, a.url)
         fresh.append(a)
     return sorted(fresh, key=lambda a: (a.rank, a.line))
 
 
-def compose(alerts: list[Alert], prev: dict, new: dict) -> str | None:
-    """None = stay silent."""
-    if not alerts:
-        return None
-    lines = [a.line for a in alerts]
-    if len(lines) > MAX_LINES:
-        lines = lines[:MAX_LINES - 1] + [f"+{len(alerts) - (MAX_LINES - 1)} more on the desk"]
+def _lines(alerts: list[Alert], prev: dict, new: dict) -> list[tuple[str, str]]:
+    """(line, url) pairs in message order: at most MAX_LINES, the overflow folded into one line that lands on Today."""
+    pairs = [(a.line, a.url) for a in alerts]
+    if len(pairs) > MAX_LINES:
+        pairs = pairs[:MAX_LINES - 1] + [(f"+{len(alerts) - (MAX_LINES - 1)} more on the desk", link("today"))]
     try:
         gap = (dt.datetime.fromisoformat(new["meta"]["asOf"]) - dt.datetime.fromisoformat(prev["meta"]["asOf"]))
         if gap.total_seconds() > GAP_HOURS * 3600:
-            lines[0] = f"⚠ Refresh gap ({gap.total_seconds() / 3600:.0f}h) · " + lines[0]
+            pairs[0] = (f"⚠ Refresh gap ({gap.total_seconds() / 3600:.0f}h) · " + pairs[0][0], pairs[0][1])
     except (KeyError, TypeError, ValueError):
         pass
-    return "\n".join(lines)
+    return pairs
+
+
+def compose(alerts: list[Alert], prev: dict, new: dict) -> str | None:
+    """The plain text. None = stay silent."""
+    if not alerts:
+        return None
+    return "\n".join(line for line, _ in _lines(alerts, prev, new))
+
+
+def _md(s: str) -> str:
+    return "".join("\\" + c if c in "\\[]*_`" else c for c in s)
+
+
+def _html(s: str) -> str:
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def message(alerts: list[Alert], prev: dict, new: dict) -> Message | None:
+    """The same lines three ways. ntfy renders Markdown links in its web and Android apps (docs.ntfy.sh/publish
+    #markdown-formatting) and opens one Click URL on tap on every platform (#click-action): the first line's link.
+    Telegram's HTML parse mode takes <a href>. None = stay silent."""
+    if not alerts:
+        return None
+    pairs = _lines(alerts, prev, new)
+    return Message(
+        text="\n".join(line for line, _ in pairs),
+        markdown="\n\n".join(f"[{_md(line)}]({url})" if url else _md(line) for line, url in pairs),
+        html="\n".join(f'<a href="{_html(url)}">{_html(line)}</a>' if url else _html(line) for line, url in pairs),
+        click=next((url for _, url in pairs if url), link("today")),
+    )
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -245,16 +293,16 @@ def main(argv: list[str] | None = None) -> int:
     prev = json.loads(prev_p.read_text(encoding="utf8")) if prev_p.exists() else {}
     new = json.loads(pathlib.Path(a.new).read_text(encoding="utf8"))
     alerts = evaluate(prev, new)
-    text = compose(alerts, prev, new)
-    if text is None:
+    msg = message(alerts, prev, new)
+    if msg is None:
         print("alerts: nothing new — silent")
         return 0
-    print(f"alerts: {len(alerts)} new\n---\n{text}\n---")
+    print(f"alerts: {len(alerts)} new\n---\n{msg.text}\n---\nclick: {msg.click}\n" + "\n".join(f"  {url}" for _, url in _lines(alerts, prev, new)))
     if not a.send:
         print("dry run — nothing sent (pass --send)")
         return 0
     from . import notify
-    print("sent:", notify.send(text))
+    print("sent:", notify.send(msg.text, html=msg.html, markdown=msg.markdown, click=msg.click))
     return 0
 
 

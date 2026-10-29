@@ -111,3 +111,69 @@ def test_a_strong_record_anchor_in_an_unlisted_book_speaks_once_with_its_n_and_r
     assert lines == ["EDELWEISS RECENTLY LISTED IPO FUND is in the NSE book — 11 mainboard IPOs anchored, 82% listed up (52–95%), median +19.4%"], "3 IPOs is not a record; a listed issue is not a book"
     again = doc("2026-09-22T18:15:00+05:30", **kw)
     assert not [a for a in evaluate(new, again) if a.key.startswith("rec:")], "spoken once"
+
+
+# ---- links: every line lands the reader on the right card (collector.alerts.link ↔ site/src/links.js) ----
+from collector import notify
+from collector.alerts import Alert, link, message
+
+
+def test_every_alert_carries_a_deep_link_to_its_card():
+    prev = doc("2026-09-15T06:45:00+05:30", quota=[JIO])
+    new = doc("2026-09-17T06:45:00+05:30",
+              mainboard=[dict(HERO, name="M&K Sons")],
+              quota=[dict(JIO, stage="RHP filed", recordDate="2026-10-10")],
+              investors={"bulkDeals": [{"date": "2026-09-17", "investor": "Ashish Kacholia", "stock": "Rentomojo", "side": "BUY"}]})
+    by = {a.key.split(":")[0]: a.url for a in evaluate(prev, new)}
+    assert by["close"] == "https://ipodesk.dev/#board/M%26K%20Sons", "encoded with quote(): & and space survive the hash"
+    assert by["record"] == by["stage"] == "https://ipodesk.dev/#pipe/Reliance%20Jio"
+    assert by["deal"] == "https://ipodesk.dev/#market"
+    assert all(a.url for a in evaluate(prev, new)), "no line without a landing place"
+    assert link("today") == "https://ipodesk.dev/#today"
+
+
+def test_message_puts_the_first_link_on_click_and_one_link_per_line():
+    rows = [dict(HERO, name=f"Issue {i}") for i in range(9)]
+    prev = doc("2026-09-17T06:45:00+05:30")
+    new = doc("2026-09-17T18:15:00+05:30", mainboard=rows)
+    alerts = evaluate(prev, new)
+    m = message(alerts, prev, new)
+    assert m.text == compose(alerts, prev, new)
+    assert m.click == alerts[0].url == "https://ipodesk.dev/#board/Issue%200"
+    md, html = m.markdown.split("\n\n"), m.html.split("\n")
+    assert len(md) == len(html) == 6 and md[-1] == "[+4 more on the desk](https://ipodesk.dev/#today)"
+    assert md[0].startswith("[Issue 0 closes tomorrow (₹84, book 3.36x, GMP +6.") and md[0].endswith(")](https://ipodesk.dev/#board/Issue%200)")
+    assert html[0].startswith('<a href="https://ipodesk.dev/#board/Issue%200">Issue 0 closes tomorrow') and html[-1].endswith("+4 more on the desk</a>")
+    assert message([], prev, new) is None
+
+
+def test_markdown_and_html_escape_what_the_line_contains():
+    a = [Alert("k", 1, "A <b> & [x]_y*z", "https://ipodesk.dev/#board/A%20%3Cb%3E")]
+    m = message(a, {}, {"meta": {"asOf": "2026-09-17T18:15:00+05:30"}})
+    assert m.markdown == "[A <b> & \\[x\\]\\_y\\*z](https://ipodesk.dev/#board/A%20%3Cb%3E)"
+    assert m.html == '<a href="https://ipodesk.dev/#board/A%20%3Cb%3E">A &lt;b&gt; &amp; [x]_y*z</a>'
+
+
+def test_notify_sends_click_and_markdown_headers_and_the_html_body(monkeypatch):
+    calls = []
+
+    class R:
+        def raise_for_status(self):
+            pass
+
+    monkeypatch.setattr(notify.httpx, "post", lambda url, **kw: calls.append((url, kw)) or R())
+    monkeypatch.setenv("NTFY_TOPIC", "t")
+    monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "x")
+    monkeypatch.setenv("TELEGRAM_CHAT_ID", "1")
+    out = notify.send("plain <x>", html='<a href="https://ipodesk.dev/#today">plain &lt;x&gt;</a>', markdown="[plain <x>](https://ipodesk.dev/#today)",
+                      click="https://ipodesk.dev/#today")
+    assert out == {"telegram": True, "ntfy": True}
+    tg = next(kw for url, kw in calls if "telegram" in url)
+    assert tg["json"]["text"] == '<a href="https://ipodesk.dev/#today">plain &lt;x&gt;</a>' and tg["json"]["parse_mode"] == "HTML"
+    nt = next(kw for url, kw in calls if url.endswith("/t"))
+    assert nt["headers"]["Click"] == "https://ipodesk.dev/#today" and nt["headers"]["Markdown"] == "yes"
+    assert nt["content"] == b"[plain <x>](https://ipodesk.dev/#today)"
+    calls.clear()
+    notify.send("plain <x>")                         # the old shape still works: escaped text, no Click, no Markdown
+    assert next(kw for url, kw in calls if "telegram" in url)["json"]["text"] == "plain &lt;x&gt;"
+    assert "Click" not in next(kw for url, kw in calls if url.endswith("/t"))["headers"]
