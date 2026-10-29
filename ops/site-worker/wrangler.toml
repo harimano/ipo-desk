@@ -21,12 +21,3 @@ not_found_handling = "none"
 [[kv_namespaces]]
 binding = "VISITS"
 id = "453437b160ee4001871d2ef0192d21ba"
-
-# Each reader's own saved dashboard (worker.js handleApi, /api/state): a D1 database, one row per email and part
-# (schema.sql; the Worker creates the table itself). Hari creates the database once in the dashboard (Storage &
-# Databases → D1 → Create → name ipo-desk-accounts), pastes its id here and uncomments the block — ops/site-worker/SETUP.md.
-# The id is an identifier, not a secret. Until then /api answers 503 and the page says "not saved"; nothing else changes.
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "ipo-desk-accounts"
-# database_id = "paste-the-id-here"
