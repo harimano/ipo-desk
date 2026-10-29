@@ -199,4 +199,6 @@ loads, country; written only on a page load, at most once every ten minutes a pe
 delays a response) and `/admin/visitors.json` lists it. The binding is optional and off until Hari creates the
 namespace and uncomments the block in `wrangler.toml`; absent, the card explains the setup. This is the KV the
 login + Book sync work will reuse.
+Hari asked for no clicks, so the deploy binds it itself: `wrangler kv namespace list` with the deploy token, create
+`ipo-desk-visits` if missing, append the binding to `wrangler.toml` on the runner. The committed file carries no id.
 
