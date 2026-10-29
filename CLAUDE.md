@@ -28,7 +28,9 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
   `::warning::` carrying the refusal (`scripts/prev_gate.py`); the full runs and any push to main retry and fail loudly.
 - The site: `ops/site-worker/` serves `_site` from a Worker behind Cloudflare Access (email one-time PIN, policy
   Everyone — the link is the key); `deploy.yml` builds and deploys it after every collect and push. Its README has the
-  setup, the Cloudflare clicks and why the repo stays public.
+  setup, the Cloudflare clicks and why the repo stays public. `/admin` (`site/admin/`, Hari only via `ACCESS_ADMIN_EMAIL`)
+  is the ops page: verdict line, runs, freshness, diff vs yesterday, data audit, the smoke test as a button — its facts come
+  from `scripts/audit.py`, written as `admin/audit.json` by every build; the browser adds only time-since and GitHub's public runs.
 - Hari's Mac: no Homebrew, no Node. `uv` and `gh` in `~/.local/bin`; `.venv/bin/python -m collector`, `.venv/bin/pytest`.
   Preview: `.claude/launch.json` server `site` serves `_site` on 8765.
 
@@ -70,7 +72,7 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
   `ipo-detail-2305` / `2119` are trimmed to 120 chars a field — `ipo-detail-2057-JINDAL-full.json` is the whole one).
 - **Before shipping any page change**: no console errors on all seven tabs; loop over EVERY option in `#rsel` calling
   `onchange` (one JS call, ~50 sheets — three different crashes were caught only this way, one reached production);
-  check phone width. Test the listing-day card with `window.__ipo.live({preopen:[…]})`.
+  check phone width. Live, `/admin` → "Run smoke test" does exactly this against the deployed page. Test the listing-day card with `window.__ipo.live({preopen:[…]})`.
 - Say what was verified (`git log`, `gh run list`, the live URL) and what was not. Side findings go on a list.
 - Cost: one fresh session per task; Sonnet for page work, Fable for collector / design work.
 - **A stale page is a failed run until proven otherwise**: `gh run list` first. A scheduled "success" may be an intraday

@@ -157,3 +157,33 @@ root, production); the certificate took about a minute and the Worker-level Acce
 to the team login for ipodesk.dev, same AUD). The page's "Run ↗" link to the collector on GitHub is gone: it carried
 Hari's GitHub handle and the repo to every reader, and the terminal / Actions tab do the same job. Checked: .in is not
 sold by Cloudflare; .ai is $160 for two years then $80.
+
+### 29 Oct — /admin, the ops page
+
+Now that friends read ipodesk.dev, Hari wanted one place that says whether the site is up to standard — data fresh and
+right, nothing broken on the page, the gate on — without opening Actions logs. `ipodesk.dev/admin` (`site/admin/`,
+built by `site/build.py` into `_site/admin/`) is served by the Worker only to `ADMIN_EMAIL` (repo variable
+`ACCESS_ADMIN_EMAIL`; unset = 404, anyone else = 403). It opens on one verdict line ("Nothing needs you" / "N things
+need a look", each item linking to its card), five tiles (document written, live loop, last collect, last deploy,
+smoke test), then Runs, Freshness by module, Since the previous document, Data audit, the smoke test, Security, links.
+
+The facts come from `scripts/audit.py`, run by every build from the same document the page shows, into
+`admin/audit.json`: per-module level (ok / fallback / known gap / bad), the diff against the newest earlier
+`data/history` file (rows in and out — a Listed row leaving on schedule is "retired", anything else "left early" —
+status moves, source switches, evidence warnings that came or went, counts), and soft anomalies the gate does not
+refuse (Open past its close, Upcoming past its open, Listed with no price, an empty book on day two, dates out of
+order, a logo named but absent). The browser adds only time-since: the document's age against collect.yml's crons,
+the live branch's last commit against market hours, and GitHub's public runs API (the repo is public, no token, 60
+calls an hour per address — a visit costs about four; the page says when the limit resets). The run list tells cron
+from dispatch, so a trigger Worker that stopped dispatching shows up. The smoke test is CLAUDE.md's pre-ship check as a
+button: the page loaded in a hidden same-origin frame with an error tap injected ahead of its scripts, all seven tabs
+clicked, every `#rsel` option fired, `__ipo.live()` called, every data part HEAD-checked; 34 sheets in 1.1 s locally.
+
+Found while building it: an intraday run replaced `integrity.checks` with the three modules it ran, so the full run's
+statuses (tape, anchorbook, offers blocked) vanished from the document at 09:37 every day. `assemble.stamp` now carries
+forward the checks of modules that did not run, marked `carried` with their own asOf. Also seen: every run carries
+GitHub's notice that `ubuntu-latest` moves to Ubuntu 26 from 19 Oct 2026 — the runner should be pinned before an image
+change breaks an install (not done in this change). Deploy copies `data/history` into the build for the diff.
+Not built: the gate's own verdict beside latest.json (validate.py still speaks only in the Actions log) and a visitor
+log in KV — both listed as phase 2.
+

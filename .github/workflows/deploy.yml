@@ -73,6 +73,7 @@ jobs:
         run: |
           cp _data/latest.json data/latest.json
           mkdir -p data/logos && cp -R _data/logos/. data/logos/ 2>/dev/null || true
+          mkdir -p data/history && cp -R _data/history/. data/history/ 2>/dev/null || true   # /admin's "since yesterday"
           python site/build.py
       - name: Deploy the Worker (wrangler)
         uses: cloudflare/wrangler-action@v3
@@ -85,6 +86,8 @@ jobs:
           vars: |
             TEAM_DOMAIN
             POLICY_AUD
+            ADMIN_EMAIL
         env:
           TEAM_DOMAIN: ${{ vars.ACCESS_TEAM_DOMAIN }}
           POLICY_AUD: ${{ vars.ACCESS_AUD }}
+          ADMIN_EMAIL: ${{ vars.ACCESS_ADMIN_EMAIL || 'pending' }}     # who may open /admin; wrangler refuses an empty var, and the Worker reads `pending` as unset (404)

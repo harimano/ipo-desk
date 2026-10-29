@@ -233,6 +233,14 @@ def stamp(data: dict, results: list[Result], t: dt.datetime, research_notes: lis
             note = (note + "; " if note else "") + f"kept previous — {r.error.get('detail')}"
         checks.append({"area": r.module, "method": tried, "status": status, "asOf": r.asOf,
                        "elapsed": r.elapsed, "calls": r.calls, "note": note})
+    # A module that did not run this time (an intraday run is three of seventeen) keeps its last check, marked
+    # `carried` with its own asOf: the document says when tape / anchorbook / offers last answered, not just gmp.
+    # 29 Oct 2026, for /admin — before this the full run's statuses vanished at the first intraday run.
+    ran = {c["area"] for c in checks}
+    for c in (data.get("integrity") or {}).get("checks") or []:
+        if c.get("area") in ran or c.get("area") in ("research layer", "run"):
+            continue
+        checks.append({**c, "carried": True})
     checks.append({"area": "research layer", "method": "data/research, quota-reviews, investors.json",
                    "status": "ok", "note": "; ".join(research_notes) or "none present"})
     checks.append({"area": "run", "method": "collector", "status": "ok",

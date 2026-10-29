@@ -37,6 +37,9 @@ that variable and the Pages job are gone.)
 5. **GitHub variables** — `ACCESS_TEAM_DOMAIN` = `<team>.cloudflareaccess.com` (no `https://`),
    `ACCESS_AUD` = the AUD tag. Run the deploy workflow again. (Both must exist from the first deploy on — wrangler
    refuses an empty var — so they start as the placeholder `pending`, which the Worker treats as "sign-in required".)
+   `ACCESS_ADMIN_EMAIL` = the one address that may open `/admin` (the ops page, `site/admin/`; its README is the
+   header of `scripts/audit.py`). Unset or `pending`, `/admin` is a 404 for everyone; any other signed-in email
+   gets a 403. Set it with `gh variable set ACCESS_ADMIN_EMAIL --body <email>`.
 6. **Check** — open the Worker URL in a private window: Access's page asks for an email; an address not on the
    list is refused; yours gets a code and then the dashboard. `/whoami` prints the signed-in email; `/logout` signs
    out. Open it on your phone too.

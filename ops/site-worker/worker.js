@@ -6,6 +6,7 @@
 // Vars (deploy.yml passes them from repo variables; never secrets, never in wrangler.toml):
 //   TEAM_DOMAIN  "<team>.cloudflareaccess.com"  — Zero Trust → Settings → Custom Pages → Team domain
 //   POLICY_AUD   the Access application's Audience (AUD) tag — Zero Trust → Access → Applications → the app
+//   ADMIN_EMAIL  the one address that may open /admin (repo variable ACCESS_ADMIN_EMAIL); unset = /admin does not exist
 //
 // Access puts the JWT in the Cf-Access-Jwt-Assertion header (and a CF_Authorization cookie). It is RS256-signed
 // by keys published at https://<team>.cloudflareaccess.com/cdn-cgi/access/certs; those are cached an hour.
@@ -84,6 +85,18 @@ export default {
     const url = new URL(request.url);
     if (url.pathname === "/logout") return Response.redirect(`https://${env.TEAM_DOMAIN}/cdn-cgi/access/logout`, 302);
     if (url.pathname === "/whoami") return text(claims.email || "(no email claim)", 200);
+
+    // /admin is Hari's ops page (site/admin/): served only when the signed-in email is ADMIN_EMAIL (a repo variable,
+    // passed like the two above). Unset -> 404 for everyone, the fail-closed default; anyone else -> 403, no byte of it.
+    if (url.pathname === "/admin" || url.pathname.startsWith("/admin/")) {
+      const admin = (env.ADMIN_EMAIL || "").trim().toLowerCase();
+      if (!admin || admin === "pending") return text("not found", 404);
+      if ((claims.email || "").toLowerCase() !== admin) return text("ipo-desk: this page is for the admin only.", 403);
+      if (url.pathname === "/admin/me.json") {
+        return new Response(JSON.stringify({ email: claims.email, team: env.TEAM_DOMAIN, adminEmailSet: true }),
+          { status: 200, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } });
+      }
+    }
 
     const res = await env.ASSETS.fetch(request);
     const headers = new Headers(res.headers);

@@ -84,7 +84,29 @@ def main() -> int:
     for d in ("research", "quota-reviews", "logos"):
         if (ROOT / "data" / d).is_dir():
             shutil.copytree(ROOT / "data" / d, data_out / d)
+    build_admin(data if latest_path.exists() else None)
     return 0
+
+
+def build_admin(data: dict | None) -> None:
+    """/admin: the ops page (site/admin/), served to ADMIN_EMAIL only by the Worker, and its audit.json
+    (scripts/audit.py) from the same document the page was built from. A missing document still builds the page."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("audit", ROOT / "scripts" / "audit.py")
+    audit = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(audit)
+    adm = SRC.parent / "admin"
+    html = (adm / "admin.html").read_text(encoding="utf8")
+    html = html.replace("/* @include admin.js */", (adm / "admin.js").read_text(encoding="utf8"), 1)
+    out = SITE / "admin"
+    out.mkdir(exist_ok=True)
+    (out / "index.html").write_text(html, encoding="utf8")
+    if data is None:
+        return
+    logos = ROOT / "data" / "logos"
+    rep = audit.build(data, audit.previous(data, ROOT / "data" / "history"), logos if logos.is_dir() else None)
+    (out / "audit.json").write_text(json.dumps(rep, ensure_ascii=False, separators=(",", ":")), encoding="utf8")
+    print(f"admin    verdict {rep['verdict']['level']} · {len(rep['verdict']['items'])} item(s) · {len(rep['audit'])} audit finding(s)")
 
 
 if __name__ == "__main__":
