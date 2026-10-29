@@ -378,3 +378,11 @@ Nothing on the page changed. What was proved, and how:
   `NTFY_TOPIC` appear as `***`. `collector/notify.py` logs `ntfy: sent to <base>/<topic>`: Actions masks it today, but it is the one
   place the topic is formatted into a log line.
 - **Drill, end to end.** The first drill returned 200 but never reached the phone: the GitHub `NTFY_TOPIC` secret (15 characters) was not the topic the ntfy app subscribes to (ntfy.sh accepts a post to any name). After Hari reset the secret to the app's topic (16 characters), the second drill ([run 40902199527](https://github.com/harimano/ipo-desk/actions/runs/40902199527)) arrived on his phone. `fail_ping.py` prints the topic's length, never the topic, so a silent phone can be compared.
+
+### 29 Oct, close of day — the names check
+
+The one Phase 5 check the session could not run without Hari: two family first names, given in chat and kept out of
+the repo on purpose, grepped case-insensitively across the whole built `_site` (HTML, JS, every JSON, the manifest),
+the repository source and the research sheets. Zero hits in all three. With that, every item of the friends-launch
+plan is built, merged and verified, and the drill ping of a failed collect run reached Hari's phone.
+
