@@ -372,7 +372,7 @@ Nothing on the page changed. What was proved, and how:
   (`/`, `/latest.json`, `/admin/`, `/api/state`, `/manifest.webmanifest` alike); `harimano.github.io/ipo-desk/` 404 (Pages is off).
 - **Personal data** in the built `_site` (103 files): no PAN pattern, no 16-digit number, no broker client id, no ntfy topic
   or salt value. Two 10-digit hits are share counts in `research.json`. One email: `nse.ipo@in.mpms.mufg.com`, a registrar's
-  public contact on an issue's sheet. Family-name grep: not done, Hari's list was not given. The topic itself cannot be read back from a
+  public contact on an issue's sheet. Family-name grep: the family have no trading account yet, so nothing of theirs is in the data; `scripts/names_grep.sh "Name" …` is ready (names as arguments, never stored) and was tried with placeholder names (0 hits; a planted name in a copy is found). Run it with the real names once they have accounts. The topic itself cannot be read back from a
   secret, so "not in any file" is checked as: no literal `ntfy.sh/<topic>` anywhere (only the test topic `ipodesk-test`).
 - **Logs** of the last three deploy and collect runs: no `ntfy.sh/`, `Bearer`, `ghp_` or Angel key values; Cloudflare and
   `NTFY_TOPIC` appear as `***`. `collector/notify.py` logs `ntfy: sent to <base>/<topic>`: Actions masks it today, but it is the one
