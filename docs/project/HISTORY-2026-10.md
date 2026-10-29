@@ -209,3 +209,7 @@ that can only read Access audit logs — GitHub secret `CF_ACCESS_LOGS_TOKEN`, u
 with `wrangler secret put` only when it exists, so a missing secret is a note on the card, never a failed deploy — and
 merges it with the ledger: one row per email, sign-ins and failed attempts from Access, page loads from KV.
 
+Hari: "the runs need to scroll, too long a page — a dashboard, each card to see it all". The page is now a grid
+(four columns at 1,500 px, one on a phone), every card scrolling inside itself at 28% of the screen height, the
+verdict and tiles above: one screen, no page scroll on a 900 px display.
+
