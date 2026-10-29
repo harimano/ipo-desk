@@ -24,3 +24,12 @@ CREATE TABLE IF NOT EXISTS reports (
   data_as_of TEXT,            -- meta.asOf of the document the page was showing
   status     TEXT NOT NULL DEFAULT 'open'
 );
+
+-- Daily active readers (worker.js noteDailyActive → /admin/retention.json, the "Readers by week" card): one row per
+-- reader per IST day, written on a page load. No email: email_hash = SHA-256(DAU_SALT + "\n" + email), the salt a
+-- Worker secret handed over by deploy.yml. Without the secret nothing is written. Counts only, ever.
+CREATE TABLE IF NOT EXISTS daily_active (
+  day        TEXT NOT NULL,   -- YYYY-MM-DD in IST
+  email_hash TEXT NOT NULL,   -- hex SHA-256 of salt + newline + lower-cased email
+  PRIMARY KEY (day, email_hash)
+);

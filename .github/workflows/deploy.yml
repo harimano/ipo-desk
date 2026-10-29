@@ -119,3 +119,11 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         if: env.NTFY_TOPIC != ''
         run: printf '%s' "$NTFY_TOPIC" | npx --yes wrangler@4.154.0 secret put NTFY_TOPIC
+      - name: Hand the Worker the daily-active salt (only when DAU_SALT exists; /admin "Readers by week")
+        working-directory: ops/site-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          DAU_SALT: ${{ secrets.DAU_SALT }}
+        if: env.DAU_SALT != ''
+        run: printf '%s' "$DAU_SALT" | npx --yes wrangler@4.154.0 secret put DAU_SALT

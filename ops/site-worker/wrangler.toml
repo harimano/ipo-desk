@@ -30,3 +30,10 @@ id = "453437b160ee4001871d2ef0192d21ba"
 binding = "DB"
 database_name = "ipo-desk-accounts"
 database_id = "3a1f6d3d-8e2e-4709-a5c6-698fd19de540"
+
+# The nightly backup (.github/workflows/backup.yml): `wrangler d1 export` of the database above into the R2 bucket named
+# here, one dump a night under nightly/<IST date>.sql, 30 kept. The Worker never touches the bucket — there is no
+# binding; the name is a var so the workflow and /admin read it from this one place. Hari creates the bucket once in
+# the dashboard (R2 → Create bucket → `ipo-desk-backups`, SETUP.md §1c). Restore: scripts/restore_d1.py.
+[vars]
+BACKUP_BUCKET = "ipo-desk-backups"

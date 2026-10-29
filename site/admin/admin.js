@@ -188,6 +188,7 @@ async function renderSecurity() {
     const got = Object.entries(want).map(([h, v]) => [h, (r.headers.get(h) || "").includes(v)]);
     rows.push(srow("headers on /", got.map(([h, ok]) => `${ok ? "✓" : "✗"} ${esc(h)}`).join(" · "), pill(got.every(([, ok]) => ok) ? "ok" : local ? "nt" : "warn", `${got.filter(([, ok]) => ok).length}/${got.length}`), "set by the Worker; a local preview has none"));
   } catch (e) { rows.push(srow("headers on /", esc(e.message), pill("warn", "?"))); }
+  if (me && !me.error) rows.push(srow("backup", me.backupBucket ? `nightly D1 dump into R2 bucket ${esc(me.backupBucket)} (backup.yml, 02:51 IST, 30 kept) — the bucket's own listing says whether last night's file is there` : "no BACKUP_BUCKET var: backup.yml has nowhere to write", pill(me.backupBucket ? "nt" : "warn", me.backupBucket ? "nightly" : "unset"), "ops/site-worker/SETUP.md §1c; restore with scripts/restore_d1.py"));
   rows.push(srow("repo", "public by choice · the document lives on the data branch · the Book never leaves the browser · secrets are GitHub secrets", pill("nt", "note"), "ops/site-worker/README.md says why"));
   $("#sec").innerHTML = table(["what|fit", "detail", "|fit"], rows);
   return me && !me.error ? me : null;
@@ -227,6 +228,26 @@ async function renderReports() {
   box.innerHTML = table(["when|fit", "who", "IPO", "number", "shown|fit", "note"], list.slice(0, 60).map(r =>
     `<tr>${td(`${fmtIST(r.at)} <span class="mu">${ago(r.at)}</span>`, "fit")}${td(esc(r.email), "who", r.email)}${td(esc(r.issue), "", r.ig_id ? "IG " + r.ig_id : "")}${td(esc(r.field))}${td(esc(r.shown || ""), "fit mu", r.data_as_of ? "data as of " + r.data_as_of : "")}${td(esc(r.note || ""), "", r.note || "")}</tr>`))
     + note("A report never changes a number. Mark one done in the D1 console: UPDATE reports SET status='done' WHERE id=…");
+}
+
+/* ---------- readers by week: the Worker's /admin/retention.json ← D1 daily_active (counts only, no email) ---------- */
+async function renderRetention(me) {
+  const box = $("#retention");
+  let v;
+  try { v = await getJson("/admin/retention.json", { cache: "no-store" }); }
+  catch (e) { box.innerHTML = empty(`No retention answered (${esc(e.message)}) — a local preview, or the Worker is not in front.`); return; }
+  if (v.error) { box.innerHTML = empty(esc(v.error)); return; }
+  const weeks = v.weeks || [], last = weeks[weeks.length - 1] || {};
+  $("#retSum").textContent = `${last.active || 0} active this week · ${v.firstWeekReaders || 0} in week 1 · since ${dayIST(v.from + "T00:00:00+05:30")}`;
+  const rows = weeks.map((w, i) => {
+    const label = dayIST(w.start + "T00:00:00+05:30") + (i === 0 ? ' <span class="mu">week 1</span>' : i === weeks.length - 1 ? ' <span class="mu">this week</span>' : "");
+    const tag = i === 0 ? pill("nt", `${w.active} reader${w.active === 1 ? "" : "s"}`) : i === weeks.length - 1 ? pill("nt", `${v.daysIntoWeek} day${v.daysIntoWeek === 1 ? "" : "s"} in`) : "";
+    return `<tr>${td(label, "k fit")}${td(String(w.active), "n")}${td(String(w.new), "n")}${td(String(w.ofFirst), "n")}${td(tag, "fit")}</tr>`;
+  });
+  const how = v.salted ? `${v.rows} daily row${v.rows === 1 ? "" : "s"} stored` : "<b>nothing is being written</b>: add the GitHub secret DAU_SALT, then run deploy";
+  box.innerHTML = (v.rows ? table(["week|fit", "active|n", "new|n", "of week 1's|n", "|fit"], rows) : empty("No daily rows yet."))
+    + note(`Weeks start Monday, IST. "new" = first seen in these 8 weeks; "of week 1's" = how many of week 1's ${v.firstWeekReaders || 0} were active that week. Counts only: a row is the day and SHA-256(salt + email), never the email. ${how}.`);
+  if (me && me.accounts && !v.salted) addVerdict("warn", "daily-active readers are not being recorded (no DAU_SALT secret)", "retention");
 }
 
 /* ---------- the smoke test: the page in a hidden same-origin frame, every tab, every sheet ---------- */
@@ -281,7 +302,7 @@ async function main() {
   } catch (e) { tile("#tDoc", "?", "bad", "meta.json did not load: " + esc(e.message)); addVerdict("bad", "the page's own data did not load", "runs"); }
   try { renderAudit(await getJson("audit.json?t=" + Date.now(), { cache: "no-store" })); }
   catch (e) { $("#vTitle").textContent = "No audit.json"; $("#vSub").textContent = "site/build.py writes admin/audit.json from scripts/audit.py — " + e.message; $("#verdict").className = "bad"; }
-  await Promise.all([renderRuns(), renderLive(), renderSecurity().then(renderVisitors), renderReports()]);
+  await Promise.all([renderRuns(), renderLive(), renderSecurity().then(me => Promise.all([renderVisitors(me), renderRetention(me)])), renderReports()]);
 }
 $("#reload").addEventListener("click", () => location.reload());
 $("#smoke").addEventListener("click", smoke);

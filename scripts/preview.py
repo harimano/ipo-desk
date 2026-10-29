@@ -8,7 +8,9 @@ Access, so the "signed-in" email is a plain dev cookie: open /dev/as/alice@examp
 in another browser profile, and each gets a separate in-memory account. Nothing here is deployed, and nothing
 persists past the process: this is for driving the page by hand and from the smoke tests.
 
-Also serves ops/site-worker/ under /__worker/ so the browser test harness (test/harness.html) can import worker.js.
+Also serves ops/site-worker/ under /__worker/ so the browser test harness (test/harness.html) can import worker.js,
+and /admin/retention.json + /admin/me.json in the Worker's shape, so /admin's cards render here (a page load by a
+dev email counts as that day's active reader, as the Worker's daily_active row does).
 """
 from __future__ import annotations
 
@@ -28,12 +30,41 @@ PART_MAX = 64 * 1024
 
 STORE: dict[str, dict[str, tuple[str, str]]] = {}      # email -> part -> (body, updated)
 REPORTS: list[dict] = []                               # "Wrong number?" reports, newest last
+DAILY: set[tuple[str, str]] = set()                    # (IST day, dev email): the Worker's daily_active, for /admin's card
 LOCK = threading.Lock()
 
 
 def now() -> str:
     import datetime
     return datetime.datetime.now(datetime.UTC).isoformat().replace("+00:00", "Z")
+
+
+def ist_day(offset_days: int = 0) -> str:
+    import datetime
+    return (datetime.datetime.now(datetime.UTC) + datetime.timedelta(hours=5, minutes=30, days=offset_days)).date().isoformat()
+
+
+def retention() -> dict:
+    """The shape of the Worker's /admin/retention.json (worker.js retentionWeeks), from the loads this process saw."""
+    import datetime
+    today = datetime.date.fromisoformat(ist_day())
+    monday = today - datetime.timedelta(days=today.weekday())
+    starts = [(monday - datetime.timedelta(weeks=7 - i)).isoformat() for i in range(8)]
+    week_of = lambda d: max((i for i, st in enumerate(starts) if d >= st), default=-1)
+    with LOCK:
+        rows = sorted(DAILY)
+    active: list[set[str]] = [set() for _ in starts]
+    first: dict[str, str] = {}
+    for day, who in rows:
+        w = week_of(day)
+        if w < 0:
+            continue
+        active[w].add(who)
+        first[who] = min(first.get(who, day), day)
+    weeks = [{"start": st, "active": len(active[i]), "new": sum(week_of(first[h]) == i for h in active[i]),
+              "ofFirst": len(active[i] & active[0])} for i, st in enumerate(starts)]
+    return {"at": now(), "salted": True, "rows": len(rows), "from": starts[0], "today": today.isoformat(),
+            "daysIntoWeek": today.weekday() + 1, "firstWeekReaders": len(active[0]), "weeks": weeks}
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -104,6 +135,13 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             return
         if path == "/admin/reports.json":
             return self.send_json({"reports": list(reversed(REPORTS))})
+        if path == "/admin/retention.json":
+            return self.send_json(retention())
+        if path == "/admin/me.json":
+            return self.send_json({"email": self.email(), "team": "preview", "adminEmailSet": True, "visitors": False, "accounts": True, "dauSalt": True, "backupBucket": "ipo-desk-backups"})
+        if path in ("/", "/index.html", "/admin", "/admin/") and self.email() and "text/html" in (self.headers.get("Accept") or ""):
+            with LOCK:
+                DAILY.add((ist_day(), self.email()))
         if path.startswith("/api"):
             return self.api("GET", path.rstrip("/") or "/api", b"")
         return super().do_GET()

@@ -1,0 +1,61 @@
+name: backup
+# Nightly copy of the accounts database (D1 ipo-desk-accounts: every reader's saved dashboard, the "Wrong number?"
+# reports, the daily-active hashes) into the R2 bucket ipo-desk-backups, as one SQL dump a night, 30 kept.
+#
+# Why a GitHub job and not a Worker cron: the Workers Free plan allows 5 cron triggers per ACCOUNT
+# (developers.cloudflare.com/workers/platform/limits/) and the trigger Worker uses all five. This job needs no new
+# secret — CLOUDFLARE_API_TOKEN is the deploy token (Edit Cloudflare Workers template: Workers R2 Storage · Edit is in
+# it; D1 · Edit was added for the binding, ops/site-worker/SETUP.md §1) — and puts no code in the Worker's request path.
+# R2 free tier: 10 GB stored, 1 million class-A operations a month (developers.cloudflare.com/r2/pricing/); a night here
+# is one put and seven deletes of a file under a megabyte. D1 Time Travel (7 days on Free, in place) is the first
+# resort for a bad write; this dump is the copy that lives OUTSIDE the database. Restore: scripts/restore_d1.py.
+#
+# GitHub's cron is best-effort (collect.yml's header); a missed night leaves a gap in the dated keys, which /admin
+# shows, and the prune covers a week of catch-up (keys dated 31–37 days back) so a skipped night never leaks a file.
+on:
+  schedule:
+    - cron: "21 21 * * *"        # 02:51 IST, after the 18:13 full run and before the 06:43 one
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency: { group: backup, cancel-in-progress: false }
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      WRANGLER: "wrangler@4.154.0"               # the deploy's pin (deploy.yml)
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - name: Names from wrangler.toml (the database and the bucket are named there, beside the D1 id)
+        working-directory: ops/site-worker
+        run: |
+          DB=$(sed -n 's/^database_name *= *"\([^"]*\)".*/\1/p' wrangler.toml | head -1)
+          BUCKET=$(sed -n 's/^BACKUP_BUCKET *= *"\([^"]*\)".*/\1/p' wrangler.toml | head -1)
+          test -n "$DB" && test -n "$BUCKET" || { echo "::error::database_name / BACKUP_BUCKET not found in wrangler.toml"; exit 1; }
+          echo "DB=$DB" >> "$GITHUB_ENV"; echo "BUCKET=$BUCKET" >> "$GITHUB_ENV"
+          echo "DAY=$(TZ=Asia/Kolkata date +%F)" >> "$GITHUB_ENV"
+      - name: Export the database (wrangler d1 export, the remote one)
+        working-directory: ops/site-worker
+        run: |
+          npx --yes "$WRANGLER" d1 export "$DB" --remote --output /tmp/backup.sql
+          test -s /tmp/backup.sql || { echo "::error::the export is empty"; exit 1; }
+          grep -q "CREATE TABLE" /tmp/backup.sql || { echo "::error::the export carries no CREATE TABLE — not a dump"; exit 1; }
+          echo "exported $(wc -c < /tmp/backup.sql) bytes, $(grep -c '^INSERT' /tmp/backup.sql) rows"
+      - name: Put it in the bucket as nightly/<IST date>.sql
+        working-directory: ops/site-worker
+        run: npx --yes "$WRANGLER" r2 object put "$BUCKET/nightly/$DAY.sql" --file /tmp/backup.sql --content-type application/sql --remote
+      - name: Prune — delete the keys dated 31 to 37 days back (30 kept; a week of catch-up for missed nights)
+        working-directory: ops/site-worker
+        run: |
+          for d in 31 32 33 34 35 36 37; do
+            old=$(TZ=Asia/Kolkata date -d "$DAY -$d days" +%F)
+            npx --yes "$WRANGLER" r2 object delete "$BUCKET/nightly/$old.sql" --remote 2>/dev/null && echo "deleted nightly/$old.sql" || true
+          done
