@@ -62,6 +62,10 @@ def run_module(name: str, session: Session, prev: dict, budget_left: float, doc:
         res.fail(e)
     res.elapsed = round(time.monotonic() - t0, 2)
     res.calls = session.calls - calls0
+    for t in res.tried:        # a source that refused while another won: the only place its detail is kept
+        if not t.get("ok"):    # (29 Oct 2026: sebi:changed on a green run, nothing in the log to read)
+            log.warning("%-13s %s refused (%s): %s", name, t.get("source") or "-", t.get("kind") or "?",
+                        t.get("detail") or "")
     log.info("%-13s %s  %s  %.1fs  %d calls  %s", name, "ok   " if res.ok else "FAIL ", res.source or "-",
              res.elapsed, res.calls, (res.error or {}).get("detail", "") if not res.ok else "")
     return res
