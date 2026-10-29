@@ -26,6 +26,10 @@ on:
         description: "full mode only: comma-separated module names (blank = all)"
         required: false
         default: ""
+      drill:
+        description: "true = send the failure ping as a DRILL and do nothing else (no collect, no commit); for testing the alert"
+        type: boolean
+        default: false
 
 concurrency: { group: collect, cancel-in-progress: false }   # a light run never races a full one
 
@@ -60,7 +64,8 @@ jobs:
             *)                                            MODE="${{ github.event.inputs.mode || 'full' }}" ;;
           esac
           GO=1
-          if [ "$MODE" = intraday ]; then
+          [ "${{ github.event.inputs.drill }}" != true ] || GO=0     # a drill touches nothing: only the ping step below runs
+          if [ "$MODE" = intraday ] && [ "$GO" = 1 ]; then
             OPEN=$(TZ=Asia/Kolkata python3 - <<'PY'
           import datetime, json
           d = json.load(open("_data/latest.json"))
@@ -87,10 +92,12 @@ jobs:
         with: { python-version: "3.12", cache: "pip" }
 
       - name: Install
+        id: install
         if: steps.mode.outputs.go == '1'
         run: pip install -e ".[dev]"
 
       - name: Lay the live document over ./data — it is the previous run and the delta baseline
+        id: layover
         if: steps.mode.outputs.go == '1'
         run: |
           cp _data/latest.json data/latest.json
@@ -99,6 +106,7 @@ jobs:
           cp _data/latest.json /tmp/prev_latest.json
 
       - name: Collect
+        id: collect
         if: steps.mode.outputs.go == '1'
         env:
           ANGEL_API_KEY:     ${{ secrets.ANGEL_API_KEY }}
@@ -113,10 +121,12 @@ jobs:
           else python -m collector --max-seconds 900 | tee collect.log; fi
 
       - name: Gate — the validator must pass or nothing is committed
+        id: gate
         if: steps.mode.outputs.go == '1'
         run: python scripts/validate.py data/latest.json --prev /tmp/prev_latest.json --max-age-hours 2
 
       - name: Build the site — proves the document renders into a page before it is committed
+        id: site
         if: steps.mode.outputs.go == '1'
         run: python site/build.py
 
@@ -146,6 +156,7 @@ jobs:
           echo "pushed=1" >> "$GITHUB_OUTPUT"
 
       - name: Publish — dispatch the deploy workflow for the commit just pushed
+        id: publish
         if: steps.commit.outputs.pushed == '1'
         env: { GH_TOKEN: "${{ github.token }}" }
         run: gh workflow run deploy.yml --ref main
@@ -162,6 +173,21 @@ jobs:
         run: |
           if [ -n "$TELEGRAM_BOT_TOKEN$NTFY_TOPIC" ]; then SEND=--send; else SEND=""; fi
           python -m collector.alerts --prev /tmp/prev_latest.json --new data/latest.json $SEND
+
+      # A red run reaches the phone, not only GitHub's mail (the Alerts step above only speaks when a rule became true).
+      # One line naming the failing step; a Gate refusal also becomes a ::warning::. Silent without NTFY_TOPIC, and never
+      # able to change the run's result. `drill=true` runs only this step (see scripts/fail_ping.py).
+      - name: Ping on failure
+        if: failure() || github.event.inputs.drill == 'true'
+        continue-on-error: true
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          STEPS:      ${{ toJSON(steps) }}
+          MODE:       ${{ steps.mode.outputs.mode }}
+          RUN_ID:     ${{ github.run_id }}
+          RUN_URL:    ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          DRILL:      ${{ github.event.inputs.drill }}
+        run: python3 scripts/fail_ping.py
 
       - uses: actions/upload-artifact@v7
         if: always() && steps.mode.outputs.go == '1'
