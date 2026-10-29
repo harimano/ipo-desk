@@ -224,3 +224,8 @@ checkout (a per-reader saved dashboard on D1, unfinished: its ci step failed) an
 Hari's word: main re-pointed at the layout commit alone, the other work left on its branch. Two sessions in one
 working copy are two writers on the same files; the second should have had its own worktree.
 
+Brand pass on /admin, at Hari's ask: the page's own palette and pieces (the blue mark and top bar, pills, --el
+shadow, radius 14), a verdict banner tinted by state, tiles with a state stripe, colour-dotted card headers, chip
+links, row hover. Light and dark screenshots approved before the push. Pushed from a separate worktree off
+origin/main — the shared checkout sits on another session's branch.
+
