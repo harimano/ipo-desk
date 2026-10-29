@@ -371,7 +371,7 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
 .src .list { margin-top:6px; border:1px solid var(--line); border-radius:var(--r-sm); background:var(--surface); overflow:hidden; }
 .src .row { display:grid; grid-template-columns:14px 130px 1fr auto; gap:8px; padding:6px 10px; border-bottom:1px solid var(--line); align-items:baseline; } .src .row:last-child { border:0; }
 .src .row b { color:var(--ink-2); } .src .row .w { color:var(--ink-3); }
-@media (max-width:560px) { .src .row { grid-template-columns:14px 1fr auto; } .src .row .n { grid-column:2 / 4; } }
+@media (max-width:560px) { .src .row { grid-template-columns:14px 1fr auto; } .src .row .w { grid-column:3; grid-row:1; } .src .row .n { grid-column:2 / 4; grid-row:2; } }
 [data-prov] { cursor:help; }
 .provpop { position:fixed; z-index:60; background:var(--surface); color:var(--ink-2); border:1px solid var(--line-2); border-radius:10px; box-shadow:0 6px 24px rgba(0,0,0,.2); padding:9px 12px; font-size:12px; line-height:1.45; }
 .provpop b { display:block; color:var(--ink); font-size:12.5px; margin-bottom:2px; }
