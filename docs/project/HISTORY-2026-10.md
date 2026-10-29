@@ -193,3 +193,10 @@ branch's last commit with the Actions token (`scripts/runs_snapshot.py` → `adm
 every collect deploys), the live loop is read from raw live.json (no call limit, cached five minutes), and the browser's
 GitHub call only freshens the list when it can. The headline tiles never depend on a rate-limited call again.
 
+Later: Hari asked to see all users. Cloudflare's Access log has every sign-in (Zero Trust → Logs → Access); the
+page now has a Visitors card too — the Worker keeps a KV ledger (`VISITS` binding, one record per email: first, last,
+loads, country; written only on a page load, at most once every ten minutes a person, in `ctx.waitUntil` so it never
+delays a response) and `/admin/visitors.json` lists it. The binding is optional and off until Hari creates the
+namespace and uncomments the block in `wrangler.toml`; absent, the card explains the setup. This is the KV the
+login + Book sync work will reuse.
+

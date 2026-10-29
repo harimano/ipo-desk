@@ -188,6 +188,26 @@ async function renderSecurity() {
   } catch (e) { out.push(row("headers on /", esc(e.message), pill("warn", "?"))); }
   out.push(row("repo", "public by choice (ops/site-worker/README.md) · the document is on the data branch, the Book never leaves the browser · secrets are GitHub secrets, never in the repo", pill("nt", "note")));
   $("#sec").innerHTML = out.join("");
+  return me && !me.error ? me : null;
+}
+
+/* ---------- visitors: the Worker's KV ledger (/admin/visitors.json) ---------- */
+const dayKey = iso => { const d = toIST(iso); return d ? `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}` : ""; };
+async function renderVisitors(me) {
+  const box = $("#visitors");
+  let v;
+  try { v = await getJson("/admin/visitors.json", { cache: "no-store" }); }
+  catch (e) { box.innerHTML = `<div class="empty">No ledger answered (${esc(e.message)}) — a local preview, or the Worker is not in front.</div>`; return; }
+  if (v.error) { box.innerHTML = row("setup", `${esc(v.error)}<small>Workers &amp; Pages → KV → Create a namespace → paste its id into the [[kv_namespaces]] block of ops/site-worker/wrangler.toml → push. Until then nothing is recorded.</small>`, pill("warn", "KV not set up")); $("#visSum").textContent = ""; return; }
+  const list = v.visitors || [], today = dayKey(new Date().toISOString()), week = Date.now() - 7 * 86400000;
+  const mine = (me && me.email || "").toLowerCase();
+  const todayN = list.filter(x => dayKey(x.last) === today).length, weekN = list.filter(x => Date.parse(x.last) > week).length;
+  $("#visSum").textContent = list.length ? `${list.length} people · ${todayN} today · ${weekN} this week` : "";
+  if (!list.length) { box.innerHTML = `<div class="empty">Nobody recorded yet. The ledger starts with the first page load after the binding went live.</div>`; return; }
+  box.innerHTML = `<div class="row" style="border-top:0"><span class="k mu">who</span><span class="v mu">first seen · last seen</span><span class="mu">loads</span></div>`
+    + list.map(x => row(x.email === mine ? "you" : x.email, `${fmtIST(x.first)} · <b>${fmtIST(x.last)}</b> <span class="mu">${ago(x.last)}${x.country ? " · " + esc(x.country) : ""}${x.admin && x.email !== mine ? " · opened /admin" : ""}</span>`,
+        pill(dayKey(x.last) === today ? "ok" : "nt", x.n))).join("")
+    + `<div class="dt" style="padding-top:8px">A load is one page open per person, counted at most once every ten minutes. Someone who got the link and never finished the email code is not here; Cloudflare's Access log has every attempt.</div>`;
 }
 
 /* ---------- the smoke test: the page in a hidden same-origin frame, every tab, every sheet ---------- */
@@ -239,7 +259,7 @@ async function main() {
   } catch (e) { tile("#tDoc", "?", "bad", "meta.json did not load: " + esc(e.message)); addVerdict("bad", "the page's own data did not load", "runs"); }
   try { AUDIT = await getJson("audit.json?t=" + Date.now(), { cache: "no-store" }); renderAudit(AUDIT); }
   catch (e) { $("#vTitle").textContent = "No audit.json"; $("#vSub").textContent = "site/build.py writes admin/audit.json from scripts/audit.py — " + e.message; $("#verdict").className = "bad"; }
-  await Promise.all([renderRuns(), renderLive(), renderSecurity()]);
+  await Promise.all([renderRuns(), renderLive(), renderSecurity().then(renderVisitors)]);
 }
 $("#reload").addEventListener("click", () => location.reload());
 $("#smoke").addEventListener("click", smoke);

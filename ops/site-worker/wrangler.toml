@@ -14,3 +14,10 @@ directory = "../../_site"
 binding = "ASSETS"
 run_worker_first = true                # every request goes through worker.js (the Access check) before an asset is served
 not_found_handling = "none"
+
+# The visitors ledger behind /admin (worker.js noteVisit / visitors): one KV record per signed-in email. Optional —
+# without this block nothing is kept and the Visitors card says so. To turn it on: Workers & Pages → KV → Create a
+# namespace (any name, e.g. ipo-desk-visits), copy its ID here, push. The id is an identifier, not a secret.
+# [[kv_namespaces]]
+# binding = "VISITS"
+# id = "<the namespace id>"
