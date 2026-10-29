@@ -202,6 +202,18 @@ def test_sebi_listing_parse_and_classify():
     assert [r["kind"] for r in rhp] == ["RHP", "RHP"]
 
 
+def test_sebi_real_ajax_response_2026_10_29():
+    """The ajax endpoint's real answer (a GitHub runner and Hari's Mac, 29 Oct 2026, 25 rows on one line): a title
+    attribute may hold a nested <a> to the abridged PDF — the row's title must be the clean inner text, never markup."""
+    rows = sebi._tag(sebi.parse_listing(_sebi("ajax_drhp_2026-10-29.html")), "DRHP")
+    assert len(rows) == 25 and all(r["date"] for r in rows)
+    assert rows[0]["title"] == "Carlsberg India Limited - Draft Abridged Prospectus"
+    assert rows[0]["issuer"] == "Carlsberg India Limited" and rows[0]["date"] == "2026-10-29"
+    assert rows[0]["detailUrl"].endswith("/oct-2026/carlsberg-india-limited-udrhp-1_105485.html")
+    assert not any("<" in r["title"] or "href" in r["title"] for r in rows)
+    assert rows[2]["kind"] == "Addendum" and rows[2]["issuer"] == "Oravel Stays Limited"
+
+
 def test_sebi_changed_shape_raises():
     with pytest.raises(SourceChanged):
         sebi.parse_listing(_sebi("changed.html"))
