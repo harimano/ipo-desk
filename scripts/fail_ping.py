@@ -61,6 +61,8 @@ def main(argv: list[str]) -> int:
     if not topic:
         print("NTFY_TOPIC unset - not sending")
         return 0
+    raw = os.environ.get("NTFY_TOPIC", "")
+    print(f"ntfy: topic is {len(topic)} characters ({len(raw) - len(topic)} of whitespace trimmed)")   # length only: compare it with the phone's subscription
     print(f"ntfy: status {post(line, topic)}")
     return 0
 
