@@ -97,7 +97,11 @@ function recompute() {
   today = new Date(asOf.getFullYear(), asOf.getMonth(), asOf.getDate());
   Q = DATA.quota || [];
   live = Q.filter(q => ["approved", "drhp", "awaited"].includes(q.bucket)).sort((a, b) => a.rank - b.rank || a.name.localeCompare(b.name));
-  board = DATA.mainboard || []; sme = DATA.sme || [];
+  // after 5 pm on the closing day the row IS closed, whatever the collector's last run said: the page shows it as
+  // Closed everywhere (pill, filters, Today, tape, planner) so nothing contradicts; the next run makes it official
+  const byClock = b => b.status === "Open" && b.close && days(b.close) === 0 && clock().phase !== "open" && clock().phase !== "pre";
+  const clocked = rows => rows.map(b => byClock(b) ? Object.assign({}, b, { status: "Closed", byClock: true }) : b);
+  board = clocked(DATA.mainboard || []); sme = clocked(DATA.sme || []);
   sheets = DATA.sheets || {}; current = DATA.current || {};
   stale = (Date.now() - asOf) > 36 * 3600000;
 }
@@ -320,7 +324,7 @@ function boardRow(b) {
   const lastDay = b.status === "Open" && days(b.close) === 0, late = istNow().getHours() >= 14, CK = clock();
   const when = b.status === "Upcoming" ? `Opens ${fmtD(b.open)}${b.close ? "–" + fmtD(b.close) : ""}${CK.weekend && days(b.open) <= 2 ? `<div class="dt">weekend · bidding Mon 10 am</div>` : days(b.open) === 0 && CK.phase === "pre" ? `<div class="dt">opens today, 10 am</div>` : ""}`
     : b.status === "Open" ? bidWord(b).when
-    : b.status === "Closed" ? `Allotment ${fmtD(b.allotment)}<div class="dt">lists ${fmtD(b.listing)} · ${rel(days(b.listing))}</div>` : `Listed ${fmtD(b.listing)}`;
+    : b.status === "Closed" ? (b.byClock ? `Closed today, 5 pm<div class="dt">final book with the next run · allotment ${fmtD(b.allotment)} · lists ${fmtD(b.listing)}</div>` : `Allotment ${fmtD(b.allotment)}<div class="dt">lists ${fmtD(b.listing)} · ${rel(days(b.listing))}</div>`) : `Listed ${fmtD(b.listing)}`;
   const band = b.bandLow != null && b.bandHigh != null && b.bandLow !== b.bandHigh ? `${inr(b.bandLow)}–${inr(b.bandHigh)}` : b.bandHigh != null ? inr(b.bandHigh) : "TBA";
   const S0 = b.sub || {}, early = b.status === "Open" && !(lastDay && late);
   const pick = (key, v, where) => evBand(seg, key, v, where);
@@ -897,7 +901,7 @@ function liveText() { const el = $("#liveTxt"); if (!el) return; const mins = (D
   el.textContent = (mins > 36 * 60 ? "Stale · " : "Live · ") + (lv ? "book " + ago(LIVE.asOf) + " · full run " + ago(DATA.meta.asOf) : "updated " + ago(DATA.meta.asOf)) + (nx ? " · next " + nx + " IST" : ""); el.parentElement.classList.toggle("stale", mins > 36 * 60); }
 setInterval(() => { liveText(); renderStamps(); }, 30000);
 let clockWas = clockKey();                                   // the market clock: repaint only when a phrase would change
-setInterval(() => { const k = clockKey(); if (k !== clockWas) { clockWas = k; renderAll(); } }, 60000);
+setInterval(() => { const k = clockKey(); if (k !== clockWas) { clockWas = k; recompute(); renderAll(); } }, 60000);
 const savedTab = store.get("ipo-tab", "today");
 if (!followHash(location.hash, true)) show(["today", "pipe", "board", "market", "research", "book", "score"].includes(savedTab) ? savedTab : "today");   // links.js: a deep link wins this load (its name lands after the first update)
 

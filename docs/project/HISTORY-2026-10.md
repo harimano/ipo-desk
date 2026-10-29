@@ -398,3 +398,10 @@ holidays the page does not know read as weekdays. Verified by pinning Date.now i
 and a Saturday. First build crashed the whole page with "Identifier W has already been declared": the planner's row
 function already had a `W`; renamed. The rule stands: a new const in a 900-line closure gets a name nobody else used.
 
+Hari, minutes after it went live: the status pill still said *Open* beside "Closed for the day" — "we can't be saying
+the wrong things." Right: two sources of truth on one row. Now, after 5 pm on the closing day, `recompute()` derives the
+row as **Closed** (`byClock`) and every reader of status follows — the pill, the Board filters, the apply card on Today
+(gone, as it will be after the next run), the tape ("lists 3 Nov"), the planner, the Score tab — with the When line
+"Closed today, 5 pm · final book with the next run · allotment … · lists …". The minute timer recomputes before it
+repaints. Rule: a clock-derived state is applied where the rows are built, never patched into one renderer.
+
