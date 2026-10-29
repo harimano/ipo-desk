@@ -137,7 +137,7 @@ document as assembled so far; `prev` is yesterday's.
   promotion is still a person reading the DRHP. NSE's summary is sometimes just "General Updates" (JSW Cement, 25 Sep 2026): partial
   recall by construction, never fixed by reading the PDF.
 - `listings` borrows a symbol from `investors.listingSymbols` (matched, since that cache uses the listing report's spelling)
-  and does not report a row `tape.bse` prices as "cannot price". `validate.py` caps the COMPACT document (6 MB, warns at 80%).
+  and does not report a row `tape.bse` prices as "cannot price". `validate.py` caps what the page fetches at boot (compact, 6 MB, warns at 80%); the on-demand books part has its own 16 MB.
 - `subscription` asks mainboard NSE → Narada, SME Narada → NSE (NSE's SME answer has no shares offered: zeros), then BSE,
   chittorgarh (dead). **Narada** (`sources/narada.py`, trynarada.com, reachable from runners) is the only fresh book for
   BSE-only SMEs and gives application counts (`apps`; mainboard books stay NSE's but take Narada's counts). Narada's
