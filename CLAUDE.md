@@ -173,6 +173,7 @@ when dataset types are mixed. Market has a sticky section bar built from `.sec-h
 
 ## Next
 
-Hari to do: create the D1 database and paste its id (`ops/site-worker/SETUP.md`), switch the Access policy to the
-friends' emails, set the `NTFY_TOPIC` secret (alerts are built and in dry-run). Then: capital planner and calendar
-(reports 554 / 607) → provenance on hover, source-health strip → alerts with deep links, weekly digest → the AI layer, last.
+Accounts are live (D1 `ipo-desk-accounts`, APAC, bound 29 Oct 2026; Saved pill green on the live site). Hari to do: switch
+the Access policy to the friends' emails and invite the first few, set the `NTFY_TOPIC` secret (alerts and "Wrong number?"
+pings are built and wait on it). Then: capital planner and calendar (reports 554 / 607) → Phase 4 ops (nightly D1 backup
+to R2, Access group, daily-active count) → alerts with deep links, weekly digest → the AI layer, last.

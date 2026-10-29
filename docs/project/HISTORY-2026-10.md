@@ -280,3 +280,11 @@ No service worker (the plan wanted no offline copy), so Chrome offers Install on
 `beforeinstallprompt` (developer.chrome.com/blog/update-install-criteria); the card shows the device's own steps instead
 of a button that cannot work. Verified in the preview: no console error on seven tabs and 34 sheets, phone width with
 no horizontal scroll, the Worker harness, the admin card.
+
+### 29 Oct, evening — merged and live
+
+PRs 3 (accounts), 4 (launch polish) and 5 (trust strip, built in its own session on Sonnet from a brief) were merged
+into main in order with merge commits, each retargeted to main after the one below it landed. Hari created the D1
+database in the dashboard (APAC) and gave the id in chat; it sits in `wrangler.toml` in plain sight, the deploy
+accepted it without a token change, and Hari confirmed the Saved pill green on ipodesk.dev. The Access policy is
+still Everyone and `NTFY_TOPIC` is still unset.
