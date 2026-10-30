@@ -178,6 +178,22 @@ def _cutoff(days: int) -> str:
     return (now_ist().date() - dt.timedelta(days=days)).isoformat()
 
 
+# The hand-written notes in meta (db-era prose the collector carries forward and nothing refreshes). `notesAsOf` says
+# when they last changed: this run when any differs from prev's, else prev's own stamp, else absent — a document that
+# never recorded a change is read by the page as "old" (the footer folds the notes to an archive link). 30 Oct 2026.
+NOTE_KEYS = ("marketNotes", "newFindings", "quotaSourceNote")
+
+
+def stamp_notes(data: dict, prev: dict, t: dt.datetime) -> None:
+    meta, pm = data["meta"], prev.get("meta") or {}
+    if any(meta.get(k) != pm.get(k) for k in NOTE_KEYS):
+        meta["notesAsOf"] = t.isoformat()
+    elif pm.get("notesAsOf"):
+        meta["notesAsOf"] = pm["notesAsOf"]
+    else:
+        meta.pop("notesAsOf", None)
+
+
 def enforce_caps(data: dict) -> None:
     c = schema.CAPS
     data["meta"]["newFindings"] = (data["meta"].get("newFindings") or [])[: c["meta.newFindings"]]

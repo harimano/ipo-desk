@@ -112,9 +112,11 @@ async function refresh(reason) {
   } finally { busy = false; }
 }
 
-/* ---------- live.json: the five-minute loop's file, on the `live` branch. GitHub's API serves it fresh (raw.github…
-   caches for five minutes, so it is only the fallback). 60 unauthenticated calls an hour per visitor: one a minute
-   is inside that, and only in market hours with the tab in view. ---------- */
+/* ---------- live.json: the five-minute loop's file, on the `live` branch. The Worker serves it at /live.json (one upstream
+   fetch per 30 s for everyone; the last good copy when GitHub is down, header X-Live-Cache: stale). GitHub's API and
+   raw.github… stay as fallbacks for a build served without the Worker — the API allows 60 unauthenticated calls an hour
+   PER IP, and friends on a mobile carrier share one, so it was the first route only until 30 Oct 2026. ---------- */
+const LIVE_LOCAL = "/live.json";
 const LIVE_API = "https://api.github.com/repos/harimano/ipo-desk/contents/live.json?ref=live";
 const LIVE_RAW = "https://raw.githubusercontent.com/harimano/ipo-desk/live/live.json";
 let liveSeen = null;
@@ -122,8 +124,11 @@ function marketHours() { const n = new Date(Date.now() + (330 + new Date().getTi
 async function pollLive(force) {
   if (!window.__ipo || !window.__ipo.live || document.visibilityState !== "visible" || !(force || marketHours())) return;
   let L = null;
-  try { L = await getJson(LIVE_API, { headers: { Accept: "application/vnd.github.raw+json" }, cache: "no-store" }); }
-  catch (e) { try { L = await getJson(LIVE_RAW + "?t=" + Date.now(), { cache: "no-store" }); } catch (e2) { return; } }
+  try { L = await getJson(LIVE_LOCAL + "?t=" + Date.now(), { cache: "no-store" }); }
+  catch (e) {
+    try { L = await getJson(LIVE_API, { headers: { Accept: "application/vnd.github.raw+json" }, cache: "no-store" }); }
+    catch (e2) { try { L = await getJson(LIVE_RAW + "?t=" + Date.now(), { cache: "no-store" }); } catch (e3) { return; } }
+  }
   if (!L || !L.asOf || L.asOf === liveSeen) return;
   if ((Date.now() - new Date(L.asOf)) > 6 * 3600000) return;          // yesterday's file says nothing about today
   liveSeen = L.asOf; window.__ipo.live(L);

@@ -71,3 +71,15 @@ The token's email is also the key of each reader's own saved dashboard: `GET /ap
 `DELETE /api/state`, one D1 row per (email, part) — `SETUP.md` has the database step, the Access allow-list and the
 local test route; `test/` has the cases (`node --test` in `ci.yml`, or `/__worker/test/harness.html` on the preview).
 Nothing in a request names the reader: the Worker takes the email from the token it verified, only ever lower-cased.
+
+## `/live.json` (30 Oct 2026)
+
+The five-minute book (`collector/live.py`, the `live` branch) used to be read by every browser from `api.github.com`,
+which allows 60 unauthenticated calls an hour **per IP** — and friends on Jio / Airtel mobile share one (carrier-grade
+NAT), so a few open tabs would have answered 403 and the live figures would have stopped silently. The Worker now
+serves `/live.json` itself, behind the same gate: one upstream fetch per 30 s for everyone (`raw.githubusercontent.com`,
+no token; with the optional secret `LIVE_GITHUB_TOKEN` — a token that can only read public repos — it reads GitHub's
+API instead, no CDN delay), kept in the Cache API under one key plus a day-long copy. When GitHub fails the last good
+copy is served with `X-Live-Cache: stale` and `X-Live-Stale: <why>`; with no copy at all, 502. `boot.js` asks
+`/live.json` first and keeps the API and raw routes as fallbacks for a build served without the Worker. `scripts/preview.py`
+emulates the route; `test/cases.mjs` fires 100 requests in a burst and counts one upstream call.

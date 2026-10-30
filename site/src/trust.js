@@ -7,7 +7,14 @@
    same text shows on hover (title) and on tap (the popover below; touch screens do not show titles). */
 const SRC_LBL = { investorgain: "InvestorGain", nse: "NSE", bse: "BSE", narada: "Narada", nsearchives: "NSE archives", chittorgarh: "Chittorgarh", angelone: "Angel One",
   yahoo: "Yahoo", sebi: "SEBI", nse_ann: "NSE announcements", bse_ann: "BSE announcements", rss: "news feeds", computed: "computed from the document", trendlyne: "Trendlyne" };
+const SRC_INTERNAL = new Set(["computed", "collector", "none"]);   // ids that name the collector itself, not a source: the footer never lists them
 const srcName = k => SRC_LBL[String(k).split("-")[0]] || String(k);
+// "angelone:down, yahoo:ok" -> ok [yahoo], down [angelone]; "narada+nse:ok" -> ok [narada, nse]; a method with no status word (the run line) -> nothing
+function srcIds(c) {
+  const ok = [], down = [];
+  String(c.method || "").split(",").forEach(t => { const m = /^\s*([\w+.-]+):(\w+)\s*$/.exec(t); if (!m) return; (m[2] === "ok" ? ok : down).push(...m[1].split("+")); });
+  return { ok, down };
+}
 // feeds each screen depends on: [integrity area, label]
 const FEEDS = {
   today: [["calendar", "Calendar"], ["gmp", "GMP"], ["subscription", "Books"], ["flows", "FII / DII"], ["filings", "Quota radar"]],
@@ -19,12 +26,8 @@ const FEEDS = {
   book: [["parents", "Parent prices"], ["listings", "Listing prices"]],
 };
 const checkOf = area => ((DATA.integrity || {}).checks || []).find(c => c.area === area);
-// "angelone:down, yahoo:ok" -> answered by Yahoo, Angel One down. "narada+nse:ok" -> Narada + NSE.
-function answeredBy(c) {
-  const ok = [], down = [];
-  String(c.method || "").split(",").forEach(t => { const m = /^\s*([\w+.-]+):(\w+)\s*$/.exec(t); if (!m) return; (m[2] === "ok" ? ok : down).push(...m[1].split("+")); });
-  return { ok: [...new Set(ok.map(srcName))], down: [...new Set(down.map(srcName))] };
-}
+// the same, as readable names: answered by Yahoo, Angel One down
+function answeredBy(c) { const { ok, down } = srcIds(c); return { ok: [...new Set(ok.map(srcName))], down: [...new Set(down.map(srcName))] }; }
 const feedAt = c => c.lastOk || (c.carried ? c.asOf : (DATA.integrity || {}).asOf || c.asOf);
 const feedWhen = c => { const t = feedAt(c);
   return hasTime(t) ? istClock(t) : /^\d{4}-\d{2}-\d{2}$/.test(String(t || "")) ? fmtD(t) : ""; };

@@ -5,9 +5,11 @@
 // What must hold: no token / bad signature / wrong audience / expired -> 401 and not a byte served; each reader's
 // parts live under their verified email only; an unknown part is 400, an oversize one 413; DELETE empties one reader;
 // no D1 binding -> 503, the page is still served.
+// /live.json: behind the gate; one upstream fetch per 30 s however many readers ask (a burst of 100 shares one call);
+// when GitHub fails the last good copy is served, marked stale; with no copy at all, 502; a token means GitHub's API.
 // Daily active: a page load writes one (day, hash) row — never the email — only with DAU_SALT; /admin/retention.json
 // turns the rows into 8 weeks of counts and is served to the admin alone.
-import worker, { verify, handleApi, emailHash, retentionWeeks } from "../worker.js";
+import worker, { verify, handleApi, emailHash, retentionWeeks, liveState } from "../worker.js";
 
 const TEAM = "example.cloudflareaccess.com", AUD = "aud-for-tests";
 const enc = s => btoa(String.fromCharCode(...new TextEncoder().encode(s))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
@@ -52,13 +54,28 @@ function fakeD1() {
   return { prepare: stmt, _rows: rows, _reports: reports, _daily: daily, get _writes() { return writes; } };
 }
 
+// The Cache API in memory (Node has none): entries live for the stored response's max-age, as on Cloudflare
+function fakeCaches() {
+  const store = new Map();                      // url -> { body, ct, exp }
+  const dflt = {
+    put: async (req, res) => { const m = /max-age=(\d+)/.exec(res.headers.get("Cache-Control") || ""); store.set(req.url, { body: await res.text(), ct: res.headers.get("Content-Type"), exp: Date.now() + (m ? +m[1] * 1000 : 0) }); },
+    match: async req => { const e = store.get(req.url); return e && e.exp > Date.now() ? new Response(e.body, { headers: { "Content-Type": e.ct } }) : undefined; },
+  };
+  return { default: dflt, _store: store };
+}
+
 export async function runCases() {
   const out = [], ok = (cond, msg) => out.push({ ok: !!cond, msg });
   const s = await signer();
   const realFetch = globalThis.fetch;
   const pings = [];
+  const live = { body: JSON.stringify({ asOf: "2026-10-30T10:05:00+05:30", rows: [{ name: "Wiscon Industries", total: 3.2 }] }), raw: 0, api: 0, fail: false, auth: null };
+  const hadCaches = "caches" in globalThis, realCaches = globalThis.caches, fc = fakeCaches();
+  globalThis.caches = fc;
   globalThis.fetch = async (url, init) => {
     if (String(url) === `https://${TEAM}/cdn-cgi/access/certs`) return new Response(JSON.stringify({ keys: [s.jwk] }), { headers: { "Content-Type": "application/json" } });
+    if (String(url).startsWith("https://raw.githubusercontent.com/harimano/ipo-desk/live/live.json")) { live.raw++; return live.fail ? new Response("nope", { status: 503 }) : new Response(live.body, { status: 200 }); }
+    if (String(url).startsWith("https://api.github.com/repos/harimano/ipo-desk/contents/live.json")) { live.api++; live.auth = init && init.headers && init.headers.Authorization; return new Response(live.body, { status: 200 }); }
     if (String(url).startsWith("https://ntfy.sh/")) { pings.push({ url: String(url), title: init && init.headers && init.headers.Title }); return new Response("{}", { status: 200 }); }
     throw new Error("unexpected fetch " + url);
   };
@@ -200,6 +217,39 @@ export async function runCases() {
     // handleApi with a token that has no email claim
     r = await handleApi(new Request("https://ipodesk.dev/api/state"), env, {}, new URL("https://ipodesk.dev/api/state"));
     ok(r.status === 401, "no email claim -> 401");
-  } finally { globalThis.fetch = realFetch; }
+
+    // /live.json: the gate, one upstream call for a burst, the stale copy, 502 with nothing, the token path
+    liveState.last = null; liveState.inflight = null; fc._store.clear();
+    r = await call("/live.json");
+    ok(r.status === 401 && live.raw === 0, "live.json without a token -> 401, nothing fetched");
+    const burst = await Promise.all(Array.from({ length: 100 }, () => call("/live.json?t=" + Math.random(), {}, alice)));
+    const bodies = await Promise.all(burst.map(x => x.text()));
+    ok(burst.every(x => x.status === 200) && !burst.some(x => x.status === 403), `100 requests in a burst: all 200, no 403 (statuses ${[...new Set(burst.map(x => x.status))].join(",")})`);
+    ok(live.raw === 1, `the burst cost ONE upstream call (got ${live.raw})`);
+    ok(bodies.every(b => b === live.body) && JSON.parse(bodies[0]).asOf === "2026-10-30T10:05:00+05:30", "every answer is the live file, as JSON");
+    ok(burst.some(x => x.headers.get("X-Live-Cache") === "miss") && burst.every(x => ["miss", "hit"].includes(x.headers.get("X-Live-Cache"))), "answers are marked miss / hit");
+    ok(fc._store.has("https://ipodesk.dev/live.json") && fc._store.has("https://ipodesk.dev/live.json?keep"), "the body is in the Cache API under the 30 s key and the day-long key");
+    liveState.last = null;                                                      // another isolate: the Cache API still answers
+    r = await call("/live.json", {}, alice);
+    ok(r.status === 200 && r.headers.get("X-Live-Cache") === "hit" && live.raw === 1, "a fresh isolate within 30 s is a cache hit, no upstream call");
+    live.fail = true; liveState.last = null; fc._store.get("https://ipodesk.dev/live.json").exp = 0;   // 30 s gone, GitHub down
+    r = await call("/live.json", {}, alice);
+    ok(r.status === 200 && r.headers.get("X-Live-Cache") === "stale" && /503/.test(r.headers.get("X-Live-Stale") || "") && (await r.text()) === live.body, `GitHub down -> the last good copy, marked stale (got ${r.status} ${r.headers.get("X-Live-Cache")} '${r.headers.get("X-Live-Stale")}')`);
+    ok(live.raw === 2, "the failed call was tried once");
+    liveState.last = null; fc._store.clear();
+    r = await call("/live.json", {}, alice);
+    ok(r.status === 502 && /unavailable/.test((await r.json()).error || ""), "GitHub down and no copy anywhere -> 502");
+    live.fail = false; liveState.last = { body: live.body, at: Date.now() - 31000 };   // memory copy older than 30 s
+    r = await call("/live.json", {}, alice);
+    ok(r.status === 200 && r.headers.get("X-Live-Cache") === "miss" && live.raw === 4, `a copy older than 30 s is refetched (raw calls ${live.raw})`);
+    liveState.last = null; fc._store.clear();
+    r = await call("/live.json", {}, alice);                                  // the API path, with a token
+    r = await worker.fetch(new Request("https://ipodesk.dev/live.json", { headers: { "Cf-Access-Jwt-Assertion": alice } }), Object.assign({}, env, { LIVE_GITHUB_TOKEN: "ghp_test\n" }), ctx);
+    ok(r.status === 200 && live.api === 0, "a token does not matter while the cache is fresh");
+    liveState.last = null; fc._store.clear();
+    r = await worker.fetch(new Request("https://ipodesk.dev/live.json", { headers: { "Cf-Access-Jwt-Assertion": alice } }), Object.assign({}, env, { LIVE_GITHUB_TOKEN: "ghp_test\n" }), ctx);
+    ok(r.status === 200 && live.api === 1 && live.auth === "Bearer ghp_test", `with LIVE_GITHUB_TOKEN the API is read, the token trimmed (api calls ${live.api}, auth '${live.auth}')`);
+    ok(!(await r.text()).includes("ghp_test"), "the token is never in an answer");
+  } finally { globalThis.fetch = realFetch; if (hadCaches) globalThis.caches = realCaches; else delete globalThis.caches; }
   return { passed: out.filter(o => o.ok).length, failed: out.filter(o => !o.ok), all: out };
 }

@@ -30,7 +30,9 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
   left, so Sunday's 18:13 full collect dispatches it too and the workflow skips if one already went out that day.
 - The site: `ops/site-worker/` serves `_site` from a Worker behind Cloudflare Access (email one-time PIN, policy
   Everyone — the link is the key); `deploy.yml` builds and deploys it after every collect and push. Its README has the
-  setup, the Cloudflare clicks and why the repo stays public. `/admin` (`site/admin/`, Hari only via `ACCESS_ADMIN_EMAIL`)
+  setup, the Cloudflare clicks and why the repo stays public. It also serves `/live.json` (30 Oct 2026: one upstream fetch
+  per 30 s for everyone, the last good copy when GitHub fails — GitHub's API allows 60 calls an hour PER IP and mobile
+  friends share one); `boot.js` asks it first, the API and raw routes are fallbacks. `/admin` (`site/admin/`, Hari only via `ACCESS_ADMIN_EMAIL`)
   is the ops page: verdict line, runs, freshness, diff vs yesterday, data audit, the smoke test as a button — its facts come
   from `scripts/audit.py`, written as `admin/audit.json` by every build; the browser adds only time-since and GitHub's public runs.
 - Hari's Mac: no Homebrew, no Node. `uv` and `gh` in `~/.local/bin`; `.venv/bin/python -m collector`, `.venv/bin/pytest`.
@@ -191,6 +193,9 @@ first file `nightly/2026-10-29.sql` confirmed; the deploy token needed **D1 · E
 restores by id, never the live one by default; `daily_active` rows (salted hash, secret `DAU_SALT`, set) feed `/admin` →
 Readers by week; `SETUP.md` §1c / §4 / §5 have the bucket clicks, rollback and one-reader removal. Phase 5 verification,
 alerts with deep links (PR 10) and the weekly digest (PR 11, Sunday 18:30 IST; first real send 1 Nov 2026) shipped 29 Oct.
-Hari reads on an iPhone: ntfy gets plain text with Click and action buttons, never Markdown (PR 12). Hari to do: invite
-the first friends. Open: the SEBI filings source raises SourceChanged (seen on /admin 29 Oct; a survey, not a guess).
-Then: the AI layer, last — design first, from `docs/AI-AND-PREDICTION.md` §3.
+Hari reads on an iPhone: ntfy gets plain text with Click and action buttons, never Markdown (PR 12). Hari to do: merge
+`pre-invite` (30 Oct: `/live.json` through the Worker, the footer tidy), then from a phone on mobile data confirm the live
+book still moves; delete the dead branches (commands in that PR; `revert-friends-ready` must never be merged); then invite
+the first friends. SEBI's 29 Oct refusal was transient (ten full runs read, one blip; live probe 30 Oct: 25 rows a register).
+Optional: the `LIVE_GITHUB_TOKEN` secret (read-only) takes the CDN delay off `/live.json`. Then: the AI layer, last — design
+first, from `docs/AI-AND-PREDICTION.md` §3.

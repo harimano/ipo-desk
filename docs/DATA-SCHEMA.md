@@ -1,6 +1,7 @@
 # DATA schema (keep exactly; extra keys are ignored by the page)
 
-meta: {asOf ISO+05:30, label "2 Sep 2026, 18:17 IST", quotaSourceNote, unresolved[], awaitingData[], newFindings[], marketNotes[]}
+meta: {asOf ISO+05:30, label "2 Sep 2026, 18:17 IST", quotaSourceNote, unresolved[], awaitingData[], newFindings[], marketNotes[],
+       notesAsOf (when quotaSourceNote / newFindings / marketNotes last changed; absent = never recorded, the page reads it as old)}
 quota[]: {name, parent, parentFull, ticker, bucket: approved|drhp|awaited|done|dropped, stage (short label), rank (0-6),
           stageDate, detail (<= 2 sentences, factual), sizeCr, quota: true|false|null, quotaPct, recordDate, listingDate,
           listingGainPct, lapse, expectedWindow, confidence: high|medium|low, sources[<=4], isNew}

@@ -32,6 +32,8 @@ STORE: dict[str, dict[str, tuple[str, str]]] = {}      # email -> part -> (body,
 REPORTS: list[dict] = []                               # "Wrong number?" reports, newest last
 DAILY: set[tuple[str, str]] = set()                    # (IST day, dev email): the Worker's daily_active, for /admin's card
 LOCK = threading.Lock()
+LIVE_RAW = "https://raw.githubusercontent.com/harimano/ipo-desk/live/live.json"
+LIVE: dict = {"body": None, "at": 0.0}                 # the Worker's /live.json copy: at most one GitHub call every 30 s
 
 
 def now() -> str:
@@ -133,6 +135,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(raw)
             return
+        if path == "/live.json":
+            return self.live_json()
         if path == "/admin/reports.json":
             return self.send_json({"reports": list(reversed(REPORTS))})
         if path == "/admin/retention.json":
@@ -145,6 +149,37 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         if path.startswith("/api"):
             return self.api("GET", path.rstrip("/") or "/api", b"")
         return super().do_GET()
+
+    def live_json(self):
+        """worker.js liveJson, in miniature: the live branch's file fetched at most every 30 s for everyone, the last copy
+        when GitHub fails (X-Live-Cache: stale), 502 with nothing to serve. No gate here: the dev cookie is the gate."""
+        import time
+        import urllib.request
+        how, why = "hit", ""
+        with LOCK:
+            fresh = LIVE["body"] is not None and time.time() - LIVE["at"] < 30
+        if not fresh:
+            try:
+                with urllib.request.urlopen(f"{LIVE_RAW}?t={int(time.time() // 30)}", timeout=10) as r:
+                    body = r.read()
+                json.loads(body)
+                with LOCK:
+                    LIVE.update(body=body, at=time.time())
+                how = "miss"
+            except Exception as e:  # any failure means "serve the last copy"
+                if LIVE["body"] is None:
+                    return self.send_json({"error": f"live.json unavailable: {e}"}, 502)
+                how, why = "stale", str(e)[:120]
+        raw = LIVE["body"]
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("X-Live-Cache", how)
+        if why:
+            self.send_header("X-Live-Stale", why)
+        self.send_header("Content-Length", str(len(raw)))
+        self.end_headers()
+        self.wfile.write(raw)
 
     def do_GET_redirect(self, to):
         self.send_response(302)

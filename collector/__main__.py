@@ -116,6 +116,7 @@ def main(argv=None) -> int:
     t = assemble.now_ist()
     data["meta"]["unresolved"] = assemble.merge_unresolved(prev["meta"].get("unresolved", []), results)
     assemble.enforce_caps(data)
+    assemble.stamp_notes(data, prev, t)
     assemble.stamp(data, results, t, research_notes, session.calls, time.monotonic() - t_start)
 
     if a.dry_run:
