@@ -422,3 +422,46 @@ URL, and up to three `view` action buttons (`Actions` header, every platform) �
 an alert's are the first three lines' links labelled by the row name. Telegram keeps the HTML links. The Markdown body
 is still built (an Android reader could have it) but `notify.send` is called without it.
 
+## 30 Oct 2026 — pre-invite: the live file through the Worker, the footer, SEBI, the branches (branch `pre-invite`)
+
+Four things before friends get the link.
+
+**The live book is served by the Worker.** `boot.js` read `live.json` straight from `api.github.com`, which allows 60
+unauthenticated calls an hour *per IP*. Friends on Jio / Airtel mobile share one address (carrier-grade NAT): a few open
+tabs polling once a minute would have hit 403 and the live figures would have stopped with no word on the page — the
+pill, the book stamp and the EV inputs simply freezing. Now `worker.js` answers `/live.json` behind the same Access
+check: one upstream fetch per 30 s for everyone (raw.githubusercontent.com, no token; the optional Worker secret
+`LIVE_GITHUB_TOKEN` switches it to GitHub's API, which has no CDN delay — `deploy.yml` uploads it when the GitHub secret
+exists, the same way as `NTFY_TOPIC`), the answer in this isolate's memory and in the Cache API under one key plus a
+day-long copy, concurrent misses sharing one call. When GitHub fails the last good copy goes out with `X-Live-Cache:
+stale` and `X-Live-Stale: <why>`; with nothing at all, 502. `boot.js` asks `/live.json` first and keeps the API and raw
+routes behind it. `scripts/preview.py` emulates the route (no in-flight dedupe: a cold burst of 100 there cost 6 upstream
+calls, the Worker's test counts one). Test: `test/cases.mjs` fires 100 requests in a burst through the gate — all 200,
+one upstream call, then the stale copy, then 502, then the token path. Run locally with `uvx --from nodejs-wheel node
+--test ops/site-worker/test/api.test.mjs` (a Node binary from PyPI; no Homebrew, nothing installed). The 100-request
+burst against the deployed Worker is for after the merge: the preview showed 100 × 200 and the book stamp moving to the
+live file's time.
+
+**The footer.** Source ids were mapped to names in two places — a six-entry map inside `renderFooter` and `SRC_LBL` in
+`trust.js` — and the footer's own split took the first id of a method string, so a run whose record read
+`bse_ann:changed, sebi:changed, nse_ann:ok` listed *bse_ann* as a source. Now one table (`SRC_LBL`), one parser
+(`srcIds`, shared with the trust strip), only ids that answered `ok`, and the collector's own ids (`computed`,
+`collector`) never listed. The "N hand-written notes carried from earlier runs" line was September's db-era prose
+re-announced on every load; the notes carry no date, so the collector now stamps `meta.notesAsOf` when any of
+`marketNotes / newFindings / quotaSourceNote` differs from the previous document (`assemble.stamp_notes`), and the footer
+shows the sentence only while that is under seven days old — otherwise a folded "Collector notes archive" link, the
+notes still inside it. A document that never recorded a change has no stamp and reads as old, which it is.
+
+**SEBI.** The last ten full runs (25–30 Oct): nine `filings ok sebi+nse_ann`, one — 29 Oct 18:13 IST — with SEBI's
+ajax register answering `RemoteProtocolError` on every attempt, both registers (the refusal PR 14 already wrote up as
+transient). From this Mac through the collector's own Session on 30 Oct: DRHP and RHP registers both 25 rows, newest
+29 Oct. The warning that does recur is `bse_ann refused (changed): HTTP 403` — the known runner block, carried by NSE's
+announcements. No parser change.
+
+**Branches.** Every `claude/*` branch, `friends-ready-v2` and `launch-polish` are fully in main (zero commits ahead).
+`friends-ready` has seven commits not in main by patch id, but its work reached main as `friends-ready-v2` (the diff of
+its files against main is the later /admin work, not the accounts). `revert-friends-ready` is five commits that would
+*remove* the accounts feature from main; never merge it. Local branches `audit-known`, `cap-lazy`, `docs-*`, `grep-names`,
+`market-clock`, `show-main`, `worker-ntfy-trim` all sit on origin/main exactly. Nothing deleted: the commands are in the
+PR.
+

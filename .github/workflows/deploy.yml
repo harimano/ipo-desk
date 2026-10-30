@@ -127,3 +127,12 @@ jobs:
           DAU_SALT: ${{ secrets.DAU_SALT }}
         if: env.DAU_SALT != ''
         run: printf '%s' "$DAU_SALT" | npx --yes wrangler@4.154.0 secret put DAU_SALT
+
+      - name: Hand the Worker a GitHub read token for /live.json (only when LIVE_GITHUB_TOKEN exists; else raw.githubusercontent.com)
+        working-directory: ops/site-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          LIVE_GITHUB_TOKEN: ${{ secrets.LIVE_GITHUB_TOKEN }}
+        if: env.LIVE_GITHUB_TOKEN != ''
+        run: printf '%s' "$LIVE_GITHUB_TOKEN" | npx --yes wrangler@4.154.0 secret put LIVE_GITHUB_TOKEN

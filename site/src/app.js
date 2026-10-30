@@ -878,11 +878,17 @@ function stampFor(id) {
 function renderStamps() { $$("section.screen").forEach(sec => { const id = sec.id.replace(/^s-/, ""); let el = sec.querySelector(":scope > .stamp"); if (!el) { el = document.createElement("div"); el.className = "stamp"; sec.insertBefore(el, sec.firstChild); } el.innerHTML = stampFor(id); }); renderTrust(); }
 function renderFooter() {
   const M = DATA.meta || {}, I = DATA.integrity || {}, checks = I.checks || [];
-  const src = [...new Set(checks.filter(c => c.status === "ok" && c.method).flatMap(c => String(c.method).split(":")[0].split("+")))].filter(x => x && !/^data\//.test(x) && x !== "none" && x !== "collector").map(x => ({ investorgain: "InvestorGain", nse: "NSE", bse: "BSE", narada: "Narada", nsearchives: "NSE archives", chittorgarh: "Chittorgarh" })[x] || x);
+  // the sources that answered this run — only the ones that did (a refused fallback is not a source), named by the one
+  // label table SRC_LBL (trust.js); the collector's own ids (computed, collector) are not sources and are not listed
+  const src = [...new Set(checks.filter(c => c.status === "ok").flatMap(c => srcIds(c).ok).filter(id => !SRC_INTERNAL.has(id)).map(srcName))];
   const notes = [...(M.marketNotes || []), ...(M.newFindings || []), ...(M.quotaSourceNote ? [M.quotaSourceNote] : [])];
   const unres = M.unresolved || [];
+  // the notes are db-era prose nothing refreshes: the "N hand-written notes" line shows only while one is under a week old
+  // (meta.notesAsOf, stamped by the collector when they last changed — 30 Oct 2026); otherwise just the archive link, folded
+  const notesFresh = !!M.notesAsOf && Date.now() - new Date(M.notesAsOf) < 7 * 864e5;
+  const notesSum = notesFresh ? `Collector notes archive · ${notes.length} hand-written note${notes.length > 1 ? "s" : ""} carried from earlier runs, not refreshed` : "Collector notes archive";
   $("#foot").innerHTML = `<div>Last collector run <b>${esc(M.label || istClock(M.asOf))}</b>${src.length ? ` · sources this run: ${esc(src.join(", "))}` : ""}${unres.length ? ` · <details class="inl"><summary>unverified this cycle: ${unres.length}</summary><ul>${unres.map(u => `<li>${esc(u)}</li>`).join("")}</ul></details>` : ""}</div>
-    ${notes.length ? `<details class="inl"><summary>Collector notes archive · ${notes.length} hand-written note${notes.length > 1 ? "s" : ""} carried from earlier runs, not refreshed</summary><ul>${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul></details>` : ""}
+    ${notes.length ? `<details class="inl"><summary>${notesSum}</summary><ul>${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul></details>` : ""}
     <div>Aggregated public data and analytical synthesis with both sides shown — not investment advice. Nothing here places orders. Press <b>?</b> for keys · <a href="#" data-intro-open>How to read this desk</a> · <a href="#" data-install-open>Add to home screen</a></div>`;
 }
 function renderAll() { renderTape(); renderToday(); renderWeek(); renderPlanner(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); renderStamps(); }

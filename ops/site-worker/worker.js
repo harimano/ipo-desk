@@ -15,6 +15,8 @@
 //   CF_ACCOUNT_ID         the account the token reads (from the existing GitHub secret CLOUDFLARE_ACCOUNT_ID)
 //   NTFY_TOPIC            (optional) the ntfy.sh topic a reader's "Wrong number?" report is pushed to — the same secret
 //                         the collector's alerts use; absent, reports are only listed on /admin
+//   LIVE_GITHUB_TOKEN     (optional) a GitHub token with public-repo read only — /live.json then reads the file through GitHub's
+//                         API (no CDN delay) instead of raw.githubusercontent.com; see liveJson below
 //   DAU_SALT              (optional) the salt behind daily_active's email hashes (/admin "Readers by week"); absent,
 //                         no daily row is written and the card says so
 //
@@ -300,6 +302,61 @@ export async function handleApi(request, env, claims, url, ctx) {
   return json({ error: "no such API route" }, path.startsWith("/api/state") || path === "/api/report" ? 405 : 404);
 }
 
+// ---- /live.json: the five-minute loop's file (collector/live.py, the `live` branch), one upstream fetch per 30 s for everyone
+// boot.js read it from api.github.com, which allows 60 unauthenticated calls an hour PER IP: friends on Jio / Airtel mobile
+// share a carrier-grade NAT address, so a few open tabs would hit 403 and the live figures would stop without a word
+// (30 Oct 2026). Now the Worker fetches it — raw.githubusercontent.com with no token, or GitHub's API when the Worker
+// secret LIVE_GITHUB_TOKEN exists (deploy.yml uploads it from the GitHub secret of that name; 5,000 calls an hour, no CDN
+// delay) — and keeps the answer LIVE_TTL_S seconds: in this isolate's memory, and in the Cache API under one key for
+// everyone (the Access cookie is not part of the key). A copy is kept a day beside it: when upstream fails, the last good
+// body is served with X-Live-Cache: stale and X-Live-Stale saying why; with nothing to serve, 502. Concurrent misses
+// share one upstream call. The Cache API is per data centre, so "last good" is best-effort; the memory copy backs it.
+const LIVE_RAW = "https://raw.githubusercontent.com/harimano/ipo-desk/live/live.json";
+const LIVE_API = "https://api.github.com/repos/harimano/ipo-desk/contents/live.json?ref=live";
+const LIVE_TTL_S = 30, LIVE_KEEP_S = 86400;
+export const liveState = { last: null, inflight: null };     // last: { body, at }; exported so the tests can reset it
+async function fetchLiveUpstream(env) {
+  const token = String(env.LIVE_GITHUB_TOKEN || "").trim();
+  const r = token
+    ? await fetch(LIVE_API, { cache: "no-store", headers: { Accept: "application/vnd.github.raw+json", Authorization: `Bearer ${token}`, "User-Agent": "ipo-desk-site" } })
+    : await fetch(LIVE_RAW + "?t=" + Math.floor(Date.now() / (LIVE_TTL_S * 1000)), { cache: "no-store" });
+  if (!r.ok) throw new Error(`upstream answered ${r.status}`);
+  const body = await r.text();
+  JSON.parse(body);                                   // not JSON is not live.json — throws into the stale path
+  return body;
+}
+const liveResponse = (body, how, why) => new Response(body, { status: 200, headers: Object.assign(
+  { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", "X-Live-Cache": how }, why ? { "X-Live-Stale": why } : {}) });
+async function liveJson(request, env, ctx) {
+  const now = Date.now();
+  if (liveState.last && now - liveState.last.at < LIVE_TTL_S * 1000) return liveResponse(liveState.last.body, "hit");
+  const cache = globalThis.caches && caches.default ? caches.default : null;
+  const origin = new URL(request.url).origin;
+  const freshKey = new Request(origin + "/live.json"), keepKey = new Request(origin + "/live.json?keep");
+  if (cache) {
+    const hit = await cache.match(freshKey).catch(() => null);
+    if (hit) { const body = await hit.text(); liveState.last = { body, at: now }; return liveResponse(body, "hit"); }
+  }
+  let body;
+  try {
+    if (!liveState.inflight) liveState.inflight = fetchLiveUpstream(env).finally(() => { liveState.inflight = null; });
+    body = await liveState.inflight;
+  } catch (e) {
+    const why = (e && e.message) || "upstream failed";
+    let stale = liveState.last ? liveState.last.body : null;
+    if (!stale && cache) { const old = await cache.match(keepKey).catch(() => null); if (old) stale = await old.text(); }
+    if (!stale) return json({ error: "live.json unavailable: " + why }, 502);
+    return liveResponse(stale, "stale", why);
+  }
+  liveState.last = { body, at: Date.now() };
+  if (cache) {
+    const put = ttl => cache.put(ttl === LIVE_TTL_S ? freshKey : keepKey, new Response(body, { headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": `public, max-age=${ttl}` } }));
+    const p = Promise.all([put(LIVE_TTL_S), put(LIVE_KEEP_S)]).catch(() => {});
+    if (ctx && ctx.waitUntil) ctx.waitUntil(p); else await p;
+  }
+  return liveResponse(body, "miss");
+}
+
 const json = (body, status) => new Response(JSON.stringify(body), { status: status || 200, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } });
 
 export default {
@@ -318,6 +375,7 @@ export default {
     const url = new URL(request.url);
     if (url.pathname === "/logout") return Response.redirect(`https://${env.TEAM_DOMAIN}/cdn-cgi/access/logout`, 302);
     if (url.pathname === "/whoami") return text(claims.email || "(no email claim)", 200);
+    if (url.pathname === "/live.json") { try { return await liveJson(request, env, ctx); } catch (e) { return json({ error: "live.json failed: " + (e && e.message) }, 500); } }
     if (url.pathname === "/api" || url.pathname.startsWith("/api/")) {
       try { return await handleApi(request, env, claims, url, ctx); }
       catch (e) { return json({ error: "state store failed: " + (e && e.message) }, 500); }
