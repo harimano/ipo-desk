@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-02T06:45:56+05:30",
+  "asOf": "2026-11-02T12:38:40+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "2 Nov 2026, 06:45 IST",
+  "label": "2 Nov 2026, 12:38 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -41,8 +41,7 @@
   "unresolved": [
    "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
    "[gmp] gmp: no grey-market print found for open issue Antala Industries",
-   "[gmp] gmp: no grey-market print found for open issue Vectras Enprocon",
-   "[subscription] subscription missing for Vectras Enprocon, Vedant Poly Fabs — check NSE/BSE ids on the row"
+   "[gmp] gmp: no grey-market print found for open issue Vectras Enprocon"
   ]
  },
  "expected": [
@@ -1794,7 +1793,7 @@
    "ofsCr": 1200.0,
    "gmp": 54.0,
    "gmpPct": 3.24,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 13.8,
     "nii": 4.81,
@@ -2079,7 +2078,7 @@
    "ofsCr": 517.53,
    "gmp": 26.0,
    "gmpPct": 7.88,
-   "gmpTrend": "flat",
+   "gmpTrend": "up",
    "sub": {
     "qib": 18.81,
     "nii": 12.81,
@@ -2353,11 +2352,11 @@
    "gmpPct": 10.98,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 6.56,
-    "nii": 1.8,
-    "retail": 3.02,
-    "total": 3.78,
-    "asOf": "2026-10-30T17:03:00+05:30",
+    "qib": 9.87,
+    "nii": 34.98,
+    "retail": 12.67,
+    "total": 16.61,
+    "asOf": "2026-11-02T12:36:00+05:30",
     "src": "nse"
    },
    "shareholderQuota": null,
@@ -2372,7 +2371,7 @@
    "igId": "1936",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-02T06:44:13+05:30",
+   "igFetchedAt": "2026-11-02T12:38:23+05:30",
    "refund": "2026-11-04",
    "sector": "Iron & Steel Products",
    "anchorShares": 6597500,
@@ -2415,41 +2414,41 @@
     },
     "asOf": "2026-10-29T23:40:00+05:30"
    },
-   "gmpAsOf": "2026-11-02T06:02:00+05:30",
+   "gmpAsOf": "2026-11-02T12:02:00+05:30",
    "gmpEve": 9.0,
-   "gmpEveAsOf": "2026-11-02T06:02:00+05:30",
+   "gmpEveAsOf": "2026-11-02T12:02:00+05:30",
    "apps": {
     "qib": {
      "reserved": 11162012,
-     "received": 12346,
+     "received": 117,
      "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 1314,
-     "received": 1471,
+     "received": 19992,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 876,
-     "received": 226,
+     "received": 6992,
      "reservedSrc": "rhp=narada"
     },
     "snii": {
      "reserved": 438,
-     "received": 1245,
+     "received": 13000,
      "reservedSrc": "rhp=narada"
     },
     "retail": {
      "reserved": 42930,
-     "received": 107927,
+     "received": 458360,
      "reservedSrc": "rhp"
     },
     "total": {
      "reserved": 11206257,
-     "received": 121744,
+     "received": 478469,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-02T06:44:32+05:30"
+    "asOf": "2026-11-02T12:38:38+05:30"
    },
    "apply": {
     "retail": {
@@ -3134,7 +3133,7 @@
    "bandLow": null,
    "bandHigh": 203.0,
    "lotSize": 600,
-   "issueSizeCr": 36.13,
+   "issueSizeCr": 38.05,
    "freshCr": 28.53,
    "ofsCr": 7.6,
    "gmp": 1.0,
@@ -3245,7 +3244,7 @@
    "bandLow": 76.0,
    "bandHigh": 80.0,
    "lotSize": 1600,
-   "issueSizeCr": 26.87,
+   "issueSizeCr": 28.29,
    "freshCr": 26.87,
    "ofsCr": null,
    "gmp": 5.0,
@@ -3379,12 +3378,12 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 66.72,
-    "nii": 0.37,
-    "bnii": 0.52,
-    "snii": 0.07,
-    "retail": 0.1,
-    "total": 0.87,
-    "asOf": "2026-11-02T06:44:32+05:30",
+    "nii": 0.48,
+    "bnii": 0.61,
+    "snii": 0.21,
+    "retail": 0.25,
+    "total": 1.01,
+    "asOf": "2026-11-02T12:38:38+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3399,7 +3398,7 @@
    "igId": "2375",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-02T06:44:13+05:30",
+   "igFetchedAt": "2026-11-02T12:38:23+05:30",
    "refund": "2026-11-04",
    "sector": "Packaging",
    "anchorShares": 0,
@@ -3431,11 +3430,11 @@
      "drhp": "https://www.bsesme.com/download/389949/SME_IPO%20InPrinciple/ANTALA_DRHP_20260814032436.zip",
      "rhp": "https://www.bseindia.com/downloads/ipo/RHP_281020261807.zip"
     },
-    "asOf": "2026-10-29T03:30:00+05:30"
+    "asOf": "2026-11-02T12:05:00+05:30"
    },
-   "gmpAsOf": "2026-11-02T06:01:00+05:30",
+   "gmpAsOf": "2026-11-02T11:58:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-11-02T06:01:00+05:30",
+   "gmpEveAsOf": "2026-11-02T11:58:00+05:30",
    "apps": {
     "qib": {
      "reserved": 18,
@@ -3444,30 +3443,30 @@
     },
     "nii": {
      "reserved": 85,
-     "received": 3,
+     "received": 8,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 57,
-     "received": 1,
+     "received": 3,
      "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 28,
-     "received": 2,
+     "received": 5,
      "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 690,
-     "received": 69,
+     "received": 171,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 793,
-     "received": 75,
+     "received": 182,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-02T06:44:32+05:30"
+    "asOf": "2026-11-02T12:38:38+05:30"
    },
    "apply": {
     "retail": {
@@ -3507,12 +3506,12 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 4.41,
-    "nii": 1.24,
-    "bnii": 1.81,
-    "snii": 0.1,
-    "retail": 0.25,
-    "total": 1.65,
-    "asOf": "2026-11-02T06:44:33+05:30",
+    "nii": 12.36,
+    "bnii": 13.33,
+    "snii": 10.41,
+    "retail": 10.57,
+    "total": 9.2,
+    "asOf": "2026-11-02T12:38:39+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3527,7 +3526,7 @@
    "igId": "2241",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-02T06:44:13+05:30",
+   "igFetchedAt": "2026-11-02T12:38:23+05:30",
    "refund": "2026-11-05",
    "sector": "Oil Exploration & Production",
    "anchorShares": 813600,
@@ -3560,11 +3559,11 @@
      "rhp": "https://nsearchives.nseindia.com/content/ipo/RHP_HGSINDIALT.zip",
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/hgs-ipo-anchor-book.pdf"
     },
-    "asOf": "2026-10-30T12:19:00+05:30"
+    "asOf": "2026-11-02T11:55:00+05:30"
    },
-   "gmpAsOf": "2026-11-02T06:02:00+05:30",
+   "gmpAsOf": "2026-11-02T12:02:00+05:30",
    "gmpEve": 30.0,
-   "gmpEveAsOf": "2026-11-02T06:02:00+05:30",
+   "gmpEveAsOf": "2026-11-02T12:02:00+05:30",
    "apply": {
     "retail": {
      "amount": 288000,
@@ -3590,30 +3589,30 @@
     },
     "nii": {
      "reserved": 115,
-     "received": 19,
+     "received": 722,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 77,
-     "received": 15,
+     "received": 346,
      "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 38,
-     "received": 4,
+     "received": 376,
      "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 400,
-     "received": 100,
+     "received": 4230,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 971,
-     "received": 122,
+     "received": 4955,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-02T06:44:33+05:30"
+    "asOf": "2026-11-02T12:38:39+05:30"
    }
   },
   {
@@ -3631,16 +3630,17 @@
    "issueSizeCr": 53.18,
    "freshCr": 53.18,
    "ofsCr": null,
-   "gmp": 5.0,
-   "gmpPct": 2.5,
+   "gmp": 10.0,
+   "gmpPct": 5.0,
    "gmpTrend": "flat",
    "sub": {
-    "nii": 2.27,
-    "bnii": 2.83,
-    "snii": 1.16,
-    "retail": 1.31,
-    "total": 1.14,
-    "asOf": "2026-11-02T06:44:33+05:30",
+    "qib": 0.52,
+    "nii": 2.71,
+    "bnii": 3.23,
+    "snii": 1.68,
+    "retail": 1.76,
+    "total": 1.61,
+    "asOf": "2026-11-02T12:38:39+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3655,7 +3655,7 @@
    "igId": "2371",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-02T06:44:13+05:30",
+   "igFetchedAt": "2026-11-02T12:38:23+05:30",
    "refund": "2026-11-05",
    "sector": "Cables - Electricals",
    "anchorShares": 795000,
@@ -3691,9 +3691,9 @@
     },
     "asOf": "2026-10-30T12:18:00+05:30"
    },
-   "gmpAsOf": "2026-11-02T06:02:00+05:30",
-   "gmpEve": 5.0,
-   "gmpEveAsOf": "2026-11-02T06:02:00+05:30",
+   "gmpAsOf": "2026-11-02T12:02:00+05:30",
+   "gmpEve": 10.0,
+   "gmpEveAsOf": "2026-11-02T12:02:00+05:30",
    "apply": {
     "retail": {
      "amount": 240000,
@@ -3714,35 +3714,35 @@
    "apps": {
     "qib": {
      "reserved": 885,
-     "received": 0,
+     "received": 1,
      "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 222,
-     "received": 180,
+     "received": 235,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 148,
-     "received": 99,
+     "received": 119,
      "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 74,
-     "received": 81,
+     "received": 116,
      "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 778,
-     "received": 1015,
+     "received": 1369,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 1885,
-     "received": 1195,
+     "received": 1605,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-02T06:44:33+05:30"
+    "asOf": "2026-11-02T12:38:39+05:30"
    }
   },
   {
@@ -3764,12 +3764,12 @@
    "gmpPct": 44.3,
    "gmpTrend": "flat",
    "sub": {
-    "nii": 4.29,
-    "bnii": 3.59,
-    "snii": 5.67,
-    "retail": 7.27,
-    "total": 4.56,
-    "asOf": "2026-11-02T06:44:33+05:30",
+    "nii": 47.42,
+    "bnii": 49.22,
+    "snii": 43.84,
+    "retail": 53.27,
+    "total": 36.86,
+    "asOf": "2026-11-02T12:38:39+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3784,7 +3784,7 @@
    "igId": "1965",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-02T06:44:13+05:30",
+   "igFetchedAt": "2026-11-02T12:38:23+05:30",
    "refund": "2026-11-05",
    "sector": "Other Industrial Products",
    "anchorShares": 1024000,
@@ -3820,9 +3820,9 @@
     },
     "asOf": "2026-10-30T23:41:00+05:30"
    },
-   "gmpAsOf": "2026-11-02T06:02:00+05:30",
+   "gmpAsOf": "2026-11-02T12:02:00+05:30",
    "gmpEve": 70.0,
-   "gmpEveAsOf": "2026-11-02T06:02:00+05:30",
+   "gmpEveAsOf": "2026-11-02T12:02:00+05:30",
    "apply": {
     "retail": {
      "amount": 252800,
@@ -3848,30 +3848,30 @@
     },
     "nii": {
      "reserved": 216,
-     "received": 563,
+     "received": 5452,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 144,
-     "received": 189,
+     "received": 2521,
      "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 72,
-     "received": 374,
+     "received": 2931,
      "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 750,
-     "received": 5455,
+     "received": 39956,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 1820,
-     "received": 6018,
+     "received": 45408,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-02T06:44:33+05:30"
+    "asOf": "2026-11-02T12:38:39+05:30"
    }
   },
   {
@@ -3893,11 +3893,13 @@
    "gmpPct": 0.0,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 1.42,
-    "nii": 1.3,
-    "retail": 1.03,
-    "total": 1.2,
-    "asOf": "2026-10-30T17:07:00+05:30"
+    "nii": 0.7,
+    "bnii": 0.83,
+    "snii": 0.43,
+    "retail": 0.04,
+    "total": 0.3,
+    "asOf": "2026-11-02T12:38:40+05:30",
+    "src": "narada"
    },
    "shareholderQuota": null,
    "listingPrice": null,
@@ -3911,7 +3913,7 @@
    "igId": "1998",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-02T06:44:13+05:30",
+   "igFetchedAt": "2026-11-02T12:38:23+05:30",
    "refund": "2026-11-05",
    "sector": "Civil Construction",
    "anchorShares": 1438800,
@@ -3947,9 +3949,9 @@
     },
     "asOf": "2026-10-30T12:17:00+05:30"
    },
-   "gmpAsOf": "2026-11-02T05:57:00+05:30",
+   "gmpAsOf": "2026-11-02T12:02:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-11-02T05:57:00+05:30",
+   "gmpEveAsOf": "2026-11-02T12:02:00+05:30",
    "apply": {
     "retail": {
      "amount": 252000,
@@ -3966,6 +3968,39 @@
      "shares": 3600,
      "lots": 3
     }
+   },
+   "apps": {
+    "qib": {
+     "reserved": 57,
+     "received": 0,
+     "reservedSrc": "narada"
+    },
+    "nii": {
+     "reserved": 628,
+     "received": 44,
+     "reservedSrc": "narada"
+    },
+    "bnii": {
+     "reserved": 419,
+     "received": 9,
+     "reservedSrc": "narada"
+    },
+    "snii": {
+     "reserved": 209,
+     "received": 35,
+     "reservedSrc": "narada"
+    },
+    "retail": {
+     "reserved": 1415,
+     "received": 54,
+     "reservedSrc": "narada"
+    },
+    "total": {
+     "reserved": 2100,
+     "received": 98,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-11-02T12:38:40+05:30"
    }
   },
   {
@@ -3985,8 +4020,16 @@
    "ofsCr": 5.67,
    "gmp": 15.0,
    "gmpPct": 15.96,
-   "gmpTrend": "up",
-   "sub": null,
+   "gmpTrend": "flat",
+   "sub": {
+    "nii": 0.7,
+    "bnii": 0.83,
+    "snii": 0.43,
+    "retail": 0.04,
+    "total": 0.3,
+    "asOf": "2026-11-02T12:38:40+05:30",
+    "src": "narada"
+   },
    "shareholderQuota": null,
    "listingPrice": null,
    "listingGainPct": null,
@@ -3999,7 +4042,7 @@
    "igId": "2297",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-02T06:44:13+05:30",
+   "igFetchedAt": "2026-11-02T12:38:23+05:30",
    "refund": "2026-11-06",
    "sector": "Packaging",
    "anchorShares": 0,
@@ -4030,9 +4073,9 @@
     ],
     "docs": {
      "drhp": "https://nsearchives.nseindia.com/emerge/corporates/content/Vedant.zip",
-     "rhp": "https://affinityglobalcap.in/wp-content/uploads/2026/10/RHP.pdf"
+     "rhp": "https://nsearchives.nseindia.com/content/ipo/RHP_VPFL.zip"
     },
-    "asOf": "2026-10-31T12:00:00+05:30"
+    "asOf": "2026-11-02T12:00:00+05:30"
    },
    "apply": {
     "retail": {
@@ -4051,9 +4094,42 @@
      "lots": 3
     }
    },
-   "gmpAsOf": "2026-11-02T06:02:00+05:30",
+   "gmpAsOf": "2026-11-02T12:02:00+05:30",
    "gmpEve": 15.0,
-   "gmpEveAsOf": "2026-11-02T06:02:00+05:30"
+   "gmpEveAsOf": "2026-11-02T12:02:00+05:30",
+   "apps": {
+    "qib": {
+     "reserved": 57,
+     "received": 0,
+     "reservedSrc": "narada"
+    },
+    "nii": {
+     "reserved": 628,
+     "received": 44,
+     "reservedSrc": "narada"
+    },
+    "bnii": {
+     "reserved": 419,
+     "received": 9,
+     "reservedSrc": "narada"
+    },
+    "snii": {
+     "reserved": 209,
+     "received": 35,
+     "reservedSrc": "narada"
+    },
+    "retail": {
+     "reserved": 1415,
+     "received": 54,
+     "reservedSrc": "narada"
+    },
+    "total": {
+     "reserved": 2100,
+     "received": 98,
+     "reservedSrc": "narada"
+    },
+    "asOf": "2026-11-02T12:38:40+05:30"
+   }
   }
  ],
  "comps": [
@@ -85586,8 +85662,41 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-02T06:45:56+05:30",
+  "asOf": "2026-11-02T12:38:40+05:30",
   "checks": [
+   {
+    "area": "gmp",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "9-Oct 9:37",
+    "elapsed": 0.16,
+    "calls": 1,
+    "note": "gmp: 11 board rows patched via investorgain; 7 active, 5 of them matched; gmp: 13 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain); Jio Platforms (₹250, investorgain); Paras Healthcare (₹13, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Ravita Engineering Services (₹1, investorgain) …",
+    "lastOk": "2026-11-02T12:38:40+05:30",
+    "dueBy": "2026-11-02T13:52:00+05:30"
+   },
+   {
+    "area": "details",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-11-02T12:38:23+05:30",
+    "elapsed": 6.75,
+    "calls": 7,
+    "note": "7 records fetched for 14 identified listings (0 without an id); 0 anchor books updated, 95 on file",
+    "lastOk": "2026-11-02T12:38:40+05:30",
+    "dueBy": "2026-11-02T13:52:00+05:30"
+   },
+   {
+    "area": "subscription",
+    "method": "narada+nse:ok",
+    "status": "ok",
+    "asOf": "2026-11-02T12:38:40+05:30",
+    "elapsed": 9.93,
+    "calls": 9,
+    "note": "7/7 rows patched via narada, nse",
+    "lastOk": "2026-11-02T12:38:40+05:30",
+    "dueBy": "2026-11-02T13:52:00+05:30"
+   },
    {
     "area": "calendar",
     "method": "investorgain:ok",
@@ -85597,40 +85706,8 @@
     "calls": 5,
     "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=14 carried=0 +nse=5 +bse=0 exchange-only=0: 5 mainboard, 9 sme; 7 open, 0 upcoming",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
-   },
-   {
-    "area": "gmp",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "9-Oct 9:37",
-    "elapsed": 0.71,
-    "calls": 1,
-    "note": "gmp: 11 board rows patched via investorgain; 7 active, 5 of them matched; gmp: 13 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain); Jio Platforms (₹250, investorgain); Paras Healthcare (₹13, investorgain); R.K.Fashion Accessories (₹1.5, investorgain); Ravita Engineering Services (₹1, investorgain) …",
-    "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T10:22:00+05:30"
-   },
-   {
-    "area": "details",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-11-02T06:44:13+05:30",
-    "elapsed": 12.34,
-    "calls": 14,
-    "note": "14 records fetched for 14 identified listings (0 without an id); 0 anchor books updated, 95 on file",
-    "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T10:22:00+05:30"
-   },
-   {
-    "area": "subscription",
-    "method": "narada+nse:ok",
-    "status": "ok",
-    "asOf": "2026-11-02T06:44:40+05:30",
-    "elapsed": 14.27,
-    "calls": 11,
-    "note": "5/7 rows patched via narada, nse; no subscription for: Vectras Enprocon, Vedant Poly Fabs",
-    "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T10:22:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "listings",
@@ -85641,7 +85718,8 @@
     "calls": 0,
     "note": "16 names priced, 0 moved to recent, 0 history points",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "history",
@@ -85652,7 +85730,8 @@
     "calls": 2,
     "note": "1398 listings since 2022 (990 SME); fetched 2026: 295; QIB on file for 109 of 408 mainboard issues",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "tape",
@@ -85663,7 +85742,8 @@
     "calls": 0,
     "note": "199 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 186 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 186 days on file",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "anchorbook",
@@ -85674,7 +85754,8 @@
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 912 on file, 589 partial (feed gave only the first names); 0 of 1398 listings still to fetch",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "evidence",
@@ -85685,7 +85766,8 @@
     "calls": 0,
     "note": "track records: 912 of 912 anchor books have an outcome; 904 of 1487 investors with 2+; 1398 listings; windows: mainboard 131, SME 237; 4 warnings",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "players",
@@ -85696,7 +85778,8 @@
     "calls": 54,
     "note": "53 of 2839 anchor investors read (0 failed); names found for 2 of 14 unlisted issues",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "parents",
@@ -85707,7 +85790,8 @@
     "calls": 0,
     "note": "5/5 parent prices; 37/41 investor stocks priced",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "filings",
@@ -85718,7 +85802,8 @@
     "calls": 14,
     "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 2753 announcements scanned, 0 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 5 leads held; 0 rows patched, 33 kept previous stage",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "planner",
@@ -85729,7 +85814,8 @@
     "calls": 4,
     "note": "162 events 2026-10-26..2026-12-17, 14 issues with terms, 3 from the report only",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "offers",
@@ -85740,7 +85826,8 @@
     "calls": 1,
     "note": "kept previous — HTTP 403",
     "lastOk": null,
-    "dueBy": null
+    "dueBy": null,
+    "carried": true
    },
    {
     "area": "flows",
@@ -85751,7 +85838,8 @@
     "calls": 1,
     "note": "2026-10-30 already in history; FII +3,599 / DII -818 Cr",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "deals",
@@ -85762,7 +85850,8 @@
     "calls": 4,
     "note": "bulk.csv: 88 deals; block.csv: 12 deals; 0 tracked-investor deals of 100; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 12 of today's 100 deals are in this year's listings (4 stocks); 1512 kept over 60 days; 199 of 295 listings have an NSE symbol; 229 with a BSE code",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "news",
@@ -85773,7 +85862,8 @@
     "calls": 3,
     "note": "business-standard: 9/35 primary-market items; economic-times: 8/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 17 fresh, 25 kept",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "logos",
@@ -85784,7 +85874,8 @@
     "calls": 0,
     "note": "69 logos on file; none to fetch",
     "lastOk": "2026-11-02T06:45:56+05:30",
-    "dueBy": "2026-11-02T18:58:00+05:30"
+    "dueBy": "2026-11-02T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "research layer",
@@ -85796,7 +85887,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "106s, 114 calls, 17/18 modules ok"
+    "note": "17s, 17 calls, 3/3 modules ok"
    }
   ],
   "discrepancies": [
@@ -125279,7 +125370,7 @@
   },
   "1936": {
    "name": "Bombay Coated and Special Steels",
-   "fetchedAt": "2026-11-02T06:44:13+05:30",
+   "fetchedAt": "2026-11-02T12:38:23+05:30",
    "about": [
     "Bombay Coated & Special Steels operates as a steel processing centre in India, specialising in the conversion of steel coils into finished and semi-finished products, including slit coils, blanks and sheets. Its processing capabilities include slitting, cut-to-length operations, shearing and embossing, enabling it to deliver steel products tailored to customer requirements. The Company's products cater to Original Equipment Manufacturers (OEMs) and Original Design Manufacturers (ODMs) across a range of industries. Key applications include home and commercial appliances such as air conditioners, refrigerators, washing machines and water heaters, as well as general engineering segments covering automotive components, electrical parts, cleanrooms and ventilation systems. Since 2021, the Company has served as an authorised service partner of JSW Steel Coated Products Limited (JSWCPL), which is one of its sources of steel coils. It also procures raw materials from other suppliers and processes them using modern machinery to meet the required product specifications and quality standards. Bombay Coated & Special Steels operates processing facilities in Wada, Bhiwandi, Ghiloth and Sricity, with a combined area of 42,209 square metres. Its Rajasthan facility holds GEM 4 certification for green manufacturing. The Company's installed annual processing capacity for slitting, cut-to-length, shearing and embossing stood at 350,411 metric tonnes per annum (MTPA). As of July 31, 2025, the Company employed 153 permanent employees across its operations. Business Strengths Established Supplier Association: An ongoing relationship with JSW Steel Coated Products Limited supports the procurement of steel coils for processing activities. Strategically Positioned Facilities: Processing units across multiple locations help the Company serve customers in key industrial markets. Advanced Processing Infrastructure: Existing facilities and precision processing equipment support the production of steel products according to customer specifications. Established Customer Relationships: Long-standing associations with OEMs and ODMs across multiple end-use industries contribute to business continuity. Supplier-Related Entry Barriers: Established supplier arrangements and operational capabilities may create barriers to entry for prospective competitors. Experienced Management Team: The Company benefits from the industry knowledge of its promoters and the expertise of its professional management team."
    ],
@@ -125593,6 +125684,17 @@
      "total": 3.98,
      "bidCr": 513.28,
      "retailBidCr": 203.31
+    },
+    {
+     "asOf": "2026-11-02T12:12:00+05:30",
+     "qib": 10.37,
+     "nii": 25.71,
+     "bnii": 26.52,
+     "snii": 24.09,
+     "retail": 11.73,
+     "total": 14.31,
+     "bidCr": 1845.41,
+     "retailBidCr": 751.28
     }
    ],
    "company": {
@@ -126257,7 +126359,7 @@
   },
   "2375": {
    "name": "Antala Industries",
-   "fetchedAt": "2026-11-02T06:44:13+05:30",
+   "fetchedAt": "2026-11-02T12:38:23+05:30",
    "about": [
     "Antala Industries Limited is engaged in the production, processing, printing, lamination and supply of industrial and commercial packaging materials. Its product range includes BOPP bags, BOPP printing rolls, BOPP lamination rolls, PP woven bags and PP woven lamination rolls, catering to industries such as food processing, fertilizers, chemicals, cement and seeds. The Company operates an integrated manufacturing facility in Rajkot, Gujarat, equipped with extrusion, coating and lamination, rotogravure printing, stitching and finishing capabilities. The Company offers customized packaging solutions designed to provide strength, durability, moisture resistance, superior print quality and improved product presentation. Its integrated production infrastructure supports in-house operations ranging from printing and lamination to cutting, stitching, finishing and final packaging, enabling effective quality management, efficient production and timely order fulfilment. The Company holds ISO 9001:2015, ISO 14001:2015, ISO 22000:2018 and ISO 45001:2018 certifications. Its promoters bring nearly three decades of experience in the packaging industry. As of July 21, 2026, the Company employed 11 personnel across various functions, including accounts and finance, management, administration, sales, secretarial and production. Its competitive advantages include experienced promoters and management, a broad and customizable packaging portfolio, a presence across diverse industries, integrated manufacturing operations, a customer-oriented approach and well-established relationships with suppliers and customers. Strengths: Promoters and management with substantial experience in the packaging industry. Wide range of packaging products with flexibility to meet customized customer requirements. Established presence across several industrial and commercial end-use sectors. Integrated manufacturing infrastructure supporting production control and operational efficiency. Focus on product quality, customized solutions and timely delivery. Established business relationships with customers and suppliers."
    ],
@@ -126512,6 +126614,17 @@
      "total": 0.81,
      "bidCr": 18.02,
      "retailBidCr": 1.85
+    },
+    {
+     "asOf": "2026-11-02T12:11:00+05:30",
+     "qib": 66.72,
+     "nii": 0.12,
+     "bnii": 0.09,
+     "snii": 0.18,
+     "retail": 0.24,
+     "total": 0.94,
+     "bidCr": 20.93,
+     "retailBidCr": 4.42
     }
    ],
    "company": {
@@ -126522,7 +126635,7 @@
   },
   "2241": {
    "name": "HGS (India)",
-   "fetchedAt": "2026-11-02T06:44:13+05:30",
+   "fetchedAt": "2026-11-02T12:38:23+05:30",
    "about": [
     "HGS (India) Limited is engaged in the manufacturing of geophysical instruments and components used in seismic surveys and geoscience-related applications. Established through technical and financial collaboration with Geosource Inc., USA, the company markets its products under the “HG” brand. Its product range comprises geophones, geophone strings, seismic cables, connectors, and various seismic instruments and accessories, including seismographs, seismometers, and accelerographs. The company’s products cater to a wide range of applications, including oil and gas exploration, mineral exploration, defence research, earthquake studies, and infrastructure monitoring. HGS (India) Limited operates a manufacturing facility in Manesar, Haryana, featuring precision assembly lines, injection moulding equipment, and cable manufacturing facilities. The company has also strengthened its manufacturing capabilities through backward integration, enabling in-house production of key components. As of September 30, 2025, the company served 146 domestic and international clients across 21 countries."
    ],
@@ -126632,45 +126745,45 @@
     "rows": [
      [
       "QIB",
-      "21,74,400",
-      "61.28%",
-      "58.87%"
+      "13,60,800",
+      "49.76%",
+      "47.25%"
      ],
      [
       "Anchor Investor",
       "8,13,600",
       "",
-      "22.03%"
+      "28.25%"
      ],
      [
       "QIB (Ex. Anchor)",
-      "13,60,800",
+      "5,47,200",
       "",
-      "36.84%"
+      "19.00%"
      ],
      [
       "NII (HNI)",
       "4,14,000",
-      "11.67%",
-      "11.21%"
+      "15.14%",
+      "14.37%"
      ],
      [
       "bNII > ₹10L",
       "2,73,600",
       "",
-      "7.41%"
+      "9.50%"
      ],
      [
       "sNII < ₹10L",
       "1,40,400",
       "",
-      "3.80%"
+      "4.88%"
      ],
      [
       "Retail",
       "9,60,000",
-      "27.05%",
-      "25.99%"
+      "35.10%",
+      "33.33%"
      ],
      [
       "Firm Reservations"
@@ -126679,11 +126792,11 @@
       "Market Maker",
       "1,45,200",
       "",
-      "3.93%"
+      "5.04%"
      ],
      [
       "Total",
-      "36,93,600",
+      "28,80,000",
       "100.00%",
       "100.00%"
      ]
@@ -126754,6 +126867,17 @@
      "total": 1.16,
      "bidCr": 38.04,
      "retailBidCr": 2.91
+    },
+    {
+     "asOf": "2026-11-02T12:11:00+05:30",
+     "qib": 4.41,
+     "nii": 10.84,
+     "bnii": 11.58,
+     "snii": 9.39,
+     "retail": 9.27,
+     "total": 8.22,
+     "bidCr": 189.53,
+     "retailBidCr": 106.73
     }
    ],
    "company": {
@@ -126764,7 +126888,7 @@
   },
   "2371": {
    "name": "Johnsoncab Electricals",
-   "fetchedAt": "2026-11-02T06:44:13+05:30",
+   "fetchedAt": "2026-11-02T12:38:23+05:30",
    "about": [
     "Johnsoncab Electricals Limited is engaged in the production of low-voltage wires and cables rated up to 1.1 kV. Its products serve various sectors, including power infrastructure, transmission and distribution, renewable energy, railways, and other industrial applications. The company markets its products under the “JOHNSON CABLES” brand and supplies to both government organisations and private sector customers. The company offers a broad range of products, including control cables, power cables, industrial single-core and multicore control cables, house wiring and building wires, welding cables, solar and photovoltaic cables, and submersible flat cables. It operates two manufacturing units in Mehsana, Gujarat, with a combined installed production capacity of 79,950 KMS annually as of Fiscal 2026. These facilities are equipped with machinery for wire drawing, annealing, bunching, insulation, extrusion, testing, and packaging. Johnsoncab Electricals Limited serves its customers through direct orders, competitive tenders, and vendor registration and approval procedures. Its products are supported by ISO and BIS certifications. The company continues to strengthen its manufacturing capabilities and focus on product development to meet evolving industry requirements. As of March 31, 2026, the company employed 167 personnel across key functions, including manufacturing, operations, quality control, sales and marketing, supply chain management, finance, and administration. Strengths Consistent revenue growth reflecting the company's ability to expand its business operations. Ongoing investments in manufacturing facilities and production capabilities. Established presence in both government and private sector markets. Diverse product range covering multiple low-voltage wire and cable applications. Focus on product development and innovation, supported by intellectual property. Established vendor credentials and eligibility to participate in government tenders. Product quality and manufacturing processes supported by ISO and BIS certifications."
    ],
@@ -127027,10 +127151,10 @@
    "gmpHistory": [
     {
      "date": "2026-11-02",
-     "gmp": 5.0,
-     "est": 205.0,
-     "pct": 2.5,
-     "kostakSauda": "2300"
+     "gmp": 10.0,
+     "est": 210.0,
+     "pct": 5.0,
+     "kostakSauda": "4600"
     },
     {
      "date": "2026-11-01",
@@ -127079,6 +127203,17 @@
      "total": 1.14,
      "bidCr": 42.53,
      "retailBidCr": 24.36
+    },
+    {
+     "asOf": "2026-11-02T12:11:00+05:30",
+     "qib": 0.52,
+     "nii": 2.33,
+     "bnii": 2.66,
+     "snii": 1.65,
+     "retail": 1.73,
+     "total": 1.51,
+     "bidCr": 56.33,
+     "retailBidCr": 32.23
     }
    ],
    "company": {
@@ -127089,7 +127224,7 @@
   },
   "1965": {
    "name": "Maxwell Engineering Solutions",
-   "fetchedAt": "2026-11-02T06:44:13+05:30",
+   "fetchedAt": "2026-11-02T12:38:23+05:30",
    "about": [
     "Maxwell Engineering Solutions is a precision engineering company that manufactures, trades, and services critical components used in underwater pelletizing systems . The company specializes in various products, such as Pelletizing die plates, Pelletizing blades/knives, Blade holders/cutter hubs, Tapped driving bushes, and other spare parts for pelletizing systems. Its die plates are used in various applications, including White, black & color masterbatches, Cable compounds (HFFR, XLPE, PVC, etc.), Engineering plastics (PA, PBT, PC, etc.), and Recycled resins (PET, PP, PE, etc.). These products are widely used in industries like compounding, masterbatches, recycling, petrochemicals, and bioplastics. The company serves customers across India and internationally in countries like the USA, Germany, Japan, Australia, Saudi Arabia, and many more. In FY 2025, the company derived 82.43% of revenue from exports and remaining 17.57% from domestic sales. Additionally, the company also offers various services, including Refurbishment & repair services, custom manufacturing solutions, white-label manufacturing, trading of select pelletizing components, marketing & intermediary services for CJTEK components, and management consulting for customer acquisition. Manufacturing facility : Vadodara, Gujarat. The facility is well equipped with VMC, CNC, EDM, wire cut, milling, lathe, and other high-precision machines. As of March 31, 2025, its workforce comprised 59 permanent employees. Competitive Strengths: Experienced Promoters and Management Team Existing client relationship Quality Services Well established systems and procedures Revenue from multiple geographies Customized Product Offering"
    ],
@@ -127411,6 +127546,17 @@
      "total": 4.67,
      "bidCr": 177.25,
      "retailBidCr": 141.59
+    },
+    {
+     "asOf": "2026-11-02T12:11:00+05:30",
+     "qib": 0.0,
+     "nii": 42.67,
+     "bnii": 43.62,
+     "snii": 40.76,
+     "retail": 48.6,
+     "total": 33.49,
+     "bidCr": 1270.95,
+     "retailBidCr": 921.48
     }
    ],
    "company": {
@@ -127421,7 +127567,7 @@
   },
   "1998": {
    "name": "Vectras Enprocon",
-   "fetchedAt": "2026-11-02T06:44:13+05:30",
+   "fetchedAt": "2026-11-02T12:38:23+05:30",
    "about": [
     "Vectras Enprocon Ltd. is a Gujarat-based Engineering, Procurement and Construction (EPC) company operating in the midstream and downstream segments of the Oil & Gas industry. The company specializes in laying pipeline networks, building combined stations, and constructing related facilities across multiple states in India. Business Verticals: Combined Oil and Gas station works: Mechanical, electrical and civil work in Refineries, Petrochemical Complex, Gas Processing Units, Oil & Gas Terminals and Petroleum Depots. As of August 31, 2025, its unexecuted Order book for Oil & Gas stations work stands at ₹ 15,088.80 lakh. Midstream and Downstream pipeline projects and related facilities: As of August 31, 2025, its order book for Oil & Gas Pipeline work stands at ₹ 8,767.27 lakh Other allied services: Civil and infrastructure project in Oil and Gas Industry, Electrical, Instrumentation, and Inspection, Testing and Safety Auditing services in Oil and Gas Industry. The company has developed strong capabilities in design, engineering, procurement, construction, testing, and commissioning of Oil & Gas pipelines and stations. It has completed over 3,34,000 inch dia piping, 785 inch-kilometre pipelines, and 4 combined station projects. The company serves both public and private Oil & Gas companies and maintain ISO certifications for quality, safety, environment, and instrumentation standards. As of August 31, 2025, the company had 279 permanent employees across multiple divisions. Competitive Strengths Track record of timely completion of complex project Strong Order Book for existing project portfolio and geography Strong Execution Capabilities Track Record of Growth in Financial Performance Experienced management team with significant industry experience"
    ],
@@ -127691,6 +127837,17 @@
      "total": 1.2,
      "bidCr": 42.24,
      "retailBidCr": 18.14
+    },
+    {
+     "asOf": "2026-11-02T12:11:00+05:30",
+     "qib": 1.42,
+     "nii": 1.04,
+     "bnii": 0.99,
+     "snii": 1.14,
+     "retail": 1.23,
+     "total": 1.24,
+     "bidCr": 43.78,
+     "retailBidCr": 21.67
     }
    ],
    "company": {
@@ -127701,7 +127858,7 @@
   },
   "2297": {
    "name": "Vedant Poly Fabs",
-   "fetchedAt": "2026-11-02T06:44:13+05:30",
+   "fetchedAt": "2026-11-02T12:38:23+05:30",
    "about": [
     "Vedant Poly Fabs Limited, incorporated in December 2018, is engaged in the manufacturing of flexible packaging materials for business customers across India. The company offers a diversified product portfolio, including 3-layer and 5-layer LD films, shrink films, barrier films, printed laminates, and milk and oil pouches. Its products cater to the packaging requirements of the food and beverage industry and other consumer goods segments. The company operates an integrated manufacturing process covering film extrusion, printing, lamination, slitting, quality control, and packaging. In March 2026, it strengthened its manufacturing infrastructure by adding lamination, slitting, and pouching machines and installing a reprocessing unit to support waste recycling and improve resource utilization. These initiatives reflect its focus on enhancing operational capabilities and supporting evolving customer requirements. As of March 31, 2026, the company had a workforce of 72 employees, comprising 41 permanent and 31 contractual employees. Key Strengths Integrated Manufacturing: In-house capabilities across multiple stages of the flexible packaging production process. Diversified Product Portfolio: A wide range of flexible packaging solutions catering to different industry requirements. Quality Control: Quality checks integrated into the manufacturing process to support product consistency. Manufacturing Infrastructure: Additional machinery and reprocessing facilities to enhance production capabilities and resource utilization. Logistics Capabilities: In-house transportation and logistics support for product distribution. Customer Reach: A direct B2B sales model and a diversified customer base across India. Customization Capabilities: Product development and customization to address specific packaging requirements."
    ],
@@ -127878,33 +128035,33 @@
     "rows": [
      [
       "QIB",
-      "68,400",
-      "1.19%",
-      "1.13%"
+      "209",
+      "0.00%",
+      "0.00%"
      ],
      [
       "NII (HNI)",
       "22,60,800",
-      "39.49%",
-      "37.49%"
+      "39.96%",
+      "37.92%"
      ],
      [
       "bNII > ₹10L",
       "15,07,200",
       "",
-      "25.00%"
+      "25.28%"
      ],
      [
       "sNII < ₹10L",
       "7,53,600",
       "",
-      "12.50%"
+      "12.64%"
      ],
      [
       "Retail",
       "33,96,000",
-      "59.32%",
-      "56.32%"
+      "60.03%",
+      "56.96%"
      ],
      [
       "Firm Reservations"
@@ -127913,11 +128070,11 @@
       "Market Maker",
       "3,04,800",
       "",
-      "5.05%"
+      "5.11%"
      ],
      [
       "Total",
-      "60,30,000",
+      "59,61,809",
       "100.00%",
       "100.00%"
      ]
@@ -127970,6 +128127,19 @@
      "est": 99.0,
      "pct": 5.32,
      "kostakSauda": "4600"
+    }
+   ],
+   "bidding": [
+    {
+     "asOf": "2026-11-02T12:11:00+05:30",
+     "qib": 0.0,
+     "nii": 0.68,
+     "bnii": 0.83,
+     "snii": 0.36,
+     "retail": 0.03,
+     "total": 0.29,
+     "bidCr": 15.37,
+     "retailBidCr": 1.02
     }
    ],
    "company": {
