@@ -24,7 +24,12 @@ import logging
 import pathlib
 import re
 
-from rapidfuzz import fuzz
+try:                                   # the fuzzy tier only; the deploy job builds the page and runs the audit on the
+    from rapidfuzz import (
+        fuzz,  # standard library alone (4 Nov 2026: audit.py imported this module, deploy failed)
+    )
+except ImportError:                    # pragma: no cover - exercised by tests/test_names_stdlib.py
+    fuzz = None
 
 log = logging.getLogger("collector.names")
 
@@ -142,6 +147,9 @@ class Matcher:
                                    if len(f) >= 6 and (n.startswith(f + " ") or f.startswith(n + " ") and len(n) >= 6)))
         if len(words) == 1:
             return words[0]
+        if fuzz is None:
+            log.warning("no rapidfuzz: %r not matched beyond the strict tiers; treated as new", name)
+            return None
         scored = sorted(((fuzz.token_sort_ratio(n, f), e) for f, e in self._by_form.items()), reverse=True)
         hits = list(dict.fromkeys(e for s, e in scored if s >= FUZZY_MIN))
         if len(hits) == 1:
