@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-04T12:38:32+05:30",
+  "asOf": "2026-11-04T12:59:53+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "4 Nov 2026, 12:38 IST",
+  "label": "4 Nov 2026, 12:59 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -1803,7 +1803,7 @@
    "shareholderQuota": null,
    "listingPrice": 248.0,
    "listingGainPct": 65.33,
-   "currentPrice": 268.8,
+   "currentPrice": 276.14,
    "sources": [
     "InvestorGain IPO list"
    ],
@@ -1941,7 +1941,7 @@
    "shareholderQuota": null,
    "listingPrice": 355.1,
    "listingGainPct": 7.61,
-   "currentPrice": 426.1,
+   "currentPrice": 442.5,
    "sources": [
     "InvestorGain IPO list"
    ],
@@ -2057,7 +2057,7 @@
    "name": "M.K.Sons Fine Jewels",
    "slug": "m-k-sons-fine-jewels",
    "type": "Mainboard",
-   "status": "Closed",
+   "status": "Listed",
    "open": "2026-10-28",
    "close": "2026-10-30",
    "allotment": "2026-11-02",
@@ -2208,7 +2208,7 @@
    "ofsCr": null,
    "gmp": 7.0,
    "gmpPct": 8.54,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 37.32,
     "nii": 166.44,
@@ -2943,7 +2943,7 @@
    "name": "Ajwa Projects",
    "slug": "ajwa-projects",
    "type": "BSE SME",
-   "status": "Closed",
+   "status": "Listed",
    "open": "2026-10-28",
    "close": "2026-10-30",
    "allotment": "2026-11-02",
@@ -3056,7 +3056,7 @@
    "name": "Carver Roboweld",
    "slug": "carver-roboweld",
    "type": "BSE SME",
-   "status": "Closed",
+   "status": "Listed",
    "open": "2026-10-28",
    "close": "2026-10-30",
    "allotment": "2026-11-02",
@@ -3202,12 +3202,12 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 66.72,
-    "nii": 7.0,
-    "bnii": 10.19,
-    "snii": 0.62,
-    "retail": 0.6,
-    "total": 2.31,
-    "asOf": "2026-11-04T12:38:30+05:30",
+    "nii": 7.76,
+    "bnii": 11.32,
+    "snii": 0.66,
+    "retail": 0.61,
+    "total": 2.43,
+    "asOf": "2026-11-04T12:58:32+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3222,7 +3222,7 @@
    "igId": "2375",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-04T12:38:28+05:30",
+   "igFetchedAt": "2026-11-04T12:58:30+05:30",
    "refund": "2026-11-09",
    "sector": "Packaging",
    "anchorShares": 0,
@@ -3267,30 +3267,30 @@
     },
     "nii": {
      "reserved": 85,
-     "received": 191,
+     "received": 216,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 57,
-     "received": 175,
+     "received": 199,
      "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 28,
-     "received": 16,
+     "received": 17,
      "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 690,
-     "received": 414,
+     "received": 421,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 793,
-     "received": 608,
+     "received": 640,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-04T12:38:30+05:30"
+    "asOf": "2026-11-04T12:58:32+05:30"
    },
    "apply": {
     "retail": {
@@ -3327,7 +3327,7 @@
    "ofsCr": 6.65,
    "gmp": 25.0,
    "gmpPct": 20.83,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 137.92,
     "nii": 425.02,
@@ -3335,7 +3335,7 @@
     "snii": 296.28,
     "retail": 235.72,
     "total": 248.66,
-    "asOf": "2026-11-04T12:38:30+05:30",
+    "asOf": "2026-11-04T12:58:32+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3436,7 +3436,7 @@
      "received": 121075,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-04T12:38:30+05:30"
+    "asOf": "2026-11-04T12:58:32+05:30"
    }
   },
   {
@@ -3456,7 +3456,7 @@
    "ofsCr": null,
    "gmp": 8.0,
    "gmpPct": 4.0,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 20.19,
     "nii": 42.57,
@@ -3464,7 +3464,7 @@
     "snii": 25.78,
     "retail": 17.99,
     "total": 23.89,
-    "asOf": "2026-11-04T12:38:31+05:30",
+    "asOf": "2026-11-04T12:58:32+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3566,7 +3566,7 @@
      "received": 18348,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-04T12:38:31+05:30"
+    "asOf": "2026-11-04T12:58:32+05:30"
    }
   },
   {
@@ -3586,7 +3586,7 @@
    "ofsCr": null,
    "gmp": 80.0,
    "gmpPct": 50.63,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 259.45,
     "nii": 858.08,
@@ -3594,7 +3594,7 @@
     "snii": 524.49,
     "retail": 556.1,
     "total": 536.9,
-    "asOf": "2026-11-04T12:38:31+05:30",
+    "asOf": "2026-11-04T12:58:33+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3696,7 +3696,7 @@
      "received": 506587,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-04T12:38:31+05:30"
+    "asOf": "2026-11-04T12:58:33+05:30"
    }
   },
   {
@@ -3719,12 +3719,12 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 1.0,
-    "nii": 1.37,
+    "nii": 1.38,
     "bnii": 1.25,
-    "snii": 1.61,
-    "retail": 1.69,
-    "total": 1.56,
-    "asOf": "2026-11-04T12:38:31+05:30",
+    "snii": 1.63,
+    "retail": 1.73,
+    "total": 1.58,
+    "asOf": "2026-11-04T12:58:33+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3803,7 +3803,7 @@
     },
     "nii": {
      "reserved": 628,
-     "received": 264,
+     "received": 267,
      "reservedSrc": "narada"
     },
     "bnii": {
@@ -3813,20 +3813,20 @@
     },
     "snii": {
      "reserved": 209,
-     "received": 224,
+     "received": 227,
      "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 1415,
-     "received": 2393,
+     "received": 2452,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 2100,
-     "received": 2658,
+     "received": 2720,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-04T12:38:31+05:30"
+    "asOf": "2026-11-04T12:58:33+05:30"
    }
   },
   {
@@ -3846,15 +3846,15 @@
    "ofsCr": 5.67,
    "gmp": 10.0,
    "gmpPct": 10.64,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 1.0,
-    "nii": 1.37,
+    "nii": 1.38,
     "bnii": 1.25,
-    "snii": 1.61,
-    "retail": 1.69,
-    "total": 1.56,
-    "asOf": "2026-11-04T12:38:32+05:30",
+    "snii": 1.63,
+    "retail": 1.73,
+    "total": 1.58,
+    "asOf": "2026-11-04T12:58:34+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3869,7 +3869,7 @@
    "igId": "2297",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-04T12:38:28+05:30",
+   "igFetchedAt": "2026-11-04T12:58:30+05:30",
    "refund": "2026-11-06",
    "sector": "Packaging",
    "anchorShares": 0,
@@ -3932,7 +3932,7 @@
     },
     "nii": {
      "reserved": 628,
-     "received": 264,
+     "received": 267,
      "reservedSrc": "narada"
     },
     "bnii": {
@@ -3942,24 +3942,63 @@
     },
     "snii": {
      "reserved": 209,
-     "received": 224,
+     "received": 227,
      "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 1415,
-     "received": 2393,
+     "received": 2452,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 2100,
-     "received": 2658,
+     "received": 2720,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-04T12:38:32+05:30"
+    "asOf": "2026-11-04T12:58:34+05:30"
    }
   }
  ],
  "comps": [
+  {
+   "name": "Carver Roboweld",
+   "igId": "2393",
+   "year": 2026,
+   "sme": true,
+   "total": 25.8,
+   "ret": 12.5,
+   "retClose": null,
+   "qib": 26.33,
+   "nii": 40.39,
+   "retail": 19.17,
+   "snii": 26.5,
+   "bnii": 47.38
+  },
+  {
+   "name": "M.K.Sons Fine Jewels",
+   "igId": "2288",
+   "year": 2026,
+   "sme": false,
+   "total": 5.09,
+   "ret": 5.56,
+   "retClose": null,
+   "qib": 1.84,
+   "nii": 14.12,
+   "retail": 3.08,
+   "snii": 11.71,
+   "bnii": 15.33
+  },
+  {
+   "name": "Ajwa Projects",
+   "igId": "2017",
+   "year": 2026,
+   "sme": true,
+   "total": 1.12,
+   "ret": 0.0,
+   "retClose": null,
+   "nii": 0.32,
+   "retail": 1.93
+  },
   {
    "name": "Wiscon Industries",
    "igId": "2356",
@@ -18228,6 +18267,51 @@
   "note": "7 Sep 2026 provisional NSE cash figures from NiftyTrader (single source): FII +₹280 Cr, DII +₹567 Cr; Nifty 23,779 (−0.50%). Sector rotation evidence is from NSDL first-half-August data (FPIs bought financial services Rs 6,535 cr, autos Rs 4,420 cr, consumer services Rs 3,407 cr, healthcare Rs 2,918 cr, IT Rs 2,537 cr); second-half-August sector data not yet captured. DII sector breakdown not available."
  },
  "listedPerf": [
+  {
+   "name": "Carver Roboweld",
+   "igId": "2393",
+   "date": "2026-11-04",
+   "sme": true,
+   "issue": 80.0,
+   "gmp": 4.0,
+   "gmpImplied": 84.0,
+   "listing": 90.0,
+   "close1": null,
+   "ltp": 0.0,
+   "bseCode": "545015",
+   "gmpEve": 3.0,
+   "gmpEveAsOf": "2026-11-03T15:37:00+05:30"
+  },
+  {
+   "name": "M.K.Sons Fine Jewels",
+   "igId": "2288",
+   "date": "2026-11-04",
+   "sme": false,
+   "issue": 162.0,
+   "gmp": 11.0,
+   "gmpImplied": 173.0,
+   "listing": 171.0,
+   "close1": null,
+   "ltp": 0.0,
+   "bseCode": "545017",
+   "gmpEve": 10.5,
+   "gmpEveAsOf": "2026-11-03T15:37:00+05:30"
+  },
+  {
+   "name": "Ajwa Projects",
+   "igId": "2017",
+   "date": "2026-11-04",
+   "sme": true,
+   "issue": 203.0,
+   "gmp": 1.0,
+   "gmpImplied": 204.0,
+   "listing": 203.0,
+   "close1": null,
+   "ltp": 0.0,
+   "bseCode": "545016",
+   "gmpEve": 1.0,
+   "gmpEveAsOf": "2026-11-03T15:37:00+05:30"
+  },
   {
    "name": "Wiscon Industries",
    "igId": "2356",
@@ -36615,6 +36699,31 @@
  ],
  "news": [
   {
+   "title": "Bombay Coated & Special Steels may list at 10% premium, signals grey market",
+   "url": "https://www.business-standard.com/markets/news/bombay-coated-special-steels-may-list-at-10-premium-signals-grey-market-126110400698_1.html",
+   "date": "2026-11-04T12:40:56+05:30"
+  },
+  {
+   "title": "BLS Polymers shares rally 6% after strong stock market debut",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/bls-polymers-shares-rally-6-after-strong-stock-market-debut/articleshow/135526812.cms",
+   "date": "2026-11-04T11:42:32+05:30"
+  },
+  {
+   "title": "M K Sons Fine Jewels lists at 6% premium, in-line with expectations",
+   "url": "https://www.business-standard.com/markets/news/m-k-sons-fine-jewels-lists-at-6-premium-in-line-with-expectations-126110400423_1.html",
+   "date": "2026-11-04T09:59:31+05:30"
+  },
+  {
+   "title": "M.K. Sons Fine Jewels shares list at 6% premium over IPO price",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/m-k-sons-fine-jewels-shares-to-list-today-check-gmp-ahead-of-market-debut/articleshow/135522802.cms",
+   "date": "2026-11-04T09:52:26+05:30"
+  },
+  {
+   "title": "Two SME IPOs list today: Carver Roboweld, Ajwa Projects shares make BSE SME debut",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/two-sme-ipos-list-today-carver-roboweld-ajwa-projects-shares-make-bse-sme-debut/articleshow/135521212.cms",
+   "date": "2026-11-04T09:12:38+05:30"
+  },
+  {
    "title": "Sebi imposes Rs 40 lakh penalty on two brokers in Axis Mutual Fund front-running case",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-imposes-rs-40-lakh-penalty-on-two-brokers-in-axis-mutual-fund-front-running-case/articleshow/135516888.cms",
    "date": "2026-11-04T06:05:46+05:30"
@@ -36713,31 +36822,6 @@
    "title": "Sebi cuts cool-off period for OFS by off-market illiquid Invits to 8 weeks",
    "url": "https://www.business-standard.com/markets/news/sebi-cuts-ofs-cooling-off-for-privately-listed-illiquid-invits-to-8-weeks-126110201342_1.html",
    "date": "2026-11-02T19:33:52+05:30"
-  },
-  {
-   "title": "Coal India files DRHP to sell 10% stake in subsidiary SECL through IPO",
-   "url": "https://www.business-standard.com/companies/news/coal-india-files-drhp-to-sell-10-stake-in-subsidiary-secl-through-ipo-126110201248_1.html",
-   "date": "2026-11-02T18:47:21+05:30"
-  },
-  {
-   "title": "Indian IPO market clocks record Rs 84,400 crore in H1 FY27, fundraising jumps 30%",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/indian-ipo-market-clocks-record-rs-84400-crore-in-h1-fy27-fundraising-jumps-30/articleshow/135453488.cms",
-   "date": "2026-11-02T14:59:56+05:30"
-  },
-  {
-   "title": "Sebi proposes LTCG tax relief for FPIs: What it means for Indian markets",
-   "url": "https://www.business-standard.com/markets/news/sebi-long-term-capital-gains-tax-indian-markets-impact-foreign-investment-126110200664_1.html",
-   "date": "2026-11-02T14:16:04+05:30"
-  },
-  {
-   "title": "South Eastern Coalfields files DRHP with SEBI for IPO; Coal India to offload 66.8 crore shares",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/south-eastern-coalfields-files-drhp-with-sebi-for-ipo-coal-india-to-offload-66-8-crore-shares/articleshow/135451367.cms",
-   "date": "2026-11-02T13:51:05+05:30"
-  },
-  {
-   "title": "Sebi backs LTCG tax relief for FPIs: What is the tax and how does it work?",
-   "url": "https://www.business-standard.com/markets/news/sebi-backs-ltcg-tax-relief-for-fpis-what-is-the-tax-and-how-does-it-work-126110200608_1.html",
-   "date": "2026-11-02T13:45:10+05:30"
   }
  ],
  "priceHistory": {
@@ -85977,6 +86061,10 @@
    [
     "2026-11-03",
     66.73
+   ],
+   [
+    "2026-11-04",
+    66.55
    ]
   ],
   "Vishal Nirmiti": [
@@ -86051,6 +86139,10 @@
    [
     "2026-11-03",
     99.31
+   ],
+   [
+    "2026-11-04",
+    101.5
    ]
   ],
   "Eventions": [
@@ -86221,6 +86313,10 @@
    [
     "2026-11-03",
     260.6
+   ],
+   [
+    "2026-11-04",
+    264.6
    ]
   ],
   "Vaibhav Vyapaar": [
@@ -86301,6 +86397,10 @@
    [
     "2026-11-03",
     273.0
+   ],
+   [
+    "2026-11-04",
+    294.55
    ]
   ],
   "Ravita Engineering Services": [
@@ -86373,6 +86473,10 @@
    [
     "2026-11-03",
     660.1
+   ],
+   [
+    "2026-11-04",
+    655.4
    ]
   ],
   "Sahajanand Medical Technologies": [
@@ -86407,6 +86511,10 @@
    [
     "2026-11-03",
     452.85
+   ],
+   [
+    "2026-11-04",
+    480.7
    ]
   ],
   "Tonbo Imaging India": [
@@ -86441,6 +86549,10 @@
    [
     "2026-11-03",
     1244.9
+   ],
+   [
+    "2026-11-04",
+    1277.2
    ]
   ],
   "Zetwerk": [
@@ -86475,6 +86587,10 @@
    [
     "2026-11-03",
     157.34
+   ],
+   [
+    "2026-11-04",
+    161.66
    ]
   ],
   "Bonfiglioli Transmissions": [
@@ -86531,6 +86647,10 @@
    [
     "2026-11-03",
     1413.0
+   ],
+   [
+    "2026-11-04",
+    1434.0
    ]
   ],
   "Paras Healthcare": [
@@ -86553,6 +86673,10 @@
    [
     "2026-11-03",
     730.15
+   ],
+   [
+    "2026-11-04",
+    745.6
    ]
   ],
   "EAAA India Alternatives": [
@@ -86563,92 +86687,101 @@
    [
     "2026-11-03",
     1722.2
+   ],
+   [
+    "2026-11-04",
+    1709.0
    ]
   ],
   "SFC Environmental Technologies": [
    [
     "2026-11-03",
     426.1
+   ],
+   [
+    "2026-11-04",
+    442.5
    ]
   ],
   "BLS Polymers": [
    [
     "2026-11-03",
     268.8
+   ],
+   [
+    "2026-11-04",
+    276.14
    ]
   ]
  },
  "integrity": {
-  "asOf": "2026-11-04T12:38:32+05:30",
+  "asOf": "2026-11-04T12:59:53+05:30",
   "checks": [
+   {
+    "area": "calendar",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-11-04T12:58:30+05:30",
+    "elapsed": 1.48,
+    "calls": 5,
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=7 carried=6 +nse=1 +bse=0 exchange-only=0: 4 mainboard, 9 sme; 2 open, 0 upcoming",
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
+   },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Oct 9:37",
-    "elapsed": 0.16,
+    "elapsed": 0.05,
     "calls": 1,
     "note": "gmp: 10 board rows patched via investorgain; 2 active, 1 of them matched; gmp: 14 GMP-site names not on the board: Acme India Industries (₹43, investorgain); Bonfiglioli Transmissions (₹66, investorgain); EAAA India Alternatives (₹54, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain); Jio Platforms (₹250, investorgain); Paras Healthcare (₹13, investorgain); R.K.Fashion Accessories (₹1.5, investorgain) …",
-    "lastOk": "2026-11-04T12:38:32+05:30",
+    "lastOk": "2026-11-04T12:59:53+05:30",
     "dueBy": "2026-11-04T13:52:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-04T12:38:28+05:30",
+    "asOf": "2026-11-04T12:58:30+05:30",
     "elapsed": 0.56,
     "calls": 2,
     "note": "2 records fetched for 13 identified listings (0 without an id); 0 anchor books updated, 95 on file",
-    "lastOk": "2026-11-04T12:38:32+05:30",
+    "lastOk": "2026-11-04T12:59:53+05:30",
     "dueBy": "2026-11-04T13:52:00+05:30"
    },
    {
     "area": "subscription",
     "method": "narada:ok",
     "status": "ok",
-    "asOf": "2026-11-04T12:38:32+05:30",
-    "elapsed": 3.16,
+    "asOf": "2026-11-04T12:58:34+05:30",
+    "elapsed": 2.95,
     "calls": 6,
     "note": "6/6 rows patched via narada",
-    "lastOk": "2026-11-04T12:38:32+05:30",
+    "lastOk": "2026-11-04T12:59:53+05:30",
     "dueBy": "2026-11-04T13:52:00+05:30"
-   },
-   {
-    "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-11-04T06:44:00+05:30",
-    "elapsed": 1.66,
-    "calls": 5,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=10 carried=3 +nse=2 +bse=0 exchange-only=0: 4 mainboard, 9 sme; 2 open, 0 upcoming",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
    },
    {
     "area": "listings",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-03",
-    "elapsed": 12.23,
+    "asOf": "2026-11-04",
+    "elapsed": 12.83,
     "calls": 0,
-    "note": "15 names priced, 2 moved to recent, 0 history points",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
+    "note": "15 names priced, 2 moved to recent, 13 history points",
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-04",
-    "elapsed": 3.49,
+    "elapsed": 3.67,
     "calls": 2,
-    "note": "1402 listings since 2022 (991 SME); fetched 2026: 299; QIB on file for 112 of 411 mainboard issues",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
+    "note": "1405 listings since 2022 (993 SME); fetched 2026: 302; QIB on file for 113 of 412 mainboard issues",
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
    },
    {
     "area": "tape",
@@ -86657,130 +86790,119 @@
     "asOf": "2026-11-03",
     "elapsed": 0.01,
     "calls": 0,
-    "note": "203 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 186 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 186 days on file",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
+    "note": "206 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 186 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 186 days on file",
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
    },
    {
     "area": "anchorbook",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-04",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "0 anchor books read (0 without an anchor table, 0 failed); 916 on file, 589 partial (feed gave only the first names); 0 of 1402 listings still to fetch",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
+    "elapsed": 0.74,
+    "calls": 3,
+    "note": "2 anchor books read (1 without an anchor table, 0 failed); 918 on file, 589 partial (feed gave only the first names); 0 of 1405 listings still to fetch",
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
    },
    {
     "area": "evidence",
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-11-04",
-    "elapsed": 0.19,
+    "elapsed": 0.27,
     "calls": 0,
-    "note": "track records: 916 of 916 anchor books have an outcome; 910 of 1491 investors with 2+; 1402 listings; windows: mainboard 134, SME 237; 3 warnings",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
+    "note": "track records: 918 of 918 anchor books have an outcome; 910 of 1494 investors with 2+; 1405 listings; windows: mainboard 135, SME 239; 3 warnings",
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
    },
    {
     "area": "players",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-04",
-    "elapsed": 33.39,
+    "elapsed": 36.58,
     "calls": 54,
-    "note": "53 of 2839 anchor investors read (0 failed); names found for 1 of 10 unlisted issues",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
+    "note": "53 of 2839 anchor investors read (0 failed); names found for 1 of 7 unlisted issues",
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
    },
    {
     "area": "parents",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-02",
-    "elapsed": 12.08,
+    "asOf": "2026-11-04",
+    "elapsed": 13.09,
     "calls": 0,
     "note": "5/5 parent prices; 36/40 investor stocks priced",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
    },
    {
     "area": "filings",
     "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-11-04",
-    "elapsed": 7.52,
+    "elapsed": 5.57,
     "calls": 14,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 2945 announcements scanned, 1 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 6 leads held; 0 rows patched, 33 kept previous stage",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 3132 announcements scanned, 1 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 6 leads held; 0 rows patched, 33 kept previous stage",
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
    },
    {
     "area": "planner",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-04",
-    "elapsed": 3.09,
+    "elapsed": 2.72,
     "calls": 4,
-    "note": "153 events 2026-10-28..2026-12-19, 10 issues with terms, 4 from the report only",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
+    "note": "153 events 2026-10-28..2026-12-19, 7 issues with terms, 4 from the report only",
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
    },
    {
     "area": "offers",
     "method": "bse:blocked, bse:blocked",
     "status": "blocked",
     "asOf": null,
-    "elapsed": 0.09,
+    "elapsed": 0.06,
     "calls": 1,
     "note": "kept previous — HTTP 403",
     "lastOk": null,
-    "dueBy": null,
-    "carried": true
+    "dueBy": null
    },
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-11-03",
-    "elapsed": 0.26,
+    "elapsed": 0.31,
     "calls": 1,
     "note": "2026-11-03 already in history; FII +6,837 / DII -3,679 Cr",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
    },
    {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-03",
-    "elapsed": 1.03,
+    "elapsed": 0.79,
     "calls": 4,
-    "note": "bulk.csv: 147 deals; block.csv: 2 deals; 0 tracked-investor deals of 149; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 94 of today's 149 deals are in this year's listings (10 stocks); 1617 kept over 60 days; 203 of 299 listings have an NSE symbol; 233 with a BSE code",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
+    "note": "bulk.csv: 147 deals; block.csv: 2 deals; 0 tracked-investor deals of 149; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 94 of today's 149 deals are in this year's listings (10 stocks); 1617 kept over 60 days; 206 of 302 listings have an NSE symbol; 236 with a BSE code",
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
    },
    {
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
-    "asOf": "2026-11-04T06:05:46+05:30",
-    "elapsed": 0.56,
+    "asOf": "2026-11-04T12:40:56+05:30",
+    "elapsed": 1.21,
     "calls": 3,
-    "note": "business-standard: 5/35 primary-market items; economic-times: 2/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 7 fresh, 25 kept",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
+    "note": "business-standard: 2/35 primary-market items; economic-times: 3/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 5 fresh, 25 kept",
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
    },
    {
     "area": "logos",
@@ -86790,9 +86912,8 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "69 logos on file; none to fetch",
-    "lastOk": "2026-11-04T06:45:21+05:30",
-    "dueBy": "2026-11-04T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-04T12:59:53+05:30",
+    "dueBy": "2026-11-04T18:58:00+05:30"
    },
    {
     "area": "research layer",
@@ -86804,7 +86925,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "4s, 9 calls, 3/3 modules ok"
+    "note": "84s, 100 calls, 17/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -88350,53 +88471,53 @@
   "prices": {
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1300.0,
-    "asOf": "2026-11-02"
+    "value": 1308.3,
+    "asOf": "2026-11-04"
    },
    "Edelweiss Financial Services": {
     "symbol": "EDELWEISS",
-    "value": 124.48,
-    "asOf": "2026-11-02"
+    "value": 122.64,
+    "asOf": "2026-11-04"
    },
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 408.0,
-    "asOf": "2026-11-02"
+    "value": 399.35,
+    "asOf": "2026-11-04"
    },
    "Hero MotoCorp": {
     "symbol": "HEROMOTOCO",
-    "value": 5193.0,
-    "asOf": "2026-11-02"
+    "value": 5337.0,
+    "asOf": "2026-11-04"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 107.52,
-    "asOf": "2026-11-02"
+    "value": 110.46,
+    "asOf": "2026-11-04"
    },
    "Prestige Estates": {
     "symbol": "PRESTIGE",
-    "value": 1479.5,
-    "asOf": "2026-11-02"
+    "value": 1582.3,
+    "asOf": "2026-11-04"
    },
    "SIS Limited": {
     "symbol": "SIS",
-    "value": 379.15,
-    "asOf": "2026-11-02"
+    "value": 385.65,
+    "asOf": "2026-11-04"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 238.49,
-    "asOf": "2026-11-02"
+    "value": 241.45,
+    "asOf": "2026-11-04"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 6223.0,
-    "asOf": "2026-11-02"
+    "value": 6400.0,
+    "asOf": "2026-11-04"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 56.5,
-    "asOf": "2026-11-02"
+    "value": 56.08,
+    "asOf": "2026-11-04"
    },
    "Tata Motors": {
     "symbol": "TATAMOTORS",
@@ -88405,48 +88526,48 @@
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 389.0,
-    "asOf": "2026-11-02"
+    "value": 407.85,
+    "asOf": "2026-11-04"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 78.78,
-    "asOf": "2026-11-02"
+    "value": 78.7,
+    "asOf": "2026-11-04"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 234.83,
-    "asOf": "2026-11-02"
+    "value": 234.09,
+    "asOf": "2026-11-04"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 700.0,
-    "asOf": "2026-11-02"
+    "value": 732.55,
+    "asOf": "2026-11-04"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 458.35,
-    "asOf": "2026-11-02"
+    "value": 457.95,
+    "asOf": "2026-11-04"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1209.0,
-    "asOf": "2026-11-02"
+    "value": 1227.0,
+    "asOf": "2026-11-04"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1691.5,
-    "asOf": "2026-11-02"
+    "value": 1747.8,
+    "asOf": "2026-11-04"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1192.3,
-    "asOf": "2026-11-02"
+    "value": 1171.5,
+    "asOf": "2026-11-04"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 17.67,
-    "asOf": "2026-11-02"
+    "value": 18.6,
+    "asOf": "2026-11-04"
    },
    "Gretex Corporate Services": {
     "symbol": "GRETEX",
@@ -88455,78 +88576,78 @@
    },
    "Zaggle Prepaid": {
     "symbol": "ZAGGLE",
-    "value": 157.19,
-    "asOf": "2026-11-02"
+    "value": 161.28,
+    "asOf": "2026-11-04"
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 105.64,
-    "asOf": "2026-11-02"
+    "value": 106.99,
+    "asOf": "2026-11-04"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1225.0,
-    "asOf": "2026-11-02"
+    "value": 1243.9,
+    "asOf": "2026-11-04"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 486.4,
-    "asOf": "2026-11-02"
+    "value": 546.6,
+    "asOf": "2026-11-04"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 303.55,
-    "asOf": "2026-11-02"
+    "value": 298.0,
+    "asOf": "2026-11-04"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 125.92,
-    "asOf": "2026-11-02"
+    "value": 131.17,
+    "asOf": "2026-11-04"
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
-    "value": 1131.1,
-    "asOf": "2026-11-02"
+    "value": 1238.9,
+    "asOf": "2026-11-04"
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1523.0,
-    "asOf": "2026-11-02"
+    "value": 1637.2,
+    "asOf": "2026-11-04"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1314.1,
-    "asOf": "2026-11-02"
+    "value": 1370.0,
+    "asOf": "2026-11-04"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 90.81,
-    "asOf": "2026-11-02"
+    "value": 98.77,
+    "asOf": "2026-11-04"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 478.5,
-    "asOf": "2026-11-02"
+    "value": 491.3,
+    "asOf": "2026-11-04"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 538.15,
-    "asOf": "2026-11-02"
+    "value": 530.45,
+    "asOf": "2026-11-04"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1186.6,
-    "asOf": "2026-11-02"
+    "value": 1233.1,
+    "asOf": "2026-11-04"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 446.0,
-    "asOf": "2026-11-02"
+    "value": 449.85,
+    "asOf": "2026-11-04"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 496.6,
-    "asOf": "2026-11-02"
+    "value": 501.05,
+    "asOf": "2026-11-04"
    },
    "Ashutosh Fibre (upcoming)": {
     "symbol": "ASHUTOSH",
@@ -88535,8 +88656,8 @@
    },
    "Sahajanand Medical Technologies (upcoming)": {
     "symbol": "SMT",
-    "value": 460.1,
-    "asOf": "2026-11-02"
+    "value": 479.35,
+    "asOf": "2026-11-04"
    },
    "Indo SMC": {
     "symbol": null,
@@ -117238,6 +117359,18 @@
    "SFC Environmental Technologies": {
     "symbol": "SFCTECH",
     "triedOn": "2026-11-03"
+   },
+   "Carver Roboweld": {
+    "symbol": "CRL",
+    "triedOn": "2026-11-04"
+   },
+   "M.K.Sons Fine Jewels": {
+    "symbol": "MKSONS",
+    "triedOn": "2026-11-04"
+   },
+   "Ajwa Projects": {
+    "symbol": "AJWA",
+    "triedOn": "2026-11-04"
    }
   }
  },
@@ -124557,8 +124690,8 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1300.0,
-    "asOf": "2026-11-02"
+    "value": 1308.3,
+    "asOf": "2026-11-04"
    },
    "parentTicker": "RELIANCE",
    "sources": [
@@ -124610,8 +124743,8 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 124.48,
-    "asOf": "2026-11-02"
+    "value": 122.64,
+    "asOf": "2026-11-04"
    },
    "parentTicker": "EDELWEISS",
    "sources": [
@@ -124765,8 +124898,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 408.0,
-    "asOf": "2026-11-02"
+    "value": 399.35,
+    "asOf": "2026-11-04"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -124894,8 +125027,8 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5193.0,
-    "asOf": "2026-11-02"
+    "value": 5337.0,
+    "asOf": "2026-11-04"
    },
    "parentTicker": "HEROMOTOCO",
    "sources": [
@@ -125009,8 +125142,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 408.0,
-    "asOf": "2026-11-02"
+    "value": 399.35,
+    "asOf": "2026-11-04"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -125109,11 +125242,11 @@
    "main": {
     "window": {
      "rule": "last 12 months",
-     "n": 134,
+     "n": 135,
      "from": "2025-11-06",
-     "to": "2026-11-03"
+     "to": "2026-11-04"
     },
-    "n": 411,
+    "n": 412,
     "bands": {
      "total": {
       "window": [
@@ -125127,13 +125260,13 @@
         "p90": 2.4
        },
        {
-        "n": 36,
-        "pos": 61.1,
-        "lo": 44.9,
-        "hi": 75.2,
-        "med": 2.7,
-        "p10": -9.5,
-        "p90": 10.0
+        "n": 37,
+        "pos": 62.2,
+        "lo": 46.1,
+        "hi": 75.9,
+        "med": 3.3,
+        "p10": -9.4,
+        "p90": 9.9
        },
        {
         "n": 28,
@@ -125165,11 +125298,11 @@
         "p90": 4.8
        },
        {
-        "n": 103,
-        "pos": 57.3,
-        "lo": 47.6,
-        "hi": 66.4,
-        "med": 1.4,
+        "n": 104,
+        "pos": 57.7,
+        "lo": 48.1,
+        "hi": 66.7,
+        "med": 1.5,
         "p10": -9.0,
         "p90": 10.5
        },
@@ -125205,11 +125338,11 @@
         "p90": 2.6
        },
        {
-        "n": 49,
-        "pos": 63.3,
-        "lo": 49.3,
-        "hi": 75.3,
-        "med": 2.5,
+        "n": 50,
+        "pos": 64.0,
+        "lo": 50.1,
+        "hi": 75.9,
+        "med": 2.6,
         "p10": -3.4,
         "p90": 10.1
        },
@@ -125243,12 +125376,12 @@
         "p90": 5.1
        },
        {
-        "n": 120,
-        "pos": 63.3,
-        "lo": 54.4,
-        "hi": 71.4,
-        "med": 2.4,
-        "p10": -4.0,
+        "n": 121,
+        "pos": 63.6,
+        "lo": 54.8,
+        "hi": 71.7,
+        "med": 2.5,
+        "p10": -3.9,
         "p90": 10.0
        },
        {
@@ -125274,11 +125407,11 @@
      "qib": {
       "rows": [
        {
-        "n": 39,
-        "pos": 33.3,
-        "lo": 20.6,
-        "hi": 49.0,
-        "med": -1.9,
+        "n": 40,
+        "pos": 35.0,
+        "lo": 22.1,
+        "hi": 50.5,
+        "med": -1.0,
         "p10": -11.3,
         "p90": 5.5
        },
@@ -125313,7 +125446,7 @@
       "years": [
        2026
       ],
-      "n": 112
+      "n": 113
      },
      "retail": {
       "rows": [
@@ -125336,13 +125469,13 @@
         "p90": 9.0
        },
        {
-        "n": 19,
-        "pos": 68.4,
-        "lo": 46.0,
-        "hi": 84.6,
+        "n": 20,
+        "pos": 70.0,
+        "lo": 48.1,
+        "hi": 85.5,
         "med": 6.8,
-        "p10": -11.6,
-        "p90": 21.8
+        "p10": -11.5,
+        "p90": 19.9
        },
        {
         "n": 26,
@@ -125477,18 +125610,18 @@
        "evMean": -0.51
       },
       {
-       "n": 19,
-       "pos": 68.4,
-       "lo": 46.0,
-       "hi": 84.6,
+       "n": 20,
+       "pos": 70.0,
+       "lo": 48.1,
+       "hi": 85.5,
        "med": 6.8,
-       "p10": -11.6,
-       "p90": 21.8,
-       "oddsMed": 14.9,
-       "evMed": 0.91,
-       "evP10": -1.57,
-       "evP90": 2.89,
-       "evMean": 0.71
+       "p10": -11.5,
+       "p90": 19.9,
+       "oddsMed": 15.8,
+       "evMed": 1.08,
+       "evP10": -1.46,
+       "evP90": 2.69,
+       "evMean": 0.76
       },
       {
        "n": 26,
@@ -125569,26 +125702,34 @@
     },
     "fit": {
      "r377": {
-      "n": 123,
+      "n": 124,
       "a": -1.77,
       "b": 1.059,
       "r2": 0.82,
       "sd": 10.0,
       "q10": -9.7,
-      "q90": 9.6
+      "q90": 9.5
      },
      "eve": {
-      "n": 30,
-      "a": -2.12,
-      "b": 1.262,
+      "n": 31,
+      "a": -2.14,
+      "b": 1.263,
       "r2": 0.83,
-      "sd": 10.2,
-      "q10": -11.8,
-      "q90": 10.3
+      "sd": 10.1,
+      "q10": -11.7,
+      "q90": 10.2
      },
      "provisional": false,
-     "eveRows": 32,
-     "r377OnSameRows": null
+     "eveRows": 33,
+     "r377OnSameRows": {
+      "n": 30,
+      "a": -0.8,
+      "b": 1.179,
+      "r2": 0.8,
+      "sd": 10.9,
+      "q10": -8.9,
+      "q90": 11.9
+     }
     },
     "byYear": {
      "2022": {
@@ -125628,13 +125769,13 @@
       "p90": 29.4
      },
      "2026": {
-      "n": 112,
-      "pos": 68.8,
-      "lo": 59.7,
-      "hi": 76.6,
-      "med": 6.9,
-      "p10": -8.7,
-      "p90": 41.3
+      "n": 113,
+      "pos": 69.0,
+      "lo": 60.0,
+      "hi": 76.8,
+      "med": 6.8,
+      "p10": -8.5,
+      "p90": 41.1
      }
     },
     "lockin": {
@@ -125652,22 +125793,22 @@
    "sme": {
     "window": {
      "rule": "last 12 months",
-     "n": 237,
+     "n": 239,
      "from": "2025-11-04",
-     "to": "2026-11-03"
+     "to": "2026-11-04"
     },
-    "n": 991,
+    "n": 993,
     "bands": {
      "total": {
       "window": [
        {
-        "n": 80,
-        "pos": 33.8,
-        "lo": 24.3,
-        "hi": 44.6,
+        "n": 81,
+        "pos": 33.3,
+        "lo": 24.0,
+        "hi": 44.1,
         "med": 0.0,
         "p10": -20.0,
-        "p90": 7.3
+        "p90": 6.9
        },
        {
         "n": 64,
@@ -125679,13 +125820,13 @@
         "p90": 11.1
        },
        {
-        "n": 29,
-        "pos": 72.4,
-        "lo": 54.3,
-        "hi": 85.3,
-        "med": 4.3,
-        "p10": -1.8,
-        "p90": 33.5
+        "n": 30,
+        "pos": 73.3,
+        "lo": 55.6,
+        "hi": 85.8,
+        "med": 4.7,
+        "p10": -1.0,
+        "p90": 33.4
        },
        {
         "n": 64,
@@ -125699,10 +125840,10 @@
       ],
       "all": [
        {
-        "n": 173,
-        "pos": 43.4,
-        "lo": 36.2,
-        "hi": 50.8,
+        "n": 174,
+        "pos": 43.1,
+        "lo": 36.0,
+        "hi": 50.5,
         "med": 0.0,
         "p10": -20.0,
         "p90": 7.1
@@ -125717,10 +125858,10 @@
         "p90": 18.4
        },
        {
-        "n": 159,
-        "pos": 71.7,
-        "lo": 64.2,
-        "hi": 78.1,
+        "n": 160,
+        "pos": 71.9,
+        "lo": 64.5,
+        "hi": 78.3,
         "med": 6.8,
         "p10": -7.8,
         "p90": 39.6
@@ -125748,13 +125889,13 @@
         "p90": 4.8
        },
        {
-        "n": 62,
-        "pos": 46.8,
-        "lo": 34.9,
-        "hi": 59.0,
+        "n": 64,
+        "pos": 46.9,
+        "lo": 35.2,
+        "hi": 58.9,
         "med": 0.0,
-        "p10": -19.4,
-        "p90": 13.2
+        "p10": -18.3,
+        "p90": 13.1
        },
        {
         "n": 29,
@@ -125786,13 +125927,13 @@
         "p90": 16.7
        },
        {
-        "n": 199,
-        "pos": 57.8,
+        "n": 201,
+        "pos": 57.7,
         "lo": 50.8,
-        "hi": 64.4,
+        "hi": 64.3,
         "med": 2.3,
-        "p10": -11.9,
-        "p90": 17.2
+        "p10": -11.4,
+        "p90": 17.0
        },
        {
         "n": 158,
@@ -125835,13 +125976,13 @@
         "p90": 9.9
        },
        {
-        "n": 28,
-        "pos": 60.7,
-        "lo": 42.4,
-        "hi": 76.4,
-        "med": 2.3,
-        "p10": -3.5,
-        "p90": 40.0
+        "n": 29,
+        "pos": 62.1,
+        "lo": 44.0,
+        "hi": 77.3,
+        "med": 3.0,
+        "p10": -3.2,
+        "p90": 39.7
        },
        {
         "n": 37,
@@ -125856,7 +125997,7 @@
       "years": [
        2026
       ],
-      "n": 157
+      "n": 158
      },
      "retail": {
       "rows": [
@@ -125870,13 +126011,13 @@
         "p90": 7.0
        },
        {
-        "n": 62,
-        "pos": 27.4,
-        "lo": 17.9,
-        "hi": 39.6,
+        "n": 63,
+        "pos": 27.0,
+        "lo": 17.6,
+        "hi": 39.0,
         "med": 0.0,
         "p10": -20.0,
-        "p90": 6.7
+        "p90": 6.5
        },
        {
         "n": 24,
@@ -125888,13 +126029,13 @@
         "p90": 12.1
        },
        {
-        "n": 20,
-        "pos": 70.0,
-        "lo": 48.1,
-        "hi": 85.5,
-        "med": 4.7,
-        "p10": -0.9,
-        "p90": 35.2
+        "n": 21,
+        "pos": 71.4,
+        "lo": 50.0,
+        "hi": 86.2,
+        "med": 5.0,
+        "p10": 0.0,
+        "p90": 34.4
        },
        {
         "n": 53,
@@ -126006,18 +126147,18 @@
        "evMean": 3.02
       },
       {
-       "n": 62,
-       "pos": 27.4,
-       "lo": 17.9,
-       "hi": 39.6,
+       "n": 63,
+       "pos": 27.0,
+       "lo": 17.6,
+       "hi": 39.0,
        "med": 0.0,
        "p10": -20.0,
-       "p90": 6.7,
-       "oddsMed": 51.3,
+       "p90": 6.5,
+       "oddsMed": 51.8,
        "evMed": -0.1,
-       "evP10": -10.64,
-       "evP90": 4.04,
-       "evMean": -1.18
+       "evP10": -10.44,
+       "evP90": 4.01,
+       "evMean": -1.16
       },
       {
        "n": 24,
@@ -126034,18 +126175,18 @@
        "evMean": -0.09
       },
       {
-       "n": 20,
-       "pos": 70.0,
-       "lo": 48.1,
-       "hi": 85.5,
-       "med": 4.7,
-       "p10": -0.9,
-       "p90": 35.2,
-       "oddsMed": 5.7,
-       "evMed": 0.24,
-       "evP10": -0.16,
-       "evP90": 1.67,
-       "evMean": 0.41
+       "n": 21,
+       "pos": 71.4,
+       "lo": 50.0,
+       "hi": 86.2,
+       "med": 5.0,
+       "p10": 0.0,
+       "p90": 34.4,
+       "oddsMed": 5.3,
+       "evMed": 0.3,
+       "evP10": -0.1,
+       "evP90": 1.66,
+       "evMean": 0.42
       },
       {
        "n": 53,
@@ -126112,17 +126253,17 @@
     },
     "fit": {
      "r377": {
-      "n": 130,
-      "a": 0.88,
-      "b": 0.981,
+      "n": 132,
+      "a": 0.94,
+      "b": 0.98,
       "r2": 0.74,
-      "sd": 17.3,
-      "q10": -20.1,
-      "q90": 19.4
+      "sd": 17.2,
+      "q10": -19.9,
+      "q90": 19.2
      },
      "eve": null,
      "provisional": false,
-     "eveRows": 47,
+     "eveRows": 49,
      "r377OnSameRows": null
     },
     "byYear": {
@@ -126163,13 +126304,13 @@
       "p90": 56.9
      },
      "2026": {
-      "n": 187,
+      "n": 189,
       "pos": 54.5,
       "lo": 47.4,
-      "hi": 61.5,
+      "hi": 61.4,
       "med": 1.4,
       "p10": -20.0,
-      "p90": 60.2
+      "p90": 58.2
      }
     },
     "lockin": {
@@ -126497,11 +126638,11 @@
   "warnings": [
    {
     "code": "category-one-year-mainboard",
-    "text": "mainboard: QIB and retail bands, and expected value, rest on 112 listings from 2026 alone — category books are not published for earlier years."
+    "text": "mainboard: QIB and retail bands, and expected value, rest on 113 listings from 2026 alone — category books are not published for earlier years."
    },
    {
     "code": "category-one-year-SME",
-    "text": "SME: QIB and retail bands, and expected value, rest on 186 listings from 2026 alone — category books are not published for earlier years."
+    "text": "SME: QIB and retail bands, and expected value, rest on 188 listings from 2026 alone — category books are not published for earlier years."
    },
    {
     "code": "regime-SME-2025",
@@ -128813,7 +128954,7 @@
   },
   "2375": {
    "name": "Antala Industries",
-   "fetchedAt": "2026-11-04T12:38:28+05:30",
+   "fetchedAt": "2026-11-04T12:58:30+05:30",
    "about": [
     "Antala Industries Limited is engaged in the production, processing, printing, lamination and supply of industrial and commercial packaging materials. Its product range includes BOPP bags, BOPP printing rolls, BOPP lamination rolls, PP woven bags and PP woven lamination rolls, catering to industries such as food processing, fertilizers, chemicals, cement and seeds. The Company operates an integrated manufacturing facility in Rajkot, Gujarat, equipped with extrusion, coating and lamination, rotogravure printing, stitching and finishing capabilities. The Company offers customized packaging solutions designed to provide strength, durability, moisture resistance, superior print quality and improved product presentation. Its integrated production infrastructure supports in-house operations ranging from printing and lamination to cutting, stitching, finishing and final packaging, enabling effective quality management, efficient production and timely order fulfilment. The Company holds ISO 9001:2015, ISO 14001:2015, ISO 22000:2018 and ISO 45001:2018 certifications. Its promoters bring nearly three decades of experience in the packaging industry. As of July 21, 2026, the Company employed 11 personnel across various functions, including accounts and finance, management, administration, sales, secretarial and production. Its competitive advantages include experienced promoters and management, a broad and customizable packaging portfolio, a presence across diverse industries, integrated manufacturing operations, a customer-oriented approach and well-established relationships with suppliers and customers. Strengths: Promoters and management with substantial experience in the packaging industry. Wide range of packaging products with flexibility to meet customized customer requirements. Established presence across several industrial and commercial end-use sectors. Integrated manufacturing infrastructure supporting production control and operational efficiency. Focus on product quality, customized solutions and timely delivery. Established business relationships with customers and suppliers."
    ],
@@ -130388,7 +130529,7 @@
   },
   "2297": {
    "name": "Vedant Poly Fabs",
-   "fetchedAt": "2026-11-04T12:38:28+05:30",
+   "fetchedAt": "2026-11-04T12:58:30+05:30",
    "about": [
     "Vedant Poly Fabs Limited, incorporated in December 2018, is engaged in the manufacturing of flexible packaging materials for business customers across India. The company offers a diversified product portfolio, including 3-layer and 5-layer LD films, shrink films, barrier films, printed laminates, and milk and oil pouches. Its products cater to the packaging requirements of the food and beverage industry and other consumer goods segments. The company operates an integrated manufacturing process covering film extrusion, printing, lamination, slitting, quality control, and packaging. In March 2026, it strengthened its manufacturing infrastructure by adding lamination, slitting, and pouching machines and installing a reprocessing unit to support waste recycling and improve resource utilization. These initiatives reflect its focus on enhancing operational capabilities and supporting evolving customer requirements. As of March 31, 2026, the company had a workforce of 72 employees, comprising 41 permanent and 31 contractual employees. Key Strengths Integrated Manufacturing: In-house capabilities across multiple stages of the flexible packaging production process. Diversified Product Portfolio: A wide range of flexible packaging solutions catering to different industry requirements. Quality Control: Quality checks integrated into the manufacturing process to support product consistency. Manufacturing Infrastructure: Additional machinery and reprocessing facilities to enhance production capabilities and resource utilization. Logistics Capabilities: In-house transportation and logistics support for product distribution. Customer Reach: A direct B2B sales model and a diversified customer base across India. Customization Capabilities: Product development and customization to address specific packaging requirements."
    ],
@@ -131486,19 +131627,43 @@
     "of": 53,
     "names": [],
     "frozenOn": "2026-11-03"
+   },
+   "2393": {
+    "name": "Carver Roboweld",
+    "sme": true,
+    "listedOn": "2026-11-04",
+    "large": 0,
+    "of": 53,
+    "names": [],
+    "frozenOn": "2026-11-04"
+   },
+   "2017": {
+    "name": "Ajwa Projects",
+    "sme": true,
+    "listedOn": "2026-11-04",
+    "large": 0,
+    "of": 53,
+    "names": [],
+    "frozenOn": "2026-11-04"
+   },
+   "2288": {
+    "name": "M.K.Sons Fine Jewels",
+    "sme": false,
+    "listedOn": "2026-11-04",
+    "large": 0,
+    "of": 53,
+    "names": [],
+    "frozenOn": "2026-11-04"
    }
   },
   "covered": [
    "1936",
    "1965",
    "1998",
-   "2017",
    "2241",
-   "2288",
    "2297",
    "2371",
-   "2375",
-   "2393"
+   "2375"
   ],
   "league": [
    {
@@ -131679,7 +131844,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-11-04T06:44:22+05:30",
+  "asOf": "2026-11-04T12:58:50+05:30",
   "dates": [
    "2026-02-02",
    "2026-02-03",
@@ -131884,7 +132049,10 @@
   "names": {
    "BLS Polymers": "BLSPOLY",
    "SFC Environmental Technologies": "SFCTECH",
+   "M.K.Sons Fine Jewels": "MKSONS",
    "Wiscon Industries": "WISCON",
+   "Ajwa Projects": "AJWA",
+   "Carver Roboweld": "CRL",
    "EAAA India Alternatives": "EDELALTS",
    "Core4 Engineers": "CORE4",
    "Jio Platforms": "JPL",
@@ -132086,7 +132254,7 @@
    "Victory Electric Vehicles": "VICTORYEV",
    "E to E Transportation Infrastructure": "E2ERAIL"
   },
-  "n": 203,
+  "n": 206,
   "bse": {
    "dates": [
     "2026-02-02",
@@ -132392,7 +132560,7 @@
  },
  "anchorBooks": {
   "asOf": "2026-11-04",
-  "n": 916,
+  "n": 918,
   "books": {
    "1782": {
     "name": "Shakti Polytarp",
@@ -194325,6 +194493,140 @@
     ],
     "complete": true,
     "fetchedOn": "2026-11-03"
+   },
+   "2393": {
+    "name": "Carver Roboweld",
+    "sme": true,
+    "listedOn": "2026-11-04",
+    "bidDate": "2026-10-27",
+    "price": 80.0,
+    "pctQib": 59.85,
+    "locked30": 498400.0,
+    "locked90": 498400.0,
+    "totalShares": 996800.0,
+    "rows": [
+     {
+      "name": "31 DEGREES NORTH INDIA OPPORTUNITIES FUND",
+      "shares": 305600.0,
+      "amtCr": 2.44,
+      "pctAlloc": 30.66,
+      "pctIssue": 8.64,
+      "key": "31 DEGREES NORTH INDIA OPPORTUNITIES FUND"
+     },
+     {
+      "name": "SMART HORIZON OPPORTUNITY FUND",
+      "shares": 251200.0,
+      "amtCr": 2.01,
+      "pctAlloc": 25.2,
+      "pctIssue": 7.1,
+      "key": "SMART HORIZON OPPORTUNITY FUND"
+     },
+     {
+      "name": "VBCUBE VENTURES FUND II",
+      "shares": 251200.0,
+      "amtCr": 2.01,
+      "pctAlloc": 25.2,
+      "pctIssue": 7.1,
+      "key": "VBCUBE VENTURES FUND II"
+     },
+     {
+      "name": "BRESCON OPPORTUNITIES FUND",
+      "shares": 188800.0,
+      "amtCr": 1.51,
+      "pctAlloc": 18.94,
+      "pctIssue": 5.34,
+      "key": "BRESCON OPPORTUNITIES FUND"
+     }
+    ],
+    "complete": true,
+    "fetchedOn": "2026-11-04"
+   },
+   "2288": {
+    "name": "M.K.Sons Fine Jewels",
+    "sme": false,
+    "listedOn": "2026-11-04",
+    "bidDate": "2026-10-27",
+    "price": 162.0,
+    "pctQib": 100.0,
+    "locked30": 2550000.0,
+    "locked90": 2550000.0,
+    "totalShares": 5100000.0,
+    "rows": [
+     {
+      "name": "GOLDMAN SACHS BANK EUROPE SE",
+      "shares": 592683.0,
+      "amtCr": 9.6,
+      "pctAlloc": 11.62,
+      "pctIssue": 3.49,
+      "key": "GOLDMAN SACHS BANK EUROPE SE"
+     },
+     {
+      "name": "VENUS INVESTMENTS VCC-VENUS STELLAR FUND",
+      "shares": 1050227.0,
+      "amtCr": 17.01,
+      "pctAlloc": 20.59,
+      "pctIssue": 6.18,
+      "key": "VENUS INVESTMENTS VCC VENUS STELLAR FUND"
+     },
+     {
+      "name": "ADVENT GLOBAL FUND PCC-ADVENT GLOBAL FUND-CELL 1",
+      "shares": 987714.0,
+      "amtCr": 16.0,
+      "pctAlloc": 19.37,
+      "pctIssue": 5.81,
+      "key": "ADVENT GLOBAL FUND PCC ADVENT GLOBAL FUND CELL 1"
+     },
+     {
+      "name": "KHANDELWAL FINANCE PVT.LTD.",
+      "shares": 617344.0,
+      "amtCr": 10.0,
+      "pctAlloc": 12.1,
+      "pctIssue": 3.63,
+      "key": "KHANDELWAL FINANCE"
+     },
+     {
+      "name": "TIGER STRATEGIES FUND 1",
+      "shares": 617344.0,
+      "amtCr": 10.0,
+      "pctAlloc": 12.1,
+      "pctIssue": 3.63,
+      "key": "TIGER STRATEGIES FUND 1"
+     },
+     {
+      "name": "ARNESTA GLOBAL OPPORTUNITIES FUND PCC-ARNESTA GLOBAL FUND 1",
+      "shares": 308672.0,
+      "amtCr": 5.0,
+      "pctAlloc": 6.05,
+      "pctIssue": 1.82,
+      "key": "ARNESTA GLOBAL OPPORTUNITIES FUND PCC ARNESTA GLOBAL FUND 1"
+     },
+     {
+      "name": "ZEAL GLOBAL OPPORTUNITIES FUND",
+      "shares": 308672.0,
+      "amtCr": 5.0,
+      "pctAlloc": 6.05,
+      "pctIssue": 1.82,
+      "key": "ZEAL GLOBAL OPPORTUNITIES FUND"
+     },
+     {
+      "name": "COMPACT STRUCTURE FUND",
+      "shares": 308672.0,
+      "amtCr": 5.0,
+      "pctAlloc": 6.05,
+      "pctIssue": 1.82,
+      "key": "COMPACT STRUCTURE FUND"
+     },
+     {
+      "name": "NEXUS GLOBAL OPPORTUNITIES FUND",
+      "shares": 308672.0,
+      "amtCr": 5.0,
+      "pctAlloc": 6.05,
+      "pctIssue": 1.82,
+      "key": "NEXUS GLOBAL OPPORTUNITIES FUND"
+     }
+    ],
+    "complete": true,
+    "fetchedOn": "2026-11-04"
    }
   },
   "none": {
@@ -194813,14 +195115,15 @@
    "1781": "2026-10-22",
    "1602": "2026-10-22",
    "2001": "2026-10-23",
-   "2292": "2026-10-26"
+   "2292": "2026-10-26",
+   "2017": "2026-11-04"
   }
  },
  "trackRecords": {
   "asOf": "2026-11-04",
-  "booksOn": 916,
-  "withOutcome": 916,
-  "investors": 1491,
+  "booksOn": 918,
+  "withOutcome": 918,
+  "investors": 1494,
   "minRows": 2,
   "lead": 2,
   "rows": [
@@ -196755,13 +197058,13 @@
       "p90": 48.1
      },
      "d5": {
-      "n": 24,
-      "pos": 66.7,
-      "lo": 46.7,
-      "hi": 82.0,
-      "med": 7.2,
-      "p10": -5.2,
-      "p90": 22.1
+      "n": 26,
+      "pos": 69.2,
+      "lo": 50.0,
+      "hi": 83.5,
+      "med": 5.3,
+      "p10": -4.9,
+      "p90": 21.9
      },
      "d30": {
       "n": 18,
@@ -197391,13 +197694,13 @@
       "p90": 28.4
      },
      "d5": {
-      "n": 18,
-      "pos": 55.6,
-      "lo": 33.7,
-      "hi": 75.4,
-      "med": 0.8,
-      "p10": -10.1,
-      "p90": 18.8
+      "n": 19,
+      "pos": 57.9,
+      "lo": 36.3,
+      "hi": 76.9,
+      "med": 1.1,
+      "p10": -9.8,
+      "p90": 18.5
      },
      "d30": {
       "n": 14,
@@ -198663,13 +198966,13 @@
       "p90": 33.7
      },
      "d5": {
-      "n": 20,
-      "pos": 65.0,
-      "lo": 43.3,
-      "hi": 81.9,
-      "med": 2.7,
-      "p10": -9.2,
-      "p90": 20.4
+      "n": 21,
+      "pos": 66.7,
+      "lo": 45.4,
+      "hi": 82.8,
+      "med": 3.3,
+      "p10": -9.1,
+      "p90": 20.3
      },
      "d30": {
       "n": 17,
@@ -199469,13 +199772,13 @@
       "p90": 59.2
      },
      "d5": {
-      "n": 15,
-      "pos": 53.3,
-      "lo": 30.1,
-      "hi": 75.2,
-      "med": 0.1,
+      "n": 16,
+      "pos": 56.2,
+      "lo": 33.2,
+      "hi": 76.9,
+      "med": 0.3,
       "p10": -6.5,
-      "p90": 28.5
+      "p90": 27.5
      },
      "d30": {
       "n": 11,
@@ -199935,13 +200238,13 @@
       "p90": 47.9
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -9.1,
-      "p10": -9.1,
-      "p90": -9.1
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -2.0,
+      "p10": -7.7,
+      "p90": 3.7
      },
      "d30": {
       "n": 1,
@@ -200039,6 +200342,176 @@
     ]
    },
    {
+    "key": "TIGER STRATEGIES FUND 1",
+    "name": "TIGER STRATEGIES FUND 1",
+    "cr": 72.6,
+    "n": 22,
+    "main": {
+     "n": 4,
+     "pos": 100.0,
+     "lo": 51.0,
+     "hi": 100.0,
+     "med": 8.5,
+     "p10": 6.0,
+     "p90": 10.8,
+     "close1": {
+      "n": 3,
+      "pos": 100.0,
+      "lo": 43.8,
+      "hi": 100.0,
+      "med": 2.2,
+      "p10": 1.8,
+      "p90": 4.0
+     },
+     "d5": {
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -3.5,
+      "p10": -9.7,
+      "p90": 12.7
+     },
+     "d30": {
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -9.8,
+      "p10": -10.8,
+      "p90": 80.4
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 11.1,
+      "p10": 11.1,
+      "p90": 11.1
+     }
+    },
+    "sme": {
+     "n": 18,
+     "pos": 83.3,
+     "lo": 60.8,
+     "hi": 94.2,
+     "med": 16.0,
+     "p10": -0.1,
+     "p90": 73.7,
+     "close1": {
+      "n": 18,
+      "pos": 83.3,
+      "lo": 60.8,
+      "hi": 94.2,
+      "med": 18.2,
+      "p10": -2.2,
+      "p90": 79.0
+     },
+     "d5": {
+      "n": 13,
+      "pos": 69.2,
+      "lo": 42.4,
+      "hi": 87.3,
+      "med": 3.9,
+      "p10": -5.5,
+      "p90": 22.9
+     },
+     "d30": {
+      "n": 12,
+      "pos": 83.3,
+      "lo": 55.2,
+      "hi": 95.3,
+      "med": 12.7,
+      "p10": -7.5,
+      "p90": 36.5
+     },
+     "lead": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 6.1,
+      "p10": -0.4,
+      "p90": 35.0
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2288",
+      "name": "M.K.Sons Fine Jewels",
+      "sme": false,
+      "date": "2026-11-04",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 5.56
+     },
+     {
+      "igId": "2335",
+      "name": "Vaibhav Vyapaar",
+      "sme": true,
+      "date": "2026-10-21",
+      "lead": true,
+      "amtCr": 2.85,
+      "ret": -2.04
+     },
+     {
+      "igId": "2360",
+      "name": "Acme Universal Safezone 9",
+      "sme": true,
+      "date": "2026-10-06",
+      "lead": true,
+      "amtCr": 3.41,
+      "ret": 42.25
+     },
+     {
+      "igId": "1589",
+      "name": "FX Multitech",
+      "sme": true,
+      "date": "2026-09-28",
+      "lead": true,
+      "amtCr": 4.33,
+      "ret": 6.08
+     },
+     {
+      "igId": "1782",
+      "name": "Shakti Polytarp",
+      "sme": true,
+      "date": "2026-09-22",
+      "lead": false,
+      "amtCr": 1.01,
+      "ret": -0.17
+     },
+     {
+      "igId": "1601",
+      "name": "Veegaland Developers",
+      "sme": false,
+      "date": "2026-09-18",
+      "lead": false,
+      "amtCr": 8.0,
+      "ret": 10.0
+     },
+     {
+      "igId": "2339",
+      "name": "Complete Sports and Management",
+      "sme": true,
+      "date": "2026-09-04",
+      "lead": false,
+      "amtCr": 2.75,
+      "ret": 2.96
+     },
+     {
+      "igId": "2013",
+      "name": "Kwick Forensic Solutions",
+      "sme": true,
+      "date": "2026-09-03",
+      "lead": false,
+      "amtCr": 1.5,
+      "ret": 66.67
+     }
+    ]
+   },
+   {
     "key": "EDELWEISS LIFE INSURANCE",
     "name": "EDELWEISS LIFE INSURANCE CO.LTD.",
     "cr": 176.9,
@@ -200061,13 +200534,13 @@
       "p90": 37.9
      },
      "d5": {
-      "n": 19,
-      "pos": 68.4,
-      "lo": 46.0,
-      "hi": 84.6,
-      "med": 4.3,
-      "p10": -6.8,
-      "p90": 35.4
+      "n": 20,
+      "pos": 70.0,
+      "lo": 48.1,
+      "hi": 85.5,
+      "med": 3.8,
+      "p10": -6.5,
+      "p90": 33.8
      },
      "d30": {
       "n": 15,
@@ -200313,13 +200786,13 @@
       "p90": 48.2
      },
      "d5": {
-      "n": 9,
-      "pos": 55.6,
-      "lo": 26.7,
-      "hi": 81.1,
+      "n": 11,
+      "pos": 63.6,
+      "lo": 35.4,
+      "hi": 84.8,
       "med": 3.3,
-      "p10": -5.3,
-      "p90": 20.4
+      "p10": -4.3,
+      "p90": 20.3
      },
      "d30": {
       "n": 5,
@@ -200417,176 +200890,6 @@
     ]
    },
    {
-    "key": "TIGER STRATEGIES FUND 1",
-    "name": "TIGER STRATEGIES FUND 1",
-    "cr": 62.6,
-    "n": 21,
-    "main": {
-     "n": 3,
-     "pos": 100.0,
-     "lo": 43.8,
-     "hi": 100.0,
-     "med": 10.0,
-     "p10": 7.7,
-     "p90": 10.9,
-     "close1": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 2.2,
-      "p10": 1.8,
-      "p90": 4.0
-     },
-     "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -3.5,
-      "p10": -9.7,
-      "p90": 12.7
-     },
-     "d30": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -9.8,
-      "p10": -10.8,
-      "p90": 80.4
-     },
-     "lead": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 11.1,
-      "p10": 11.1,
-      "p90": 11.1
-     }
-    },
-    "sme": {
-     "n": 18,
-     "pos": 83.3,
-     "lo": 60.8,
-     "hi": 94.2,
-     "med": 16.0,
-     "p10": -0.1,
-     "p90": 73.7,
-     "close1": {
-      "n": 18,
-      "pos": 83.3,
-      "lo": 60.8,
-      "hi": 94.2,
-      "med": 18.2,
-      "p10": -2.2,
-      "p90": 79.0
-     },
-     "d5": {
-      "n": 13,
-      "pos": 69.2,
-      "lo": 42.4,
-      "hi": 87.3,
-      "med": 3.9,
-      "p10": -5.5,
-      "p90": 22.9
-     },
-     "d30": {
-      "n": 12,
-      "pos": 83.3,
-      "lo": 55.2,
-      "hi": 95.3,
-      "med": 12.7,
-      "p10": -7.5,
-      "p90": 36.5
-     },
-     "lead": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 6.1,
-      "p10": -0.4,
-      "p90": 35.0
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2335",
-      "name": "Vaibhav Vyapaar",
-      "sme": true,
-      "date": "2026-10-21",
-      "lead": true,
-      "amtCr": 2.85,
-      "ret": -2.04
-     },
-     {
-      "igId": "2360",
-      "name": "Acme Universal Safezone 9",
-      "sme": true,
-      "date": "2026-10-06",
-      "lead": true,
-      "amtCr": 3.41,
-      "ret": 42.25
-     },
-     {
-      "igId": "1589",
-      "name": "FX Multitech",
-      "sme": true,
-      "date": "2026-09-28",
-      "lead": true,
-      "amtCr": 4.33,
-      "ret": 6.08
-     },
-     {
-      "igId": "1782",
-      "name": "Shakti Polytarp",
-      "sme": true,
-      "date": "2026-09-22",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": -0.17
-     },
-     {
-      "igId": "1601",
-      "name": "Veegaland Developers",
-      "sme": false,
-      "date": "2026-09-18",
-      "lead": false,
-      "amtCr": 8.0,
-      "ret": 10.0
-     },
-     {
-      "igId": "2339",
-      "name": "Complete Sports and Management",
-      "sme": true,
-      "date": "2026-09-04",
-      "lead": false,
-      "amtCr": 2.75,
-      "ret": 2.96
-     },
-     {
-      "igId": "2013",
-      "name": "Kwick Forensic Solutions",
-      "sme": true,
-      "date": "2026-09-03",
-      "lead": false,
-      "amtCr": 1.5,
-      "ret": 66.67
-     },
-     {
-      "igId": "2238",
-      "name": "Sumax Engineering",
-      "sme": true,
-      "date": "2026-09-02",
-      "lead": false,
-      "amtCr": 1.02,
-      "ret": 9.9
-     }
-    ]
-   },
-   {
     "key": "HDFC BUSINESS CYCLE FUND",
     "name": "HDFC BUSINESS CYCLE FUND",
     "cr": 251.3,
@@ -200609,13 +200912,13 @@
       "p90": 47.9
      },
      "d5": {
-      "n": 9,
-      "pos": 77.8,
-      "lo": 45.3,
-      "hi": 93.7,
-      "med": 8.8,
-      "p10": -4.0,
-      "p90": 26.2
+      "n": 11,
+      "pos": 81.8,
+      "lo": 52.3,
+      "hi": 94.9,
+      "med": 5.6,
+      "p10": -1.9,
+      "p90": 20.8
      },
      "d30": {
       "n": 7,
@@ -200735,13 +201038,13 @@
       "p90": 42.3
      },
      "d5": {
-      "n": 12,
-      "pos": 58.3,
-      "lo": 32.0,
-      "hi": 80.7,
-      "med": 1.9,
+      "n": 13,
+      "pos": 61.5,
+      "lo": 35.5,
+      "hi": 82.3,
+      "med": 3.3,
       "p10": -6.1,
-      "p90": 20.1
+      "p90": 19.8
      },
      "d30": {
       "n": 10,
@@ -200861,13 +201164,13 @@
       "p90": 59.2
      },
      "d5": {
-      "n": 15,
-      "pos": 66.7,
-      "lo": 41.7,
-      "hi": 84.8,
-      "med": 6.8,
-      "p10": -9.8,
-      "p90": 21.8
+      "n": 16,
+      "pos": 68.8,
+      "lo": 44.4,
+      "hi": 85.8,
+      "med": 6.2,
+      "p10": -9.7,
+      "p90": 21.6
      },
      "d30": {
       "n": 10,
@@ -201283,13 +201586,13 @@
       "p90": 49.5
      },
      "d5": {
-      "n": 3,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 56.2,
-      "med": -4.2,
-      "p10": -8.1,
-      "p90": -2.8
+      "n": 4,
+      "pos": 25.0,
+      "lo": 4.6,
+      "hi": 69.9,
+      "med": -3.3,
+      "p10": -7.6,
+      "p90": 2.9
      },
      "d30": {
       "n": 2,
@@ -201535,13 +201838,13 @@
       "p90": 48.0
      },
      "d5": {
-      "n": 11,
-      "pos": 81.8,
-      "lo": 52.3,
-      "hi": 94.9,
-      "med": 8.8,
-      "p10": -0.3,
-      "p90": 20.8
+      "n": 13,
+      "pos": 84.6,
+      "lo": 57.8,
+      "hi": 95.7,
+      "med": 5.6,
+      "p10": -0.0,
+      "p90": 20.7
      },
      "d30": {
       "n": 8,
@@ -201957,13 +202260,13 @@
       "p90": 48.6
      },
      "d5": {
-      "n": 11,
-      "pos": 45.5,
-      "lo": 21.3,
-      "hi": 72.0,
-      "med": -1.3,
-      "p10": -6.4,
-      "p90": 20.8
+      "n": 12,
+      "pos": 50.0,
+      "lo": 25.4,
+      "hi": 74.6,
+      "med": -0.6,
+      "p10": -6.2,
+      "p90": 20.1
      },
      "d30": {
       "n": 10,
@@ -202467,12 +202770,12 @@
       "p90": 54.7
      },
      "d5": {
-      "n": 13,
-      "pos": 69.2,
-      "lo": 42.4,
-      "hi": 87.3,
-      "med": 8.8,
-      "p10": -8.1,
+      "n": 14,
+      "pos": 71.4,
+      "lo": 45.4,
+      "hi": 88.3,
+      "med": 7.8,
+      "p10": -7.6,
       "p90": 22.6
      },
      "d30": {
@@ -202593,13 +202896,13 @@
       "p90": 24.3
      },
      "d5": {
-      "n": 13,
-      "pos": 30.8,
-      "lo": 12.7,
-      "hi": 57.6,
-      "med": -2.4,
-      "p10": -11.6,
-      "p90": 9.7
+      "n": 14,
+      "pos": 35.7,
+      "lo": 16.3,
+      "hi": 61.2,
+      "med": -2.1,
+      "p10": -11.3,
+      "p90": 9.6
      },
      "d30": {
       "n": 12,
@@ -203651,13 +203954,13 @@
       "p90": 37.0
      },
      "d5": {
-      "n": 8,
-      "pos": 50.0,
-      "lo": 21.5,
-      "hi": 78.5,
-      "med": 0.9,
-      "p10": -4.7,
-      "p90": 19.8
+      "n": 9,
+      "pos": 55.6,
+      "lo": 26.7,
+      "hi": 81.1,
+      "med": 3.3,
+      "p10": -4.6,
+      "p90": 19.2
      },
      "d30": {
       "n": 3,
@@ -203947,13 +204250,13 @@
       "p90": 51.0
      },
      "d5": {
-      "n": 6,
-      "pos": 66.7,
-      "lo": 30.0,
-      "hi": 90.3,
-      "med": 6.1,
-      "p10": -6.7,
-      "p90": 19.1
+      "n": 7,
+      "pos": 71.4,
+      "lo": 35.9,
+      "hi": 91.8,
+      "med": 5.1,
+      "p10": -6.2,
+      "p90": 18.9
      },
      "d30": {
       "n": 3,
@@ -204665,13 +204968,13 @@
       "p90": 51.5
      },
      "d5": {
-      "n": 8,
-      "pos": 75.0,
-      "lo": 40.9,
-      "hi": 92.9,
-      "med": 19.1,
-      "p10": -7.2,
-      "p90": 22.5
+      "n": 10,
+      "pos": 80.0,
+      "lo": 49.0,
+      "hi": 94.3,
+      "med": 11.8,
+      "p10": -6.7,
+      "p90": 22.4
      },
      "d30": {
       "n": 6,
@@ -204791,13 +205094,13 @@
       "p90": 35.8
      },
      "d5": {
-      "n": 11,
-      "pos": 45.5,
-      "lo": 21.3,
-      "hi": 72.0,
-      "med": -1.4,
-      "p10": -9.1,
-      "p90": 20.3
+      "n": 12,
+      "pos": 50.0,
+      "lo": 25.4,
+      "hi": 74.6,
+      "med": -0.1,
+      "p10": -8.6,
+      "p90": 19.6
      },
      "d30": {
       "n": 9,
@@ -204917,13 +205220,13 @@
       "p90": 74.1
      },
      "d5": {
-      "n": 8,
-      "pos": 25.0,
-      "lo": 7.1,
-      "hi": 59.1,
-      "med": -2.1,
-      "p10": -4.7,
-      "p90": 11.3
+      "n": 10,
+      "pos": 40.0,
+      "lo": 16.8,
+      "hi": 68.7,
+      "med": -1.6,
+      "p10": -4.4,
+      "p90": 9.4
      },
      "d30": {
       "n": 4,
@@ -205487,6 +205790,176 @@
     ]
    },
    {
+    "key": "SMART HORIZON OPPORTUNITY FUND",
+    "name": "SMART HORIZON OPPORTUNITY FUND",
+    "cr": 23.1,
+    "n": 13,
+    "main": {
+     "n": 2,
+     "pos": 100.0,
+     "lo": 34.2,
+     "hi": 100.0,
+     "med": 31.2,
+     "p10": 17.3,
+     "p90": 45.2,
+     "close1": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 29.6,
+      "p10": 21.4,
+      "p90": 37.8
+     },
+     "d5": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -22.6,
+      "p10": -22.6,
+      "p90": -22.6
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": {
+     "n": 11,
+     "pos": 63.6,
+     "lo": 35.4,
+     "hi": 84.8,
+     "med": 12.5,
+     "p10": -6.3,
+     "p90": 90.0,
+     "close1": {
+      "n": 10,
+      "pos": 70.0,
+      "lo": 39.7,
+      "hi": 89.2,
+      "med": 20.1,
+      "p10": -10.0,
+      "p90": 99.5
+     },
+     "d5": {
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -4.5,
+      "p10": -5.9,
+      "p90": 4.8
+     },
+     "d30": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 15.4,
+      "p10": 6.0,
+      "p90": 24.8
+     },
+     "lead": {
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 21.6,
+      "p10": -0.6,
+      "p90": 37.7
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2393",
+      "name": "Carver Roboweld",
+      "sme": true,
+      "date": "2026-11-04",
+      "lead": true,
+      "amtCr": 2.01,
+      "ret": 12.5
+     },
+     {
+      "igId": "2220",
+      "name": "Ravita Engineering Services",
+      "sme": true,
+      "date": "2026-10-22",
+      "lead": false,
+      "amtCr": 1.01,
+      "ret": 0.0
+     },
+     {
+      "igId": "2370",
+      "name": "TNA Solutions",
+      "sme": true,
+      "date": "2026-10-09",
+      "lead": false,
+      "amtCr": 1.12,
+      "ret": -20.0
+     },
+     {
+      "igId": "2121",
+      "name": "SRIT India",
+      "sme": false,
+      "date": "2026-10-06",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 13.85
+     },
+     {
+      "igId": "2326",
+      "name": "Unitec Fibres",
+      "sme": true,
+      "date": "2026-09-30",
+      "lead": false,
+      "amtCr": 1.45,
+      "ret": 2.27
+     },
+     {
+      "igId": "2013",
+      "name": "Kwick Forensic Solutions",
+      "sme": true,
+      "date": "2026-09-03",
+      "lead": false,
+      "amtCr": 1.01,
+      "ret": 66.67
+     },
+     {
+      "igId": "2222",
+      "name": "Merritronix",
+      "sme": true,
+      "date": "2026-06-08",
+      "lead": false,
+      "amtCr": 1.01,
+      "ret": 90.0
+     },
+     {
+      "igId": "1338",
+      "name": "Repono",
+      "sme": true,
+      "date": "2025-08-04",
+      "lead": true,
+      "amtCr": 1.0,
+      "ret": -6.26
+     }
+    ]
+   },
+   {
     "key": "WINRO COMMERCIAL",
     "name": "WINRO COMMERCIAL (INDIA) LTD.",
     "cr": 290.3,
@@ -205653,6 +206126,176 @@
       "lead": true,
       "amtCr": 48.0,
       "ret": 36.57
+     }
+    ]
+   },
+   {
+    "key": "VENUS INVESTMENTS VCC VENUS STELLAR FUND",
+    "name": "VENUS INVESTMENTS VCC-VENUS STELLAR FUND",
+    "cr": 127.2,
+    "n": 13,
+    "main": {
+     "n": 11,
+     "pos": 90.9,
+     "lo": 62.3,
+     "hi": 98.4,
+     "med": 7.1,
+     "p10": 0.8,
+     "p90": 37.7,
+     "close1": {
+      "n": 10,
+      "pos": 80.0,
+      "lo": 49.0,
+      "hi": 94.3,
+      "med": 2.6,
+      "p10": -7.7,
+      "p90": 50.0
+     },
+     "d5": {
+      "n": 7,
+      "pos": 42.9,
+      "lo": 15.8,
+      "hi": 75.0,
+      "med": -4.2,
+      "p10": -13.9,
+      "p90": 16.7
+     },
+     "d30": {
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 51.5,
+      "p10": 2.9,
+      "p90": 92.3
+     },
+     "lead": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 5.4,
+      "p10": 5.3,
+      "p90": 5.5
+     }
+    },
+    "sme": {
+     "n": 2,
+     "pos": 100.0,
+     "lo": 34.2,
+     "hi": 100.0,
+     "med": 2.1,
+     "p10": 1.6,
+     "p90": 2.5,
+     "close1": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 6.2,
+      "p10": 5.0,
+      "p90": 7.4
+     },
+     "d5": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 6.6,
+      "p10": 6.6,
+      "p90": 6.6
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 1.5,
+      "p10": 1.5,
+      "p90": 1.5
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2288",
+      "name": "M.K.Sons Fine Jewels",
+      "sme": false,
+      "date": "2026-11-04",
+      "lead": true,
+      "amtCr": 17.01,
+      "ret": 5.56
+     },
+     {
+      "igId": "1849",
+      "name": "BLS Polymers",
+      "sme": false,
+      "date": "2026-11-03",
+      "lead": false,
+      "amtCr": 10.01,
+      "ret": 65.33
+     },
+     {
+      "igId": "2052",
+      "name": "Black Opal Consultants",
+      "sme": true,
+      "date": "2026-10-07",
+      "lead": true,
+      "amtCr": 3.76,
+      "ret": 1.52
+     },
+     {
+      "igId": "1812",
+      "name": "German Green Steel",
+      "sme": false,
+      "date": "2026-10-05",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 2.16
+     },
+     {
+      "igId": "1611",
+      "name": "A-One Steels",
+      "sme": false,
+      "date": "2026-10-01",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 12.35
+     },
+     {
+      "igId": "1982",
+      "name": "Pooja Logistics",
+      "sme": true,
+      "date": "2026-09-30",
+      "lead": false,
+      "amtCr": 1.01,
+      "ret": 2.61
+     },
+     {
+      "igId": "2305",
+      "name": "NSE",
+      "sme": false,
+      "date": "2026-09-24",
+      "lead": false,
+      "amtCr": 20.0,
+      "ret": 0.84
+     },
+     {
+      "igId": "1932",
+      "name": "Shankesh Jewellers",
+      "sme": false,
+      "date": "2026-08-25",
+      "lead": false,
+      "amtCr": 10.03,
+      "ret": 11.08
      }
     ]
    },
@@ -205849,13 +206492,13 @@
       "p90": 40.8
      },
      "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -7.9,
-      "p10": -19.7,
-      "p90": 6.1
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": -1.4,
+      "p10": -18.2,
+      "p90": 8.2
      },
      "d30": {
       "n": 1,
@@ -206271,13 +206914,13 @@
       "p90": 33.0
      },
      "d5": {
-      "n": 6,
-      "pos": 33.3,
-      "lo": 9.7,
-      "hi": 70.0,
-      "med": -1.6,
-      "p10": -4.9,
-      "p90": 4.7
+      "n": 7,
+      "pos": 42.9,
+      "lo": 15.8,
+      "hi": 75.0,
+      "med": -1.3,
+      "p10": -4.8,
+      "p90": 6.6
      },
      "d30": {
       "n": 4,
@@ -206523,13 +207166,13 @@
       "p90": 25.7
      },
      "d5": {
-      "n": 8,
-      "pos": 37.5,
-      "lo": 13.7,
-      "hi": 69.4,
-      "med": -4.9,
-      "p10": -10.6,
-      "p90": 9.3
+      "n": 9,
+      "pos": 44.4,
+      "lo": 18.9,
+      "hi": 73.3,
+      "med": -4.2,
+      "p10": -10.1,
+      "p90": 9.2
      },
      "d30": {
       "n": 5,
@@ -206967,176 +207610,6 @@
     ]
    },
    {
-    "key": "SMART HORIZON OPPORTUNITY FUND",
-    "name": "SMART HORIZON OPPORTUNITY FUND",
-    "cr": 21.1,
-    "n": 12,
-    "main": {
-     "n": 2,
-     "pos": 100.0,
-     "lo": 34.2,
-     "hi": 100.0,
-     "med": 31.2,
-     "p10": 17.3,
-     "p90": 45.2,
-     "close1": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 29.6,
-      "p10": 21.4,
-      "p90": 37.8
-     },
-     "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -22.6,
-      "p10": -22.6,
-      "p90": -22.6
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": {
-     "n": 10,
-     "pos": 60.0,
-     "lo": 31.3,
-     "hi": 83.2,
-     "med": 16.5,
-     "p10": -7.6,
-     "p90": 90.0,
-     "close1": {
-      "n": 10,
-      "pos": 70.0,
-      "lo": 39.7,
-      "hi": 89.2,
-      "med": 20.1,
-      "p10": -10.0,
-      "p90": 99.5
-     },
-     "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -4.5,
-      "p10": -5.9,
-      "p90": 4.8
-     },
-     "d30": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 15.4,
-      "p10": 6.0,
-      "p90": 24.8
-     },
-     "lead": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 30.8,
-      "p10": 1.1,
-      "p90": 38.7
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2220",
-      "name": "Ravita Engineering Services",
-      "sme": true,
-      "date": "2026-10-22",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": 0.0
-     },
-     {
-      "igId": "2370",
-      "name": "TNA Solutions",
-      "sme": true,
-      "date": "2026-10-09",
-      "lead": false,
-      "amtCr": 1.12,
-      "ret": -20.0
-     },
-     {
-      "igId": "2121",
-      "name": "SRIT India",
-      "sme": false,
-      "date": "2026-10-06",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 13.85
-     },
-     {
-      "igId": "2326",
-      "name": "Unitec Fibres",
-      "sme": true,
-      "date": "2026-09-30",
-      "lead": false,
-      "amtCr": 1.45,
-      "ret": 2.27
-     },
-     {
-      "igId": "2013",
-      "name": "Kwick Forensic Solutions",
-      "sme": true,
-      "date": "2026-09-03",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": 66.67
-     },
-     {
-      "igId": "2222",
-      "name": "Merritronix",
-      "sme": true,
-      "date": "2026-06-08",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": 90.0
-     },
-     {
-      "igId": "1338",
-      "name": "Repono",
-      "sme": true,
-      "date": "2025-08-04",
-      "lead": true,
-      "amtCr": 1.0,
-      "ret": -6.26
-     },
-     {
-      "igId": "1198",
-      "name": "Readymix Construction",
-      "sme": true,
-      "date": "2025-02-13",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": 0.0
-     }
-    ]
-   },
-   {
     "key": "EDELWEISS EQUITY SAVINGS FUND",
     "name": "EDELWEISS EQUITY SAVINGS FUND",
     "cr": 62.0,
@@ -207159,13 +207632,13 @@
       "p90": 34.1
      },
      "d5": {
-      "n": 6,
-      "pos": 50.0,
-      "lo": 18.8,
-      "hi": 81.2,
-      "med": -0.4,
-      "p10": -3.0,
-      "p90": 21.4
+      "n": 7,
+      "pos": 57.1,
+      "lo": 25.0,
+      "hi": 84.2,
+      "med": 0.5,
+      "p10": -2.8,
+      "p90": 21.1
      },
      "d30": {
       "n": 6,
@@ -207263,176 +207736,6 @@
     ]
    },
    {
-    "key": "VENUS INVESTMENTS VCC VENUS STELLAR FUND",
-    "name": "VENUS INVESTMENTS VCC-VENUS STELLAR FUND",
-    "cr": 110.2,
-    "n": 12,
-    "main": {
-     "n": 10,
-     "pos": 90.0,
-     "lo": 59.6,
-     "hi": 98.2,
-     "med": 9.1,
-     "p10": 0.8,
-     "p90": 40.4,
-     "close1": {
-      "n": 10,
-      "pos": 80.0,
-      "lo": 49.0,
-      "hi": 94.3,
-      "med": 2.6,
-      "p10": -7.7,
-      "p90": 50.0
-     },
-     "d5": {
-      "n": 7,
-      "pos": 42.9,
-      "lo": 15.8,
-      "hi": 75.0,
-      "med": -4.2,
-      "p10": -13.9,
-      "p90": 16.7
-     },
-     "d30": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 51.5,
-      "p10": 2.9,
-      "p90": 92.3
-     },
-     "lead": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 5.3,
-      "p10": 5.3,
-      "p90": 5.3
-     }
-    },
-    "sme": {
-     "n": 2,
-     "pos": 100.0,
-     "lo": 34.2,
-     "hi": 100.0,
-     "med": 2.1,
-     "p10": 1.6,
-     "p90": 2.5,
-     "close1": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 6.2,
-      "p10": 5.0,
-      "p90": 7.4
-     },
-     "d5": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 6.6,
-      "p10": 6.6,
-      "p90": 6.6
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 1.5,
-      "p10": 1.5,
-      "p90": 1.5
-     }
-    },
-    "ipos": [
-     {
-      "igId": "1849",
-      "name": "BLS Polymers",
-      "sme": false,
-      "date": "2026-11-03",
-      "lead": false,
-      "amtCr": 10.01,
-      "ret": 65.33
-     },
-     {
-      "igId": "2052",
-      "name": "Black Opal Consultants",
-      "sme": true,
-      "date": "2026-10-07",
-      "lead": true,
-      "amtCr": 3.76,
-      "ret": 1.52
-     },
-     {
-      "igId": "1812",
-      "name": "German Green Steel",
-      "sme": false,
-      "date": "2026-10-05",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 2.16
-     },
-     {
-      "igId": "1611",
-      "name": "A-One Steels",
-      "sme": false,
-      "date": "2026-10-01",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 12.35
-     },
-     {
-      "igId": "1982",
-      "name": "Pooja Logistics",
-      "sme": true,
-      "date": "2026-09-30",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": 2.61
-     },
-     {
-      "igId": "2305",
-      "name": "NSE",
-      "sme": false,
-      "date": "2026-09-24",
-      "lead": false,
-      "amtCr": 20.0,
-      "ret": 0.84
-     },
-     {
-      "igId": "1932",
-      "name": "Shankesh Jewellers",
-      "sme": false,
-      "date": "2026-08-25",
-      "lead": false,
-      "amtCr": 10.03,
-      "ret": 11.08
-     },
-     {
-      "igId": "1854",
-      "name": "Technocraft Ventures",
-      "sme": false,
-      "date": "2026-08-14",
-      "lead": false,
-      "amtCr": 15.06,
-      "ret": 33.96
-     }
-    ]
-   },
-   {
     "key": "WHITEOAK CAPITAL MULTI ASSET ALLOCATION FUND",
     "name": "WHITEOAK CAPITAL MULTI ASSET ALLOCATION FUND",
     "cr": 188.3,
@@ -207455,13 +207758,13 @@
       "p90": 19.1
      },
      "d5": {
-      "n": 9,
-      "pos": 55.6,
-      "lo": 26.7,
-      "hi": 81.1,
-      "med": 0.5,
-      "p10": -6.2,
-      "p90": 19.2
+      "n": 10,
+      "pos": 60.0,
+      "lo": 31.3,
+      "hi": 83.2,
+      "med": 1.3,
+      "p10": -5.9,
+      "p90": 18.5
      },
      "d30": {
       "n": 6,
@@ -208337,13 +208640,13 @@
       "p90": 51.9
      },
      "d5": {
-      "n": 6,
-      "pos": 50.0,
-      "lo": 18.8,
-      "hi": 81.2,
-      "med": 8.2,
-      "p10": -6.2,
-      "p90": 21.8
+      "n": 8,
+      "pos": 62.5,
+      "lo": 30.6,
+      "hi": 86.3,
+      "med": 3.8,
+      "p10": -5.5,
+      "p90": 21.4
      },
      "d30": {
       "n": 3,
@@ -209143,13 +209446,13 @@
       "p90": 34.2
      },
      "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -1.4,
-      "p10": -4.8,
-      "p90": 14.0
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": 0.6,
+      "p10": -4.3,
+      "p90": 13.3
      },
      "d30": {
       "n": 2,
@@ -209565,13 +209868,13 @@
       "p90": 80.5
      },
      "d5": {
-      "n": 5,
-      "pos": 20.0,
-      "lo": 3.6,
-      "hi": 62.4,
-      "med": -1.9,
-      "p10": -5.0,
-      "p90": 10.2
+      "n": 6,
+      "pos": 33.3,
+      "lo": 9.7,
+      "hi": 70.0,
+      "med": -1.6,
+      "p10": -4.9,
+      "p90": 11.5
      },
      "d30": {
       "n": 2,
@@ -209817,13 +210120,13 @@
       "p90": 48.6
      },
      "d5": {
-      "n": 10,
-      "pos": 40.0,
-      "lo": 16.8,
-      "hi": 68.7,
-      "med": -1.6,
-      "p10": -5.7,
-      "p90": 18.3
+      "n": 11,
+      "pos": 45.5,
+      "lo": 21.3,
+      "hi": 72.0,
+      "med": -1.4,
+      "p10": -5.6,
+      "p90": 17.9
      },
      "d30": {
       "n": 6,
@@ -209943,13 +210246,13 @@
       "p90": 26.7
      },
      "d5": {
-      "n": 5,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 43.4,
+      "n": 6,
+      "pos": 16.7,
+      "lo": 3.0,
+      "hi": 56.4,
       "med": -4.2,
       "p10": -9.2,
-      "p90": -3.1
+      "p90": 1.4
      },
      "d30": {
       "n": 4,
@@ -210069,13 +210372,13 @@
       "p90": 47.9
      },
      "d5": {
-      "n": 7,
-      "pos": 85.7,
-      "lo": 48.7,
-      "hi": 97.4,
-      "med": 8.8,
-      "p10": -1.0,
-      "p90": 28.8
+      "n": 8,
+      "pos": 87.5,
+      "lo": 52.9,
+      "hi": 97.8,
+      "med": 7.2,
+      "p10": -0.5,
+      "p90": 24.4
      },
      "d30": {
       "n": 4,
@@ -210913,13 +211216,13 @@
       "p90": 37.3
      },
      "d5": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 10.6,
-      "p10": 0.0,
-      "p90": 19.6
+      "n": 6,
+      "pos": 83.3,
+      "lo": 43.6,
+      "hi": 97.0,
+      "med": 4.2,
+      "p10": 0.6,
+      "p90": 19.1
      },
      "d30": {
       "n": 3,
@@ -211039,13 +211342,13 @@
       "p90": 49.3
      },
      "d5": {
-      "n": 9,
-      "pos": 55.6,
-      "lo": 26.7,
-      "hi": 81.1,
-      "med": 1.3,
-      "p10": -9.3,
-      "p90": 21.1
+      "n": 10,
+      "pos": 60.0,
+      "lo": 31.3,
+      "hi": 83.2,
+      "med": 2.0,
+      "p10": -9.2,
+      "p90": 21.0
      },
      "d30": {
       "n": 7,
@@ -211291,13 +211594,13 @@
       "p90": 59.7
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 0.4,
+      "p10": -3.3,
+      "p90": 4.2
      },
      "d30": {
       "n": 0,
@@ -212431,13 +212734,13 @@
       "p90": 20.2
      },
      "d5": {
-      "n": 6,
-      "pos": 50.0,
-      "lo": 18.8,
-      "hi": 81.2,
-      "med": -1.5,
-      "p10": -4.9,
-      "p90": 28.1
+      "n": 8,
+      "pos": 62.5,
+      "lo": 30.6,
+      "hi": 86.3,
+      "med": 2.0,
+      "p10": -4.7,
+      "p90": 20.2
      },
      "d30": {
       "n": 4,
@@ -212557,13 +212860,13 @@
       "p90": 39.5
      },
      "d5": {
-      "n": 8,
-      "pos": 87.5,
-      "lo": 52.9,
-      "hi": 97.8,
-      "med": 8.9,
-      "p10": -0.5,
-      "p90": 14.5
+      "n": 9,
+      "pos": 88.9,
+      "lo": 56.5,
+      "hi": 98.0,
+      "med": 8.8,
+      "p10": 0.0,
+      "p90": 14.1
      },
      "d30": {
       "n": 6,
@@ -213423,6 +213726,346 @@
     ]
    },
    {
+    "key": "KHANDELWAL FINANCE",
+    "name": "KHANDELWAL FINANCE PVT.LTD.",
+    "cr": 54.1,
+    "n": 9,
+    "main": {
+     "n": 5,
+     "pos": 100.0,
+     "lo": 56.6,
+     "hi": 100.0,
+     "med": 7.1,
+     "p10": 5.4,
+     "p90": 13.0,
+     "close1": {
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 1.9,
+      "p10": -5.4,
+      "p90": 15.3
+     },
+     "d5": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 4.3,
+      "p10": -3.4,
+      "p90": 12.0
+     },
+     "d30": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 18.1,
+      "p10": 11.1,
+      "p90": 25.2
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.3,
+      "p10": 5.3,
+      "p90": 5.3
+     }
+    },
+    "sme": {
+     "n": 4,
+     "pos": 100.0,
+     "lo": 51.0,
+     "hi": 100.0,
+     "med": 82.1,
+     "p10": 37.4,
+     "p90": 90.0,
+     "close1": {
+      "n": 4,
+      "pos": 100.0,
+      "lo": 51.0,
+      "hi": 100.0,
+      "med": 91.2,
+      "p10": 44.2,
+      "p90": 99.5
+     },
+     "d5": {
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": -1.5,
+      "p10": -6.0,
+      "p90": 16.9
+     },
+     "d30": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 31.6,
+      "p10": -12.5,
+      "p90": 69.9
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 90.0,
+      "p10": 90.0,
+      "p90": 90.0
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2288",
+      "name": "M.K.Sons Fine Jewels",
+      "sme": false,
+      "date": "2026-11-04",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 5.56
+     },
+     {
+      "igId": "2211",
+      "name": "SpectraA Technology Solutions",
+      "sme": true,
+      "date": "2026-09-24",
+      "lead": true,
+      "amtCr": 2.87,
+      "ret": 90.0
+     },
+     {
+      "igId": "1994",
+      "name": "Shanti Inorganics",
+      "sme": true,
+      "date": "2026-09-07",
+      "lead": false,
+      "amtCr": 1.01,
+      "ret": 90.0
+     },
+     {
+      "igId": "1783",
+      "name": "Priority Jewels",
+      "sme": false,
+      "date": "2026-09-04",
+      "lead": false,
+      "amtCr": 5.07,
+      "ret": 15.0
+     },
+     {
+      "igId": "1612",
+      "name": "Sunshine Pictures",
+      "sme": false,
+      "date": "2026-08-25",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 9.97
+     },
+     {
+      "igId": "2092",
+      "name": "Technocrats Plasma Systems",
+      "sme": true,
+      "date": "2026-08-21",
+      "lead": false,
+      "amtCr": 1.65,
+      "ret": 74.24
+     },
+     {
+      "igId": "2246",
+      "name": "G.V. Electricals",
+      "sme": true,
+      "date": "2026-08-12",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 21.54
+     },
+     {
+      "igId": "1565",
+      "name": "Gujarat Kidney",
+      "sme": false,
+      "date": "2025-12-30",
+      "lead": true,
+      "amtCr": 15.0,
+      "ret": 5.26
+     }
+    ]
+   },
+   {
+    "key": "NEXUS GLOBAL OPPORTUNITIES FUND",
+    "name": "NEXUS GLOBAL OPPORTUNITIES FUND",
+    "cr": 22.4,
+    "n": 9,
+    "main": {
+     "n": 2,
+     "pos": 100.0,
+     "lo": 34.2,
+     "hi": 100.0,
+     "med": 8.3,
+     "p10": 6.1,
+     "p90": 10.5,
+     "close1": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 2.2,
+      "p10": 2.2,
+      "p90": 2.2
+     },
+     "d5": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -11.2,
+      "p10": -11.2,
+      "p90": -11.2
+     },
+     "d30": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -11.1,
+      "p10": -11.1,
+      "p90": -11.1
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": {
+     "n": 7,
+     "pos": 57.1,
+     "lo": 25.0,
+     "hi": 84.2,
+     "med": 4.3,
+     "p10": -2.6,
+     "p90": 103.3,
+     "close1": {
+      "n": 7,
+      "pos": 71.4,
+      "lo": 35.9,
+      "hi": 91.8,
+      "med": 7.5,
+      "p10": -3.2,
+      "p90": 113.5
+     },
+     "d5": {
+      "n": 2,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 65.8,
+      "med": -1.9,
+      "p10": -3.2,
+      "p90": -0.5
+     },
+     "d30": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -11.2,
+      "p10": -20.7,
+      "p90": -1.7
+     },
+     "lead": {
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -0.1,
+      "p10": -2.2,
+      "p90": 3.5
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2288",
+      "name": "M.K.Sons Fine Jewels",
+      "sme": false,
+      "date": "2026-11-04",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 5.56
+     },
+     {
+      "igId": "2282",
+      "name": "Shree TNB Polymers",
+      "sme": true,
+      "date": "2026-10-08",
+      "lead": false,
+      "amtCr": 1.53,
+      "ret": 13.21
+     },
+     {
+      "igId": "1963",
+      "name": "Paluck Technologies",
+      "sme": true,
+      "date": "2026-09-04",
+      "lead": false,
+      "amtCr": 1.15,
+      "ret": -2.5
+     },
+     {
+      "igId": "1932",
+      "name": "Shankesh Jewellers",
+      "sme": false,
+      "date": "2026-08-25",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 11.08
+     },
+     {
+      "igId": "2046",
+      "name": "ENS Enterprises",
+      "sme": true,
+      "date": "2026-08-21",
+      "lead": true,
+      "amtCr": 4.71,
+      "ret": 4.35
+     },
+     {
+      "igId": "1401",
+      "name": "NIS Management",
+      "sme": true,
+      "date": "2025-09-02",
+      "lead": true,
+      "amtCr": 1.01,
+      "ret": -2.7
+     },
+     {
+      "igId": "1346",
+      "name": "Jyoti Global Plast",
+      "sme": true,
+      "date": "2025-08-11",
+      "lead": true,
+      "amtCr": 2.01,
+      "ret": -0.15
+     },
+     {
+      "igId": "799",
+      "name": "KP Green Engineering",
+      "sme": true,
+      "date": "2024-03-22",
+      "lead": false,
+      "amtCr": 1.01,
+      "ret": 38.89
+     }
+    ]
+   },
+   {
     "key": "KOTAK CONTRA FUND",
     "name": "KOTAK CONTRA FUND",
     "cr": 122.0,
@@ -213445,13 +214088,13 @@
       "p90": 55.8
      },
      "d5": {
-      "n": 4,
-      "pos": 50.0,
-      "lo": 15.0,
-      "hi": 85.0,
-      "med": 9.5,
-      "p10": -3.5,
-      "p90": 21.9
+      "n": 6,
+      "pos": 66.7,
+      "lo": 30.0,
+      "hi": 90.3,
+      "med": 3.8,
+      "p10": -3.0,
+      "p90": 21.6
      },
      "d30": {
       "n": 3,
@@ -213571,13 +214214,13 @@
       "p90": 77.2
      },
      "d5": {
-      "n": 7,
-      "pos": 28.6,
-      "lo": 8.2,
-      "hi": 64.1,
-      "med": -1.9,
-      "p10": -5.1,
-      "p90": 2.1
+      "n": 8,
+      "pos": 37.5,
+      "lo": 13.7,
+      "hi": 69.4,
+      "med": -1.6,
+      "p10": -4.9,
+      "p90": 3.8
      },
      "d30": {
       "n": 5,
@@ -213697,13 +214340,13 @@
       "p90": 56.4
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -6.4,
-      "p10": -6.4,
-      "p90": -6.4
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -0.7,
+      "p10": -5.2,
+      "p90": 3.9
      },
      "d30": {
       "n": 1,
@@ -213823,13 +214466,13 @@
       "p90": 41.5
      },
      "d5": {
-      "n": 7,
-      "pos": 85.7,
-      "lo": 48.7,
-      "hi": 97.4,
-      "med": 20.3,
-      "p10": -2.1,
-      "p90": 27.6
+      "n": 8,
+      "pos": 87.5,
+      "lo": 52.9,
+      "hi": 97.8,
+      "med": 14.6,
+      "p10": -0.8,
+      "p90": 26.8
      },
      "d30": {
       "n": 3,
@@ -213949,13 +214592,13 @@
       "p90": 68.7
      },
      "d5": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 9.6,
-      "p10": -11.6,
-      "p90": 28.5
+      "n": 6,
+      "pos": 66.7,
+      "lo": 30.0,
+      "hi": 90.3,
+      "med": 7.3,
+      "p10": -11.4,
+      "p90": 27.5
      },
      "d30": {
       "n": 3,
@@ -214075,13 +214718,13 @@
       "p90": 48.2
      },
      "d5": {
-      "n": 6,
-      "pos": 66.7,
-      "lo": 30.0,
-      "hi": 90.3,
-      "med": 15.1,
-      "p10": -10.8,
-      "p90": 27.3
+      "n": 7,
+      "pos": 71.4,
+      "lo": 35.9,
+      "hi": 91.8,
+      "med": 9.8,
+      "p10": -10.5,
+      "p90": 26.4
      },
      "d30": {
       "n": 6,
@@ -215357,6 +216000,176 @@
     ]
    },
    {
+    "key": "ZEAL GLOBAL OPPORTUNITIES FUND",
+    "name": "ZEAL GLOBAL OPPORTUNITIES FUND",
+    "cr": 55.5,
+    "n": 8,
+    "main": {
+     "n": 6,
+     "pos": 100.0,
+     "lo": 61.0,
+     "hi": 100.0,
+     "med": 7.9,
+     "p10": 3.9,
+     "p90": 29.9,
+     "close1": {
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 2.6,
+      "p10": -3.7,
+      "p90": 28.4
+     },
+     "d5": {
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -11.2,
+      "p10": -16.6,
+      "p90": 8.9
+     },
+     "d30": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -0.9,
+      "p10": -9.1,
+      "p90": 7.3
+     },
+     "lead": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 7.9,
+      "p10": 6.2,
+      "p90": 9.6
+     }
+    },
+    "sme": {
+     "n": 2,
+     "pos": 100.0,
+     "lo": 34.2,
+     "hi": 100.0,
+     "med": 0.8,
+     "p10": 0.3,
+     "p90": 1.3,
+     "close1": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 0.5,
+      "p10": 0.2,
+      "p90": 0.8
+     },
+     "d5": {
+      "n": 2,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 65.8,
+      "med": -11.8,
+      "p10": -20.4,
+      "p90": -3.1
+     },
+     "d30": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -4.2,
+      "p10": -4.2,
+      "p90": -4.2
+     },
+     "lead": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 0.8,
+      "p10": 0.3,
+      "p90": 1.3
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2288",
+      "name": "M.K.Sons Fine Jewels",
+      "sme": false,
+      "date": "2026-11-04",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 5.56
+     },
+     {
+      "igId": "1812",
+      "name": "German Green Steel",
+      "sme": false,
+      "date": "2026-10-05",
+      "lead": false,
+      "amtCr": 15.0,
+      "ret": 2.16
+     },
+     {
+      "igId": "1682",
+      "name": "Axiom Gas Engineering",
+      "sme": true,
+      "date": "2026-09-25",
+      "lead": true,
+      "amtCr": 2.01,
+      "ret": 1.39
+     },
+     {
+      "igId": "2249",
+      "name": "Om Galaxy",
+      "sme": true,
+      "date": "2026-09-18",
+      "lead": true,
+      "amtCr": 3.51,
+      "ret": 0.22
+     },
+     {
+      "igId": "1932",
+      "name": "Shankesh Jewellers",
+      "sme": false,
+      "date": "2026-08-25",
+      "lead": false,
+      "amtCr": 10.01,
+      "ret": 11.08
+     },
+     {
+      "igId": "1612",
+      "name": "Sunshine Pictures",
+      "sme": false,
+      "date": "2026-08-25",
+      "lead": true,
+      "amtCr": 10.0,
+      "ret": 9.97
+     },
+     {
+      "igId": "1125",
+      "name": "Enviro Infra Engineers",
+      "sme": false,
+      "date": "2024-11-29",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 48.65
+     },
+     {
+      "igId": "881",
+      "name": "Aasaan Loans",
+      "sme": false,
+      "date": "2024-06-26",
+      "lead": true,
+      "amtCr": 5.0,
+      "ret": 5.83
+     }
+    ]
+   },
+   {
     "key": "NAVBHARAT INVESTMENT TRUST NAVBHARAT INVESTMENT OPPORTUNITIES FUND",
     "name": "NAVBHARAT INVESTMENT TRUST-NAVBHARAT INVESTMENT OPPORTUNITIES FUND",
     "cr": 21.5,
@@ -216097,13 +216910,13 @@
       "p90": 62.5
      },
      "d5": {
-      "n": 5,
-      "pos": 20.0,
-      "lo": 3.6,
-      "hi": 62.4,
-      "med": -5.3,
-      "p10": -16.7,
-      "p90": -0.1
+      "n": 6,
+      "pos": 33.3,
+      "lo": 9.7,
+      "hi": 70.0,
+      "med": -3.8,
+      "p10": -15.4,
+      "p90": 2.0
      },
      "d30": {
       "n": 5,
@@ -216241,346 +217054,6 @@
       "lead": false,
       "amtCr": 0.57,
       "ret": 4.18
-     }
-    ]
-   },
-   {
-    "key": "KHANDELWAL FINANCE",
-    "name": "KHANDELWAL FINANCE PVT.LTD.",
-    "cr": 44.1,
-    "n": 8,
-    "main": {
-     "n": 4,
-     "pos": 100.0,
-     "lo": 51.0,
-     "hi": 100.0,
-     "med": 8.6,
-     "p10": 5.8,
-     "p90": 13.5,
-     "close1": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 1.9,
-      "p10": -5.4,
-      "p90": 15.3
-     },
-     "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 4.3,
-      "p10": -3.4,
-      "p90": 12.0
-     },
-     "d30": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 18.1,
-      "p10": 11.1,
-      "p90": 25.2
-     },
-     "lead": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 5.3,
-      "p10": 5.3,
-      "p90": 5.3
-     }
-    },
-    "sme": {
-     "n": 4,
-     "pos": 100.0,
-     "lo": 51.0,
-     "hi": 100.0,
-     "med": 82.1,
-     "p10": 37.4,
-     "p90": 90.0,
-     "close1": {
-      "n": 4,
-      "pos": 100.0,
-      "lo": 51.0,
-      "hi": 100.0,
-      "med": 91.2,
-      "p10": 44.2,
-      "p90": 99.5
-     },
-     "d5": {
-      "n": 4,
-      "pos": 50.0,
-      "lo": 15.0,
-      "hi": 85.0,
-      "med": -1.5,
-      "p10": -6.0,
-      "p90": 16.9
-     },
-     "d30": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 31.6,
-      "p10": -12.5,
-      "p90": 69.9
-     },
-     "lead": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 90.0,
-      "p10": 90.0,
-      "p90": 90.0
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2211",
-      "name": "SpectraA Technology Solutions",
-      "sme": true,
-      "date": "2026-09-24",
-      "lead": true,
-      "amtCr": 2.87,
-      "ret": 90.0
-     },
-     {
-      "igId": "1994",
-      "name": "Shanti Inorganics",
-      "sme": true,
-      "date": "2026-09-07",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": 90.0
-     },
-     {
-      "igId": "1783",
-      "name": "Priority Jewels",
-      "sme": false,
-      "date": "2026-09-04",
-      "lead": false,
-      "amtCr": 5.07,
-      "ret": 15.0
-     },
-     {
-      "igId": "1612",
-      "name": "Sunshine Pictures",
-      "sme": false,
-      "date": "2026-08-25",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 9.97
-     },
-     {
-      "igId": "2092",
-      "name": "Technocrats Plasma Systems",
-      "sme": true,
-      "date": "2026-08-21",
-      "lead": false,
-      "amtCr": 1.65,
-      "ret": 74.24
-     },
-     {
-      "igId": "2246",
-      "name": "G.V. Electricals",
-      "sme": true,
-      "date": "2026-08-12",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 21.54
-     },
-     {
-      "igId": "1565",
-      "name": "Gujarat Kidney",
-      "sme": false,
-      "date": "2025-12-30",
-      "lead": true,
-      "amtCr": 15.0,
-      "ret": 5.26
-     },
-     {
-      "igId": "1375",
-      "name": "Shreeji Shipping Global",
-      "sme": false,
-      "date": "2025-08-26",
-      "lead": false,
-      "amtCr": 7.5,
-      "ret": 7.14
-     }
-    ]
-   },
-   {
-    "key": "NEXUS GLOBAL OPPORTUNITIES FUND",
-    "name": "NEXUS GLOBAL OPPORTUNITIES FUND",
-    "cr": 17.4,
-    "n": 8,
-    "main": {
-     "n": 1,
-     "pos": 100.0,
-     "lo": 20.7,
-     "hi": 100.0,
-     "med": 11.1,
-     "p10": 11.1,
-     "p90": 11.1,
-     "close1": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 2.2,
-      "p10": 2.2,
-      "p90": 2.2
-     },
-     "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -11.2,
-      "p10": -11.2,
-      "p90": -11.2
-     },
-     "d30": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -11.1,
-      "p10": -11.1,
-      "p90": -11.1
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": {
-     "n": 7,
-     "pos": 57.1,
-     "lo": 25.0,
-     "hi": 84.2,
-     "med": 4.3,
-     "p10": -2.6,
-     "p90": 103.3,
-     "close1": {
-      "n": 7,
-      "pos": 71.4,
-      "lo": 35.9,
-      "hi": 91.8,
-      "med": 7.5,
-      "p10": -3.2,
-      "p90": 113.5
-     },
-     "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -1.9,
-      "p10": -3.2,
-      "p90": -0.5
-     },
-     "d30": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -11.2,
-      "p10": -20.7,
-      "p90": -1.7
-     },
-     "lead": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -0.1,
-      "p10": -2.2,
-      "p90": 3.5
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2282",
-      "name": "Shree TNB Polymers",
-      "sme": true,
-      "date": "2026-10-08",
-      "lead": false,
-      "amtCr": 1.53,
-      "ret": 13.21
-     },
-     {
-      "igId": "1963",
-      "name": "Paluck Technologies",
-      "sme": true,
-      "date": "2026-09-04",
-      "lead": false,
-      "amtCr": 1.15,
-      "ret": -2.5
-     },
-     {
-      "igId": "1932",
-      "name": "Shankesh Jewellers",
-      "sme": false,
-      "date": "2026-08-25",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 11.08
-     },
-     {
-      "igId": "2046",
-      "name": "ENS Enterprises",
-      "sme": true,
-      "date": "2026-08-21",
-      "lead": true,
-      "amtCr": 4.71,
-      "ret": 4.35
-     },
-     {
-      "igId": "1401",
-      "name": "NIS Management",
-      "sme": true,
-      "date": "2025-09-02",
-      "lead": true,
-      "amtCr": 1.01,
-      "ret": -2.7
-     },
-     {
-      "igId": "1346",
-      "name": "Jyoti Global Plast",
-      "sme": true,
-      "date": "2025-08-11",
-      "lead": true,
-      "amtCr": 2.01,
-      "ret": -0.15
-     },
-     {
-      "igId": "799",
-      "name": "KP Green Engineering",
-      "sme": true,
-      "date": "2024-03-22",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": 38.89
-     },
-     {
-      "igId": "744",
-      "name": "Konstelec Engineers",
-      "sme": true,
-      "date": "2024-01-30",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": 200.0
      }
     ]
    },
@@ -216777,13 +217250,13 @@
       "p90": 30.2
      },
      "d5": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 9.0,
-      "p10": -5.4,
-      "p90": 20.1
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 3.3,
+      "p10": -4.4,
+      "p90": 19.3
      },
      "d30": {
       "n": 4,
@@ -219051,13 +219524,13 @@
       "p90": 54.5
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -6.4,
-      "p10": -6.4,
-      "p90": -6.4
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -0.7,
+      "p10": -5.2,
+      "p90": 3.9
      },
      "d30": {
       "n": 1,
@@ -219177,13 +219650,13 @@
       "p90": 22.8
      },
      "d5": {
-      "n": 4,
-      "pos": 50.0,
-      "lo": 15.0,
-      "hi": 85.0,
-      "med": -1.5,
+      "n": 5,
+      "pos": 60.0,
+      "lo": 23.1,
+      "hi": 88.2,
+      "med": 1.3,
       "p10": -4.3,
-      "p90": 6.3
+      "p90": 7.1
      },
      "d30": {
       "n": 2,
@@ -219407,167 +219880,6 @@
     ]
    },
    {
-    "key": "ZEAL GLOBAL OPPORTUNITIES FUND",
-    "name": "ZEAL GLOBAL OPPORTUNITIES FUND",
-    "cr": 50.5,
-    "n": 7,
-    "main": {
-     "n": 5,
-     "pos": 100.0,
-     "lo": 56.6,
-     "hi": 100.0,
-     "med": 10.0,
-     "p10": 3.6,
-     "p90": 33.6,
-     "close1": {
-      "n": 5,
-      "pos": 80.0,
-      "lo": 37.6,
-      "hi": 96.4,
-      "med": 2.6,
-      "p10": -3.7,
-      "p90": 28.4
-     },
-     "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -11.2,
-      "p10": -16.6,
-      "p90": 8.9
-     },
-     "d30": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -0.9,
-      "p10": -9.1,
-      "p90": 7.3
-     },
-     "lead": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 7.9,
-      "p10": 6.2,
-      "p90": 9.6
-     }
-    },
-    "sme": {
-     "n": 2,
-     "pos": 100.0,
-     "lo": 34.2,
-     "hi": 100.0,
-     "med": 0.8,
-     "p10": 0.3,
-     "p90": 1.3,
-     "close1": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 0.5,
-      "p10": 0.2,
-      "p90": 0.8
-     },
-     "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -11.8,
-      "p10": -20.4,
-      "p90": -3.1
-     },
-     "d30": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
-     },
-     "lead": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 0.8,
-      "p10": 0.3,
-      "p90": 1.3
-     }
-    },
-    "ipos": [
-     {
-      "igId": "1812",
-      "name": "German Green Steel",
-      "sme": false,
-      "date": "2026-10-05",
-      "lead": false,
-      "amtCr": 15.0,
-      "ret": 2.16
-     },
-     {
-      "igId": "1682",
-      "name": "Axiom Gas Engineering",
-      "sme": true,
-      "date": "2026-09-25",
-      "lead": true,
-      "amtCr": 2.01,
-      "ret": 1.39
-     },
-     {
-      "igId": "2249",
-      "name": "Om Galaxy",
-      "sme": true,
-      "date": "2026-09-18",
-      "lead": true,
-      "amtCr": 3.51,
-      "ret": 0.22
-     },
-     {
-      "igId": "1932",
-      "name": "Shankesh Jewellers",
-      "sme": false,
-      "date": "2026-08-25",
-      "lead": false,
-      "amtCr": 10.01,
-      "ret": 11.08
-     },
-     {
-      "igId": "1612",
-      "name": "Sunshine Pictures",
-      "sme": false,
-      "date": "2026-08-25",
-      "lead": true,
-      "amtCr": 10.0,
-      "ret": 9.97
-     },
-     {
-      "igId": "1125",
-      "name": "Enviro Infra Engineers",
-      "sme": false,
-      "date": "2024-11-29",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 48.65
-     },
-     {
-      "igId": "881",
-      "name": "Aasaan Loans",
-      "sme": false,
-      "date": "2024-06-26",
-      "lead": true,
-      "amtCr": 5.0,
-      "ret": 5.83
-     }
-    ]
-   },
-   {
     "key": "KOTAK ELSS TAX SAVER FUND",
     "name": "KOTAK ELSS TAX SAVER FUND",
     "cr": 194.5,
@@ -219590,13 +219902,13 @@
       "p90": 62.5
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 0.7,
-      "p10": -3.2,
-      "p90": 4.6
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 5.1,
+      "p10": -2.3,
+      "p90": 5.5
      },
      "d30": {
       "n": 1,
@@ -220592,6 +220904,328 @@
     ]
    },
    {
+    "key": "ARNESTA GLOBAL OPPORTUNITIES FUND PCC ARNESTA GLOBAL FUND 1",
+    "name": "ARNESTA GLOBAL OPPORTUNITIES FUND PCC-ARNESTA GLOBAL FUND 1",
+    "cr": 25.2,
+    "n": 7,
+    "main": {
+     "n": 4,
+     "pos": 100.0,
+     "lo": 51.0,
+     "hi": 100.0,
+     "med": 7.8,
+     "p10": 3.2,
+     "p90": 10.7,
+     "close1": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 2.2,
+      "p10": -5.7,
+      "p90": 2.5
+     },
+     "d5": {
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -11.2,
+      "p10": -16.6,
+      "p90": 8.9
+     },
+     "d30": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -0.9,
+      "p10": -9.1,
+      "p90": 7.3
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": {
+     "n": 3,
+     "pos": 66.7,
+     "lo": 20.8,
+     "hi": 93.9,
+     "med": 4.4,
+     "p10": 0.9,
+     "p90": 60.3,
+     "close1": {
+      "n": 3,
+      "pos": 100.0,
+      "lo": 43.8,
+      "hi": 100.0,
+      "med": 9.6,
+      "p10": 3.1,
+      "p90": 68.3
+     },
+     "d5": {
+      "n": 2,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 65.8,
+      "med": -5.0,
+      "p10": -5.3,
+      "p90": -4.6
+     },
+     "d30": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 79.5,
+      "p10": 79.5,
+      "p90": 79.5
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2288",
+      "name": "M.K.Sons Fine Jewels",
+      "sme": false,
+      "date": "2026-11-04",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 5.56
+     },
+     {
+      "igId": "2220",
+      "name": "Ravita Engineering Services",
+      "sme": true,
+      "date": "2026-10-22",
+      "lead": false,
+      "amtCr": 2.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "1812",
+      "name": "German Green Steel",
+      "sme": false,
+      "date": "2026-10-05",
+      "lead": false,
+      "amtCr": 6.17,
+      "ret": 2.16
+     },
+     {
+      "igId": "1932",
+      "name": "Shankesh Jewellers",
+      "sme": false,
+      "date": "2026-08-25",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 11.08
+     },
+     {
+      "igId": "1612",
+      "name": "Sunshine Pictures",
+      "sme": false,
+      "date": "2026-08-25",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 9.97
+     },
+     {
+      "igId": "2092",
+      "name": "Technocrats Plasma Systems",
+      "sme": true,
+      "date": "2026-08-21",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 74.24
+     },
+     {
+      "igId": "1252",
+      "name": "Unified Data- Tech",
+      "sme": true,
+      "date": "2025-05-29",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 4.4
+     }
+    ]
+   },
+   {
+    "key": "COMPACT STRUCTURE FUND",
+    "name": "COMPACT STRUCTURE FUND",
+    "cr": 36.1,
+    "n": 7,
+    "main": {
+     "n": 4,
+     "pos": 100.0,
+     "lo": 51.0,
+     "hi": 100.0,
+     "med": 4.0,
+     "p10": 2.2,
+     "p90": 9.4,
+     "close1": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 2.2,
+      "p10": -5.7,
+      "p90": 3.7
+     },
+     "d5": {
+      "n": 3,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 56.2,
+      "med": -17.9,
+      "p10": -21.9,
+      "p90": -12.5
+     },
+     "d30": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -11.1,
+      "p10": -11.1,
+      "p90": -11.1
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": {
+     "n": 3,
+     "pos": 100.0,
+     "lo": 43.8,
+     "hi": 100.0,
+     "med": 13.2,
+     "p10": 8.4,
+     "p90": 14.6,
+     "close1": {
+      "n": 3,
+      "pos": 100.0,
+      "lo": 43.8,
+      "hi": 100.0,
+      "med": 7.5,
+      "p10": 2.9,
+      "p90": 18.1
+     },
+     "d5": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 8.4,
+      "p10": 8.4,
+      "p90": 8.4
+     },
+     "d30": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 28.6,
+      "p10": 28.6,
+      "p90": 28.6
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 7.1,
+      "p10": 7.1,
+      "p90": 7.1
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2288",
+      "name": "M.K.Sons Fine Jewels",
+      "sme": false,
+      "date": "2026-11-04",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 5.56
+     },
+     {
+      "igId": "2282",
+      "name": "Shree TNB Polymers",
+      "sme": true,
+      "date": "2026-10-08",
+      "lead": false,
+      "amtCr": 1.51,
+      "ret": 13.21
+     },
+     {
+      "igId": "1926",
+      "name": "Shah Investor's Home",
+      "sme": false,
+      "date": "2026-10-06",
+      "lead": false,
+      "amtCr": 6.52,
+      "ret": 2.4
+     },
+     {
+      "igId": "1812",
+      "name": "German Green Steel",
+      "sme": false,
+      "date": "2026-10-05",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 2.16
+     },
+     {
+      "igId": "1932",
+      "name": "Shankesh Jewellers",
+      "sme": false,
+      "date": "2026-08-25",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 11.08
+     },
+     {
+      "igId": "1922",
+      "name": "Atharva Polyplast",
+      "sme": true,
+      "date": "2026-07-07",
+      "lead": false,
+      "amtCr": 1.14,
+      "ret": 15.0
+     },
+     {
+      "igId": "1537",
+      "name": "Speb Adhesives",
+      "sme": true,
+      "date": "2025-12-08",
+      "lead": true,
+      "amtCr": 6.97,
+      "ret": 7.14
+     }
+    ]
+   },
+   {
     "key": "FORTUNE HANDS GROWTH FUND FORTUNE HANDS GROWTH FUND SCHEME I",
     "name": "FORTUNE HANDS GROWTH FUND-FORTUNE HANDS GROWTH FUND SCHEME I",
     "cr": 21.6,
@@ -220892,13 +221526,13 @@
       "p90": 74.3
      },
      "d5": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 10.6,
-      "p10": -0.7,
-      "p90": 21.3
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 5.1,
+      "p10": -0.1,
+      "p90": 20.8
      },
      "d30": {
       "n": 2,
@@ -221126,13 +221760,13 @@
       "p90": 22.4
      },
      "d5": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 0.5,
-      "p10": -7.1,
-      "p90": 2.8
+      "n": 6,
+      "pos": 66.7,
+      "lo": 30.0,
+      "hi": 90.3,
+      "med": 1.3,
+      "p10": -6.7,
+      "p90": 4.2
      },
      "d30": {
       "n": 4,
@@ -221243,13 +221877,13 @@
       "p90": 29.0
      },
      "d5": {
-      "n": 6,
-      "pos": 66.7,
-      "lo": 30.0,
-      "hi": 90.3,
-      "med": 10.6,
-      "p10": -7.8,
-      "p90": 22.6
+      "n": 7,
+      "pos": 71.4,
+      "lo": 35.9,
+      "hi": 91.8,
+      "med": 3.3,
+      "p10": -7.5,
+      "p90": 22.2
      },
      "d30": {
       "n": 3,
@@ -221872,13 +222506,13 @@
       "p90": 61.3
      },
      "d5": {
-      "n": 5,
-      "pos": 40.0,
-      "lo": 11.8,
-      "hi": 76.9,
-      "med": -1.9,
-      "p10": -3.4,
-      "p90": 6.1
+      "n": 6,
+      "pos": 50.0,
+      "lo": 18.8,
+      "hi": 81.2,
+      "med": 0.1,
+      "p10": -3.2,
+      "p90": 7.0
      },
      "d30": {
       "n": 2,
@@ -222106,13 +222740,13 @@
       "p90": 48.1
      },
      "d5": {
-      "n": 4,
-      "pos": 50.0,
-      "lo": 15.0,
-      "hi": 85.0,
-      "med": -1.6,
-      "p10": -7.7,
-      "p90": 8.2
+      "n": 5,
+      "pos": 60.0,
+      "lo": 23.1,
+      "hi": 88.2,
+      "med": 1.1,
+      "p10": -7.2,
+      "p90": 8.8
      },
      "d30": {
       "n": 3,
@@ -222223,13 +222857,13 @@
       "p90": 45.9
      },
      "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 8.8,
-      "p10": -3.4,
-      "p90": 16.1
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 7.0,
+      "p10": -2.9,
+      "p90": 15.2
      },
      "d30": {
       "n": 1,
@@ -222969,12 +223603,12 @@
       "p90": 48.2
      },
      "d5": {
-      "n": 5,
-      "pos": 40.0,
-      "lo": 11.8,
-      "hi": 76.9,
-      "med": -1.4,
-      "p10": -3.3,
+      "n": 6,
+      "pos": 50.0,
+      "lo": 18.8,
+      "hi": 81.2,
+      "med": 1.8,
+      "p10": -3.0,
       "p90": 8.7
      },
      "d30": {
@@ -224733,310 +225367,6 @@
     ]
    },
    {
-    "key": "ARNESTA GLOBAL OPPORTUNITIES FUND PCC ARNESTA GLOBAL FUND 1",
-    "name": "ARNESTA GLOBAL OPPORTUNITIES FUND PCC-ARNESTA GLOBAL FUND 1",
-    "cr": 20.2,
-    "n": 6,
-    "main": {
-     "n": 3,
-     "pos": 100.0,
-     "lo": 43.8,
-     "hi": 100.0,
-     "med": 10.0,
-     "p10": 3.7,
-     "p90": 10.9,
-     "close1": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 2.2,
-      "p10": -5.7,
-      "p90": 2.5
-     },
-     "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -11.2,
-      "p10": -16.6,
-      "p90": 8.9
-     },
-     "d30": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -0.9,
-      "p10": -9.1,
-      "p90": 7.3
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": {
-     "n": 3,
-     "pos": 66.7,
-     "lo": 20.8,
-     "hi": 93.9,
-     "med": 4.4,
-     "p10": 0.9,
-     "p90": 60.3,
-     "close1": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 9.6,
-      "p10": 3.1,
-      "p90": 68.3
-     },
-     "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -5.0,
-      "p10": -5.3,
-      "p90": -4.6
-     },
-     "d30": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 79.5,
-      "p10": 79.5,
-      "p90": 79.5
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2220",
-      "name": "Ravita Engineering Services",
-      "sme": true,
-      "date": "2026-10-22",
-      "lead": false,
-      "amtCr": 2.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "1812",
-      "name": "German Green Steel",
-      "sme": false,
-      "date": "2026-10-05",
-      "lead": false,
-      "amtCr": 6.17,
-      "ret": 2.16
-     },
-     {
-      "igId": "1932",
-      "name": "Shankesh Jewellers",
-      "sme": false,
-      "date": "2026-08-25",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 11.08
-     },
-     {
-      "igId": "1612",
-      "name": "Sunshine Pictures",
-      "sme": false,
-      "date": "2026-08-25",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 9.97
-     },
-     {
-      "igId": "2092",
-      "name": "Technocrats Plasma Systems",
-      "sme": true,
-      "date": "2026-08-21",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 74.24
-     },
-     {
-      "igId": "1252",
-      "name": "Unified Data- Tech",
-      "sme": true,
-      "date": "2025-05-29",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 4.4
-     }
-    ]
-   },
-   {
-    "key": "COMPACT STRUCTURE FUND",
-    "name": "COMPACT STRUCTURE FUND",
-    "cr": 31.1,
-    "n": 6,
-    "main": {
-     "n": 3,
-     "pos": 100.0,
-     "lo": 43.8,
-     "hi": 100.0,
-     "med": 2.4,
-     "p10": 2.2,
-     "p90": 9.3,
-     "close1": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 2.2,
-      "p10": -5.7,
-      "p90": 3.7
-     },
-     "d5": {
-      "n": 3,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 56.2,
-      "med": -17.9,
-      "p10": -21.9,
-      "p90": -12.5
-     },
-     "d30": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -11.1,
-      "p10": -11.1,
-      "p90": -11.1
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": {
-     "n": 3,
-     "pos": 100.0,
-     "lo": 43.8,
-     "hi": 100.0,
-     "med": 13.2,
-     "p10": 8.4,
-     "p90": 14.6,
-     "close1": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 7.5,
-      "p10": 2.9,
-      "p90": 18.1
-     },
-     "d5": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 8.4,
-      "p10": 8.4,
-      "p90": 8.4
-     },
-     "d30": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 28.6,
-      "p10": 28.6,
-      "p90": 28.6
-     },
-     "lead": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 7.1,
-      "p10": 7.1,
-      "p90": 7.1
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2282",
-      "name": "Shree TNB Polymers",
-      "sme": true,
-      "date": "2026-10-08",
-      "lead": false,
-      "amtCr": 1.51,
-      "ret": 13.21
-     },
-     {
-      "igId": "1926",
-      "name": "Shah Investor's Home",
-      "sme": false,
-      "date": "2026-10-06",
-      "lead": false,
-      "amtCr": 6.52,
-      "ret": 2.4
-     },
-     {
-      "igId": "1812",
-      "name": "German Green Steel",
-      "sme": false,
-      "date": "2026-10-05",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 2.16
-     },
-     {
-      "igId": "1932",
-      "name": "Shankesh Jewellers",
-      "sme": false,
-      "date": "2026-08-25",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 11.08
-     },
-     {
-      "igId": "1922",
-      "name": "Atharva Polyplast",
-      "sme": true,
-      "date": "2026-07-07",
-      "lead": false,
-      "amtCr": 1.14,
-      "ret": 15.0
-     },
-     {
-      "igId": "1537",
-      "name": "Speb Adhesives",
-      "sme": true,
-      "date": "2025-12-08",
-      "lead": true,
-      "amtCr": 6.97,
-      "ret": 7.14
-     }
-    ]
-   },
-   {
     "key": "CARMIGNAC PORTFOLIO",
     "name": "CARMIGNAC PORTFOLIO",
     "cr": 325.2,
@@ -225643,13 +225973,13 @@
       "p90": 26.5
      },
      "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -0.3,
-      "p10": -2.0,
-      "p90": 0.0
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": -0.1,
+      "p10": -1.8,
+      "p90": 3.6
      },
      "d30": {
       "n": 3,
@@ -226595,11 +226925,11 @@
       "p90": 67.5
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 5.2,
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 5.1,
       "p10": -2.3,
       "p90": 12.8
      },
@@ -226811,13 +227141,13 @@
       "p90": 35.1
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 2.6,
+      "p10": 2.6,
+      "p90": 2.6
      },
      "d30": {
       "n": 0,
@@ -229059,13 +229389,13 @@
       "p90": 29.3
      },
      "d5": {
-      "n": 2,
+      "n": 3,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 15.8,
-      "p10": 10.4,
-      "p90": 21.1
+      "med": 9.1,
+      "p10": 3.9,
+      "p90": 19.7
      },
      "d30": {
       "n": 2,
@@ -229167,13 +229497,13 @@
       "p90": 40.3
      },
      "d5": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 3.3,
-      "p10": -8.0,
-      "p90": 15.8
+      "n": 6,
+      "pos": 66.7,
+      "lo": 30.0,
+      "hi": 90.3,
+      "med": 4.2,
+      "p10": -7.8,
+      "p90": 14.7
      },
      "d30": {
       "n": 5,
@@ -229275,13 +229605,13 @@
       "p90": 62.3
      },
      "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -8.4,
-      "p10": -12.9,
-      "p90": -0.6
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": -3.6,
+      "p10": -12.3,
+      "p90": 4.0
      },
      "d30": {
       "n": 2,
@@ -230139,13 +230469,13 @@
       "p90": 50.9
      },
      "d5": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 1.3,
-      "p10": -8.0,
-      "p90": 16.0
+      "n": 6,
+      "pos": 66.7,
+      "lo": 30.0,
+      "hi": 90.3,
+      "med": 2.0,
+      "p10": -7.8,
+      "p90": 14.8
      },
      "d30": {
       "n": 3,
@@ -230355,13 +230685,13 @@
       "p90": 21.8
      },
      "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -4.0,
-      "p10": -4.2,
-      "p90": -3.9
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -3.9,
+      "p10": -4.1,
+      "p90": 3.3
      },
      "d30": {
       "n": 1,
@@ -230463,13 +230793,13 @@
       "p90": 60.6
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -231263,13 +231593,13 @@
       "p90": 37.3
      },
      "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -4.3,
-      "p10": -7.4,
-      "p90": 0.0
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": -1.6,
+      "p10": -7.0,
+      "p90": 3.9
      },
      "d30": {
       "n": 2,
@@ -231695,13 +232025,13 @@
       "p90": 41.0
      },
      "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 8.8,
-      "p10": -1.6,
-      "p90": 18.4
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 7.0,
+      "p10": -1.4,
+      "p90": 17.2
      },
      "d30": {
       "n": 2,
@@ -232943,13 +233273,13 @@
       "p90": 38.9
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 22.9,
-      "p10": 3.1,
-      "p90": 42.7
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 2.6,
+      "p10": -1.0,
+      "p90": 38.6
      },
      "d30": {
       "n": 2,
@@ -233339,13 +233669,13 @@
       "p90": 31.4
      },
      "d5": {
-      "n": 3,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 56.2,
-      "med": -2.4,
-      "p10": -5.7,
-      "p90": -2.0
+      "n": 4,
+      "pos": 25.0,
+      "lo": 4.6,
+      "hi": 69.9,
+      "med": -2.1,
+      "p10": -5.3,
+      "p90": 3.0
      },
      "d30": {
       "n": 2,
@@ -233636,13 +233966,13 @@
       "p90": 67.5
      },
      "d5": {
-      "n": 4,
-      "pos": 50.0,
-      "lo": 15.0,
-      "hi": 85.0,
-      "med": -0.4,
+      "n": 5,
+      "pos": 60.0,
+      "lo": 23.1,
+      "hi": 88.2,
+      "med": 1.1,
       "p10": -2.2,
-      "p90": 8.2
+      "p90": 7.8
      },
      "d30": {
       "n": 3,
@@ -234230,13 +234560,13 @@
       "p90": 28.7
      },
      "d5": {
-      "n": 3,
+      "n": 4,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 51.0,
       "hi": 100.0,
-      "med": 22.4,
-      "p10": 7.1,
-      "p90": 24.0
+      "med": 12.8,
+      "p10": 2.8,
+      "p90": 23.8
      },
      "d30": {
       "n": 2,
@@ -234329,13 +234659,13 @@
       "p90": 39.6
      },
      "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -4.2,
-      "p10": -8.1,
-      "p90": 1.8
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": -0.5,
+      "p10": -7.6,
+      "p90": 4.6
      },
      "d30": {
       "n": 2,
@@ -234824,13 +235154,13 @@
       "p90": 51.1
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 8.3,
-      "p10": -1.7,
-      "p90": 18.3
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 5.1,
+      "p10": -2.3,
+      "p90": 17.7
      },
      "d30": {
       "n": 1,
@@ -234923,13 +235253,13 @@
       "p90": 51.1
      },
      "d5": {
-      "n": 1,
+      "n": 3,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 20.8,
-      "p10": 20.8,
-      "p90": 20.8
+      "med": 5.1,
+      "p10": 3.1,
+      "p90": 17.7
      },
      "d30": {
       "n": 1,
@@ -235022,13 +235352,13 @@
       "p90": 39.6
      },
      "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -6.7,
-      "p10": -8.6,
-      "p90": -4.7
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -4.2,
+      "p10": -8.1,
+      "p90": 3.2
      },
      "d30": {
       "n": 1,
@@ -235319,13 +235649,13 @@
       "p90": 39.6
      },
      "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -6.7,
-      "p10": -8.6,
-      "p90": -4.7
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -4.2,
+      "p10": -8.1,
+      "p90": 3.2
      },
      "d30": {
       "n": 1,
@@ -236980,13 +237310,13 @@
       "p90": 28.7
      },
      "d5": {
-      "n": 2,
+      "n": 3,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 21.9,
-      "p10": 21.6,
-      "p90": 22.3
+      "med": 21.5,
+      "p10": 6.4,
+      "p90": 22.2
      },
      "d30": {
       "n": 2,
@@ -237277,13 +237607,13 @@
       "p90": 21.2
      },
      "d5": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 2.7,
-      "p10": 0.4,
-      "p90": 7.4
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 3.3,
+      "p10": 0.7,
+      "p90": 7.5
      },
      "d30": {
       "n": 4,
@@ -237475,13 +237805,13 @@
       "p90": 76.5
      },
      "d5": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 5.5,
-      "p10": -8.4,
-      "p90": 15.5
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 5.1,
+      "p10": -7.1,
+      "p90": 14.7
      },
      "d30": {
       "n": 3,
@@ -238069,13 +238399,13 @@
       "p90": 22.9
      },
      "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -0.3,
-      "p10": -7.3,
-      "p90": 44.0
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": 2.4,
+      "p10": -6.5,
+      "p90": 40.1
      },
      "d30": {
       "n": 2,
@@ -238538,6 +238868,149 @@
       "lead": false,
       "amtCr": 1.01,
       "ret": 90.0
+     }
+    ]
+   },
+   {
+    "key": "VBCUBE VENTURES FUND II",
+    "name": "VBCUBE VENTURES FUND II",
+    "cr": 15.8,
+    "n": 5,
+    "main": {
+     "n": 2,
+     "pos": 50.0,
+     "lo": 9.5,
+     "hi": 90.5,
+     "med": 5.0,
+     "p10": 1.0,
+     "p90": 9.0,
+     "close1": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -7.8,
+      "p10": -17.6,
+      "p90": 2.1
+     },
+     "d5": {
+      "n": 2,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 65.8,
+      "med": -10.8,
+      "p10": -16.6,
+      "p90": -4.9
+     },
+     "d30": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -9.8,
+      "p10": -9.8,
+      "p90": -9.8
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": {
+     "n": 3,
+     "pos": 66.7,
+     "lo": 20.8,
+     "hi": 93.9,
+     "med": 12.5,
+     "p10": 2.4,
+     "p90": 61.9,
+     "close1": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 39.1,
+      "p10": 3.9,
+      "p90": 74.2
+     },
+     "d5": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -2.6,
+      "p10": -4.8,
+      "p90": -0.3
+     },
+     "d30": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 44.2,
+      "p10": 16.0,
+      "p90": 72.4
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2393",
+      "name": "Carver Roboweld",
+      "sme": true,
+      "date": "2026-11-04",
+      "lead": false,
+      "amtCr": 2.01,
+      "ret": 12.5
+     },
+     {
+      "igId": "1667",
+      "name": "ArMee Infotech",
+      "sme": false,
+      "date": "2026-09-30",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "1601",
+      "name": "Veegaland Developers",
+      "sme": false,
+      "date": "2026-09-18",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 10.0
+     },
+     {
+      "igId": "2092",
+      "name": "Technocrats Plasma Systems",
+      "sme": true,
+      "date": "2026-08-21",
+      "lead": false,
+      "amtCr": 1.76,
+      "ret": 74.24
+     },
+     {
+      "igId": "2078",
+      "name": "Silverstorm Parks & Resorts",
+      "sme": true,
+      "date": "2026-07-31",
+      "lead": false,
+      "amtCr": 2.01,
+      "ret": -0.08
      }
     ]
    },
@@ -239903,13 +240376,13 @@
       "p90": 35.1
      },
      "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 5.6,
-      "p10": -3.8,
-      "p90": 17.4
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 5.3,
+      "p10": -2.8,
+      "p90": 15.9
      },
      "d30": {
       "n": 3,
@@ -241207,13 +241680,13 @@
       "p90": 79.4
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 20.3,
-      "p10": 20.3,
-      "p90": 20.3
+      "med": 12.7,
+      "p10": 6.6,
+      "p90": 18.8
      },
      "d30": {
       "n": 1,
@@ -241387,12 +241860,12 @@
       "p90": 48.0
      },
      "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 20.3,
-      "p10": 3.8,
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 12.7,
+      "p10": 1.3,
       "p90": 20.7
      },
      "d30": {
@@ -241477,13 +241950,13 @@
       "p90": 24.5
      },
      "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -2.8,
-      "p10": -3.9,
-      "p90": -1.7
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -1.4,
+      "p10": -3.6,
+      "p90": 3.8
      },
      "d30": {
       "n": 1,
@@ -241657,13 +242130,13 @@
       "p90": 22.6
      },
      "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -4.2,
-      "p10": -8.1,
-      "p90": 1.8
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": -0.5,
+      "p10": -7.6,
+      "p90": 4.6
      },
      "d30": {
       "n": 2,
@@ -241927,13 +242400,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -0.5,
-      "p10": -3.5,
-      "p90": 2.5
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 3.3,
+      "p10": -2.7,
+      "p90": 4.7
      },
      "d30": {
       "n": 1,
@@ -242017,13 +242490,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 3.3,
-      "p10": 3.3,
-      "p90": 3.3
+      "med": 4.2,
+      "p10": 3.5,
+      "p90": 4.9
      },
      "d30": {
       "n": 1,
@@ -242107,13 +242580,13 @@
       "p90": 24.5
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -2.9,
-      "p10": -7.9,
-      "p90": 2.1
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 3.3,
+      "p10": -6.6,
+      "p90": 4.7
      },
      "d30": {
       "n": 2,
@@ -242197,13 +242670,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 3.3,
-      "p10": 3.3,
-      "p90": 3.3
+      "med": 4.2,
+      "p10": 3.5,
+      "p90": 4.9
      },
      "d30": {
       "n": 1,
@@ -242287,13 +242760,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 3.3,
-      "p10": 3.3,
-      "p90": 3.3
+      "med": 4.2,
+      "p10": 3.5,
+      "p90": 4.9
      },
      "d30": {
       "n": 1,
@@ -242377,13 +242850,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 3.3,
-      "p10": 3.3,
-      "p90": 3.3
+      "med": 4.2,
+      "p10": 3.5,
+      "p90": 4.9
      },
      "d30": {
       "n": 1,
@@ -242467,13 +242940,13 @@
       "p90": 24.5
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -2.9,
-      "p10": -7.9,
-      "p90": 2.1
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 3.3,
+      "p10": -6.6,
+      "p90": 4.7
      },
      "d30": {
       "n": 2,
@@ -242557,13 +243030,13 @@
       "p90": 26.6
      },
      "d5": {
-      "n": 1,
+      "n": 3,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 43.8,
       "hi": 100.0,
       "med": 3.3,
-      "p10": 3.3,
-      "p90": 3.3
+      "p10": 2.7,
+      "p90": 4.7
      },
      "d30": {
       "n": 1,
@@ -243075,6 +243548,96 @@
     ]
    },
    {
+    "key": "BRESCON OPPORTUNITIES FUND",
+    "name": "BRESCON OPPORTUNITIES FUND",
+    "cr": 8.4,
+    "n": 4,
+    "main": null,
+    "sme": {
+     "n": 4,
+     "pos": 100.0,
+     "lo": 51.0,
+     "hi": 100.0,
+     "med": 12.7,
+     "p10": 10.8,
+     "p90": 50.3,
+     "close1": {
+      "n": 3,
+      "pos": 100.0,
+      "lo": 43.8,
+      "hi": 100.0,
+      "med": 15.5,
+      "p10": 9.4,
+      "p90": 62.7
+     },
+     "d5": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 22.7,
+      "p10": 4.3,
+      "p90": 41.1
+     },
+     "d30": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 54.3,
+      "p10": 39.7,
+      "p90": 68.9
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 10.0,
+      "p10": 10.0,
+      "p90": 10.0
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2393",
+      "name": "Carver Roboweld",
+      "sme": true,
+      "date": "2026-11-04",
+      "lead": false,
+      "amtCr": 1.51,
+      "ret": 12.5
+     },
+     {
+      "igId": "2255",
+      "name": "Metalic Technoforge",
+      "sme": true,
+      "date": "2026-07-28",
+      "lead": false,
+      "amtCr": 1.01,
+      "ret": 12.99
+     },
+     {
+      "igId": "2204",
+      "name": "Devson Catalyst",
+      "sme": true,
+      "date": "2026-07-16",
+      "lead": false,
+      "amtCr": 2.01,
+      "ret": 66.23
+     },
+     {
+      "igId": "1104",
+      "name": "OBSC Perfection",
+      "sme": true,
+      "date": "2024-10-29",
+      "lead": true,
+      "amtCr": 3.91,
+      "ret": 10.0
+     }
+    ]
+   },
+   {
     "key": "HDFC FLEXI CAP FUND",
     "name": "HDFC FLEXI CAP FUND",
     "cr": 394.2,
@@ -243097,13 +243660,13 @@
       "p90": 20.6
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -9.1,
-      "p10": -9.1,
-      "p90": -9.1
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -2.0,
+      "p10": -7.7,
+      "p90": 3.7
      },
      "d30": {
       "n": 1,
@@ -243187,13 +243750,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -6.7,
-      "p10": -8.6,
-      "p90": -4.7
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -4.2,
+      "p10": -8.1,
+      "p90": 3.2
      },
      "d30": {
       "n": 1,
@@ -243277,13 +243840,13 @@
       "p90": 24.5
      },
      "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -6.7,
-      "p10": -8.6,
-      "p90": -4.7
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -4.2,
+      "p10": -8.1,
+      "p90": 3.2
      },
      "d30": {
       "n": 1,
@@ -243367,13 +243930,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -9.1,
-      "p10": -9.1,
-      "p90": -9.1
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -2.0,
+      "p10": -7.7,
+      "p90": 3.7
      },
      "d30": {
       "n": 1,
@@ -243457,13 +244020,13 @@
       "p90": 24.5
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 4.4,
-      "p10": -6.4,
-      "p90": 15.2
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 5.1,
+      "p10": -6.3,
+      "p90": 15.3
      },
      "d30": {
       "n": 1,
@@ -243547,13 +244110,13 @@
       "p90": 27.7
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -9.1,
-      "p10": -9.1,
-      "p90": -9.1
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -2.0,
+      "p10": -7.7,
+      "p90": 3.7
      },
      "d30": {
       "n": 1,
@@ -243637,13 +244200,13 @@
       "p90": 24.5
      },
      "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -6.7,
-      "p10": -8.6,
-      "p90": -4.7
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -4.2,
+      "p10": -8.1,
+      "p90": 3.2
      },
      "d30": {
       "n": 1,
@@ -243907,13 +244470,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 0.4,
+      "p10": -3.3,
+      "p90": 4.2
      },
      "d30": {
       "n": 0,
@@ -244087,13 +244650,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 0.4,
+      "p10": -3.3,
+      "p90": 4.2
      },
      "d30": {
       "n": 0,
@@ -244267,13 +244830,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -244357,13 +244920,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -244447,13 +245010,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -244537,13 +245100,13 @@
       "p90": 37.6
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 0.4,
+      "p10": -3.3,
+      "p90": 4.2
      },
      "d30": {
       "n": 0,
@@ -245389,13 +245952,13 @@
       "p90": 32.2
      },
      "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 21.5,
-      "p10": 2.8,
-      "p90": 30.1
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 13.3,
+      "p10": 0.2,
+      "p90": 29.1
      },
      "d30": {
       "n": 3,
@@ -245479,13 +246042,13 @@
       "p90": 22.6
      },
      "d5": {
-      "n": 3,
+      "n": 4,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 51.0,
       "hi": 100.0,
-      "med": 17.9,
-      "p10": 6.2,
-      "p90": 20.8
+      "med": 11.5,
+      "p10": 3.8,
+      "p90": 20.4
      },
      "d30": {
       "n": 2,
@@ -245749,13 +246312,13 @@
       "p90": 25.0
      },
      "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -7.3,
-      "p10": -11.2,
-      "p90": -3.4
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -2.4,
+      "p10": -10.2,
+      "p90": 3.6
      },
      "d30": {
       "n": 2,
@@ -246919,13 +247482,13 @@
       "p90": 19.2
      },
      "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 8.8,
-      "p10": -1.6,
-      "p90": 16.1
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 7.0,
+      "p10": -1.4,
+      "p90": 15.2
      },
      "d30": {
       "n": 0,
@@ -247189,13 +247752,13 @@
       "p90": 51.4
      },
      "d5": {
-      "n": 3,
+      "n": 4,
       "pos": 100.0,
-      "lo": 43.8,
+      "lo": 51.0,
       "hi": 100.0,
-      "med": 17.9,
-      "p10": 10.6,
-      "p90": 21.7
+      "med": 13.3,
+      "p10": 6.2,
+      "p90": 21.3
      },
      "d30": {
       "n": 0,
@@ -247387,140 +247950,6 @@
       "lead": false,
       "amtCr": 1.01,
       "ret": 0.0
-     }
-    ]
-   },
-   {
-    "key": "VBCUBE VENTURES FUND II",
-    "name": "VBCUBE VENTURES FUND II",
-    "cr": 13.8,
-    "n": 4,
-    "main": {
-     "n": 2,
-     "pos": 50.0,
-     "lo": 9.5,
-     "hi": 90.5,
-     "med": 5.0,
-     "p10": 1.0,
-     "p90": 9.0,
-     "close1": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -7.8,
-      "p10": -17.6,
-      "p90": 2.1
-     },
-     "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -10.8,
-      "p10": -16.6,
-      "p90": -4.9
-     },
-     "d30": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -9.8,
-      "p10": -9.8,
-      "p90": -9.8
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": {
-     "n": 2,
-     "pos": 50.0,
-     "lo": 9.5,
-     "hi": 90.5,
-     "med": 37.1,
-     "p10": 7.4,
-     "p90": 66.8,
-     "close1": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 39.1,
-      "p10": 3.9,
-      "p90": 74.2
-     },
-     "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -2.6,
-      "p10": -4.8,
-      "p90": -0.3
-     },
-     "d30": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 44.2,
-      "p10": 16.0,
-      "p90": 72.4
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "ipos": [
-     {
-      "igId": "1667",
-      "name": "ArMee Infotech",
-      "sme": false,
-      "date": "2026-09-30",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "1601",
-      "name": "Veegaland Developers",
-      "sme": false,
-      "date": "2026-09-18",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 10.0
-     },
-     {
-      "igId": "2092",
-      "name": "Technocrats Plasma Systems",
-      "sme": true,
-      "date": "2026-08-21",
-      "lead": false,
-      "amtCr": 1.76,
-      "ret": 74.24
-     },
-     {
-      "igId": "2078",
-      "name": "Silverstorm Parks & Resorts",
-      "sme": true,
-      "date": "2026-07-31",
-      "lead": false,
-      "amtCr": 2.01,
-      "ret": -0.08
      }
     ]
    },
@@ -248447,13 +248876,13 @@
       "p90": 41.6
      },
      "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 1.1,
-      "p10": -3.2,
-      "p90": 8.1
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 3.1,
+      "p10": -2.7,
+      "p90": 8.4
      },
      "d30": {
       "n": 2,
@@ -250010,13 +250439,13 @@
       "p90": 53.4
      },
      "d5": {
-      "n": 2,
+      "n": 3,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 27.5,
-      "p10": 23.7,
-      "p90": 31.3
+      "med": 22.7,
+      "p10": 6.6,
+      "p90": 30.4
      },
      "d30": {
       "n": 1,
@@ -251232,13 +251661,13 @@
       "p90": 21.2
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -5.6,
-      "p10": -5.6,
-      "p90": -5.6
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -0.2,
+      "p10": -4.5,
+      "p90": 4.0
      },
      "d30": {
       "n": 1,
@@ -252410,13 +252839,13 @@
       "p90": 24.0
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -0.5,
-      "p10": -3.5,
-      "p90": 2.5
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 3.3,
+      "p10": -2.7,
+      "p90": 4.7
      },
      "d30": {
       "n": 1,
@@ -252491,13 +252920,13 @@
       "p90": 24.0
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -0.5,
-      "p10": -3.5,
-      "p90": 2.5
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 3.3,
+      "p10": -2.7,
+      "p90": 4.7
      },
      "d30": {
       "n": 1,
@@ -252977,13 +253406,13 @@
       "p90": 24.0
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -0.5,
-      "p10": -3.5,
-      "p90": 2.5
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 3.3,
+      "p10": -2.7,
+      "p90": 4.7
      },
      "d30": {
       "n": 1,
@@ -253625,13 +254054,13 @@
       "p90": 47.7
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 20.8,
-      "p10": 20.8,
-      "p90": 20.8
+      "med": 12.9,
+      "p10": 6.7,
+      "p90": 19.2
      },
      "d30": {
       "n": 1,
@@ -254052,87 +254481,6 @@
     ]
    },
    {
-    "key": "BRESCON OPPORTUNITIES FUND",
-    "name": "BRESCON OPPORTUNITIES FUND",
-    "cr": 6.9,
-    "n": 3,
-    "main": null,
-    "sme": {
-     "n": 3,
-     "pos": 100.0,
-     "lo": 43.8,
-     "hi": 100.0,
-     "med": 13.0,
-     "p10": 10.6,
-     "p90": 55.6,
-     "close1": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 15.5,
-      "p10": 9.4,
-      "p90": 62.7
-     },
-     "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 22.7,
-      "p10": 4.3,
-      "p90": 41.1
-     },
-     "d30": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 54.3,
-      "p10": 39.7,
-      "p90": 68.9
-     },
-     "lead": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 10.0,
-      "p10": 10.0,
-      "p90": 10.0
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2255",
-      "name": "Metalic Technoforge",
-      "sme": true,
-      "date": "2026-07-28",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": 12.99
-     },
-     {
-      "igId": "2204",
-      "name": "Devson Catalyst",
-      "sme": true,
-      "date": "2026-07-16",
-      "lead": false,
-      "amtCr": 2.01,
-      "ret": 66.23
-     },
-     {
-      "igId": "1104",
-      "name": "OBSC Perfection",
-      "sme": true,
-      "date": "2024-10-29",
-      "lead": true,
-      "amtCr": 3.91,
-      "ret": 10.0
-     }
-    ]
-   },
-   {
     "key": "KOTAK BANKING FINANCIAL SERVICES FUND",
     "name": "KOTAK BANKING & FINANCIAL SERVICES FUND",
     "cr": 59.9,
@@ -254479,13 +254827,13 @@
       "p90": 22.6
      },
      "d5": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -6.7,
-      "p10": -8.6,
-      "p90": -4.7
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -4.2,
+      "p10": -8.1,
+      "p90": 3.2
      },
      "d30": {
       "n": 1,
@@ -255532,13 +255880,13 @@
       "p90": 46.5
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -255613,13 +255961,13 @@
       "p90": 43.9
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -255856,13 +256204,13 @@
       "p90": 43.9
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -255937,13 +256285,13 @@
       "p90": 44.2
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -256018,13 +256366,13 @@
       "p90": 43.9
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -256261,13 +256609,13 @@
       "p90": 43.9
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 0.4,
+      "p10": -3.3,
+      "p90": 4.2
      },
      "d30": {
       "n": 0,
@@ -256717,13 +257065,13 @@
       "p90": 39.2
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 0.4,
+      "p10": -3.3,
+      "p90": 4.2
      },
      "d30": {
       "n": 0,
@@ -256798,13 +257146,13 @@
       "p90": 21.7
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 6.8,
-      "p10": -2.0,
-      "p90": 15.7
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 5.1,
+      "p10": -2.3,
+      "p90": 15.3
      },
      "d30": {
       "n": 0,
@@ -257122,13 +257470,13 @@
       "p90": 24.1
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 17.9,
-      "p10": 17.9,
-      "p90": 17.9
+      "med": 11.5,
+      "p10": 6.4,
+      "p90": 16.6
      },
      "d30": {
       "n": 0,
@@ -258830,13 +259178,13 @@
       "p90": 47.7
      },
      "d5": {
-      "n": 2,
+      "n": 3,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 14.9,
-      "p10": 10.3,
-      "p90": 19.6
+      "med": 9.1,
+      "p10": 5.9,
+      "p90": 18.5
      },
      "d30": {
       "n": 2,
@@ -258911,13 +259259,13 @@
       "p90": 12.7
      },
      "d5": {
-      "n": 2,
+      "n": 3,
       "pos": 100.0,
-      "lo": 34.2,
+      "lo": 43.8,
       "hi": 100.0,
-      "med": 6.2,
-      "p10": 3.9,
-      "p90": 8.5
+      "med": 3.3,
+      "p10": 2.7,
+      "p90": 7.9
      },
      "d30": {
       "n": 2,
@@ -260288,13 +260636,13 @@
       "p90": 43.9
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -0.4,
-      "p10": -0.4,
-      "p90": -0.4
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 2.3,
+      "p10": 0.2,
+      "p90": 4.5
      },
      "d30": {
       "n": 1,
@@ -260774,13 +261122,13 @@
       "p90": 16.9
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 8.8,
-      "p10": 8.8,
-      "p90": 8.8
+      "med": 5.7,
+      "p10": 3.2,
+      "p90": 8.2
      },
      "d30": {
       "n": 0,
@@ -261179,13 +261527,13 @@
       "p90": 23.4
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -261341,13 +261689,13 @@
       "p90": 22.8
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -262232,13 +262580,13 @@
       "p90": 6.0
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 2.6,
+      "p10": 2.6,
+      "p90": 2.6
      },
      "d30": {
       "n": 0,
@@ -264477,13 +264825,13 @@
       "p90": 23.7
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -5.6,
-      "p10": -5.6,
-      "p90": -5.6
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -0.2,
+      "p10": -4.5,
+      "p90": 4.0
      },
      "d30": {
       "n": 1,
@@ -264837,13 +265185,13 @@
       "p90": 23.7
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -5.6,
-      "p10": -5.6,
-      "p90": -5.6
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -0.2,
+      "p10": -4.5,
+      "p90": 4.0
      },
      "d30": {
       "n": 1,
@@ -268697,13 +269045,13 @@
       "p90": 50.3
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 20.8,
-      "p10": 20.8,
-      "p90": 20.8
+      "med": 12.9,
+      "p10": 6.7,
+      "p90": 19.2
      },
      "d30": {
       "n": 1,
@@ -269417,13 +269765,13 @@
       "p90": 24.6
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -9.1,
-      "p10": -9.1,
-      "p90": -9.1
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -2.0,
+      "p10": -7.7,
+      "p90": 3.7
      },
      "d30": {
       "n": 1,
@@ -269705,13 +270053,13 @@
       "p90": 24.6
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -9.1,
-      "p10": -9.1,
-      "p90": -9.1
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -2.0,
+      "p10": -7.7,
+      "p90": 3.7
      },
      "d30": {
       "n": 1,
@@ -270353,13 +270701,13 @@
       "p90": 24.6
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -9.1,
-      "p10": -9.1,
-      "p90": -9.1
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -2.0,
+      "p10": -7.7,
+      "p90": 3.7
      },
      "d30": {
       "n": 1,
@@ -271593,13 +271941,13 @@
       "p90": 24.4
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 0.5,
-      "p10": 0.5,
-      "p90": 0.5
+      "med": 2.8,
+      "p10": 1.0,
+      "p90": 4.6
      },
      "d30": {
       "n": 1,
@@ -272169,13 +272517,13 @@
       "p90": 26.0
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -272673,13 +273021,13 @@
       "p90": 26.0
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -273825,13 +274173,13 @@
       "p90": 46.1
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -274185,13 +274533,13 @@
       "p90": 46.1
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -274257,13 +274605,13 @@
       "p90": 46.1
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -274633,13 +274981,13 @@
       "p90": 24.2
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 0.4,
+      "p10": -3.3,
+      "p90": 4.2
      },
      "d30": {
       "n": 0,
@@ -274777,13 +275125,13 @@
       "p90": 24.2
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 0.4,
+      "p10": -3.3,
+      "p90": 4.2
      },
      "d30": {
       "n": 0,
@@ -274849,13 +275197,13 @@
       "p90": 24.2
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 0.4,
+      "p10": -3.3,
+      "p90": 4.2
      },
      "d30": {
       "n": 0,
@@ -274921,13 +275269,13 @@
       "p90": 24.2
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 0.4,
+      "p10": -3.3,
+      "p90": 4.2
      },
      "d30": {
       "n": 0,
@@ -275065,13 +275413,13 @@
       "p90": 24.2
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 0.4,
+      "p10": -3.3,
+      "p90": 4.2
      },
      "d30": {
       "n": 0,
@@ -275353,13 +275701,13 @@
       "p90": 24.7
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -275425,13 +275773,13 @@
       "p90": 24.7
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -276477,13 +276825,13 @@
       "p90": 25.4
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -276693,13 +277041,13 @@
       "p90": 12.9
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 2.6,
+      "p10": 2.6,
+      "p90": 2.6
      },
      "d30": {
       "n": 0,
@@ -276909,13 +277257,13 @@
       "p90": 25.4
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -277313,13 +277661,13 @@
       "p90": 26.7
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -277573,13 +277921,13 @@
       "p90": 25.3
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -277645,13 +277993,13 @@
       "p90": 25.3
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -278193,13 +278541,13 @@
       "p90": 26.6
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -278337,13 +278685,13 @@
       "p90": 26.6
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -278481,13 +278829,13 @@
       "p90": 26.6
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -279317,13 +279665,13 @@
       "p90": 24.1
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -279389,13 +279737,13 @@
       "p90": 40.7
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 5.1,
+      "p10": 5.1,
+      "p90": 5.1
      },
      "d30": {
       "n": 0,
@@ -279605,13 +279953,13 @@
       "p90": 23.2
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 17.9,
-      "p10": 17.9,
-      "p90": 17.9
+      "med": 11.5,
+      "p10": 6.4,
+      "p90": 16.6
      },
      "d30": {
       "n": 0,
@@ -279677,13 +280025,13 @@
       "p90": 23.2
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 17.9,
-      "p10": 17.9,
-      "p90": 17.9
+      "med": 11.5,
+      "p10": 6.4,
+      "p90": 16.6
      },
      "d30": {
       "n": 0,
@@ -279749,13 +280097,13 @@
       "p90": 23.2
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 17.9,
-      "p10": 17.9,
-      "p90": 17.9
+      "med": 11.5,
+      "p10": 6.4,
+      "p90": 16.6
      },
      "d30": {
       "n": 0,
@@ -279821,13 +280169,13 @@
       "p90": 23.2
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 17.9,
-      "p10": 17.9,
-      "p90": 17.9
+      "med": 11.5,
+      "p10": 6.4,
+      "p90": 16.6
      },
      "d30": {
       "n": 0,
@@ -279893,13 +280241,13 @@
       "p90": 23.2
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 17.9,
-      "p10": 17.9,
-      "p90": 17.9
+      "med": 11.5,
+      "p10": 6.4,
+      "p90": 16.6
      },
      "d30": {
       "n": 0,
@@ -279965,13 +280313,13 @@
       "p90": 23.2
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 17.9,
-      "p10": 17.9,
-      "p90": 17.9
+      "med": 11.5,
+      "p10": 6.4,
+      "p90": 16.6
      },
      "d30": {
       "n": 0,
@@ -280469,13 +280817,13 @@
       "p90": 5.9
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 4.3,
-      "p10": 4.3,
-      "p90": 4.3
+      "med": 3.5,
+      "p10": 2.8,
+      "p90": 4.1
      },
      "d30": {
       "n": 1,
@@ -283349,13 +283697,13 @@
       "p90": 4.7
      },
      "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.3,
-      "p10": -4.3,
-      "p90": -4.3
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -0.8,
+      "p10": -3.6,
+      "p90": 1.9
      },
      "d30": {
       "n": 0,
@@ -283925,13 +284273,13 @@
       "p90": 23.8
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 8.8,
-      "p10": 8.8,
-      "p90": 8.8
+      "med": 7.0,
+      "p10": 5.5,
+      "p90": 8.4
      },
      "d30": {
       "n": 0,
@@ -283997,13 +284345,13 @@
       "p90": 5.6
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 100.0,
-      "lo": 20.7,
+      "lo": 34.2,
       "hi": 100.0,
-      "med": 8.8,
-      "p10": 8.8,
-      "p90": 8.8
+      "med": 5.7,
+      "p10": 3.2,
+      "p90": 8.2
      },
      "d30": {
       "n": 0,
@@ -285365,6 +285713,12 @@
    },
    "2124": {
     "d5": 8.8
+   },
+   "2306": {
+    "d5": 5.1
+   },
+   "1728": {
+    "d5": 2.6
    }
   },
   "dealRows": [
@@ -288931,6 +289285,30 @@
     "d5": 5.8,
     "d20": null,
     "done": false
+   },
+   {
+    "client": "PROGNOSIS SECURITIES PVT. LTD",
+    "key": "PROGNOSIS SECURITIES",
+    "stock": "Vishal Nirmiti",
+    "sme": false,
+    "date": "2026-10-28",
+    "side": "net seller",
+    "netCr": -1.33,
+    "d5": 4.6,
+    "d20": null,
+    "done": false
+   },
+   {
+    "client": "SETU SECURITIES PVT LTD",
+    "key": "SETU SECURITIES",
+    "stock": "Vishal Nirmiti",
+    "sme": false,
+    "date": "2026-10-28",
+    "side": "net seller",
+    "netCr": -0.73,
+    "d5": 4.6,
+    "d20": null,
+    "done": false
    }
   ],
   "deals": [
@@ -289282,6 +289660,81 @@
     }
    },
    {
+    "key": "PROGNOSIS SECURITIES",
+    "name": "PROGNOSIS SECURITIES PVT. LTD",
+    "n": 6,
+    "main": {
+     "buys": {
+      "n": 3,
+      "d5": {
+       "n": 3,
+       "pos": 66.7,
+       "lo": 20.8,
+       "hi": 93.9,
+       "med": 5.9,
+       "p10": -7.5,
+       "p90": 25.0
+      },
+      "d20": {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null
+      },
+      "netCr": 7.4
+     },
+     "sells": {
+      "n": 2,
+      "d5": {
+       "n": 2,
+       "pos": 50.0,
+       "lo": 9.5,
+       "hi": 90.5,
+       "med": 2.0,
+       "p10": -0.1,
+       "p90": 4.1
+      },
+      "d20": {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null
+      },
+      "netCr": -5.9
+     }
+    },
+    "sme": {
+     "buys": {
+      "n": 1,
+      "d5": {
+       "n": 1,
+       "pos": 0.0,
+       "lo": 0.0,
+       "hi": 79.3,
+       "med": -22.5,
+       "p10": -22.5,
+       "p90": -22.5
+      },
+      "d20": {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null
+      },
+      "netCr": 2.2
+     }
+    }
+   },
+   {
     "key": "YUGA STOCKS AND COMMODITIES",
     "name": "YUGA STOCKS AND COMMODITIES PRIVATE LIMITED",
     "n": 5,
@@ -289413,84 +289866,9 @@
     }
    },
    {
-    "key": "PROGNOSIS SECURITIES",
-    "name": "PROGNOSIS SECURITIES PVT. LTD",
-    "n": 5,
-    "main": {
-     "buys": {
-      "n": 3,
-      "d5": {
-       "n": 3,
-       "pos": 66.7,
-       "lo": 20.8,
-       "hi": 93.9,
-       "med": 5.9,
-       "p10": -7.5,
-       "p90": 25.0
-      },
-      "d20": {
-       "n": 0,
-       "pos": null,
-       "lo": null,
-       "hi": null,
-       "med": null,
-       "p10": null,
-       "p90": null
-      },
-      "netCr": 7.4
-     },
-     "sells": {
-      "n": 1,
-      "d5": {
-       "n": 1,
-       "pos": 0.0,
-       "lo": 0.0,
-       "hi": 79.3,
-       "med": -0.6,
-       "p10": -0.6,
-       "p90": -0.6
-      },
-      "d20": {
-       "n": 0,
-       "pos": null,
-       "lo": null,
-       "hi": null,
-       "med": null,
-       "p10": null,
-       "p90": null
-      },
-      "netCr": -4.5
-     }
-    },
-    "sme": {
-     "buys": {
-      "n": 1,
-      "d5": {
-       "n": 1,
-       "pos": 0.0,
-       "lo": 0.0,
-       "hi": 79.3,
-       "med": -22.5,
-       "p10": -22.5,
-       "p90": -22.5
-      },
-      "d20": {
-       "n": 0,
-       "pos": null,
-       "lo": null,
-       "hi": null,
-       "med": null,
-       "p10": null,
-       "p90": null
-      },
-      "netCr": 2.2
-     }
-    }
-   },
-   {
     "key": "SETU SECURITIES",
     "name": "SETU SECURITIES PVT LTD",
-    "n": 4,
+    "n": 5,
     "main": {
      "buys": {
       "n": 2,
@@ -289515,15 +289893,15 @@
       "netCr": 6.5
      },
      "sells": {
-      "n": 1,
+      "n": 2,
       "d5": {
-       "n": 1,
-       "pos": 0.0,
-       "lo": 0.0,
-       "hi": 79.3,
-       "med": -16.7,
-       "p10": -16.7,
-       "p90": -16.7
+       "n": 2,
+       "pos": 50.0,
+       "lo": 9.5,
+       "hi": 90.5,
+       "med": -6.0,
+       "p10": -14.6,
+       "p90": 2.5
       },
       "d20": {
        "n": 0,
@@ -289534,7 +289912,7 @@
        "p10": null,
        "p90": null
       },
-      "netCr": -2.4
+      "netCr": -3.1
      }
     },
     "sme": {
@@ -292408,41 +292786,6 @@
    }
   ],
   "issues": {
-   "2288": {
-    "name": "M.K.Sons Fine Jewels",
-    "sme": false,
-    "status": "Closed",
-    "open": "2026-10-28",
-    "close": "2026-10-30",
-    "allotment": "2026-11-02",
-    "refund": "2026-11-03",
-    "listing": "2026-11-04",
-    "blocks": {
-     "retail": {
-      "amount": 14742,
-      "shares": 91,
-      "lots": 1
-     },
-     "snii": {
-      "amount": 206388,
-      "shares": 1274,
-      "lots": 14
-     },
-     "bnii": {
-      "amount": 1002456,
-      "shares": 6188,
-      "lots": 68
-     }
-    },
-    "releaseDate": "2026-11-03",
-    "releaseSrc": "refund",
-    "blockedDays": 4,
-    "fundReuse": [],
-    "lockIn30": "2026-12-02",
-    "lockIn90": "2027-01-31",
-    "retailSlots": 65384,
-    "retailSizeCr": 97.0
-   },
    "1936": {
     "name": "Bombay Coated and Special Steels",
     "sme": false,
@@ -292477,70 +292820,6 @@
     "lockIn90": "2027-02-01",
     "retailSlots": 42930,
     "retailSizeCr": 65.0
-   },
-   "2017": {
-    "name": "Ajwa Projects",
-    "sme": true,
-    "status": "Closed",
-    "open": "2026-10-28",
-    "close": "2026-10-30",
-    "allotment": "2026-11-02",
-    "refund": "2026-11-03",
-    "listing": "2026-11-04",
-    "blocks": {
-     "retail": {
-      "amount": 243600,
-      "shares": 1200,
-      "lots": 2
-     },
-     "snii": {
-      "amount": 243600,
-      "shares": 1800,
-      "lots": 3
-     },
-     "bnii": {
-      "amount": 1096200,
-      "shares": 1800,
-      "lots": 3
-     }
-    },
-    "releaseDate": "2026-11-03",
-    "releaseSrc": "refund",
-    "blockedDays": 4,
-    "fundReuse": []
-   },
-   "2393": {
-    "name": "Carver Roboweld",
-    "sme": true,
-    "status": "Closed",
-    "open": "2026-10-28",
-    "close": "2026-10-30",
-    "allotment": "2026-11-02",
-    "refund": "2026-11-02",
-    "listing": "2026-11-04",
-    "blocks": {
-     "retail": {
-      "amount": 256000,
-      "shares": 3200,
-      "lots": 2
-     },
-     "snii": {
-      "amount": 256000,
-      "shares": 4800,
-      "lots": 3
-     },
-     "bnii": {
-      "amount": 1024000,
-      "shares": 4800,
-      "lots": 3
-     }
-    },
-    "releaseDate": "2026-11-02",
-    "releaseSrc": "refund",
-    "blockedDays": 3,
-    "fundReuse": [],
-    "lockIn30": "2026-12-02",
-    "lockIn90": "2027-01-31"
    },
    "2375": {
     "name": "Antala Industries",
@@ -292784,7 +293063,7 @@
    },
    "ig607": {
     "rows": 2,
-    "matched": 2
+    "matched": 1
    }
   }
  }
