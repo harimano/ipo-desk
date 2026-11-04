@@ -271,7 +271,23 @@ async function smoke() {
     const live = await until(() => w.__ipo && d.querySelectorAll("#rsel option").length > 0, 12000);
     rows.push(srow("boot", live ? "page booted, data fetched" : "the page did not finish booting in 12 s", pill(live ? "ok" : "bad", live ? "ok" : "slow")));
     const tabs = [...d.querySelectorAll("#nav button[data-s]")];
-    for (const b of tabs) { b.click(); await new Promise(r => setTimeout(r, 60)); }
+    // Looked at, not just run: a card with nothing in it, or a card far taller than what it holds (a grid row stretched
+    // to its neighbour), throws no error — 4 Nov 2026, both on the Board for a week. The frame is desktop-wide here so
+    // two-column rows form; a card that is empty by design says so with data-may-empty.
+    const blanks = [], gaps = [];
+    for (const b of tabs) {
+      b.click(); await new Promise(r => setTimeout(r, 60));
+      const scr = d.querySelector("section.screen:not([hidden])"); if (!scr) continue;
+      for (const c of scr.querySelectorAll(".card")) {
+        if (!c.offsetHeight || c.closest("[hidden]")) continue;
+        const head = c.querySelector(":scope > .ch"), name = `${b.textContent.trim()} › ${(head ? head.firstChild && head.firstChild.textContent : c.textContent).trim().slice(0, 40) || "(card)"}`;
+        const body = [...c.children].filter(x => x !== head);
+        const held = body.reduce((n, x) => n + x.offsetHeight, 0) + (head ? head.offsetHeight : 0);
+        const hasContent = body.some(x => x.textContent.trim() || x.querySelector("canvas,svg,img,input,select,table tr")) || (!head && c.textContent.trim());   // a .card.empty is text in the card itself
+        if (!hasContent && !c.hasAttribute("data-may-empty")) blanks.push(name);
+        else if (c.offsetHeight - held > 160) gaps.push(`${name} (${c.offsetHeight - held} px under its content)`);
+      }
+    }
     const sel = d.querySelector("#rsel"), opts = sel ? [...sel.options] : [];
     for (const o of opts) { sel.value = o.value; if (typeof sel.onchange === "function") sel.onchange(); else sel.dispatchEvent(new w.Event("change")); }
     let liveOk = true;
@@ -287,11 +303,14 @@ async function smoke() {
     rows.push(srow("data parts", `${files.length} answer${badParts.length ? ", MISSING: " + badParts.map(x => x[0]).join(", ") : ""}`, pill(badParts.length ? "bad" : "ok", files.length - badParts.length + "/" + files.length)));
     rows.push(srow("chart.js", w.Chart ? "loaded " + esc(w.Chart.version) : "not loaded", pill(w.Chart ? "ok" : "bad", w.Chart ? "ok" : "missing")));
     rows.push(srow("console", errs.length ? errs.slice(0, 20).map(esc).join("<br>") : "no errors", pill(errs.length ? "bad" : "ok", errs.length)));
+    rows.push(srow("empty cards", blanks.length ? blanks.map(esc).join("<br>") : "every card on every tab holds something", pill(blanks.length ? "bad" : "ok", blanks.length)));
+    rows.push(srow("layout gaps", gaps.length ? gaps.map(esc).join("<br>") : "no card is more than 160 px taller than what it holds", pill(gaps.length ? "warn" : "ok", gaps.length)));
     const secs = ((performance.now() - t0) / 1000).toFixed(1);
-    const lvl = errs.length || badParts.length || !live ? "bad" : "ok";
+    const lvl = errs.length || badParts.length || !live || blanks.length ? "bad" : gaps.length ? "warn" : "ok";
     out.innerHTML = table(["check|fit", "result", "|fit"], rows) + note(`${secs} s · ${new Date().toLocaleTimeString()}`);
-    tile("#tPage", lvl === "ok" ? "clean" : `${errs.length || "!"} errors`, lvl, `${tabs.length} tabs · ${opts.length} sheets · ${secs} s`);
-    if (lvl !== "ok") addVerdict("bad", `the page smoke test found ${errs.length} console error${errs.length === 1 ? "" : "s"}${badParts.length ? " and missing data parts" : ""}`, "smokeOut");
+    tile("#tPage", lvl === "ok" ? "clean" : lvl === "warn" ? `${gaps.length} gaps` : `${errs.length + blanks.length || "!"} errors`, lvl, `${tabs.length} tabs · ${opts.length} sheets · ${secs} s`);
+    if (lvl === "bad") addVerdict("bad", `the page smoke test found ${errs.length} console error${errs.length === 1 ? "" : "s"}${badParts.length ? ", missing data parts" : ""}${blanks.length ? `, ${blanks.length} empty card${blanks.length === 1 ? "" : "s"}` : ""}`, "smokeOut");
+    else if (lvl === "warn") addVerdict("warn", `the page has ${gaps.length} card${gaps.length === 1 ? "" : "s"} far taller than what it holds`, "smokeOut");
   } catch (e) {
     out.innerHTML = table(["check|fit", "result", "|fit"], [srow("result", esc(e.message), pill("bad", "failed"))]); tile("#tPage", "failed", "bad", esc(e.message));
   } finally { btn.disabled = false; fr.srcdoc = ""; fr.hidden = true; }

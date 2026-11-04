@@ -49,11 +49,40 @@ HEAD = """<!DOCTYPE html>
 # or the gated Worker would answer the login redirect and the browser would call the page uninstallable.
 
 
+def check_names(inner: str, app: str, includes: dict[str, str]) -> list[str]:
+    """The page is one closure: a second `function f()` silently replaces the first, and a second `id="x"` is never
+    found by `$("#x")`. Neither throws, so neither reaches the console (4 Nov 2026: planner.js took the Board planner's
+    id AND function name; the card was empty for a week). Returns the collisions; the build refuses on any."""
+    bad: list[str] = []
+    ids: dict[str, list[str]] = {}
+    for m in re.finditer(r'\bid="([A-Za-z][\w-]*)"', inner):
+        ids.setdefault(m.group(1), []).append("inner.html")
+    for name, body in includes.items():                       # a literal id inside a template string, not `id="${…}"`
+        for m in re.finditer(r'\bid="([A-Za-z][\w-]*)"', body):
+            if m.group(1) in ids and "inner.html" in ids[m.group(1)]:
+                ids[m.group(1)].append(name)
+    for i, where in ids.items():
+        if len(where) > 1:
+            bad.append(f'id="{i}" in ' + ", ".join(where))
+    fns: dict[str, list[str]] = {}
+    for name, body in {"app.js": app, **includes}.items():
+        for m in re.finditer(r"^(?:async\s+)?function\s+([A-Za-z_$][\w$]*)\s*\(", body, re.MULTILINE):
+            fns.setdefault(m.group(1), []).append(name)
+    for f, where in fns.items():
+        if len(where) > 1:
+            bad.append(f"function {f}() in " + ", ".join(where))
+    return bad
+
+
 def main() -> int:
     inner = (SRC / "inner.html").read_text(encoding="utf8")
     app = (SRC / "app.js").read_text(encoding="utf8")
     # new screens live in their own files; `/* @include name.js */` inside app.js pulls one into its scope
-    app = re.sub(r"/\* @include ([\w.-]+) \*/", lambda m: (SRC / m.group(1)).read_text(encoding="utf8"), app)
+    includes = {m: (SRC / m).read_text(encoding="utf8") for m in re.findall(r"/\* @include ([\w.-]+) \*/", app)}
+    collisions = check_names(inner, app, includes)
+    if collisions:
+        raise SystemExit("page names collide — refusing to build:\n  " + "\n  ".join(collisions))
+    app = re.sub(r"/\* @include ([\w.-]+) \*/", lambda m: includes[m.group(1)], app)
     account = (SRC / "account.js").read_text(encoding="utf8")   # the reader's account: runs before app.js so its store is ready
     boot = (SRC / "boot.js").read_text(encoding="utf8")
     latest_path = ROOT / "data" / "latest.json"

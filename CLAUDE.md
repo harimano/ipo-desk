@@ -78,7 +78,12 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
   `ipo-detail-2305` / `2119` are trimmed to 120 chars a field — `ipo-detail-2057-JINDAL-full.json` is the whole one).
 - **Before shipping any page change**: no console errors on all seven tabs; loop over EVERY option in `#rsel` calling
   `onchange` (one JS call, ~50 sheets — three different crashes were caught only this way, one reached production);
-  check phone width. Live, `/admin` → "Run smoke test" does exactly this against the deployed page. Test the listing-day card with `window.__ipo.live({preopen:[…]})`.
+  check phone width. Live, `/admin` → "Run smoke test" does exactly this against the deployed page, and LOOKS: an empty card is
+  bad, a card 160 px+ taller than what it holds (a grid row stretched to its neighbour) is a warning — neither throws (4 Nov 2026).
+  Test the listing-day card with `window.__ipo.live({preopen:[…]})`.
+- **The page is one closure and one id space.** A new file's `function f()` silently replaces app.js's `f`; a second `id="x"` is
+  never found. `site/build.py` refuses to build on either (`check_names`, also a pytest); prefix a new screen's ids and
+  functions with its name (`cp-`, `renderCp…`) rather than claiming a generic one.
 - Say what was verified (`git log`, `gh run list`, the live URL) and what was not. Side findings go on a list.
 - Cost: one fresh session per task; Sonnet for page work, Fable for collector / design work.
 - **A stale page is a failed run until proven otherwise**: `gh run list` first. A scheduled "success" may be an intraday
