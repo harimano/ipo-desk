@@ -104,6 +104,20 @@ class Matcher:
         """The symbol carried by the row with this exact name, if it had one."""
         return self._symbol_by_name.get(row_name)
 
+    def match_strict(self, name: str) -> str | None:
+        """`match` without the prefix and fuzzy tiers: the same name, an alias, or a bracketed form. For a move that
+        must never be wrong (a quota row declared listed, 4 Nov 2026: fuzzy put ILJIN Electronics on Elin Electronics)."""
+        if name in self._set:
+            return name
+        n = norm_name(name)
+        target = self.aliases.get(name) or self._alias_norm.get(n)
+        if target:
+            return target
+        for f in _forms(name):
+            if f in self._by_form:
+                return self._by_form[f]
+        return None
+
     def match(self, name: str, symbol: str | None = None) -> str | None:
         """The existing board spelling for `name`, or None when it is genuinely new."""
         if name in self._set:

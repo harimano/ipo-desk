@@ -756,7 +756,7 @@ function renderTape() {
   board.filter(b => b.status === "Closed").slice(0, 2).forEach(b => t.push(`<span class="t"><b>${esc(b.name.split(" ")[0].toUpperCase())}</b><span class="${cls(b.gmpPct)} num">${pct(b.gmpPct, true)}</span><span class="dim">lists ${fmtD(b.listing)}</span></span>`));
   const F = DATA.flows && DATA.flows.latest; if (F) t.push(`<span class="t"><b>FII</b><span class="${cls(F.fiiNetCr)} num">${sgn(F.fiiNetCr)}</span><b>DII</b><span class="${cls(F.diiNetCr)} num">${sgn(F.diiNetCr)}</span><span class="dim">${fmtD(F.date)}</span></span>`);
   const rec = live.filter(q => q.recordDate).sort((a, b) => a.recordDate.localeCompare(b.recordDate))[0];
-  t.push(rec ? `<span class="t"><b>NEXT RECORD DATE</b><span class="down">${esc(rec.name)} · ${fmtD(rec.recordDate)}</span></span>` : `<span class="t"><b>NEXT RECORD DATE</b><span class="amb">Jio — with its RHP</span></span>`);
+  t.push(rec ? `<span class="t"><b>NEXT RECORD DATE</b><span class="down">${esc(rec.name)} · ${fmtD(rec.recordDate)}</span></span>` : `<span class="t"><b>NEXT RECORD DATE</b><span class="dim">none announced</span></span>`);
   $("#tape").innerHTML = t.join("") + `<span class="asof${stale ? " stale" : ""}" title="Collector run of ${esc(DATA.meta.label)} — tap to check now"><i class="livedot"></i><span id="liveTxt"></span></span>`;
 }
 

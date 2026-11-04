@@ -546,3 +546,34 @@ def test_schema_and_layout_publish_quota_leads():
     assert schema.empty_data()["quotaLeads"] == []
     assert "quotaLeads" in layout.GROUPS["pipeline"]
     layout.check_groups()
+
+
+def test_reconcile_moves_a_quota_row_whose_ipo_is_listed_and_dates_one_on_the_board():
+    prev = {"quota": [{"name": "Reliance Jio", "bucket": "approved", "stage": "SEBI approved"},       # alias -> Jio Platforms
+                      {"name": "Hero FinCorp", "bucket": "approved"},
+                      {"name": "Nobody Co", "bucket": "drhp"},
+                      {"name": "Old Done", "bucket": "done"}]}
+    doc = {"mainboard": [{"name": "Hero FinCorp", "status": "Upcoming", "listing": "2026-11-20"},
+                         {"name": "Old Done", "status": "Listed", "listing": "2026-01-01"}],
+           "sme": [], "listedPerf": [{"name": "Jio Platforms", "igId": "2306", "date": "2026-10-28"}]}
+    patches: dict = {}
+    assert filings._reconcile(prev, doc, patches, TODAY) == 2
+    assert patches["Reliance Jio"] == {"bucket": "done", "stage": "Listed", "stageDate": "2026-10-28", "listingDate": "2026-10-28"}
+    assert patches["Hero FinCorp"] == {"listingDate": "2026-11-20"}
+    assert "Nobody Co" not in patches and "Old Done" not in patches
+    assert set().union(*(set(p) for p in patches.values())) <= filings.ALLOWED_FIELDS
+
+
+def test_reconcile_with_an_empty_document_changes_nothing():
+    patches: dict = {}
+    assert filings._reconcile({"quota": [{"name": "Reliance Jio", "bucket": "approved"}]}, {}, patches, TODAY) == 0
+    assert patches == {}
+
+
+def test_reconcile_never_moves_on_a_fuzzy_name_or_an_old_listing():
+    prev = {"quota": [{"name": "ILJIN Electronics", "bucket": "awaited"}, {"name": "Trident Lifeline", "bucket": "drhp"}]}
+    doc = {"mainboard": [], "sme": [], "listedPerf": [{"name": "Elin Electronics", "date": "2022-12-30"},
+                                                     {"name": "Trident Lifeline", "date": "2022-10-10"}]}
+    patches: dict = {}
+    assert filings._reconcile(prev, doc, patches, dt.date(2026, 11, 4)) == 0
+    assert patches == {}
