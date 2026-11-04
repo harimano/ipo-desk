@@ -104,7 +104,9 @@ document as assembled so far; `prev` is yesterday's.
   it goes, NSE / BSE modules carry the board). `ipo/list-read` = the calendar (ids, SME included); `ipo-detail-read/<id>` =
   one ~280-field record per listing → row fields, `anchors[]`, `facts`, and `records{igId}` (the Research sheet: financials,
   peers, objects, reservation with max allottees, GMP by day, the book by day — HTML tables parsed AS tables). Reports:
-  331 GMP · 566 this year's category books · 377 listing performance since 2022 (`history` → `listedPerf`, `comps`) ·
+  331 GMP · 566 this year's category books · 377 listing performance since 2022 (`history` → `listedPerf`, `comps`; one fetch on
+  4 Nov 2026 came back seven rows short and the newest listings vanished — this year's rows on file are KEPT when the report
+  does not return them, named in the module note) ·
   607 allotment planner · 554 event calendar · 551 all anchor investors · 561 one investor's IPOs (id is the LAST path
   segment; the free feed returns only the latest FIVE — a members' limit, do not work around it).
 - `evidence` (no network): per segment — trailing window named on screen (12 months, else last 100), all-years secondary;

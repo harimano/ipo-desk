@@ -87,3 +87,30 @@ def test_report_377_is_read_in_its_september_2026_shape_too():
     assert v["igId"] == "1969" and v["sme"] is True and v["date"] == "2026-09-22" and v["issue"] == 341.0 and v["listing"] == 341.0 and v["gmp"] == 3.0
     assert v["gmpImplied"] == 344.0 and v["sizeCr"] == 49.54 and v["total"] == 2.53
     assert any(not r["sme"] for r in rows), "mainboard rows have no badge and read as mainboard"
+
+
+def test_a_listing_the_report_stops_returning_is_kept_from_the_previous_document():
+    """4 Nov 2026, 20:50: report 377 answered seven rows short for one fetch (the 2–4 Nov listings) and they vanished."""
+    full = history.run(S(), {}, Result(module="history"), today=TODAY)
+    prev = {"listedPerf": full.replace["listedPerf"], "comps": full.replace["comps"]}
+    newest = sorted(prev["listedPerf"], key=lambda r: r["date"], reverse=True)[:3]
+    short = {**PERF, "reportTableData": [r for r in PERF["reportTableData"] if str(r.get("~id")) not in {n["igId"] for n in newest}]}
+    res = history.run(S(perf=short), prev, Result(module="history"), today=TODAY)
+    assert res.ok
+    ids = {r["igId"] for r in res.replace["listedPerf"]}
+    assert all(n["igId"] in ids for n in newest)
+    assert len(res.replace["listedPerf"]) == len(prev["listedPerf"])
+    assert any("did not return 3 of this year" in n and newest[0]["name"] in n for n in res.notes)
+    # and the same prev against the full report: nothing is kept, no note
+    again = history.run(S(), prev, Result(module="history"), today=TODAY)
+    assert not any("did not return" in n for n in again.notes)
+
+
+def test_report_377_is_read_in_its_november_2026_shape():
+    """Real response of 5 Nov 2026 (302 rows): the seven listings of 2–4 Nov that one fetch on 4 Nov left out are all here."""
+    rows = ig.parse_performance_report(json.loads((FX / "report-377-gmp-performance-2026-11-05.json").read_text()))
+    assert len(rows) == 302
+    names = {r["name"] for r in rows}
+    assert {"Ajwa Projects", "Carver Roboweld", "M.K.Sons Fine Jewels", "BLS Polymers", "SFC Environmental Technologies",
+            "Wiscon Industries", "EAAA India Alternatives", "Jio Platforms"} <= names
+    assert max(r["date"] for r in rows) == "2026-11-04"
