@@ -195,7 +195,7 @@ tr[data-row].cur { outline:none; box-shadow: inset 3px 0 0 var(--focus); backgro
 @media (max-width:1000px) { .pipe-lanes { grid-template-columns:repeat(2, minmax(0,1fr)); } .lanes { flex-direction:column; } }
 
 /* ============ TABLES ============ */
-.tw { overflow-x:auto; }
+.tw { overflow-x:auto; } .tw.scroll { max-height:248px; overflow:auto; } .tw.scroll thead th { position:sticky; top:0; background:var(--surface); z-index:1; }
 table { width:100%; border-collapse:collapse; font-size:13px; }
 th { text-align:left; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); padding:9px 12px; border-bottom:1px solid var(--line); white-space:nowrap; }
 td { padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
@@ -518,7 +518,7 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
     </div>
     <div class="sec grid g2 top">
       <div class="card"><div class="ch">FII / DII net flows <span class="sub" id="flowsSub"></span></div><div class="cb"><div class="chart-wrap"><canvas id="flowsChart"></canvas></div></div></div>
-      <div class="card"><div class="ch">Recent listings</div><div class="tw"><table id="recent"></table></div></div>
+      <div class="card"><div class="ch">Recent listings</div><div class="tw scroll"><table id="recent"></table></div></div>
     </div>
     <div class="sec"><div class="sec-h"><h2>Other entitlement plays</h2><span class="sub">rights · buybacks · OFS · NCDs · click a row for the plain-words breakdown</span><span class="right" id="offersAsOf"></span></div>
       <div class="explain" id="offerHow">
