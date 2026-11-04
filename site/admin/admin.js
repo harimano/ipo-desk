@@ -274,22 +274,40 @@ async function smoke() {
     // Looked at, not just run: a card with nothing in it, or a card far taller than what it holds (a grid row stretched
     // to its neighbour), throws no error — 4 Nov 2026, both on the Board for a week. The frame is desktop-wide here so
     // two-column rows form; a card that is empty by design says so with data-may-empty.
-    const blanks = [], gaps = [];
-    for (const b of tabs) {
+    // Measured in a second pass, after the sheets and a settle: a card fed by a lazy part (books.json, 2 MB) is empty
+    // for a moment after its tab opens, and that is not a finding (the live run of 4 Nov 2026 said it was).
+    // The rule (Hari, 4 Nov 2026): cards side by side are the same height — a short one beside a tall one looks broken;
+    // a little space under a short card's content is fine, half a screen of it is not (cap the tall neighbour with an
+    // inner scroll, as Recent listings on the Board). Empty is empty.
+    const blanks = [], gaps = [], uneven = [];
+    for (const b of tabs) { b.click(); await new Promise(r => setTimeout(r, 60)); }
+    const cardName = (b, c) => { const head = c.querySelector(":scope > .ch"); return `${b.textContent.trim()} › ${(head ? head.firstChild && head.firstChild.textContent : c.textContent).trim().slice(0, 40) || "(card)"}`; };
+    const measure = async () => { for (const b of tabs) {
       b.click(); await new Promise(r => setTimeout(r, 60));
       const scr = d.querySelector("section.screen:not([hidden])"); if (!scr) continue;
       for (const c of scr.querySelectorAll(".card")) {
         if (!c.offsetHeight || c.closest("[hidden]")) continue;
-        const head = c.querySelector(":scope > .ch"), name = `${b.textContent.trim()} › ${(head ? head.firstChild && head.firstChild.textContent : c.textContent).trim().slice(0, 40) || "(card)"}`;
+        const head = c.querySelector(":scope > .ch"), name = cardName(b, c);
         const body = [...c.children].filter(x => x !== head);
         const held = body.reduce((n, x) => n + x.offsetHeight, 0) + (head ? head.offsetHeight : 0);
         const hasContent = body.some(x => x.textContent.trim() || x.querySelector("canvas,svg,img,input,select,table tr")) || (!head && c.textContent.trim());   // a .card.empty is text in the card itself
         if (!hasContent && !c.hasAttribute("data-may-empty")) blanks.push(name);
-        else if (c.offsetHeight - held > 160) gaps.push(`${name} (${c.offsetHeight - held} px under its content)`);
+        else if (c.offsetHeight - held > 400) gaps.push(`${name} (${c.offsetHeight - held} px under its content)`);
       }
-    }
+      for (const g of scr.querySelectorAll(".grid")) {                      // cards that share a row share a height
+        const rows = new Map();
+        for (const c of g.querySelectorAll(":scope > .card")) { if (!c.offsetHeight) continue; const k = c.offsetTop; (rows.get(k) || rows.set(k, []).get(k)).push(c); }
+        for (const cs of rows.values()) {
+          if (cs.length < 2) continue;
+          const hs = cs.map(c => c.offsetHeight), lo = Math.min(...hs), hi = Math.max(...hs);
+          if (hi - lo > 2) uneven.push(cs.map(c => `${cardName(b, c)} ${c.offsetHeight} px`).join(" vs "));
+        }
+      }
+    } };
     const sel = d.querySelector("#rsel"), opts = sel ? [...sel.options] : [];
     for (const o of opts) { sel.value = o.value; if (typeof sel.onchange === "function") sel.onchange(); else sel.dispatchEvent(new w.Event("change")); }
+    await until(() => !/Loading the record/.test(d.body.textContent), 10000); await new Promise(r => setTimeout(r, 800));
+    await measure();
     let liveOk = true;
     try { if (w.__ipo && w.__ipo.live) w.__ipo.live({ asOf: new Date().toISOString(), rows: {} }); } catch (e) { liveOk = false; w.__smoke.errors.push("live(): " + e.message); }
     const errs = (w.__smoke && w.__smoke.errors) || [];
@@ -304,12 +322,13 @@ async function smoke() {
     rows.push(srow("chart.js", w.Chart ? "loaded " + esc(w.Chart.version) : "not loaded", pill(w.Chart ? "ok" : "bad", w.Chart ? "ok" : "missing")));
     rows.push(srow("console", errs.length ? errs.slice(0, 20).map(esc).join("<br>") : "no errors", pill(errs.length ? "bad" : "ok", errs.length)));
     rows.push(srow("empty cards", blanks.length ? blanks.map(esc).join("<br>") : "every card on every tab holds something", pill(blanks.length ? "bad" : "ok", blanks.length)));
-    rows.push(srow("layout gaps", gaps.length ? gaps.map(esc).join("<br>") : "no card is more than 160 px taller than what it holds", pill(gaps.length ? "warn" : "ok", gaps.length)));
+    rows.push(srow("uneven rows", uneven.length ? uneven.map(esc).join("<br>") : "cards side by side are the same height", pill(uneven.length ? "bad" : "ok", uneven.length)));
+    rows.push(srow("layout gaps", gaps.length ? gaps.map(esc).join("<br>") : "no card is more than 400 px taller than what it holds", pill(gaps.length ? "warn" : "ok", gaps.length)));
     const secs = ((performance.now() - t0) / 1000).toFixed(1);
-    const lvl = errs.length || badParts.length || !live || blanks.length ? "bad" : gaps.length ? "warn" : "ok";
+    const lvl = errs.length || badParts.length || !live || blanks.length || uneven.length ? "bad" : gaps.length ? "warn" : "ok";
     out.innerHTML = table(["check|fit", "result", "|fit"], rows) + note(`${secs} s · ${new Date().toLocaleTimeString()}`);
-    tile("#tPage", lvl === "ok" ? "clean" : lvl === "warn" ? `${gaps.length} gaps` : `${errs.length + blanks.length || "!"} errors`, lvl, `${tabs.length} tabs · ${opts.length} sheets · ${secs} s`);
-    if (lvl === "bad") addVerdict("bad", `the page smoke test found ${errs.length} console error${errs.length === 1 ? "" : "s"}${badParts.length ? ", missing data parts" : ""}${blanks.length ? `, ${blanks.length} empty card${blanks.length === 1 ? "" : "s"}` : ""}`, "smokeOut");
+    tile("#tPage", lvl === "ok" ? "clean" : lvl === "warn" ? `${gaps.length} gaps` : `${errs.length + blanks.length + uneven.length || "!"} errors`, lvl, `${tabs.length} tabs · ${opts.length} sheets · ${secs} s`);
+    if (lvl === "bad") addVerdict("bad", `the page smoke test found ${errs.length} console error${errs.length === 1 ? "" : "s"}${badParts.length ? ", missing data parts" : ""}${blanks.length ? `, ${blanks.length} empty card${blanks.length === 1 ? "" : "s"}` : ""}${uneven.length ? `, ${uneven.length} uneven row${uneven.length === 1 ? "" : "s"}` : ""}`, "smokeOut");
     else if (lvl === "warn") addVerdict("warn", `the page has ${gaps.length} card${gaps.length === 1 ? "" : "s"} far taller than what it holds`, "smokeOut");
   } catch (e) {
     out.innerHTML = table(["check|fit", "result", "|fit"], [srow("result", esc(e.message), pill("bad", "failed"))]); tile("#tPage", "failed", "bad", esc(e.message));

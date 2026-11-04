@@ -23,7 +23,7 @@ function renderRecords() {
   $$("#recFilters button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.recSc ? b.dataset.recSc === recScope : +b.dataset.recN === recMinN)));
   const lazy = (DATA.lazy || {}).books;
   if (!lazy) { host.innerHTML = `<tbody><tr><td class="empty">The record is not published yet — it appears with the next full run.</td></tr></tbody>`; return; }
-  if (!recBooks || recHash !== lazy.hash) { host.innerHTML = `<tbody><tr><td class="empty">Loading the record (${Math.round(lazy.bytes / 1024)} KB, fetched only on this card)…</td></tr></tbody>`; loadBooks().then(b => { if (b) renderRecords(); else host.innerHTML = `<tbody><tr><td class="empty">Could not load books.json.</td></tr></tbody>`; }); return; }
+  if (!recBooks || recHash !== lazy.hash) { const T0 = $("#recToday"); if (T0 && !T0.textContent.trim()) T0.innerHTML = `<div class="empty">Loading the record…</div>`; host.innerHTML = `<tbody><tr><td class="empty">Loading the record (${Math.round(lazy.bytes / 1024)} KB, fetched only on this card)…</td></tr></tbody>`; loadBooks().then(b => { if (b) renderRecords(); else host.innerHTML = `<tbody><tr><td class="empty">Could not load books.json.</td></tr></tbody>`; }); return; }
   const T = recBooks.trackRecords || {}, A = recBooks.anchorBooks || {}, isSme = recScope === "sme", segLbl = isSme ? "SME" : "mainboard";
   const rows = (T.rows || []).map(r => ({ ...r, s: r[recScope] })).filter(r => r.s && r.s.n >= recMinN).sort((x, y) => y.s.n - x.s.n || (y.s.pos || 0) - (x.s.pos || 0));
   const range = s => s && s.n ? `<span title="95% range: with ${s.n} cases the true rate could be anywhere in here">${Math.round(s.lo)}–${Math.round(s.hi)}%</span>` : "";

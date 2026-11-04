@@ -120,7 +120,7 @@ main { max-width:1360px; margin:0 auto; padding:24px 28px 80px; }
 .sec { margin-top:28px; }
 .sec-h { display:flex; align-items:baseline; gap:12px; margin-bottom:12px; }
 .sec-h .sub { font-size:12.5px; color:var(--ink-3); } .sec-h .right { margin-left:auto; font-size:12px; color:var(--ink-3); }
-.grid { display:grid; gap:16px; } .g2 { grid-template-columns:repeat(auto-fit, minmax(min(400px, 100%), 1fr)); } .g2 > .card { min-width:0; } .g2.top { align-items:start; }
+.grid { display:grid; gap:16px; } .g2 { grid-template-columns:repeat(auto-fit, minmax(min(400px, 100%), 1fr)); } .g2 > .card { min-width:0; }
 @media (max-width:760px) { .sec-h { flex-wrap:wrap; gap:4px 12px; } .sec-h .sub { flex:1 1 100%; order:2; } .sec-h .right { order:3; margin-left:0; flex:1 1 100%; }
   .sec-h .filters, .ch .filters { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; padding-bottom:2px; } .sec-h .filters::-webkit-scrollbar, .ch .filters::-webkit-scrollbar { display:none; } .filters button { white-space:nowrap; flex:none; }
   .card .ch { flex-wrap:wrap; gap:4px 10px; } .card .ch .sub { flex:1 1 100%; margin-left:0; } .legend { flex-wrap:wrap; gap:4px 12px; }
@@ -512,11 +512,11 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
       <div class="filters right" id="bfilters"><button data-f="now" aria-pressed="true">Now</button><button data-f="all">All</button><button data-f="Open">Open</button><button data-f="Upcoming">Upcoming</button><button data-f="Closed">Closed</button><button data-f="sme">SME</button></div></div>
     <div class="card tw"><table id="board"></table></div>
     <details id="evWarn" class="evwarn" hidden></details>
-    <div class="sec grid g2 top">
+    <div class="sec grid g2">
       <div class="card planner"><div class="ch">₹2 lakh shareholder-quota planner <span class="sub">one application per PAN per category</span></div><div class="cb" id="lotPlanner"></div></div>
       <div class="card"><div class="ch">Recent listings <span class="sub">issue vs listing price</span></div><div class="cb"><div class="chart-wrap"><canvas id="recentChart"></canvas></div></div></div>
     </div>
-    <div class="sec grid g2 top">
+    <div class="sec grid g2">
       <div class="card"><div class="ch">FII / DII net flows <span class="sub" id="flowsSub"></span></div><div class="cb"><div class="chart-wrap"><canvas id="flowsChart"></canvas></div></div></div>
       <div class="card"><div class="ch">Recent listings</div><div class="tw scroll"><table id="recent"></table></div></div>
     </div>
