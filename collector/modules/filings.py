@@ -456,6 +456,42 @@ def attach_candidates(expected: list[dict], leads: list[dict], companies: list[d
     return stats
 
 
+def _reconcile(prev: dict, doc: dict, patches: dict, today: dt.date) -> int:
+    """A quota row whose IPO is already on the board or in the listings report moves the way a filing would have
+    moved it (4 Nov 2026: the hand-written "Reliance Jio" row sat at "SEBI approved — RHP awaited" a week after Jio
+    Platforms listed; no filing from the parent said so). Board and listedPerf are TODAY's, assembled earlier in this
+    run; names go through the one matcher's STRICT tiers (same name, alias, bracketed form — never prefix or fuzzy:
+    "ILJIN Electronics" is not Elin Electronics), so a spelling gap is an aliases.json entry; a listing before this
+    year is a different company. Listed -> done with the listing date; on the board but not yet listed ->
+    listingDate only, and _expire does the rest after it lists."""
+    moved = 0
+    board = [r for k in ("mainboard", "sme") for r in (doc.get(k) or []) if isinstance(r, dict) and r.get("name")]
+    perf = [r for r in doc.get("listedPerf") or [] if isinstance(r, dict) and r.get("name")]
+    if not board and not perf:
+        return 0
+    by_board = {r["name"]: r for r in board}
+    by_perf = {r["name"]: r for r in perf}
+    matcher = Matcher(board + perf, load_aliases(ALIASES_DIR))
+    for row in prev.get("quota") or []:
+        if not isinstance(row, dict) or not row.get("name") or row.get("bucket") in ("done", "dropped"):
+            continue
+        hit = matcher.match_strict(row["name"])
+        if not hit:
+            continue
+        b, lp = by_board.get(hit), by_perf.get(hit)        # an alias target may be on neither list yet
+        listed = (lp or {}).get("date") or ((b or {}).get("listing") if (b or {}).get("status") == "Listed" else None)
+        if listed and str(listed)[:4] != str(today.year):
+            continue
+        p = patches.setdefault(row["name"], {})
+        if listed:
+            p.update({"bucket": "done", "stage": "Listed", "stageDate": str(listed)[:10], "listingDate": str(listed)[:10]})
+            moved += 1
+        elif b and b.get("listing") and not row.get("listingDate"):
+            p["listingDate"] = str(b["listing"])[:10]
+            moved += 1
+    return moved
+
+
 def _expire(prev: dict, patches: dict, today: dt.date) -> int:
     moved = 0
     for row in prev.get("quota") or []:
@@ -511,6 +547,9 @@ def run(session: Session, prev: dict, res: Result) -> Result:
         hits = _leads_to_quota(found, wl, patches, today)
         if hits:
             res.notes.append(f"nse_ann: {hits} quota stage changes from watched parents")
+    matched = _reconcile(prev, res.doc or {}, patches, today)
+    if matched:
+        res.notes.append(f"{matched} quota rows matched to an issue on the board or listed")
     moved = _expire(prev, patches, today)
     if moved:
         res.notes.append(f"{moved} rows past listingDate moved to done")

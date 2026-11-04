@@ -117,3 +117,19 @@ def test_due_by_has_no_intraday_slots_at_weekends():
     sat = dt.datetime(2026, 10, 31, 7, 0, tzinfo=assemble.IST)
     assert assemble.due_by("gmp", sat) == "2026-10-31T18:58:00+05:30"   # no intraday on Saturday
     assert assemble.due_by("gmp", dt.datetime(2026, 11, 1, 19, 0, tzinfo=assemble.IST)) == "2026-11-02T07:28:00+05:30"
+
+
+def test_a_quota_row_whose_ipo_listed_is_bad_and_an_untouched_row_warns():
+    d = doc(quota=[{"name": "Reliance Jio", "bucket": "approved", "stageDate": "2026-08-28"},      # alias -> Jio Platforms
+                   {"name": "Fresh Co", "bucket": "drhp", "stageDate": "2026-10-20"},
+                   {"name": "Old Co", "bucket": "awaited", "stageDate": "2026-06-01"},
+                   {"name": "Undated Co", "bucket": "approved"},
+                   {"name": "Done Co Quota", "bucket": "done", "stageDate": "2026-01-01"}],
+            listedPerf=[{"name": "Jio Platforms", "igId": "2306", "date": "2026-10-28"}])
+    finds = {f["check"]: f for f in audit.anomalies(d)}
+    assert finds["quota row whose IPO has listed"]["rows"] == ["Reliance Jio (Jio Platforms)"]
+    assert finds["quota row whose IPO has listed"]["level"] == "bad"
+    assert finds["quota row untouched for 60+ days"]["rows"] == ["Reliance Jio since 2026-08-28", "Old Co since 2026-06-01"]
+    assert finds["quota row untouched for 60+ days"]["level"] == "warn"
+    assert finds["quota row with no dated stage"]["rows"] == ["Undated Co"]
+    assert "Fresh Co" not in str(finds) and "Done Co Quota" not in str(finds)

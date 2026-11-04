@@ -23,6 +23,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from collector import layout
+from collector.names import Matcher, load_aliases
 
 BOARDS = ("mainboard", "sme")
 KNOWN_BLOCKED = {"offers": "api.bseindia.com answers 403 to GitHub's runners (CLAUDE.md known gaps)"}
@@ -32,6 +33,10 @@ KNOWN_BLOCKED = {"offers": "api.bseindia.com answers 403 to GitHub's runners (CL
 KNOWN_SOURCES = {"angelone": "no Angel One secrets are set (CLAUDE.md known gaps); Yahoo is the working source",
                  "bse_ann": "api.bseindia.com answers 403 to GitHub's runners (CLAUDE.md known gaps); NSE announcements carry the radar"}
 FALLBACK_WORDS = ("down", "blocked", "changed", "fallback")
+# The quota table is the one hand-written layer (data/research sheets, carried forward run after run). 4 Nov 2026: the
+# "Reliance Jio" row said "RHP awaited" a week after Jio Platforms listed, and nothing had looked at it since 7 Sep.
+OPEN_BUCKETS = ("awaited", "drhp", "approved")
+QUOTA_STALE_DAYS = 60
 
 
 def fallback_sources(method: str) -> list[tuple[str, str]]:
@@ -149,11 +154,30 @@ def anomalies(doc: dict, logos_dir: pathlib.Path | None = None) -> list[dict]:
             add("logo missing at the source", label)
         if logos_dir and ig in logos and not logos[ig].get("missing") and not (logos_dir / f"{ig}.webp").exists():
             add("logo listed but file absent", label)
+    quota = [q for q in doc.get("quota") or [] if isinstance(q, dict) and q.get("name")]
+    if quota:
+        issues = [r for b, r in _rows(doc)] + [r for r in doc.get("listedPerf") or [] if isinstance(r, dict) and r.get("name")]
+        listed = {r["name"] for r in issues                 # this year's listings only: an older one is another company
+                  if str(r.get("date") or (r.get("listing") if r.get("status") == "Listed" else "") or "")[:4] == str(today.year)}
+        matcher = Matcher(issues, load_aliases(ROOT / "data"))
+        for q in quota:
+            if q.get("bucket") not in OPEN_BUCKETS:
+                continue
+            hit = matcher.match_strict(q["name"])
+            if hit and hit in listed:
+                add("quota row whose IPO has listed", f"{q['name']} ({hit})")
+            dates = [_date(q.get("stageDate")), _date(q.get("recordDate")), _date((q.get("needsReview") or {}).get("date"))]
+            last = max((d for d in dates if d), default=None)
+            if not last:
+                add("quota row with no dated stage", q["name"])
+            elif (today - last).days > QUOTA_STALE_DAYS:
+                add(f"quota row untouched for {QUOTA_STALE_DAYS}+ days", f"{q['name']} since {last}")
     return [{"check": k, "level": "bad" if k in BAD_CHECKS else "warn", "rows": v} for k, v in finds.items()]
 
 
 BAD_CHECKS = {"opens after it closes", "closes after it lists", "still Open past its close date",
-              "still Upcoming past its open date", "same name on both boards", "logo listed but file absent"}
+              "still Upcoming past its open date", "same name on both boards", "logo listed but file absent",
+              "quota row whose IPO has listed"}
 
 
 # ---------------------------------------------------------------- diff vs the previous document

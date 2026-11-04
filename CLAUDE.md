@@ -145,7 +145,11 @@ document as assembled so far; `prev` is yesterday's.
   60 days). A lead from a watched parent moves its quota row (source `nse_ann`; a withdrawal only flags). A lead naming an `expected`
   row, or an `auto` row whose first word is a listed group's (≤15 share it; stoplist), gets `quotaCandidate` — a flag, never a quota;
   promotion is still a person reading the DRHP. NSE's summary is sometimes just "General Updates" (JSW Cement, 25 Sep 2026): partial
-  recall by construction, never fixed by reading the PDF.
+  recall by construction, never fixed by reading the PDF. Every run it also reads TODAY's board and listings report: a quota
+  row whose issue is there moves (listed → `done`, else `listingDate`) — strict name tiers only, this year's listings only
+  (4 Nov 2026: "Reliance Jio" sat at "RHP awaited" a week after Jio Platforms listed; fuzzy would have put ILJIN on Elin).
+  The quota table is the one hand-written layer, so `scripts/audit.py` flags an open row whose IPO has listed (bad) and one
+  untouched for 60+ days or with no dated stage (warn) on /admin. The page never hand-writes a name (the tape said "Jio" for a year).
 - `listings` borrows a symbol from `investors.listingSymbols` (matched, since that cache uses the listing report's spelling)
   and does not report a row `tape.bse` prices as "cannot price". `validate.py` caps what the page fetches at boot (compact, 6 MB, warns at 80%); the on-demand books part has its own 16 MB.
 - `subscription` asks mainboard NSE → Narada, SME Narada → NSE (NSE's SME answer has no shares offered: zeros), then BSE,
