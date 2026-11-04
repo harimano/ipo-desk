@@ -79,7 +79,20 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
             if year == t.year:
                 perf += [p for p in old_perf if int(p["date"][:4]) == year]    # keep this year's rows rather than lose them
             continue
-        perf = [p for p in perf if int(p["date"][:4]) != year] + [r for r in rows if int(r["date"][:4]) == year or year == t.year]
+        got = [r for r in rows if int(r["date"][:4]) == year or year == t.year]
+        if year == t.year:
+            # 4 Nov 2026, 20:50 run: the report answered 295 rows instead of 302 — the seven newest listings (2–4 Nov) were
+            # missing for one fetch and back the next — and this replaced the year wholesale, so they vanished from the
+            # evidence base with the module "ok". A listing the previous document had is kept when the report does not
+            # return it; the note names the kept rows, and a count that shrank is said in words.
+            seen = {r["igId"] for r in got}
+            kept = [p for p in old_perf if int(p["date"][:4]) == year and p["igId"] not in seen]
+            if kept:
+                got += kept
+                res.notes.append(f"report 377 did not return {len(kept)} of this year's listings on file, kept from the previous "
+                                 f"document: {', '.join(p['name'] for p in sorted(kept, key=lambda p: p['date'], reverse=True)[:8])}"
+                                 f"{'…' if len(kept) > 8 else ''}")
+        perf = [p for p in perf if int(p["date"][:4]) != year] + got
         fetched.append(f"{year}: {len(rows)}")
     if not fetched:
         return res.fail(last or RuntimeError("no year of report 377 could be fetched"))
