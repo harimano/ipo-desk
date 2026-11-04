@@ -387,7 +387,7 @@ function renderBoard() {
     card("Buybacks", O.buybacks || [], (o, i) => `<tr data-od="od-b-${i}" style="cursor:pointer"><td><div class="nm">${lnk(o)} ${o.detail ? '<span class="dim">▾</span>' : ""}</div><div class="dt">${stp(o)}${esc(o.type || "")}${o.note ? " · " + esc(o.note) : ""}</div></td><td class="num">${o.price != null ? inr(o.price) : ""}</td><td class="dt" style="white-space:nowrap">${o.record && o.record !== "—" ? "record " + fmtD(o.record) + "<br>" : ""}${o.open || o.close ? `${fmtD(o.open)}–${fmtD(o.close)}` : ""}</td></tr>` + det(o, i, "b")) +
     card("OFS", O.ofs || [], o => `<tr><td><div class="nm">${lnk(o)}</div><div class="dt">${esc(o.note || "")}</div></td></tr>`) +
     card("NCDs", O.ncd || [], o => `<tr><td><div class="nm">${lnk(o)}</div><div class="dt">${esc(o.read || "")}</div></td><td class="num">${esc(o.rate || "")}<div class="dt">${esc(o.rating || "")}</div></td></tr>`);
-  renderPlanner();
+  renderLotPlanner();
 }
 $("#offers").addEventListener("click", e => { if (e.target.closest("a")) return; const r = e.target.closest("tr[data-od]"); if (!r) return; const d = document.getElementById(r.dataset.od); if (d) d.hidden = !d.hidden; });
 $("#board").addEventListener("click", e => { if (e.target.closest("[data-star],[data-open],a")) return; const r = e.target.closest("tr[data-row]"); if (r && r.nextElementSibling && r.nextElementSibling.classList.contains("bx")) r.nextElementSibling.hidden = !r.nextElementSibling.hidden; });
@@ -398,19 +398,19 @@ $("#board").addEventListener("click", e => { const s = e.target.closest("[data-s
 /* ---------- ₹2L quota planner ---------- */
 const CAT = { Retail: [1, 13, 200000], Shareholder: [1, null, 200000], "S-HNI": [14, 67, 1000000], "B-HNI": [68, null, null], Employee: [1, null, 500000] };
 let plan = { name: null, price: null, lot: null };
-function renderPlanner() {
+function renderLotPlanner() {
   const opts = live.filter(q => q.bucket !== "awaited" && q.quota !== false).map(q => ({ n: q.name, p: q.parent, kind: "q" })).concat(board.filter(b => b.status !== "Listed").map(b => ({ n: b.name, kind: "b" })));
   if (!plan.name && opts[0]) plan.name = opts[0].n;
   const q = Q.find(z => z.name === plan.name), b = findIssue(plan.name);
   const price = plan.price != null ? plan.price : b && b.bandHigh != null ? b.bandHigh : null, lot = plan.lot != null ? plan.lot : b && b.lotSize ? b.lotSize : null;
   const lotAmt = price && lot ? price * lot : null;
   const maxL = cap => lotAmt ? Math.floor(cap / lotAmt) : null;
-  $("#planner").innerHTML = `<div class="form"><div><label class="lbl">IPO</label><select id="plName">${opts.map(o => `<option value="${esc(o.n)}"${o.n === plan.name ? " selected" : ""}>${esc(o.n)}${o.p ? " (" + esc(o.p) + ")" : ""}</option>`).join("")}</select></div><div><label class="lbl">Price ₹ (top of band)</label><input type="number" id="plPrice" value="${price != null ? price : ""}" placeholder="TBA — enter a guess"></div><div><label class="lbl">Lot size</label><input type="number" id="plLot" value="${lot != null ? lot : ""}" placeholder="TBA"></div></div>
+  $("#lotPlanner").innerHTML = `<div class="form"><div><label class="lbl">IPO</label><select id="plName">${opts.map(o => `<option value="${esc(o.n)}"${o.n === plan.name ? " selected" : ""}>${esc(o.n)}${o.p ? " (" + esc(o.p) + ")" : ""}</option>`).join("")}</select></div><div><label class="lbl">Price ₹ (top of band)</label><input type="number" id="plPrice" value="${price != null ? price : ""}" placeholder="TBA — enter a guess"></div><div><label class="lbl">Lot size</label><input type="number" id="plLot" value="${lot != null ? lot : ""}" placeholder="TBA"></div></div>
     ${lotAmt ? `<div class="out"><div class="o"><div class="v mono">${inr0(lotAmt)}</div><div class="l">funds per lot (${lot} sh)</div></div><div class="o"><div class="v mono">${maxL(200000)} lots</div><div class="l">max in Shareholder (₹2 lakh cap) = ${inr0(maxL(200000) * lotAmt)}</div></div><div class="o"><div class="v mono">${Math.min(13, maxL(200000))} lots</div><div class="l">max in Retail (≤ ₹2 lakh, 13 lots)</div></div><div class="o"><div class="v mono">${inr0(14 * lotAmt)}+</div><div class="l">S-HNI minimum (14 lots)</div></div></div>
     <p class="dim" style="font-size:12px;margin-top:10px">${q ? `Hold ≥1 ${esc(q.parent)} share on the record date to use the Shareholder category <b>and</b> Retail/HNI in parallel — two shots at allotment, one PAN. ` : ""}Funds blocked in both categories if you apply in both.</p>` : `<div class="empty">Enter a price and lot size to plan.${q ? " " + esc(q.name) + "'s band comes with the RHP." : ""}</div>`}`;
-  $("#plName").onchange = e => { plan = { name: e.target.value, price: null, lot: null }; renderPlanner(); };
-  $("#plPrice").oninput = e => { plan.price = +e.target.value || null; renderPlanner(); $("#plPrice").focus(); };
-  $("#plLot").oninput = e => { plan.lot = +e.target.value || null; renderPlanner(); $("#plLot").focus(); };
+  $("#plName").onchange = e => { plan = { name: e.target.value, price: null, lot: null }; renderLotPlanner(); };
+  $("#plPrice").oninput = e => { plan.price = +e.target.value || null; renderLotPlanner(); $("#plPrice").focus(); };
+  $("#plLot").oninput = e => { plan.lot = +e.target.value || null; renderLotPlanner(); $("#plLot").focus(); };
 }
 
 /* ---------- charts ---------- */
@@ -891,7 +891,7 @@ function renderFooter() {
     ${notes.length ? `<details class="inl"><summary>${notesSum}</summary><ul>${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul></details>` : ""}
     <div>Aggregated public data and analytical synthesis with both sides shown — not investment advice. Nothing here places orders. Press <b>?</b> for keys · <a href="#" data-intro-open>How to read this desk</a> · <a href="#" data-install-open>Add to home screen</a></div>`;
 }
-function renderAll() { renderTape(); renderToday(); renderWeek(); renderPlanner(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); renderStamps(); }
+function renderAll() { renderTape(); renderToday(); renderWeek(); renderLotPlanner(); renderPlanner(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); renderStamps(); }
 renderFooter();
 noteChanges(store.get("ipo-seen", {}) || {}, DATA);
 try { renderAll(); renderResearchSelect(); liveText(); oldTags(); } catch (err) { document.querySelector("main").insertAdjacentHTML("afterbegin", `<div class="card" style="padding:14px 18px;border-color:var(--down);margin-bottom:16px"><b class="down">The page hit an error while rendering.</b> <span class="dim">${esc(err && err.message)}</span></div>`); console.error(err); }
