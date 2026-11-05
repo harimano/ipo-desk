@@ -86,7 +86,7 @@ def test_build_is_ok_when_nothing_is_wrong():
     d = doc(sme=[])
     d["integrity"]["checks"] = [c for c in d["integrity"]["checks"] if c["area"] == "gmp"]
     rep = audit.build(d, None)
-    assert rep["verdict"] == {"level": "ok", "items": []}
+    assert rep["verdict"] == {"level": "ok", "items": [], "counts": {"fault": 0, "state": 0, "task": 0}}
     assert rep["doc"]["tapeLastDay"] == "2026-10-28" and rep["doc"]["bytesCompact"] > 0
     assert rep["diff"] == {"prevAsOf": None}
 
@@ -185,3 +185,23 @@ def test_quota_found_counts_in_the_diff():
     prev["meta"]["asOf"] = "2026-10-28T23:45:46+05:30"
     new = doc(quotaFound=[{"igId": "1", "name": "x", "witness": {}}])
     assert audit.diff(new, prev)["counts"]["quotaFound"] == [0, 1]
+
+
+def test_verdict_three_kinds_and_only_faults_colour_it():
+    """5 Nov 2026: a recovered source, a known gap and the research sheets' queue are not faults."""
+    d = doc()
+    d["integrity"]["checks"] = [{"area": "gmp", "method": "investorgain:ok", "status": "ok", "asOf": "x"},
+                                {"area": "listings", "method": "angelone:down, yahoo:ok", "status": "ok", "asOf": "x"}]
+    mods = audit.modules(d)
+    finds = [{"check": "quota row with no dated stage", "level": "warn", "rows": ["A", "B"]},
+             {"check": "still Open past its close date", "level": "bad", "rows": ["Late Co"]}]
+    diff = {"boards": {}, "sourceSwitches": [{"area": "offers", "from": "bse:blocked (blocked)", "to": "bse:ok (ok)"}]}
+    v = audit.verdict(mods, finds, diff, 0)
+    kinds = {i["text"]: i["kind"] for i in v["items"]}
+    assert kinds["listings: " + mods[1]["known"]] == "state" and kinds["2 rows quota row with no dated stage"] == "task"
+    assert kinds["1 row still Open past its close date"] == "fault" and kinds["offers switched source: bse:ok (ok)"] == "state"
+    assert all(i["action"] for i in v["items"]) and v["level"] == "bad" and v["counts"] == {"fault": 1, "state": 2, "task": 1}
+    v2 = audit.verdict(mods, [finds[0]], diff, 0)
+    assert v2["level"] == "ok" and v2["counts"] == {"fault": 0, "state": 2, "task": 1}, "states and tasks never colour the verdict"
+    v3 = audit.verdict(audit.modules({"integrity": {"checks": [{"area": "tape", "method": "nsearchives:ok, bse:changed", "status": "ok", "asOf": "x"}]}}), [], {}, 0)
+    assert v3["level"] == "warn" and v3["items"][0]["kind"] == "fault", "a fallback past a source that is not down by design is a fault"

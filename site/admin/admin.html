@@ -103,7 +103,7 @@ table.t { width:100%; border-collapse:collapse; }
   <div class="right"><a href="/" target="_blank" rel="noopener">the page ↗</a><span id="who" class="mono"></span><span id="clock" class="mono"></span><button id="copy" title="the verdict, tiles and every card as plain text, for pasting into a chat">Copy for Claude</button><button id="reload">Refresh</button></div>
 </header>
 
-<section id="verdict" class="loading"><div class="dot"></div><div><h2 id="vTitle">Checking…</h2><ul id="vList"></ul><div class="dt" id="vSub"></div></div></section>
+<section id="verdict" class="loading"><div class="dot"></div><div><h2 id="vTitle">Checking…</h2><ul id="vList"></ul><div class="dt" id="vKinds"></div><div class="dt" id="vSub"></div></div></section>
 
 <div class="tiles">
   <div class="tile" id="tDoc"><div class="lbl">Document written</div><div class="val">—</div><div class="dt"></div></div>
@@ -115,6 +115,8 @@ table.t { width:100%; border-collapse:collapse; }
 </div>
 
 <div class="dash">
+<div class="card c6 slim"><div class="ch"><h3 class="i-lav">States</h3><span class="sub" id="statesSum">changed or known by design · nothing to do</span></div><div class="cb" id="states"></div></div>
+<div class="card c6 slim"><div class="ch"><h3 class="i-amber">For a person</h3><span class="sub" id="tasksSum">research rows, secrets, cards · counted, never an alarm</span></div><div class="cb" id="tasks"></div></div>
 <div class="card c6"><div class="ch"><h3>Runs</h3><span class="sub" id="runsSrc">GitHub Actions, newest first</span><a class="right" href="https://github.com/harimano/ipo-desk/actions" target="_blank" rel="noopener">all runs ↗</a></div><div class="cb" id="runs"><div class="empty">Loading…</div></div></div>
 <div class="card c6"><div class="ch"><h3 class="i-mint">Freshness by module</h3><span class="sub">each module's last answer and the source that gave it</span></div><div class="cb" id="modules"></div></div>
 
