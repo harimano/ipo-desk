@@ -165,7 +165,11 @@ document as assembled so far; `prev` is yesterday's.
   `quotaFound[]` entry — matched quota row or null (= not on the list), parent symbol by strict name only, record and book as two
   witnesses — and a matched row carries the issue's `igId` for good; the audit warns on each disagreement (reservation not on the list,
   open row whose record shows none, book without reservation, reservation without book). A lead that names a register issuer carries
-  the SEBI filing beside the announcement (`quotaCandidate.register`). Evidence both ways, never a planner row.
+  the SEBI filing beside the announcement (`quotaCandidate.register`). Evidence both ways, never a planner row. A found issue with no
+  parent (the record names it in prose only; not on the list) takes it from a `quotaLeads` row that names the board row as a WHOLE name
+  (strict forms only — Eastern Coalfields is never South Eastern Coalfields; `parentSrc: "nse_ann"`, the announcement under
+  `witness.announcement`); a lead also counts when a listed company speaks of a reservation for its shareholders (Reliance on Jio,
+  16 Oct 2026: none of its seven Jio announcements said "subsidiary"). Nothing is promoted to a quota row from it.
 - `listings` borrows a symbol from `investors.listingSymbols` (matched, since that cache uses the listing report's spelling)
   and does not report a row `tape.bse` prices as "cannot price". `validate.py` caps what the page fetches at boot (compact, 6 MB, warns at 80%); the on-demand books part has its own 16 MB.
 - `subscription` asks mainboard NSE → Narada, SME Narada → NSE (NSE's SME answer has no shares offered: zeros), then BSE,

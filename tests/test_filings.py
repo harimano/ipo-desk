@@ -628,7 +628,8 @@ def test_discover_matches_a_quota_row_links_its_igid_and_flags_an_issue_not_on_t
     s = found["2600"]
     assert s["quotaRow"] is None, "the discovery: a reservation the quota list does not know"
     assert s["parentSymbol"] == "TORNTPOWER" and s["board"] == "sme"
-    assert stats == {"reserved": 2, "unlisted": 1, "disagree": 0, "linked": 2}
+    assert stats == {"reserved": 2, "unlisted": 1, "disagree": 0, "announced": 0, "linked": 2}
+    assert jio["parentSrc"] == "ig" and s["parentSrc"] == "ig", "both parents were named by the record"
     assert set(jio) == set(filings.FOUND_FIELDS)
 
 
@@ -641,6 +642,7 @@ def test_discover_links_by_igid_so_a_respelling_later_does_not_matter():
     found, _ = filings.discover(prev, doc, patches, None, D5)
     assert found["2306"]["quotaRow"] == "Reliance Jio" and patches == {}
     assert found["2306"]["parentSymbol"] == "RELIANCE", "no parent name: the matched row's hand-written ticker"
+    assert found["2306"]["parentSrc"] == "quota"
     assert found["2306"]["parentId"] == "4521" and found["2306"]["parent"] is None
     assert found["2"]["quotaRow"] is None, "a quota row carrying another igId is never re-linked by name"
 
@@ -806,3 +808,162 @@ def test_join_quota_evidence_puts_register_and_announcement_on_the_row():
     # idempotent: the same join on a row already carrying it writes nothing
     prev["quota"][0]["needsReview"] = nr
     assert filings.join_quota_evidence(prev, sebi_rows, leads, {}) == 0
+
+
+# ------------------------------------------------------------------------------------------
+# (h) the parent from the parent's own announcement — strict, whole-name, one announcer
+# ------------------------------------------------------------------------------------------
+# Reliance Industries' seven NSE announcements on Jio Platforms' IPO, 19 Jun – 24 Oct 2026, as the API returned them
+# (symbol=RELIANCE, read 5 Nov 2026). Not one says "subsidiary"; the 16 Oct one says what matters.
+RIL_FIX = NSE_FIX / "corporate-announcements-RELIANCE-jio.json"
+RIL_RESERVATION = "Newspaper Clippings Proposed Initial Public Offer of Jio Platforms Limited - Reservation for eligible RIL shareholders"
+RIL_RHP = "Proposed Initial Public Offer of Jio Platforms Limited - filing of the Red Herring Prospectus."
+JIO_LIVE = {**JIO_REC, "parent": None, "parentId": None}       # as the record really is: the parent is prose only
+
+
+def _ril():
+    return json.loads(RIL_FIX.read_text(encoding="utf8"))
+
+
+def _leads_of(payload) -> list[dict]:
+    """What _from_nse_ann makes of an announcements payload."""
+    return [{"parentSymbol": a["symbol"], "parentName": a["company"], "kind": filings.classify_lead(a["text"]), "text": a["text"][:300],
+             "url": a["url"], "date": a["date"], "seqId": a["seqId"], "sme": False}
+            for a in nse_ann.parse(payload) if filings.classify_lead(a["text"])]
+
+
+def test_reliance_on_jio_real_rows_one_is_a_lead():
+    rows = nse_ann.parse(_ril())
+    assert len(rows) == 7 and {r["symbol"] for r in rows} == {"RELIANCE"}
+    kinds = {r["seqId"]: filings.classify_lead(r["text"]) for r in rows}
+    assert kinds == {"106827783": None, "106820709": "ipo", "106817804": None, "106817653": None, "106760743": None,
+                     "106668105": None, "106667822": None}, "the reservation line is the relation; a bare filing is not"
+    assert filings.classify_lead(RIL_RESERVATION) == "ipo" and filings.classify_lead(RIL_RHP) is None
+    assert filings.classify_lead("Allotment of shares under the shareholders quota of the IPO of Hero FinCorp Limited") == "ipo"
+    assert filings.classify_lead("Utilisation of IPO proceeds - reservation for eligible shareholders") is None, "own-offer words still win"
+
+
+def test_mentions_is_the_whole_name_never_a_part_of_one():
+    secl, ecl = {"south eastern coalfields"}, {"eastern coalfields"}
+    assert filings.mentions(SECL_LEAD["text"], secl)
+    assert not filings.mentions(SECL_LEAD["text"], ecl), "Eastern Coalfields is another CIL subsidiary"
+    assert not filings.mentions(SECL_LEAD["text"], {"south eastern"}) and not filings.mentions(SECL_LEAD["text"], {"coalfields"})
+    assert filings.mentions(RIL_RESERVATION, {"jio platforms"}), "a dash after Limited closes the name"
+    assert filings.mentions(RIL_RHP, {"jio platforms"})
+    assert not filings.mentions("Proposed IPO of Reliance Jio Platforms Limited, a subsidiary", {"jio platforms", "reliance jio"})
+    assert filings.mentions("Proposed IPO of Reliance Jio Limited, a subsidiary", {"reliance jio"}), "an alias spelling, whole"
+    assert not filings.mentions("Filing of DRHP of Bharat Coking Coal India Limited, a subsidiary", {"coal"}), "norm drops India: still not Coal India"
+    assert not filings.mentions("Filing of DRHP of ILJIN Electronics Limited, a subsidiary", {"elin electronics"})
+    assert filings.mentions("Proposed Initial Public Offer of HGS Limited, a material subsidiary", {"hgs"}), "HGS (India)'s bracketed form"
+    assert filings.mentions("Intimation: Proposed Initial Public Offering by Bigbloc Building Elements Limited, a material subsidiary of the Company",
+                            {"bigbloc building elements"})
+    assert not filings.mentions("Hero FinCorp Insurance Brokers Limited filed", {"hero fincorp"}), "a longer name to the right"
+    assert filings.mentions("Filing of RHP by Hero FinCorp Limited Material Subsidiary of the Company", {"hero fincorp"})
+    assert not filings.mentions("", {"jio platforms"}) and not filings.mentions(RIL_RHP, set())
+
+
+def test_found_parent_from_the_parents_announcement_when_nothing_else_names_it():
+    leads = _leads_of(_ril())
+    companies = nse_symbols.parse(_equity())
+    doc = _doc(_board("Jio Platforms", "2306", shq=JIO_LIVE))
+    found, stats = filings.discover({"quota": []}, doc, {}, companies, D5, leads)
+    jio = found["2306"]
+    assert jio["quotaRow"] is None, "not on the quota list — the discovery"
+    assert jio["parentSymbol"] == "RELIANCE" and jio["parent"] == "Reliance Industries Limited" and jio["parentSrc"] == "nse_ann"
+    assert jio["witness"] == {"record": True, "book": None,
+                              "announcement": {"parentSymbol": "RELIANCE", "kind": "ipo", "date": "2026-10-16",
+                                               "url": "https://nsearchives.nseindia.com/corporate/kavinavora_16102026205736_RILSELetter_16102026.pdf"}}
+    assert stats["announced"] == 1 and set(jio) == set(filings.FOUND_FIELDS)
+    # the record's own parent name wins, then the matched quota row's ticker; the lead only fills a gap
+    found, stats = filings.discover({"quota": []}, _doc(_board("Jio Platforms", "2306", shq=JIO_REC)), {}, companies, D5, leads)
+    assert found["2306"]["parentSrc"] == "ig" and "announcement" not in found["2306"]["witness"] and stats["announced"] == 0
+    prev = {"quota": [{"name": "Reliance Jio", "bucket": "approved", "ticker": "RELIANCE"}]}
+    found, _ = filings.discover(prev, _doc(_board("Jio Platforms", "2306", shq=JIO_LIVE)), {}, companies, D5, leads)
+    assert found["2306"]["parentSrc"] == "quota" and found["2306"]["parent"] is None and "announcement" not in found["2306"]["witness"]
+    # a matched quota row WITHOUT a ticker leaves the gap the lead may fill; the row stays linked
+    prev = {"quota": [{"name": "Reliance Jio", "bucket": "approved", "ticker": None}]}
+    found, _ = filings.discover(prev, _doc(_board("Jio Platforms", "2306", shq=JIO_LIVE)), {}, companies, D5, leads)
+    assert found["2306"]["quotaRow"] == "Reliance Jio" and found["2306"]["parentSrc"] == "nse_ann"
+    # no leads, or none naming the row: nothing is written, nothing guessed
+    found, _ = filings.discover({"quota": []}, doc, {}, companies, D5, [dict(SECL_LEAD)])
+    assert found["2306"]["parent"] is None and found["2306"]["parentSymbol"] is None and found["2306"]["parentSrc"] is None
+    assert "announcement" not in found["2306"]["witness"]
+    # the record's disagreement entry (record false, book true) never takes a parent from a lead
+    book_only = _board("Jio Platforms", "2306", status="Open", open_="2026-11-03", shq={"flag": False, "src": "ig", "at": "2026-11-04"},
+                       sub={"qib": 1.0, "shareholder": 0.7, "total": 1.2})
+    found, _ = filings.discover({"quota": []}, _doc(book_only), {}, companies, D5, leads)
+    assert found["2306"]["parentSymbol"] is None and found["2306"]["witness"] == {"record": False, "book": True}
+
+
+def test_found_parent_from_leads_is_strict_never_fuzzy_and_never_guesses():
+    companies = nse_symbols.parse(_equity())
+    secl = [dict(SECL_LEAD)]
+    # the real Coal India text names South Eastern Coalfields — and no shorter or longer name
+    hit = filings.parent_from_leads("South Eastern Coalfields", secl, {}, {c["symbol"]: c for c in companies})
+    assert hit and hit["parentSymbol"] == "COALINDIA" and hit["parent"] == "Coal India Limited" and hit["announcement"]["kind"] == "drhp"
+    for near_miss in ("Eastern Coalfields", "South Eastern", "Coalfields", "Coal India", "Western Coalfields"):
+        assert filings.parent_from_leads(near_miss, secl, {}, None) is None, near_miss
+    # ILJIN is not Elin (4 Nov 2026), even from its own parent's filing
+    iljin = [{**SECL_LEAD, "parentSymbol": "AMBER", "parentName": "Amber Enterprises India Limited", "seqId": "a",
+              "text": "Filing of Draft Red Herring Prospectus by ILJIN Electronics (India) Private Limited, a material subsidiary"}]
+    assert filings.parent_from_leads("Elin Electronics", iljin, {}, None) is None
+    assert filings.parent_from_leads("ILJIN Electronics", iljin, {}, None)["parentSymbol"] == "AMBER"
+    # an alias spelling counts, a prefix / fuzzy spelling does not
+    assert filings.parent_from_leads("Jio Platforms", [{**SECL_LEAD, "parentSymbol": "RELIANCE", "parentName": "Reliance Industries Limited",
+                                                         "text": "Proposed IPO of Reliance Jio Limited, a subsidiary"}],
+                                     {"Reliance Jio": "Jio Platforms"}, None)["parentSymbol"] == "RELIANCE"
+    assert filings.parent_from_leads("Jio Platforms", [{**SECL_LEAD, "parentSymbol": "RELIANCE", "parentName": "Reliance Industries Limited",
+                                                         "text": "Proposed IPO of Jio Platform Limited, a subsidiary"}], {}, None) is None
+    # the announcer is never the issue itself (a just-listed company on its own offer)
+    own = [{**SECL_LEAD, "parentSymbol": "SECL", "parentName": "South Eastern Coalfields Limited"}]
+    assert filings.parent_from_leads("South Eastern Coalfields", own, {}, None) is None
+    # two different announcers naming the same row: refused, nothing guessed
+    two = secl + [{**SECL_LEAD, "parentSymbol": "NLCINDIA", "parentName": "NLC India Limited", "seqId": "n"}]
+    assert filings.parent_from_leads("South Eastern Coalfields", two, {}, None) is None
+    # the same announcer twice is one announcer; the newest announcement is the witness
+    twice = secl + [{**SECL_LEAD, "seqId": "later", "date": "2026-11-04", "kind": "rhp", "url": "u-later"}]
+    assert filings.parent_from_leads("South Eastern Coalfields", twice, {}, None)["announcement"] == \
+        {"parentSymbol": "COALINDIA", "kind": "rhp", "date": "2026-11-04", "url": "u-later"}
+    # withdrawn leads say nothing; an unlisted announcer is refused when the lists loaded, taken on NSE's word when not
+    assert filings.parent_from_leads("South Eastern Coalfields", [{**SECL_LEAD, "kind": "withdrawn"}], {}, None) is None
+    listed = {c["symbol"]: c for c in companies}
+    assert filings.parent_from_leads("South Eastern Coalfields", [{**SECL_LEAD, "parentSymbol": "NOTLISTED"}], {}, listed) is None
+    assert filings.parent_from_leads("South Eastern Coalfields", [{**SECL_LEAD, "parentSymbol": "NOTLISTED"}], {}, None)["parent"] == "Coal India Limited"
+
+
+def test_merge_found_carries_the_announced_parent_when_the_lead_has_aged_out():
+    ann = {"parentSymbol": "RELIANCE", "kind": "ipo", "date": "2026-10-16", "url": "u"}
+    old = [{"igId": "2306", "name": "Jio Platforms", "board": "mainboard", "open": "2026-12-01", "listing": "2026-12-10",
+            "parent": "Reliance Industries Limited", "parentSymbol": "RELIANCE", "parentSrc": "nse_ann", "quotaRow": None,
+            "witness": {"record": True, "book": None, "announcement": ann}, "first": "2026-11-01", "last": "2026-11-04"}]
+    def today(**extra):
+        return {"2306": {k: None for k in filings.FOUND_FIELDS} | {"igId": "2306", "name": "Jio Platforms", "board": "mainboard",
+                                                                    "open": "2026-12-01", "listing": "2026-12-10", "offered": 1,
+                                                                    "witness": {"record": True, "book": False}, "first": "2026-11-05",
+                                                                    "last": "2026-11-05"} | extra}
+    e = filings.merge_found(old, today(), _doc(_board("Jio Platforms", "2306", shq=JIO_LIVE)), D5)[0]
+    assert e["parentSymbol"] == "RELIANCE" and e["parent"] == "Reliance Industries Limited" and e["parentSrc"] == "nse_ann"
+    assert e["witness"] == {"record": True, "book": False, "announcement": ann}, "today's book witness, yesterday's announcement"
+    assert e["first"] == "2026-11-01" and e["last"] == "2026-11-05"
+    # a parent found today is never overwritten by yesterday's
+    e = filings.merge_found(old, today(parentSymbol="X", parentSrc="ig", parent="X Ltd"), _doc(_board("Jio Platforms", "2306", shq=JIO_LIVE)), D5)[0]
+    assert e["parentSymbol"] == "X" and e["parentSrc"] == "ig" and "announcement" not in e["witness"]
+
+
+def test_run_joins_todays_leads_to_quota_found(monkeypatch):
+    prev = schema.empty_data()                                 # no quota row knows Jio: the lead is the only parent
+    s = FakeSession(bse_exc=SourceDown("bse_ann", "HTTP 403"),
+                    sebi_post={"10": SourceDown("sebi", "down"), "11": SourceDown("sebi", "down")},
+                    nse={"equities": _ril(), "sme": SourceChanged("nse_ann", "empty JSON body")}, equity_csv=_equity())
+    monkeypatch.setattr(filings, "_today", lambda: D5)
+    res = filings.run(s, prev, Result(module="filings", doc=_doc(_board("Jio Platforms", "2306", shq=JIO_LIVE))))
+    assert res.ok and res.source == "nse_ann"
+    assert [x["seqId"] for x in res.replace["quotaLeads"]] == ["106820709"], "one of Reliance's seven is a lead"
+    jio = res.replace["quotaFound"][0]
+    assert jio["parentSymbol"] == "RELIANCE" and jio["parentSrc"] == "nse_ann" and jio["quotaRow"] is None
+    assert jio["witness"]["announcement"]["url"].endswith("RILSELetter_16102026.pdf")
+    assert any("1 parents from the parent's own announcement" in n for n in res.notes)
+    assert res.rows["quota"] == {}, "nothing promoted: no quota row is written from a lead"
+    data = schema.empty_data()
+    assemble.apply(data, res)
+    assert data["quotaFound"] == res.replace["quotaFound"] and data["quota"] == []
