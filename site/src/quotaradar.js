@@ -3,6 +3,7 @@
    Two fields from collector/modules/filings.py, rendered as they are (rule 1: fields, never sentences parsed here):
      expected[].quotaCandidate — via "announcement" (a listed company's NSE announcement about a subsidiary's offer
        names the row: strong) or via "name" (an auto row's first word is a listed group's: weak, false positives expected);
+       (an announcement candidate the SEBI registers also put there carries `register`, the row's filing: shown beside, never merged);
      quotaLeads[] — every such announcement in the last 60 days, matched to a row or not;
      quotaFound[] — every IPO ON THE BOARD whose InvestorGain record (or bidding book) shows a shareholder reservation, matched to a
        quota row (`quotaRow`) or not: the first section, so a reservation the hand-written quota list missed is seen the day the
@@ -43,7 +44,7 @@ function renderQuotaRadar() {
   C.sort((a, b) => strong(b) - strong(a) || filed(b).localeCompare(filed(a)) || a.name.localeCompare(b.name));
   const why = e => { const c = e.quotaCandidate;
     return strong(e)
-      ? `<span class="pill soon">parent announced</span><div class="dt" style="max-width:360px" title="${esc(c.text || "")}">${esc((c.text || "").slice(0, 120))}${(c.text || "").length > 120 ? "…" : ""}</div><div class="dt">${c.date ? fmtD(c.date) : ""}${c.url ? " · " + qrLink(c.url, "the filing") : ""}</div>`
+      ? `<span class="pill soon">parent announced</span><div class="dt" style="max-width:360px" title="${esc(c.text || "")}">${esc((c.text || "").slice(0, 120))}${(c.text || "").length > 120 ? "…" : ""}</div><div class="dt">${c.date ? fmtD(c.date) : ""}${c.url ? " · " + qrLink(c.url, "the filing") : ""}</div>${c.register ? `<div class="dt">SEBI register: ${esc(c.register.register || "")}${c.register.date ? " " + fmtD(c.register.date) : ""}${c.register.url ? " · " + qrLink(c.register.url, "SEBI") : ""} — two documents, both linked, neither read</div>` : ""}`
       : `<span class="pill plan">same group name</span><div class="dt">first word matches ${(c.parents || []).length} listed compan${(c.parents || []).length === 1 ? "y" : "ies"} — may be a coincidence</div>`; };
   const rows = C.map(e => `<tr><td class="nm">${esc(e.name)}<div class="dt">${esc(e.stage || "")}</div></td><td>${why(e)}</td>
       <td><span class="mono" style="font-size:12px">${qrSyms(e.quotaCandidate.parents)}</span>${strong(e) && e.quotaCandidate.parents && e.quotaCandidate.parents[0] && e.quotaCandidate.parents[0].name ? `<div class="dt">${esc(e.quotaCandidate.parents[0].name)}</div>` : ""}</td>
