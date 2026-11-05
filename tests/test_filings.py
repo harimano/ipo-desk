@@ -25,6 +25,18 @@ def _sebi(name: str) -> str:
     return (FIX / "sebi" / name).read_text(encoding="utf8")
 
 
+def feed_xml(bse: dict) -> str:
+    """BSE's announcements RSS, built from the API-shaped fixtures the tests already hold (one <item> per Table row)."""
+    items = []
+    for payload in bse.values():
+        for r in (payload.get("Table") or []) if isinstance(payload, dict) else []:
+            d = dt.datetime.fromisoformat(str(r.get("NEWS_DT") or "2026-09-17T00:00:00")[:19])
+            items.append(f"<item><title>{r.get('SLONGNAME', 'X')} ({r.get('SCRIP_CD')})</title><link>{bse_ann.ATTACH_BASE}{r.get('ATTACHMENTNAME', '')}</link>"
+                         f"<scripcode>{r.get('SCRIP_CD')}</scripcode><description>{r.get('HEADLINE') or r.get('NEWSSUB') or ''}</description>"
+                         f"<pubDate>{d.strftime('%d-%b-%Y %H:%M:%S')}</pubDate></item>")
+    return '<?xml version="1.0" encoding="utf-8"?><rss version="2.0"><channel><title>BSE - Latest Corporate Announcements</title>' + "".join(items) + "</channel></rss>"
+
+
 class FakeSession:
     """Same method names as collector.http.Session; answers from fixtures keyed by scrip / register."""
 
@@ -63,6 +75,11 @@ class FakeSession:
 
     def get_text(self, url, *, source, headers=None, params=None):
         self.calls.append(("get", url, dict(params or {})))
+        if url == bse_ann.FEED_URL:                      # the announcements feed, rendered from the per-scrip JSON fixtures
+            self.calls.append(("bse", "feed", {}))
+            if self.bse_exc:
+                raise self.bse_exc
+            return feed_xml(self.bse)
         if url.endswith("EQUITY_L.csv"):
             if self.equity_csv is None:
                 raise SourceDown(source, "no equity list", url)
@@ -156,37 +173,42 @@ def test_headline_no_match(headline):
 
 
 def test_fixture_has_one_match_and_one_miss():
-    rows, cnt = bse_ann.parse_page(_bse("reliance_500325.json"))
-    assert cnt == 2 and len(rows) == 2
+    rows = bse_ann.parse_feed(feed_xml({("500325", None): _bse("reliance_500325.json")}))
+    assert len(rows) == 2
     hits = [r for r in rows if filings.HEADLINE_RE.search(r["headline"])]
     assert len(hits) == 1 and "Draft Red Herring" in hits[0]["headline"]
     assert hits[0]["url"] == "https://www.bseindia.com/xml-data/corpfiling/AttachLive/9d1f2c3a-1111-4a5b-9c1d-aaaa00000001.pdf"
-    assert hits[0]["date"] == "2026-09-16"
-    assert hits[0]["category"] == "Company Update"
+    assert hits[0]["date"] == "2026-09-16" and hits[0]["scrip"] == "500325"
 
 
 # ------------------------------------------------------------------------------------------
-# bse_ann source
+# bse_ann source — the exchange's RSS feed (the real feed of 5 Nov 2026, trimmed to 32 items)
 # ------------------------------------------------------------------------------------------
-def test_bse_changed_shape_raises():
+def test_bse_feed_parses_the_real_feed_by_scrip():
+    rows = bse_ann.parse_feed((FIX / "bse" / "announcements-rss-2026-11-05.xml").read_bytes())
+    assert len(rows) == 32 and all(r["scrip"] and r["date"] == "2026-11-05" for r in rows)
+    assert rows[0]["company"] == "Cemindia Projects Ltd" and rows[0]["scrip"] == "509496" and rows[0]["url"].endswith(".pdf")
+    nlc = bse_ann.for_scrip(rows, "513683", dt.date(2026, 11, 2), dt.date(2026, 11, 5))         # NLC India, a watched parent
+    assert len(nlc) == 1 and nlc[0]["company"] == "NLC India Ltd" and nlc[0]["headline"].startswith("Press Release")
+    assert bse_ann.for_scrip(rows, "513683", dt.date(2026, 11, 6), dt.date(2026, 11, 7)) == []  # outside the window
+    assert bse_ann.for_scrip(rows, "000000", dt.date(2026, 11, 2), dt.date(2026, 11, 5)) == []  # a parent that said nothing
+
+
+def test_bse_feed_changed_shape_raises_and_empty_is_quiet():
     with pytest.raises(SourceChanged):
-        bse_ann.parse_page(_bse("changed.json"))
+        bse_ann.parse_feed("<html>Access Denied</html>")
+    with pytest.raises(SourceChanged):
+        bse_ann.parse_feed('<?xml version="1.0"?><feed><entry/></feed>')
+    with pytest.raises(SourceChanged):
+        bse_ann.parse_feed('<rss><channel><item><title>x</title></item></channel></rss>')
+    assert bse_ann.parse_feed('<rss version="2.0"><channel><title>BSE</title></channel></rss>') == []
 
 
-def test_bse_pagination_follows_rowcnt():
-    s = FakeSession(bse={("500182", 1): _bse("paged_p1.json"), ("500182", 2): _bse("paged_p2.json")})
-    rows = bse_ann.fetch(s, "500182", TODAY - dt.timedelta(days=3), TODAY)
-    assert [r["newsId"] for r in rows] == ["p1-0001", "p2-0001"]
-    pages = [c[2]["pageno"] for c in s.calls if c[0] == "bse"]
-    assert pages == [1, 2]
-    p = s.calls[0][2]
-    assert p["strCat"] == "-1" and p["strSearch"] == "P" and p["strType"] == "C"
-    assert p["strPrevDate"] == "20260914" and p["strToDate"] == "20260917"
-
-
-def test_bse_empty_window_is_not_an_error():
-    rows, cnt = bse_ann.parse_page(_bse("empty.json"))
-    assert rows == [] and cnt == 0
+def test_bse_feed_is_read_once_for_every_parent():
+    s = FakeSession(bse={("500325", None): _bse("reliance_500325.json"), ("500182", None): _bse("paged_p1.json")})
+    rows = bse_ann.fetch_feed(s)
+    assert [c[1] for c in s.calls if c[0] == "bse"] == ["feed"]
+    assert {r["scrip"] for r in rows} == {"500325", "500182"}
 
 
 # ------------------------------------------------------------------------------------------

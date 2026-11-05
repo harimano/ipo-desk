@@ -46,7 +46,7 @@ def test_anomalies_name_the_rows_and_the_check():
 def test_a_fallback_past_a_by_design_source_is_known_and_a_known_block_is_known():
     m = {x["area"]: x for x in audit.modules(doc())}
     assert m["listings"]["level"] == "known" and "Angel One" in m["listings"]["known"]   # angelone is down by design (no secrets)
-    assert m["offers"]["level"] == "known" and m["offers"]["known"]
+    assert m["offers"]["level"] == "warn" and not m["offers"]["known"]         # a blocked offers leg is a finding again (5 Nov 2026: BSE's legacy page answers)
     assert m["gmp"]["asOf"] is None and m["gmp"]["asOfRaw"] == "9-Oct 9:37"      # never an age from a source's own stamp
     d = doc(); d["integrity"]["checks"][0]["method"] = "investorgain:ok, ipowatch:ok, ipopremium:blocked"
     m = {x["area"]: x for x in audit.modules(d)}

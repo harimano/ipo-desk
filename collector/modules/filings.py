@@ -5,7 +5,8 @@ those come from data/quota-reviews/ (a human reading of the reservation clause) 
 What it does each run:
   (a) builds the parent watchlist from prev["quota"] rows (ticker + parentFull) joined to the BSE
       scrip-code map in collector/sources/parents.json;
-  (b) polls BSE corporate announcements for each parent over the last 3 days and, for a headline
+  (b) reads BSE's corporate-announcements RSS feed (today's, all companies; the per-parent API is closed to every
+      network the desk runs on since 5 Nov 2026), picks each parent's rows by scrip code and, for a headline
       matching HEADLINE_RE, advances the row (DRHP filed -> bucket drhp; observation letter -> approved;
       RHP -> approved, stage "RHP filed") and sets needsReview {source, url, headline, date};
   (c) diffs page 1 of SEBI's DRHP and RHP registers against prev to catch filings the parent did
@@ -175,18 +176,18 @@ def _transition(row: dict, cls: dict, evidence: dict, patches: dict, today: dt.d
 # sources
 # ---------------------------------------------------------------------------------------------
 def _from_bse(session: Session, wl: dict[str, dict], patches: dict, res: Result, today: dt.date) -> str | None:
-    polled, answered, hits, errors = 0, 0, 0, []
+    """BSE's announcements feed (today's, all companies) read once, then each watched parent's rows picked by scrip
+    code. Until 5 Nov 2026 this was one API call per parent over LOOKBACK_DAYS; the feed is one day deep, so the
+    look-back only ever trims (see sources/bse_ann.py)."""
     since = today - dt.timedelta(days=LOOKBACK_DAYS)
-    for ticker, p in wl.items():
-        if not p.get("scrip"):
-            continue
-        polled += 1
-        try:
-            rows = bse_ann.fetch(session, p["scrip"], since, today, source="bse_ann")
-        except SourceError as e:
-            errors.append(f"{ticker}: {e.detail}")
-            continue
-        answered += 1
+    watched = {t: p for t, p in wl.items() if p.get("scrip")}
+    if not watched:
+        raise SourceChanged("bse_ann", "no parent has a BSE scrip code; nothing to poll")
+    feed = bse_ann.fetch_feed(session, source="bse_ann")            # a SourceError here fails the leg: nothing answered
+    answered, hits = 0, 0
+    for p in watched.values():
+        rows = bse_ann.for_scrip(feed, p["scrip"], since, today)
+        answered += bool(rows)
         rows = [r for r in rows if HEADLINE_RE.search(r["headline"]) or HEADLINE_RE.search(r.get("subject") or "")]
         rows.sort(key=lambda r: (r.get("date") or ""), reverse=True)
         for ann in rows:
@@ -198,14 +199,7 @@ def _from_bse(session: Session, wl: dict[str, dict], patches: dict, res: Result,
             for row in targets:
                 if _transition(row, cls, evidence, patches, today):
                     hits += 1
-    if polled == 0:
-        raise SourceChanged("bse_ann", "no parent has a BSE scrip code; nothing to poll")
-    if answered == 0:
-        raise SourceChanged("bse_ann", "no parent answered: " + "; ".join(errors[:3]))
-    note = f"bse_ann: {answered}/{polled} parents answered, {hits} stage changes"
-    if errors:
-        note += f", {len(errors)} errors"
-    res.notes.append(note)
+    res.notes.append(f"bse_ann: feed of {len(feed)} announcements today, {answered}/{len(watched)} parents in it, {hits} stage changes")
     return today.isoformat()
 
 

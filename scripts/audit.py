@@ -26,12 +26,11 @@ from collector import layout
 from collector.names import Matcher, load_aliases
 
 BOARDS = ("mainboard", "sme")
-KNOWN_BLOCKED = {"offers": "api.bseindia.com answers 403 to GitHub's runners (CLAUDE.md known gaps)"}
+KNOWN_BLOCKED: dict[str, str] = {}      # offers left on 5 Nov 2026: BSE's legacy page answers the runners (sources/bse_issues.py)
 # Sources that are down BY DESIGN from the runners: a module on one of these is on its working fallback, every day, and
 # that is a known state, not a warning (30 Oct 2026: /admin had said "listings on a fallback" since the day it was built).
 # A fallback past a source NOT listed here still warns — sebi:changed on 29 Oct was transient and worth a look.
 KNOWN_SOURCES = {"angelone": "no Angel One secrets are set (CLAUDE.md known gaps); Yahoo is the working source",
-                 "bse_ann": "api.bseindia.com answers 403 to GitHub's runners (CLAUDE.md known gaps); NSE announcements carry the radar",
                  "ipopremium": "ipopremium.in answers 403 (CLAUDE.md known gaps: leave it); investorgain and ipowatch carry GMP"}
 FALLBACK_WORDS = ("down", "blocked", "changed", "fallback")
 # The quota table is the one hand-written layer (data/research sheets, carried forward run after run). 4 Nov 2026: the
