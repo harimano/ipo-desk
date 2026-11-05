@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-05T13:24:25+05:30",
+  "asOf": "2026-11-05T15:08:28+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "5 Nov 2026, 13:24 IST",
+  "label": "5 Nov 2026, 15:08 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -2797,12 +2797,12 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 66.72,
-    "nii": 36.11,
-    "bnii": 52.16,
-    "snii": 4.0,
-    "retail": 2.84,
-    "total": 8.67,
-    "asOf": "2026-11-05T13:23:15+05:30",
+    "nii": 46.39,
+    "bnii": 66.72,
+    "snii": 5.74,
+    "retail": 4.06,
+    "total": 11.27,
+    "asOf": "2026-11-05T15:08:28+05:30",
     "src": "narada"
    },
    "shareholderQuota": {
@@ -2821,7 +2821,7 @@
    "igId": "2375",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-05T13:23:14+05:30",
+   "igFetchedAt": "2026-11-05T15:08:26+05:30",
    "refund": "2026-11-09",
    "sector": "Packaging",
    "anchorShares": 0,
@@ -2855,9 +2855,9 @@
     },
     "asOf": "2026-11-04T23:40:00+05:30"
    },
-   "gmpAsOf": "2026-11-05T12:33:00+05:30",
+   "gmpAsOf": "2026-11-05T14:32:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-11-05T12:33:00+05:30",
+   "gmpEveAsOf": "2026-11-05T14:32:00+05:30",
    "apps": {
     "qib": {
      "reserved": 18,
@@ -2866,30 +2866,30 @@
     },
     "nii": {
      "reserved": 85,
-     "received": 2328,
+     "received": 3036,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 57,
-     "received": 2116,
+     "received": 2730,
      "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 28,
-     "received": 212,
+     "received": 306,
      "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 690,
-     "received": 1963,
+     "received": 2803,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 793,
-     "received": 4294,
+     "received": 5842,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-05T13:23:15+05:30"
+    "asOf": "2026-11-05T15:08:28+05:30"
    },
    "apply": {
     "retail": {
@@ -3180,7 +3180,7 @@
    "ofsCr": null,
    "gmp": 117.0,
    "gmpPct": 74.05,
-   "gmpTrend": "flat",
+   "gmpTrend": "up",
    "sub": {
     "qib": 259.45,
     "nii": 857.65,
@@ -3444,7 +3444,7 @@
     "snii": 1.9,
     "retail": 2.26,
     "total": 1.95,
-    "asOf": "2026-11-05T13:23:16+05:30",
+    "asOf": "2026-11-05T15:08:28+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3545,7 +3545,7 @@
      "received": 3520,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-05T13:23:16+05:30"
+    "asOf": "2026-11-05T15:08:28+05:30"
    }
   }
  ],
@@ -86784,8 +86784,41 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-05T13:24:25+05:30",
+  "asOf": "2026-11-05T15:08:28+05:30",
   "checks": [
+   {
+    "area": "gmp",
+    "method": "investorgain:ok, ipowatch:ok, ipopremium:blocked",
+    "status": "ok",
+    "asOf": "5-Nov 9:37",
+    "elapsed": 1.6,
+    "calls": 3,
+    "note": "gmp: 8 board rows patched via investorgain+ipowatch; 1 active, 0 of them matched; gmp: 13 GMP-site names not on the board: BLS Polymers (₹69, investorgain); Bonfiglioli Transmissions (₹66, investorgain); EAAA India Alternatives (₹54, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain); Jio Platforms (₹250, investorgain); Paras Healthcare (₹13, investorgain); Ravita Engineering Services (₹1, investorgain) …",
+    "lastOk": "2026-11-05T15:08:28+05:30",
+    "dueBy": "2026-11-05T16:22:00+05:30"
+   },
+   {
+    "area": "details",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-11-05T15:08:26+05:30",
+    "elapsed": 1.24,
+    "calls": 1,
+    "note": "1 records fetched for 10 identified listings (0 without an id); 0 anchor books updated, 95 on file",
+    "lastOk": "2026-11-05T15:08:28+05:30",
+    "dueBy": "2026-11-05T16:22:00+05:30"
+   },
+   {
+    "area": "subscription",
+    "method": "narada:ok",
+    "status": "ok",
+    "asOf": "2026-11-05T15:08:28+05:30",
+    "elapsed": 1.44,
+    "calls": 2,
+    "note": "2/2 rows patched via narada",
+    "lastOk": "2026-11-05T15:08:28+05:30",
+    "dueBy": "2026-11-05T16:22:00+05:30"
+   },
    {
     "area": "calendar",
     "method": "investorgain:ok",
@@ -86795,40 +86828,8 @@
     "calls": 5,
     "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=6 carried=4 +nse=0 +bse=0 exchange-only=0: 2 mainboard, 8 sme; 1 open, 0 upcoming",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
-   },
-   {
-    "area": "gmp",
-    "method": "investorgain:ok, ipowatch:changed, ipopremium:blocked",
-    "status": "ok",
-    "asOf": "5-Nov 9:37",
-    "elapsed": 0.28,
-    "calls": 3,
-    "note": "gmp: 8 board rows patched via investorgain; 1 active, 0 of them matched; gmp: 13 GMP-site names not on the board: BLS Polymers (₹69, investorgain); Bonfiglioli Transmissions (₹66, investorgain); EAAA India Alternatives (₹54, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain); Jio Platforms (₹250, investorgain); Paras Healthcare (₹13, investorgain); Ravita Engineering Services (₹1, investorgain) …",
-    "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T14:22:00+05:30"
-   },
-   {
-    "area": "details",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-11-05T13:23:14+05:30",
-    "elapsed": 0.03,
-    "calls": 1,
-    "note": "1 records fetched for 10 identified listings (0 without an id); 0 anchor books updated, 95 on file",
-    "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T14:22:00+05:30"
-   },
-   {
-    "area": "subscription",
-    "method": "narada:ok",
-    "status": "ok",
-    "asOf": "2026-11-05T13:23:16+05:30",
-    "elapsed": 1.83,
-    "calls": 2,
-    "note": "2/2 rows patched via narada",
-    "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T14:22:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "listings",
@@ -86839,7 +86840,8 @@
     "calls": 0,
     "note": "14 names priced, 0 moved to recent, 0 history points",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "history",
@@ -86850,7 +86852,8 @@
     "calls": 2,
     "note": "1406 listings since 2022 (993 SME); fetched 2026: 303; QIB on file for 114 of 413 mainboard issues; shareholder-quota books frozen for 0",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "tape",
@@ -86861,7 +86864,8 @@
     "calls": 0,
     "note": "207 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 187 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 187 days on file",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "anchorbook",
@@ -86872,7 +86876,8 @@
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 919 on file, 589 partial (feed gave only the first names); 0 of 1406 listings still to fetch",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "evidence",
@@ -86883,7 +86888,8 @@
     "calls": 0,
     "note": "track records: 919 of 919 anchor books have an outcome; 911 of 1494 investors with 2+; 1406 listings; windows: mainboard 136, SME 238; 3 warnings",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "players",
@@ -86894,7 +86900,8 @@
     "calls": 54,
     "note": "53 of 2839 anchor investors read (0 failed); names found for 1 of 6 unlisted issues",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "parents",
@@ -86905,7 +86912,8 @@
     "calls": 0,
     "note": "5/5 parent prices; 35/39 investor stocks priced",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "filings",
@@ -86916,7 +86924,8 @@
     "calls": 14,
     "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 4261 announcements scanned, 2 subsidiary-offer leads; 0 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 quota rows linked by igId; 0 found held; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 7 leads held; 0 rows patched, 33 kept previous stage",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "planner",
@@ -86927,7 +86936,8 @@
     "calls": 4,
     "note": "142 events 2026-10-29..2026-12-20, 6 issues with terms, 5 from the report only",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "offers",
@@ -86938,7 +86948,8 @@
     "calls": 1,
     "note": "kept previous — HTTP 403",
     "lastOk": null,
-    "dueBy": null
+    "dueBy": null,
+    "carried": true
    },
    {
     "area": "flows",
@@ -86949,7 +86960,8 @@
     "calls": 1,
     "note": "2026-11-04 already in history; FII +7,284 / DII -3,712 Cr",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "deals",
@@ -86960,7 +86972,8 @@
     "calls": 4,
     "note": "bulk.csv: 133 deals; block.csv: 2 deals; 0 tracked-investor deals of 135; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 58 of today's 135 deals are in this year's listings (8 stocks); 1675 kept over 60 days; 207 of 303 listings have an NSE symbol; 237 with a BSE code",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "news",
@@ -86971,7 +86984,8 @@
     "calls": 3,
     "note": "business-standard: 5/35 primary-market items; economic-times: 1/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 6 fresh, 25 kept",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "logos",
@@ -86982,7 +86996,8 @@
     "calls": 0,
     "note": "69 logos on file; none to fetch",
     "lastOk": "2026-11-05T13:24:25+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30"
+    "dueBy": "2026-11-05T18:58:00+05:30",
+    "carried": true
    },
    {
     "area": "research layer",
@@ -86994,7 +87009,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "74s, 94 calls, 17/18 modules ok"
+    "note": "5s, 6 calls, 3/3 modules ok"
    }
   ],
   "discrepancies": [
@@ -129331,7 +129346,7 @@
   },
   "2375": {
    "name": "Antala Industries",
-   "fetchedAt": "2026-11-05T13:23:14+05:30",
+   "fetchedAt": "2026-11-05T15:08:26+05:30",
    "about": [
     "Antala Industries Limited is engaged in the production, processing, printing, lamination and supply of industrial and commercial packaging materials. Its product range includes BOPP bags, BOPP printing rolls, BOPP lamination rolls, PP woven bags and PP woven lamination rolls, catering to industries such as food processing, fertilizers, chemicals, cement and seeds. The Company operates an integrated manufacturing facility in Rajkot, Gujarat, equipped with extrusion, coating and lamination, rotogravure printing, stitching and finishing capabilities. The Company offers customized packaging solutions designed to provide strength, durability, moisture resistance, superior print quality and improved product presentation. Its integrated production infrastructure supports in-house operations ranging from printing and lamination to cutting, stitching, finishing and final packaging, enabling effective quality management, efficient production and timely order fulfilment. The Company holds ISO 9001:2015, ISO 14001:2015, ISO 22000:2018 and ISO 45001:2018 certifications. Its promoters bring nearly three decades of experience in the packaging industry. As of July 21, 2026, the Company employed 11 personnel across various functions, including accounts and finance, management, administration, sales, secretarial and production. Its competitive advantages include experienced promoters and management, a broad and customizable packaging portfolio, a presence across diverse industries, integrated manufacturing operations, a customer-oriented approach and well-established relationships with suppliers and customers. Strengths: Promoters and management with substantial experience in the packaging industry. Wide range of packaging products with flexibility to meet customized customer requirements. Established presence across several industrial and commercial end-use sectors. Integrated manufacturing infrastructure supporting production control and operational efficiency. Focus on product quality, customized solutions and timely delivery. Established business relationships with customers and suppliers."
    ],
@@ -129621,15 +129636,15 @@
      "retailBidCr": 14.65
     },
     {
-     "asOf": "2026-11-05T12:41:00+05:30",
+     "asOf": "2026-11-05T14:41:00+05:30",
      "qib": 66.72,
-     "nii": 33.56,
-     "bnii": 48.43,
-     "snii": 3.29,
-     "retail": 2.46,
-     "total": 7.96,
-     "bidCr": 173.66,
-     "retailBidCr": 44.85
+     "nii": 41.1,
+     "bnii": 58.65,
+     "snii": 5.37,
+     "retail": 3.6,
+     "total": 10.08,
+     "bidCr": 219.86,
+     "retailBidCr": 65.66
     }
    ],
    "company": {
