@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-05T13:08:25+05:30",
+  "asOf": "2026-11-05T13:20:37+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "5 Nov 2026, 13:08 IST",
+  "label": "5 Nov 2026, 13:20 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -1917,7 +1917,7 @@
    "name": "Bombay Coated and Special Steels",
    "slug": "bombay-coated-and-special-steels",
    "type": "Mainboard",
-   "status": "Closed",
+   "status": "Listed",
    "open": "2026-10-29",
    "close": "2026-11-02",
    "allotment": "2026-11-03",
@@ -1939,9 +1939,9 @@
     "asOf": "2026-11-02T17:56:00+05:30"
    },
    "shareholderQuota": null,
-   "listingPrice": null,
-   "listingGainPct": null,
-   "currentPrice": null,
+   "listingPrice": 91.0,
+   "listingGainPct": 10.98,
+   "currentPrice": 95.55,
    "sources": [
     "InvestorGain IPO list"
    ],
@@ -2797,15 +2797,19 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 66.72,
-    "nii": 35.51,
-    "bnii": 51.35,
-    "snii": 3.82,
-    "retail": 2.71,
-    "total": 8.46,
-    "asOf": "2026-11-05T13:08:25+05:30",
+    "nii": 35.86,
+    "bnii": 51.82,
+    "snii": 3.93,
+    "retail": 2.78,
+    "total": 8.58,
+    "asOf": "2026-11-05T13:19:14+05:30",
     "src": "narada"
    },
-   "shareholderQuota": null,
+   "shareholderQuota": {
+    "flag": false,
+    "src": "ig",
+    "at": "2026-11-05"
+   },
    "listingPrice": null,
    "listingGainPct": null,
    "currentPrice": null,
@@ -2817,7 +2821,7 @@
    "igId": "2375",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-05T13:08:22+05:30",
+   "igFetchedAt": "2026-11-05T13:19:13+05:30",
    "refund": "2026-11-09",
    "sector": "Packaging",
    "anchorShares": 0,
@@ -2862,30 +2866,30 @@
     },
     "nii": {
      "reserved": 85,
-     "received": 2285,
+     "received": 2310,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 57,
-     "received": 2082,
+     "received": 2102,
      "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 28,
-     "received": 203,
+     "received": 208,
      "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 690,
-     "received": 1867,
+     "received": 1918,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 793,
-     "received": 4155,
+     "received": 4231,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-05T13:08:25+05:30"
+    "asOf": "2026-11-05T13:19:14+05:30"
    },
    "apply": {
     "retail": {
@@ -2920,9 +2924,9 @@
    "issueSizeCr": 34.56,
    "freshCr": 26.17,
    "ofsCr": 6.65,
-   "gmp": 28.0,
-   "gmpPct": 23.33,
-   "gmpTrend": "down",
+   "gmp": 40.0,
+   "gmpPct": 33.33,
+   "gmpTrend": "up",
    "sub": {
     "qib": 137.92,
     "nii": 424.67,
@@ -3174,9 +3178,9 @@
    "issueSizeCr": 57.64,
    "freshCr": 54.12,
    "ofsCr": null,
-   "gmp": 113.0,
-   "gmpPct": 71.52,
-   "gmpTrend": "down",
+   "gmp": 117.0,
+   "gmpPct": 74.05,
+   "gmpTrend": "up",
    "sub": {
     "qib": 259.45,
     "nii": 857.65,
@@ -3427,7 +3431,7 @@
    "bandLow": 88.0,
    "bandHigh": 94.0,
    "lotSize": 1200,
-   "issueSizeCr": 53.82,
+   "issueSizeCr": 56.68,
    "freshCr": 48.14,
    "ofsCr": 5.67,
    "gmp": 1.0,
@@ -3440,7 +3444,7 @@
     "snii": 1.9,
     "retail": 2.26,
     "total": 1.95,
-    "asOf": "2026-11-05T13:08:25+05:30",
+    "asOf": "2026-11-05T13:19:14+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3541,11 +3545,25 @@
      "received": 3520,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-05T13:08:25+05:30"
+    "asOf": "2026-11-05T13:19:14+05:30"
    }
   }
  ],
  "comps": [
+  {
+   "name": "Bombay Coated and Special Steels",
+   "igId": "1936",
+   "year": 2026,
+   "sme": false,
+   "total": 63.89,
+   "ret": 10.98,
+   "retClose": null,
+   "qib": 37.32,
+   "nii": 166.44,
+   "retail": 35.46,
+   "snii": 113.44,
+   "bnii": 192.94
+  },
   {
    "name": "Carver Roboweld",
    "igId": "2393",
@@ -17853,6 +17871,21 @@
   "note": "7 Sep 2026 provisional NSE cash figures from NiftyTrader (single source): FII +₹280 Cr, DII +₹567 Cr; Nifty 23,779 (−0.50%). Sector rotation evidence is from NSDL first-half-August data (FPIs bought financial services Rs 6,535 cr, autos Rs 4,420 cr, consumer services Rs 3,407 cr, healthcare Rs 2,918 cr, IT Rs 2,537 cr); second-half-August sector data not yet captured. DII sector breakdown not available."
  },
  "listedPerf": [
+  {
+   "name": "Bombay Coated and Special Steels",
+   "igId": "1936",
+   "date": "2026-11-05",
+   "sme": false,
+   "issue": 82.0,
+   "gmp": 8.0,
+   "gmpImplied": 90.0,
+   "listing": 91.0,
+   "close1": null,
+   "ltp": 0.0,
+   "bseCode": "545018",
+   "gmpEve": 8.5,
+   "gmpEveAsOf": "2026-11-04T15:37:00+05:30"
+  },
   {
    "name": "Carver Roboweld",
    "igId": "2393",
@@ -36277,6 +36310,36 @@
  ],
  "news": [
   {
+   "title": "Sitaram Denims India files IPO papers with Sebi",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/sitaram-denims-india-files-ipo-papers-with-sebi/articleshow/135563144.cms",
+   "date": "2026-11-05T12:32:00+05:30"
+  },
+  {
+   "title": "Lenskart shares gain 11% post Q2, up 90% from IPO price; more gains ahead?",
+   "url": "https://www.business-standard.com/markets/news/lenskart-shares-gain-11-post-q2-up-90-from-ipo-price-more-gains-ahead-126110500529_1.html",
+   "date": "2026-11-05T10:17:38+05:30"
+  },
+  {
+   "title": "Bombay Coated & Special Steels shares list at 12% premium over IPO price",
+   "url": "https://www.business-standard.com/markets/news/bombay-coated-special-steels-shares-list-at-12-premium-over-ipo-price-126110500471_1.html",
+   "date": "2026-11-05T10:04:10+05:30"
+  },
+  {
+   "title": "Sebi eases KYC norms for overseas investors, enables digital onboarding",
+   "url": "https://www.business-standard.com/markets/news/sebi-eases-kyc-norms-for-overseas-investors-enables-digital-onboarding-126110500098_1.html",
+   "date": "2026-11-05T09:14:24+05:30"
+  },
+  {
+   "title": "Sebi approves Mahanadi Coalfields IPO as Coal India plans 10% stake sale",
+   "url": "https://www.business-standard.com/markets/ipo/sebi-approves-mahanadi-coalfields-ipo-as-coal-india-plans-10-stake-sale-126110500099_1.html",
+   "date": "2026-11-05T09:14:13+05:30"
+  },
+  {
+   "title": "Samvat 2082: IPO fundraise crosses ₹2-trillion mark for the first time ever",
+   "url": "https://www.business-standard.com/markets/news/samvat-2082-ipo-fundraise-crosses-2-trillion-mark-for-the-first-time-ever-126110500115_1.html",
+   "date": "2026-11-05T08:45:10+05:30"
+  },
+  {
    "title": "Meta draws record orders for debut euro bond sale, Bloomberg News reports",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/meta-draws-record-orders-for-debut-euro-bond-sale-bloomberg-news-reports/articleshow/135543860.cms",
    "date": "2026-11-04T20:50:06+05:30"
@@ -36370,36 +36433,6 @@
    "title": "SFC Environmental Technologies shares debut at nearly 8% premium to IPO price",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/sfc-environmental-technologies-shares-to-list-today-check-gmp-ahead-of-market-debut/articleshow/135481135.cms",
    "date": "2026-11-03T09:24:41+05:30"
-  },
-  {
-   "title": "Wiscon Industries SME shares to list today: Check subscription status and key detail",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/wiscon-industries-sme-shares-to-list-today-check-subscription-status-and-key-detail/articleshow/135480715.cms",
-   "date": "2026-11-03T09:11:58+05:30"
-  },
-  {
-   "title": "Stellar Start! BLS Polymers shares list at 65% premium over IPO price",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/bls-polymers-ipo-shares-to-debut-today-gmp-points-to-45-listing-gains/articleshow/135480538.cms",
-   "date": "2026-11-03T09:07:17+05:30"
-  },
-  {
-   "title": "Jio Platforms listing a re-rating catalyst for telecom sector: MOFSL",
-   "url": "https://www.business-standard.com/markets/news/jio-platforms-listing-a-re-rating-catalyst-for-telecom-sector-mofsl-126110300116_1.html",
-   "date": "2026-11-03T08:27:56+05:30"
-  },
-  {
-   "title": "Sebi issues detailed rules for depositary receipts on REIT, InvIT units",
-   "url": "https://www.business-standard.com/markets/news/sebi-issues-detailed-rules-for-depositary-receipts-on-reit-invit-units-126110201424_1.html",
-   "date": "2026-11-03T08:09:04+05:30"
-  },
-  {
-   "title": "Anthropic revenue jumps 1,100% ahead of IPO as AI spending commitments near $900 billion",
-   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/anthropic-revenue-jumps-1100-ahead-of-ipo-as-ai-spending-commitments-near-900-billion/articleshow/135472235.cms",
-   "date": "2026-11-03T00:21:10+05:30"
-  },
-  {
-   "title": "IPO fundraising rises 30% to record ₹84,400 crore in H1FY27: Report",
-   "url": "https://www.business-standard.com/markets/news/ipo-fundraising-rises-30-to-record-84-400-crore-in-h1fy27-report-126110201078_1.html",
-   "date": "2026-11-02T23:19:35+05:30"
   }
  ],
  "priceHistory": {
@@ -86023,6 +86056,10 @@
    [
     "2026-11-04",
     66.55
+   ],
+   [
+    "2026-11-05",
+    67.1
    ]
   ],
   "Vishal Nirmiti": [
@@ -86101,6 +86138,10 @@
    [
     "2026-11-04",
     101.5
+   ],
+   [
+    "2026-11-05",
+    109.87
    ]
   ],
   "Eventions": [
@@ -86283,6 +86324,10 @@
    [
     "2026-11-04",
     264.6
+   ],
+   [
+    "2026-11-05",
+    269.2
    ]
   ],
   "Vaibhav Vyapaar": [
@@ -86371,6 +86416,10 @@
    [
     "2026-11-04",
     294.55
+   ],
+   [
+    "2026-11-05",
+    283.4
    ]
   ],
   "Ravita Engineering Services": [
@@ -86451,6 +86500,10 @@
    [
     "2026-11-04",
     655.4
+   ],
+   [
+    "2026-11-05",
+    675.5
    ]
   ],
   "Sahajanand Medical Technologies": [
@@ -86489,6 +86542,10 @@
    [
     "2026-11-04",
     480.7
+   ],
+   [
+    "2026-11-05",
+    488.95
    ]
   ],
   "Tonbo Imaging India": [
@@ -86527,6 +86584,10 @@
    [
     "2026-11-04",
     1277.2
+   ],
+   [
+    "2026-11-05",
+    1495.6
    ]
   ],
   "Zetwerk": [
@@ -86565,6 +86626,10 @@
    [
     "2026-11-04",
     161.66
+   ],
+   [
+    "2026-11-05",
+    171.12
    ]
   ],
   "Bonfiglioli Transmissions": [
@@ -86629,6 +86694,10 @@
    [
     "2026-11-04",
     1434.0
+   ],
+   [
+    "2026-11-05",
+    1423.5
    ]
   ],
   "Paras Healthcare": [
@@ -86655,6 +86724,10 @@
    [
     "2026-11-04",
     745.6
+   ],
+   [
+    "2026-11-05",
+    777.5
    ]
   ],
   "EAAA India Alternatives": [
@@ -86669,6 +86742,10 @@
    [
     "2026-11-04",
     1709.0
+   ],
+   [
+    "2026-11-05",
+    1699.7
    ]
   ],
   "SFC Environmental Technologies": [
@@ -86679,6 +86756,10 @@
    [
     "2026-11-04",
     442.5
+   ],
+   [
+    "2026-11-05",
+    415.4
    ]
   ],
   "BLS Polymers": [
@@ -86689,80 +86770,87 @@
    [
     "2026-11-04",
     276.14
+   ],
+   [
+    "2026-11-05",
+    254.6
+   ]
+  ],
+  "Bombay Coated and Special Steels": [
+   [
+    "2026-11-05",
+    95.55
    ]
   ]
  },
  "integrity": {
-  "asOf": "2026-11-05T13:08:25+05:30",
+  "asOf": "2026-11-05T13:20:37+05:30",
   "checks": [
+   {
+    "area": "calendar",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-11-05T13:19:10+05:30",
+    "elapsed": 1.52,
+    "calls": 5,
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=6 carried=4 +nse=0 +bse=0 exchange-only=0: 2 mainboard, 8 sme; 1 open, 0 upcoming",
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
+   },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:changed, ipopremium:blocked",
     "status": "ok",
     "asOf": "5-Nov 9:37",
-    "elapsed": 0.23,
+    "elapsed": 2.38,
     "calls": 3,
     "note": "gmp: 8 board rows patched via investorgain; 1 active, 0 of them matched; gmp: 13 GMP-site names not on the board: BLS Polymers (₹69, investorgain); Bonfiglioli Transmissions (₹66, investorgain); EAAA India Alternatives (₹54, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain); Jio Platforms (₹250, investorgain); Paras Healthcare (₹13, investorgain); Ravita Engineering Services (₹1, investorgain) …",
-    "lastOk": "2026-11-05T13:08:25+05:30",
+    "lastOk": "2026-11-05T13:20:37+05:30",
     "dueBy": "2026-11-05T14:22:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-05T13:08:22+05:30",
-    "elapsed": 1.76,
-    "calls": 2,
-    "note": "2 records fetched for 10 identified listings (0 without an id); 0 anchor books updated, 95 on file",
-    "lastOk": "2026-11-05T13:08:25+05:30",
+    "asOf": "2026-11-05T13:19:13+05:30",
+    "elapsed": 0.03,
+    "calls": 1,
+    "note": "1 records fetched for 10 identified listings (0 without an id); 0 anchor books updated, 95 on file",
+    "lastOk": "2026-11-05T13:20:37+05:30",
     "dueBy": "2026-11-05T14:22:00+05:30"
    },
    {
     "area": "subscription",
     "method": "narada:ok",
     "status": "ok",
-    "asOf": "2026-11-05T13:08:25+05:30",
-    "elapsed": 1.29,
+    "asOf": "2026-11-05T13:19:14+05:30",
+    "elapsed": 1.46,
     "calls": 2,
     "note": "2/2 rows patched via narada",
-    "lastOk": "2026-11-05T13:08:25+05:30",
+    "lastOk": "2026-11-05T13:20:37+05:30",
     "dueBy": "2026-11-05T14:22:00+05:30"
-   },
-   {
-    "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-11-05T06:44:09+05:30",
-    "elapsed": 1.55,
-    "calls": 5,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=7 carried=3 +nse=1 +bse=0 exchange-only=0: 2 mainboard, 8 sme; 1 open, 0 upcoming",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
    },
    {
     "area": "listings",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-04",
-    "elapsed": 6.61,
+    "asOf": "2026-11-05",
+    "elapsed": 17.64,
     "calls": 0,
-    "note": "13 names priced, 0 moved to recent, 0 history points",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
+    "note": "14 names priced, 0 moved to recent, 14 history points",
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-05",
-    "elapsed": 3.02,
+    "elapsed": 2.59,
     "calls": 2,
-    "note": "1405 listings since 2022 (993 SME); fetched 2026: 302; QIB on file for 113 of 412 mainboard issues",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
+    "note": "1406 listings since 2022 (993 SME); fetched 2026: 303; QIB on file for 114 of 413 mainboard issues; shareholder-quota books frozen for 0",
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "tape",
@@ -86771,82 +86859,75 @@
     "asOf": "2026-11-04",
     "elapsed": 0.01,
     "calls": 0,
-    "note": "206 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 187 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 187 days on file",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
+    "note": "207 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 187 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 187 days on file",
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "anchorbook",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-05",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "0 anchor books read (0 without an anchor table, 0 failed); 918 on file, 589 partial (feed gave only the first names); 0 of 1405 listings still to fetch",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
+    "elapsed": 0.05,
+    "calls": 1,
+    "note": "1 anchor books read (0 without an anchor table, 0 failed); 919 on file, 589 partial (feed gave only the first names); 0 of 1406 listings still to fetch",
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "evidence",
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-11-05",
-    "elapsed": 0.19,
+    "elapsed": 0.24,
     "calls": 0,
-    "note": "track records: 918 of 918 anchor books have an outcome; 910 of 1494 investors with 2+; 1405 listings; windows: mainboard 135, SME 238; 3 warnings",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
+    "note": "track records: 919 of 919 anchor books have an outcome; 911 of 1494 investors with 2+; 1406 listings; windows: mainboard 136, SME 238; 3 warnings",
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "players",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-05",
-    "elapsed": 32.15,
+    "elapsed": 30.53,
     "calls": 54,
-    "note": "53 of 2839 anchor investors read (0 failed); names found for 1 of 7 unlisted issues",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
+    "note": "53 of 2839 anchor investors read (0 failed); names found for 1 of 6 unlisted issues",
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "parents",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-03",
-    "elapsed": 8.06,
+    "asOf": "2026-11-05",
+    "elapsed": 18.57,
     "calls": 0,
     "note": "5/5 parent prices; 35/39 investor stocks priced",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "filings",
     "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-11-05",
-    "elapsed": 8.37,
+    "elapsed": 8.46,
     "calls": 14,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 3964 announcements scanned, 2 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 7 leads held; 0 rows patched, 33 kept previous stage",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 4258 announcements scanned, 2 subsidiary-offer leads; 0 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 quota rows linked by igId; 0 found held; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 7 leads held; 0 rows patched, 33 kept previous stage",
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "planner",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-05",
-    "elapsed": 3.16,
+    "elapsed": 2.53,
     "calls": 4,
-    "note": "142 events 2026-10-29..2026-12-20, 7 issues with terms, 5 from the report only",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
+    "note": "142 events 2026-10-29..2026-12-20, 6 issues with terms, 5 from the report only",
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "offers",
@@ -86857,44 +86938,40 @@
     "calls": 1,
     "note": "kept previous — HTTP 403",
     "lastOk": null,
-    "dueBy": null,
-    "carried": true
+    "dueBy": null
    },
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-11-04",
-    "elapsed": 0.22,
+    "elapsed": 0.27,
     "calls": 1,
     "note": "2026-11-04 already in history; FII +7,284 / DII -3,712 Cr",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-04",
-    "elapsed": 1.0,
+    "elapsed": 0.72,
     "calls": 4,
-    "note": "bulk.csv: 133 deals; block.csv: 2 deals; 0 tracked-investor deals of 135; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 58 of today's 135 deals are in this year's listings (8 stocks); 1675 kept over 60 days; 206 of 302 listings have an NSE symbol; 236 with a BSE code",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
+    "note": "bulk.csv: 133 deals; block.csv: 2 deals; 0 tracked-investor deals of 135; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 58 of today's 135 deals are in this year's listings (8 stocks); 1675 kept over 60 days; 207 of 303 listings have an NSE symbol; 237 with a BSE code",
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
-    "asOf": "2026-11-04T20:50:06+05:30",
-    "elapsed": 0.67,
+    "asOf": "2026-11-05T12:32:00+05:30",
+    "elapsed": 0.84,
     "calls": 3,
-    "note": "business-standard: 6/35 primary-market items; economic-times: 2/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 8 fresh, 25 kept",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
+    "note": "business-standard: 5/35 primary-market items; economic-times: 1/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 6 fresh, 25 kept",
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "logos",
@@ -86904,9 +86981,8 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "69 logos on file; none to fetch",
-    "lastOk": "2026-11-05T06:45:19+05:30",
-    "dueBy": "2026-11-05T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-05T13:20:37+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "research layer",
@@ -86918,7 +86994,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "3s, 7 calls, 3/3 modules ok"
+    "note": "89s, 95 calls, 17/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -88464,43 +88540,43 @@
   "prices": {
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 408.0,
-    "asOf": "2026-11-03"
+    "value": 394.4,
+    "asOf": "2026-11-05"
    },
    "Hero MotoCorp": {
     "symbol": "HEROMOTOCO",
-    "value": 5300.0,
-    "asOf": "2026-11-03"
+    "value": 5504.0,
+    "asOf": "2026-11-05"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 109.0,
-    "asOf": "2026-11-03"
+    "value": 112.13,
+    "asOf": "2026-11-05"
    },
    "Prestige Estates": {
     "symbol": "PRESTIGE",
-    "value": 1537.0,
-    "asOf": "2026-11-03"
+    "value": 1629.5,
+    "asOf": "2026-11-05"
    },
    "SIS Limited": {
     "symbol": "SIS",
-    "value": 375.55,
-    "asOf": "2026-11-03"
+    "value": 389.1,
+    "asOf": "2026-11-05"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 230.31,
-    "asOf": "2026-11-03"
+    "value": 241.34,
+    "asOf": "2026-11-05"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 6260.5,
-    "asOf": "2026-11-03"
+    "value": 6553.5,
+    "asOf": "2026-11-05"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 55.76,
-    "asOf": "2026-11-03"
+    "value": 57.42,
+    "asOf": "2026-11-05"
    },
    "Tata Motors": {
     "symbol": "TATAMOTORS",
@@ -88509,53 +88585,53 @@
    },
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1307.9,
-    "asOf": "2026-11-03"
+    "value": 1312.0,
+    "asOf": "2026-11-05"
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 395.5,
-    "asOf": "2026-11-03"
+    "value": 408.15,
+    "asOf": "2026-11-05"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 79.4,
-    "asOf": "2026-11-03"
+    "value": 81.31,
+    "asOf": "2026-11-05"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 232.17,
-    "asOf": "2026-11-03"
+    "value": 229.49,
+    "asOf": "2026-11-05"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 725.5,
-    "asOf": "2026-11-03"
+    "value": 754.4,
+    "asOf": "2026-11-05"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 464.65,
-    "asOf": "2026-11-03"
+    "value": 466.9,
+    "asOf": "2026-11-05"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1232.7,
-    "asOf": "2026-11-03"
+    "value": 1277.1,
+    "asOf": "2026-11-05"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1718.1,
-    "asOf": "2026-11-03"
+    "value": 1837.1,
+    "asOf": "2026-11-05"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1180.0,
-    "asOf": "2026-11-03"
+    "value": 1209.0,
+    "asOf": "2026-11-05"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 18.07,
-    "asOf": "2026-11-03"
+    "value": 19.05,
+    "asOf": "2026-11-05"
    },
    "Gretex Corporate Services": {
     "symbol": "GRETEX",
@@ -88564,78 +88640,78 @@
    },
    "Zaggle Prepaid": {
     "symbol": "ZAGGLE",
-    "value": 155.4,
-    "asOf": "2026-11-03"
+    "value": 169.0,
+    "asOf": "2026-11-05"
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 107.93,
-    "asOf": "2026-11-03"
+    "value": 106.0,
+    "asOf": "2026-11-05"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1263.0,
-    "asOf": "2026-11-03"
+    "value": 1266.0,
+    "asOf": "2026-11-05"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 552.25,
-    "asOf": "2026-11-03"
+    "value": 549.2,
+    "asOf": "2026-11-05"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 298.75,
-    "asOf": "2026-11-03"
+    "value": 300.9,
+    "asOf": "2026-11-05"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 130.87,
-    "asOf": "2026-11-03"
+    "value": 131.71,
+    "asOf": "2026-11-05"
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
-    "value": 1187.6,
-    "asOf": "2026-11-03"
+    "value": 1169.6,
+    "asOf": "2026-11-05"
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1488.4,
-    "asOf": "2026-11-03"
+    "value": 1644.7,
+    "asOf": "2026-11-05"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1350.8,
-    "asOf": "2026-11-03"
+    "value": 1402.0,
+    "asOf": "2026-11-05"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 94.28,
-    "asOf": "2026-11-03"
+    "value": 98.86,
+    "asOf": "2026-11-05"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 482.35,
-    "asOf": "2026-11-03"
+    "value": 508.9,
+    "asOf": "2026-11-05"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 529.05,
-    "asOf": "2026-11-03"
+    "value": 529.6,
+    "asOf": "2026-11-05"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1203.8,
-    "asOf": "2026-11-03"
+    "value": 1269.8,
+    "asOf": "2026-11-05"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 442.95,
-    "asOf": "2026-11-03"
+    "value": 455.25,
+    "asOf": "2026-11-05"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 498.75,
-    "asOf": "2026-11-03"
+    "value": 503.0,
+    "asOf": "2026-11-05"
    },
    "Ashutosh Fibre (upcoming)": {
     "symbol": "ASHUTOSH",
@@ -88644,8 +88720,8 @@
    },
    "Sahajanand Medical Technologies (upcoming)": {
     "symbol": "SMT",
-    "value": 485.9,
-    "asOf": "2026-11-04"
+    "value": 487.65,
+    "asOf": "2026-11-05"
    },
    "Indo SMC": {
     "symbol": null,
@@ -118345,6 +118421,10 @@
    "EAAA India Alternatives": {
     "symbol": "EDELALTS",
     "triedOn": "2026-11-05"
+   },
+   "Bombay Coated and Special Steels": {
+    "symbol": "BCSSL",
+    "triedOn": "2026-11-05"
    }
   }
  },
@@ -125670,8 +125750,8 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1307.9,
-    "asOf": "2026-11-03"
+    "value": 1312.0,
+    "asOf": "2026-11-05"
    },
    "parentTicker": "RELIANCE",
    "sources": [
@@ -125723,8 +125803,8 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 122.47,
-    "asOf": "2026-11-03"
+    "value": 126.24,
+    "asOf": "2026-11-05"
    },
    "parentTicker": "EDELWEISS",
    "sources": [
@@ -125878,8 +125958,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 408.0,
-    "asOf": "2026-11-03"
+    "value": 394.4,
+    "asOf": "2026-11-05"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -126007,8 +126087,8 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5300.0,
-    "asOf": "2026-11-03"
+    "value": 5504.0,
+    "asOf": "2026-11-05"
    },
    "parentTicker": "HEROMOTOCO",
    "sources": [
@@ -126122,8 +126202,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 408.0,
-    "asOf": "2026-11-03"
+    "value": 394.4,
+    "asOf": "2026-11-05"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -126216,17 +126296,25 @@
     3,
     6,
     null
+   ],
+   "shareholder": [
+    0,
+    1,
+    3,
+    10,
+    40,
+    null
    ]
   },
   "segments": {
    "main": {
     "window": {
      "rule": "last 12 months",
-     "n": 135,
+     "n": 136,
      "from": "2025-11-06",
-     "to": "2026-11-04"
+     "to": "2026-11-05"
     },
-    "n": 412,
+    "n": 413,
     "bands": {
      "total": {
       "window": [
@@ -126258,12 +126346,12 @@
         "p90": 22.4
        },
        {
-        "n": 47,
-        "pos": 89.4,
-        "lo": 77.4,
-        "hi": 95.4,
-        "med": 29.0,
-        "p10": 4.0,
+        "n": 48,
+        "pos": 89.6,
+        "lo": 77.8,
+        "hi": 95.5,
+        "med": 28.1,
+        "p10": 4.6,
         "p90": 65.5
        }
       ],
@@ -126296,13 +126384,13 @@
         "p90": 31.0
        },
        {
-        "n": 158,
+        "n": 159,
         "pos": 95.6,
-        "lo": 91.1,
-        "hi": 97.8,
+        "lo": 91.2,
+        "hi": 97.9,
         "med": 33.1,
         "p10": 6.7,
-        "p90": 76.7
+        "p90": 76.6
        }
       ]
      },
@@ -126318,13 +126406,13 @@
         "p90": 2.6
        },
        {
-        "n": 50,
-        "pos": 64.0,
-        "lo": 50.1,
-        "hi": 75.9,
-        "med": 2.6,
+        "n": 51,
+        "pos": 64.7,
+        "lo": 51.0,
+        "hi": 76.4,
+        "med": 2.8,
         "p10": -3.4,
-        "p90": 10.1
+        "p90": 10.5
        },
        {
         "n": 32,
@@ -126356,11 +126444,11 @@
         "p90": 5.1
        },
        {
-        "n": 121,
-        "pos": 63.6,
-        "lo": 54.8,
-        "hi": 71.7,
-        "med": 2.5,
+        "n": 122,
+        "pos": 63.9,
+        "lo": 55.1,
+        "hi": 71.9,
+        "med": 2.6,
         "p10": -3.9,
         "p90": 10.0
        },
@@ -126405,13 +126493,13 @@
         "p90": 10.9
        },
        {
-        "n": 17,
-        "pos": 88.2,
-        "lo": 65.7,
-        "hi": 96.7,
-        "med": 15.0,
-        "p10": 1.4,
-        "p90": 26.7
+        "n": 18,
+        "pos": 88.9,
+        "lo": 67.2,
+        "hi": 96.9,
+        "med": 14.4,
+        "p10": 1.7,
+        "p90": 26.2
        },
        {
         "n": 37,
@@ -126426,7 +126514,7 @@
       "years": [
        2026
       ],
-      "n": 113
+      "n": 114
      },
      "retail": {
       "rows": [
@@ -126458,13 +126546,13 @@
         "p90": 19.9
        },
        {
-        "n": 26,
-        "pos": 88.5,
-        "lo": 71.0,
-        "hi": 96.0,
-        "med": 21.7,
-        "p10": 1.1,
-        "p90": 54.5
+        "n": 27,
+        "pos": 88.9,
+        "lo": 71.9,
+        "hi": 96.1,
+        "med": 21.4,
+        "p10": 1.3,
+        "p90": 53.0
        },
        {
         "n": 20,
@@ -126479,6 +126567,57 @@
       "years": [
        2026
       ]
+     },
+     "shareholder": {
+      "rows": [
+       {
+        "n": 0,
+        "pos": null,
+        "lo": null,
+        "hi": null,
+        "med": null,
+        "p10": null,
+        "p90": null
+       },
+       {
+        "n": 0,
+        "pos": null,
+        "lo": null,
+        "hi": null,
+        "med": null,
+        "p10": null,
+        "p90": null
+       },
+       {
+        "n": 0,
+        "pos": null,
+        "lo": null,
+        "hi": null,
+        "med": null,
+        "p10": null,
+        "p90": null
+       },
+       {
+        "n": 0,
+        "pos": null,
+        "lo": null,
+        "hi": null,
+        "med": null,
+        "p10": null,
+        "p90": null
+       },
+       {
+        "n": 0,
+        "pos": null,
+        "lo": null,
+        "hi": null,
+        "med": null,
+        "p10": null,
+        "p90": null
+       }
+      ],
+      "n": 0,
+      "years": []
      }
     },
     "hold": {
@@ -126604,18 +126743,18 @@
        "evMean": 0.76
       },
       {
-       "n": 26,
-       "pos": 88.5,
-       "lo": 71.0,
-       "hi": 96.0,
-       "med": 21.7,
-       "p10": 1.1,
-       "p90": 54.5,
+       "n": 27,
+       "pos": 88.9,
+       "lo": 71.9,
+       "hi": 96.1,
+       "med": 21.4,
+       "p10": 1.3,
+       "p90": 53.0,
        "oddsMed": 4.2,
-       "evMed": 1.08,
-       "evP10": -0.05,
-       "evP90": 1.98,
-       "evMean": 0.95
+       "evMed": 1.02,
+       "evP10": -0.04,
+       "evP90": 1.97,
+       "evMean": 0.92
       },
       {
        "n": 20,
@@ -126635,7 +126774,79 @@
      "years": [
       2026
      ],
-     "blockDays": 5
+     "blockDays": 5,
+     "shareholder": [
+      {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null,
+       "oddsMed": null,
+       "evMed": null,
+       "evP10": null,
+       "evP90": null,
+       "evMean": null
+      },
+      {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null,
+       "oddsMed": null,
+       "evMed": null,
+       "evP10": null,
+       "evP90": null,
+       "evMean": null
+      },
+      {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null,
+       "oddsMed": null,
+       "evMed": null,
+       "evP10": null,
+       "evP90": null,
+       "evMean": null
+      },
+      {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null,
+       "oddsMed": null,
+       "evMed": null,
+       "evP10": null,
+       "evP90": null,
+       "evMean": null
+      },
+      {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null,
+       "oddsMed": null,
+       "evMed": null,
+       "evP10": null,
+       "evP90": null,
+       "evMean": null
+      }
+     ]
     },
     "anchors": {
      "rows": [
@@ -126682,17 +126893,17 @@
     },
     "fit": {
      "r377": {
-      "n": 124,
-      "a": -1.77,
+      "n": 125,
+      "a": -1.75,
       "b": 1.059,
       "r2": 0.82,
-      "sd": 10.0,
-      "q10": -9.7,
-      "q90": 9.5
+      "sd": 9.9,
+      "q10": -9.6,
+      "q90": 9.4
      },
      "eve": null,
      "provisional": false,
-     "eveRows": 30,
+     "eveRows": 31,
      "r377OnSameRows": null
     },
     "byYear": {
@@ -126733,13 +126944,13 @@
       "p90": 29.4
      },
      "2026": {
-      "n": 113,
-      "pos": 69.0,
-      "lo": 60.0,
-      "hi": 76.8,
-      "med": 6.8,
-      "p10": -8.5,
-      "p90": 41.1
+      "n": 114,
+      "pos": 69.3,
+      "lo": 60.3,
+      "hi": 77.0,
+      "med": 6.9,
+      "p10": -8.4,
+      "p90": 40.9
      }
     },
     "lockin": {
@@ -127014,6 +127225,57 @@
       "years": [
        2026
       ]
+     },
+     "shareholder": {
+      "rows": [
+       {
+        "n": 0,
+        "pos": null,
+        "lo": null,
+        "hi": null,
+        "med": null,
+        "p10": null,
+        "p90": null
+       },
+       {
+        "n": 0,
+        "pos": null,
+        "lo": null,
+        "hi": null,
+        "med": null,
+        "p10": null,
+        "p90": null
+       },
+       {
+        "n": 0,
+        "pos": null,
+        "lo": null,
+        "hi": null,
+        "med": null,
+        "p10": null,
+        "p90": null
+       },
+       {
+        "n": 0,
+        "pos": null,
+        "lo": null,
+        "hi": null,
+        "med": null,
+        "p10": null,
+        "p90": null
+       },
+       {
+        "n": 0,
+        "pos": null,
+        "lo": null,
+        "hi": null,
+        "med": null,
+        "p10": null,
+        "p90": null
+       }
+      ],
+      "n": 0,
+      "years": []
      }
     },
     "hold": {
@@ -127170,7 +127432,79 @@
      "years": [
       2026
      ],
-     "blockDays": 5
+     "blockDays": 5,
+     "shareholder": [
+      {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null,
+       "oddsMed": null,
+       "evMed": null,
+       "evP10": null,
+       "evP90": null,
+       "evMean": null
+      },
+      {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null,
+       "oddsMed": null,
+       "evMed": null,
+       "evP10": null,
+       "evP90": null,
+       "evMean": null
+      },
+      {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null,
+       "oddsMed": null,
+       "evMed": null,
+       "evP10": null,
+       "evP90": null,
+       "evMean": null
+      },
+      {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null,
+       "oddsMed": null,
+       "evMed": null,
+       "evP10": null,
+       "evP90": null,
+       "evMean": null
+      },
+      {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null,
+       "oddsMed": null,
+       "evMed": null,
+       "evP10": null,
+       "evP90": null,
+       "evMean": null
+      }
+     ]
     },
     "anchors": {
      "rows": [
@@ -127642,7 +127976,7 @@
   "warnings": [
    {
     "code": "category-one-year-mainboard",
-    "text": "mainboard: QIB and retail bands, and expected value, rest on 113 listings from 2026 alone — category books are not published for earlier years."
+    "text": "mainboard: QIB and retail bands, and expected value, rest on 114 listings from 2026 alone — category books are not published for earlier years."
    },
    {
     "code": "category-one-year-SME",
@@ -128997,7 +129331,7 @@
   },
   "2375": {
    "name": "Antala Industries",
-   "fetchedAt": "2026-11-05T13:08:22+05:30",
+   "fetchedAt": "2026-11-05T13:19:13+05:30",
    "about": [
     "Antala Industries Limited is engaged in the production, processing, printing, lamination and supply of industrial and commercial packaging materials. Its product range includes BOPP bags, BOPP printing rolls, BOPP lamination rolls, PP woven bags and PP woven lamination rolls, catering to industries such as food processing, fertilizers, chemicals, cement and seeds. The Company operates an integrated manufacturing facility in Rajkot, Gujarat, equipped with extrusion, coating and lamination, rotogravure printing, stitching and finishing capabilities. The Company offers customized packaging solutions designed to provide strength, durability, moisture resistance, superior print quality and improved product presentation. Its integrated production infrastructure supports in-house operations ranging from printing and lamination to cutting, stitching, finishing and final packaging, enabling effective quality management, efficient production and timely order fulfilment. The Company holds ISO 9001:2015, ISO 14001:2015, ISO 22000:2018 and ISO 45001:2018 certifications. Its promoters bring nearly three decades of experience in the packaging industry. As of July 21, 2026, the Company employed 11 personnel across various functions, including accounts and finance, management, administration, sales, secretarial and production. Its competitive advantages include experienced promoters and management, a broad and customizable packaging portfolio, a presence across diverse industries, integrated manufacturing operations, a customer-oriented approach and well-established relationships with suppliers and customers. Strengths: Promoters and management with substantial experience in the packaging industry. Wide range of packaging products with flexibility to meet customized customer requirements. Established presence across several industrial and commercial end-use sectors. Integrated manufacturing infrastructure supporting production control and operational efficiency. Focus on product quality, customized solutions and timely delivery. Established business relationships with customers and suppliers."
    ],
@@ -131749,10 +132083,18 @@
     "of": 53,
     "names": [],
     "frozenOn": "2026-11-04"
+   },
+   "1936": {
+    "name": "Bombay Coated and Special Steels",
+    "sme": false,
+    "listedOn": "2026-11-05",
+    "large": 0,
+    "of": 53,
+    "names": [],
+    "frozenOn": "2026-11-05"
    }
   },
   "covered": [
-   "1936",
    "1965",
    "1998",
    "2241",
@@ -131939,7 +132281,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-11-05T06:44:24+05:30",
+  "asOf": "2026-11-05T13:19:34+05:30",
   "dates": [
    "2026-02-02",
    "2026-02-03",
@@ -132144,6 +132486,7 @@
   ],
   "names": {
    "M.K.Sons Fine Jewels": "MKSONS",
+   "Bombay Coated and Special Steels": "BCSSL",
    "Ajwa Projects": "AJWA",
    "Carver Roboweld": "CRL",
    "Wiscon Industries": "WISCON",
@@ -132350,7 +132693,7 @@
    "Victory Electric Vehicles": "VICTORYEV",
    "E to E Transportation Infrastructure": "E2ERAIL"
   },
-  "n": 206,
+  "n": 207,
   "bse": {
    "dates": [
     "2026-02-02",
@@ -132657,7 +133000,7 @@
  },
  "anchorBooks": {
   "asOf": "2026-11-05",
-  "n": 918,
+  "n": 919,
   "books": {
    "1782": {
     "name": "Shakti Polytarp",
@@ -194724,6 +195067,69 @@
     ],
     "complete": true,
     "fetchedOn": "2026-11-04"
+   },
+   "1936": {
+    "name": "Bombay Coated and Special Steels",
+    "sme": false,
+    "listedOn": "2026-11-05",
+    "bidDate": "2026-10-28",
+    "price": 82.0,
+    "pctQib": 59.11,
+    "locked30": 3298750.0,
+    "locked90": 3298750.0,
+    "totalShares": 6597500.0,
+    "rows": [
+     {
+      "name": "IMAP INDIA CAPITAL INVESTMENT TRUST-CATALYST NEW INDIA FUND",
+      "shares": 2439164.0,
+      "amtCr": 20.0,
+      "pctAlloc": 36.97,
+      "pctIssue": 10.93,
+      "key": "IMAP INDIA CAPITAL INVESTMENT TRUST CATALYST NEW INDIA FUND"
+     },
+     {
+      "name": "AARTH AIF GROWTH FUND",
+      "shares": 610246.0,
+      "amtCr": 5.0,
+      "pctAlloc": 9.25,
+      "pctIssue": 2.73,
+      "key": "AARTH AIF GROWTH FUND"
+     },
+     {
+      "name": "EKAMYA PRAGATI SCHEME 1",
+      "shares": 610246.0,
+      "amtCr": 5.0,
+      "pctAlloc": 9.25,
+      "pctIssue": 2.73,
+      "key": "EKAMYA PRAGATI SCHEME 1"
+     },
+     {
+      "name": "AMITSG VENTURES FUND",
+      "shares": 610246.0,
+      "amtCr": 5.0,
+      "pctAlloc": 9.25,
+      "pctIssue": 2.73,
+      "key": "AMITSG VENTURES FUND"
+     },
+     {
+      "name": "RELIGO COMMODITIES VENTURES TRUST-RELIGO COMMODITIES VENTURE FUND",
+      "shares": 610246.0,
+      "amtCr": 5.0,
+      "pctAlloc": 9.25,
+      "pctIssue": 2.73,
+      "key": "RELIGO COMMODITIES VENTURES TRUST RELIGO COMMODITIES VENTURE FUND"
+     },
+     {
+      "name": "LRSD CAPITAL PVT.LTD.",
+      "shares": 1717352.0,
+      "amtCr": 14.08,
+      "pctAlloc": 26.03,
+      "pctIssue": 7.69,
+      "key": "LRSD CAPITAL"
+     }
+    ],
+    "complete": true,
+    "fetchedOn": "2026-11-05"
    }
   },
   "none": {
@@ -195218,8 +195624,8 @@
  },
  "trackRecords": {
   "asOf": "2026-11-05",
-  "booksOn": 918,
-  "withOutcome": 918,
+  "booksOn": 919,
+  "withOutcome": 919,
   "investors": 1494,
   "minRows": 2,
   "lead": 2,
@@ -196033,16 +196439,16 @@
    {
     "key": "AARTH AIF GROWTH FUND",
     "name": "AARTH AIF GROWTH FUND",
-    "cr": 139.3,
-    "n": 53,
+    "cr": 144.3,
+    "n": 54,
     "main": {
-     "n": 5,
-     "pos": 80.0,
-     "lo": 37.6,
-     "hi": 96.4,
-     "med": 10.5,
-     "p10": 2.3,
-     "p90": 50.2,
+     "n": 6,
+     "pos": 83.3,
+     "lo": 43.6,
+     "hi": 97.0,
+     "med": 10.8,
+     "p10": 3.1,
+     "p90": 43.9,
      "close1": {
       "n": 5,
       "pos": 80.0,
@@ -196127,6 +196533,15 @@
     },
     "ipos": [
      {
+      "igId": "1936",
+      "name": "Bombay Coated and Special Steels",
+      "sme": false,
+      "date": "2026-11-05",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 10.98
+     },
+     {
       "igId": "1924",
       "name": "Sai Urja Indo",
       "sme": true,
@@ -196188,15 +196603,6 @@
       "lead": false,
       "amtCr": 2.12,
       "ret": 52.17
-     },
-     {
-      "igId": "2339",
-      "name": "Complete Sports and Management",
-      "sme": true,
-      "date": "2026-09-04",
-      "lead": false,
-      "amtCr": 2.75,
-      "ret": 2.96
      }
     ]
    },
@@ -217155,6 +217561,176 @@
     ]
    },
    {
+    "key": "IMAP INDIA CAPITAL INVESTMENT TRUST CATALYST NEW INDIA FUND",
+    "name": "IMAP INDIA CAPITAL INVESTMENT TRUST-CATALYST NEW INDIA FUND",
+    "cr": 37.8,
+    "n": 8,
+    "main": {
+     "n": 3,
+     "pos": 66.7,
+     "lo": 20.8,
+     "hi": 93.9,
+     "med": 11.0,
+     "p10": 1.5,
+     "p90": 30.9,
+     "close1": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 11.0,
+      "p10": -1.4,
+      "p90": 23.5
+     },
+     "d5": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -12.0,
+      "p10": -12.0,
+      "p90": -12.0
+     },
+     "d30": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -31.1,
+      "p10": -31.1,
+      "p90": -31.1
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 11.0,
+      "p10": 11.0,
+      "p90": 11.0
+     }
+    },
+    "sme": {
+     "n": 5,
+     "pos": 100.0,
+     "lo": 56.6,
+     "hi": 100.0,
+     "med": 13.0,
+     "p10": 6.7,
+     "p90": 14.9,
+     "close1": {
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 7.9,
+      "p10": 2.8,
+      "p90": 9.9
+     },
+     "d5": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 24.8,
+      "p10": 8.1,
+      "p90": 41.5
+     },
+     "d30": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 32.0,
+      "p10": -0.5,
+      "p90": 64.5
+     },
+     "lead": {
+      "n": 3,
+      "pos": 100.0,
+      "lo": 43.8,
+      "hi": 100.0,
+      "med": 13.2,
+      "p10": 6.3,
+      "p90": 15.4
+     }
+    },
+    "ipos": [
+     {
+      "igId": "1936",
+      "name": "Bombay Coated and Special Steels",
+      "sme": false,
+      "date": "2026-11-05",
+      "lead": true,
+      "amtCr": 20.0,
+      "ret": 10.98
+     },
+     {
+      "igId": "2282",
+      "name": "Shree TNB Polymers",
+      "sme": true,
+      "date": "2026-10-08",
+      "lead": true,
+      "amtCr": 2.0,
+      "ret": 13.21
+     },
+     {
+      "igId": "2238",
+      "name": "Sumax Engineering",
+      "sme": true,
+      "date": "2026-09-02",
+      "lead": false,
+      "amtCr": 1.02,
+      "ret": 9.9
+     },
+     {
+      "igId": "2123",
+      "name": "Ardee Industries",
+      "sme": false,
+      "date": "2026-08-12",
+      "lead": false,
+      "amtCr": 6.38,
+      "ret": 35.85
+     },
+     {
+      "igId": "2255",
+      "name": "Metalic Technoforge",
+      "sme": true,
+      "date": "2026-07-28",
+      "lead": false,
+      "amtCr": 1.12,
+      "ret": 12.99
+     },
+     {
+      "igId": "1384",
+      "name": "Shivashrit Foods",
+      "sme": true,
+      "date": "2025-09-01",
+      "lead": true,
+      "amtCr": 1.24,
+      "ret": 4.58
+     },
+     {
+      "igId": "1383",
+      "name": "ARC Insulation",
+      "sme": true,
+      "date": "2025-08-29",
+      "lead": true,
+      "amtCr": 1.0,
+      "ret": 16.0
+     },
+     {
+      "igId": "1381",
+      "name": "Mangal Electrical",
+      "sme": false,
+      "date": "2025-08-28",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": -0.89
+     }
+    ]
+   },
+   {
     "key": "INNOVATIVE VISION TRUST",
     "name": "INNOVATIVE VISION TRUST",
     "cr": 13.2,
@@ -220840,167 +221416,6 @@
     ]
    },
    {
-    "key": "IMAP INDIA CAPITAL INVESTMENT TRUST CATALYST NEW INDIA FUND",
-    "name": "IMAP INDIA CAPITAL INVESTMENT TRUST-CATALYST NEW INDIA FUND",
-    "cr": 17.8,
-    "n": 7,
-    "main": {
-     "n": 2,
-     "pos": 50.0,
-     "lo": 9.5,
-     "hi": 90.5,
-     "med": 17.5,
-     "p10": 2.8,
-     "p90": 32.2,
-     "close1": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 11.0,
-      "p10": -1.4,
-      "p90": 23.5
-     },
-     "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -12.0,
-      "p10": -12.0,
-      "p90": -12.0
-     },
-     "d30": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -31.1,
-      "p10": -31.1,
-      "p90": -31.1
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": {
-     "n": 5,
-     "pos": 100.0,
-     "lo": 56.6,
-     "hi": 100.0,
-     "med": 13.0,
-     "p10": 6.7,
-     "p90": 14.9,
-     "close1": {
-      "n": 5,
-      "pos": 80.0,
-      "lo": 37.6,
-      "hi": 96.4,
-      "med": 7.9,
-      "p10": 2.8,
-      "p90": 9.9
-     },
-     "d5": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 24.8,
-      "p10": 8.1,
-      "p90": 41.5
-     },
-     "d30": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 32.0,
-      "p10": -0.5,
-      "p90": 64.5
-     },
-     "lead": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 13.2,
-      "p10": 6.3,
-      "p90": 15.4
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2282",
-      "name": "Shree TNB Polymers",
-      "sme": true,
-      "date": "2026-10-08",
-      "lead": true,
-      "amtCr": 2.0,
-      "ret": 13.21
-     },
-     {
-      "igId": "2238",
-      "name": "Sumax Engineering",
-      "sme": true,
-      "date": "2026-09-02",
-      "lead": false,
-      "amtCr": 1.02,
-      "ret": 9.9
-     },
-     {
-      "igId": "2123",
-      "name": "Ardee Industries",
-      "sme": false,
-      "date": "2026-08-12",
-      "lead": false,
-      "amtCr": 6.38,
-      "ret": 35.85
-     },
-     {
-      "igId": "2255",
-      "name": "Metalic Technoforge",
-      "sme": true,
-      "date": "2026-07-28",
-      "lead": false,
-      "amtCr": 1.12,
-      "ret": 12.99
-     },
-     {
-      "igId": "1384",
-      "name": "Shivashrit Foods",
-      "sme": true,
-      "date": "2025-09-01",
-      "lead": true,
-      "amtCr": 1.24,
-      "ret": 4.58
-     },
-     {
-      "igId": "1383",
-      "name": "ARC Insulation",
-      "sme": true,
-      "date": "2025-08-29",
-      "lead": true,
-      "amtCr": 1.0,
-      "ret": 16.0
-     },
-     {
-      "igId": "1381",
-      "name": "Mangal Electrical",
-      "sme": false,
-      "date": "2025-08-28",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": -0.89
-     }
-    ]
-   },
-   {
     "key": "ARNESTA GLOBAL OPPORTUNITIES FUND PCC ARNESTA GLOBAL FUND 1",
     "name": "ARNESTA GLOBAL OPPORTUNITIES FUND PCC-ARNESTA GLOBAL FUND 1",
     "cr": 25.2,
@@ -221480,6 +221895,167 @@
       "lead": true,
       "amtCr": 1.6,
       "ret": 74.49
+     }
+    ]
+   },
+   {
+    "key": "RELIGO COMMODITIES VENTURES TRUST RELIGO COMMODITIES VENTURE FUND",
+    "name": "RELIGO COMMODITIES VENTURES TRUST-RELIGO COMMODITIES VENTURE FUND",
+    "cr": 15.5,
+    "n": 7,
+    "main": {
+     "n": 2,
+     "pos": 100.0,
+     "lo": 34.2,
+     "hi": 100.0,
+     "med": 29.8,
+     "p10": 14.7,
+     "p90": 44.9,
+     "close1": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 39.9,
+      "p10": 39.9,
+      "p90": 39.9
+     },
+     "d5": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": {
+     "n": 5,
+     "pos": 100.0,
+     "lo": 56.6,
+     "hi": 100.0,
+     "med": 56.1,
+     "p10": 26.0,
+     "p90": 90.0,
+     "close1": {
+      "n": 5,
+      "pos": 100.0,
+      "lo": 56.6,
+      "hi": 100.0,
+      "med": 64.0,
+      "p10": 32.3,
+      "p90": 95.1
+     },
+     "d5": {
+      "n": 5,
+      "pos": 40.0,
+      "lo": 11.8,
+      "hi": 76.9,
+      "med": -1.8,
+      "p10": -4.3,
+      "p90": 15.8
+     },
+     "d30": {
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 26.2,
+      "p10": -0.7,
+      "p90": 33.9
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "ipos": [
+     {
+      "igId": "1936",
+      "name": "Bombay Coated and Special Steels",
+      "sme": false,
+      "date": "2026-11-05",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 10.98
+     },
+     {
+      "igId": "2252",
+      "name": "Credent Connect",
+      "sme": true,
+      "date": "2026-08-20",
+      "lead": false,
+      "amtCr": 1.01,
+      "ret": 90.0
+     },
+     {
+      "igId": "1895",
+      "name": "Anawil Wire & Engineering",
+      "sme": true,
+      "date": "2026-08-10",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 22.09
+     },
+     {
+      "igId": "2215",
+      "name": "Poojaa Precision Engg.",
+      "sme": true,
+      "date": "2026-08-04",
+      "lead": false,
+      "amtCr": 1.51,
+      "ret": 56.15
+     },
+     {
+      "igId": "2003",
+      "name": "Q-Line Biotec",
+      "sme": true,
+      "date": "2026-05-29",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 31.78
+     },
+     {
+      "igId": "1575",
+      "name": "E to E Transportation Infrastructure",
+      "sme": true,
+      "date": "2026-01-02",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 90.0
+     },
+     {
+      "igId": "1125",
+      "name": "Enviro Infra Engineers",
+      "sme": false,
+      "date": "2024-11-29",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 48.65
      }
     ]
    },
@@ -224728,6 +225304,158 @@
     ]
    },
    {
+    "key": "EKAMYA PRAGATI SCHEME 1",
+    "name": "EKAMYA PRAGATI SCHEME 1",
+    "cr": 15.0,
+    "n": 6,
+    "main": {
+     "n": 2,
+     "pos": 100.0,
+     "lo": 34.2,
+     "hi": 100.0,
+     "med": 20.0,
+     "p10": 12.8,
+     "p90": 27.2,
+     "close1": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 37.6,
+      "p10": 37.6,
+      "p90": 37.6
+     },
+     "d5": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 27.6,
+      "p10": 27.6,
+      "p90": 27.6
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": {
+     "n": 4,
+     "pos": 75.0,
+     "lo": 30.1,
+     "hi": 95.4,
+     "med": 3.0,
+     "p10": 0.6,
+     "p90": 6.0,
+     "close1": {
+      "n": 4,
+      "pos": 100.0,
+      "lo": 51.0,
+      "hi": 100.0,
+      "med": 4.9,
+      "p10": 2.3,
+      "p90": 7.9
+     },
+     "d5": {
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -4.3,
+      "p10": -7.6,
+      "p90": 1.0
+     },
+     "d30": {
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -15.3,
+      "p10": -22.6,
+      "p90": -0.8
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "ipos": [
+     {
+      "igId": "1936",
+      "name": "Bombay Coated and Special Steels",
+      "sme": false,
+      "date": "2026-11-05",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 10.98
+     },
+     {
+      "igId": "2057",
+      "name": "Jindal Supreme (India)",
+      "sme": false,
+      "date": "2026-09-23",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 29.03
+     },
+     {
+      "igId": "2022",
+      "name": "Raksan Transformers",
+      "sme": true,
+      "date": "2026-09-18",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "2130",
+      "name": "Fusion Klassroom Edutech",
+      "sme": true,
+      "date": "2026-08-07",
+      "lead": false,
+      "amtCr": 2.01,
+      "ret": 6.92
+     },
+     {
+      "igId": "1870",
+      "name": "Clay Craft",
+      "sme": true,
+      "date": "2026-06-24",
+      "lead": false,
+      "amtCr": 1.01,
+      "ret": 3.94
+     },
+     {
+      "igId": "1573",
+      "name": "Bai Kakaji Polymers",
+      "sme": true,
+      "date": "2025-12-31",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 2.15
+     }
+    ]
+   },
+   {
     "key": "SAGEONE FLAGSHIP GROWTH OE FUND",
     "name": "SAGEONE-FLAGSHIP GROWTH OE FUND",
     "cr": 54.8,
@@ -226152,158 +226880,6 @@
       "lead": false,
       "amtCr": 10.01,
       "ret": 9.09
-     }
-    ]
-   },
-   {
-    "key": "RELIGO COMMODITIES VENTURES TRUST RELIGO COMMODITIES VENTURE FUND",
-    "name": "RELIGO COMMODITIES VENTURES TRUST-RELIGO COMMODITIES VENTURE FUND",
-    "cr": 10.5,
-    "n": 6,
-    "main": {
-     "n": 1,
-     "pos": 100.0,
-     "lo": 20.7,
-     "hi": 100.0,
-     "med": 48.6,
-     "p10": 48.6,
-     "p90": 48.6,
-     "close1": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 39.9,
-      "p10": 39.9,
-      "p90": 39.9
-     },
-     "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": {
-     "n": 5,
-     "pos": 100.0,
-     "lo": 56.6,
-     "hi": 100.0,
-     "med": 56.1,
-     "p10": 26.0,
-     "p90": 90.0,
-     "close1": {
-      "n": 5,
-      "pos": 100.0,
-      "lo": 56.6,
-      "hi": 100.0,
-      "med": 64.0,
-      "p10": 32.3,
-      "p90": 95.1
-     },
-     "d5": {
-      "n": 5,
-      "pos": 40.0,
-      "lo": 11.8,
-      "hi": 76.9,
-      "med": -1.8,
-      "p10": -4.3,
-      "p90": 15.8
-     },
-     "d30": {
-      "n": 5,
-      "pos": 80.0,
-      "lo": 37.6,
-      "hi": 96.4,
-      "med": 26.2,
-      "p10": -0.7,
-      "p90": 33.9
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2252",
-      "name": "Credent Connect",
-      "sme": true,
-      "date": "2026-08-20",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": 90.0
-     },
-     {
-      "igId": "1895",
-      "name": "Anawil Wire & Engineering",
-      "sme": true,
-      "date": "2026-08-10",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 22.09
-     },
-     {
-      "igId": "2215",
-      "name": "Poojaa Precision Engg.",
-      "sme": true,
-      "date": "2026-08-04",
-      "lead": false,
-      "amtCr": 1.51,
-      "ret": 56.15
-     },
-     {
-      "igId": "2003",
-      "name": "Q-Line Biotec",
-      "sme": true,
-      "date": "2026-05-29",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 31.78
-     },
-     {
-      "igId": "1575",
-      "name": "E to E Transportation Infrastructure",
-      "sme": true,
-      "date": "2026-01-02",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 90.0
-     },
-     {
-      "igId": "1125",
-      "name": "Enviro Infra Engineers",
-      "sme": false,
-      "date": "2024-11-29",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 48.65
      }
     ]
    },
@@ -232607,149 +233183,6 @@
       "lead": false,
       "amtCr": 1.01,
       "ret": 90.0
-     }
-    ]
-   },
-   {
-    "key": "EKAMYA PRAGATI SCHEME 1",
-    "name": "EKAMYA PRAGATI SCHEME 1",
-    "cr": 10.0,
-    "n": 5,
-    "main": {
-     "n": 1,
-     "pos": 100.0,
-     "lo": 20.7,
-     "hi": 100.0,
-     "med": 29.0,
-     "p10": 29.0,
-     "p90": 29.0,
-     "close1": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 37.6,
-      "p10": 37.6,
-      "p90": 37.6
-     },
-     "d5": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 27.6,
-      "p10": 27.6,
-      "p90": 27.6
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": {
-     "n": 4,
-     "pos": 75.0,
-     "lo": 30.1,
-     "hi": 95.4,
-     "med": 3.0,
-     "p10": 0.6,
-     "p90": 6.0,
-     "close1": {
-      "n": 4,
-      "pos": 100.0,
-      "lo": 51.0,
-      "hi": 100.0,
-      "med": 4.9,
-      "p10": 2.3,
-      "p90": 7.9
-     },
-     "d5": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -4.3,
-      "p10": -7.6,
-      "p90": 1.0
-     },
-     "d30": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -15.3,
-      "p10": -22.6,
-      "p90": -0.8
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2057",
-      "name": "Jindal Supreme (India)",
-      "sme": false,
-      "date": "2026-09-23",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 29.03
-     },
-     {
-      "igId": "2022",
-      "name": "Raksan Transformers",
-      "sme": true,
-      "date": "2026-09-18",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "2130",
-      "name": "Fusion Klassroom Edutech",
-      "sme": true,
-      "date": "2026-08-07",
-      "lead": false,
-      "amtCr": 2.01,
-      "ret": 6.92
-     },
-     {
-      "igId": "1870",
-      "name": "Clay Craft",
-      "sme": true,
-      "date": "2026-06-24",
-      "lead": false,
-      "amtCr": 1.01,
-      "ret": 3.94
-     },
-     {
-      "igId": "1573",
-      "name": "Bai Kakaji Polymers",
-      "sme": true,
-      "date": "2025-12-31",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 2.15
      }
     ]
    },
@@ -258277,6 +258710,131 @@
       "lead": false,
       "amtCr": 74.99,
       "ret": 31.54
+     }
+    ]
+   },
+   {
+    "key": "LRSD CAPITAL",
+    "name": "LRSD CAPITAL PVT.LTD.",
+    "cr": 36.9,
+    "n": 3,
+    "main": {
+     "n": 1,
+     "pos": 100.0,
+     "lo": 20.7,
+     "hi": 100.0,
+     "med": 11.0,
+     "p10": 11.0,
+     "p90": 11.0,
+     "close1": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "d5": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 11.0,
+      "p10": 11.0,
+      "p90": 11.0
+     }
+    },
+    "sme": {
+     "n": 2,
+     "pos": 0.0,
+     "lo": 0.0,
+     "hi": 65.8,
+     "med": -10.0,
+     "p10": -18.0,
+     "p90": -2.0,
+     "close1": {
+      "n": 2,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 65.8,
+      "med": -8.1,
+      "p10": -14.4,
+      "p90": -1.8
+     },
+     "d5": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 2,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 65.8,
+      "med": -10.0,
+      "p10": -18.0,
+      "p90": -2.0
+     }
+    },
+    "ipos": [
+     {
+      "igId": "1936",
+      "name": "Bombay Coated and Special Steels",
+      "sme": false,
+      "date": "2026-11-05",
+      "lead": true,
+      "amtCr": 14.08,
+      "ret": 10.98
+     },
+     {
+      "igId": "2356",
+      "name": "Wiscon Industries",
+      "sme": true,
+      "date": "2026-11-03",
+      "lead": true,
+      "amtCr": 20.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "2229",
+      "name": "Core4 Engineers",
+      "sme": true,
+      "date": "2026-10-30",
+      "lead": true,
+      "amtCr": 2.85,
+      "ret": -20.0
      }
     ]
    },
@@ -283916,6 +284474,78 @@
     ]
    },
    {
+    "key": "AMITSG VENTURES FUND",
+    "name": "AMITSG VENTURES FUND",
+    "cr": 10.0,
+    "n": 2,
+    "main": {
+     "n": 2,
+     "pos": 50.0,
+     "lo": 9.5,
+     "hi": 90.5,
+     "med": 5.5,
+     "p10": 1.1,
+     "p90": 9.9,
+     "close1": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -20.0,
+      "p10": -20.0,
+      "p90": -20.0
+     },
+     "d5": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -18.0,
+      "p10": -18.0,
+      "p90": -18.0
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "1936",
+      "name": "Bombay Coated and Special Steels",
+      "sme": false,
+      "date": "2026-11-05",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 10.98
+     },
+     {
+      "igId": "1667",
+      "name": "ArMee Infotech",
+      "sme": false,
+      "date": "2026-09-30",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 0.0
+     }
+    ]
+   },
+   {
     "key": "ADITYA BIRLA SUN LIFE VALUE FUND",
     "name": "ADITYA BIRLA SUN LIFE VALUE FUND",
     "cr": 30.5,
@@ -284992,78 +285622,6 @@
       "lead": true,
       "amtCr": 1.01,
       "ret": 0.0
-     }
-    ]
-   },
-   {
-    "key": "LRSD CAPITAL",
-    "name": "LRSD CAPITAL PVT.LTD.",
-    "cr": 22.9,
-    "n": 2,
-    "main": null,
-    "sme": {
-     "n": 2,
-     "pos": 0.0,
-     "lo": 0.0,
-     "hi": 65.8,
-     "med": -10.0,
-     "p10": -18.0,
-     "p90": -2.0,
-     "close1": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -8.1,
-      "p10": -14.4,
-      "p90": -1.8
-     },
-     "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -10.0,
-      "p10": -18.0,
-      "p90": -2.0
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2356",
-      "name": "Wiscon Industries",
-      "sme": true,
-      "date": "2026-11-03",
-      "lead": true,
-      "amtCr": 20.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "2229",
-      "name": "Core4 Engineers",
-      "sme": true,
-      "date": "2026-10-30",
-      "lead": true,
-      "amtCr": 2.85,
-      "ret": -20.0
      }
     ]
    }
@@ -289455,6 +290013,18 @@
     "d5": 4.6,
     "d20": null,
     "done": false
+   },
+   {
+    "client": "SUNCITY SHARE BROKER PRIVATE LIMITED",
+    "key": "SUNCITY SHARE BROKER",
+    "stock": "Vishal Nirmiti",
+    "sme": false,
+    "date": "2026-10-29",
+    "side": "net seller",
+    "netCr": -1.82,
+    "d5": 7.7,
+    "d20": null,
+    "done": false
    }
   ],
   "deals": [
@@ -291409,6 +291979,57 @@
       "netCr": 3.3
      }
     }
+   },
+   {
+    "key": "SUNCITY SHARE BROKER",
+    "name": "SUNCITY SHARE BROKER PRIVATE LIMITED",
+    "n": 2,
+    "main": {
+     "buys": {
+      "n": 1,
+      "d5": {
+       "n": 1,
+       "pos": 100.0,
+       "lo": 20.7,
+       "hi": 100.0,
+       "med": 5.8,
+       "p10": 5.8,
+       "p90": 5.8
+      },
+      "d20": {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null
+      },
+      "netCr": 1.8
+     },
+     "sells": {
+      "n": 1,
+      "d5": {
+       "n": 1,
+       "pos": 100.0,
+       "lo": 20.7,
+       "hi": 100.0,
+       "med": 7.7,
+       "p10": 7.7,
+       "p90": 7.7
+      },
+      "d20": {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null
+      },
+      "netCr": -1.8
+     }
+    }
    }
   ],
   "dealAfter": [
@@ -292704,6 +293325,15 @@
    },
    {
     "date": "2026-12-02",
+    "kind": "lockin30",
+    "name": "Bombay Coated and Special Steels",
+    "igId": "1936",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 27.05
+   },
+   {
+    "date": "2026-12-02",
     "kind": "lockin90",
     "name": "Deepa Jewellers",
     "igId": "2081",
@@ -292719,15 +293349,6 @@
     "sme": false,
     "src": "anchors",
     "amountCr": 25.0
-   },
-   {
-    "date": "2026-12-03",
-    "kind": "lockin30",
-    "name": "Bombay Coated and Special Steels",
-    "igId": "1936",
-    "sme": false,
-    "src": "anchors",
-    "amountCr": 27.05
    },
    {
     "date": "2026-12-04",
@@ -292974,41 +293595,6 @@
    }
   ],
   "issues": {
-   "1936": {
-    "name": "Bombay Coated and Special Steels",
-    "sme": false,
-    "status": "Closed",
-    "open": "2026-10-29",
-    "close": "2026-11-02",
-    "allotment": "2026-11-03",
-    "refund": "2026-11-04",
-    "listing": "2026-11-05",
-    "blocks": {
-     "retail": {
-      "amount": 14924,
-      "shares": 182,
-      "lots": 1
-     },
-     "snii": {
-      "amount": 208936,
-      "shares": 2548,
-      "lots": 14
-     },
-     "bnii": {
-      "amount": 1014832,
-      "shares": 12376,
-      "lots": 68
-     }
-    },
-    "releaseDate": "2026-11-04",
-    "releaseSrc": "refund",
-    "blockedDays": 2,
-    "fundReuse": [],
-    "lockIn30": "2026-12-03",
-    "lockIn90": "2027-02-01",
-    "retailSlots": 42930,
-    "retailSizeCr": 65.0
-   },
    "2375": {
     "name": "Antala Industries",
     "sme": true,
@@ -293265,8 +293851,9 @@
    },
    "ig607": {
     "rows": 1,
-    "matched": 1
+    "matched": 0
    }
   }
- }
+ },
+ "quotaFound": []
 }
