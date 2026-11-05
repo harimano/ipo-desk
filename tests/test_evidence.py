@@ -247,3 +247,21 @@ def test_book_moves_are_frozen_once_seen_and_survive_the_price_cap():
     assert res2.replace["trackRecords"]["bookMoves"][str(ids[0])] == {"d5": 5.0}
     A = next(r for r in res2.replace["trackRecords"]["rows"] if r["key"] == "FUND A")
     assert A["main"]["d5"]["n"] == 1 and A["main"]["d5"]["med"] == 5.0
+
+
+def test_the_shareholder_quota_book_is_banded_apart_with_its_own_n_and_said_thin():
+    from collector.modules import evidence
+    rows = [{"date": f"2026-{1 + i % 9:02d}-{1 + i % 27:02d}", "year": 2026, "sme": False, "ret": float((i * 7) % 40 - 10), "retClose": None,
+             "total": 5.0 + i, "qib": 10.0, "retail": 2.0 + i % 5, "gmp": 5.0, "gmpEve": None, "anchors": None, "anchorsOf": None,
+             "shareholder": (0.5 + i) if i < 8 else None} for i in range(40)]
+    warnings = []
+    seg = evidence.segment(rows, dt.date(2026, 11, 5), "mainboard", warnings)
+    sh = seg["bands"]["shareholder"]
+    assert sh["n"] == 8 and sh["years"] == [2026] and len(sh["rows"]) == len(evidence.EDGES["shareholder"]) - 1
+    assert sum(b["n"] for b in sh["rows"]) == 8 and all("lo" in b and "hi" in b for b in sh["rows"]), "every band carries n and its interval"
+    ev = seg["ev"]["shareholder"]
+    assert sum(b["n"] for b in ev) == 8 and any(b["oddsMed"] is not None for b in ev), "EV per shareholder-quota application, lower bound"
+    assert seg["ev"]["rows"] and sum(b["n"] for b in seg["ev"]["rows"]) == 40, "the retail EV is untouched"
+    assert any(w["code"] == "shareholder-thin-mainboard" and "8 listings" in w["text"] for w in warnings)
+    seg2 = evidence.segment([{**r, "shareholder": None} for r in rows], dt.date(2026, 11, 5), "mainboard", [])
+    assert seg2["bands"]["shareholder"]["n"] == 0 and all(b["n"] == 0 for b in seg2["bands"]["shareholder"]["rows"]), "no books: empty bands, never hidden"
