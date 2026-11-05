@@ -31,7 +31,8 @@ KNOWN_BLOCKED = {"offers": "api.bseindia.com answers 403 to GitHub's runners (CL
 # that is a known state, not a warning (30 Oct 2026: /admin had said "listings on a fallback" since the day it was built).
 # A fallback past a source NOT listed here still warns — sebi:changed on 29 Oct was transient and worth a look.
 KNOWN_SOURCES = {"angelone": "no Angel One secrets are set (CLAUDE.md known gaps); Yahoo is the working source",
-                 "bse_ann": "api.bseindia.com answers 403 to GitHub's runners (CLAUDE.md known gaps); NSE announcements carry the radar"}
+                 "bse_ann": "api.bseindia.com answers 403 to GitHub's runners (CLAUDE.md known gaps); NSE announcements carry the radar",
+                 "ipopremium": "ipopremium.in answers 403 (CLAUDE.md known gaps: leave it); investorgain and ipowatch carry GMP"}
 FALLBACK_WORDS = ("down", "blocked", "changed", "fallback")
 # The quota table is the one hand-written layer (data/research sheets, carried forward run after run). 4 Nov 2026: the
 # "Reliance Jio" row said "RHP awaited" a week after Jio Platforms listed, and nothing had looked at it since 7 Sep.
@@ -47,6 +48,17 @@ def fallback_sources(method: str) -> list[tuple[str, str]]:
         if name and state and state != "ok":
             out.append((name, state))
     return out
+
+
+def source_key(c: dict) -> tuple:
+    """What counts as a module changing source: its status, the first source in the chain, and the sources that did not
+    answer other than the by-design ones. A chain that merely ran further (5 Nov 2026: 'investorgain:ok' became
+    'investorgain:ok, ipowatch:ok, ipopremium:blocked' because the one open issue had no print on IG) is not a switch;
+    the note and the "no grey-market print" audit row already say that."""
+    method = str(c.get("method") or "")
+    first = method.split(",")[0].strip().partition(":")[0]
+    missed = tuple(x for x in fallback_sources(method) if x[0] not in KNOWN_SOURCES)
+    return (c.get("status"), first, missed)
 MAX_DOC_BYTES = 6 * 1024 * 1024          # scripts/validate.py MAX_DOC_BYTES
 LISTED_GRACE_DAYS = 1                    # collector/modules/calendar.py: a Listed row leaves the board the day after listing
 COUNT_KEYS = ("mainboard", "sme", "recent", "expected", "offers", "quota", "anchors", "listedPerf", "priceHistory",
@@ -232,7 +244,7 @@ def diff(doc: dict, prev: dict | None) -> dict:
     oldm = {c.get("area"): c for c in (prev.get("integrity") or {}).get("checks") or []}
     for c in (doc.get("integrity") or {}).get("checks") or []:
         o = oldm.get(c.get("area"))
-        if o and (o.get("method") != c.get("method") or o.get("status") != c.get("status")):
+        if o and source_key(o) != source_key(c):
             out["sourceSwitches"].append({"area": c.get("area"), "from": f"{o.get('method')} ({o.get('status')})",
                                           "to": f"{c.get('method')} ({c.get('status')})"})
     ow = {w.get("code") for w in (prev.get("evidence") or {}).get("warnings") or []}
