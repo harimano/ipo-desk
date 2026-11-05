@@ -35,7 +35,8 @@ FALLBACK_WORDS = ("down", "blocked", "changed", "fallback")
 # The quota table is the one hand-written layer (data/research sheets, carried forward run after run). 4 Nov 2026: the
 # "Reliance Jio" row said "RHP awaited" a week after Jio Platforms listed, and nothing had looked at it since 7 Sep.
 OPEN_BUCKETS = ("awaited", "drhp", "approved")
-QUOTA_STALE_DAYS = 60
+DRHP_WAIT_DAYS = 270        # observations usually follow a DRHP within months; nine with none is worth a person's look
+CHECKED_GRACE_DAYS = 2      # a row the radar stamped more than two days ago was skipped (filings runs twice a day)
 
 
 def fallback_sources(method: str) -> list[tuple[str, str]]:
@@ -176,12 +177,24 @@ def anomalies(doc: dict, logos_dir: pathlib.Path | None = None) -> list[dict]:
             hit = matcher.match_strict(q["name"])
             if hit and hit in listed:
                 add("quota row whose IPO has listed", f"{q['name']} ({hit})")
-            dates = [_date(q.get("stageDate")), _date(q.get("recordDate")), _date((q.get("needsReview") or {}).get("date"))]
-            last = max((d for d in dates if d), default=None)
-            if not last:
-                add("quota row with no dated stage", q["name"])
-            elif (today - last).days > QUOTA_STALE_DAYS:
-                add(f"quota row untouched for {QUOTA_STALE_DAYS}+ days", f"{q['name']} since {last}")
+            # SEBI's clocks, not a calendar of ours (5 Nov 2026): what the filing dates themselves say is overdue.
+            bucket, sd, lapse = q.get("bucket"), _date(q.get("stageDate")), _date(q.get("lapse"))
+            dates = [sd, _date(q.get("recordDate")), _date((q.get("needsReview") or {}).get("date"))]
+            if not any(dates):
+                add("quota row awaiting a filing" if bucket == "awaited" else "quota row claims a stage with no date", q["name"])
+            if bucket == "approved" and lapse and lapse < today:
+                add("quota row whose SEBI approval has lapsed", f"{q['name']} on {lapse}")
+            if bucket == "drhp" and sd and (today - sd).days > DRHP_WAIT_DAYS:
+                add("DRHP older than nine months with no observations", f"{q['name']} since {sd}")
+        stamped = [_date(q.get("checkedAt")) for q in quota if q.get("bucket") in OPEN_BUCKETS and _date(q.get("checkedAt"))]
+        if stamped:                                         # the stamp exists in this document: a row without a fresh one was skipped
+            newest = max(stamped)
+            for q in quota:
+                if q.get("bucket") not in OPEN_BUCKETS:
+                    continue
+                ca = _date(q.get("checkedAt"))
+                if not ca or (newest - ca).days > CHECKED_GRACE_DAYS:
+                    add("quota row the radar did not look at", f"{q['name']} (last {ca or 'never'})")
     # The board's own word against the hand-written list (filings.discover, 5 Nov 2026): each a disagreement between two
     # sources, shown with both sides, never resolved here. `quotaFound` is the collector's; this only reads it.
     by_ig = {str(r["igId"]): r for b, r in _rows(doc) if r.get("igId")}
@@ -210,7 +223,8 @@ def anomalies(doc: dict, logos_dir: pathlib.Path | None = None) -> list[dict]:
 
 BAD_CHECKS = {"opens after it closes", "closes after it lists", "still Open past its close date",
               "still Upcoming past its open date", "same name on both boards", "logo listed but file absent",
-              "quota row whose IPO has listed"}
+              "quota row whose IPO has listed", "quota row whose SEBI approval has lapsed", "quota row claims a stage with no date",
+              "quota row the radar did not look at"}
 
 
 # ---------------------------------------------------------------- diff vs the previous document
@@ -263,8 +277,11 @@ def diff(doc: dict, prev: dict | None) -> dict:
 #   task   a person's queue: research rows to read, a secret to set, a card to cap. Counted, never an alarm.
 # Every item says which it is and what the action is, so the line can be acted on without a conversation.
 KIND_ACTION = {
-    "quota row untouched for 60+ days": ("task", "read the latest filing and date the stage, or retire the row (data/research)"),
-    "quota row with no dated stage": ("task", "an expected name with no filing yet: date it when a DRHP appears, or retire it"),
+    "quota row whose SEBI approval has lapsed": ("fault", "twelve months of observations are over with no RHP on SEBI's register: mark the row lapsed or withdrawn in data/research, or date the RHP"),
+    "quota row claims a stage with no date": ("fault", "a DRHP or approved row needs its filing date: add stageDate from SEBI's register"),
+    "quota row awaiting a filing": ("task", "an expected name with no filing yet: nothing to do until a DRHP appears; retire it if nobody expects it any more"),
+    "DRHP older than nine months with no observations": ("task", "check SEBI's processing status: observations overdue, or the DRHP was withdrawn"),
+    "quota row the radar did not look at": ("fault", "filings stamps every open row it searched; one without a fresh stamp was skipped — read the module's note"),
     "quota row whose IPO has listed": ("fault", "the sheet is behind the board: move the row to done"),
     "quota row whose record shows no reservation": ("task", "read the RHP's reservation clause; fix the sheet or the record"),
     "IPO with a shareholder reservation not on the quota list": ("task", "a quota the list does not know: add the row from the RHP"),

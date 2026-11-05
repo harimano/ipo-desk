@@ -1,5 +1,5 @@
 """filings — the quota radar. Row patcher for `quota`: stage, bucket, stageDate, recordDate,
-listingDate, isNew, needsReview ONLY. It never writes quota / quotaPct / confidence / sources:
+listingDate, isNew, needsReview, lapse, checkedAt ONLY. It never writes quota / quotaPct / confidence / sources:
 those come from data/quota-reviews/ (a human reading of the reservation clause) via the assembler.
 
 What it does each run:
@@ -70,7 +70,8 @@ PARENTS_FILE = pathlib.Path(__file__).resolve().parent.parent / "sources" / "par
 
 LOOKBACK_DAYS = 3
 NEW_FOR_DAYS = 14
-ALLOWED_FIELDS = {"stage", "bucket", "stageDate", "recordDate", "listingDate", "isNew", "needsReview", "igId"}
+ALLOWED_FIELDS = {"stage", "bucket", "stageDate", "recordDate", "listingDate", "isNew", "needsReview", "igId", "lapse", "checkedAt"}
+APPROVAL_VALID_DAYS = 365   # SEBI ICDR: observations on a DRHP hold for twelve months; no RHP by then and the approval has lapsed
 FORBIDDEN_FIELDS = {"quota", "quotaPct", "confidence", "sources"}
 
 HEADLINE_RE = re.compile(
@@ -818,6 +819,30 @@ def _expire(prev: dict, patches: dict, today: dt.date) -> int:
     return moved
 
 
+def _clocks(prev: dict, patches: dict, today: dt.date) -> int:
+    """SEBI's own clocks on every open row, and a checked stamp (5 Nov 2026 — the audit had called a row 'untouched'
+    when nothing had happened, which is not neglect, and could not tell that from a row nobody looked at).
+      lapse      an approved row with no hand-written lapse gets stageDate + APPROVAL_VALID_DAYS. Never overwritten: a
+                 sheet that knows of an extension (Hero FinCorp: 30 Sep 2026) keeps its own date.
+      checkedAt  today, on every row still open after this run — the radar looked at it. The audit reads a missing
+                 stamp as 'skipped', which is a fault, and an old event date as 'waiting', which is not.
+    Returns how many rows gained a lapse date."""
+    dated = 0
+    for row in prev.get("quota") or []:
+        if not isinstance(row, dict) or not row.get("name") or row.get("bucket") in ("done", "dropped"):
+            continue
+        p = patches.setdefault(row["name"], {})
+        if (p.get("bucket") or row.get("bucket")) in ("done", "dropped"):      # moved this run
+            continue
+        p["checkedAt"] = today.isoformat()
+        if (p.get("bucket") or row.get("bucket")) == "approved" and not row.get("lapse") and not p.get("lapse"):
+            start = _d(p.get("stageDate") or row.get("stageDate"))
+            if start:
+                p["lapse"] = (start + dt.timedelta(days=APPROVAL_VALID_DAYS)).isoformat()
+                dated += 1
+    return dated
+
+
 # ---------------------------------------------------------------------------------------------
 # entry point
 # ---------------------------------------------------------------------------------------------
@@ -879,6 +904,8 @@ def run(session: Session, prev: dict, res: Result) -> Result:
         bad = set(fields) - ALLOWED_FIELDS
         if bad:
             raise RuntimeError(f"filings tried to write {sorted(bad)} on {name!r}")
+    dated = _clocks(prev, patches, today)                  # last: every open row gets its stamp, after the moves above
+    res.notes.append(f"clocks: {sum(1 for p in patches.values() if p.get('checkedAt'))} open rows stamped, {dated} given a lapse date")
     res.rows["quota"] = patches
     if sebi_rows:                      # no SEBI answer -> the names are yesterday's; candidates are still re-read
         expected, stats = build_expected(prev, sebi_rows, today)

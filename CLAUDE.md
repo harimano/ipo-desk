@@ -151,7 +151,10 @@ document as assembled so far; `prev` is yesterday's.
   sNII / bNII floors, employee / shareholder at the discount), the unblock day and days blocked, and report 607's retail allottee
   count and fund-reuse chain (mainboard only). The page's week strip and capital planner (`planner.js`) render it and compute nothing.
 - `parents` prices sheet parents AND every live quota row's `ticker` into `investors.prices[parent]` (the quota planner).
-- `filings` (quota radar) also discovers parents it does not know: NSE's market-wide `/api/corporate-announcements` (one call a
+- `filings` stamps `checkedAt` on every open quota row each run and gives an approved row without a hand-written `lapse`
+  one at stageDate + 12 months (SEBI's observations' validity); the audit judges rows by those clocks — an approval past
+  its lapse, a DRHP nine months without observations, a claimed stage with no date, a row without a fresh stamp — never by
+  "untouched for N days" (5 Nov 2026: a row with no event is waiting, not neglected). It also discovers parents it does not know: NSE's market-wide `/api/corporate-announcements` (one call a
   board, 4 days, ~3,900 rows; works from the runners, BSE's does not) → `quotaLeads[]` (a listed company on a subsidiary's offer,
   60 days). A lead from a watched parent moves its quota row (source `nse_ann`; a withdrawal only flags). A lead naming an `expected`
   row, or an `auto` row whose first word is a listed group's (≤15 share it; stoplist), gets `quotaCandidate` — a flag, never a quota;

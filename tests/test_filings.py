@@ -303,7 +303,7 @@ def test_row_with_no_news_keeps_stage(monkeypatch):
     s = FakeSession(bse={("500325", None): _bse("reliance_500325.json")},
                     sebi_post={"10": _sebi("drhp_page1.html"), "11": _sebi("rhp_page1.html")})
     res, prev = _run(s, monkeypatch=monkeypatch)
-    assert "Coal India Subsidiary" not in res.rows["quota"]
+    assert res.rows["quota"]["Coal India Subsidiary"] == {"checkedAt": TODAY.isoformat()}, "looked at, nothing to change"
     data = json.loads(json.dumps(prev))
     assemble.apply(data, res)
     coal = next(r for r in data["quota"] if r["name"] == "Coal India Subsidiary")
@@ -332,7 +332,7 @@ def test_same_evidence_not_reflagged(monkeypatch):
     s = FakeSession(bse={("500325", None): _bse("reliance_500325.json")},
                     sebi_post={"10": SourceDown("sebi", "down"), "11": SourceDown("sebi", "down")})
     res, _ = _run(s, prev=prev, monkeypatch=monkeypatch)
-    assert "Jio Platforms" not in res.rows["quota"]
+    assert res.rows["quota"]["Jio Platforms"] == {"checkedAt": TODAY.isoformat()}, "the stamp, and nothing re-flagged"
 
 
 def test_past_listing_date_moves_to_done(monkeypatch):
@@ -570,6 +570,23 @@ def test_schema_and_layout_publish_quota_leads():
     layout.check_groups()
 
 
+def test_clocks_stamp_every_open_row_and_date_an_approval_lapse_without_overwriting_the_sheet():
+    prev = {"quota": [{"name": "Fresh Approval", "bucket": "approved", "stageDate": "2026-08-01"},
+                      {"name": "Hero FinCorp", "bucket": "approved", "stageDate": "2025-05-22", "lapse": "2026-09-30"},   # the sheet knows of an extension
+                      {"name": "Undated Approval", "bucket": "approved"},
+                      {"name": "Some DRHP", "bucket": "drhp", "stageDate": "2026-09-01"},
+                      {"name": "Rumour", "bucket": "awaited"},
+                      {"name": "Old Done", "bucket": "done", "stageDate": "2026-01-01"}]}
+    patches: dict = {"Some DRHP": {"bucket": "done", "stage": "Listed"}}          # moved earlier this run: no stamp, it is leaving
+    assert filings._clocks(prev, patches, TODAY) == 1
+    assert patches["Fresh Approval"] == {"checkedAt": TODAY.isoformat(), "lapse": "2027-08-01"}
+    assert patches["Hero FinCorp"] == {"checkedAt": TODAY.isoformat()}, "a hand-written lapse is never overwritten"
+    assert patches["Undated Approval"] == {"checkedAt": TODAY.isoformat()}, "no stageDate, no clock"
+    assert patches["Rumour"] == {"checkedAt": TODAY.isoformat()}
+    assert patches["Some DRHP"] == {"bucket": "done", "stage": "Listed"} and "Old Done" not in patches
+    assert set().union(*(set(p) for p in patches.values())) <= filings.ALLOWED_FIELDS
+
+
 def test_reconcile_moves_a_quota_row_whose_ipo_is_listed_and_dates_one_on_the_board():
     prev = {"quota": [{"name": "Reliance Jio", "bucket": "approved", "stage": "SEBI approved"},       # alias -> Jio Platforms
                       {"name": "Hero FinCorp", "bucket": "approved"},
@@ -732,7 +749,7 @@ def test_run_publishes_quota_found_and_links_igid_only_when_the_board_is_there(m
     res = Result(module="filings", doc=_doc(_board("Jio Platforms", "2306", shq=JIO_REC)))
     res = filings.run(s, prev, res)
     assert res.ok
-    assert res.rows["quota"]["Jio Platforms"] == {"igId": "2306", "listingDate": "2026-11-17"}   # _reconcile dates it too
+    assert res.rows["quota"]["Jio Platforms"] == {"igId": "2306", "listingDate": "2026-11-17", "checkedAt": filings._today().isoformat()}   # _reconcile dates it too; this run is not pinned to TODAY
     found = res.replace["quotaFound"]
     assert [e["igId"] for e in found] == ["2306"], "Old Found left the board unlisted weeks ago"
     assert found[0]["quotaRow"] == "Jio Platforms" and found[0]["parentSymbol"] == "RELIANCE"

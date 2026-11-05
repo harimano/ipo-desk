@@ -136,20 +136,38 @@ def test_due_by_has_no_intraday_slots_at_weekends():
     assert assemble.due_by("gmp", dt.datetime(2026, 11, 1, 19, 0, tzinfo=assemble.IST)) == "2026-11-02T07:28:00+05:30"
 
 
-def test_a_quota_row_whose_ipo_listed_is_bad_and_an_untouched_row_warns():
-    d = doc(quota=[{"name": "Reliance Jio", "bucket": "approved", "stageDate": "2026-08-28"},      # alias -> Jio Platforms
-                   {"name": "Fresh Co", "bucket": "drhp", "stageDate": "2026-10-20"},
-                   {"name": "Old Co", "bucket": "awaited", "stageDate": "2026-06-01"},
-                   {"name": "Undated Co", "bucket": "approved"},
+def test_quota_rows_are_judged_by_sebis_clocks_and_the_radars_stamp():
+    """5 Nov 2026: no more 'untouched for 60 days' — a row with no event is waiting, not neglected. What is overdue is what
+    the filing dates say: an approval past its twelve months, a DRHP nine months without observations, a claimed stage with
+    no date; and a row the radar did not stamp was skipped."""
+    d = doc(quota=[{"name": "Reliance Jio", "bucket": "approved", "stageDate": "2026-08-28", "checkedAt": "2026-10-29"},   # alias -> Jio Platforms
+                   {"name": "Lapsed Co", "bucket": "approved", "stageDate": "2025-05-22", "lapse": "2026-09-30", "checkedAt": "2026-10-29"},
+                   {"name": "Fresh Approval", "bucket": "approved", "stageDate": "2026-10-13", "lapse": "2027-10-13", "checkedAt": "2026-10-29"},
+                   {"name": "Slow DRHP", "bucket": "drhp", "stageDate": "2025-12-01", "checkedAt": "2026-10-29"},
+                   {"name": "Fresh DRHP", "bucket": "drhp", "stageDate": "2026-10-20", "checkedAt": "2026-10-29"},
+                   {"name": "Rumour Co", "bucket": "awaited", "checkedAt": "2026-10-29"},
+                   {"name": "Undated Claim", "bucket": "approved", "checkedAt": "2026-10-29"},
+                   {"name": "Skipped Co", "bucket": "drhp", "stageDate": "2026-10-01", "checkedAt": "2026-10-20"},
+                   {"name": "Never Stamped", "bucket": "awaited", "stageDate": "2026-07-17"},
                    {"name": "Done Co Quota", "bucket": "done", "stageDate": "2026-01-01"}],
             listedPerf=[{"name": "Jio Platforms", "igId": "2306", "date": "2026-10-28"}])
     finds = {f["check"]: f for f in audit.anomalies(d)}
-    assert finds["quota row whose IPO has listed"]["rows"] == ["Reliance Jio (Jio Platforms)"]
-    assert finds["quota row whose IPO has listed"]["level"] == "bad"
-    assert finds["quota row untouched for 60+ days"]["rows"] == ["Reliance Jio since 2026-08-28", "Old Co since 2026-06-01"]
-    assert finds["quota row untouched for 60+ days"]["level"] == "warn"
-    assert finds["quota row with no dated stage"]["rows"] == ["Undated Co"]
-    assert "Fresh Co" not in str(finds) and "Done Co Quota" not in str(finds)
+    assert finds["quota row whose IPO has listed"]["rows"] == ["Reliance Jio (Jio Platforms)"] and finds["quota row whose IPO has listed"]["level"] == "bad"
+    assert finds["quota row whose SEBI approval has lapsed"]["rows"] == ["Lapsed Co on 2026-09-30"] and finds["quota row whose SEBI approval has lapsed"]["level"] == "bad"
+    assert finds["DRHP older than nine months with no observations"]["rows"] == ["Slow DRHP since 2025-12-01"] and finds["DRHP older than nine months with no observations"]["level"] == "warn"
+    assert finds["quota row awaiting a filing"]["rows"] == ["Rumour Co"] and finds["quota row awaiting a filing"]["level"] == "warn"
+    assert finds["quota row claims a stage with no date"]["rows"] == ["Undated Claim"] and finds["quota row claims a stage with no date"]["level"] == "bad"
+    assert finds["quota row the radar did not look at"]["rows"] == ["Skipped Co (last 2026-10-20)", "Never Stamped (last never)"]
+    assert finds["quota row the radar did not look at"]["level"] == "bad"
+    assert "Fresh Approval" not in str(finds) and "Fresh DRHP" not in str(finds) and "Done Co Quota" not in str(finds) and "untouched" not in str(finds)
+    kinds = {i["text"]: i["kind"] for i in audit.verdict([], audit.anomalies(d), {}, 0)["items"]}
+    assert kinds["1 row quota row awaiting a filing"] == "task" and kinds["1 row DRHP older than nine months with no observations"] == "task"
+    assert kinds["1 row quota row whose SEBI approval has lapsed"] == "fault" and kinds["2 rows quota row the radar did not look at"] == "fault"
+
+
+def test_no_stamp_anywhere_means_the_stamp_does_not_exist_yet_not_that_every_row_was_skipped():
+    d = doc(quota=[{"name": "A", "bucket": "drhp", "stageDate": "2026-10-20"}, {"name": "B", "bucket": "awaited", "stageDate": "2026-10-20"}])
+    assert "quota row the radar did not look at" not in {f["check"] for f in audit.anomalies(d)}
 
 
 def test_quota_found_disagreements_each_warn_with_both_sides():
@@ -194,12 +212,12 @@ def test_verdict_three_kinds_and_only_faults_colour_it(monkeypatch):
     d["integrity"]["checks"] = [{"area": "gmp", "method": "investorgain:ok", "status": "ok", "asOf": "x"},
                                 {"area": "listings", "method": "angelone:down, yahoo:ok", "status": "ok", "asOf": "x"}]
     mods = audit.modules(d)
-    finds = [{"check": "quota row with no dated stage", "level": "warn", "rows": ["A", "B"]},
+    finds = [{"check": "quota row awaiting a filing", "level": "warn", "rows": ["A", "B"]},
              {"check": "still Open past its close date", "level": "bad", "rows": ["Late Co"]}]
     diff = {"boards": {}, "sourceSwitches": [{"area": "offers", "from": "bse:blocked (blocked)", "to": "bse:ok (ok)"}]}
     v = audit.verdict(mods, finds, diff, 0)
     kinds = {i["text"]: i["kind"] for i in v["items"]}
-    assert kinds["listings: " + mods[1]["known"]] == "state" and kinds["2 rows quota row with no dated stage"] == "task"
+    assert kinds["listings: " + mods[1]["known"]] == "state" and kinds["2 rows quota row awaiting a filing"] == "task"
     assert kinds["1 row still Open past its close date"] == "fault" and kinds["offers switched source: bse:ok (ok)"] == "state"
     assert all(i["action"] for i in v["items"]) and v["level"] == "bad" and v["counts"] == {"fault": 1, "state": 2, "task": 1}
     v2 = audit.verdict(mods, [finds[0]], diff, 0)
