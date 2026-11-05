@@ -1,7 +1,8 @@
 """listings — owns `recent`, `priceHistory` (`listedPerf` and `comps` belong to `history`); row-patches `listingPrice`,
 `listingGainPct`, `currentPrice` into `mainboard` / `sme`.
 
-Price chain: angelone (SmartAPI daily candles) -> yahoo (yfinance .NS). One source prices every name in
+Price chain: yahoo (yfinance .NS); Angel One (SmartAPI daily candles, a personal broker login) was dropped on 5 Nov
+2026 — a platform carries no one's broker credentials, and Yahoo had priced every name since the desk was built. One source prices every name in
 a run; a partial answer from the first is not merged with the second (keeps asOf honest).
 
 What it does each run, from `prev` (never mutated):
@@ -33,7 +34,7 @@ from ..errors import SourceChanged
 from ..http import Session
 from ..names import Matcher, load_aliases
 from ..result import Result, try_chain
-from ..sources import angelone, yahoo
+from ..sources import yahoo
 
 log = logging.getLogger("collector.listings")
 
@@ -163,25 +164,6 @@ def priced_by_tape(prev: dict, name: str, today: dt.date) -> bool:
 # ---------------------------------------------------------------------------------------------
 # price fetchers: {symbol: [[date, open, close], ...]} oldest first
 # ---------------------------------------------------------------------------------------------
-def _bars_angelone(session: Session, symbols: list[str], days: int) -> dict[str, list[list]]:
-    master = angelone.instrument_master(session)
-    out: dict[str, list[list]] = {}
-    unknown = []
-    for sym in symbols:
-        if sym not in master:
-            unknown.append(sym)
-            continue
-        candles = angelone.daily_candles(sym, days, session)
-        rows = [[c[0], c[1], c[4]] for c in candles if c and c[4]]
-        if rows:
-            out[sym] = rows
-    if unknown:
-        log.info("angelone: %d symbols not in instrument master: %s", len(unknown), unknown[:5])
-    if not out:
-        raise SourceChanged("angelone", f"no candles for any of {len(symbols)} symbols")
-    return out
-
-
 def _bars_yahoo(session: Session, symbols: list[str], days: int) -> dict[str, list[list]]:
     return yahoo.daily_bars(symbols, days)
 
@@ -338,5 +320,4 @@ def run(session: Session, prev: dict, res: Result) -> Result:
             return _build(prev, res, today, bars, board, recent, lot_names, symbols, source=name)
         return go
 
-    return try_chain(res, [("angelone", via("angelone", _bars_angelone)),
-                           ("yahoo", via("yahoo", _bars_yahoo))])
+    return try_chain(res, [("yahoo", via("yahoo", _bars_yahoo))])

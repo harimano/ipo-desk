@@ -92,37 +92,3 @@ def nan_frame(tickers: list[str], n: int = 3):
         cols[(t, "Open")] = [float("nan")] * n
         cols[(t, "Close")] = [float("nan")] * n
     return pd.DataFrame(cols, index=idx)
-
-
-class FakeSmartConnect:
-    """Stands in for SmartApi.smartConnect.SmartConnect. Records calls; answers from fixtures."""
-
-    def __init__(self, api_key=None, candles=None, ltp=None, login_ok=True, raise_on=None):
-        self.api_key = api_key
-        self.candles = candles if candles is not None else fixture_json("angelone", "candles.json")
-        self.ltp_resp = ltp if ltp is not None else fixture_json("angelone", "ltp.json")
-        self.login_ok = login_ok
-        self.raise_on = raise_on or set()
-        self.calls: list[tuple] = []
-
-    def generateSession(self, clientCode, password, totp):
-        self.calls.append(("login", clientCode))
-        if "login" in self.raise_on:
-            raise RuntimeError("Couldn't parse the JSON response received from the server: 502")
-        if not self.login_ok:
-            return {"status": False, "message": "Invalid totp", "errorcode": "AB1050", "data": None}
-        return {"status": True, "data": {"jwtToken": "x", "refreshToken": "y", "feedToken": "z", "clientcode": clientCode}}
-
-    def getCandleData(self, params):
-        self.calls.append(("candles", params["symboltoken"]))
-        if "candles" in self.raise_on:
-            raise RuntimeError("Access denied because of exceeding access rate")
-        if isinstance(self.candles, dict) and "status" in self.candles:
-            return self.candles
-        return {"status": True, "data": self.candles.get(params["symboltoken"], [])}
-
-    def getMarketData(self, mode, exchangeTokens):
-        self.calls.append(("ltp", tuple(exchangeTokens.get("NSE", []))))
-        if "ltp" in self.raise_on:
-            raise RuntimeError("Couldn't parse the JSON response received from the server: 502")
-        return self.ltp_resp

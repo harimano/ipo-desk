@@ -7,7 +7,7 @@ file and is overlaid after every run. Stock names become symbols through NSE's e
 (sources/nse_symbols.py); a resolved symbol is remembered in `prices`, so the lists are fetched only when
 a new name appears. All of this is best effort: it can never cost the parent prices.
 
-Chain: angelone LTP -> yahoo last daily close. Tickers may carry a ".NS" suffix; it is stripped.
+Chain: yahoo last daily close (Angel One LTP, a personal broker login, dropped 5 Nov 2026). Tickers may carry a ".NS" suffix; it is stripped.
 """
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ from ..errors import SourceChanged, SourceError
 from ..http import Session
 from ..names import Matcher
 from ..result import Result, try_chain
-from ..sources import angelone, nse_symbols, yahoo
+from ..sources import nse_symbols, yahoo
 
 log = logging.getLogger("collector.parents")
 IST = ZoneInfo("Asia/Kolkata")
@@ -123,12 +123,6 @@ def _apply(res: Result, tickers: dict[str, str], prices: dict[str, tuple[float, 
     return as_of or None
 
 
-def _from_angelone(session: Session, tickers: dict[str, str], stocks: dict[str, str], res: Result) -> str | None:
-    ltp = angelone.ltp(sorted(set(tickers.values()) | set(stocks.values())), session)
-    when = dt.datetime.now(IST).replace(microsecond=0).isoformat()
-    return _apply(res, tickers, {sym: (v, when) for sym, v in ltp.items()}, "angelone", stocks)
-
-
 def _from_yahoo(session: Session, tickers: dict[str, str], stocks: dict[str, str], res: Result) -> str | None:
     closes = yahoo.daily_closes(sorted(set(tickers.values()) | set(stocks.values())), 7)
     prices = {sym: (rows[-1][1], rows[-1][0]) for sym, rows in closes.items() if rows}
@@ -147,5 +141,4 @@ def run(session: Session, prev: dict, res: Result) -> Result:
         log.warning("investor symbol resolution failed: %s", e)
         stocks = {}
     stocks = {**quota_parents(prev), **stocks}
-    return try_chain(res, [("angelone", lambda: _from_angelone(session, tickers, stocks, res)),
-                           ("yahoo", lambda: _from_yahoo(session, tickers, stocks, res))])
+    return try_chain(res, [("yahoo", lambda: _from_yahoo(session, tickers, stocks, res))])

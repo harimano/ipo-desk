@@ -1,17 +1,17 @@
-"""Offline tests for collector.modules.listings and the angelone / yahoo price sources."""
+"""Offline tests for collector.modules.listings and the yahoo price source (Angel One dropped 5 Nov 2026)."""
 from __future__ import annotations
 
 import copy
 import datetime as dt
 
 import pytest
-from _support import FakeSession, FakeSmartConnect, fixture_json, nan_frame, yahoo_frame
+from _support import FakeSession, fixture_json, nan_frame, yahoo_frame
 
 from collector import assemble
-from collector.errors import SourceBlocked, SourceChanged, SourceDown
+from collector.errors import SourceBlocked, SourceChanged
 from collector.modules import listings
 from collector.result import Result
-from collector.sources import angelone, yahoo
+from collector.sources import yahoo
 
 TODAY = dt.date(2026, 9, 17)
 BARS = fixture_json("yahoo", "bars.json")
@@ -49,24 +49,7 @@ def make_prev() -> dict:
 def _fixed_today(monkeypatch):
     monkeypatch.setattr(listings, "today_ist", lambda: TODAY)
     monkeypatch.setattr(yahoo.time, "sleep", lambda s: None)
-    monkeypatch.setattr(angelone.time, "sleep", lambda s: None)
-    angelone.reset()
     yield
-    angelone.reset()
-
-
-@pytest.fixture
-def no_angel(monkeypatch):
-    for k in angelone.ENV_VARS:
-        monkeypatch.delenv(k, raising=False)
-
-
-@pytest.fixture
-def angel_env(monkeypatch):
-    monkeypatch.setenv("ANGEL_API_KEY", "k")
-    monkeypatch.setenv("ANGEL_CLIENT_CODE", "C123")
-    monkeypatch.setenv("ANGEL_PIN", "0000")
-    monkeypatch.setenv("ANGEL_TOTP_SECRET", "JBSWY3DPEHPK3PXP")
 
 
 def patch_yahoo(monkeypatch, fn=None):
@@ -81,14 +64,12 @@ def run_module(prev):
 # ---------------------------------------------------------------------------------------------
 # chain behaviour
 # ---------------------------------------------------------------------------------------------
-def test_yahoo_wins_when_angelone_not_configured(no_angel, monkeypatch):
+def test_yahoo_prices_the_board(monkeypatch):
     patch_yahoo(monkeypatch)
     prev = make_prev()
     snapshot = copy.deepcopy(prev)
     res = run_module(prev)
     assert res.ok and res.source == "yahoo"
-    assert res.tried[0]["source"] == "angelone" and res.tried[0]["kind"] == "down"
-    assert "not configured" in res.tried[0]["detail"]
     assert prev == snapshot, "prev must never be mutated"
     # ownership: replace only owned keys, rows only mainboard/sme
     data = copy.deepcopy(prev)
@@ -96,7 +77,7 @@ def test_yahoo_wins_when_angelone_not_configured(no_angel, monkeypatch):
     assert set(res.replace) == {"recent", "priceHistory"}          # listedPerf / comps belong to `history`
 
 
-def test_board_row_patch_and_recent_row(no_angel, monkeypatch):
+def test_board_row_patch_and_recent_row(monkeypatch):
     patch_yahoo(monkeypatch)
     res = run_module(make_prev())
     patch = res.rows["mainboard"]["NewList Industries"]
@@ -113,7 +94,7 @@ def test_board_row_patch_and_recent_row(no_angel, monkeypatch):
     assert "Listed Today Ltd" not in names
 
 
-def test_recent_dedupe_by_name_and_cutoff(no_angel, monkeypatch):
+def test_recent_dedupe_by_name_and_cutoff(monkeypatch):
     patch_yahoo(monkeypatch)
     res = run_module(make_prev())
     recent = res.replace["recent"]
@@ -127,7 +108,7 @@ def test_recent_dedupe_by_name_and_cutoff(no_angel, monkeypatch):
 
 
 
-def test_price_history_no_duplicate_dates(no_angel, monkeypatch):
+def test_price_history_no_duplicate_dates(monkeypatch):
     patch_yahoo(monkeypatch)
     res = run_module(make_prev())
     ph = res.replace["priceHistory"]
@@ -142,13 +123,13 @@ def test_price_history_no_duplicate_dates(no_angel, monkeypatch):
     assert res2.replace["priceHistory"]["Reliance Industries"] == [["2026-09-16", 2955.9]]
 
 
-def test_both_sources_fail_keeps_previous(no_angel, monkeypatch):
+def test_both_sources_fail_keeps_previous(monkeypatch):
     patch_yahoo(monkeypatch, lambda tickers, days: (_ for _ in ()).throw(RuntimeError("boom")))
     prev = make_prev()
     snapshot = copy.deepcopy(prev)
     res = run_module(prev)
     assert not res.ok
-    assert [t["source"] for t in res.tried][:2] == ["angelone", "yahoo"]   # fail() re-records the last
+    assert [t["source"] for t in res.tried][:1] == ["yahoo"]
     assert res.error["source"] == "yahoo"
     assert prev == snapshot
     data = copy.deepcopy(prev)
@@ -156,33 +137,11 @@ def test_both_sources_fail_keeps_previous(no_angel, monkeypatch):
     assert data == snapshot, "a failed module leaves the document untouched"
 
 
-def test_angelone_wins_when_configured(angel_env, monkeypatch):
-    candles = fixture_json("angelone", "candles.json")
-    fake = FakeSmartConnect(candles=candles)
-    monkeypatch.setattr(angelone, "_connect", lambda api_key: fake)
-    monkeypatch.setattr(listings, "_bars_yahoo", lambda *a: (_ for _ in ()).throw(AssertionError("yahoo must not be called")))
-    session = FakeSession(json_={"OpenAPIScripMaster.json": fixture_json("angelone", "instrument_master.json")})
-    res = listings.run(session, make_prev(), Result(module="listings"))
-    assert res.ok and res.source == "angelone"
-    assert ("login", "C123") in fake.calls
-    assert res.rows["mainboard"]["NewList Industries"]["listingPrice"] == 160.0     # candle open on 09-10
-    assert res.rows["mainboard"]["NewList Industries"]["currentPrice"] == 180.3
-    assert res.asOf == "2026-09-16"
-    # instrument master fetched exactly once for the run
-    assert sum("OpenAPIScripMaster" in c for c in session.calls) == 1
 
 
-def test_angelone_sdk_error_falls_through_to_yahoo(angel_env, monkeypatch):
-    fake = FakeSmartConnect(raise_on={"candles"})
-    monkeypatch.setattr(angelone, "_connect", lambda api_key: fake)
-    patch_yahoo(monkeypatch)
-    session = FakeSession(json_={"OpenAPIScripMaster.json": fixture_json("angelone", "instrument_master.json")})
-    res = listings.run(session, make_prev(), Result(module="listings"))
-    assert res.ok and res.source == "yahoo"
-    assert res.tried[0]["source"] == "angelone" and res.tried[0]["kind"] in ("blocked", "down")
 
 
-def test_rows_without_symbol_are_unresolved_not_guessed(no_angel, monkeypatch):
+def test_rows_without_symbol_are_unresolved_not_guessed(monkeypatch):
     patch_yahoo(monkeypatch)
     prev = make_prev()
     del prev["mainboard"][0]["symbol"]
@@ -222,42 +181,14 @@ def test_yahoo_daily_closes_shape(monkeypatch):
     assert out["SMEONE"][-1] == ["2026-09-16", 103.2]
 
 
-def test_angelone_not_configured_raises_down_before_sdk(no_angel, monkeypatch):
-    monkeypatch.setattr(angelone, "_connect", lambda api_key: (_ for _ in ()).throw(AssertionError("SDK touched")))
-    with pytest.raises(SourceDown) as ei:
-        angelone.login()
-    assert ei.value.detail == "not configured"
-    with pytest.raises(SourceDown):
-        angelone.instrument_master(FakeSession())
 
 
-def test_angelone_instrument_master_filters_nse(angel_env):
-    session = FakeSession(json_={"OpenAPIScripMaster.json": fixture_json("angelone", "instrument_master.json")})
-    m = angelone.instrument_master(session)
-    assert m["RELIANCE"]["token"] == "2885" and m["RELIANCE"]["series"] == "EQ"     # NSE row, not the BSE one
-    assert m["SMEONE"]["series"] == "SM"
-    assert "NIFTY" not in m
 
 
-def test_angelone_instrument_master_changed_shape(angel_env):
-    session = FakeSession(json_={"OpenAPIScripMaster.json": [{"exch_seg": "BSE", "symbol": "X", "token": "1", "name": "X"}]})
-    with pytest.raises(SourceChanged):
-        angelone.instrument_master(session)
 
 
-def test_angelone_login_status_false_is_source_error(angel_env, monkeypatch):
-    monkeypatch.setattr(angelone, "_connect", lambda api_key: FakeSmartConnect(login_ok=False))
-    with pytest.raises((SourceDown, SourceBlocked)) as ei:
-        angelone.login()
-    assert "0000" not in str(ei.value) and "JBSWY3DPEHPK3PXP" not in str(ei.value)
 
 
-def test_angelone_ltp(angel_env, monkeypatch):
-    fake = FakeSmartConnect()
-    monkeypatch.setattr(angelone, "_connect", lambda api_key: fake)
-    session = FakeSession(json_={"OpenAPIScripMaster.json": fixture_json("angelone", "instrument_master.json")})
-    out = angelone.ltp(["RELIANCE", "SBIN.NS", "NOSUCH"], session)
-    assert out == {"RELIANCE": 2951.4, "SBIN": 812.75}
 
 
 def test_yahoo_one_empty_batch_keeps_the_others(monkeypatch):
@@ -277,7 +208,7 @@ def test_yahoo_every_batch_empty_still_raises_changed(monkeypatch):
         yahoo.daily_closes(["NEWLIST", "SMEONE"], 10)
 
 
-def test_row_without_symbol_borrows_the_resolved_one_and_bse_tape_rows_are_not_gaps(no_angel, monkeypatch):
+def test_row_without_symbol_borrows_the_resolved_one_and_bse_tape_rows_are_not_gaps(monkeypatch):
     """1 Oct 2026: board "ESDS Software" had no symbol while deals had resolved "ESDS Software Solution" -> ESDS;
     ten BSE-only rows priced daily by the tape's BSE leg were still reported as "cannot price"."""
     prev = make_prev()

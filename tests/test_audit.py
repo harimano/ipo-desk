@@ -43,19 +43,19 @@ def test_anomalies_name_the_rows_and_the_check():
     assert "Listed with no listing price" not in finds          # Done Co has one
 
 
-def test_a_fallback_past_a_by_design_source_is_known_and_a_known_block_is_known():
+def test_a_fallback_past_a_by_design_source_is_known_and_a_known_block_is_known(monkeypatch):
+    monkeypatch.setattr(audit, "KNOWN_SOURCES", {"angelone": "Angel One: a source down by design (test entry; the real dict is empty since 5 Nov 2026)"})
     m = {x["area"]: x for x in audit.modules(doc())}
     assert m["listings"]["level"] == "known" and "Angel One" in m["listings"]["known"]   # angelone is down by design (no secrets)
     assert m["offers"]["level"] == "warn" and not m["offers"]["known"]         # a blocked offers leg is a finding again (5 Nov 2026: BSE's legacy page answers)
     assert m["gmp"]["asOf"] is None and m["gmp"]["asOfRaw"] == "9-Oct 9:37"      # never an age from a source's own stamp
-    d = doc(); d["integrity"]["checks"][0]["method"] = "investorgain:ok, ipowatch:ok, ipopremium:blocked"
-    m = {x["area"]: x for x in audit.modules(d)}
-    assert m["gmp"]["level"] == "known" and "ipopremium" in m["gmp"]["known"]       # ipopremium 403s by design
-    d["integrity"]["checks"][0]["method"] = "investorgain:ok, ipowatch:changed, ipopremium:blocked"
-    assert {x["area"]: x for x in audit.modules(d)}["gmp"]["level"] == "warn"       # ipowatch changing is not
+    d = doc(); d["integrity"]["checks"][0]["method"] = "investorgain:ok, ipowatch:changed, angelone:down"
+    assert {x["area"]: x for x in audit.modules(d)}["gmp"]["level"] == "warn"       # a real source changing is not known
 
 
-def test_a_source_switch_is_a_failed_source_or_a_new_first_source_never_a_longer_chain():
+def test_a_source_switch_is_a_failed_source_or_a_new_first_source_never_a_longer_chain(monkeypatch):
+    monkeypatch.setattr(audit, "KNOWN_SOURCES", {"ipopremium": "a source down by design (test entry)"})
+
     def switches(old_method, new_method, status="ok"):
         prev, now = doc(), doc()
         prev["integrity"]["checks"][0]["method"], now["integrity"]["checks"][0]["method"] = old_method, new_method
@@ -187,8 +187,9 @@ def test_quota_found_counts_in_the_diff():
     assert audit.diff(new, prev)["counts"]["quotaFound"] == [0, 1]
 
 
-def test_verdict_three_kinds_and_only_faults_colour_it():
+def test_verdict_three_kinds_and_only_faults_colour_it(monkeypatch):
     """5 Nov 2026: a recovered source, a known gap and the research sheets' queue are not faults."""
+    monkeypatch.setattr(audit, "KNOWN_SOURCES", {"angelone": "a source down by design (test entry)"})
     d = doc()
     d["integrity"]["checks"] = [{"area": "gmp", "method": "investorgain:ok", "status": "ok", "asOf": "x"},
                                 {"area": "listings", "method": "angelone:down, yahoo:ok", "status": "ok", "asOf": "x"}]
