@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import datetime as dt
 import pathlib
+import re
 import sys
 
 import httpx
@@ -101,7 +102,40 @@ def main() -> int:
     with httpx.Client(http2=True, follow_redirects=True) as c:
         for label, url in SURFACES:
             show(label, get(c, url, HEADERS))
+    print("\n== 3. The legacy issues page's form: does it answer the non-IPO types (OFS, buyback, rights) to a plain POST?")
+    issues_form(ISSUES_URL)
     return 0
+
+
+ISSUES_URL = "https://beta.bseindia.com/markets/PublicIssues/IPOIssues_new.aspx?id=1&Type=p"
+FORM_TYPES = [("0", "all"), ("OFS", "ofs"), ("BuyBack", "buyback"), ("RI", "rights"), ("IPO", "ipo")]
+
+
+def issues_form(url: str) -> None:
+    """A classic ASP.NET page: GET it for __VIEWSTATE / __EVENTVALIDATION, then POST the same form back with the
+    dropdowns set, exactly as the page's own Submit button does. Status, bytes, row and type counts; bodies saved."""
+    with httpx.Client(http2=True, follow_redirects=True) as c:
+        page = get(c, url, HEADERS)
+        if isinstance(page, Exception) or page.status_code != 200:
+            show("form: GET", page); return
+        html = page.text
+        hidden = dict(re.findall(r'<input type="hidden" name="([^"]+)"[^>]*value="([^"]*)"', html))
+        print(f"{'form: hidden fields':52s} {sorted(hidden)}")
+        for status_code, status_label in (("L", "live"), ("F", "forthcoming")):
+            for value, label in FORM_TYPES:
+                data = {**hidden, "ctl00$ContentPlaceHolder1$ddlExchPlatform": "0", "ctl00$ContentPlaceHolder1$ddlIssueType": value,
+                        "ctl00$ContentPlaceHolder1$rblIssueStatus": status_code, "ctl00$ContentPlaceHolder1$ScripName": "",
+                        "ctl00$ContentPlaceHolder1$txtFromDate": "", "ctl00$ContentPlaceHolder1$txtIssuetype": "",
+                        "ctl00$ContentPlaceHolder1$btnSubmit": "Submit"}
+                try:
+                    r = c.post(url, data=data, headers={**HEADERS, "Referer": url, "Content-Type": "application/x-www-form-urlencoded"}, timeout=30)
+                except Exception as e:
+                    print(f"{'form: ' + status_label + ' / ' + label:52s} ERROR {type(e).__name__}: {e}"); continue
+                body = r.text
+                rows = len(re.findall(r"<tr", body)); types = sorted(set(re.findall(r"<td[^>]*>\s*(IPO|FPO|OFS|BuyBack|Buyback[^<]*|RI|Right[^<]*|OTB|DPI|CMN|IPP|InvITs|REITS)\s*<", body)))
+                print(f"{'form: ' + status_label + ' / ' + label:52s} {r.status_code} {len(r.content):>8d} B  tr={rows:<4d} types={types}")
+                if r.status_code == 200:
+                    OUT.mkdir(exist_ok=True); (OUT / f"beta-issues-form-{status_label}-{label}.html").write_text(body, encoding="utf8")
 
 
 if __name__ == "__main__":
