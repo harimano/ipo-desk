@@ -1,6 +1,6 @@
-"""A module on its working fallback past a source that is down BY DESIGN (no Angel One secrets; BSE's API refuses the
-runners) is a known state, shown lavender in the modules table and kept out of the verdict. A fallback past any other
-source still warns."""
+"""A module on its working fallback past a source that is down BY DESIGN (no Angel One secrets; ipopremium's 403) is a
+known state, shown lavender in the modules table and kept out of the verdict. A fallback past any other source still
+warns — since 5 Nov 2026 that includes bse_ann, which reads BSE's open announcements feed (sources/bse_ann.py)."""
 import importlib.util
 import pathlib
 
@@ -14,16 +14,16 @@ def _doc(*checks):
 
 
 def test_a_fallback_past_known_sources_is_known_not_warn():
-    mods = audit.modules(_doc(("listings", "angelone:down, yahoo:ok"), ("filings", "bse_ann:changed, nse_ann:ok")))
+    mods = audit.modules(_doc(("listings", "angelone:down, yahoo:ok"), ("gmp", "investorgain:ok, ipowatch:ok, ipopremium:blocked")))
     assert [m["level"] for m in mods] == ["known", "known"]
-    assert "Angel One" in mods[0]["known"] and "bseindia" in mods[1]["known"]
+    assert "Angel One" in mods[0]["known"] and "ipopremium" in mods[1]["known"]
     items = audit.verdict(mods, [], {}, 0)["items"]
     assert not [i for i in items if i["where"] == "modules"]
 
 
 def test_a_fallback_past_an_unknown_source_still_warns():
-    mods = audit.modules(_doc(("filings", "bse_ann:changed, sebi:changed, nse_ann:ok")))
-    assert mods[0]["level"] == "warn" and mods[0]["known"] is None
+    mods = audit.modules(_doc(("filings", "bse_ann:changed, sebi:changed, nse_ann:ok"), ("filings2", "bse_ann:changed, nse_ann:ok")))
+    assert [m["level"] for m in mods] == ["warn", "warn"] and mods[0]["known"] is None, "bse_ann is a real source again"
     items = audit.verdict(mods, [], {}, 0)["items"]
     assert items and items[0]["level"] == "warn" and "sebi:changed" in items[0]["text"]
 
