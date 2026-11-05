@@ -16,7 +16,7 @@ TOP_LEVEL = [
     "meta", "mainboard", "sme", "recent", "expected", "offers", "lot",
     "comps", "listedPerf", "evidence", "priceHistory", "flows", "news",
     "integrity", "investors", "anchors", "quota", "quotaLeads", "current", "sheets", "records", "players", "tape", "anchorBooks", "trackRecords",
-    "logos", "calendar",
+    "logos", "calendar", "quotaFound",
 ]
 
 STATUSES = {"Open", "Upcoming", "Closed", "Listed"}
@@ -28,7 +28,7 @@ SUB_CATEGORIES = ("qib", "nii", "retail", "employee", "shareholder", "total")
 OWNERS: dict[str, str] = {
     "mainboard": "calendar", "sme": "calendar", "lot": "calendar", "expected": "filings",
     "recent": "listings", "listedPerf": "history", "comps": "history", "evidence": "evidence", "priceHistory": "listings",
-    "flows": "flows", "news": "news", "quota": "filings", "quotaLeads": "filings", "integrity": "integrity", "meta": "integrity",
+    "flows": "flows", "news": "news", "quota": "filings", "quotaLeads": "filings", "quotaFound": "filings", "integrity": "integrity", "meta": "integrity",
     # carried forward from the previous latest.json, refreshed by other layers:
     "offers": "offers", "anchors": "details", "records": "details", "players": "players", "tape": "tape", "anchorBooks": "anchorbook", "trackRecords": "evidence", "logos": "logos", "calendar": "planner", "investors": "carry", "current": "research", "sheets": "research",
 }
@@ -70,7 +70,7 @@ FALLBACK_KEYS = ["meta", "mainboard", "sme", "quota", "lot"]
 
 def empty_data() -> dict:
     d: dict = {k: None for k in TOP_LEVEL}
-    for k in ("mainboard", "sme", "recent", "expected", "comps", "listedPerf", "news", "anchors", "quota", "quotaLeads"):
+    for k in ("mainboard", "sme", "recent", "expected", "comps", "listedPerf", "news", "anchors", "quota", "quotaLeads", "quotaFound"):
         d[k] = []
     for k in ("lot", "priceHistory", "current", "sheets", "records"):
         d[k] = {}

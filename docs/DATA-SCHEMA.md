@@ -47,6 +47,21 @@ expected[]: {name, window, stage, sizeCr, sizeText, note, parent, sources[], aut
   - `quotaCandidate` (filings, a FLAG, never a quota): {via: "announcement", parents[{symbol, name}], kind, text, url, date} when a listed
     company's NSE announcement about a subsidiary's offer names the row; else, on `auto` rows only, {via: "name", parents[...]} when the
     row's first word is a listed group's first word (≤15 companies share it, generic words stoplisted). "announcement" is never downgraded.
+    The announcer must be a listed symbol (checked against NSE's equity lists when they loaded; `parents[].name` is the listed name);
+    a row the SEBI registers put there carries `register` {register, kind, date, title, url} = its `lastFiling` beside the announcement
+    (the register-to-announcement join, 5 Nov 2026): two documents, both linked, neither read.
+quota[].igId (filings, 5 Nov 2026): the InvestorGain id of the row's issue once a board row matched it by the strict name tiers
+  (same name, alias, bracketed form); after that the link never depends on spelling. Never two rows on one id.
+quotaFound[] (filings, 5 Nov 2026; `pipeline` part): the board's own word on shareholder reservations, read against the quota list —
+  {igId, name, board mainboard|sme, open, listing, parentId (InvestorGain's company id)|null, parent (name)|null, parentSymbol (NSE symbol
+  when the parent's NAME resolves through the strict tiers against NSE's equity lists, else the matched quota row's hand-written ticker,
+  else null — never fuzzy), offered (shares; null when the record shows none), bidLimit (rupees)|null, discount|null, discountPct|null,
+  quotaRow (the matched quota row's name; null = NOT on the quota list: the discovery), witness{record: true|false (the record's
+  `shareholderQuota.flag`), book: true|false|null (true: `sub.shareholder` exists; false: bidding open, book has its categories, no
+  shareholder one; null before bidding opens)}, first (first seen), last (last confirmed)}. An entry exists for every board row whose
+  record shows a reservation AND for every row whose book shows a shareholder category the record does not (record false, book true).
+  Merged by igId run to run; leaves 7 days after listing, when the record's flag turns false, or a week after its row left the board
+  unlisted. A flag, never a planner row (rule 3); scripts/audit.py turns the disagreements into /admin warnings.
 quotaLeads[] (filings): NSE announcements (both boards) in which a listed company speaks about a subsidiary's / group company's offer,
   60 days, ≤40, newest first: {parentSymbol, parentName, kind drhp|udrhp|rhp|observation|withdrawn|ipo, text (≤300), url (the PDF, linked,
   never read), date, seqId, sme, watched? (parent already on the quota list; its row was moved/flagged), matched? (the expected row named)}.
