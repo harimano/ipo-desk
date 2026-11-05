@@ -48,6 +48,23 @@ def test_a_fallback_past_a_by_design_source_is_known_and_a_known_block_is_known(
     assert m["listings"]["level"] == "known" and "Angel One" in m["listings"]["known"]   # angelone is down by design (no secrets)
     assert m["offers"]["level"] == "known" and m["offers"]["known"]
     assert m["gmp"]["asOf"] is None and m["gmp"]["asOfRaw"] == "9-Oct 9:37"      # never an age from a source's own stamp
+    d = doc(); d["integrity"]["checks"][0]["method"] = "investorgain:ok, ipowatch:ok, ipopremium:blocked"
+    m = {x["area"]: x for x in audit.modules(d)}
+    assert m["gmp"]["level"] == "known" and "ipopremium" in m["gmp"]["known"]       # ipopremium 403s by design
+    d["integrity"]["checks"][0]["method"] = "investorgain:ok, ipowatch:changed, ipopremium:blocked"
+    assert {x["area"]: x for x in audit.modules(d)}["gmp"]["level"] == "warn"       # ipowatch changing is not
+
+
+def test_a_source_switch_is_a_failed_source_or_a_new_first_source_never_a_longer_chain():
+    def switches(old_method, new_method, status="ok"):
+        prev, now = doc(), doc()
+        prev["integrity"]["checks"][0]["method"], now["integrity"]["checks"][0]["method"] = old_method, new_method
+        now["integrity"]["checks"][0]["status"] = status
+        return [s["area"] for s in audit.diff(now, prev)["sourceSwitches"]]
+    assert switches("investorgain:ok", "investorgain:ok, ipowatch:ok, ipopremium:blocked") == []   # ran further, past a known 403
+    assert switches("investorgain:ok", "investorgain:ok, ipowatch:changed") == ["gmp"]            # a source that is not down by design
+    assert switches("investorgain:ok", "ipowatch:ok") == ["gmp"]                                   # a different first source
+    assert switches("investorgain:ok", "investorgain:ok", status="blocked") == ["gmp"]             # or a status change
 
 
 def test_diff_tells_a_scheduled_retirement_from_a_vanishing():
