@@ -111,8 +111,13 @@ document as assembled so far; `prev` is yesterday's.
   segment; the free feed returns only the latest FIVE — a members' limit, do not work around it).
   `details` writes `shareholderQuota` on every row it has a record for (5 Nov 2026: the record's structured reservation fields;
   `shareholder_reservation_flag` is dead — `prefer_shareholders_status` / shares offered are the signal; `{flag:false}` = checked,
-  none; None = no record yet; the parent is prose there, never parsed) and fetches an identified issue's FIRST record the run it
-  reaches the calendar (queue: open issues, then no-record rows newest first, then due refreshes; 25 calls, 150 s).
+  none; None = no record yet; `recordDate` = the record's `record_date`, the eligibility day; the parent is prose there, never parsed;
+  the reservation table and the fields must agree or `meta.unresolved` says so) and fetches an identified issue's FIRST record the
+  run it reaches the calendar (queue: open issues, then no-record rows newest first, then due refreshes; 25 calls, 150 s). InvestorGain
+  has NO id before an issue is dated (checked 5 Nov 2026: list-read, the /ipo/ page, report 394 are all dated issues), so the
+  DRHP-stage lead stays SEBI's register (`expected[]`). `history` freezes the shareholder / employee book from the board row at
+  listing into `comps`; `evidence` bands it apart (`bands.shareholder`, `ev.shareholder`); `alerts` says "Hold <parent> before
+  <record date>" for a board reservation at the record-date milestones, the parent from the quota row linked by igId, never guessed.
 - `evidence` (no network): per segment — trailing window named on screen (12 months, else last 100), all-years secondary;
   total-subscription bands primary, QIB / retail labelled with their years (2026 only); GMP fit (a, b, q10/q90) — PROVISIONAL
   because report 377's GMP is stamped on listing morning: `details` writes `gmpEve`, `history` freezes it, and at 30 rows a

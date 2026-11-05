@@ -467,7 +467,10 @@ def shareholder_quota(ipo: dict) -> dict:
     code = int(code) if code else None
     return {"flag": True, "offered": offered or None, "bidLimit": BID_LIMIT_RUPEES.get(code), "bidLimitCode": code,
             "discount": _num(g("discount_shareholder")), "discountPct": _num(g("discount_shareholder_per")),
-            "parentId": strip_tags(g("shareholder_company_id")) or None, "parent": None, "src": SOURCE_TAG}
+            "parentId": strip_tags(g("shareholder_company_id")) or None, "parent": None,
+            # the eligibility date, structured: `record_date` is set on every reservation read (Jio 2026-10-14, SBI Funds
+            # 2026-07-08, BCCL 2026-01-02 — the day before SEBI's register dates the RHP) and '' on every issue without one
+            "recordDate": _day(g("record_date")), "src": SOURCE_TAG}
 
 
 def fetch_detail(session, ig_id: str) -> dict:

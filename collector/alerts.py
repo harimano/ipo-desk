@@ -146,6 +146,35 @@ def _board(doc: dict, today: dt.date):
             yield Alert(f"list:{b['name']}:{ls}", 500, f"{b['name']} lists today{how}", here)
 
 
+def _reservations(doc: dict, today: dt.date):
+    """A board issue whose record states a shareholder reservation (details: `shareholderQuota.flag`). The action is holding
+    the parent by the record date, so while that date is ahead the line is "Hold X before D" at the record-date milestones,
+    ranked with the quota table's own record-date lines; once it has passed, or is not stated, the reservation is said once.
+    The parent comes from the quota row linked by igId (filings), else quotaFound (filings), else the record — never guessed."""
+    quota_by_id = {str(q["igId"]): q for q in _rows(doc, "quota") if q.get("igId")}
+    found = {str(f["igId"]): f for f in (doc.get("quotaFound") or []) if isinstance(f, dict) and f.get("igId")}
+    for seg in ("mainboard", "sme"):
+        for b in _rows(doc, seg):
+            q = b.get("shareholderQuota")
+            if not isinstance(q, dict) or not q.get("flag") or b.get("status") == "Listed":
+                continue
+            qr, f = quota_by_id.get(str(b.get("igId"))) or {}, found.get(str(b.get("igId"))) or {}
+            parent = qr.get("parent") or f.get("parent") or q.get("parent")
+            ticker = qr.get("ticker") or f.get("parentSymbol")
+            who = (f"{parent} ({ticker})" if ticker else parent) if parent else None
+            size = f"{int(q['offered']):,} shares" if isinstance(q.get("offered"), (int, float)) else "a reserved portion"
+            unlisted = "" if qr else " — not on the quota list"
+            rec, here = _date(q.get("recordDate")), link("board", b["name"])
+            n = (rec - today).days if rec else None
+            m = _milestone(n, RECORD_WINDOW) if rec else None
+            if rec and n is not None and n >= 0 and m is not None:
+                yield Alert(f"resv:{b['name']}:{rec}:{m}", 10 + n,
+                            f"Hold {who or 'the parent'} before {_fmt(rec)} — {b['name']} reserves {size} for its holders, record date {_in(n)}{unlisted}", here)
+            else:
+                when = f"record date {_fmt(rec)} has passed" if rec else "record date not stated"
+                yield Alert(f"resv:{b['name']}", 180, f"{b['name']} reserves {size} for {who + chr(39) + 's' if who else 'its parent' + chr(39) + 's'} holders — {when}{unlisted}", here)
+
+
 def _investors(doc: dict, today: dt.date):
     inv = doc.get("investors") or {}
     watch = {str(w).lower() for w in (inv.get("watchlist") or []) if w}
@@ -209,8 +238,8 @@ def _records(doc: dict, today: dt.date):
 
 def _all(doc: dict, today: dt.date) -> dict[str, Alert]:
     out: dict[str, Alert] = {}
-    for a in (*_quota_dates(doc, today), *_quota_stages(doc), *_board(doc, today), *_lockins(doc, today), *_records(doc, today),
-              *_investors(doc, today)):
+    for a in (*_quota_dates(doc, today), *_reservations(doc, today), *_quota_stages(doc), *_board(doc, today), *_lockins(doc, today),
+              *_records(doc, today), *_investors(doc, today)):
         out.setdefault(a.key, a)
     return out
 

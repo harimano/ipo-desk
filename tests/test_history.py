@@ -114,3 +114,23 @@ def test_report_377_is_read_in_its_november_2026_shape():
     assert {"Ajwa Projects", "Carver Roboweld", "M.K.Sons Fine Jewels", "BLS Polymers", "SFC Environmental Technologies",
             "Wiscon Industries", "EAAA India Alternatives", "Jio Platforms"} <= names
     assert max(r["date"] for r in rows) == "2026-11-04"
+
+
+def test_the_shareholder_book_is_frozen_from_the_board_at_listing_and_never_revised():
+    from collector.modules import history
+    perf = [{"name": "Jio", "igId": "1", "date": "2026-10-28", "sme": False, "issue": 1119.0, "gmp": 30, "gmpImplied": 2.7, "listing": 1200.0, "close1": 1180.0, "ltp": None, "total": 21.36},
+            {"name": "New", "igId": "2", "date": "2026-11-04", "sme": False, "issue": 100.0, "gmp": 5, "gmpImplied": 5.0, "listing": 110.0, "close1": 108.0, "ltp": None, "total": 3.0},
+            {"name": "Plain", "igId": "3", "date": "2026-11-03", "sme": True, "issue": 50.0, "gmp": 0, "gmpImplied": 0.0, "listing": 50.0, "close1": 49.0, "ltp": None, "total": 1.2}]
+    board = {"mainboard": [{"name": "Jio", "igId": "1", "sub": {"total": 21.36, "retail": 1.1, "shareholder": 9.99}},
+                           {"name": "New", "igId": "2", "sub": {"total": 3.0, "shareholder": 7.59, "employee": 2.1}}],
+             "sme": [{"name": "Plain", "igId": "3", "sub": {"total": 1.2, "retail": 1.0, "shareholder": 0}}]}
+    reserved = history.reserved_books(board)
+    assert reserved == {"1": {"shareholder": 9.99}, "2": {"shareholder": 7.59, "employee": 2.1}}, "a zero is no book; a row without one is absent"
+    cats = {"1": {"igId": "1", "qib": 40.0, "retail": 1.2}}                      # report 566: public categories only, the fresher copy
+    books = {"1": {"qib": 39.0, "shareholder": 7.59}}                            # what comps froze on an earlier run
+    _, comps = history.build(perf, cats, books, None, reserved)
+    by = {c["igId"]: c for c in comps}
+    assert (by["1"]["shareholder"], by["1"]["qib"], by["1"]["retail"]) == (7.59, 40.0, 1.2), "frozen shareholder book wins over the board; 566 wins for QIB / retail"
+    assert (by["2"]["shareholder"], by["2"]["employee"]) == (7.59, 2.1), "first sighting: taken from the board"
+    assert "shareholder" not in by["3"] and "employee" not in by["2"] or by["2"]["employee"] == 2.1
+    assert "shareholder" not in by["3"]

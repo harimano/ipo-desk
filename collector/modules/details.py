@@ -133,6 +133,24 @@ def assign_ids(rows: list[dict], listing: list[dict], aliases: dict) -> dict[str
     return out
 
 
+def reservation_disagrees(rec: dict) -> str | None:
+    """The record states the shareholder reservation twice: in fields (shareholderQuota) and in its reservation table (the sheet's
+    `reservation`, parsed as a table). They agree on every record read; the day InvestorGain renames a field, this is the line that
+    says so instead of a silent "no reservation". Returns the disagreement, or None when the two agree or the table is absent."""
+    rows = ((rec.get("sheet") or {}).get("reservation") or {}).get("rows") or []
+    if not rows:                                                   # no table on the record (or a trimmed fixture): nothing to compare
+        return None
+    sh = next((r for r in rows if r and str(r[0]).strip().lower().startswith("shareholder")), None)
+    q = rec.get("shareholderQuota") or {}
+    table = int(investorgain._num(sh[1]) or 0) if sh and len(sh) > 1 else 0
+    if bool(table) != bool(q.get("flag")):
+        return (f"reservation table says {table:,} shares for shareholders, the record's fields say "
+                f"{'a reservation' if q.get('flag') else 'none'} (prefer_shareholders_status / shares_offered_shareholders)")
+    if table and q.get("offered") and table != q["offered"]:
+        return f"reservation table says {table:,} shares for shareholders, the record's fields say {q['offered']:,}"
+    return None
+
+
 def row_patch(row: dict, rec: dict, today: dt.date, now: dt.datetime, gmp_before=None) -> dict:
     """Fields for one board row. A value is written only when the record has one; nothing is ever blanked."""
     p: dict = {"igId": rec["igId"], "igFetchedAt": now.replace(microsecond=0).isoformat()}
@@ -273,6 +291,9 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None,
             failed.append(row["name"])
             continue
         patches.setdefault(key, {})[row["name"]] = row_patch(row, rec, t, now, was.get(row["name"], row.get("gmp")))
+        if (why := reservation_disagrees(rec)):
+            log.warning("details %s: %s", row["name"], why)
+            res.unresolved.append(f"{row['name']}: {why} — read the record before trusting shareholderQuota")
         booked += upsert_anchor(anchors, on_file, row["name"], rec)
         if rec["igId"] not in records and _status(row, t) != "Open":
             first += 1                                             # an upcoming issue's first look, ahead of its opening

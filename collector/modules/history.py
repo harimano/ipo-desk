@@ -37,7 +37,26 @@ def _pct(a, b) -> float | None:
     return round(100 * (a - b) / b, 2) if a is not None and b else None
 
 
-def build(perf: list[dict], cats: dict[str, dict], books: dict[str, dict], eve: dict[str, dict] | None = None) -> tuple[list[dict], list[dict]]:
+CATS = ("qib", "nii", "retail", "snii", "bnii", "shareholder", "employee")
+
+
+def reserved_books(doc: dict) -> dict[str, dict]:
+    """igId -> the reserved-category books (shareholder / employee, times subscribed) from the board rows' final `sub`. Report 566
+    has no such column and a listed issue's record hides its categories, so the board row at listing is the only copy: `build`
+    freezes it into comps (an older comps value wins, so a book is never revised after the row leaves the board)."""
+    out: dict[str, dict] = {}
+    for key in ("mainboard", "sme"):
+        for r in doc.get(key) or []:
+            sub = r.get("sub") if isinstance(r, dict) else None
+            if r.get("igId") and isinstance(sub, dict):
+                got = {k: sub[k] for k in ("shareholder", "employee") if isinstance(sub.get(k), (int, float)) and sub[k] > 0}
+                if got:
+                    out[str(r["igId"])] = got
+    return out
+
+
+def build(perf: list[dict], cats: dict[str, dict], books: dict[str, dict], eve: dict[str, dict] | None = None,
+          reserved: dict[str, dict] | None = None) -> tuple[list[dict], list[dict]]:
     perf = sorted({p["igId"]: p for p in perf}.values(), key=lambda p: (p["date"], p["igId"]), reverse=True)
     listed = [{k: p.get(k) for k in ("name", "igId", "date", "sme", "issue", "gmp", "gmpImplied", "listing", "close1", "ltp", "bseCode")} for p in perf]
     for row in listed:                                  # the desk's own evening-before GMP: set once, never revised
@@ -48,8 +67,10 @@ def build(perf: list[dict], cats: dict[str, dict], books: dict[str, dict], eve: 
     for p in perf:
         c = {"name": p["name"], "igId": p["igId"], "year": int(p["date"][:4]), "sme": p["sme"], "total": p.get("total"),
              "ret": _pct(p["listing"], p["issue"]), "retClose": _pct(p.get("close1"), p["issue"])}
-        book = cats.get(p["igId"]) or books.get(p["igId"]) or {}
-        for k in ("qib", "nii", "retail", "snii", "bnii"):
+        # the board's reserved books, then what comps already froze (wins), then report 566 for the public categories (wins)
+        book = {**(reserved or {}).get(p["igId"], {}), **(books.get(p["igId"]) or {}),
+                **{k: v for k, v in (cats.get(p["igId"]) or {}).items() if v is not None}}
+        for k in CATS:
             if book.get(k) is not None:
                 c[k] = book[k]
         comps.append(c)
@@ -110,13 +131,16 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
 
     # a finished year's category book cannot be fetched again (report 566 is this year only; older per-IPO records
     # keep just the total — checked 19 Sep 2026), so what is on file for those issues is kept
-    books = {i: {k: c.get(k) for k in ("qib", "nii", "retail", "snii", "bnii")} for i, c in old_by.items() if c.get("qib") is not None}
+    books = {i: {k: c[k] for k in CATS if c.get(k) is not None} for i, c in old_by.items()
+             if c.get("qib") is not None or c.get("shareholder") is not None or c.get("employee") is not None}
     eve = {r["igId"]: r for k in ("mainboard", "sme") for r in ((res.doc or prev).get(k) or [])
            if isinstance(r, dict) and r.get("igId") and r.get("gmpEve") is not None and r.get("gmpEveAsOf")}
     eve.update({p["igId"]: p for p in old_perf if p.get("gmpEve") is not None and p.get("gmpEveAsOf")})     # frozen wins
-    listed, comps = build(perf, cats, books, eve)
+    reserved = reserved_books(res.doc or prev)
+    listed, comps = build(perf, cats, books, eve, reserved)
     res.replace["listedPerf"], res.replace["comps"] = listed, comps
     main = [c for c in comps if not c["sme"]]
     res.notes.append(f"{len(listed)} listings since {FIRST_YEAR} ({len(listed) - len(main)} SME); fetched {', '.join(fetched)}; "
-                     f"QIB on file for {sum(1 for c in main if c.get('qib') is not None)} of {len(main)} mainboard issues")
+                     f"QIB on file for {sum(1 for c in main if c.get('qib') is not None)} of {len(main)} mainboard issues; "
+                     f"shareholder-quota books frozen for {sum(1 for c in comps if c.get('shareholder') is not None)}")
     return res.won("investorgain", t.isoformat())

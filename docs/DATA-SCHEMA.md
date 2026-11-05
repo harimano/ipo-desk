@@ -19,14 +19,19 @@ mainboard[] / sme[]: {name, slug, type "Mainboard"|"NSE SME"|"BSE SME", status, 
             {flag: true, offered (shares; null when the status is set but no count is), bidLimit (rupees, from the record's limit
             code via BID_LIMIT_RUPEES; null for an unknown code), bidLimitCode (the raw code), discount (rupees)|null, discountPct|null,
             parentId (InvestorGain's `shareholder_company_id`, blank on every record read so far)|null, parent (null: the record
-            names the parent only in prose, never parsed), src "ig", at},
+            names the parent only in prose, never parsed), recordDate (the eligibility date, the record's `record_date`; set on every
+            reservation read, the day before SEBI's register dates the RHP), src "ig", at},
           listingPrice, listingGainPct, currentPrice, sources[]}
           - a Listed row stays on the board only on its listing day, then moves to recent[].
 recent[]: {name, type, listingDate, issuePrice, listingPrice, gainPct, closeDay1, closeDay1GainPct, sources[]}  - last ~4 weeks
 listedPerf[]: {name, issue, gmpImplied, listing}  - rolling ~40 mainboard listings, newest first. Prepend each new listing.
 comps[]: {name, qib, ret}  - listed issues: final QIB subscription vs listing-day return %. Append each listing that had a QIB print.
+  Since 5 Nov 2026 a row may carry shareholder / employee (times subscribed): the reserved-category book, frozen by `history` from the
+  board row's final `sub` at listing (report 566 has no such column, a listed issue's record hides it) and never revised.
 evidence: {asOf, rfAnnual, minN, edges{total,qib,retail,gmp}, segments{main,sme}, warnings[{code,text}]}  - owned by the `evidence` module; the page quotes it.
-  segment: {n, window{rule,from,to,n}, byYear, bands{total{window,all}, gmp{window,all}, qib{rows,years}, retail{rows,years}}, ev{rows,years,blockDays}, fit{r377, eve, r377OnSameRows?, provisional, eveRows}}
+  segment: {n, window{rule,from,to,n}, byYear, bands{total{window,all}, gmp{window,all}, qib{rows,years}, retail{rows,years},
+           shareholder{rows,n,years} (the shareholder-quota book, comps.shareholder; thin and said so)}, ev{rows,years,blockDays,
+           shareholder[] (EV per shareholder-quota application, same lower-bound rule)}, fit{r377, eve, r377OnSameRows?, provisional, eveRows}}
   band: {n, pos, lo, hi, med, p10, p90} (pos/lo/hi in %, Wilson 95%); ev row adds {oddsMed, evMed, evP10, evP90, evMean}; fit: {n, a, b, r2, sd, q10, q90}. A null edge is an open end.
 listedPerf[] rows may carry gmpEve, gmpEveAsOf: the desk's own last GMP stamped before listing day, frozen once.
 anchors[]: {name, anchor, date, amountCr, issueSizeCr, count, topTierShare, investors[{name, cat, amountCr, pct}], sources[], note}

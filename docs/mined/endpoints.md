@@ -220,3 +220,11 @@ Fixture: `ipo-detail-2306-JIO-shareholder.json` (120 chars a field, like 2305 / 
 - `company_list_id` ('175' on Jio, '57' SBI Funds, '3014' BCCL, '' EAAA) is unrelated to the parent; `cor_id` is the site's own
   company row. `list-read` rows carry no reservation field at all, so a reservation is known only after the record is fetched — which is
   why `details` now fetches an identified issue's first record the run it reaches the calendar.
+- **`record_date` is the eligibility date, structured** (missed on the first pass): '2026-10-14' on Jio, '2026-07-08' on SBI Funds,
+  '2026-01-02' on BCCL — each the day before SEBI's RHP register dates the issue's prospectus (Jio: 15 Oct 2026) — and '' on every
+  issue without a reservation (13 read). It is `shareholderQuota.recordDate`; no SEBI join is needed for it.
+- **No DRHP-stage ids exist on InvestorGain** (5 Nov 2026): `list-read` (current + upcoming, all dated), the `/ipo/` page's links and
+  report 394 "current IPO" (310 rows, every one with an opening date; `Status` is a badge, `~IPO_Category` IPO / SME) all name issues
+  only once they are dated. 335 is buybacks, 332 empty, 334 a by-year count. So a reservation can be read from the record about a week
+  before the issue opens — AFTER its record date on every example — and the lead that matters (hold the parent before the RHP) can
+  only come from the DRHP: SEBI's register (`expected[]`) and the parent's NSE announcement (`quotaLeads`), which `filings` reads.

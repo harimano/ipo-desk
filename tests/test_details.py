@@ -237,7 +237,7 @@ def test_the_reservation_is_read_from_the_shares_and_status_never_from_the_dead_
     q = ig.normalise_detail(JIO)["shareholderQuota"]
     assert JIO["ipoData"][0]["shareholder_reservation_flag"] == 0, "the fixture is Jio as served: the flag reads 0 on a real reservation"
     assert q == {"flag": True, "offered": 22341376, "bidLimit": 200_000, "bidLimitCode": 1, "discount": None, "discountPct": None,
-                 "parentId": None, "parent": None, "src": "ig"}
+                 "parentId": None, "parent": None, "recordDate": "2026-10-14", "src": "ig"}, "record_date is the eligibility date, structured"
     assert ig.normalise_detail(JINDAL)["shareholderQuota"] == {"flag": False, "src": "ig"}, "no reservation: an answer, not None"
     assert ig.normalise_detail(RECORDS["2305"])["shareholderQuota"] == {"flag": False, "src": "ig"}, "NSE: an employee reservation only"
     eaaa = {**JIO["ipoData"][0], "shareholder_reservation_flag": 1, "shares_offered_shareholders": 0, "prefer_shareholder_shares": 0,
@@ -265,7 +265,7 @@ def test_every_row_with_a_record_carries_shareholder_quota_and_the_row_without_o
     rows = {r["name"]: r for r in data["mainboard"]}
     assert rows["Jio Platforms"]["shareholderQuota"] == {"flag": True, "offered": 22341376, "bidLimit": 200_000, "bidLimitCode": 1,
                                                          "discount": None, "discountPct": None, "parentId": None, "parent": None,
-                                                         "src": "ig", "at": "2026-10-27"}
+                                                         "recordDate": "2026-10-14", "src": "ig", "at": "2026-10-27"}
     assert rows[NSE]["shareholderQuota"] == {"flag": False, "src": "ig", "at": "2026-10-27"}, "checked, none"
     assert "shareholderQuota" not in rows["Kanohar Electricals"], "settled (listed 16 Sep): no record read this run, nothing written"
     assert rows["Jio Platforms"]["name"] == "Jio Platforms", "a row's name is a key: never rewritten from the record"
@@ -312,3 +312,25 @@ def test_the_cap_falls_on_the_refreshes_never_on_the_open_book_or_a_first_record
     res = run(s, doc)
     assert [c for c in s.calls if c.startswith("detail:")] == ["detail:13", "detail:12"]
     assert "1 left for the next run (cap 2)" in res.notes
+
+
+def test_the_reservation_table_and_the_fields_must_agree_or_the_run_says_so():
+    rec = ig.normalise_detail(JIO)
+    assert details.reservation_disagrees(rec) is None, "the trimmed fixture has no table: nothing to compare"
+    rec["sheet"]["reservation"] = {"head": ["Investor Category", "Shares"], "rows": [["Retail", "8,50,37,327"], ["Shareholders", "2,23,41,376"]]}
+    assert details.reservation_disagrees(rec) is None, "Jio as served: 2,23,41,376 in the table and in the fields"
+    rec["sheet"]["reservation"]["rows"][1][1] = "2,00,00,000"
+    assert "20,000,000 shares" in details.reservation_disagrees(rec) and "22,341,376" in details.reservation_disagrees(rec)
+    rec["shareholderQuota"] = {"flag": False, "src": "ig"}
+    assert "fields say none" in details.reservation_disagrees(rec), "a renamed field would read as no reservation: the table catches it"
+    rec["sheet"]["reservation"]["rows"].pop()
+    assert details.reservation_disagrees(rec) is None, "no Shareholders row and no flag: agreement"
+    # and through the run: the disagreement lands in meta.unresolved, the row is still patched
+    doc = prev()
+    doc["mainboard"].append({"name": "Jio Platforms", "igId": "2306", "type": "Mainboard", "status": "Open", "open": "2026-10-21", "close": "2026-10-23"})
+    bad = copy.deepcopy(JIO)
+    bad["ipoData"][0]["prefer_shareholders_status"], bad["ipoData"][0]["shares_offered_shareholders"], bad["ipoData"][0]["prefer_shareholder_shares"] = 0, 0, 0
+    bad["ipoData"][0]["ipo_reservation_desc"] = "<table><tr><th>Investor Category</th><th>Shares</th></tr><tr><td>Shareholders</td><td>2,23,41,376</td></tr></table>"
+    res = run(FakeSession(records={**RECORDS, "2306": bad}), doc, today=dt.date(2026, 10, 22), now=dt.datetime(2026, 10, 22, 6, 45, tzinfo=details.IST))
+    assert res.ok and res.rows["mainboard"]["Jio Platforms"]["shareholderQuota"]["flag"] is False
+    assert any(u.startswith("Jio Platforms: reservation table says 22,341,376") for u in res.unresolved), res.unresolved
