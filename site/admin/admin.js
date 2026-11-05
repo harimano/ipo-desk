@@ -60,25 +60,45 @@ function liveExpectation(asOf) {
   return age > 20 ? ["bad", "the five-minute loop has not written for " + Math.round(age) + " min"] : age > 9 ? ["warn", "loop late"] : ["ok", "writing every five minutes"];
 }
 
-/* ---------- the verdict line: the audit's items first; runs, the live loop and the smoke test add theirs ---------- */
-const ORDER = { bad: 0, warn: 1, ok: 2, nt: 3 };     // nt: a note in the list that never colours the verdict
+/* ---------- the verdict: three kinds of signal, never one list (scripts/audit.py `verdict`; 5 Nov 2026) ----------
+   fault — wrong in code or config, someone must act: the ONLY kind that colours the box and counts in its title.
+   state — worth knowing, nothing to do (a source chain changed, a gap known by design): the States card.
+   task  — a person's queue (research rows, a secret, a card to cap): the "For a person" card.
+   The audit's items come with a kind; the page's own findings (runs, the live loop, the smoke test) say theirs here.   */
+const ORDER = { bad: 0, warn: 1, ok: 2 };
+const SIG = { fault: [], state: [], task: [] };
 function setTitle() {
-  const n = $("#vList").querySelectorAll("li:not(.nt)").length, l = $("#verdict").className;
-  $("#vTitle").textContent = l === "ok" ? "Nothing needs you." : l === "bad" ? (n > 1 ? `${n} things need a look.` : "One thing needs a look.") : (n > 1 ? `${n} things are worth a look.` : "One thing is worth a look.");
+  const n = SIG.fault.length, l = $("#verdict").className;
+  $("#vTitle").textContent = l === "bad" ? (n > 1 ? `${n} things are broken.` : "One thing is broken.")
+    : n ? (n > 1 ? `${n} things are worth a look.` : "One thing is worth a look.") : "Nothing is broken.";
+  const parts = [];
+  if (SIG.state.length) parts.push(`${SIG.state.length} state${SIG.state.length === 1 ? "" : "s"} to know about`);
+  if (SIG.task.length) parts.push(`${SIG.task.length} thing${SIG.task.length === 1 ? "" : "s"} for a person`);
+  $("#vKinds").textContent = parts.join(" · ");
 }
-function addVerdict(level, text, where) {
-  const vb = $("#verdict");
-  if (ORDER[level] < (ORDER[vb.className] ?? 9)) vb.className = level;
-  $("#vList").insertAdjacentHTML("beforeend", `<li class="${level === "nt" ? "nt" : ""}">${pill(level, level === "nt" ? "note" : level)} ${esc(text)} <a href="#${esc(where)}" class="mu">→ ${esc(where)}</a></li>`);
+const sigPill = i => i.kind === "task" ? pill("nt", "task") : i.level === "known" ? pill("known", "known") : pill("nt", "changed");   // never the alarm colours
+const sigRow = i => `<tr>${td(sigPill(i), "fit")}${td(esc(i.text), "w")}${td(`<span class="mu">${esc(i.action || "")}</span>`, "w")}${td(`<a href="#${esc(i.where)}" class="mu">→ ${esc(i.where)}</a>`, "fit")}</tr>`;
+function paintSignals() {
+  $("#vList").innerHTML = SIG.fault.map(i => `<li>${pill(i.level, i.level)} ${esc(i.text)} <span class="mu">— ${esc(i.action || "")}</span> <a href="#${esc(i.where)}" class="mu">→ ${esc(i.where)}</a></li>`).join("");
+  $("#states").innerHTML = SIG.state.length ? table(["|fit", "what", "and so", "|fit"], SIG.state.map(sigRow)) : empty("Nothing changed and no gap is known.");
+  $("#tasks").innerHTML = SIG.task.length ? table(["|fit", "what", "to do", "|fit"], SIG.task.map(sigRow)) : empty("The queue is empty.");
+  $("#statesSum").textContent = SIG.state.length ? `${SIG.state.length} · nothing to do` : "changed or known by design · nothing to do";
+  $("#tasksSum").textContent = SIG.task.length ? `${SIG.task.length} · counted, never an alarm` : "research rows, secrets, cards · counted, never an alarm";
   setTitle();
+}
+function addVerdict(level, text, where, kind, action) {
+  kind = kind || "fault";
+  if (kind === "fault" && ORDER[level] < (ORDER[$("#verdict").className] ?? 9)) $("#verdict").className = level;
+  SIG[kind].push({ level, text, where, kind, action });
+  paintSignals();
 }
 
 /* ---------- the audit (scripts/audit.py): verdict, modules, diff, audit ---------- */
 function renderAudit(a) {
   const v = a.verdict || { level: "ok", items: [] };
   $("#verdict").className = v.level;
-  $("#vList").innerHTML = v.items.map(i => `<li>${pill(i.level, i.level)} ${esc(i.text)} <a href="#${esc(i.where)}" class="mu">→ ${esc(i.where)}</a></li>`).join("");
-  setTitle();
+  for (const i of v.items) SIG[i.kind || (i.level === "bad" ? "fault" : "task")].push(i);     // an older audit.json has no kind
+  paintSignals();
   const b = a.doc.boards || {}, cnt = s => Object.entries(b[s] || {}).map(([k, n]) => `${n} ${k.toLowerCase()}`).join(", ");
   $("#vSub").textContent = `Document ${a.doc.label || a.doc.asOf} · mainboard ${cnt("mainboard") || "empty"} · SME ${cnt("sme") || "empty"} · ${(a.doc.bytesCompact / 1048576).toFixed(2)} MB of ${(a.doc.capBytes / 1048576).toFixed(0)} MB cap at boot${a.doc.bytesLazy ? ` + ${(a.doc.bytesLazy / 1048576).toFixed(2)} MB on demand` : ""} · audit built ${fmtIST(a.generated)} IST`;
 
@@ -145,10 +165,10 @@ function judgeRuns(runs) {
   const latest = {}; done.forEach(r => { if (!(r.name in latest)) latest[r.name] = r; });
   const failed = done.filter(r => r.conclusion !== "success");
   const live = failed.filter(r => latest[r.name] === r), past = failed.filter(r => latest[r.name] !== r);
-  if (live.length) addVerdict("bad", `${live.map(r => r.name).join(", ")}: the latest run failed`, "runs");
-  if (past.length) addVerdict("nt", `${past.length} run${past.length > 1 ? "s" : ""} failed and recovered in the last ${runs.length} (${[...new Set(past.map(r => r.name))].join(", ")})`, "runs");
+  if (live.length) addVerdict("bad", `${live.map(r => r.name).join(", ")}: the latest run failed`, "runs", "fault", "open the run; read its Install and import lines first");
+  if (past.length) addVerdict("ok", `${past.length} run${past.length > 1 ? "s" : ""} failed and recovered in the last ${runs.length} (${[...new Set(past.map(r => r.name))].join(", ")})`, "runs", "state", "a later run passed; read the failed one only if it repeats");
   const crons = runs.filter(r => r.name === "collect" && r.event === "schedule").length, disp = runs.filter(r => r.name === "collect" && r.event === "workflow_dispatch").length;
-  if (crons > disp) addVerdict("warn", `the trigger Worker dispatched only ${disp} of the last ${crons + disp} collects — GitHub's cron carried the rest`, "runs");
+  if (crons > disp) addVerdict("warn", `the trigger Worker dispatched only ${disp} of the last ${crons + disp} collects — GitHub's cron carried the rest`, "runs", "fault", "check the trigger Worker's logs and its GITHUB_TOKEN");
 }
 let SNAP = null;
 async function snapshot() { if (SNAP === null) { try { SNAP = await getJson("runs.json?t=" + Date.now(), { cache: "no-store" }); } catch (e) { SNAP = false; } } return SNAP; }
@@ -171,7 +191,7 @@ async function renderLive() {
   if (!asOf) { tile("#tLive", "?", "warn", "could not read live.json"); return; }
   const [lvl, why] = liveExpectation(asOf);
   tile("#tLive", hhmm(toIST(asOf)), lvl, `${ago(asOf)} · ${esc(why)}${from}`);
-  if (lvl === "bad") addVerdict("bad", why, "runs");
+  if (lvl === "bad") addVerdict("bad", why, "runs", "fault", "live.yml stopped writing: open its latest run");
 }
 
 /* ---------- security: what this browser is actually served ---------- */
@@ -253,7 +273,7 @@ async function renderRetention(me) {
   const how = v.salted ? `${v.rows} daily row${v.rows === 1 ? "" : "s"} stored` : "<b>nothing is being written</b>: add the GitHub secret DAU_SALT, then run deploy";
   box.innerHTML = (v.rows ? table(["week|fit", "active|n", "new|n", "of week 1's|n", "|fit"], rows) : empty("No daily rows yet."))
     + note(`Weeks start Monday, IST. "new" = first seen in these 8 weeks; "of week 1's" = how many of week 1's ${v.firstWeekReaders || 0} were active that week. Counts only: a row is the day and SHA-256(salt + email), never the email. ${how}.`);
-  if (me && me.accounts && !v.salted) addVerdict("warn", "daily-active readers are not being recorded (no DAU_SALT secret)", "retention");
+  if (me && me.accounts && !v.salted) addVerdict("warn", "daily-active readers are not being recorded (no DAU_SALT secret)", "retention", "task", "add the GitHub secret DAU_SALT, then run deploy");
 }
 
 /* ---------- the smoke test: the page in a hidden same-origin frame, every tab, every sheet ---------- */
@@ -329,7 +349,7 @@ async function smoke() {
     out.innerHTML = table(["check|fit", "result", "|fit"], rows) + note(`${secs} s · ${new Date().toLocaleTimeString()}`);
     tile("#tPage", lvl === "ok" ? "clean" : lvl === "warn" ? `${gaps.length} gaps` : `${errs.length + blanks.length + uneven.length || "!"} errors`, lvl, `${tabs.length} tabs · ${opts.length} sheets · ${secs} s`);
     if (lvl === "bad") addVerdict("bad", `the page smoke test found ${errs.length} console error${errs.length === 1 ? "" : "s"}${badParts.length ? ", missing data parts" : ""}${blanks.length ? `, ${blanks.length} empty card${blanks.length === 1 ? "" : "s"}` : ""}${uneven.length ? `, ${uneven.length} uneven row${uneven.length === 1 ? "" : "s"}` : ""}`, "smokeOut");
-    else if (lvl === "warn") addVerdict("warn", `the page has ${gaps.length} card${gaps.length === 1 ? "" : "s"} far taller than what it holds`, "smokeOut");
+    else if (lvl === "warn") addVerdict("warn", `the page has ${gaps.length} card${gaps.length === 1 ? "" : "s"} far taller than what it holds`, "smokeOut", "task", "cap the long neighbour with an inner scroll (.tw.scroll.tall), never stretch the short card");
   } catch (e) {
     out.innerHTML = table(["check|fit", "result", "|fit"], [srow("result", esc(e.message), pill("bad", "failed"))]); tile("#tPage", "failed", "bad", esc(e.message));
   } finally { btn.disabled = false; fr.srcdoc = ""; fr.hidden = true; }
@@ -375,8 +395,8 @@ async function main() {
     const meta = await getJson("/data/meta.json?t=" + Date.now(), { cache: "no-store" });
     const [lvl, why] = docExpectation(meta.meta.asOf);
     tile("#tDoc", hhmm(toIST(meta.meta.asOf)), lvl, `${ago(meta.meta.asOf)} · ${esc(why)}`);
-    if (lvl !== "ok") addVerdict(lvl, "the document is stale: " + why, "runs");
-  } catch (e) { tile("#tDoc", "?", "bad", "meta.json did not load: " + esc(e.message)); addVerdict("bad", "the page's own data did not load", "runs"); }
+    if (lvl !== "ok") addVerdict(lvl, "the document is stale: " + why, "runs", "fault", "gh run list first: a stale page is a failed run until proven otherwise");
+  } catch (e) { tile("#tDoc", "?", "bad", "meta.json did not load: " + esc(e.message)); addVerdict("bad", "the page's own data did not load", "runs", "fault", "the deploy did not publish data/meta.json: open the last deploy run"); }
   try { renderAudit(await getJson("audit.json?t=" + Date.now(), { cache: "no-store" })); }
   catch (e) { $("#vTitle").textContent = "No audit.json"; $("#vSub").textContent = "site/build.py writes admin/audit.json from scripts/audit.py — " + e.message; $("#verdict").className = "bad"; }
   await Promise.all([renderRuns(), renderLive(), renderSecurity().then(me => Promise.all([renderVisitors(me), renderRetention(me)])), renderReports()]);

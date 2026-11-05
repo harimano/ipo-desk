@@ -18,7 +18,8 @@ def test_a_fallback_past_known_sources_is_known_not_warn():
     assert [m["level"] for m in mods] == ["known", "known"]
     assert "Angel One" in mods[0]["known"] and "ipopremium" in mods[1]["known"]
     items = audit.verdict(mods, [], {}, 0)["items"]
-    assert not [i for i in items if i["where"] == "modules"]
+    assert not [i for i in items if i["where"] == "modules" and i["kind"] == "fault"]
+    assert [i["kind"] for i in items] == ["state", "state"], "known gaps are shown as states, with their reason"
 
 
 def test_a_fallback_past_an_unknown_source_still_warns():

@@ -257,25 +257,61 @@ def diff(doc: dict, prev: dict | None) -> dict:
 
 
 # ---------------------------------------------------------------- the verdict line
+# Three kinds of signal, never one list (5 Nov 2026 — /admin had read "5 things are worth a look" in amber on a day
+# when the only news was two BSE legs recovering, a card growing and the research sheets waiting on Hari):
+#   fault  something is wrong in code or config; a person or a change must act. The ONLY kind that colours the verdict.
+#   state  a condition worth knowing with nothing to do: a source chain that changed, a gap that is known by design.
+#   task   a person's queue: research rows to read, a secret to set, a card to cap. Counted, never an alarm.
+# Every item says which it is and what the action is, so the line can be acted on without a conversation.
+KIND_ACTION = {
+    "quota row untouched for 60+ days": ("task", "read the latest filing and date the stage, or retire the row (data/research)"),
+    "quota row with no dated stage": ("task", "an expected name with no filing yet: date it when a DRHP appears, or retire it"),
+    "quota row whose IPO has listed": ("fault", "the sheet is behind the board: move the row to done"),
+    "quota row whose record shows no reservation": ("task", "read the RHP's reservation clause; fix the sheet or the record"),
+    "IPO with a shareholder reservation not on the quota list": ("task", "a quota the list does not know: add the row from the RHP"),
+    "shareholder reservation the book does not show": ("task", "record says reserved, book shows none: read the RHP"),
+    "shareholder book with no reservation on record": ("task", "book shows a shareholder category the record lacks: read the RHP"),
+    "Open with no GMP quote": ("state", "no grey-market print anywhere today; nothing to fix"),
+    "logo missing at the source": ("state", "InvestorGain has no image for it; nothing to fix"),
+}
+
+
+def classify(check: str, level: str) -> tuple[str, str]:
+    """(kind, action) for an anomaly check: the table above, else a bad check is a fault and a warn one is a task."""
+    if check in KIND_ACTION:
+        return KIND_ACTION[check]
+    return ("fault", "a row the gate let through that the rules say cannot be: fix the source or the row") if level == "bad" \
+        else ("task", "open the rows and decide")
+
+
 def verdict(mods: list[dict], finds: list[dict], d: dict, size: int) -> dict:
     items = []
+
+    def add(kind, level, text, where, action):
+        items.append({"kind": kind, "level": level, "text": text, "where": where, "action": action})
+
     for m in mods:
         if m["level"] == "bad":
-            items.append({"level": "bad", "text": f"{m['area']} failed: {m['method'] or m['status']}", "where": "modules"})
+            add("fault", "bad", f"{m['area']} failed: {m['method'] or m['status']}", "modules", "read the run log; the module wrote nothing, yesterday's section stands")
         elif m["level"] == "warn":
-            items.append({"level": "warn", "text": f"{m['area']} on a fallback: {m['method']}", "where": "modules"})
+            add("fault", "warn", f"{m['area']} on a fallback: {m['method']}", "modules", "the first source answered wrong: read the note, then its fixture, before touching the parser")
+        elif m["level"] == "known":
+            add("state", "known", f"{m['area']}: {m['known']}", "modules", "known by design; nothing to do")
     for f in finds:
         n = len(f["rows"])
-        items.append({"level": f["level"], "text": f"{n} row{'s' if n > 1 else ''} {f['check']}", "where": "audit"})
+        kind, action = classify(f["check"], f["level"])
+        add(kind, f["level"], f"{n} row{'s' if n > 1 else ''} {f['check']}", "audit", action)
     for b, v in (d.get("boards") or {}).items():
         if v["vanished"]:
-            items.append({"level": "bad", "text": f"{b}: {len(v['vanished'])} row(s) left the board early", "where": "diff"})
-    for s in d.get("sourceSwitches") or []:
-        items.append({"level": "warn", "text": f"{s['area']} switched source: {s['to']}", "where": "diff"})
+            add("fault", "bad", f"{b}: {len(v['vanished'])} row(s) left the board early", "diff", "a row left before its listing day: the calendar source dropped it; read the diff")
+    for s_ in d.get("sourceSwitches") or []:
+        add("state", "warn", f"{s_['area']} switched source: {s_['to']}", "diff", "a source chain changed since yesterday; the note on the module line says why")
     if size > 0.8 * MAX_DOC_BYTES:
-        items.append({"level": "warn", "text": f"document at {size / MAX_DOC_BYTES:.0%} of the size cap", "where": "size"})
-    level = "bad" if any(i["level"] == "bad" for i in items) else "warn" if items else "ok"
-    return {"level": level, "items": items}
+        add("fault", "warn", f"document at {size / MAX_DOC_BYTES:.0%} of the size cap", "size", "trim a part before the gate refuses the document (scripts/validate.py MAX_DOC_BYTES)")
+    faults = [i for i in items if i["kind"] == "fault"]
+    level = "bad" if any(i["level"] == "bad" for i in faults) else "warn" if faults else "ok"
+    counts = {k: sum(1 for i in items if i["kind"] == k) for k in ("fault", "state", "task")}
+    return {"level": level, "items": items, "counts": counts}
 
 
 # ---------------------------------------------------------------- assembly
