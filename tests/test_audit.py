@@ -133,3 +133,38 @@ def test_a_quota_row_whose_ipo_listed_is_bad_and_an_untouched_row_warns():
     assert finds["quota row untouched for 60+ days"]["level"] == "warn"
     assert finds["quota row with no dated stage"]["rows"] == ["Undated Co"]
     assert "Fresh Co" not in str(finds) and "Done Co Quota" not in str(finds)
+
+
+def test_quota_found_disagreements_each_warn_with_both_sides():
+    """filings.discover's quotaFound against the quota list and the board: four checks, all warn, none a verdict."""
+    rec = {"flag": True, "offered": 1000, "src": "ig", "at": "2026-10-29"}
+    d = doc(mainboard=[row("Jio Platforms", "Open", "2306", "2026-10-21", "2026-10-23", "2026-10-28", shareholderQuota=rec),
+                       row("Hero FinCorp", "Upcoming", "2400", "2026-11-10", "2026-11-12", "2026-11-17",
+                           shareholderQuota={"flag": False, "src": "ig", "at": "2026-11-04", "flagOnly": True}),
+                       row("Linked Co", "Upcoming", "2500", "2026-11-10", "2026-11-12", "2026-11-17", shareholderQuota=None)],
+            quota=[{"name": "Reliance Jio", "bucket": "done", "igId": "2306", "stageDate": "2026-10-28"},
+                   {"name": "Hero FinCorp", "bucket": "approved", "igId": "2400", "stageDate": "2026-10-20"},
+                   {"name": "Linked Co", "bucket": "approved", "igId": "2500", "stageDate": "2026-10-20"},
+                   {"name": "Done Co", "bucket": "done", "igId": "2400", "stageDate": "2026-10-20"}],
+            quotaFound=[{"igId": "2306", "name": "Jio Platforms", "board": "mainboard", "parent": "Reliance Industries Limited",
+                         "parentSymbol": "RELIANCE", "quotaRow": "Reliance Jio", "witness": {"record": True, "book": False}},
+                        {"igId": "2600", "name": "Surprise Co", "board": "sme", "parent": None, "parentSymbol": None,
+                         "parentId": "77", "quotaRow": None, "witness": {"record": True, "book": None}},
+                        {"igId": "2700", "name": "Book Only Co", "board": "mainboard", "parent": None, "parentSymbol": None,
+                         "quotaRow": None, "witness": {"record": False, "book": True}}])
+    finds = {f["check"]: f for f in audit.anomalies(d)}
+    assert finds["IPO with a shareholder reservation not on the quota list"]["rows"] == ["Surprise Co (sme; ig 77)"]
+    assert finds["shareholder reservation the book does not show"]["rows"] == ["Jio Platforms (mainboard; Reliance Industries Limited)"]
+    assert finds["shareholder book with no reservation on record"]["rows"] == ["Book Only Co (mainboard; parent unknown)"]
+    assert finds["quota row whose record shows no reservation"]["rows"] == ["Hero FinCorp (Hero FinCorp, the dead flag alone, ig 2026-11-04)"]
+    assert all(finds[k]["level"] == "warn" for k in finds if "shareholder" in k or "reservation" in k)
+    assert "Linked Co" not in str(finds), "no record yet: nothing to say"
+    assert "Done Co" not in str(finds), "a done row is not read against the record"
+    assert audit.build(d, None)["diff"] == {"prevAsOf": None}
+
+
+def test_quota_found_counts_in_the_diff():
+    prev = doc(quotaFound=[])
+    prev["meta"]["asOf"] = "2026-10-28T23:45:46+05:30"
+    new = doc(quotaFound=[{"igId": "1", "name": "x", "witness": {}}])
+    assert audit.diff(new, prev)["counts"]["quotaFound"] == [0, 1]

@@ -13,13 +13,25 @@ sheets{name}: {parent, parentTicker, parentPrice{value, asOf}, status, timeline{
 mainboard[] / sme[]: {name, slug, type "Mainboard"|"NSE SME"|"BSE SME", status, open, close, allotment, listing, bandLow, bandHigh, lotSize,
           issueSizeCr, freshCr, ofsCr, gmp, gmpPct, gmpTrend up|down|flat, sub{qib, nii, retail, bnii?, snii?, other?, employee?, shareholder?, total, asOf, src nse|narada|bse|chittorgarh, catAsOf? (page only)},
           logo? (InvestorGain's logo file name), apps?{quota: {reserved, received, reservedSrc rhp|rhp=narada|narada}, asOf} (Narada's application counts — counts only; not yet rendered),
-          shareholderQuota{offered, parent, recordDate}|null, listingPrice, listingGainPct, currentPrice, sources[]}
+          shareholderQuota (owner `details`, from the InvestorGain record's structured reservation fields; 5 Nov 2026):
+            null = no record read yet · {flag: false, src "ig", at YYYY-MM-DD, flagOnly?: true} = record read, no reservation
+            (flagOnly: the record's dead `shareholder_reservation_flag` was 1 with nothing offered — a look, not a quota) ·
+            {flag: true, offered (shares; null when the status is set but no count is), bidLimit (rupees, from the record's limit
+            code via BID_LIMIT_RUPEES; null for an unknown code), bidLimitCode (the raw code), discount (rupees)|null, discountPct|null,
+            parentId (InvestorGain's `shareholder_company_id`, blank on every record read so far)|null, parent (null: the record
+            names the parent only in prose, never parsed), recordDate (the eligibility date, the record's `record_date`; set on every
+            reservation read, the day before SEBI's register dates the RHP), src "ig", at},
+          listingPrice, listingGainPct, currentPrice, sources[]}
           - a Listed row stays on the board only on its listing day, then moves to recent[].
 recent[]: {name, type, listingDate, issuePrice, listingPrice, gainPct, closeDay1, closeDay1GainPct, sources[]}  - last ~4 weeks
 listedPerf[]: {name, issue, gmpImplied, listing}  - rolling ~40 mainboard listings, newest first. Prepend each new listing.
 comps[]: {name, qib, ret}  - listed issues: final QIB subscription vs listing-day return %. Append each listing that had a QIB print.
+  Since 5 Nov 2026 a row may carry shareholder / employee (times subscribed): the reserved-category book, frozen by `history` from the
+  board row's final `sub` at listing (report 566 has no such column, a listed issue's record hides it) and never revised.
 evidence: {asOf, rfAnnual, minN, edges{total,qib,retail,gmp}, segments{main,sme}, warnings[{code,text}]}  - owned by the `evidence` module; the page quotes it.
-  segment: {n, window{rule,from,to,n}, byYear, bands{total{window,all}, gmp{window,all}, qib{rows,years}, retail{rows,years}}, ev{rows,years,blockDays}, fit{r377, eve, r377OnSameRows?, provisional, eveRows}}
+  segment: {n, window{rule,from,to,n}, byYear, bands{total{window,all}, gmp{window,all}, qib{rows,years}, retail{rows,years},
+           shareholder{rows,n,years} (the shareholder-quota book, comps.shareholder; thin and said so)}, ev{rows,years,blockDays,
+           shareholder[] (EV per shareholder-quota application, same lower-bound rule)}, fit{r377, eve, r377OnSameRows?, provisional, eveRows}}
   band: {n, pos, lo, hi, med, p10, p90} (pos/lo/hi in %, Wilson 95%); ev row adds {oddsMed, evMed, evP10, evP90, evMean}; fit: {n, a, b, r2, sd, q10, q90}. A null edge is an open end.
 listedPerf[] rows may carry gmpEve, gmpEveAsOf: the desk's own last GMP stamped before listing day, frozen once.
 anchors[]: {name, anchor, date, amountCr, issueSizeCr, count, topTierShare, investors[{name, cat, amountCr, pct}], sources[], note}
@@ -35,6 +47,21 @@ expected[]: {name, window, stage, sizeCr, sizeText, note, parent, sources[], aut
   - `quotaCandidate` (filings, a FLAG, never a quota): {via: "announcement", parents[{symbol, name}], kind, text, url, date} when a listed
     company's NSE announcement about a subsidiary's offer names the row; else, on `auto` rows only, {via: "name", parents[...]} when the
     row's first word is a listed group's first word (≤15 companies share it, generic words stoplisted). "announcement" is never downgraded.
+    The announcer must be a listed symbol (checked against NSE's equity lists when they loaded; `parents[].name` is the listed name);
+    a row the SEBI registers put there carries `register` {register, kind, date, title, url} = its `lastFiling` beside the announcement
+    (the register-to-announcement join, 5 Nov 2026): two documents, both linked, neither read.
+quota[].igId (filings, 5 Nov 2026): the InvestorGain id of the row's issue once a board row matched it by the strict name tiers
+  (same name, alias, bracketed form); after that the link never depends on spelling. Never two rows on one id.
+quotaFound[] (filings, 5 Nov 2026; `pipeline` part): the board's own word on shareholder reservations, read against the quota list —
+  {igId, name, board mainboard|sme, open, listing, parentId (InvestorGain's company id)|null, parent (name)|null, parentSymbol (NSE symbol
+  when the parent's NAME resolves through the strict tiers against NSE's equity lists, else the matched quota row's hand-written ticker,
+  else null — never fuzzy), offered (shares; null when the record shows none), bidLimit (rupees)|null, discount|null, discountPct|null,
+  quotaRow (the matched quota row's name; null = NOT on the quota list: the discovery), witness{record: true|false (the record's
+  `shareholderQuota.flag`), book: true|false|null (true: `sub.shareholder` exists; false: bidding open, book has its categories, no
+  shareholder one; null before bidding opens)}, first (first seen), last (last confirmed)}. An entry exists for every board row whose
+  record shows a reservation AND for every row whose book shows a shareholder category the record does not (record false, book true).
+  Merged by igId run to run; leaves 7 days after listing, when the record's flag turns false, or a week after its row left the board
+  unlisted. A flag, never a planner row (rule 3); scripts/audit.py turns the disagreements into /admin warnings.
 quotaLeads[] (filings): NSE announcements (both boards) in which a listed company speaks about a subsidiary's / group company's offer,
   60 days, ≤40, newest first: {parentSymbol, parentName, kind drhp|udrhp|rhp|observation|withdrawn|ipo, text (≤300), url (the PDF, linked,
   never read), date, seqId, sme, watched? (parent already on the quota list; its row was moved/flagged), matched? (the expected row named)}.

@@ -26,6 +26,7 @@ from ..errors import SourceChanged
 from ._parse import clean, compute_gmp_pct, parse_money, parse_pct, upper_band
 
 SOURCE = "investorgain"
+SOURCE_TAG = "ig"                       # the short form row fields carry (`shareholderQuota.src`)
 BASE = "https://webnodejs.investorgain.com/cloud/v2/report/data-read/331"
 PAGE_URL = "https://www.investorgain.com/report/live-ipo-gmp/331/ipo/"
 HEADERS = {"Accept": "application/json", "Referer": PAGE_URL, "Origin": "https://www.investorgain.com"}
@@ -395,6 +396,7 @@ def normalise_detail(raw) -> dict:
         "anchorCr": round(anchor_shares * (final or band_hi) / 1e7, 2) if anchor_shares and (final or band_hi) else None,
         "sub": sub, "gmp": gmp, "listingPrice": _num(g("listing_price")),
         "apply": apply_terms(ipo, band_hi),
+        "shareholderQuota": shareholder_quota(ipo),
         "facts": _drop_empty({"sector": strip_tags(g("company_sector")), "isin": strip_tags(g("isin")), "listingAt": strip_tags(g("ipo_listing_at")),
                               "kpis": kpis, "recs": recs, "registrar": registrar,
                               "leadManagers": [strip_tags(m.get("comp_name")) for m in (raw.get("ipoLeadManagersList") or [])
@@ -435,6 +437,40 @@ def apply_terms(ipo: dict, band_hi: float | None) -> dict | None:
         disc = _num(g(disc_key)) or 0
         out[ours] = _drop_empty({"amount": round(lot * (band_hi - disc)), "shares": lot, "lots": 1, "discount": disc or None, "offered": int(shares) or None})
     return {k: v for k, v in out.items() if v}
+
+
+# `shareholder_reservation_bidding_limit` / `employee_reservation_bidding_limit` are CODES, not rupees: 1 on every shareholder reservation
+# read (Jio Platforms, SBI Funds, Bharat Coking Coal), 2 on their employee reservations. The site renders neither. SEBI ICDR caps a
+# shareholder-quota bid at ₹2 lakh and an employee bid at ₹5 lakh, which is the one reading consistent with all four records — an
+# inference, so the raw code travels beside the rupee figure (`bidLimitCode`) and a code outside the map yields null.
+BID_LIMIT_RUPEES = {1: 200_000, 2: 500_000}
+_YES = ("1", "1.0", "true", "True")
+
+
+def shareholder_quota(ipo: dict) -> dict:
+    """The shareholder reservation as the record states it, in structured fields only (surveyed 5 Nov 2026; docs/mined/endpoints.md).
+    `shareholder_reservation_flag` is NOT the signal: it reads 0 on Jio Platforms, SBI Funds Management and Bharat Coking Coal (2.23 /
+    1.31 / 4.66 crore shares reserved for the parent's holders) and 1 on EAAA India Alternatives, whose RHP reserved nothing. The live
+    fields are `prefer_shareholders_status` and the shares offered (`shares_offered_shareholders`, mirrored by `prefer_shareholder_shares`).
+    Returns {"flag": False, "src": "ig"} for a record with no reservation — the caller adds `at`, so "checked, none" differs from
+    "no record yet" (None on the row). `shareholder_company_id` was blank on every reservation read, and the parent is named only in
+    prose (`ipo_reservation_desc`), which a run never parses: `parentId` / `parent` are null until the source states them."""
+    g = ipo.get
+    offered = int(_num(g("shares_offered_shareholders")) or 0) or int(_num(g("prefer_shareholder_shares")) or 0)
+    status = str(g("prefer_shareholders_status") or "0") in _YES
+    if not offered and not status:
+        out = {"flag": False, "src": SOURCE_TAG}
+        if str(g("shareholder_reservation_flag") or "0") in _YES:
+            out["flagOnly"] = True                             # the dead flag alone (EAAA): worth a human look, not a reservation
+        return out
+    code = _num(g("shareholder_reservation_bidding_limit"))
+    code = int(code) if code else None
+    return {"flag": True, "offered": offered or None, "bidLimit": BID_LIMIT_RUPEES.get(code), "bidLimitCode": code,
+            "discount": _num(g("discount_shareholder")), "discountPct": _num(g("discount_shareholder_per")),
+            "parentId": strip_tags(g("shareholder_company_id")) or None, "parent": None,
+            # the eligibility date, structured: `record_date` is set on every reservation read (Jio 2026-10-14, SBI Funds
+            # 2026-07-08, BCCL 2026-01-02 — the day before SEBI's register dates the RHP) and '' on every issue without one
+            "recordDate": _day(g("record_date")), "src": SOURCE_TAG}
 
 
 def fetch_detail(session, ig_id: str) -> dict:

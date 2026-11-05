@@ -40,7 +40,8 @@ IST = ZoneInfo("Asia/Kolkata")
 INF = float("inf")
 EDGES = {"total": [0, 2, 10, 50, INF], "qib": [0, 5, 25, 100, INF], "retail": [0, 1, 3, 10, 40, INF], "gmp": [-INF, 0.01, 10, 30, INF],
          "open": [-INF, 0, 10, 30, INF],       # the listing-day open, as % over issue price: what to expect from holding to the close
-         "anchors": [0, 1, 3, 6, INF]}          # how many of the tracked largest anchors were in the book (players.frozen), accruing since Sep 2026
+         "anchors": [0, 1, 3, 6, INF],          # how many of the tracked largest anchors were in the book (players.frozen), accruing since Sep 2026
+         "shareholder": [0, 1, 3, 10, 40, INF]}  # the shareholder-quota book (comps.shareholder, frozen by `history` from the board), since 5 Nov 2026
 WINDOW_DAYS, WINDOW_MIN_ROWS = 365, 100
 MIN_N = 30                 # below this the page says the band is thin (it still shows it, with its interval)
 MIN_EVE = 30               # own-GMP rows in a segment before the second fit is published
@@ -100,15 +101,16 @@ def fit(rows: list[dict], key: str) -> dict | None:
             "sd": round(st.pstdev(res), 1), "q10": round(_q(res, 0.1), 1), "q90": round(_q(res, 0.9), 1)}
 
 
-def ev_bands(rows: list[dict]) -> list[dict]:
-    """By retail subscription: the pop, the lower-bound chance of getting it, and what that is worth per application."""
-    e, cost = EDGES["retail"], 100 * RF_ANNUAL * BLOCK_DAYS_HISTORY / 365
+def ev_bands(rows: list[dict], key: str = "retail") -> list[dict]:
+    """By the category's subscription (retail, or the shareholder quota): the pop, the lower-bound chance of getting it, and what
+    that is worth per application in that category."""
+    e, cost = EDGES[key], 100 * RF_ANNUAL * BLOCK_DAYS_HISTORY / 365
     out = []
     for i in range(len(e) - 1):
-        sel = [r for r in rows if r.get("retail") is not None and band_index(r["retail"], e) == i]
-        evs = [min(1.0, 1 / max(r["retail"], 1e-9)) * r["ret"] - cost for r in sel]
+        sel = [r for r in rows if r.get(key) is not None and band_index(r[key], e) == i]
+        evs = [min(1.0, 1 / max(r[key], 1e-9)) * r["ret"] - cost for r in sel]
         s = summarise([r["ret"] for r in sel])
-        s.update({"oddsMed": round(100 * st.median(min(1.0, 1 / max(r["retail"], 1e-9)) for r in sel), 1) if sel else None,
+        s.update({"oddsMed": round(100 * st.median(min(1.0, 1 / max(r[key], 1e-9)) for r in sel), 1) if sel else None,
                   "evMed": round(st.median(evs), 2) if evs else None, "evP10": round(_q(evs, 0.1), 2) if evs else None,
                   "evP90": round(_q(evs, 0.9), 2) if evs else None, "evMean": round(st.mean(evs), 2) if evs else None})
         out.append(s)
@@ -345,7 +347,8 @@ def unified(doc: dict) -> list[dict]:
             continue
         imp = lambda g, p=p: round(100 * g / p["issue"], 2) if g is not None else None
         out.append({"date": p["date"], "year": int(p["date"][:4]), "sme": bool(p.get("sme")), "ret": c["ret"], "retClose": c.get("retClose"), "total": c.get("total"),
-                    "qib": c.get("qib"), "retail": c.get("retail"), "gmp": imp(p.get("gmp")), "gmpEve": imp(p.get("gmpEve")),
+                    "qib": c.get("qib"), "retail": c.get("retail"), "shareholder": c.get("shareholder"),
+                    "gmp": imp(p.get("gmp")), "gmpEve": imp(p.get("gmpEve")),
                     "anchors": (frozen.get(str(c["igId"])) or {}).get("large"), "anchorsOf": (frozen.get(str(c["igId"])) or {}).get("of")})
     return out
 
@@ -354,13 +357,16 @@ def segment(rows: list[dict], today: dt.date, label: str, warnings: list[dict]) 
     win, meta = window_of(rows, today)
     cat = [r for r in rows if r.get("qib") is not None or r.get("retail") is not None]
     cat_years = sorted({r["year"] for r in cat})
+    sh = [r for r in rows if r.get("shareholder") is not None]      # issues with a shareholder quota AND its book on file
     seg = {"window": meta, "n": len(rows),
            "bands": {"total": {"window": bands(win, "total"), "all": bands(rows, "total")},
                      "gmp": {"window": bands(win, "gmp"), "all": bands(rows, "gmp")},
                      "qib": {"rows": bands(cat, "qib"), "years": cat_years, "n": sum(1 for r in cat if r.get("qib") is not None)},
-                     "retail": {"rows": bands(cat, "retail"), "years": cat_years}},
+                     "retail": {"rows": bands(cat, "retail"), "years": cat_years},
+                     "shareholder": {"rows": bands(sh, "shareholder"), "n": len(sh), "years": sorted({r["year"] for r in sh})}},
            "hold": {"window": hold_bands(win), "all": hold_bands(rows)},
-           "ev": {"rows": ev_bands(cat), "years": cat_years, "blockDays": BLOCK_DAYS_HISTORY},
+           "ev": {"rows": ev_bands(cat), "years": cat_years, "blockDays": BLOCK_DAYS_HISTORY,
+                  "shareholder": ev_bands(sh, "shareholder")},
            "anchors": anchors_bands(rows),
            "fit": {"r377": fit(win, "gmp"), "eve": None, "provisional": True, "eveRows": sum(1 for r in rows if r.get("gmpEve") is not None)}}
     eve_rows = [r for r in rows if r.get("gmpEve") is not None]
@@ -381,6 +387,9 @@ def segment(rows: list[dict], today: dt.date, label: str, warnings: list[dict]) 
     f = seg["fit"]["r377"]
     if f and (abs(f["b"] - 1) > 0.25 or abs(f["a"]) > 5):
         warnings.append({"code": f"gmp-bias-{label}", "text": f"{label}: in this window GMP is biased (realised = {f['a']:+} + {f['b']} x implied); the centre shown is corrected for it."})
+    if sh and len(sh) < MIN_N:
+        warnings.append({"code": f"shareholder-thin-{label}", "text": f"{label}: the shareholder-quota bands rest on {len(sh)} listings — the book is "
+                         f"frozen from the board at listing, accruing since 5 Nov 2026 — so each band's interval is wide; read the n."})
     if len(cat_years) <= 1 and cat:
         warnings.append({"code": f"category-one-year-{label}", "text": f"{label}: QIB and retail bands, and expected value, rest on {len(cat)} listings from "
                          f"{cat_years[0]} alone — category books are not published for earlier years."})
