@@ -50,7 +50,7 @@ def fallback_sources(method: str) -> list[tuple[str, str]]:
 MAX_DOC_BYTES = 6 * 1024 * 1024          # scripts/validate.py MAX_DOC_BYTES
 LISTED_GRACE_DAYS = 1                    # collector/modules/calendar.py: a Listed row leaves the board the day after listing
 COUNT_KEYS = ("mainboard", "sme", "recent", "expected", "offers", "quota", "anchors", "listedPerf", "priceHistory",
-              "quotaLeads", "anchorBooks", "logos")
+              "quotaLeads", "quotaFound", "anchorBooks", "logos")
 
 
 def _date(v) -> dt.date | None:
@@ -172,6 +172,28 @@ def anomalies(doc: dict, logos_dir: pathlib.Path | None = None) -> list[dict]:
                 add("quota row with no dated stage", q["name"])
             elif (today - last).days > QUOTA_STALE_DAYS:
                 add(f"quota row untouched for {QUOTA_STALE_DAYS}+ days", f"{q['name']} since {last}")
+    # The board's own word against the hand-written list (filings.discover, 5 Nov 2026): each a disagreement between two
+    # sources, shown with both sides, never resolved here. `quotaFound` is the collector's; this only reads it.
+    by_ig = {str(r["igId"]): r for b, r in _rows(doc) if r.get("igId")}
+    for f in doc.get("quotaFound") or []:
+        if not isinstance(f, dict) or not f.get("name"):
+            continue
+        w = f.get("witness") or {}
+        parent = f.get("parent") or f.get("parentSymbol") or (f"ig {f['parentId']}" if f.get("parentId") else "parent unknown")
+        label = f"{f['name']} ({f.get('board')}; {parent})"
+        if w.get("record") is True and f.get("quotaRow") is None:
+            add("IPO with a shareholder reservation not on the quota list", label)
+        if w.get("book") is False:
+            add("shareholder reservation the book does not show", label)
+        if w.get("record") is False:
+            add("shareholder book with no reservation on record", label)
+    for q in quota:
+        if q.get("bucket") not in OPEN_BUCKETS or not q.get("igId"):
+            continue
+        r = by_ig.get(str(q["igId"]))
+        shq = (r or {}).get("shareholderQuota")
+        if isinstance(shq, dict) and shq.get("flag") is False:
+            add("quota row whose record shows no reservation", f"{q['name']} ({r.get('name')}, {shq.get('src')} {shq.get('at')})")
     return [{"check": k, "level": "bad" if k in BAD_CHECKS else "warn", "rows": v} for k, v in finds.items()]
 
 

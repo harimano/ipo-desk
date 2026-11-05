@@ -577,3 +577,195 @@ def test_reconcile_never_moves_on_a_fuzzy_name_or_an_old_listing():
     patches: dict = {}
     assert filings._reconcile(prev, doc, patches, dt.date(2026, 11, 4)) == 0
     assert patches == {}
+
+
+# ------------------------------------------------------------------------------------------
+# quotaFound: the board's shareholderQuota (details' contract) read against the quota list
+# ------------------------------------------------------------------------------------------
+D5 = dt.date(2026, 11, 5)
+JIO_REC = {"flag": True, "offered": 11_000_000, "bidLimit": 200_000, "discount": None, "discountPct": None,
+           "parentId": "4521", "parent": "Reliance Industries Limited", "src": "ig", "at": "2026-11-04"}
+
+
+def _board(name, ig, status="Upcoming", open_="2026-11-10", listing="2026-11-17", shq=None, sub=None, board="mainboard"):
+    r = {"name": name, "igId": ig, "status": status, "open": open_, "close": "2026-11-12", "listing": listing,
+         "shareholderQuota": shq, "sub": sub if sub is not None else {}}
+    return board, r
+
+
+def _doc(*rows):
+    d = {"mainboard": [], "sme": [], "listedPerf": []}
+    for board, r in rows:
+        d[board].append(r)
+    return d
+
+
+def test_book_witness_true_false_null():
+    assert filings.book_witness({"status": "Open", "open": "2026-11-03", "sub": {"qib": 1.0, "shareholder": 0.4}}, D5) is True
+    assert filings.book_witness({"status": "Open", "open": "2026-11-03", "sub": {"qib": 1.0, "retail": 2.0, "total": 1.5}}, D5) is False
+    assert filings.book_witness({"status": "Closed", "open": "2026-11-02", "sub": {"total": 3.1}}, D5) is False
+    assert filings.book_witness({"status": "Upcoming", "open": "2026-11-10", "sub": {}}, D5) is None, "before bidding opens"
+    assert filings.book_witness({"status": "Open", "open": "2026-11-05", "sub": {}}, D5) is None, "open today, book still empty"
+    assert filings.book_witness({"status": "Upcoming", "open": "2026-11-10", "sub": {"shareholder": 0.1}}, D5) is True
+
+
+def test_discover_matches_a_quota_row_links_its_igid_and_flags_an_issue_not_on_the_list():
+    prev = {"quota": [{"name": "Reliance Jio", "bucket": "approved", "ticker": "RELIANCE"},          # alias -> Jio Platforms
+                      {"name": "Hero FinCorp", "bucket": "approved", "ticker": "HEROMOTOCO"}]}
+    doc = _doc(_board("Jio Platforms", "2306", shq=JIO_REC),
+               _board("Surprise Energy", "2600", shq={**JIO_REC, "parent": "Torrent Power Limited", "parentId": "9"}, board="sme"),
+               _board("Hero FinCorp", "2400", shq={"flag": False, "src": "ig", "at": "2026-11-04"}),
+               _board("No Record Co", "2500", shq=None))
+    companies = nse_symbols.parse(_equity())
+    patches: dict = {}
+    found, stats = filings.discover(prev, doc, patches, companies, D5)
+    assert patches == {"Reliance Jio": {"igId": "2306"}, "Hero FinCorp": {"igId": "2400"}}, "linked whatever the record says"
+    assert set(found) == {"2306", "2600"}, "flag false with no book, and no record yet, say nothing"
+    jio = found["2306"]
+    assert jio["quotaRow"] == "Reliance Jio" and jio["parentSymbol"] == "RELIANCE" and jio["parent"] == "Reliance Industries Limited"
+    assert jio["witness"] == {"record": True, "book": None} and jio["offered"] == 11_000_000 and jio["bidLimit"] == 200_000
+    assert jio["board"] == "mainboard" and jio["first"] == jio["last"] == "2026-11-05"
+    s = found["2600"]
+    assert s["quotaRow"] is None, "the discovery: a reservation the quota list does not know"
+    assert s["parentSymbol"] == "TORNTPOWER" and s["board"] == "sme"
+    assert stats == {"reserved": 2, "unlisted": 1, "disagree": 0, "linked": 2}
+    assert set(jio) == set(filings.FOUND_FIELDS)
+
+
+def test_discover_links_by_igid_so_a_respelling_later_does_not_matter():
+    prev = {"quota": [{"name": "Reliance Jio", "bucket": "approved", "igId": "2306", "ticker": "RELIANCE"},
+                      {"name": "Other Row", "bucket": "awaited", "igId": "1"}]}
+    doc = _doc(_board("Jio Platforms Ltd (JPL)", "2306", shq={**JIO_REC, "parent": None, "parentId": "4521"}),
+               _board("Other Row", "2", shq=JIO_REC))       # same spelling, but the quota row is already issue 1's
+    patches: dict = {}
+    found, _ = filings.discover(prev, doc, patches, None, D5)
+    assert found["2306"]["quotaRow"] == "Reliance Jio" and patches == {}
+    assert found["2306"]["parentSymbol"] == "RELIANCE", "no parent name: the matched row's hand-written ticker"
+    assert found["2306"]["parentId"] == "4521" and found["2306"]["parent"] is None
+    assert found["2"]["quotaRow"] is None, "a quota row carrying another igId is never re-linked by name"
+
+
+def test_parent_symbol_is_strict_never_fuzzy_or_prefix():
+    symbols = filings.Matcher(nse_symbols.parse(_equity()), {})
+    assert filings.parent_symbol("Coal India Limited", symbols) == "COALINDIA"
+    assert filings.parent_symbol("Coal India", symbols) == "COALINDIA", "the legal suffix is a normalised form"
+    assert filings.parent_symbol("Bharat Coking Coal India", symbols) is None, "a superset of words is another company"
+    assert filings.parent_symbol("Torrent", symbols) is None, "a prefix is not a match (two Torrents)"
+    assert filings.parent_symbol("Hero Motocorp Ltd.", symbols) == "HEROMOTOCO"
+    assert filings.parent_symbol("Hero Motors", symbols) is None
+    assert filings.parent_symbol(None, symbols) is None and filings.parent_symbol("Coal India", None) is None
+
+
+def test_record_and_book_disagree_both_ways_are_entries_with_both_witnesses():
+    doc = _doc(_board("Book Only", "1", status="Open", open_="2026-11-03", shq={"flag": False, "src": "ig", "at": "2026-11-04"},
+                      sub={"qib": 1.0, "shareholder": 0.7, "total": 1.2}),
+               _board("Record Only", "2", status="Open", open_="2026-11-03", shq=JIO_REC, sub={"qib": 1.0, "retail": 2.0, "total": 1.5}))
+    found, stats = filings.discover({"quota": []}, doc, {}, None, D5)
+    assert found["1"]["witness"] == {"record": False, "book": True} and found["1"]["offered"] is None
+    assert found["2"]["witness"] == {"record": True, "book": False}
+    assert stats["disagree"] == 1 and stats["reserved"] == 1
+
+
+def test_merge_found_keeps_first_carries_the_symbol_and_drops_settled_or_recanted():
+    old = [{"igId": "2306", "name": "Jio Platforms", "board": "mainboard", "open": "2026-10-21", "listing": "2026-10-28",
+            "parentSymbol": "RELIANCE", "quotaRow": "Reliance Jio", "witness": {"record": True, "book": True},
+            "first": "2026-10-15", "last": "2026-10-28"},
+           {"igId": "2400", "name": "Recanted", "board": "sme", "open": None, "listing": "2026-11-20", "parentSymbol": None,
+            "quotaRow": None, "witness": {"record": True, "book": None}, "first": "2026-11-01", "last": "2026-11-04"},
+           {"igId": "2500", "name": "Still Here", "board": "sme", "open": None, "listing": "2026-11-20", "parentSymbol": "X",
+            "quotaRow": None, "witness": {"record": True, "book": None}, "first": "2026-11-01", "last": "2026-11-04"},
+           {"igId": "2700", "name": "Vanished", "board": "sme", "open": None, "listing": None, "parentSymbol": None,
+            "quotaRow": None, "witness": {"record": True, "book": None}, "first": "2026-10-01", "last": "2026-10-20"},
+           {"igId": "2800", "name": "Just Listed", "board": "mainboard", "open": "2026-10-28", "listing": "2026-11-03",
+            "parentSymbol": None, "quotaRow": None, "witness": {"record": True, "book": True}, "first": "2026-10-20", "last": "2026-11-03"}]
+    doc = _doc(_board("Recanted", "2400", shq={"flag": False, "src": "ig", "at": "2026-11-05"}, board="sme"),
+               _board("Still Here", "2500", shq=None, board="sme"))                   # record not re-read today
+    today_found = {"2500": {"igId": "2500", "name": "Still Here", "board": "sme", "open": None, "listing": "2026-11-20",
+                            "parentSymbol": None, "quotaRow": None, "witness": {"record": True, "book": None},
+                            "first": "2026-11-05", "last": "2026-11-05", "offered": 1, "bidLimit": None, "discount": None,
+                            "discountPct": None, "parentId": None, "parent": None}}
+    out = {e["igId"]: e for e in filings.merge_found(old, today_found, doc, D5)}
+    assert "2306" not in out, "listed 28 Oct, settled by 5 Nov"
+    assert "2400" not in out, "the record's flag turned false and the book shows none"
+    assert out["2500"]["first"] == "2026-11-01" and out["2500"]["last"] == "2026-11-05"
+    assert out["2500"]["parentSymbol"] == "X", "today's lookup failed: yesterday's symbol kept"
+    assert "2700" not in out, "left the board unlisted more than a week ago"
+    assert out["2800"]["last"] == "2026-11-03", "listed two days ago: kept as it was until it settles"
+    # an unconfirmed entry whose row is on the board with no record today is carried unchanged
+    doc2 = _doc(_board("Still Here", "2500", shq=None, board="sme"))
+    out2 = {e["igId"]: e for e in filings.merge_found(old[2:3], {}, doc2, D5)}
+    assert out2["2500"]["last"] == "2026-11-04"
+
+
+def test_run_publishes_quota_found_and_links_igid_only_when_the_board_is_there(monkeypatch):
+    prev = _prev()
+    prev["quotaFound"] = [{"igId": "9", "name": "Old Found", "board": "sme", "open": None, "listing": None, "parentSymbol": None,
+                           "quotaRow": None, "witness": {"record": True, "book": None}, "first": "2026-09-01", "last": "2026-09-16"}]
+    s = FakeSession(bse_exc=SourceDown("bse_ann", "HTTP 403"),
+                    sebi_post={"10": SourceDown("sebi", "down"), "11": SourceDown("sebi", "down")},
+                    nse={"equities": _ann()}, equity_csv=_equity())
+    monkeypatch.setattr(filings, "_today", lambda: D5)
+    res = Result(module="filings", doc=_doc(_board("Jio Platforms", "2306", shq=JIO_REC)))
+    res = filings.run(s, prev, res)
+    assert res.ok
+    assert res.rows["quota"]["Jio Platforms"] == {"igId": "2306", "listingDate": "2026-11-17"}   # _reconcile dates it too
+    found = res.replace["quotaFound"]
+    assert [e["igId"] for e in found] == ["2306"], "Old Found left the board unlisted weeks ago"
+    assert found[0]["quotaRow"] == "Jio Platforms" and found[0]["parentSymbol"] == "RELIANCE"
+    assert any(n.startswith("1 board issues carry a shareholder reservation, 0 not on the quota list") for n in res.notes)
+    # the assembler accepts both: quotaFound is filings', igId is an allowed row field
+    data = schema.empty_data()
+    data["quota"] = [dict(q) for q in prev["quota"]]
+    assemble.apply(data, res)
+    assert data["quotaFound"] == found and data["quota"][0]["igId"] == "2306"
+    # no board in the run (an --only run on an empty document): yesterday's list is not replaced
+    res2 = filings.run(s, prev, Result(module="filings", doc=None))
+    assert res2.ok and "quotaFound" not in res2.replace
+
+
+def test_schema_and_layout_publish_quota_found_with_the_pipeline():
+    from collector import layout
+    assert schema.OWNERS["quotaFound"] == "filings" and "quotaFound" in schema.TOP_LEVEL
+    assert schema.empty_data()["quotaFound"] == []
+    assert "quotaFound" in layout.GROUPS["pipeline"] and "quota" in layout.GROUPS["pipeline"]
+    assert "igId" in filings.ALLOWED_FIELDS
+    layout.check_groups()
+
+
+# ------------------------------------------------------------------------------------------
+# the register-to-announcement join
+# ------------------------------------------------------------------------------------------
+# A real quotaLeads row from the data branch, 5 Nov 2026 (Coal India on South Eastern Coalfields' DRHP).
+SECL_LEAD = {"parentSymbol": "COALINDIA", "parentName": "Coal India Limited", "kind": "drhp",
+             "text": ("Disclosure under Regulation 30 of SEBI LODR, 2015 - Filing of DRHP of South Eastern Coalfields Limited "
+                      "(SECL), a wholly owned Subsidiary of CIL, with SEBI"),
+             "url": "https://nsearchives.nseindia.com/corporate/COALINDIA_02112026120108_SECL.pdf", "date": "2026-11-02",
+             "seqId": "106839219", "sme": False, "watched": True}
+
+
+def test_register_join_carries_the_filing_and_the_listed_parent():
+    reg = {"register": "DRHP", "kind": "DRHP", "date": "2026-11-02", "title": "South Eastern Coalfields Limited - Draft Abridged Prospectus",
+           "url": "https://www.sebi.gov.in/filings/public-issues/secl.html"}
+    expected = [{"name": "South Eastern Coalfields", "auto": True, "lastFiling": reg},
+                {"name": "Coal Tech", "auto": True},                      # first word "coal": a group name tier only
+                {"name": "India Coalfields", "auto": True}]               # stoplisted first word
+    companies = nse_symbols.parse(_equity())
+    stats = filings.attach_candidates(expected, [dict(SECL_LEAD)], companies)
+    c = expected[0]["quotaCandidate"]
+    assert c["via"] == "announcement" and c["parents"] == [{"symbol": "COALINDIA", "name": "Coal India Limited"}]
+    assert c["url"] == SECL_LEAD["url"] and c["register"] == reg, "both links: the register row and the announcement"
+    assert expected[1].get("quotaCandidate", {}).get("via") == "name"
+    assert "quotaCandidate" not in expected[2], "stoplist still guards the name tier"
+    assert stats == {"announcement": 1, "name": 1}
+    # the announcer must be a listed symbol: an unknown symbol is no candidate when the lists loaded …
+    expected2 = [{"name": "South Eastern Coalfields", "auto": True, "lastFiling": reg}]
+    filings.attach_candidates(expected2, [{**SECL_LEAD, "parentSymbol": "NOTLISTED"}], companies)
+    assert "quotaCandidate" not in expected2[0]
+    # … and is taken on NSE's own word when they did not (the feed carries listed companies only)
+    filings.attach_candidates(expected2, [{**SECL_LEAD, "parentSymbol": "NOTLISTED"}], None)
+    assert expected2[0]["quotaCandidate"]["parents"][0]["name"] == "Coal India Limited"
+    assert "register" in expected2[0]["quotaCandidate"]
+    # a row with no filing on file carries the announcement alone
+    expected3 = [{"name": "South Eastern Coalfields", "note": "hand row"}]
+    filings.attach_candidates(expected3, [dict(SECL_LEAD)], companies)
+    assert "register" not in expected3[0]["quotaCandidate"] and expected3[0]["quotaCandidate"]["kind"] == "drhp"

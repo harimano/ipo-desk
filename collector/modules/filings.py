@@ -15,7 +15,22 @@ What it does each run:
       speaking about a subsidiary's offer. Those are `quotaLeads[]` (60 days). A lead from a watched parent
       moves its quota row as (b) would (BSE is blocked on the runners); a lead naming an `expected` row, and
       an `auto` row whose first word is a listed group's first word, get `quotaCandidate`. A flag, never a
-      quota: promotion stays a person reading the DRHP (data/quota-reviews/ + parents.json).
+      quota: promotion stays a person reading the DRHP (data/quota-reviews/ + parents.json). A lead that names
+      a register issuer (an `expected` row the SEBI registers put there) from a listed announcer is the
+      register-to-announcement join: the candidate carries the announcement AND the register row (`register`).
+  (f) reconcile: a quota row whose IPO is on the board or in this year's listings moves to done / gets its
+      listingDate (strict name tiers only) and, once the board row has an `igId`, carries it (`quota[].igId`),
+      so later runs never depend on spelling;
+  (g) the board's own word: `details` writes `shareholderQuota` on every board row from the InvestorGain record
+      ({flag, offered, bidLimit, discount, discountPct, parentId, parent, src, at}; None until the record is read).
+      Every row with flag true, and every row whose BOOK has a shareholder category while the record says none,
+      becomes a `quotaFound[]` entry: the reservation as published, the matched quota row (`quotaRow`, null = NOT
+      on the quota list — the discovery), both witnesses (`witness.record`, `witness.book`), the parent's NSE
+      symbol when the parent's NAME resolves through the strict tiers against NSE's equity lists (never fuzzy;
+      else the matched quota row's hand-written ticker; else null), first seen / last confirmed. Merged with
+      yesterday's by igId; an entry leaves SETTLE_DAYS after listing, when the record's flag turns false, or a
+      week after its row left the board unlisted. A flag, never a planner row (rule 3): scripts/audit.py turns
+      the four disagreements into /admin warnings.
 
 bse_ann, sebi and nse_ann are attempted every run; the module is ok if ANY answered, and res.notes
 records which. A row nothing mentioned keeps its previous stage (no patch). Stages never regress:
@@ -43,7 +58,7 @@ PARENTS_FILE = pathlib.Path(__file__).resolve().parent.parent / "sources" / "par
 
 LOOKBACK_DAYS = 3
 NEW_FOR_DAYS = 14
-ALLOWED_FIELDS = {"stage", "bucket", "stageDate", "recordDate", "listingDate", "isNew", "needsReview"}
+ALLOWED_FIELDS = {"stage", "bucket", "stageDate", "recordDate", "listingDate", "isNew", "needsReview", "igId"}
 FORBIDDEN_FIELDS = {"quota", "quotaPct", "confidence", "sources"}
 
 HEADLINE_RE = re.compile(
@@ -403,28 +418,43 @@ def _leads_to_quota(leads: list[dict], wl: dict[str, dict], patches: dict, today
     return hits
 
 
-def _candidate(lead: dict) -> dict:
-    return {"via": "announcement", "parents": [{"symbol": lead["parentSymbol"], "name": lead.get("parentName")}],
-            "kind": lead["kind"], "text": lead["text"], "url": lead.get("url"), "date": lead.get("date")}
+def _candidate(lead: dict, company: dict | None = None, register: dict | None = None) -> dict:
+    """An announcement candidate. `company` is the announcer's row in NSE's equity list (its listed name);
+    `register` is the row's SEBI filing (`lastFiling`) — the join: the register says the issuer filed, the parent's
+    announcement says whose subsidiary it is, and both links are kept as the evidence."""
+    out = {"via": "announcement", "parents": [{"symbol": lead["parentSymbol"],
+                                               "name": (company or {}).get("name") or lead.get("parentName")}],
+           "kind": lead["kind"], "text": lead["text"], "url": lead.get("url"), "date": lead.get("date")}
+    if register and register.get("url"):
+        out["register"] = {k: register.get(k) for k in ("register", "kind", "date", "title", "url")}
+    return out
 
 
 def attach_candidates(expected: list[dict], leads: list[dict], companies: list[dict] | None) -> dict:
     """Mark `expected` rows that may carry a shareholder quota. Adds `quotaCandidate` and nothing else:
       * via "announcement" — a listed company's announcement about a subsidiary's offer names the row.
-        The announcer must not be the row itself (listed issuers announce their own business every day).
+        The announcer must not be the row itself (listed issuers announce their own business every day) and must
+        be a listed symbol (checked against NSE's equity lists when they loaded). A row the SEBI registers put
+        there carries its filing too (`register`): the register-to-announcement join.
       * via "name" — an `auto` row's first word is a listed company's first word (a group name). Weak:
         Madhur Iron -> Madhur Knitting is expected. Never replaces an announcement candidate.
     Leads that name a row get `matched` = the row's name."""
     stats = {"announcement": 0, "name": 0}
     keyed = [(k, r) for r in expected if isinstance(r, dict) and r.get("name") and (k := _row_key(r["name"]))]
+    listed = {c["symbol"]: c for c in companies or [] if isinstance(c, dict) and c.get("symbol")}
     for lead in sorted(leads, key=lambda x: x.get("date") or ""):   # the newest announcement has the last word
         if lead.get("kind") == "withdrawn":
+            continue
+        # the announcer must be a listed symbol: NSE's feed carries only listed companies, and when the equity lists
+        # loaded the symbol is checked against them (and the listed name carried as evidence)
+        company = listed.get(lead["parentSymbol"])
+        if companies is not None and listed and company is None:
             continue
         text = normalise(lead["text"])
         parent = normalise(lead.get("parentName") or "")
         for k, row in keyed:
             if k in text and not parent.startswith(k):
-                row["quotaCandidate"] = _candidate(lead)
+                row["quotaCandidate"] = _candidate(lead, company, row.get("lastFiling"))
                 lead["matched"] = row["name"]
     firsts: dict[str, list[dict]] = {}
     for c in companies or []:
@@ -454,6 +484,136 @@ def attach_candidates(expected: list[dict], leads: list[dict], companies: list[d
             row["quotaCandidate"] = {"via": "name", "parents": [{"symbol": c["symbol"], "name": c["name"]} for c in group]}
             stats["name"] += 1
     return stats
+
+
+# ---------------------------------------------------------------------------------------------
+# quotaFound — the board's own word on shareholder reservations, read against the quota list
+# ---------------------------------------------------------------------------------------------
+SETTLE_DAYS = 7          # a found issue leaves the list a week after it lists …
+FOUND_GONE_DAYS = 7      # … or a week after its row left the board without listing (calendar dropped it)
+FOUND_FIELDS = ("igId", "name", "board", "open", "listing", "parentId", "parent", "parentSymbol", "offered", "bidLimit",
+                "discount", "discountPct", "quotaRow", "witness", "first", "last")
+
+
+def _board_rows(doc: dict) -> list[tuple[str, dict]]:
+    return [(board, r) for board in ("mainboard", "sme") for r in (doc.get(board) or [])
+            if isinstance(r, dict) and r.get("name") and r.get("igId")]
+
+
+def book_witness(row: dict, today: dt.date) -> bool | None:
+    """Does the exchange's (or Narada's) book show a shareholder category? True when `sub.shareholder` exists; False
+    when bidding has opened and the book has its categories but no shareholder one; None before bidding opens or
+    while the book is still empty (nothing to witness yet)."""
+    sub = row.get("sub") or {}
+    if "shareholder" in sub:
+        return True
+    o = _d(row.get("open"))
+    if row.get("status") not in ("Open", "Closed", "Listed") or (o and o > today):
+        return None
+    if not any(sub.get(k) for k in ("qib", "nii", "retail", "total")):
+        return None
+    return False
+
+
+def parent_symbol(parent: str | None, symbols: Matcher | None) -> str | None:
+    """The NSE symbol of a parent NAMED by the record, through the strict tiers only (the same name, an alias, a
+    bracketed form — never prefix or fuzzy: a wrong parent symbol is the one thing that must not happen)."""
+    if not parent or symbols is None:
+        return None
+    hit = symbols.match_strict(parent)
+    return symbols.symbol_of(hit) if hit else None
+
+
+def discover(prev: dict, doc: dict, patches: dict, companies: list[dict] | None, today: dt.date) -> tuple[dict, dict]:
+    """Every board row with an id, read against the quota list: {igId: quotaFound entry} for the rows whose record
+    shows a shareholder reservation (witness.record true) or whose book shows a shareholder category the record does
+    not (record false, book true). A board row that strictly matches a quota row with no `igId` yet links it
+    (patches[name]["igId"]), whatever the record says, so the audit can read record and row side by side."""
+    quota = [q for q in prev.get("quota") or [] if isinstance(q, dict) and q.get("name")]
+    by_igid = {str(q["igId"]): q for q in quota if q.get("igId")}
+    aliases = load_aliases(ALIASES_DIR)
+    rows = _board_rows(doc)
+    board_ig = {r["name"]: str(r["igId"]) for _, r in rows}
+    matcher = Matcher([r for _, r in rows], aliases)          # quota spelling -> board spelling, as _reconcile and the audit
+    for q in quota:                                           # link: a quota row with no igId yet, strictly matched
+        if q.get("igId"):
+            continue
+        hit = matcher.match_strict(q["name"])
+        ig = board_ig.get(hit) if hit else None               # an alias target may not be on the board: .get
+        if ig and ig not in by_igid:                          # never two rows on one issue
+            patches.setdefault(q["name"], {})["igId"] = ig
+            by_igid[ig] = q
+    symbols = Matcher(companies, aliases) if companies else None
+    stats = {"reserved": 0, "unlisted": 0, "disagree": 0, "linked": sum(1 for p in patches.values() if "igId" in p)}
+    found: dict[str, dict] = {}
+    for board, r in rows:
+        ig = str(r["igId"])
+        q = by_igid.get(ig)
+        shq = r.get("shareholderQuota") if isinstance(r.get("shareholderQuota"), dict) else None
+        flag = shq.get("flag") if shq else None
+        book = book_witness(r, today)
+        if flag is True:
+            witness = {"record": True, "book": book}
+            stats["reserved"] += 1
+        elif flag is False and book is True:
+            witness = {"record": False, "book": True}
+            stats["disagree"] += 1
+        else:
+            continue                                          # None: no record yet; false and no book: nothing to say
+        parent = (shq or {}).get("parent")
+        sym = parent_symbol(parent, symbols)
+        if not sym and q is not None and q.get("ticker"):     # the matched row's hand-written parent ticker
+            sym = str(q["ticker"]).upper().strip() or None
+        if q is None and flag is True:
+            stats["unlisted"] += 1
+        found[ig] = {"igId": ig, "name": r["name"], "board": board, "open": r.get("open") or None,
+                     "listing": r.get("listing") or None, "parentId": (shq or {}).get("parentId"),
+                     "parent": parent or None, "parentSymbol": sym, "offered": (shq or {}).get("offered"),
+                     "bidLimit": (shq or {}).get("bidLimit"), "discount": (shq or {}).get("discount"),
+                     "discountPct": (shq or {}).get("discountPct"), "quotaRow": q["name"] if q else None,
+                     "witness": witness, "first": today.isoformat(), "last": today.isoformat()}
+    return found, stats
+
+
+def merge_found(prev_found: list[dict], found: dict[str, dict], doc: dict, today: dt.date) -> list[dict]:
+    """Yesterday's entries plus today's, one per igId: `first` kept, `last` = today when confirmed, the parent symbol
+    kept when today's lookup could not resolve it (the equity lists are a network call). An entry leaves when its
+    issue has settled (listing + SETTLE_DAYS), when its row is on the board and the record now says no reservation
+    and the book shows none, or FOUND_GONE_DAYS after its row left the board without listing. An unconfirmed entry
+    whose row is on the board (the record not re-read today) is carried as it was."""
+    rows = {str(r["igId"]): r for _, r in _board_rows(doc)}
+    out: list[dict] = []
+    for old in prev_found or []:
+        if not isinstance(old, dict) or not old.get("igId"):
+            continue
+        ig = str(old["igId"])
+        if ig in found:
+            e = found[ig]
+            e["first"] = old.get("first") or e["first"]
+            if not e.get("parentSymbol") and old.get("parentSymbol"):
+                e["parentSymbol"] = old["parentSymbol"]
+            continue
+        listing = _d(old.get("listing"))
+        if listing and today > listing + dt.timedelta(days=SETTLE_DAYS):
+            continue
+        r = rows.get(ig)
+        if r is not None:
+            shq = r.get("shareholderQuota") if isinstance(r.get("shareholderQuota"), dict) else None
+            if shq and shq.get("flag") is False and "shareholder" not in (r.get("sub") or {}):
+                continue                                      # the record's flag turned false
+            out.append({**old, "igId": ig})
+            continue
+        last = _d(old.get("last"))
+        if not listing and last and today > last + dt.timedelta(days=FOUND_GONE_DAYS):
+            continue
+        out.append({**old, "igId": ig})
+    for ig, e in found.items():
+        listing = _d(e.get("listing"))
+        if listing and today > listing + dt.timedelta(days=SETTLE_DAYS):
+            continue
+        out.append({k: e.get(k) for k in FOUND_FIELDS})
+    out.sort(key=lambda e: (e.get("open") or "9999", e.get("name") or ""))
+    return out
 
 
 def _reconcile(prev: dict, doc: dict, patches: dict, today: dt.date) -> int:
@@ -547,9 +707,21 @@ def run(session: Session, prev: dict, res: Result) -> Result:
         hits = _leads_to_quota(found, wl, patches, today)
         if hits:
             res.notes.append(f"nse_ann: {hits} quota stage changes from watched parents")
-    matched = _reconcile(prev, res.doc or {}, patches, today)
+    try:
+        companies = nse_symbols.companies(session)
+    except SourceError as e:
+        companies = None
+        res.notes.append(f"discover: NSE equity lists unavailable ({e.detail}); name flags and parent symbols carried forward")
+    doc = res.doc or {}
+    matched = _reconcile(prev, doc, patches, today)
     if matched:
         res.notes.append(f"{matched} quota rows matched to an issue on the board or listed")
+    if _board_rows(doc):                                   # no board in this run: yesterday's quotaFound stays as it is
+        seen, fstats = discover(prev, doc, patches, companies, today)
+        res.replace["quotaFound"] = merge_found(prev.get("quotaFound") or [], seen, doc, today)
+        res.notes.append(f"{fstats['reserved']} board issues carry a shareholder reservation, {fstats['unlisted']} not on "
+                         f"the quota list; {fstats['disagree']} books show a shareholder category the record does not; "
+                         f"{fstats['linked']} quota rows linked by igId; {len(res.replace['quotaFound'])} found held")
     moved = _expire(prev, patches, today)
     if moved:
         res.notes.append(f"{moved} rows past listingDate moved to done")
@@ -568,11 +740,6 @@ def run(session: Session, prev: dict, res: Result) -> Result:
         expected = [dict(r) for r in prev.get("expected") or [] if isinstance(r, dict)]
     leads = merge_leads(prev.get("quotaLeads") or [], found, today) if ann_ok else \
         [dict(x) for x in prev.get("quotaLeads") or [] if isinstance(x, dict)]
-    try:
-        companies = nse_symbols.companies(session)
-    except SourceError as e:
-        companies = None
-        res.notes.append(f"discover: NSE equity lists unavailable ({e.detail}); name flags carried forward")
     cstats = attach_candidates(expected, leads, companies)
     res.replace["expected"] = expected
     if ann_ok:
