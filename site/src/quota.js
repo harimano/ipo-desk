@@ -4,10 +4,12 @@
    entry is ONE share of the parent, held in the demat on the record date. Every figure here is fetched: the parent's
    price is `investors.prices[parent]` (collector/modules/parents.py prices every live quota row's ticker), stage /
    record date / lapse come from `quota`. "Held" is the viewer's own mark (localStorage `ipo-holdings`), never sent anywhere. */
+// a quota row the collector has tied to a board issue (`igId`, filings) links to that row the way every deep link does (links.js)
+const qpBoardName = q => q.igId == null ? null : (allIssues().find(b => String(b.igId) === String(q.igId)) || {}).name || null;
 function renderQuotaPlanner() {
   const el = $("#quotaPlan"); if (!el) return;
   const PX = (DATA.investors || {}).prices || {}, stageRank = { approved: 0, drhp: 1, awaited: 2 };
-  const rows = live.filter(q => q.quota !== false).map(q => { const p = PX[q.parent] || {}, rd = q.recordDate ? days(q.recordDate) : null; return { q, px: p.value, pxAsOf: p.asOf, rd, lapse: q.lapse ? days(q.lapse) : null, has: held(q.parent) }; })
+  const rows = live.filter(q => q.quota !== false).map(q => { const p = PX[q.parent] || {}, rd = q.recordDate ? days(q.recordDate) : null; return { q, px: p.value, pxAsOf: p.asOf, rd, lapse: q.lapse ? days(q.lapse) : null, has: held(q.parent), onBoard: qpBoardName(q) }; })
     .sort((a, b) => (a.rd == null) - (b.rd == null) || (a.rd || 0) - (b.rd || 0) || stageRank[a.q.bucket] - stageRank[b.q.bucket] || (a.q.rank || 0) - (b.q.rank || 0));
   const parents = {}; rows.forEach(r => { (parents[r.q.parent] = parents[r.q.parent] || { px: r.px, has: r.has, n: 0 }).n++; });
   const P = Object.values(parents), open = P.filter(p => !p.has), cost = open.reduce((s, p) => s + (p.px || 0), 0), unpriced = open.filter(p => !p.px).length;
@@ -19,7 +21,7 @@ function renderQuotaPlanner() {
       ${kpi("To cover the rest", inr0(cost), `one share each of ${open.length} parent${open.length === 1 ? "" : "s"}${unpriced ? ` · ${unpriced} without a price` : ""}`)}
       ${kpi("Approved, parent not held", String(near.length), near.length ? esc(near.slice(0, 3).map(r => r.q.parent).join(", ")) + (near.length > 3 ? "…" : "") : "nothing urgent")}</div>
     <div class="card tw" style="margin-top:12px"><table><thead><tr><th>IPO</th><th>Parent to hold</th><th class="r">One share costs</th><th>Stage</th><th>Record date</th><th>Approval lapses</th><th class="r">Held?</th></tr></thead><tbody>${rows.map(r => `<tr data-row data-name="${esc(r.q.name)}">
-      <td><div class="nm"><button data-sheet="${esc(r.q.name)}">${esc(r.q.name)}</button></div><div class="dt">${r.q.sizeCr ? "₹" + Number(r.q.sizeCr).toLocaleString("en-IN") + " Cr" : "size not known"}${r.q.quotaPct ? " · " + r.q.quotaPct + "% reserved for shareholders" : r.q.quota === true ? " · shareholder quota confirmed" : " · quota not confirmed yet"}</div></td>
+      <td><div class="nm">${r.onBoard ? `<a href="${hashFor("board", r.onBoard)}" title="on the board today as ${esc(r.onBoard)} — open the row">${esc(r.q.name)}</a>` : `<button data-sheet="${esc(r.q.name)}">${esc(r.q.name)}</button>`}</div><div class="dt">${r.q.sizeCr ? "₹" + Number(r.q.sizeCr).toLocaleString("en-IN") + " Cr" : "size not known"}${r.q.quotaPct ? " · " + r.q.quotaPct + "% reserved for shareholders" : r.q.quota === true ? " · shareholder quota confirmed" : " · quota not confirmed yet"}</div></td>
       <td>${esc(r.q.parent)}<div class="dt">${esc(r.q.ticker || "")}</div></td>
       <td class="r num">${r.px ? inr(r.px) : `<span class="dim">no price</span>`}<div class="dt">${r.pxAsOf ? fmtD(r.pxAsOf) : ""}</div></td>
       <td><span class="pill ${r.q.bucket === "approved" ? "ok" : r.q.bucket === "drhp" ? "soon" : "plan"}">${esc(r.q.stage || r.q.bucket)}</span>${r.q.expectedWindow ? `<div class="dt" style="max-width:260px">${esc(r.q.expectedWindow)}</div>` : ""}</td>
