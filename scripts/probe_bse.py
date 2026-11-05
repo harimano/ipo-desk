@@ -39,6 +39,23 @@ SURFACES = [
     ("www: announcements page", "https://www.bseindia.com/corporates/ann.html"),
     ("www: corp filing attachment store (dir)", "https://www.bseindia.com/xml-data/corpfiling/AttachLive/"),
     ("www: IPO page", "https://www.bseindia.com/markets/PublicIssues/IPODisplay.aspx"),
+    # batch 2 (5 Nov, after the first run): the www pages are one 16.9 KB app shell that calls the blocked API from the
+    # browser, so the question is whether BSE's LEGACY (beta.) pages and feeds still carry deals and announcements server-side.
+    ("beta: bulk deals (legacy aspx)", "https://beta.bseindia.com/markets/equity/EQReports/bulk_deals.aspx"),
+    ("beta: block deals (legacy aspx)", "https://beta.bseindia.com/markets/equity/EQReports/block_deals.aspx"),
+    ("beta: bulk+block deals (legacy aspx)", "https://beta.bseindia.com/markets/equity/EQReports/BulknBlockDeals.aspx"),
+    ("beta: announcements (legacy aspx)", "https://beta.bseindia.com/corporates/ann.aspx"),
+    ("beta: announcements (legacy, alt)", "https://beta.bseindia.com/corporates/ann.html"),
+    ("beta: homepage", "https://beta.bseindia.com/"),
+    ("www: announcements RSS?", "https://www.bseindia.com/data/xml/announcements.xml"),
+    ("www: corp announcements RSS?", "https://www.bseindia.com/corporates/annrss.aspx"),
+    ("www: RSS index?", "https://www.bseindia.com/rss.html"),
+    ("www: bulk deals download?", f"https://www.bseindia.com/download/BulkDeals/bulk_{yday}.csv"),
+    ("www: markets/equity download index?", "https://www.bseindia.com/download/"),
+    ("www: sitemap", "https://www.bseindia.com/sitemap.xml"),
+    ("www: robots.txt", "https://www.bseindia.com/robots.txt"),
+    ("beta: robots.txt", "https://beta.bseindia.com/robots.txt"),
+    ("api: robots.txt", "https://api.bseindia.com/robots.txt"),
 ]
 
 
