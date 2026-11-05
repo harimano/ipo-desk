@@ -77,6 +77,18 @@ def test_ipowatch_parser_on_fixture():
     assert all(-50 <= r["gmpPct"] <= 500 for r in rows if r["gmpPct"] is not None)
 
 
+def test_ipowatch_parser_on_nov_2026_shape():
+    """Company / GMP* / Trend / Price Band / Est. Gain / Date — status inside the name cell, no Type column."""
+    rows = ipowatch.parse_ipowatch(fixture("ipowatch", "board-2026-11.html"))
+    by = {r["name"]: r for r in rows}
+    assert set(by) == {"Vedant Poly Fabs", "Johnsoncab Electricals", "HGS (India)", "Maxwell Engineering", "Vectras Enprocon", "Antala Industries"}
+    m = by["Maxwell Engineering"]
+    assert m["gmp"] == 113.0 and m["gmpPct"] == 71.52 and m["bandHigh"] == 158.0 and m["status"] == "Closed"
+    assert by["Antala Industries"]["status"] == "Open" and by["Antala Industries"]["dateText"] == "29-5 Nov"
+    assert by["Antala Industries"]["gmp"] is None and by["Vectras Enprocon"]["gmp"] is None   # '₹0' + '(0.00%)' = no quote
+    assert by["Vedant Poly Fabs"]["gmp"] == 1.0 and by["Vedant Poly Fabs"]["gmpPct"] == 1.06
+
+
 def test_ipowatch_changed_shape_raises():
     with pytest.raises(SourceChanged):
         ipowatch.parse_ipowatch("<html><body><table><tr><th>Foo</th><th>Bar</th></tr><tr><td>x</td><td>y</td></tr></table></body></html>")
