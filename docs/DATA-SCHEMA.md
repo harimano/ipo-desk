@@ -13,7 +13,14 @@ sheets{name}: {parent, parentTicker, parentPrice{value, asOf}, status, timeline{
 mainboard[] / sme[]: {name, slug, type "Mainboard"|"NSE SME"|"BSE SME", status, open, close, allotment, listing, bandLow, bandHigh, lotSize,
           issueSizeCr, freshCr, ofsCr, gmp, gmpPct, gmpTrend up|down|flat, sub{qib, nii, retail, bnii?, snii?, other?, employee?, shareholder?, total, asOf, src nse|narada|bse|chittorgarh, catAsOf? (page only)},
           logo? (InvestorGain's logo file name), apps?{quota: {reserved, received, reservedSrc rhp|rhp=narada|narada}, asOf} (Narada's application counts — counts only; not yet rendered),
-          shareholderQuota{offered, parent, recordDate}|null, listingPrice, listingGainPct, currentPrice, sources[]}
+          shareholderQuota (owner `details`, from the InvestorGain record's structured reservation fields; 5 Nov 2026):
+            null = no record read yet · {flag: false, src "ig", at YYYY-MM-DD, flagOnly?: true} = record read, no reservation
+            (flagOnly: the record's dead `shareholder_reservation_flag` was 1 with nothing offered — a look, not a quota) ·
+            {flag: true, offered (shares; null when the status is set but no count is), bidLimit (rupees, from the record's limit
+            code via BID_LIMIT_RUPEES; null for an unknown code), bidLimitCode (the raw code), discount (rupees)|null, discountPct|null,
+            parentId (InvestorGain's `shareholder_company_id`, blank on every record read so far)|null, parent (null: the record
+            names the parent only in prose, never parsed), src "ig", at},
+          listingPrice, listingGainPct, currentPrice, sources[]}
           - a Listed row stays on the board only on its listing day, then moves to recent[].
 recent[]: {name, type, listingDate, issuePrice, listingPrice, gainPct, closeDay1, closeDay1GainPct, sources[]}  - last ~4 weeks
 listedPerf[]: {name, issue, gmpImplied, listing}  - rolling ~40 mainboard listings, newest first. Prepend each new listing.

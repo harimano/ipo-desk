@@ -224,3 +224,91 @@ def test_three_failures_in_a_row_stop_the_record_loop_and_the_rest_wait():
     s = FakeSession(records={k: SourceDown("investorgain", "HTTP 503", "u", 503) for k in RECORDS})
     run(s)
     assert len([c for c in s.calls if c.startswith("detail:")]) <= 3, "after three failures in a row nothing more is asked"
+
+
+# ---------------------------------------------------------------------------------------------
+# the shareholder reservation (5 Nov 2026): the record's structured fields -> shareholderQuota on the row
+# ---------------------------------------------------------------------------------------------
+JIO = json.loads((FX / "ipo-detail-2306-JIO-shareholder.json").read_text())
+JINDAL = json.loads((FX / "ipo-detail-2057-JINDAL-full.json").read_text())
+
+
+def test_the_reservation_is_read_from_the_shares_and_status_never_from_the_dead_flag():
+    q = ig.normalise_detail(JIO)["shareholderQuota"]
+    assert JIO["ipoData"][0]["shareholder_reservation_flag"] == 0, "the fixture is Jio as served: the flag reads 0 on a real reservation"
+    assert q == {"flag": True, "offered": 22341376, "bidLimit": 200_000, "bidLimitCode": 1, "discount": None, "discountPct": None,
+                 "parentId": None, "parent": None, "src": "ig"}
+    assert ig.normalise_detail(JINDAL)["shareholderQuota"] == {"flag": False, "src": "ig"}, "no reservation: an answer, not None"
+    assert ig.normalise_detail(RECORDS["2305"])["shareholderQuota"] == {"flag": False, "src": "ig"}, "NSE: an employee reservation only"
+    eaaa = {**JIO["ipoData"][0], "shareholder_reservation_flag": 1, "shares_offered_shareholders": 0, "prefer_shareholder_shares": 0,
+            "prefer_shareholders_status": 0, "shareholder_reservation_bidding_limit": 1}
+    assert ig.shareholder_quota(eaaa) == {"flag": False, "src": "ig", "flagOnly": True}, "EAAA: the dead flag alone is a look, not a quota"
+    disc = {**JIO["ipoData"][0], "discount_shareholder": "54.00", "discount_shareholder_per": "4.83", "shareholder_company_id": "2949",
+            "shareholder_reservation_bidding_limit": 7}
+    q = ig.shareholder_quota(disc)
+    assert (q["discount"], q["discountPct"], q["parentId"], q["bidLimit"], q["bidLimitCode"]) == (54.0, 4.83, "2949", None, 7), \
+        "rupees and percent as given; an unknown limit code is null, the code itself kept"
+    status_only = {**JIO["ipoData"][0], "shares_offered_shareholders": "", "prefer_shareholder_shares": ""}
+    assert ig.shareholder_quota(status_only)["flag"] is True and ig.shareholder_quota(status_only)["offered"] is None
+
+
+def test_every_row_with_a_record_carries_shareholder_quota_and_the_row_without_one_stays_none():
+    doc = prev()
+    doc["mainboard"].append({"name": "Jio Platforms", "igId": "2306", "type": "Mainboard", "status": "Closed",
+                             "open": "2026-10-21", "close": "2026-10-23", "listing": "2026-10-28", "shareholderQuota": None})
+    doc["mainboard"][0]["igId"] = "2305"
+    today = dt.date(2026, 10, 27)
+    res = run(FakeSession(records={**RECORDS, "2306": JIO}), doc, today=today, now=dt.datetime(2026, 10, 27, 6, 45, tzinfo=details.IST))
+    assert res.ok
+    data = copy.deepcopy(doc)
+    assemble.apply(data, res)                                      # schema.ROW_PATCHERS lets details write any row field
+    rows = {r["name"]: r for r in data["mainboard"]}
+    assert rows["Jio Platforms"]["shareholderQuota"] == {"flag": True, "offered": 22341376, "bidLimit": 200_000, "bidLimitCode": 1,
+                                                         "discount": None, "discountPct": None, "parentId": None, "parent": None,
+                                                         "src": "ig", "at": "2026-10-27"}
+    assert rows[NSE]["shareholderQuota"] == {"flag": False, "src": "ig", "at": "2026-10-27"}, "checked, none"
+    assert "shareholderQuota" not in rows["Kanohar Electricals"], "settled (listed 16 Sep): no record read this run, nothing written"
+    assert rows["Jio Platforms"]["name"] == "Jio Platforms", "a row's name is a key: never rewritten from the record"
+
+
+def _record_as(ig_id: str) -> dict:
+    r = copy.deepcopy(RECORDS["2305"])
+    r["ipoData"][0]["id"] = int(ig_id)
+    return r
+
+
+def test_queue_open_first_then_first_records_newest_first_then_due_refreshes():
+    hour_ago = (NOW - dt.timedelta(hours=1)).isoformat()
+    day_ago = (NOW - dt.timedelta(hours=30)).isoformat()
+    rows = [{"name": "Stale closed", "igId": "11", "status": "Closed", "open": "2026-09-10", "close": "2026-09-12", "igFetchedAt": day_ago},
+            {"name": "Upcoming soon", "igId": "12", "status": "Upcoming", "open": "2026-09-22", "close": "2026-09-24"},
+            {"name": "Open now", "igId": "13", "status": "Open", "open": "2026-09-17", "close": "2026-09-19", "igFetchedAt": hour_ago},
+            {"name": "Upcoming later", "igId": "14", "status": "Upcoming", "open": "2026-10-05", "close": "2026-10-07"},
+            {"name": "Fresh closed", "igId": "15", "status": "Closed", "open": "2026-09-11", "close": "2026-09-15", "igFetchedAt": hour_ago},
+            {"name": "No id yet", "status": "Upcoming", "open": "2026-10-06"}]
+    for r in rows:
+        r.setdefault("type", "Mainboard")
+    doc = {"mainboard": rows, "sme": [], "anchors": [],
+           "records": {"11": {"name": "Stale closed"}, "13": {"name": "Open now"}, "15": {"name": "Fresh closed"}}}
+    ids = {r["name"]: r["igId"] for r in rows if r.get("igId")}
+    order = [r["name"] for _, r in details.queue([("mainboard", r) for r in rows], ids, doc["records"], TODAY, NOW)]
+    assert order == ["Open now", "Upcoming later", "Upcoming soon", "Stale closed"], \
+        "open first; then the rows with no record, the latest opening first; then the stale refresh; a fresh row with a record waits"
+    s = FakeSession(records={i: _record_as(i) for i in ("11", "12", "13", "14")})
+    res = run(s, doc)
+    assert [c for c in s.calls if c.startswith("detail:")] == ["detail:13", "detail:14", "detail:12", "detail:11"]
+    assert "2 first records fetched for upcoming issues" in res.notes
+    assert "no InvestorGain record matched (name + opening date): No id yet" in res.unresolved[0]
+
+
+def test_the_cap_falls_on_the_refreshes_never_on_the_open_book_or_a_first_record(monkeypatch):
+    monkeypatch.setattr(details, "MAX_DETAIL_CALLS", 2)
+    day_ago = (NOW - dt.timedelta(hours=30)).isoformat()
+    rows = [{"name": "Stale", "igId": "11", "type": "Mainboard", "status": "Closed", "open": "2026-09-10", "close": "2026-09-12", "igFetchedAt": day_ago},
+            {"name": "New", "igId": "12", "type": "Mainboard", "status": "Upcoming", "open": "2026-09-22", "close": "2026-09-24"},
+            {"name": "Open", "igId": "13", "type": "Mainboard", "status": "Open", "open": "2026-09-17", "close": "2026-09-19"}]
+    doc = {"mainboard": rows, "sme": [], "anchors": [], "records": {"11": {"name": "Stale"}, "13": {"name": "Open"}}}
+    s = FakeSession(records={i: _record_as(i) for i in ("11", "12", "13")})
+    res = run(s, doc)
+    assert [c for c in s.calls if c.startswith("detail:")] == ["detail:13", "detail:12"]
+    assert "1 left for the next run (cap 2)" in res.notes

@@ -109,6 +109,10 @@ document as assembled so far; `prev` is yesterday's.
   does not return them, named in the module note) ·
   607 allotment planner · 554 event calendar · 551 all anchor investors · 561 one investor's IPOs (id is the LAST path
   segment; the free feed returns only the latest FIVE — a members' limit, do not work around it).
+  `details` writes `shareholderQuota` on every row it has a record for (5 Nov 2026: the record's structured reservation fields;
+  `shareholder_reservation_flag` is dead — `prefer_shareholders_status` / shares offered are the signal; `{flag:false}` = checked,
+  none; None = no record yet; the parent is prose there, never parsed) and fetches an identified issue's FIRST record the run it
+  reaches the calendar (queue: open issues, then no-record rows newest first, then due refreshes; 25 calls, 150 s).
 - `evidence` (no network): per segment — trailing window named on screen (12 months, else last 100), all-years secondary;
   total-subscription bands primary, QIB / retail labelled with their years (2026 only); GMP fit (a, b, q10/q90) — PROVISIONAL
   because report 377's GMP is stamped on listing morning: `details` writes `gmpEve`, `history` freezes it, and at 30 rows a

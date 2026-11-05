@@ -22,7 +22,18 @@ Identity: a row is matched to its record once — by name AND opening date again
 written on the row. From then on it is matched by id; spelling no longer matters.
 
 Politeness: a record is fetched when the issue is Open (every run), otherwise at most every STALE_HOURS, and
-never once an issue has been listed for SETTLED_DAYS. Twenty calls of 150 KB on a full run, a handful intraday.
+never once an issue has been listed for SETTLED_DAYS. Twenty-five calls of 150 KB on a full run, a handful intraday.
+
+Order of the queue (5 Nov 2026), inside MAX_DETAIL_CALLS and BUDGET_SECONDS, so that nothing starves the open book:
+    1. Open issues, every run (earliest opened first);
+    2. then every identified row with NO record on file — an upcoming issue's record exists weeks before it opens and
+       states its reservations, so its first fetch happens the run it reaches the calendar, newest-announced first
+       (latest opening date first);
+    3. then due refreshes (last fetched more than STALE_HOURS ago), earliest opening first.
+
+Reservation (5 Nov 2026): every row with a record carries `shareholderQuota` — the record's structured reservation
+fields (sources/investorgain.shareholder_quota), {flag: false} when the record states none — so "checked, none" is
+distinct from None, "no record yet". The shareholder-quota table (`filings`) reads it; nothing here names a parent.
 """
 from __future__ import annotations
 
@@ -84,6 +95,27 @@ def due(row: dict, today: dt.date, now: dt.datetime) -> bool:
     return (now - last).total_seconds() > STALE_HOURS * 3600
 
 
+def _status(row: dict, today: dt.date) -> str:
+    return derive_status(row.get("open"), row.get("close"), row.get("listing"), today)
+
+
+def queue(live: list[tuple[str, dict]], ids: dict[str, str], records: dict, today: dt.date, now: dt.datetime) -> list[tuple[str, dict]]:
+    """Who is fetched, in what order (the module docstring): open issues, then rows with no record on file newest-announced
+    first, then due refreshes. A row past the cap waits for the next run; an open issue never waits behind a refresh."""
+    open_, fresh, stale = [], [], []
+    for k, r in live:
+        if r["name"] not in ids:
+            continue
+        if _status(r, today) == "Open":
+            open_.append((k, r))
+        elif ids[r["name"]] not in records:
+            fresh.append((k, r))
+        elif due(r, today, now):
+            stale.append((k, r))
+    by_open = lambda kr: kr[1].get("open") or ""
+    return sorted(open_, key=by_open) + sorted(fresh, key=by_open, reverse=True) + sorted(stale, key=by_open)
+
+
 def assign_ids(rows: list[dict], listing: list[dict], aliases: dict) -> dict[str, str]:
     """board name -> igId, for rows that have none yet. Name and opening date must both agree."""
     ours = Matcher(rows, aliases)
@@ -132,6 +164,8 @@ def row_patch(row: dict, rec: dict, today: dt.date, now: dt.datetime, gmp_before
             p["listingGainPct"] = round(100 * (rec["listingPrice"] - price) / price, 2)
     if rec.get("facts"):
         p["facts"] = {**rec["facts"], "asOf": rec.get("updated")}
+    if isinstance(rec.get("shareholderQuota"), dict):              # always written once a record is read: {flag: false} is an answer
+        p["shareholderQuota"] = {**rec["shareholderQuota"], "at": today.isoformat()}
     return p
 
 
@@ -215,9 +249,8 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None,
     # the sheet behind each listing (`records`, keyed by id): kept while its row is on the board, fetched at once when missing
     on_board = {str(r["igId"]) for _, r in board if r.get("igId")} | set(ids.values())
     records = {i: v for i, v in (prev.get("records") or {}).items() if i in on_board and isinstance(v, dict)}
-    todo = sorted(((k, r) for k, r in live if r["name"] in ids and (due(r, t, now) or ids[r["name"]] not in records)),
-                  key=lambda kr: (derive_status(kr[1].get("open"), kr[1].get("close"), kr[1].get("listing"), t) != "Open", kr[1].get("open") or ""))
-    t0, streak = time.monotonic(), 0
+    todo = queue(live, ids, records, t, now)
+    t0, streak, first = time.monotonic(), 0, 0
     for key, row in todo:
         if got + len(failed) >= MAX_DETAIL_CALLS or time.monotonic() - t0 > BUDGET_SECONDS or streak >= MAX_CONSECUTIVE_FAILURES:
             skipped += 1
@@ -241,6 +274,8 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None,
             continue
         patches.setdefault(key, {})[row["name"]] = row_patch(row, rec, t, now, was.get(row["name"], row.get("gmp")))
         booked += upsert_anchor(anchors, on_file, row["name"], rec)
+        if rec["igId"] not in records and _status(row, t) != "Open":
+            first += 1                                             # an upcoming issue's first look, ahead of its opening
         if rec.get("sheet"):
             records[rec["igId"]] = {"name": row["name"], "fetchedAt": now.replace(microsecond=0).isoformat(), **rec["sheet"]}
         got += 1
@@ -262,6 +297,8 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None,
     res.replace["records"] = records
     res.notes.append(f"{got} records fetched for {len(ids)} identified listings ({len(live) - len(ids)} without an id); "
                      f"{booked} anchor books updated, {len(kept)} on file")
+    if first:
+        res.notes.append(f"{first} first records fetched for upcoming issues")
     if failed:
         res.notes.append("no record for: " + ", ".join(failed[:6]))
     if skipped:

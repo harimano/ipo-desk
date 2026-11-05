@@ -186,3 +186,37 @@ Same URL shape as 331: `/cloud/v2/report/data-read/<id>/1/{month}/{year}/{fy}/0/
   listing / anchor lock-ins), lot size and `min_order_amount`, and the sNII / bNII floors (`min_hni_amt`, `min_bhni_amt`, with lot counts)
   are all on the record, SME included. 554 adds issues past the board's grace or not yet in `list-read`; 607 adds the retail allottee count
   (mainboard) and the fund-reuse chain. The record's `max_retail_qty` equals its `min_hni_qty` on every record read — not a retail ceiling.
+
+## InvestorGain record — the shareholder reservation (surveyed 5 Nov 2026, for `shareholderQuota` on board rows)
+
+Read live through `ipo-detail-read/<id>`: Jio Platforms 2306 (listed 28 Oct 2026, 2.23 crore shares for Reliance Industries' holders,
+a 7.59x shareholder book on NSE), SBI Funds Management 2210 (1.31 crore for SBI's holders), Bharat Coking Coal 1580 (4.66 crore for
+Coal India's holders), EAAA India Alternatives 1635 (no reservation in the RHP) and the six issues on the calendar that day (none).
+Fixture: `ipo-detail-2306-JIO-shareholder.json` (120 chars a field, like 2305 / 2119).
+
+- **`shareholder_reservation_flag` is dead.** 0 on Jio, SBI Funds and BCCL — all three with a reservation — and 1 on EAAA, which
+  reserved nothing (its reservation table has no Shareholders row). `employee_reservation_flag` is the same: 0 on NSE (2305) with
+  4.3 lakh employee shares. Never read either as the signal.
+- **The live fields** are `prefer_shareholders_status` (1 / 0) and the shares offered: `shares_offered_shareholders`, mirrored exactly by
+  `prefer_shareholder_shares` (22,341,376 on Jio in both). Units are SHARES, an int; 0 means none, '' is not seen on these two. The
+  reservation HTML table (`ipo_reservation_desc`, parsed as a table into the sheet's `reservation`) agrees: "Shareholders 2,23,41,376 8.27%".
+  Employees likewise: `prefer_emp_status` / `shares_offered_emp` / `prefer_emp_shares`.
+- **`discount_shareholder` / `discount_shareholder_per`** — rupees per share and a percent of the cap, '' when none (all four read);
+  `discount_employee` = '54.00' on Jio with `discount_employee_per` '4.83', so the units are those. The `discount` field is a prose
+  summary ("Employee: 54.00"), not read.
+- **`shareholder_reservation_bidding_limit` / `employee_reservation_bidding_limit` are codes**, not rupees: 1 on every shareholder
+  reservation read, 2 on the employee reservations of Jio, SBI Funds, BCCL and NSE; '' when there is no reservation, except EAAA (1 / 1
+  with nothing reserved — a default). The page renders neither. SEBI ICDR caps a shareholder-quota bid at ₹2 lakh and an employee bid at
+  ₹5 lakh, the one reading consistent with every record: `BID_LIMIT_RUPEES = {1: 200000, 2: 500000}` is that inference, and the raw code
+  travels beside it as `bidLimitCode`.
+- **`shareholder_company_id` is blank on every reservation read**, so InvestorGain's parent id is a slot, not a source. The parent's
+  name appears in prose only — the reservation text ("Shareholders who hold Reliance Jio Co.'s shares by record date, Oct 14, 2026, will be
+  eligible…", with the RECORD DATE in the same sentence) and `promoters` ("<p>Reliance Industries Ltd.</p>") — and a promoter is not
+  necessarily the quota parent. Rule 1: never parsed; `parent` stays null and the quota table's hand-written parent is the link.
+- **The bidding rows** (`biddingData.ipoBiddingData[]`) carry `shareholder_offered`, `shareholder_shares_bid`, `shareholder_bid_amt`
+  and `shareholder` (times subscribed) on issues read while open (2305, 2119 fixtures, EAAA), but a listed mainboard issue's row comes
+  back `dataHidden: true` with the category columns gone (Jio, SBI Funds, BCCL: only `total`). The shareholder BOOK therefore comes from
+  the exchange / Narada while the issue is open; the record's copy cannot be relied on after listing.
+- `company_list_id` ('175' on Jio, '57' SBI Funds, '3014' BCCL, '' EAAA) is unrelated to the parent; `cor_id` is the site's own
+  company row. `list-read` rows carry no reservation field at all, so a reservation is known only after the record is fetched — which is
+  why `details` now fetches an identified issue's first record the run it reaches the calendar.
