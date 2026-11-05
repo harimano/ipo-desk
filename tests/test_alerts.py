@@ -196,3 +196,24 @@ def test_notify_sends_click_and_actions_headers_plain_text_and_the_html_body(mon
     notify.send("plain <x>")                         # the old shape still works: escaped text, no Click, no Markdown
     assert next(kw for url, kw in calls if "telegram" in url)["json"]["text"] == "plain &lt;x&gt;"
     assert "Click" not in next(kw for url, kw in calls if url.endswith("/t"))["headers"]
+
+
+def test_a_board_reservation_says_hold_the_parent_at_the_record_date_milestones_then_once():
+    from collector import alerts
+    def board(day, **q):
+        return {"meta": {"asOf": day + "T06:45:00+05:30"},
+                "mainboard": [{"name": "Jio Platforms", "igId": "2306", "status": "Upcoming", "open": "2026-10-21", "close": "2026-10-23",
+                               "shareholderQuota": {"flag": True, "offered": 22341376, "recordDate": "2026-10-14", "src": "ig", "at": day, **q}}],
+                "quota": [{"name": "Reliance Jio", "parent": "Reliance Industries", "ticker": "RELIANCE", "bucket": "approved", "igId": "2306"}]}
+    assert alerts.evaluate(board("2026-09-28"), board("2026-09-29")) == [], "15 days out: no milestone reached yet"
+    got = alerts.evaluate(board("2026-09-29"), board("2026-10-01"))
+    assert [a.line for a in got] == ["Hold Reliance Industries (RELIANCE) before 14 Oct — Jio Platforms reserves 22,341,376 shares for its holders, record date in 13 days"]
+    assert got[0].key == "resv:Jio Platforms:2026-10-14:14" and got[0].url.endswith("#board/Jio%20Platforms")
+    assert alerts.evaluate(board("2026-10-01"), board("2026-10-02")) == [], "same milestone: quiet"
+    assert len(alerts.evaluate(board("2026-10-06"), board("2026-10-07"))) == 1, "the 7-day mark speaks again"
+    after = alerts.evaluate(board("2026-10-14"), board("2026-10-15"))
+    assert [a.line for a in after] == ["Jio Platforms reserves 22,341,376 shares for Reliance Industries (RELIANCE)'s holders — record date 14 Oct has passed"]
+    assert alerts.evaluate(board("2026-10-15"), board("2026-10-16")) == [], "said once"
+    orphan = board("2026-10-01"); orphan["quota"] = []
+    line = alerts.evaluate(board("2026-09-29"), orphan)[0].line
+    assert line.startswith("Hold the parent before 14 Oct") and line.endswith("— not on the quota list"), "no parent is guessed; the gap is named"
