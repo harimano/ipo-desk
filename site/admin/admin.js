@@ -335,6 +335,39 @@ async function smoke() {
   } finally { btn.disabled = false; fr.srcdoc = ""; fr.hidden = true; }
 }
 
+/* ---------- copy: the whole screen as plain text, so a bad morning can be pasted into a chat ----------
+   Reads the DOM, not the sources again: what Hari sees is what Claude gets. Cells use their title when one is set
+   (the full note behind an ellipsis). Visitors are left out — their emails belong to them.                        */
+function cardText(id, name, max) {
+  const el = $("#" + id); if (!el) return "";
+  const cell = c => (c.title || c.innerText).trim().replace(/\s*\n\s*/g, " / ");
+  const rows = [...el.querySelectorAll("tr")].slice(0, max || 999).map(tr => [...tr.children].map(cell).filter(Boolean).join(" | "));
+  const notes = [...el.querySelectorAll(".note, .empty")].map(n => n.innerText.trim());
+  const lines = rows.length ? rows : notes;
+  return lines.length ? `## ${name}\n${lines.map(l => "- " + l).join("\n")}\n` : "";
+}
+function screenText() {
+  const out = [`# IPO Desk /admin · ${$("#clock").textContent} · ${location.host}`, "", $("#vTitle").textContent];
+  for (const li of $("#vList").children) out.push("- " + li.innerText.trim().replace(/\s+/g, " "));
+  out.push($("#vSub").textContent, "");
+  out.push("## Tiles");
+  for (const t of document.querySelectorAll(".tile")) out.push(`- ${$(".lbl", t).textContent}: ${$(".val", t).textContent} · ${$(".dt", t).textContent}`.trim());
+  out.push("");
+  for (const [id, name, max] of [["runs", "Runs (latest 12)", 13], ["modules", "Freshness by module"], ["diff", "Since the previous document"], ["audit", "Data audit"], ["smokeOut", "Page smoke test"], ["sec", "Security"]]) {
+    const t = cardText(id, name, max); if (t) out.push(t);
+  }
+  return out.join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n";
+}
+async function copyScreen() {
+  const btn = $("#copy"), txt = screenText(), was = btn.textContent;
+  try { await navigator.clipboard.writeText(txt); btn.textContent = "Copied"; }
+  catch (e) {
+    const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select();
+    btn.textContent = document.execCommand("copy") ? "Copied" : "Copy failed"; ta.remove();
+  }
+  setTimeout(() => { btn.textContent = was; }, 1800);
+}
+
 /* ---------- boot ---------- */
 async function main() {
   $("#clock").textContent = hhmm(nowIST()) + " IST";
@@ -349,6 +382,7 @@ async function main() {
   await Promise.all([renderRuns(), renderLive(), renderSecurity().then(me => Promise.all([renderVisitors(me), renderRetention(me)])), renderReports()]);
 }
 $("#reload").addEventListener("click", () => location.reload());
+$("#copy").addEventListener("click", copyScreen);
 $("#smoke").addEventListener("click", smoke);
 try { const th = localStorage.getItem("ipo-theme"); if (th === "dark" || th === "light") document.documentElement.dataset.theme = th; } catch (e) { /* storage blocked */ }
 main();
