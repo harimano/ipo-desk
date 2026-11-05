@@ -3,6 +3,8 @@
 name: probe-bse
 on:
   workflow_dispatch:
+  pull_request:                        # runs on the PR that carries it, so the survey needs no merge
+    paths: [scripts/probe_bse.py, .github/workflows/probe-bse.yml]
 permissions:
   contents: read
 jobs:
