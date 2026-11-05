@@ -81,6 +81,16 @@ def _forms(name: str) -> set[str]:
     return forms
 
 
+def strict_forms(name: str, aliases: dict[str, str] | None = None) -> set[str]:
+    """The normalised forms under which `name` is recognised by the STRICT tiers alone: the name itself, the text
+    inside / outside its parentheses, and every aliases.json spelling that points at it. Never a prefix, never fuzzy.
+    For a caller that must find the name inside a sentence (an announcement) rather than match a list entry."""
+    forms = _forms(name)
+    forms.update(norm_name(k) for k, v in (aliases or {}).items() if v == name)
+    forms.discard("")
+    return forms
+
+
 def load_aliases(data_dir: str | pathlib.Path | None) -> dict[str, str]:
     if not data_dir:
         return {}

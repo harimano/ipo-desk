@@ -55,15 +55,20 @@ quota[].igId (filings, 5 Nov 2026): the InvestorGain id of the row's issue once 
 quotaFound[] (filings, 5 Nov 2026; `pipeline` part): the board's own word on shareholder reservations, read against the quota list —
   {igId, name, board mainboard|sme, open, listing, parentId (InvestorGain's company id)|null, parent (name)|null, parentSymbol (NSE symbol
   when the parent's NAME resolves through the strict tiers against NSE's equity lists, else the matched quota row's hand-written ticker,
-  else null — never fuzzy), offered (shares; null when the record shows none), bidLimit (rupees)|null, discount|null, discountPct|null,
+  else the announcer of a `quotaLeads[]` row that names this board row, else null — never fuzzy), parentSrc "ig"|"quota"|"nse_ann"|null
+  (where parentSymbol came from), offered (shares; null when the record shows none), bidLimit (rupees)|null, discount|null, discountPct|null,
   quotaRow (the matched quota row's name; null = NOT on the quota list: the discovery), witness{record: true|false (the record's
   `shareholderQuota.flag`), book: true|false|null (true: `sub.shareholder` exists; false: bidding open, book has its categories, no
-  shareholder one; null before bidding opens)}, first (first seen), last (last confirmed)}. An entry exists for every board row whose
+  shareholder one; null before bidding opens), announcement? {parentSymbol, kind, date, url} (only with parentSrc "nse_ann": the parent's
+  NSE announcement that named the issue — the row's STRICT forms as a whole company name in the summary, never part of a longer one,
+  exactly one announcer, never the issue itself; the lead names the issue, nothing is promoted to a quota row)}, first (first seen),
+  last (last confirmed)}. An entry exists for every board row whose
   record shows a reservation AND for every row whose book shows a shareholder category the record does not (record false, book true).
   Merged by igId run to run; leaves 7 days after listing, when the record's flag turns false, or a week after its row left the board
   unlisted. A flag, never a planner row (rule 3); scripts/audit.py turns the disagreements into /admin warnings.
 quotaLeads[] (filings): NSE announcements (both boards) in which a listed company speaks about a subsidiary's / group company's offer,
-  60 days, ≤40, newest first: {parentSymbol, parentName, kind drhp|udrhp|rhp|observation|withdrawn|ipo, text (≤300), url (the PDF, linked,
+  or about a reservation for ITS shareholders in an offer (Reliance on Jio Platforms, 16 Oct 2026: none of its seven Jio announcements
+  said "subsidiary"), 60 days, ≤40, newest first: {parentSymbol, parentName, kind drhp|udrhp|rhp|observation|withdrawn|ipo, text (≤300), url (the PDF, linked,
   never read), date, seqId, sme, watched? (parent already on the quota list; its row was moved/flagged), matched? (the expected row named)}.
 news[]: {title, url, date}
 integrity: {asOf, checks[{area, method, status, note, asOf?, elapsed?, calls?, lastOk?, dueBy?, carried?}], discrepancies[]}
