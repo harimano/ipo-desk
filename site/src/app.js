@@ -319,6 +319,10 @@ function marketPill() {
   return `<span class="pill ${cls} mkt" title="IPO bidding on the exchange platform runs 10 am – 5 pm IST on weekdays (NSE trading 9:15 – 3:30). Exchange holidays the page does not know read as weekdays."><i></i>${txt}</span>`;
 }
 
+// the Board's "quota" mark beside the name (the same mark as Market's pipeline chips' `quota?`): the record shows a shareholder
+// reservation (`shareholderQuota.flag`, details); the title carries the record's figures, the dt line below names the parent
+const quotaChip = b => { const q = b.shareholderQuota; if (!q || !q.flag) return "";
+  return ` <b class="up" style="font-size:11px;font-weight:800" title="shareholder reservation: ${esc(q.offered != null ? Number(q.offered).toLocaleString("en-IN") + " shares" : "size not on the record")}, parent ${esc(q.parent || (q.parentId != null ? "id " + q.parentId + ", unconfirmed" : "not named"))}">quota</b>`; };
 function boardRow(b) {
   const isSme = /SME/i.test(b.type), g = expGain(b), c = lotCost(b), seg = SEG(isSme), B = seg ? seg.bands : null, segLbl = isSme ? "SME" : "mainboard", W = seg ? winLbl(seg.window) : "";
   const lastDay = b.status === "Open" && days(b.close) === 0, late = istNow().getHours() >= 14, CK = clock();
@@ -355,7 +359,7 @@ function boardRow(b) {
     ["On listing day", (b.status === "Closed" || b.status === "Open") && R ? holdBlock(isSme, R.c, `if it opens where GMP implies, ${pct(R.c, true)}`) : null],
     ["GMP estimate", R && b.bandHigh != null ? `lists near ${inr(b.bandHigh * (1 + R.c / 100))}; 8 in 10 comparable listings landed between ${inr(b.bandHigh * (1 + R.lo / 100))} and ${inr(b.bandHigh * (1 + R.hi / 100))}${R.prov ? " (provisional)" : ""}` : null]]);
   return `<tr class="${CHG[b.name] ? "moved" : ""}" data-row data-name="${esc(b.name)}"><td><button class="tg star${S.interest.has(b.name) ? " on" : ""}" data-star="${esc(b.name)}">★</button></td>
-    <td><div class="nm">${logo(b)}<button data-open="${esc(b.name)}">${esc(b.name)}</button></div><div class="dt">${esc(b.type)}${b.issueSizeCr ? " · " + cr(b.issueSizeCr) : ""}${b.shareholderQuota && b.shareholderQuota.parent ? ` · <span class="up">quota via ${esc(b.shareholderQuota.parent)}</span>` : ""}</div></td>
+    <td><div class="nm">${logo(b)}<button data-open="${esc(b.name)}">${esc(b.name)}</button>${quotaChip(b)}</div><div class="dt">${esc(b.type)}${b.issueSizeCr ? " · " + cr(b.issueSizeCr) : ""}${b.shareholderQuota && b.shareholderQuota.parent ? ` · <span class="up">quota via ${esc(b.shareholderQuota.parent)}</span>` : ""}</div></td>
     <td><span class="pill ${b.status.toLowerCase()}">${b.status}</span><div style="margin-top:3px;font-size:12.5px">${when}</div></td>
     <td class="r">${bookCell}</td><td class="r">${gmpCell}</td><td class="r">${gainCell}</td><td class="r">${evCell}${reserved}</td>
     <td style="min-width:170px">${S0.total != null && !isSme ? subBar("QIB", S0.qib) + subBar("NII", S0.nii) + subBar("Retail", S0.retail) + subBar("Total", S0.total) + `<div class="dt">${S0.asOf ? (hasTime(S0.asOf) ? ago(S0.asOf) : "as of " + fmtD(S0.asOf)) : ""}</div>` + delta((CHG[b.name] || {}).s, v => v + "x") + spark(((LIVE || {}).timeline || {})[b.name]) : S0.total != null ? subBar("Total", S0.total) + spark(((LIVE || {}).timeline || {})[b.name]) : `<span class="dim">${b.status === "Upcoming" ? "not open" : "—"}</span>`}</td>
