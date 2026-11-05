@@ -17,3 +17,6 @@ jobs:
         with: { python-version: "3.12" }
       - run: pip install "httpx[http2]" >/dev/null
       - run: python scripts/probe_bse.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: probe-out, path: probe-out, if-no-files-found: ignore, retention-days: 7 }

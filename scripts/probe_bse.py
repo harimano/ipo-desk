@@ -12,6 +12,7 @@ If BSE says no to an identified client, that is BSE's answer and the desk states
 from __future__ import annotations
 
 import datetime as dt
+import pathlib
 import sys
 
 import httpx
@@ -59,12 +60,27 @@ SURFACES = [
 ]
 
 
+SAVE = {   # bodies worth keeping as fixtures for the rebuild (uploaded by the workflow as an artifact; never committed here)
+    "beta: public issues (legacy aspx, bse_issues.py)": "beta-public-issues.html",
+    "beta: bulk deals (legacy aspx)": "beta-bulk-deals.html",
+    "beta: block deals (legacy aspx)": "beta-block-deals.html",
+    "beta: bulk+block deals (legacy aspx)": "beta-bulk-block-deals.html",
+    "beta: announcements (legacy, alt)": "beta-announcements.html",
+    "www: announcements RSS?": "www-announcements-rss.xml",
+    "www: notices RSS": "www-notices-rss.xml",
+    "www: sitemap": "www-sitemap.xml",
+}
+OUT = pathlib.Path("probe-out")
+
+
 def show(label: str, r: httpx.Response | Exception) -> None:
     if isinstance(r, Exception):
         print(f"{label:52s} ERROR {type(r).__name__}: {r}"); return
     body = r.content or b""
     snip = body[:160].decode("utf8", "replace").replace("\n", " ").replace("\r", " ")
     srv = r.headers.get("server", ""); ct = r.headers.get("content-type", "")
+    if label in SAVE and r.status_code == 200:
+        OUT.mkdir(exist_ok=True); (OUT / SAVE[label]).write_bytes(body)
     print(f"{label:52s} {r.status_code} {len(body):>8d} B  {ct[:28]:28s} server={srv[:14]:14s} | {snip}")
 
 
