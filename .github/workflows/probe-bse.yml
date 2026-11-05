@@ -1,0 +1,17 @@
+# One-off survey: what does BSE serve to an identified client on a GitHub runner? Dispatched by hand, never
+# scheduled; prints statuses and short snippets only.     gh workflow run probe-bse.yml --ref probe-bse
+name: probe-bse
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: { python-version: "3.12" }
+      - run: pip install "httpx[http2]" >/dev/null
+      - run: python scripts/probe_bse.py
