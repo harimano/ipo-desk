@@ -193,7 +193,8 @@ def anomalies(doc: dict, logos_dir: pathlib.Path | None = None) -> list[dict]:
         r = by_ig.get(str(q["igId"]))
         shq = (r or {}).get("shareholderQuota")
         if isinstance(shq, dict) and shq.get("flag") is False:
-            add("quota row whose record shows no reservation", f"{q['name']} ({r.get('name')}, {shq.get('src')} {shq.get('at')})")
+            how = "the dead flag alone, " if shq.get("flagOnly") else ""      # details: flag set, nothing offered (EAAA) — a look
+            add("quota row whose record shows no reservation", f"{q['name']} ({r.get('name')}, {how}{shq.get('src')} {shq.get('at')})")
     return [{"check": k, "level": "bad" if k in BAD_CHECKS else "warn", "rows": v} for k, v in finds.items()]
 
 

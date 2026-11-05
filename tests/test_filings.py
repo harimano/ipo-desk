@@ -769,3 +769,40 @@ def test_register_join_carries_the_filing_and_the_listed_parent():
     expected3 = [{"name": "South Eastern Coalfields", "note": "hand row"}]
     filings.attach_candidates(expected3, [dict(SECL_LEAD)], companies)
     assert "register" not in expected3[0]["quotaCandidate"] and expected3[0]["quotaCandidate"]["kind"] == "drhp"
+
+
+def test_a_dead_flag_alone_is_no_reservation():
+    """details (PR 23): `shareholder_reservation_flag` set with nothing offered -> {flag: false, flagOnly: true}. Not a reservation here."""
+    eaaa = {"flag": False, "src": "ig", "at": "2026-11-05", "flagOnly": True}
+    doc = _doc(_board("EAAA India Alternatives", "2222", status="Open", open_="2026-11-03", shq=eaaa, sub={"qib": 1.0, "total": 1.0}))
+    found, stats = filings.discover({"quota": [{"name": "EAAA India Alternatives", "bucket": "approved"}]}, doc, {}, None, D5)
+    assert found == {} and stats["reserved"] == 0 and stats["disagree"] == 0
+    out = filings.merge_found([{"igId": "2222", "name": "EAAA India Alternatives", "board": "mainboard", "listing": "2026-11-20",
+                                "witness": {"record": True, "book": None}, "first": "2026-11-01", "last": "2026-11-04"}], {}, doc, D5)
+    assert out == [], "yesterday's reservation, recanted today by the dead flag: dropped"
+
+
+def test_join_quota_evidence_puts_register_and_announcement_on_the_row():
+    reg = _f("DRHP", "South Eastern Coalfields Limited - Draft Abridged Prospectus", "2026-11-02")
+    prev = {"quota": [{"name": "South Eastern Coalfields", "ticker": "COALINDIA", "bucket": "drhp",
+                       "needsReview": {"source": "nse_ann", "url": SECL_LEAD["url"], "headline": SECL_LEAD["text"], "date": "2026-11-02"}},
+                      {"name": "Mahanadi Coalfields", "ticker": "COALINDIA", "bucket": "drhp", "needsReview": {"source": "sebi", "url": "m"}},
+                      {"name": "Other Parent Co", "ticker": "NLCINDIA", "bucket": "awaited", "needsReview": {"source": "sebi", "url": "o"}},
+                      {"name": "Done Row", "ticker": "COALINDIA", "bucket": "done", "needsReview": {"source": "sebi", "url": "d"}}]}
+    sebi_rows = [reg, _f("DRHP", "South Eastern Coalfields Limited - Addendum to DRHP", "2026-11-03"),
+                 _f("DRHP", "Other Parent Co Limited - Draft Abridged Prospectus", "2026-11-01")]
+    leads = [dict(SECL_LEAD), {**SECL_LEAD, "seqId": "x", "parentSymbol": "COALINDIA",
+                               "text": "Other Parent Co Limited filing of DRHP, a subsidiary", "url": "u2"}]
+    patches: dict = {}
+    assert filings.join_quota_evidence(prev, sebi_rows, leads, patches) == 1
+    nr = patches["South Eastern Coalfields"]["needsReview"]
+    assert nr["source"] == "nse_ann" and nr["url"] == SECL_LEAD["url"], "the existing review is extended, not replaced"
+    assert nr["register"] == {"register": "DRHP", "kind": reg["kind"], "date": "2026-11-02", "title": reg["title"], "url": reg["detailUrl"]}   # the register is the evidence; sebi.classify reads "Prospectus"
+    assert nr["announcement"] == {"parentSymbol": "COALINDIA", "kind": "drhp", "date": "2026-11-02", "url": SECL_LEAD["url"]}
+    assert "Mahanadi Coalfields" not in patches, "no register row names it"
+    assert "Other Parent Co" not in patches, "the announcer is not the row's parent"
+    assert "Done Row" not in patches
+    assert set(patches["South Eastern Coalfields"]) <= filings.ALLOWED_FIELDS
+    # idempotent: the same join on a row already carrying it writes nothing
+    prev["quota"][0]["needsReview"] = nr
+    assert filings.join_quota_evidence(prev, sebi_rows, leads, {}) == 0

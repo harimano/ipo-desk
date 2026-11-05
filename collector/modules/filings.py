@@ -18,6 +18,8 @@ What it does each run:
       quota: promotion stays a person reading the DRHP (data/quota-reviews/ + parents.json). A lead that names
       a register issuer (an `expected` row the SEBI registers put there) from a listed announcer is the
       register-to-announcement join: the candidate carries the announcement AND the register row (`register`).
+      On the quota rows themselves the join lands on `needsReview` (`register` + `announcement`) when the register
+      lists the issuer and the row's own parent announced it (join_quota_evidence).
   (f) reconcile: a quota row whose IPO is on the board or in this year's listings moves to done / gets its
       listingDate (strict name tiers only) and, once the board row has an `igId`, carries it (`quota[].igId`),
       so later runs never depend on spelling;
@@ -418,6 +420,40 @@ def _leads_to_quota(leads: list[dict], wl: dict[str, dict], patches: dict, today
     return hits
 
 
+def join_quota_evidence(prev: dict, sebi_rows: list[dict], leads: list[dict], patches: dict) -> int:
+    """The register-to-announcement join on the quota rows themselves: when SEBI's register (page 1, this run) lists the
+    row's issuer AND a lead from the row's own parent names it, the row's `needsReview` gains `register` {register, kind,
+    date, title, url} and `announcement` {parentSymbol, kind, date, url} — two documents, both linked, neither read (5 Nov
+    2026: Coal India's lead on South Eastern Coalfields moved the row; the register row behind it was not kept). Only an
+    existing needsReview is extended (either source naming the row wrote one); nothing else on the row changes."""
+    joined = 0
+    for row in prev.get("quota") or []:
+        if not isinstance(row, dict) or not row.get("name") or row.get("bucket") in ("done", "dropped"):
+            continue
+        key, ticker = _row_key(row["name"]), str(row.get("ticker") or "").upper().strip()
+        if not key or not ticker:
+            continue
+        regs = sorted((f for f in sebi_rows if f.get("kind") != "Addendum" and f.get("detailUrl")
+                       and key in normalise(f.get("title") or "")), key=lambda f: f.get("date") or "")
+        anns = sorted((x for x in leads if isinstance(x, dict) and x.get("kind") != "withdrawn" and x.get("url")
+                       and str(x.get("parentSymbol") or "").upper() == ticker and key in normalise(x.get("text") or "")),
+                      key=lambda x: x.get("date") or "")
+        if not regs or not anns:
+            continue
+        review = dict(patches.get(row["name"], {}).get("needsReview") or row.get("needsReview") or {})
+        if not review:
+            continue
+        reg, ann = regs[-1], anns[-1]
+        add = {"register": {"register": reg.get("register"), "kind": reg.get("kind"), "date": reg.get("date"),
+                            "title": reg.get("title"), "url": reg["detailUrl"]},
+               "announcement": {"parentSymbol": ann["parentSymbol"], "kind": ann.get("kind"), "date": ann.get("date"), "url": ann["url"]}}
+        if review.get("register") == add["register"] and review.get("announcement") == add["announcement"]:
+            continue
+        patches.setdefault(row["name"], {})["needsReview"] = {**review, **add}
+        joined += 1
+    return joined
+
+
 def _candidate(lead: dict, company: dict | None = None, register: dict | None = None) -> dict:
     """An announcement candidate. `company` is the announcer's row in NSE's equity list (its listed name);
     `register` is the row's SEBI filing (`lastFiling`) — the join: the register says the issuer filed, the parent's
@@ -707,6 +743,10 @@ def run(session: Session, prev: dict, res: Result) -> Result:
         hits = _leads_to_quota(found, wl, patches, today)
         if hits:
             res.notes.append(f"nse_ann: {hits} quota stage changes from watched parents")
+    all_leads = (found if ann_ok else []) + [x for x in prev.get("quotaLeads") or [] if isinstance(x, dict)]
+    joined = join_quota_evidence(prev, sebi_rows, all_leads, patches)
+    if joined:
+        res.notes.append(f"{joined} quota rows carry both the register row and the parent's announcement")
     try:
         companies = nse_symbols.companies(session)
     except SourceError as e:
