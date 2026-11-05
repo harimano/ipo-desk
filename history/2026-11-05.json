@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-05T01:33:23+05:30",
+  "asOf": "2026-11-05T06:45:19+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "5 Nov 2026, 01:33 IST",
+  "label": "5 Nov 2026, 06:45 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -2801,7 +2801,7 @@
     "snii": 1.15,
     "retail": 0.8,
     "total": 4.87,
-    "asOf": "2026-11-05T01:32:04+05:30",
+    "asOf": "2026-11-05T06:44:14+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -2816,7 +2816,7 @@
    "igId": "2375",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-05T01:32:03+05:30",
+   "igFetchedAt": "2026-11-05T06:44:11+05:30",
    "refund": "2026-11-09",
    "sector": "Packaging",
    "anchorShares": 0,
@@ -2848,11 +2848,11 @@
      "drhp": "https://www.bsesme.com/download/389949/SME_IPO%20InPrinciple/ANTALA_DRHP_20260814032436.zip",
      "rhp": "https://www.bseindia.com/downloads/ipo/RHP_281020261807.zip"
     },
-    "asOf": "2026-11-03T10:50:00+05:30"
+    "asOf": "2026-11-04T23:40:00+05:30"
    },
-   "gmpAsOf": "2026-11-04T21:32:00+05:30",
+   "gmpAsOf": "2026-11-05T05:59:00+05:30",
    "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-11-04T21:32:00+05:30",
+   "gmpEveAsOf": "2026-11-05T05:59:00+05:30",
    "apps": {
     "qib": {
      "reserved": 18,
@@ -2884,7 +2884,7 @@
      "received": 1948,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-05T01:32:04+05:30"
+    "asOf": "2026-11-05T06:44:14+05:30"
    },
    "apply": {
     "retail": {
@@ -3426,7 +3426,7 @@
    "bandLow": 88.0,
    "bandHigh": 94.0,
    "lotSize": 1200,
-   "issueSizeCr": 56.68,
+   "issueSizeCr": 53.82,
    "freshCr": 48.14,
    "ofsCr": 5.67,
    "gmp": 1.0,
@@ -3439,7 +3439,7 @@
     "snii": 1.9,
     "retail": 2.26,
     "total": 1.95,
-    "asOf": "2026-11-05T01:32:04+05:30",
+    "asOf": "2026-11-05T06:44:15+05:30",
     "src": "narada"
    },
    "shareholderQuota": null,
@@ -3454,7 +3454,7 @@
    "igId": "2297",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-04T20:41:50+05:30",
+   "igFetchedAt": "2026-11-05T06:44:11+05:30",
    "refund": "2026-11-06",
    "sector": "Packaging",
    "anchorShares": 0,
@@ -3506,9 +3506,9 @@
      "lots": 3
     }
    },
-   "gmpAsOf": "2026-11-04T20:02:00+05:30",
+   "gmpAsOf": "2026-11-05T06:02:00+05:30",
    "gmpEve": 1.0,
-   "gmpEveAsOf": "2026-11-04T20:02:00+05:30",
+   "gmpEveAsOf": "2026-11-05T06:02:00+05:30",
    "apps": {
     "qib": {
      "reserved": 57,
@@ -3540,7 +3540,7 @@
      "received": 3520,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-05T01:32:04+05:30"
+    "asOf": "2026-11-05T06:44:15+05:30"
    }
   }
  ],
@@ -86692,73 +86692,73 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-05T01:33:23+05:30",
+  "asOf": "2026-11-05T06:45:19+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-05T01:32:01+05:30",
-    "elapsed": 1.56,
+    "asOf": "2026-11-05T06:44:09+05:30",
+    "elapsed": 1.55,
     "calls": 5,
     "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=7 carried=3 +nse=1 +bse=0 exchange-only=0: 2 mainboard, 8 sme; 1 open, 0 upcoming",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:changed, ipopremium:blocked",
     "status": "ok",
-    "asOf": "4-Nov 9:37",
-    "elapsed": 1.81,
+    "asOf": "5-Nov 6:02",
+    "elapsed": 1.79,
     "calls": 3,
     "note": "gmp: 8 board rows patched via investorgain; 1 active, 0 of them matched; gmp: 13 GMP-site names not on the board: BLS Polymers (₹69, investorgain); Bonfiglioli Transmissions (₹66, investorgain); EAAA India Alternatives (₹54, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain); Jio Platforms (₹250, investorgain); Paras Healthcare (₹13, investorgain); Ravita Engineering Services (₹1, investorgain) …",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T10:22:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-05T01:32:03+05:30",
-    "elapsed": 0.08,
-    "calls": 1,
-    "note": "1 records fetched for 10 identified listings (0 without an id); 0 anchor books updated, 95 on file",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "asOf": "2026-11-05T06:44:11+05:30",
+    "elapsed": 1.89,
+    "calls": 2,
+    "note": "2 records fetched for 10 identified listings (0 without an id); 0 anchor books updated, 95 on file",
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T10:22:00+05:30"
    },
    {
     "area": "subscription",
     "method": "narada:ok",
     "status": "ok",
-    "asOf": "2026-11-05T01:32:04+05:30",
-    "elapsed": 1.22,
+    "asOf": "2026-11-05T06:44:15+05:30",
+    "elapsed": 1.36,
     "calls": 2,
     "note": "2/2 rows patched via narada",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T10:22:00+05:30"
    },
    {
     "area": "listings",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-03",
-    "elapsed": 10.7,
+    "asOf": "2026-11-04",
+    "elapsed": 6.61,
     "calls": 0,
     "note": "13 names priced, 0 moved to recent, 0 history points",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-05",
-    "elapsed": 3.51,
+    "elapsed": 3.02,
     "calls": 2,
     "note": "1405 listings since 2022 (993 SME); fetched 2026: 302; QIB on file for 113 of 412 mainboard issues",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "tape",
@@ -86768,8 +86768,8 @@
     "elapsed": 0.01,
     "calls": 0,
     "note": "206 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 187 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 187 days on file",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "anchorbook",
@@ -86779,70 +86779,70 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 918 on file, 589 partial (feed gave only the first names); 0 of 1405 listings still to fetch",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "evidence",
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-11-05",
-    "elapsed": 0.22,
+    "elapsed": 0.19,
     "calls": 0,
     "note": "track records: 918 of 918 anchor books have an outcome; 910 of 1494 investors with 2+; 1405 listings; windows: mainboard 135, SME 238; 3 warnings",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "players",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-05",
-    "elapsed": 32.79,
+    "elapsed": 32.15,
     "calls": 54,
     "note": "53 of 2839 anchor investors read (0 failed); names found for 1 of 7 unlisted issues",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "parents",
     "method": "angelone:down, yahoo:ok",
     "status": "ok",
     "asOf": "2026-11-03",
-    "elapsed": 11.05,
+    "elapsed": 8.06,
     "calls": 0,
     "note": "5/5 parent prices; 35/39 investor stocks priced",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "filings",
     "method": "bse_ann:changed, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-11-05",
-    "elapsed": 11.83,
+    "elapsed": 8.37,
     "calls": 14,
-    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 3957 announcements scanned, 2 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 7 leads held; 0 rows patched, 33 kept previous stage",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "note": "sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 3964 announcements scanned, 2 subsidiary-offer leads; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 7 leads held; 0 rows patched, 33 kept previous stage",
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "planner",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-05",
-    "elapsed": 4.52,
+    "elapsed": 3.16,
     "calls": 4,
     "note": "142 events 2026-10-29..2026-12-20, 7 issues with terms, 5 from the report only",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "offers",
     "method": "bse:blocked, bse:blocked",
     "status": "blocked",
     "asOf": null,
-    "elapsed": 0.05,
+    "elapsed": 0.04,
     "calls": 1,
     "note": "kept previous — HTTP 403",
     "lastOk": null,
@@ -86853,33 +86853,33 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-11-04",
-    "elapsed": 0.49,
+    "elapsed": 0.22,
     "calls": 1,
     "note": "2026-11-04 already in history; FII +7,284 / DII -3,712 Cr",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-04",
-    "elapsed": 1.09,
+    "elapsed": 1.0,
     "calls": 4,
     "note": "bulk.csv: 133 deals; block.csv: 2 deals; 0 tracked-investor deals of 135; 13 patterns; BSE bulk: blocked — HTTP 403; BSE block: blocked — HTTP 403; listing deals: 58 of today's 135 deals are in this year's listings (8 stocks); 1675 kept over 60 days; 206 of 302 listings have an NSE symbol; 236 with a BSE code",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-11-04T20:50:06+05:30",
-    "elapsed": 0.49,
+    "elapsed": 0.67,
     "calls": 3,
-    "note": "business-standard: 6/35 primary-market items; economic-times: 3/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 9 fresh, 25 kept",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "note": "business-standard: 6/35 primary-market items; economic-times: 2/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 8 fresh, 25 kept",
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "logos",
@@ -86889,8 +86889,8 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "69 logos on file; none to fetch",
-    "lastOk": "2026-11-05T01:33:23+05:30",
-    "dueBy": "2026-11-05T07:28:00+05:30"
+    "lastOk": "2026-11-05T06:45:19+05:30",
+    "dueBy": "2026-11-05T18:58:00+05:30"
    },
    {
     "area": "research layer",
@@ -86902,7 +86902,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "83s, 94 calls, 17/18 modules ok"
+    "note": "71s, 95 calls, 17/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -88628,8 +88628,8 @@
    },
    "Sahajanand Medical Technologies (upcoming)": {
     "symbol": "SMT",
-    "value": 458.6,
-    "asOf": "2026-11-03"
+    "value": 485.9,
+    "asOf": "2026-11-04"
    },
    "Indo SMC": {
     "symbol": null,
@@ -128981,7 +128981,7 @@
   },
   "2375": {
    "name": "Antala Industries",
-   "fetchedAt": "2026-11-05T01:32:03+05:30",
+   "fetchedAt": "2026-11-05T06:44:11+05:30",
    "about": [
     "Antala Industries Limited is engaged in the production, processing, printing, lamination and supply of industrial and commercial packaging materials. Its product range includes BOPP bags, BOPP printing rolls, BOPP lamination rolls, PP woven bags and PP woven lamination rolls, catering to industries such as food processing, fertilizers, chemicals, cement and seeds. The Company operates an integrated manufacturing facility in Rajkot, Gujarat, equipped with extrusion, coating and lamination, rotogravure printing, stitching and finishing capabilities. The Company offers customized packaging solutions designed to provide strength, durability, moisture resistance, superior print quality and improved product presentation. Its integrated production infrastructure supports in-house operations ranging from printing and lamination to cutting, stitching, finishing and final packaging, enabling effective quality management, efficient production and timely order fulfilment. The Company holds ISO 9001:2015, ISO 14001:2015, ISO 22000:2018 and ISO 45001:2018 certifications. Its promoters bring nearly three decades of experience in the packaging industry. As of July 21, 2026, the Company employed 11 personnel across various functions, including accounts and finance, management, administration, sales, secretarial and production. Its competitive advantages include experienced promoters and management, a broad and customizable packaging portfolio, a presence across diverse industries, integrated manufacturing operations, a customer-oriented approach and well-established relationships with suppliers and customers. Strengths: Promoters and management with substantial experience in the packaging industry. Wide range of packaging products with flexibility to meet customized customer requirements. Established presence across several industrial and commercial end-use sectors. Integrated manufacturing infrastructure supporting production control and operational efficiency. Focus on product quality, customized solutions and timely delivery. Established business relationships with customers and suppliers."
    ],
@@ -129207,7 +129207,7 @@
    },
    "gmpHistory": [
     {
-     "date": "2026-11-04",
+     "date": "2026-11-05",
      "gmp": 0.0,
      "est": 66.0,
      "pct": 0.0,
@@ -130572,7 +130572,7 @@
   },
   "2297": {
    "name": "Vedant Poly Fabs",
-   "fetchedAt": "2026-11-04T20:41:50+05:30",
+   "fetchedAt": "2026-11-05T06:44:11+05:30",
    "about": [
     "Vedant Poly Fabs Limited, incorporated in December 2018, is engaged in the manufacturing of flexible packaging materials for business customers across India. The company offers a diversified product portfolio, including 3-layer and 5-layer LD films, shrink films, barrier films, printed laminates, and milk and oil pouches. Its products cater to the packaging requirements of the food and beverage industry and other consumer goods segments. The company operates an integrated manufacturing process covering film extrusion, printing, lamination, slitting, quality control, and packaging. In March 2026, it strengthened its manufacturing infrastructure by adding lamination, slitting, and pouching machines and installing a reprocessing unit to support waste recycling and improve resource utilization. These initiatives reflect its focus on enhancing operational capabilities and supporting evolving customer requirements. As of March 31, 2026, the company had a workforce of 72 employees, comprising 41 permanent and 31 contractual employees. Key Strengths Integrated Manufacturing: In-house capabilities across multiple stages of the flexible packaging production process. Diversified Product Portfolio: A wide range of flexible packaging solutions catering to different industry requirements. Quality Control: Quality checks integrated into the manufacturing process to support product consistency. Manufacturing Infrastructure: Additional machinery and reprocessing facilities to enhance production capabilities and resource utilization. Logistics Capabilities: In-house transportation and logistics support for product distribution. Customer Reach: A direct B2B sales model and a diversified customer base across India. Customization Capabilities: Product development and customization to address specific packaging requirements."
    ],
@@ -130821,6 +130821,13 @@
     "sharesPost": 20151614.0
    },
    "gmpHistory": [
+    {
+     "date": "2026-11-05",
+     "gmp": 1.0,
+     "est": 95.0,
+     "pct": 1.06,
+     "kostakSauda": "900"
+    },
     {
      "date": "2026-11-04",
      "gmp": 1.0,
@@ -131898,7 +131905,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-11-05T01:32:19+05:30",
+  "asOf": "2026-11-05T06:44:24+05:30",
   "dates": [
    "2026-02-02",
    "2026-02-03",
