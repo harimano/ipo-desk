@@ -1,6 +1,6 @@
 """tape — owns `tape`; merge-patches `priceHistory` with one close a day for EVERY listing of this year.
 
-`listings` prices the board, `recent` and the lot names one by one (yahoo / angelone) and stops when a row leaves the
+`listings` prices the board, `recent` and the lot names one by one (yahoo) and stops when a row leaves the
 board. A tracker needs the price path of every listing for the 90 days that matter — the day-one churn, the anchor
 lock-in at 30 and 90 days, the day a net buyer arrived — and NSE publishes all of it in one file: the EOD bhavcopy
 (nsearchives, one zip a trading day, every symbol including the SME series). So: one call per trading day, filled in

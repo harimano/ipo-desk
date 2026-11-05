@@ -30,8 +30,7 @@ KNOWN_BLOCKED: dict[str, str] = {}      # offers left on 5 Nov 2026: BSE's legac
 # Sources that are down BY DESIGN from the runners: a module on one of these is on its working fallback, every day, and
 # that is a known state, not a warning (30 Oct 2026: /admin had said "listings on a fallback" since the day it was built).
 # A fallback past a source NOT listed here still warns — sebi:changed on 29 Oct was transient and worth a look.
-KNOWN_SOURCES = {"angelone": "no Angel One secrets are set (CLAUDE.md known gaps); Yahoo is the working source",
-                 "ipopremium": "ipopremium.in answers 403 (CLAUDE.md known gaps: leave it); investorgain and ipowatch carry GMP"}
+KNOWN_SOURCES: dict[str, str] = {}      # empty since 5 Nov 2026: Angel One and ipopremium are gone, BSE answers; add an entry only with a reason
 FALLBACK_WORDS = ("down", "blocked", "changed", "fallback")
 # The quota table is the one hand-written layer (data/research sheets, carried forward run after run). 4 Nov 2026: the
 # "Reliance Jio" row said "RHP awaited" a week after Jio Platforms listed, and nothing had looked at it since 7 Sep.

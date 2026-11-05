@@ -11,10 +11,6 @@ dependencies = [
   "rapidfuzz>=3.9",
   "yfinance>=0.2.50",
   "feedparser>=6.0",
-  "pyotp>=2.9",
-  "smartapi-python>=1.4",
-  "logzero>=1.7",                 # SmartApi imports these two at import time; smartapi-python declares neither
-  "websocket-client>=1.6",
 ]
 
 [project.optional-dependencies]

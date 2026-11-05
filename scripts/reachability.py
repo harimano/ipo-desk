@@ -34,7 +34,6 @@ PROBES = [
         {"doListing": "yes", "sid": 3, "ssid": 15, "smid": 10}),
     ("investorgain.gmp-v2",  "get_json",  "https://webnodejs.investorgain.com/cloud/v2/report/data-read/331/1/9/2026/2026-27/0/all", None),
     ("ipowatch.gmp",         "get_text",  "https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/", None),
-    ("ipopremium.gmp",       "get_text",  "https://ipopremium.in/", None),
     ("chittorgarh.sub",      "get_text",  "https://www.chittorgarh.com/report/ipo-subscription-status-live-bidding-data-bse-nse/21/", None),
     ("narada.subscription",  "get_text",  "https://trynarada.com/ipos/VNL/subscription/", None),
     ("narada.logo",          "get_text",  "https://www.chittorgarh.net/images/ipo/jindal-supreme-logo.png", None),

@@ -1,6 +1,7 @@
 """gmp — row patcher for `mainboard` / `sme`: sets gmp, gmpPct, gmpTrend on every board row it can match.
 
-Chain: investorgain (JSON) -> ipowatch (HTML) -> ipopremium (HTML). Winner-takes-all like oriz-ipo's
+Chain: investorgain (JSON) -> ipowatch (HTML). Winner-takes-all like oriz-ipo's (ipopremium, the third, was dropped
+on 5 Nov 2026: it answered 403 from every network the desk runs on and two agreeing sources are enough)
 `scrape_first_available`, with one addition: if the winner matched fewer than half of the board's
 Open/Upcoming rows, the next source is tried for the names still unmatched and merged in (a board name
 is only ever filled once, by the earliest source that had it).
@@ -23,7 +24,7 @@ from ..errors import SourceError
 from ..http import Session
 from ..names import load_aliases
 from ..result import Result
-from ..sources import investorgain, ipopremium, ipowatch
+from ..sources import investorgain, ipowatch
 
 log = logging.getLogger("collector.gmp")
 ALIASES_DIR = pathlib.Path(__file__).resolve().parents[2] / "data"
@@ -79,7 +80,6 @@ def _attempts(session: Session) -> list[tuple[str, callable]]:
     return [
         ("investorgain", lambda: investorgain.fetch(session)),
         ("ipowatch", lambda: ipowatch.fetch(session)),
-        ("ipopremium", lambda: ipopremium.fetch(session)),
     ]
 
 

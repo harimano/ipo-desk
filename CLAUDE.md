@@ -56,7 +56,7 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
 6. Row `name`s are keys the viewer's browser depends on: match, never rename. `collector/names.py` is the one matcher
    (`Matcher.match` can return an alias target that is not in the list searched — always `.get`); fix spellings in
    `data/aliases.json`. A row is matched by `igId`, else by name AND opening date.
-7. Secrets (Angel One, `NTFY_TOPIC`, Cloudflare `GITHUB_TOKEN`) are entered by Hari, never pasted in chat or written to a
+7. Secrets (`NTFY_TOPIC`, Cloudflare `GITHUB_TOKEN`) are entered by Hari, never pasted in chat or written to a
    file. The Book (applications, holdings, P&L) never goes in the repo. No paid services, except the domain `ipodesk.dev` (Cloudflare Registrar, ~$12 a year, auto-renews; bought 28 Oct 2026). No React / Node.
 8. A reader's state lives in their account (`site/src/account.js` → the Worker's `/api/state`, D1, keyed by the VERIFIED
    Access email; `ops/site-worker/SETUP.md`). Part names must survive: `holdings`, `interest`, `apps`, `tasks-done`,
@@ -65,7 +65,7 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
 9. **Dependencies are a run-time risk, not a footnote** (6 Oct 2026: selectolax 1.0 dropped `selectolax.parser`; every
    collect run failed at import for a morning — the gate refused to write, the board went stale). HTML parsing is the
    lexbor backend only (`from selectolax.lexbor import LexborHTMLParser as HTMLParser`). A declared package must be
-   imported somewhere or carry the reason beside it (`logzero`, `websocket-client`: SmartApi needs them and does not
+   imported somewhere or carry the reason beside it (SmartApi's `logzero` / `websocket-client` were that case until Angel One went, 5 Nov 2026;
    declare them); `nse` / `bse` were surveyed, never used, and are gone.
 
 ## How to build here
@@ -191,8 +191,8 @@ document as assembled so far; `prev` is yesterday's.
   `sources/bse_deals.py`, `bse_issues.py`), `www.bseindia.com/data/xml/announcements.xml` is today's full announcements
   feed (`bse_ann.py`), and `www.bseindia.com/download` (the bhavcopy) is fine. The `www.` pages are an app shell. Nothing
   in the data path may depend on Hari's Mac. Known gaps: SEBI's registers answer the runners (probed 29 Oct 2026); `sebi:changed` on a green run is a transient refusal (both registers, 18:16–18:27 IST that day, ok again by 23:46) — since then every refused fallback prints its detail as a `refused` warning in the run log, so read that before touching the parser. NSE gives FII / DII one day at a time (8–16 Sep missing; no backfill source surveyed); Tata Motors' quota
-  ticker is stale; `details` caps at 25 record calls a run; ipopremium 403s (leave it); chittorgarh fallback is dead;
-  Angel One has no secrets; `investors.moves / holdings / portfolios`, `flows.monthly / rotation`, quota prose are db-era
+  ticker is stale; `details` caps at 25 record calls a run; chittorgarh fallback is dead; Angel One and ipopremium were dropped on 5 Nov 2026 (a broker login is no platform dependency; two GMP sources agree);
+  `investors.moves / holdings / portfolios`, `flows.monthly / rotation`, quota prose are db-era
   carry-forward that nothing refreshes (the page shows the sweep's snapshot in a closed, dated archive).
 
 ## The page (`site/src/`)

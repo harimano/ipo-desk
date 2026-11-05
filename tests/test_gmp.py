@@ -17,7 +17,7 @@ from collector import assemble
 from collector.errors import SourceChanged, SourceDown
 from collector.modules import gmp
 from collector.result import Result
-from collector.sources import investorgain, ipopremium, ipowatch
+from collector.sources import investorgain, ipowatch
 
 FIX = ROOT / "data" / "fixtures"
 
@@ -60,7 +60,7 @@ def board(*rows):
 
 
 ALL_OK_JSON = {"webnodejs.investorgain.com": json.loads(fixture("investorgain", "v2.json"))}
-ALL_OK_TEXT = {"ipowatch.in": fixture("ipowatch", "board.html"), "ipopremium.in": fixture("ipopremium", "board.html")}
+ALL_OK_TEXT = {"ipowatch.in": fixture("ipowatch", "board.html")}
 
 
 # ------------------------------------------------------------------ parsers
@@ -96,19 +96,8 @@ def test_ipowatch_changed_shape_raises():
         ipowatch.parse_ipowatch("")
 
 
-def test_ipopremium_parser_on_fixture():
-    rows = ipopremium.parse_ipopremium(fixture("ipopremium", "board.html"))
-    by = {r["name"]: r for r in rows}
-    d = by["Dhoot Transmission (Mainboard)"]
-    assert d["gmp"] == 249.0 and d["bandHigh"] == 871.0
-    assert d["gmpPct"] == round(249 / 871 * 100, 2)          # % computed from band (en-dash)
-    assert d["open"] == "19 Sep 2026" and d["listing"] == "26 Sep 2026"
-    assert by["Fusion Klassroom (SME)"]["gmp"] is None
 
 
-def test_ipopremium_changed_shape_raises():
-    with pytest.raises(SourceChanged):
-        ipopremium.parse_ipopremium("<table><tr><th>Company Name</th><th>Price</th></tr><tr><td>A</td><td>1</td></tr></table>")
 
 
 def test_investorgain_parser_on_fixture():
@@ -157,13 +146,12 @@ def test_chain_falls_through_to_ipowatch_when_investorgain_retired():
     assert res.tried[0]["source"] == "investorgain" and res.tried[0]["kind"] == "changed"
     assert res.rows["mainboard"]["Dhoot Transmission"]["gmp"] == 245.0
     assert res.rows["mainboard"]["LEAP India"]["gmp"] == 4.0
-    assert not any("ipopremium.in" in c for c in s.calls)      # winner covered the board; no third call
 
 
 def test_all_sources_fail_leaves_result_not_ok():
     s = FakeSession()
     res = gmp.run(s, board({"name": "LEAP India"}), Result(module="gmp"))
-    assert not res.ok and res.error and len(res.tried) == 3 and res.rows == {}
+    assert not res.ok and res.error and len(res.tried) == 2 and res.rows == {}        # investorgain, ipowatch — two sources since 5 Nov 2026
 
 
 def test_name_normalisation_matches_board_spelling():
@@ -225,7 +213,6 @@ def test_low_coverage_winner_is_topped_up_from_next_source():
     assert res.rows["mainboard"]["Kanohar Electricals"]["gmp"] == 45.0       # from investorgain (first wins)
     assert res.rows["mainboard"]["Technocraft Ventures"]["gmp"] == 10.0     # topped up from ipowatch
     assert res.rows["sme"]["MV Electrosystems"]["gmp"] == 100.0
-    assert not any("ipopremium.in" in c for c in s.calls)
 
 
 def test_gmp_pct_computed_from_board_band_when_source_lacks_it():

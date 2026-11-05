@@ -49,8 +49,7 @@ python scripts/reachability.py           # which sources answer THIS machine
 ```
 
 Secrets the collector reads (set as repository secrets; every one optional — a missing one just
-means that source fails cleanly): `ANGEL_API_KEY`, `ANGEL_CLIENT_CODE`, `ANGEL_PIN`,
-`ANGEL_TOTP_SECRET`. Stage two adds `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` or `NTFY_TOPIC`.
+means that source fails cleanly). Stage two adds `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` or `NTFY_TOPIC`.
 
 ## The rules the code enforces
 
