@@ -185,8 +185,12 @@ document as assembled so far; `prev` is yesterday's.
 - `subscription` never replaces a positive book with an all-zero one (exchanges answer zeros after close). A GMP of "0"
   with no trade behind it is "no quote". `validate.py`'s loss check ignores rows due to retire (listing + 1 day). It also exempts `players.covered` / `players.names` (keyed by unlisted
   issue: they shrink when issues list; `players.frozen` is the gate and only grows — 13 listings over 5–6 Oct read as "40% loss").
-- Known gaps: `api.bseindia.com` answers 403 to GitHub's runners (offers, bse_ann, and the BSE deals leg — all "blocked", a
-  note; they work from Hari's Mac); `www.bseindia.com/download` (the BSE bhavcopy) is fine. SEBI's registers answer the runners (probed 29 Oct 2026); `sebi:changed` on a green run is a transient refusal (both registers, 18:16–18:27 IST that day, ok again by 23:46) — since then every refused fallback prints its detail as a `refused` warning in the run log, so read that before touching the parser. NSE gives FII / DII one day at a time (8–16 Sep missing; no backfill source surveyed); Tata Motors' quota
+- **BSE's API host is closed, its legacy site is open** (5 Nov 2026, `scripts/probe_bse.py` run from a runner): `api.bseindia.com`
+  answers 403 "Access Denied" to GitHub's runners AND to Cloudflare, even for robots.txt — never retry it, never route
+  around it. `beta.bseindia.com` serves the same data server-side (deal tables, the public-issues page and its form;
+  `sources/bse_deals.py`, `bse_issues.py`), `www.bseindia.com/data/xml/announcements.xml` is today's full announcements
+  feed (`bse_ann.py`), and `www.bseindia.com/download` (the bhavcopy) is fine. The `www.` pages are an app shell. Nothing
+  in the data path may depend on Hari's Mac. Known gaps: SEBI's registers answer the runners (probed 29 Oct 2026); `sebi:changed` on a green run is a transient refusal (both registers, 18:16–18:27 IST that day, ok again by 23:46) — since then every refused fallback prints its detail as a `refused` warning in the run log, so read that before touching the parser. NSE gives FII / DII one day at a time (8–16 Sep missing; no backfill source surveyed); Tata Motors' quota
   ticker is stale; `details` caps at 25 record calls a run; ipopremium 403s (leave it); chittorgarh fallback is dead;
   Angel One has no secrets; `investors.moves / holdings / portfolios`, `flows.monthly / rotation`, quota prose are db-era
   carry-forward that nothing refreshes (the page shows the sweep's snapshot in a closed, dated archive).

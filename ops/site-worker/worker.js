@@ -359,35 +359,8 @@ async function liveJson(request, env, ctx) {
 
 const json = (body, status) => new Response(JSON.stringify(body), { status: status || 200, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } });
 
-// /probe/bse — the one route that answers BEFORE the gate, so a GitHub runner (which has no Access token) can ask it.
-// It reaches a FIXED list of BSE endpoints from Cloudflare's own egress and reports only the HTTP status, the byte
-// count and the time: no body, no query, no target of the caller's choosing, so it is not a proxy and leaks nothing.
-// Why: api.bseindia.com answers 403 to GitHub's runners (CLAUDE.md known gaps); if Cloudflare can reach it, the
-// collector's BSE legs can run through this Worker instead of being written off (5 Nov 2026). Remove when decided.
-const BSE_PROBE = {
-  bulk: "https://api.bseindia.com/BseIndiaAPI/api/BulkDeal_Beta/w",
-  issues: "https://api.bseindia.com/BseIndiaAPI/api/GetPublicIssue_par_updated/w",
-  ann: "https://api.bseindia.com/BseIndiaAPI/api/AnnSubCategoryGetData/w",
-  bhav: "https://www.bseindia.com/download/BhavCopy/Equity/BhavCopy_BSE_CM_0_0_0_20261104_F_0000.CSV",
-};
-const BSE_HEADERS = { Origin: "https://www.bseindia.com", Referer: "https://www.bseindia.com/", "X-Requested-With": "XMLHttpRequest",
-  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36", Accept: "application/json, text/plain, */*" };
-async function probeBse(fetchFn) {
-  const out = {};
-  for (const [k, target] of Object.entries(BSE_PROBE)) {
-    const t0 = Date.now();
-    try {
-      const r = await fetchFn(target, { headers: BSE_HEADERS, cf: { cacheTtl: 0 } });
-      const body = await r.arrayBuffer();
-      out[k] = { status: r.status, bytes: body.byteLength, ms: Date.now() - t0, type: r.headers.get("Content-Type") || "" };
-    } catch (e) { out[k] = { error: String(e && e.message), ms: Date.now() - t0 }; }
-  }
-  return out;
-}
-
 export default {
   async fetch(request, env, ctx) {
-    if (new URL(request.url).pathname === "/probe/bse") return json({ from: "cloudflare", at: new Date().toISOString(), results: await probeBse(fetch) });
     if (!env.TEAM_DOMAIN || !env.POLICY_AUD) {
       return text("ipo-desk: the gate is not configured (TEAM_DOMAIN / POLICY_AUD), so nothing is served.", 503);
     }

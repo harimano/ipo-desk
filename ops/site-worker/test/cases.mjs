@@ -77,8 +77,6 @@ export async function runCases() {
     if (String(url).startsWith("https://raw.githubusercontent.com/harimano/ipo-desk/live/live.json")) { live.raw++; return live.fail ? new Response("nope", { status: 503 }) : new Response(live.body, { status: 200 }); }
     if (String(url).startsWith("https://api.github.com/repos/harimano/ipo-desk/contents/live.json")) { live.api++; live.auth = init && init.headers && init.headers.Authorization; return new Response(live.body, { status: 200 }); }
     if (String(url).startsWith("https://ntfy.sh/")) { pings.push({ url: String(url), title: init && init.headers && init.headers.Title }); return new Response("{}", { status: 200 }); }
-    if (String(url).startsWith("https://api.bseindia.com/")) return new Response("blocked", { status: 403 });
-    if (String(url).startsWith("https://www.bseindia.com/")) return new Response("a,b,c\n1,2,3", { status: 200, headers: { "Content-Type": "text/csv" } });
     throw new Error("unexpected fetch " + url);
   };
   try {
@@ -111,10 +109,6 @@ export async function runCases() {
     r = await call("/api/state", {}, "not.a.jwt");
     ok(r.status === 401, "garbage token -> 401");
     ok((await verify(alice, env)).email === "Alice@Example.com", "verify() returns the claims of a good token");
-    r = await worker.fetch(new Request("https://ipodesk.dev/probe/bse"), env, ctx);                     // no token at all
-    { const p = await r.json(); ok(r.status === 200 && p.from === "cloudflare" && p.results.bulk.status === 403 && p.results.bhav.status === 200
-        && p.results.bhav.bytes === 11 && !("body" in p.results.bulk), "/probe/bse answers before the gate with status and bytes only"); }
-
     // two readers, separate
     r = await call("/api/state", {}, alice);
     let b = await r.json();

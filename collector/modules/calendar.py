@@ -262,7 +262,7 @@ def _from_investorgain(session: Session, prev: dict, res: Result, today: dt.date
         except SourceError as e:                        # an empty upcoming list is normal
             log.info("nse %s: %s", label, e.detail)
     try:
-        absorb(bse_issues.public_issues_json(session), "bse")
+        absorb(bse_issues.public_issues(session), "bse")
     except SourceError as e:
         res.notes.append(f"bse not merged ({e.kind}): BSE issue numbers for new rows wait for the next run")
 
@@ -301,7 +301,7 @@ def _from_nse(session: Session, prev: dict, res: Result, today: dt.date) -> str:
         r.setdefault("exchange", "nse")
     n_bse = 0
     try:
-        for r in bse_issues.public_issues_json(session):
+        for r in bse_issues.public_issues(session):
             r["exchange"] = "bse"
             rows.append(r)
             n_bse += 1
@@ -344,8 +344,8 @@ def _from_nse(session: Session, prev: dict, res: Result, today: dt.date) -> str:
 def _from_bse(session: Session, prev: dict, res: Result, today: dt.date) -> str:
     rows = None
     errs = []
-    for label, fn in (("api", lambda: bse_issues.public_issues_json(session)),
-                      ("legacy", lambda: bse_issues.public_issues_html(session))):
+    for label, fn in (("legacy", lambda: bse_issues.public_issues_html(session)),
+                      ("api", lambda: bse_issues.public_issues_json(session))):
         try:
             rows = fn()
             break

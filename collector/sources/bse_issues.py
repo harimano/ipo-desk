@@ -20,10 +20,11 @@ Both HTML parsers use selectolax. Same internal row shape as nse_ipo.normalise_l
 """
 from __future__ import annotations
 
+import logging
 import re
 from urllib.parse import parse_qs, urlparse
 
-from ..errors import SourceChanged, SourceDown
+from ..errors import SourceChanged, SourceDown, SourceError
 from ..http import BSE_BETA
 from .nse_ipo import first, iso_date, number, price_band
 
@@ -32,6 +33,7 @@ try:  # selectolax is a declared dependency; guard so the module imports (and te
 except ImportError:  # pragma: no cover
     HTMLParser = None
 
+log = logging.getLogger(__name__)
 SRC = "bse"
 LEGACY_LIST_URL = BSE_BETA + "/markets/PublicIssues/IPOIssues_new.aspx?id=1&Type=p"
 DEMAND_URL = BSE_BETA + "/markets/publicIssues/CummDemandSchedule.aspx"
@@ -83,7 +85,9 @@ def _board(platform: str) -> str:
 # ---------------------------------------------------------------------------------------------
 # calendar: legacy HTML table
 # ---------------------------------------------------------------------------------------------
-def parse_public_issues_html(html: str, *, url: str = LEGACY_LIST_URL) -> list[dict]:
+def parse_public_issues_html(html: str, *, url: str = LEGACY_LIST_URL, kinds: tuple[str, ...] = ("IPO",)) -> list[dict]:
+    """`kinds` are the page's Type of Issue codes: IPO, FPO, RI (rights), OTB (offer to buy: buyback tender / takeover),
+    OFS, DPI (debt), BuyBack (open-market buyback, which the API never listed), CMN, OTB … Rows carry theirs as `kind`."""
     _need_parser()
     tree = HTMLParser(html or "")
     rows: list[dict] = []
@@ -96,7 +100,8 @@ def parse_public_issues_html(html: str, *, url: str = LEGACY_LIST_URL) -> list[d
         name = cells[0]
         if not name or name.lower() in HEADER_WORDS:
             continue
-        if cells[6].strip().upper() != "IPO":
+        kind = cells[6].strip()
+        if kind.upper() not in {k.upper() for k in kinds}:
             continue
         open_, close = iso_date(cells[2]), iso_date(cells[3])
         if not open_ or not close:
@@ -110,17 +115,63 @@ def parse_public_issues_html(html: str, *, url: str = LEGACY_LIST_URL) -> list[d
             "name": re.sub(r"\s+", " ", name).strip(), "symbol": None, "series": None,
             "board": _board(cells[1]), "open": open_, "close": close, "listing": None, "allotment": None,
             "bandLow": lo, "bandHigh": hi, "lotSize": None, "issueSizeCr": None, "statusHint": cells[7], "withdrawn": "withdraw" in cells[7].lower(),
-            "totalSub": None, "bseIpoNo": _ipo_no_from_row(tr), "bseScripCode": None,
-            "source": "BSE public issues (legacy table)",
+            "totalSub": None, "bseIpoNo": _ipo_no_from_row(tr) if kind.upper() != "BUYBACK" else None, "bseScripCode": None,
+            "source": "BSE public issues (legacy table)", "kind": kind.upper() if kind.upper() in ("IPO", "FPO", "RI", "OTB", "OFS", "DPI", "CMN", "IPP") else kind,
         })
     if not rows:
-        raise SourceChanged(SRC, "legacy public-issues table: 0 IPO rows", url)
+        raise SourceChanged(SRC, f"legacy public-issues table: 0 rows of {kinds}", url)
     return rows
 
 
 def public_issues_html(session) -> list[dict]:
     html = session.get_text(LEGACY_LIST_URL, source=SRC, headers={"Referer": BSE_BETA + "/"})
     return parse_public_issues_html(html, url=LEGACY_LIST_URL)
+
+
+# ---------------------------------------------------------------------------------------------
+# offers: the same legacy page, its form posted back for every issue type
+# ---------------------------------------------------------------------------------------------
+FORM_FIELDS = ("__VIEWSTATE", "__VIEWSTATEGENERATOR", "__VIEWSTATEENCRYPTED", "__EVENTVALIDATION")
+
+
+def form_state(html: str, *, url: str = LEGACY_LIST_URL) -> dict:
+    """The ASP.NET hidden fields a postback must carry. Missing __VIEWSTATE means the page changed."""
+    fields = dict(re.findall(r'<input type="hidden" name="(__[A-Z]+)"[^>]*value="([^"]*)"', html or ""))
+    if "__VIEWSTATE" not in fields or "__EVENTVALIDATION" not in fields:
+        raise SourceChanged(SRC, f"legacy public-issues page: no form state ({sorted(fields)})", url)
+    return {k: fields.get(k, "") for k in FORM_FIELDS}
+
+
+def form_data(state: dict, *, issue_type: str = "0", status: str = "L", platform: str = "0") -> dict:
+    """What the page's own Submit button posts: the state, the two dropdowns (0 = All), the status radio (L live /
+    F forthcoming) and the empty text boxes."""
+    return {**state, "ctl00$ContentPlaceHolder1$ddlExchPlatform": platform, "ctl00$ContentPlaceHolder1$ddlIssueType": issue_type,
+            "ctl00$ContentPlaceHolder1$rblIssueStatus": status, "ctl00$ContentPlaceHolder1$ScripName": "",
+            "ctl00$ContentPlaceHolder1$txtFromDate": "", "ctl00$ContentPlaceHolder1$txtIssuetype": "",
+            "ctl00$ContentPlaceHolder1$btnSubmit": "Submit"}
+
+
+def public_offers_html(session) -> list[dict]:
+    """Everything on BSE's public-issues page that is not an IPO, live and forthcoming: the page GET once for its
+    form state, then two posts (all types, status L and F), parsed for OFFER_KINDS. A status with no offer rows is
+    normal (no OFS open today); both empty is a changed page."""
+    page = session.get_text(LEGACY_LIST_URL, source=SRC, headers={"Referer": BSE_BETA + "/"})
+    state = form_state(page)
+    rows, errs = [], []
+    for status in ("L", "F"):
+        html = session.post_text(LEGACY_LIST_URL, form_data(state, status=status), source=SRC,
+                                 headers={"Referer": LEGACY_LIST_URL, "Content-Type": "application/x-www-form-urlencoded"})
+        try:
+            got = parse_public_issues_html(html, url=LEGACY_LIST_URL, kinds=OFFER_KINDS)
+        except SourceChanged as e:
+            errs.append(f"{status}: {e.detail}")
+            continue
+        for r in got:
+            r["statusHint"] = r["statusHint"] or ("Live" if status == "L" else "Forthcoming")
+        rows += got
+    if not rows:
+        raise SourceChanged(SRC, "legacy public-issues form: no offer rows live or forthcoming (" + "; ".join(errs) + ")", LEGACY_LIST_URL)
+    return rows
 
 
 # ---------------------------------------------------------------------------------------------
@@ -170,13 +221,17 @@ def public_issues_json(session) -> list[dict]:
     return parse_public_issues_json(data, url=JSON_PATH)
 
 
-OFFER_KINDS = ("RI", "OTB", "OFS", "DPI")
+OFFER_KINDS = ("RI", "OTB", "OFS", "DPI", "BuyBack")     # BuyBack = open-market buyback, a type only the legacy page lists
 
 
-def public_offers_json(session) -> list[dict]:
-    """Everything on BSE's public-issues list that is not an IPO: one call with a blank ir_flag."""
-    data = session.bse_json(JSON_PATH, {**JSON_PARAMS, "ir_flag": ""}, source=SRC)
-    return parse_public_issues_json(data, url=JSON_PATH, kinds=OFFER_KINDS)
+def public_issues(session) -> list[dict]:
+    """The IPO list for the calendar: the legacy page first (it answers the runners), the API as the fallback for the
+    day the legacy page goes. Since 5 Nov 2026; before, the API went first and answered 403 every run."""
+    try:
+        return public_issues_html(session)
+    except SourceError as e:
+        log.info("bse legacy public issues: %s; trying the api", e.detail)
+        return public_issues_json(session)
 
 
 # ---------------------------------------------------------------------------------------------

@@ -12,7 +12,7 @@ from collector import assemble
 from collector.errors import SourceChanged
 from collector.modules import deals
 from collector.result import Result
-from collector.sources import nsearchives
+from collector.sources import bse_deals, nsearchives
 
 BULK = fixture("nsearchives", "bulk.csv")
 BLOCK = fixture("nsearchives", "block.csv")
@@ -293,20 +293,20 @@ def test_caps_trim_listing_deals():
 
 
 def test_bse_deals_reach_the_listings_that_trade_only_on_bse():
-    import json
     bfx = pathlib.Path(__file__).resolve().parent.parent / "data/fixtures/bse"
     d = listing_doc()
-    d["listedPerf"].append({"name": "Adon Agro Commodities", "date": "2026-09-10", "sme": True, "issue": 100.0, "bseCode": "544809"})
-    sess = live_session()
-    sess.json_ = {"/BulkDeal_Beta/w": json.loads((bfx / "bulk-deals-2026-09-22.json").read_text()), "/BlockDeal_Beta/w": json.loads((bfx / "block-deals-2026-09-22.json").read_text())}
+    d["listedPerf"].append({"name": "Wiscon Industries", "date": "2026-10-23", "sme": True, "issue": 210.0, "bseCode": "545010"})
+    bulk_html, block_html = (bfx / "bulk_deals-2026-11-04.html").read_text(encoding="utf8"), (bfx / "block_deals-2026-11-04.html").read_text(encoding="utf8")
+    sess = live_session(**{"/EQReports/bulk_deals.aspx": bulk_html, "/EQReports/block_deals.aspx": block_html})
     res = deals.run(sess, {"investors": {"watchlist": [], "bulkDeals": []}}, Result(module="deals", doc=d))
     rows = res.merge["investors"]["listingDeals"]
-    adon = [r for r in rows if r["stock"] == "Adon Agro Commodities"]
-    assert len(adon) == 3 and all(r["exchange"] == "BSE" and r["symbol"] == "544809" and r["sme"] is True and r["kind"] == "bulk" for r in adon)
-    assert adon[0]["vsIssuePct"] is not None and adon[0]["daysSinceListing"] == 12
+    wiscon = [r for r in rows if r["stock"] == "Wiscon Industries"]
+    n = sum(1 for r in bse_deals.parse_deals(bulk_html, "bulk") if r["symbol"] == "545010")
+    assert n >= 1 and len(wiscon) == n and all(r["exchange"] == "BSE" and r["symbol"] == "545010" and r["sme"] is True and r["kind"] == "bulk" for r in wiscon)
+    assert wiscon[0]["vsIssuePct"] is not None and wiscon[0]["daysSinceListing"] == 12
     assert any(r["exchange"] == "NSE" for r in rows), "the NSE cut is untouched"
-    assert any("BSE bulk: 40 deals, 3 in this year's listings" in n for n in res.notes)
+    assert any(f"BSE bulk: 43 deals, {n} in this year's listings" in x for x in res.notes)
     # BSE down is a note, never a failure of the NSE cut
-    sess2 = live_session(); sess2.json_ = {"/BulkDeal_Beta/w": blocked("bse"), "/BlockDeal_Beta/w": blocked("bse")}
+    sess2 = live_session(**{"/EQReports/bulk_deals.aspx": blocked("bse"), "/EQReports/block_deals.aspx": blocked("bse")})
     res2 = deals.run(sess2, {"investors": {"watchlist": [], "bulkDeals": []}}, Result(module="deals", doc=d))
-    assert res2.ok and any("BSE bulk: blocked" in n for n in res2.notes) and any(r["exchange"] == "NSE" for r in res2.merge["investors"]["listingDeals"])
+    assert res2.ok and any("BSE bulk: blocked" in x for x in res2.notes) and any(r["exchange"] == "NSE" for r in res2.merge["investors"]["listingDeals"])

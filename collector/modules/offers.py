@@ -33,7 +33,8 @@ KEEP_CLOSED_DAYS = 3
 ALIASES_DIR = pathlib.Path(__file__).resolve().parents[2] / "data"
 BSE_PAGE = "https://www.bseindia.com/markets/PublicIssues/IPOIssues_new.aspx"
 
-SECTION = {"RI": "rights", "OTB": "buybacks", "OFS": "ofs", "DPI": "ncd"}
+SECTION = {"RI": "rights", "OTB": "buybacks", "BuyBack": "buybacks", "OFS": "ofs", "DPI": "ncd"}
+BUYBACK_TYPE = {"OTB": "Tender / open offer", "BuyBack": "Open market"}     # BSE's OTB covers buyback tenders and takeover offers alike
 SECTIONS = ("rights", "buybacks", "ofs", "ncd")
 
 
@@ -68,7 +69,7 @@ def merge(prev_offers: dict, bse_rows: list[dict], today: dt.date) -> tuple[dict
                 row = {"name": display_name(b["name"]), "open": None, "close": None, "price": None, "record": None,
                        "deal": None, "detail": None, "note": "BSE public issues list", "url": BSE_PAGE}
                 if section == "buybacks":
-                    row["type"] = "Tender / open offer"      # BSE's OTB covers buyback tenders and takeover offers alike
+                    row["type"] = BUYBACK_TYPE.get(b.get("kind"), "Tender / open offer")
                 out[section].append(row)
                 by_name[row["name"]] = row
                 stats["new"] += 1
@@ -95,7 +96,7 @@ def merge(prev_offers: dict, bse_rows: list[dict], today: dt.date) -> tuple[dict
 
 
 def _from_bse(session: Session, prev: dict, res: Result, today: dt.date) -> str:
-    rows = bse_issues.public_offers_json(session)
+    rows = bse_issues.public_offers_html(session)       # the legacy page's form; the API host is closed (5 Nov 2026)
     if not rows:
         raise SourceChanged("bse", "public issues list has no rights / buyback / OFS / debt rows")
     offers, stats = merge(prev.get("offers") or {}, rows, today)
