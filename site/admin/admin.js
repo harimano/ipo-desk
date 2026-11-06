@@ -46,11 +46,24 @@ async function getJson(url, opts) {
 }
 
 /* ---------- what "fresh" means, from collect.yml / live.yml's crons (IST) ---------- */
-function docExpectation(asOf) {
-  const n = nowIST(), wd = n.getDay() % 6 !== 0, m = n.getHours() * 60 + n.getMinutes(), age = minsAgo(asOf);
-  const intraday = wd && m >= 9 * 60 + 50 && m <= 17 * 60 + 50;           // 09:37 … 17:37 every 30 min, plus a run's own minutes
-  if (intraday) return age > 75 ? ["bad", "an intraday run is overdue (every 30 min on weekdays)"] : age > 45 ? ["warn", "the last intraday run is late"] : ["ok", "intraday runs every 30 min"];
-  return age > 14 * 60 ? ["bad", "no full run since " + fmtIST(asOf) + " (06:43 and 18:13 IST)"] : ["ok", "full runs 06:43 and 18:13 IST"];
+// The collector's slots (app.js RUNS_IST): full 06:43 / 18:13 daily; intraday :07 / :37 09:37–17:37 on weekdays. An
+// intraday slot writes nothing unless an issue is open today — collect.yml's gate, open <= today <= close in IST — so with
+// nothing open the next document is the next FULL run (6 Nov 2026: four green runs skipped at the gate and this tile
+// called the document overdue). audit.json lists the rows' dates so the same question is asked here.
+const RUNS = [[6, 43, 0]].concat([9, 10, 11, 12, 13, 14, 15, 16, 17].flatMap(h => [[h, 7, 1], [h, 37, 1]])).concat([[18, 13, 0]]).filter(r => !(r[0] === 9 && r[1] === 7));
+const ymd = d => d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+const openToday = issues => { const t = ymd(nowIST()); return (issues || []).some(r => (r.open || "9") <= t && t <= (r.close || "0")); };
+function runAfter(ist, fullOnly) {
+  for (let add = 0; add < 4; add++) { const dte = new Date(ist.getFullYear(), ist.getMonth(), ist.getDate() + add), wk = dte.getDay() % 6 !== 0;
+    for (const [h, m, wd] of RUNS) { if ((wd && !wk) || (fullOnly && wd)) continue; const at = new Date(dte.getFullYear(), dte.getMonth(), dte.getDate(), h, m); if (at > ist) return at; } }
+  return null; }
+const RUN_SLACK_MIN = 45;
+const clockOf = at => (ymd(at) === ymd(nowIST()) ? "" : `${at.getDate()} ${MON[at.getMonth()]} `) + hhmm(at);
+function docExpectation(asOf, issues) {                 // issues: audit.json's doc.issues; absent (a local build) = assume one is open
+  const at = toIST(asOf); if (!at) return ["bad", "the document carries no asOf"];
+  const open = issues ? openToday(issues) : true, due = runAfter(at, !open), late = due ? (nowIST() - due) / 60000 : 0;
+  if (due && late > RUN_SLACK_MIN) return ["bad", `no run since ${fmtIST(asOf)} · one was due ${clockOf(due)} IST`];
+  return ["ok", open ? "an issue is open: intraday runs every 30 min" : `no issue open today: intraday runs skip at the gate · next full run ${due ? clockOf(due) : "—"} IST`];
 }
 function liveExpectation(asOf) {
   const n = nowIST(), wd = n.getDay() % 6 !== 0, m = n.getHours() * 60 + n.getMinutes();
@@ -397,9 +410,10 @@ async function main() {
   $("#clock").textContent = hhmm(nowIST()) + " IST";
   try {
     const meta = await getJson("/data/meta.json?t=" + Date.now(), { cache: "no-store" });
-    const [lvl, why] = docExpectation(meta.meta.asOf);
+    let issues = null; try { issues = ((await getJson("audit.json?t=" + Date.now(), { cache: "no-store" })).doc || {}).issues || null; } catch (e) { issues = null; }
+    const [lvl, why] = docExpectation(meta.meta.asOf, issues);
     tile("#tDoc", hhmm(toIST(meta.meta.asOf)), lvl, `${ago(meta.meta.asOf)} · ${esc(why)}`);
-    if (lvl !== "ok") addVerdict(lvl, "the document is stale: " + why, "runs", "fault", "gh run list first: a stale page is a failed run until proven otherwise");
+    if (lvl !== "ok") addVerdict(lvl, "a collector run has not landed: " + why, "runs", "fault", "gh run list first: a stale page is a failed run until proven otherwise — the figures on the page are still the latest");
   } catch (e) { tile("#tDoc", "?", "bad", "meta.json did not load: " + esc(e.message)); addVerdict("bad", "the page's own data did not load", "runs", "fault", "the deploy did not publish data/meta.json: open the last deploy run"); }
   try { renderAudit(await getJson("audit.json?t=" + Date.now(), { cache: "no-store" })); }
   catch (e) { $("#vTitle").textContent = "No audit.json"; $("#vSub").textContent = "site/build.py writes admin/audit.json from scripts/audit.py — " + e.message; $("#verdict").className = "bad"; }

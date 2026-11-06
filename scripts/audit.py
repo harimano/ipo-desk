@@ -345,7 +345,9 @@ def build(doc: dict, prev: dict | None = None, logos_dir: pathlib.Path | None = 
         "doc": {"asOf": meta.get("asOf"), "label": meta.get("label"), "bytesCompact": size, "capBytes": MAX_DOC_BYTES, "bytesLazy": lazy_size,
                 "integrityAsOf": (doc.get("integrity") or {}).get("asOf"), "tapeAsOf": (doc.get("tape") or {}).get("asOf"),
                 "tapeLastDay": max((doc.get("tape") or {}).get("dates") or [None]) if isinstance((doc.get("tape") or {}).get("dates"), list) else None,
-                "boards": counts},
+                "boards": counts,
+                # the rows' dates, so /admin can ask collect.yml's own gate question (an issue open today?) when it judges freshness
+                "issues": [{"name": r.get("name"), "open": r.get("open"), "close": r.get("close")} for _b, r in _rows(doc)]},
         "verdict": verdict(mods, finds, d, size),
         "modules": mods,
         "audit": finds,

@@ -863,21 +863,31 @@ document.addEventListener("keydown", e => {
 /* @include install.js */
 /* @include links.js */
 /* ---------- "data as of" on every screen, and the footer — both from run metadata, never hand-written ----------
-   The collector's timetable (RUNS_IST) says how old a document may be: on a weekday in run hours an intraday run lands every
-   30 min, otherwise the next full run is at 06:43 / 18:13 IST. Older than that window (plus slack) reads as stale. */
-function expectedGapMin() { const ist = new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000), h = ist.getHours(), wk = ist.getDay() % 6 !== 0;
-  return wk && h >= 9 && h < 18 ? 75 : 14 * 60 + 30; }
+   When is the next document due? The collector's timetable (RUNS_IST) says — but an intraday slot writes nothing unless an
+   issue is open today (collect.yml's gate: open <= today <= close, IST), so with nothing open the next document is the next
+   FULL run. 6 Nov 2026: four green intraday runs skipped at the gate and the page said "feed 2 h late" about the latest
+   document there could be. The pill now names the run that has not landed, not the data: a missed run is a fault, the
+   figures themselves are still the latest. */
+const istOf = x => { const d = new Date(x); return new Date(d.getTime() + (330 + d.getTimezoneOffset()) * 60000); };   // IST wall clock
+const openToday = () => { const t = iso(istOf(Date.now())); return allIssues().some(b => (b.open || "9") <= t && t <= (b.close || "0")); };
+function runAfter(ist, fullOnly) {                          // the first collector slot after an IST wall-clock time, as one
+  for (let add = 0; add < 4; add++) { const dte = new Date(ist.getFullYear(), ist.getMonth(), ist.getDate() + add), wk = dte.getDay() % 6 !== 0;
+    for (const [h, m, wd] of RUNS_IST) { if ((wd && !wk) || (fullOnly && wd)) continue; const at = new Date(dte.getFullYear(), dte.getMonth(), dte.getDate(), h, m); if (at > ist) return at; } }
+  return null; }
+const RUN_SLACK_MIN = 45;                                   // a run's own minutes plus the deploy, before "not landed" means anything
+function dueRun(asOf) { const d = new Date(asOf); return isNaN(d) ? null : runAfter(istOf(d), !openToday()); }
+const istClockOf = at => (iso(at) === iso(istOf(Date.now())) ? "" : fmtD(iso(at)) + " ") + String(at.getHours()).padStart(2, "0") + ":" + String(at.getMinutes()).padStart(2, "0");
 const istClock = s => { const x = s ? new Date(s) : null; if (!x || isNaN(x)) return "—"; const t = new Date(x.getTime() + (330 + x.getTimezoneOffset()) * 60000);
   const sameDay = iso(new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000)) === iso(t); return (sameDay ? "" : fmtD(iso(t)) + " ") + String(t.getHours()).padStart(2, "0") + ":" + String(t.getMinutes()).padStart(2, "0") + " IST"; };
 function stampFor(id) {
-  const docMin = (Date.now() - new Date(DATA.meta.asOf)) / 60000, stale = docMin > expectedGapMin();
+  const due = dueRun(DATA.meta.asOf), overdue = due && (istOf(Date.now()) - due) / 60000 > RUN_SLACK_MIN;
   const bits = [`data as of <b>${istClock(DATA.meta.asOf)}</b>`];
   const lv = LIVE && LIVE.asOf;
   if ((id === "today" || id === "board") && lv) bits.push(`book ${istClock(LIVE.asOf)}`);
   if (id === "board") { const g = allIssues().map(b => b.gmpAsOf).filter(Boolean).sort().pop(); if (g) bits.push(`GMP ${istClock(g)}${(Date.now() - new Date(g)) / 36e5 > 30 ? ' <span class="pill warn">stale</span>' : ""}`); }
   if (id === "market") { const I = DATA.investors || {}; if (I.asOf) bits.push(`superinvestor sweep ${fmtD(I.asOf)}${(Date.now() - new Date(I.asOf)) / 864e5 > 7 ? ' <span class="pill warn">old</span>' : ""}`); }
   if (id === "score" && DATA.evidence && DATA.evidence.asOf) bits.push(`evidence ${fmtD(DATA.evidence.asOf)}`);
-  return `<span>${bits.join(" · ")}</span>${stale ? `<span class="pill warn" title="the collector's next run was due ${expectedGapMin() < 120 ? "within the half hour" : "by the next 06:43 / 18:13 IST run"}">feed ${Math.round(docMin / 60) >= 1 ? Math.round(docMin / 60) + " h" : Math.round(docMin) + " min"} late</span>` : ""}`;
+  return `<span>${bits.join(" · ")}</span>${overdue ? `<span class="pill warn" title="the collector's run due ${istClockOf(due)} IST has not landed — a failed run until proven otherwise; these figures are still the latest">no run since ${istClock(DATA.meta.asOf)} · one was due ${istClockOf(due)}</span>` : ""}`;
 }
 function renderStamps() { $$("section.screen").forEach(sec => { const id = sec.id.replace(/^s-/, ""); let el = sec.querySelector(":scope > .stamp"); if (!el) { el = document.createElement("div"); el.className = "stamp"; sec.insertBefore(el, sec.firstChild); } el.innerHTML = stampFor(id); }); renderTrust(); }
 function renderFooter() {
@@ -933,6 +943,7 @@ return {
     } catch (err) { console.error(err); return false; }
     return true;
   },
+  dueRun,                                            // for the console: when the next document was due, by the gate's own rule
   // live.json (the five-minute loop) laid over the document: only values newer than the ones on the row are taken
   live(L) {
     if (!L || !L.rows) return false;
