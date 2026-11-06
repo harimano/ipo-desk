@@ -24,7 +24,9 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
 - Schedule: full runs 06:43 and 18:13 IST; intraday (subscription + gmp + open issues' records) :07/:37 on weekdays;
   `live.yml` 08:55 and 12:55. GitHub's cron is best-effort, so a Cloudflare Worker (`ops/trigger-worker/`) dispatches them.
   A workflow's push does not trigger other workflows: `collect.yml` dispatches `deploy.yml`; a page-only change needs
-  `gh workflow run deploy.yml`. An intraday run whose predecessor refused at the gate on the same commit skips green with one
+  `gh workflow run deploy.yml`. A workflow file GitHub cannot parse (6 Nov 2026: a bare `env:` left under a step) shows as
+  0 s runs named by the file path and refuses both cron and dispatch — the board went 22 h stale; `/admin` groups runs by
+  workflow file so it says so. An intraday run whose predecessor refused at the gate on the same commit skips green with one
   `::warning::` carrying the refusal (`scripts/prev_gate.py`); the full runs and any push to main retry and fail loudly.
   `digest.yml` (Sunday 18:30 IST, `collector/digest.py`) sends the weekly digest from the data branch; the Worker has no cron slot
   left, so Sunday's 18:13 full collect dispatches it too and the workflow skips if one already went out that day.
@@ -186,7 +188,9 @@ document as assembled so far; `prev` is yesterday's.
   ok). `logos{igId: {src, at, missing?}}` (board part) lists what exists, so the page never asks for a missing image.
   `collect.yml` commits `logos/` to the data branch after the gate; `deploy.yml` and `build.py` publish it. Needs Pillow.
 - `subscription` never replaces a positive book with an all-zero one (exchanges answer zeros after close). A GMP of "0"
-  with no trade behind it is "no quote". `validate.py`'s loss check ignores rows due to retire (listing + 1 day). It also exempts `players.covered` / `players.names` (keyed by unlisted
+  with no trade behind it is "no quote". `validate.py`'s loss check ignores rows due to retire (listing + 1 day); one empty board list beside a live one is a
+  warning when the calendar check is ok (7 Nov 2026: the last mainboard row retired on schedule and the gate refused
+  "mainboard is missing or empty"), both empty is always an error. It also exempts `players.covered` / `players.names` (keyed by unlisted
   issue: they shrink when issues list; `players.frozen` is the gate and only grows — 13 listings over 5–6 Oct read as "40% loss").
 - **BSE's API host is closed, its legacy site is open** (5 Nov 2026, `scripts/probe_bse.py` run from a runner): `api.bseindia.com`
   answers 403 "Access Denied" to GitHub's runners AND to Cloudflare, even for robots.txt — never retry it, never route
@@ -222,19 +226,20 @@ when dataset types are mixed. Market has a sticky section bar built from `.sec-h
 
 ## Next
 
-Accounts are live (D1 `ipo-desk-accounts`, APAC, bound 29 Oct 2026; Saved pill green on the live site). The Access policy
-STAYS *Everyone* by Hari's decision (29 Oct 2026): anyone with the link who completes the email code gets in; the link is
-the key, each reader's state is keyed to their verified email — do not propose an allow-list or an Access group again.
-`NTFY_TOPIC` is set and verified (a "Wrong number?" ping reached Hari's phone, 29 Oct). Capital planner and calendar
-shipped (reports 554 / 607, `planner` → `planner.js`). Phase 4 ops live (29 Oct 2026): `backup.yml` dumps D1 into R2
-`ipo-desk-backups` nightly at 02:51 IST (a GitHub job — the account's five free cron triggers are the trigger Worker's;
-first file `nightly/2026-10-29.sql` confirmed; the deploy token needed **D1 · Edit** first); `scripts/restore_d1.py`
-restores by id, never the live one by default; `daily_active` rows (salted hash, secret `DAU_SALT`, set) feed `/admin` →
-Readers by week; `SETUP.md` §1c / §4 / §5 have the bucket clicks, rollback and one-reader removal. Phase 5 verification,
-alerts with deep links (PR 10) and the weekly digest (PR 11, Sunday 18:30 IST; first real send 1 Nov 2026) shipped 29 Oct.
-Hari reads on an iPhone: ntfy gets plain text with Click and action buttons, never Markdown (PR 12). Hari to do: merge
-`pre-invite` (30 Oct: `/live.json` through the Worker, the footer tidy), then from a phone on mobile data confirm the live
-book still moves; delete the dead branches (commands in that PR; `revert-friends-ready` must never be merged); then invite
-the first friends. SEBI's 29 Oct refusal was transient (ten full runs read, one blip; live probe 30 Oct: 25 rows a register).
-Optional: the `LIVE_GITHUB_TOKEN` secret (read-only) takes the CDN delay off `/live.json`. Then: the AI layer, last — design
-first, from `docs/AI-AND-PREDICTION.md` §3.
+Accounts are live (D1 `ipo-desk-accounts`, APAC, bound 29 Oct 2026; `/admin` counted 5 readers on 7 Nov). The Access
+policy STAYS *Everyone* by Hari's decision (29 Oct 2026): anyone with the link who completes the email code gets in; the
+link is the key, each reader's state is keyed to their verified email — do not propose an allow-list or an Access group
+again. Shipped and verified: `NTFY_TOPIC` (29 Oct); capital planner and calendar (`planner` → `planner.js`, reports 554 /
+607 — 607 answers empty while no mainboard issue is open, the module notes it and carries nothing); Phase 4 ops
+(`backup.yml` nightly 02:51 IST into R2 `ipo-desk-backups`, `scripts/restore_d1.py`, `daily_active` → `/admin` Readers,
+secret `DAU_SALT`; `SETUP.md` §1c / §4 / §5 for the clicks, rollback and one-reader removal); alerts with deep links (PR
+10); the weekly digest (PR 11, Sunday 18:30 IST, first real send 1 Nov); ntfy as plain text for the iPhone (PR 12);
+`pre-invite` (PR of 30 Oct, merged: `/live.json` through the Worker). Freshness everywhere follows the intraday gate (6 Nov):
+a stamp says "no run since … · one was due …" only when a run was due, never "late" or "old" for data that is the latest.
+
+Branches (7 Nov 2026): every remote branch is dead — all sit at zero commits ahead of main except `friends-ready` (three
+commits whose work reached main another way) and `probe-bse` (PR 32's survey, closed unmerged). Hari to do: delete them
+on GitHub when convenient (`gh api -X DELETE repos/harimano/ipo-desk/git/refs/heads/<name>`); the checkout at
+`~/code/ipo-desk` still has `friends-ready` checked out, so switch it to `main` first (its layout predates two keys the
+collector now writes, which is why `test_layout` fails there). Optional: the `LIVE_GITHUB_TOKEN` secret (read-only)
+takes the CDN delay off `/live.json`. Then: the AI layer, last — design first, from `docs/AI-AND-PREDICTION.md` §3.

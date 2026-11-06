@@ -465,3 +465,25 @@ its files against main is the later /admin work, not the accounts). `revert-frie
 `market-clock`, `show-main`, `worker-ntfy-trim` all sit on origin/main exactly. Nothing deleted: the commands are in the
 PR.
 
+## 6–7 Nov 2026 — a bare `env:`, the gate-aware clock, and the empty board
+
+**22 hours stale.** On 6 Nov every collect run since the previous evening showed as a 0 s failure named by its file path
+(`.github/workflows/collect.yml`), cron and dispatch alike. A bare `env:` line left under the Collect step is valid YAML
+but not a workflow GitHub will parse. One line deleted (1228462); a dispatched full run proved it. `/admin` had said
+"latest run failed" against the wrong workflow because it grouped runs by display name, which for a parse failure is the
+path — it now keys by workflow file. Lesson for the brief: a stale page is a failed run until proven otherwise, and a
+parse failure has no log to read; `gh api …/runs/<id>` shows the name.
+
+**"Feed 2 h late" on data that was the latest.** Intraday runs skip at the gate when no issue is open, so a fixed
+30-minute expectation called good data late all afternoon. The collector now writes `dueBy` per integrity check from the
+same gate (`assemble.due_by`, weekday + an open issue), and the page, trust strip, tape and `/admin` all read it: "no run
+since … · one was due … IST" only when a run was in fact due; the sweep's snapshot is labelled *archive*, never *old*.
+The three lapsed quota rows the audit kept flagging are now closed by `filings` itself (SEBI's lapse date, or an
+announced withdrawal) — the collector reads and writes; the audit stopped asking a person.
+
+**The empty board.** 7 Nov 01:13 IST (GitHub's 18:13 cron, seven hours late): the only mainboard row had retired on
+schedule, the calendar found nothing mainboard open or upcoming, and the gate refused "mainboard is missing or empty" —
+and would have at every run until the next mainboard filing. `calendar` already raises when both lists are empty, so one
+empty list beside a live one is attested: a warning now when the calendar check is ok, an error otherwise, both empty
+always an error (052e109). The page with no mainboard rows: seven tabs, twenty sheets, no console errors, the Board's
+"Nothing here" under *Now*.
