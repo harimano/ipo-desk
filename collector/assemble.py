@@ -239,20 +239,31 @@ def merge_unresolved(prev: list[str], results: list) -> list[str]:
 
 
 # When the next good answer is due. The schedule is collect.yml's: full runs 06:43 / 18:13 IST daily; intraday (the three
-# INTRADAY modules, the rest skip) at :07/:37 from 09:37 to 17:37 on weekdays. GitHub's cron is best-effort, so `dueBy`
-# carries DUE_GRACE_MIN of slack: past it the page says "late" — a threshold the collector owns, never the page.
+# INTRADAY modules, the rest skip) at :07/:37 from 09:37 to 17:37 on weekdays — and ONLY while an issue is open that day
+# (collect.yml's gate: open <= today <= close; 6 Nov 2026: four green runs skipped at the gate and every intraday feed read
+# "late" on the page). GitHub's cron is best-effort, so `dueBy` carries DUE_GRACE_MIN of slack: past it the page says
+# "late" — a threshold the collector owns, never the page.
 FULL_RUNS = ((6, 43), (18, 13))
 INTRADAY_RUNS = tuple((h, m) for h in range(9, 18) for m in (7, 37) if (9, 37) <= (h, m) <= (17, 37))
 INTRADAY = frozenset({"gmp", "details", "subscription"})
 DUE_GRACE_MIN = 45
 
 
-def due_by(area: str, t: dt.datetime) -> str:
-    """ISO time by which `area` should have answered again after a good answer at `t` (plus DUE_GRACE_MIN)."""
+def issue_open_on(data: dict | None, d: dt.date) -> bool:
+    """collect.yml's gate, as the document answers it: a board row with open <= d <= close (ISO date strings)."""
+    s = d.isoformat()
+    return any((r.get("open") or "9") <= s <= (r.get("close") or "0")
+               for k in ("mainboard", "sme") for r in (data or {}).get(k) or [] if isinstance(r, dict))
+
+
+def due_by(area: str, t: dt.datetime, data: dict | None = None) -> str:
+    """ISO time by which `area` should have answered again after a good answer at `t` (plus DUE_GRACE_MIN). An intraday
+    slot counts only on a weekday with an issue open (`data` is the document; None = assume one is open)."""
     t = t.astimezone(IST)
     for day in range(8):
         d = (t + dt.timedelta(days=day)).date()
-        slots = FULL_RUNS + (INTRADAY_RUNS if area in INTRADAY and d.weekday() < 5 else ())
+        intraday = area in INTRADAY and d.weekday() < 5 and (data is None or issue_open_on(data, d))
+        slots = FULL_RUNS + (INTRADAY_RUNS if intraday else ())
         for h, m in sorted(slots):
             c = dt.datetime(d.year, d.month, d.day, h, m, tzinfo=IST)
             if c > t:
@@ -275,7 +286,7 @@ def stamp(data: dict, results: list[Result], t: dt.datetime, research_notes: lis
         last_ok = t.isoformat() if r.ok else before.get(r.module, {}).get("lastOk")
         checks.append({"area": r.module, "method": tried, "status": status, "asOf": r.asOf,
                        "elapsed": r.elapsed, "calls": r.calls, "note": note, "lastOk": last_ok,
-                       "dueBy": due_by(r.module, t) if r.ok else None})
+                       "dueBy": due_by(r.module, t, data) if r.ok else None})
     # A module that did not run this time (an intraday run is three of seventeen) keeps its last check, marked
     # `carried` with its own asOf: the document says when tape / anchorbook / offers last answered, not just gmp.
     # 29 Oct 2026, for /admin — before this the full run's statuses vanished at the first intraday run.

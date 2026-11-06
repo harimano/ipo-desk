@@ -113,7 +113,7 @@ def test_stamp_carries_forward_checks_of_modules_that_did_not_run():
 
 def test_stamp_writes_last_ok_and_due_by_and_keeps_last_ok_through_a_failure():
     t1 = dt.datetime(2026, 10, 29, 9, 40, tzinfo=assemble.IST)          # a Thursday
-    data = {"integrity": {"checks": []}, "meta": {}}
+    data = {"integrity": {"checks": []}, "meta": {}, "mainboard": [{"name": "Open Co", "open": "2026-10-28", "close": "2026-10-30"}]}
     assemble.stamp(data, [Result(module="gmp").won("investorgain", "x"), Result(module="tape").won("nsearchives", "x")],
                    t1, [], 1, 1.0)
     by = {c["area"]: c for c in data["integrity"]["checks"]}
@@ -126,6 +126,18 @@ def test_stamp_writes_last_ok_and_due_by_and_keeps_last_ok_through_a_failure():
     assemble.stamp(data, [bad], t1 + dt.timedelta(hours=1), [], 1, 1.0)
     g = {c["area"]: c for c in data["integrity"]["checks"]}["gmp"]
     assert g["status"] == "blocked" and g["lastOk"] == t1.isoformat() and g["dueBy"] is None
+
+
+def test_due_by_counts_intraday_slots_only_while_an_issue_is_open():
+    thu = dt.datetime(2026, 11, 5, 15, 0, tzinfo=assemble.IST)
+    closed = {"mainboard": [{"name": "Done", "open": "2026-10-29", "close": "2026-11-02"}], "sme": []}
+    opening = {"mainboard": [{"name": "Next", "open": "2026-11-06", "close": "2026-11-10"}], "sme": []}
+    assert assemble.due_by("gmp", thu, closed) == "2026-11-05T18:58:00+05:30", "nothing open: the next FULL run"
+    assert assemble.due_by("gmp", thu, opening) == "2026-11-05T18:58:00+05:30", "opens tomorrow: still the full run today"
+    fri_morning = dt.datetime(2026, 11, 6, 6, 45, tzinfo=assemble.IST)
+    assert assemble.due_by("gmp", fri_morning, opening) == "2026-11-06T10:22:00+05:30", "open today: the 09:37 slot"
+    assert assemble.due_by("tape", thu, opening) == "2026-11-05T18:58:00+05:30", "a daily module never has intraday slots"
+    assert assemble.due_by("gmp", thu, None) == "2026-11-05T15:52:00+05:30", "no document: assume an issue is open (15:07 + 45 min)"
 
 
 def test_due_by_has_no_intraday_slots_at_weekends():

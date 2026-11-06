@@ -25,12 +25,10 @@ const ago = s => { if (!s) return ""; const x = new Date(s); if (isNaN(x)) retur
   return m < 1 ? "just now" : m < 60 ? m + " min ago" : m < 1440 ? Math.round(m / 60) + " h ago" : x.toLocaleDateString("en-IN", { day: "numeric", month: "short" }); };
 const hasTime = s => /T\d{2}:\d{2}/.test(String(s || ""));
 const RUNS_IST = [[6, 43, 0]].concat([9, 10, 11, 12, 13, 14, 15, 16, 17].flatMap(h => [[h, 7, 1], [h, 37, 1]])).concat([[18, 13, 0]]).filter(r => !(r[0] === 9 && r[1] === 7));   // [h, m, weekdaysOnly]
-function nextRun() {                                        // the collector's timetable, in IST whatever the viewer's zone
-  const ist = new Date(Date.now() + (330 + new Date().getTimezoneOffset()) * 60000);
-  for (let add = 0; add < 4; add++) { const dte = new Date(ist.getFullYear(), ist.getMonth(), ist.getDate() + add), wk = dte.getDay() % 6 !== 0;
-    for (const [h, m, wd] of RUNS_IST) { if (wd && !wk) continue; const at = new Date(dte.getFullYear(), dte.getMonth(), dte.getDate(), h, m);
-      if (at > ist) return (add === 0 ? "" : add === 1 ? "tomorrow " : at.toLocaleDateString("en-IN", { weekday: "short" }) + " ") + String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0"); } }
-  return ""; }
+function nextRun() {                                        // the collector's next slot, by the gate's own rule (runAfter, below)
+  const ist = istOf(Date.now()), at = runAfter(ist, !openToday()); if (!at) return "";
+  const add = Math.round((new Date(at.getFullYear(), at.getMonth(), at.getDate()) - new Date(ist.getFullYear(), ist.getMonth(), ist.getDate())) / 864e5);
+  return (add === 0 ? "" : add === 1 ? "tomorrow " : at.toLocaleDateString("en-IN", { weekday: "short" }) + " ") + String(at.getHours()).padStart(2, "0") + ":" + String(at.getMinutes()).padStart(2, "0"); }
 const seenOf = D => { const o = {}; [...(D.mainboard || []), ...(D.sme || [])].forEach(b => { o[b.name] = { g: b.gmp == null ? null : b.gmp, s: b.sub && b.sub.total != null ? b.sub.total : null }; }); return o; };
 let LIVE = null;                                            // {asOf, preopen[], timeline{}} from the five-minute loop
 let CHG = {};                                               // name -> {g:[was, now], s:[was, now]} for this session
@@ -885,7 +883,7 @@ function stampFor(id) {
   const lv = LIVE && LIVE.asOf;
   if ((id === "today" || id === "board") && lv) bits.push(`book ${istClock(LIVE.asOf)}`);
   if (id === "board") { const g = allIssues().map(b => b.gmpAsOf).filter(Boolean).sort().pop(); if (g) bits.push(`GMP ${istClock(g)}${(Date.now() - new Date(g)) / 36e5 > 30 ? ' <span class="pill warn">stale</span>' : ""}`); }
-  if (id === "market") { const I = DATA.investors || {}; if (I.asOf) bits.push(`superinvestor sweep ${fmtD(I.asOf)}${(Date.now() - new Date(I.asOf)) / 864e5 > 7 ? ' <span class="pill warn">old</span>' : ""}`); }
+  if (id === "market") { const I = DATA.investors || {}; if (I.asOf) bits.push(`superinvestor sweep ${fmtD(I.asOf)} · <span title="the sweep is a one-off snapshot nothing refreshes; the deals and anchor books on this screen are the collector's and carry their own dates">archive</span>`); }   // never "old": an archive is not late
   if (id === "score" && DATA.evidence && DATA.evidence.asOf) bits.push(`evidence ${fmtD(DATA.evidence.asOf)}`);
   return `<span>${bits.join(" · ")}</span>${overdue ? `<span class="pill warn" title="the collector's run due ${istClockOf(due)} IST has not landed — a failed run until proven otherwise; these figures are still the latest">no run since ${istClock(DATA.meta.asOf)} · one was due ${istClockOf(due)}</span>` : ""}`;
 }
