@@ -78,3 +78,33 @@ def test_a_records_sheet_table_shrinking_and_a_small_nested_list_are_not_a_loss(
     (tmp_path / "new.json").write_text(json.dumps(doc))
     out = subprocess.run([sys.executable, str(validate.__file__), str(tmp_path / "new.json"), "--prev", str(tmp_path / "prev.json"), "--max-age-hours", "999999"], capture_output=True, text=True, check=False)
     assert "latest/records: 9 -> 0" in out.stdout
+
+
+def test_an_empty_board_is_a_lull_when_the_calendar_answered_and_a_fault_when_it_did_not(tmp_path):
+    # 7 Nov 2026: the one mainboard row (Bombay Coated, listed 5 Nov) retired on schedule; the calendar found no
+    # mainboard issue open or upcoming (it raises SourceChanged itself when BOTH lists are empty), and the gate
+    # refused "mainboard is missing or empty" — and would have, twice a day, until the next mainboard filing.
+    import json
+    import subprocess
+    import sys
+    doc = {k: [] for k in validate.TOP_LEVEL}
+    doc.update({"meta": {"asOf": "2026-11-07T01:13:00+05:30", "label": "x", "unresolved": []}, "lot": {}, "priceHistory": {}, "current": {}, "sheets": {},
+                "flows": {"history": []}, "investors": {}, "offers": {}, "records": {},
+                "integrity": {"checks": [{"area": "calendar", "status": "ok", "method": "investorgain:ok"}]}})
+    doc["sme"] = [{"name": "Antala Industries", "status": "Closed", "listing": "2026-11-11", "sources": ["a"]}]
+    doc["listedPerf"] = [{"name": f"p{i}", "date": "2026-01-01"} for i in range(40)]
+    prev = json.loads(json.dumps(doc))
+    prev["mainboard"] = [{"name": "Bombay Coated", "status": "Listed", "listing": "2026-11-05", "sources": ["a", "b"]}]
+    (tmp_path / "prev.json").write_text(json.dumps(prev)); (tmp_path / "new.json").write_text(json.dumps(doc))
+    run = lambda: subprocess.run([sys.executable, str(validate.__file__), str(tmp_path / "new.json"), "--prev", str(tmp_path / "prev.json"), "--max-age-hours", "999999"], capture_output=True, text=True, check=False)
+    out = run()
+    assert out.returncode == 0 and "WARN  mainboard is empty" in out.stdout, out.stdout
+    doc["integrity"]["checks"][0]["status"] = "stale"                     # the calendar did not answer: an empty board is a fault
+    (tmp_path / "new.json").write_text(json.dumps(doc))
+    out = run()
+    assert out.returncode == 1 and "mainboard is empty and the calendar check is not ok" in out.stdout, out.stdout
+    doc["sme"] = []                                                      # both empty is never a lull, whatever the calendar says
+    doc["integrity"]["checks"][0]["status"] = "ok"
+    (tmp_path / "new.json").write_text(json.dumps(doc))
+    out = run()
+    assert out.returncode == 1 and "both empty" in out.stdout, out.stdout

@@ -180,9 +180,21 @@ def main() -> int:
     for k in ("asOf", "label"):
         if not meta.get(k):
             err(f"meta.{k} is missing or empty")
+    # An empty board is a lull, not a loss, when the calendar module itself answered ok: it already raises
+    # SourceChanged when BOTH lists come back empty, so one empty beside a live other is attested. 7 Nov 2026:
+    # the only mainboard row retired on schedule, "mainboard is missing or empty" refused the 01:13 full run,
+    # and every run would have refused until the next mainboard issue was announced.
+    cal_ok = any(c.get("area") == "calendar" and c.get("status") == "ok"
+                 for c in ((data.get("integrity") or {}).get("checks") or []) if isinstance(c, dict))
+    if not data.get("mainboard") and not data.get("sme"):
+        err("mainboard and sme are both empty — no board at all is never a lull")
     for k in ("mainboard", "sme"):
-        if not isinstance(data.get(k), list) or not data[k]:
-            err(f"{k} is missing or empty")
+        if not isinstance(data.get(k), list):
+            err(f"{k} is missing")
+        elif not data[k] and cal_ok:
+            warn(f"{k} is empty: no {k} issue on the calendar today (the calendar check is ok)")
+        elif not data[k]:
+            err(f"{k} is empty and the calendar check is not ok — a source failure, not a lull")
 
     # 3. enums + row keys
     for k in ("mainboard", "sme", "recent"):
