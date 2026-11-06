@@ -108,7 +108,6 @@ jobs:
       - name: Collect
         id: collect
         if: steps.mode.outputs.go == '1'
-        env:
         run: |
           set -o pipefail
           if [ "${{ steps.mode.outputs.mode }}" = intraday ]; then ONLY="gmp,details,subscription"
