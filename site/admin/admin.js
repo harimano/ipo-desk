@@ -161,12 +161,16 @@ function paintRuns(runs, source) {
 function judgeRuns(runs) {
   // A failure is "bad" only while it is the latest completed run of its workflow; one a later run recovered from is a
   // note, not an alarm (29 Oct 2026: a Cloudflare API hiccup and a token fix kept the line red for two days of green runs).
+  // Grouped by the workflow FILE, not the run's name: a run of a file GitHub could not parse is named by its path
+  // (".github/workflows/collect.yml", 0 s, no log), and by name it was its own workflow whose latest run had failed —
+  // the line stayed red for a day after the file was fixed (6 Nov 2026).
+  const wf = r => (r.path || r.name || "").replace(/^\.github\/workflows\//, "").replace(/\.ya?ml$/, "");
   const done = runs.filter(r => r.status === "completed" && !["cancelled", "skipped"].includes(r.conclusion));
-  const latest = {}; done.forEach(r => { if (!(r.name in latest)) latest[r.name] = r; });
+  const latest = {}; done.forEach(r => { if (!(wf(r) in latest)) latest[wf(r)] = r; });
   const failed = done.filter(r => r.conclusion !== "success");
-  const live = failed.filter(r => latest[r.name] === r), past = failed.filter(r => latest[r.name] !== r);
-  if (live.length) addVerdict("bad", `${live.map(r => r.name).join(", ")}: the latest run failed`, "runs", "fault", "open the run; read its Install and import lines first");
-  if (past.length) addVerdict("ok", `${past.length} run${past.length > 1 ? "s" : ""} failed and recovered in the last ${runs.length} (${[...new Set(past.map(r => r.name))].join(", ")})`, "runs", "state", "a later run passed; read the failed one only if it repeats");
+  const live = failed.filter(r => latest[wf(r)] === r), past = failed.filter(r => latest[wf(r)] !== r);
+  if (live.length) addVerdict("bad", `${[...new Set(live.map(wf))].join(", ")}: the latest run failed`, "runs", "fault", "open the run; read its Install and import lines first");
+  if (past.length) addVerdict("ok", `${past.length} run${past.length > 1 ? "s" : ""} failed and recovered in the last ${runs.length} (${[...new Set(past.map(wf))].join(", ")})`, "runs", "state", "a later run passed; read the failed one only if it repeats");
   const crons = runs.filter(r => r.name === "collect" && r.event === "schedule").length, disp = runs.filter(r => r.name === "collect" && r.event === "workflow_dispatch").length;
   if (crons > disp) addVerdict("warn", `the trigger Worker dispatched only ${disp} of the last ${crons + disp} collects — GitHub's cron carried the rest`, "runs", "fault", "check the trigger Worker's logs and its GITHUB_TOKEN");
 }
