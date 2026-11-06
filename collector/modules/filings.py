@@ -9,6 +9,8 @@ What it does each run:
       network the desk runs on since 5 Nov 2026), picks each parent's rows by scrip code and, for a headline
       matching HEADLINE_RE, advances the row (DRHP filed -> bucket drhp; observation letter -> approved;
       RHP -> approved, stage "RHP filed") and sets needsReview {source, url, headline, date};
+      SEBI's endings are the collector's too (_close): a lapsed approval or an announced withdrawal moves the row to
+      bucket dropped with the reason as its stage; a later filing reopens it;
   (c) diffs page 1 of SEBI's DRHP and RHP registers against prev to catch filings the parent did
       not announce, matching subsidiary names to quota row names after normalisation;
   (d) moves rows whose listingDate is now past to bucket done;
@@ -819,28 +821,69 @@ def _expire(prev: dict, patches: dict, today: dt.date) -> int:
     return moved
 
 
-def _clocks(prev: dict, patches: dict, today: dt.date) -> int:
+OPEN = ("awaited", "drhp", "approved")
+
+
+def _close(row: dict, p: dict, open_rows_of_parent: int, today: dt.date) -> str | None:
+    """SEBI's own endings, applied by the collector (6 Nov 2026: three approved rows sat red on /admin for five weeks
+    because closing one needed a hand-written file nobody wrote). Returns "withdrawn" / "lapsed", or None.
+      withdrawn  the parent announced the DRHP's withdrawal (needsReview carries the headline) and the announcement
+                 names this row, or this is the parent's only open row (Prestige's said just "by Subsidiary").
+      lapsed     an approved row past its lapse date with no RHP filed and no record date — the observations expired.
+    Both land in bucket `dropped` with the reason as the stage and the date as stageDate; the page's dropped table
+    shows them, and a later filing reopens the row through _transition (dropped ranks below every open bucket)."""
+    bucket = p.get("bucket") or row.get("bucket")
+    if bucket not in OPEN:
+        return None
+    stage = p.get("stage") or row.get("stage") or ""
+    review = p.get("needsReview") or row.get("needsReview") or {}
+    headline = review.get("headline") or ""
+    sd, rd = _d(p.get("stageDate") or row.get("stageDate")), _d(review.get("date"))
+    if headline and _WITHDRAW_RE.search(headline) and (not sd or not rd or rd >= sd) \
+            and ((normalise(row["name"]) and normalise(row["name"]) in normalise(headline)) or open_rows_of_parent == 1):
+        p.update({"bucket": "dropped", "stage": "DRHP withdrawn", "stageDate": (rd or today).isoformat(), "isNew": False})
+        return "withdrawn"
+    lapse = _d(p.get("lapse") or row.get("lapse"))
+    if bucket == "approved" and lapse and lapse < today and not stage.upper().startswith("RHP") \
+            and not (p.get("recordDate") or row.get("recordDate")):
+        p.update({"bucket": "dropped", "stage": "SEBI approval lapsed", "stageDate": lapse.isoformat(), "isNew": False})
+        return "lapsed"
+    return None
+
+
+def _clocks(prev: dict, patches: dict, today: dt.date) -> dict[str, int]:
     """SEBI's own clocks on every open row, and a checked stamp (5 Nov 2026 — the audit had called a row 'untouched'
     when nothing had happened, which is not neglect, and could not tell that from a row nobody looked at).
       lapse      an approved row with no hand-written lapse gets stageDate + APPROVAL_VALID_DAYS. Never overwritten: a
                  sheet that knows of an extension (Hero FinCorp: 30 Sep 2026) keeps its own date.
+      closed     a lapse that has passed, or a withdrawal the parent announced, closes the row (_close) — before the stamp,
+                 so a closed row is not stamped as open.
       checkedAt  today, on every row still open after this run — the radar looked at it. The audit reads a missing
                  stamp as 'skipped', which is a fault, and an old event date as 'waiting', which is not.
-    Returns how many rows gained a lapse date."""
-    dated = 0
-    for row in prev.get("quota") or []:
-        if not isinstance(row, dict) or not row.get("name") or row.get("bucket") in ("done", "dropped"):
+    Returns counts: {"dated", "lapsed", "withdrawn"}."""
+    n = {"dated": 0, "lapsed": 0, "withdrawn": 0}
+    rows = [r for r in prev.get("quota") or [] if isinstance(r, dict) and r.get("name")]
+    per_parent: dict[str, int] = {}
+    for row in rows:
+        if (patches.get(row["name"], {}).get("bucket") or row.get("bucket")) in OPEN:
+            per_parent[(row.get("ticker") or row.get("parent") or "").upper()] = per_parent.get((row.get("ticker") or row.get("parent") or "").upper(), 0) + 1
+    for row in rows:
+        if row.get("bucket") in ("done", "dropped"):
             continue
         p = patches.setdefault(row["name"], {})
         if (p.get("bucket") or row.get("bucket")) in ("done", "dropped"):      # moved this run
+            continue
+        ended = _close(row, p, per_parent.get((row.get("ticker") or row.get("parent") or "").upper(), 0), today)
+        if ended:
+            n[ended] += 1
             continue
         p["checkedAt"] = today.isoformat()
         if (p.get("bucket") or row.get("bucket")) == "approved" and not row.get("lapse") and not p.get("lapse"):
             start = _d(p.get("stageDate") or row.get("stageDate"))
             if start:
                 p["lapse"] = (start + dt.timedelta(days=APPROVAL_VALID_DAYS)).isoformat()
-                dated += 1
-    return dated
+                n["dated"] += 1
+    return n
 
 
 # ---------------------------------------------------------------------------------------------
@@ -904,8 +947,10 @@ def run(session: Session, prev: dict, res: Result) -> Result:
         bad = set(fields) - ALLOWED_FIELDS
         if bad:
             raise RuntimeError(f"filings tried to write {sorted(bad)} on {name!r}")
-    dated = _clocks(prev, patches, today)                  # last: every open row gets its stamp, after the moves above
-    res.notes.append(f"clocks: {sum(1 for p in patches.values() if p.get('checkedAt'))} open rows stamped, {dated} given a lapse date")
+    clk = _clocks(prev, patches, today)                    # last: every open row gets its stamp, after the moves above
+    res.notes.append(f"clocks: {sum(1 for p in patches.values() if p.get('checkedAt'))} open rows stamped, {clk['dated']} given a lapse date"
+                     + (f", {clk['lapsed']} closed on a lapsed approval" if clk["lapsed"] else "")
+                     + (f", {clk['withdrawn']} closed on a withdrawal" if clk["withdrawn"] else ""))
     res.rows["quota"] = patches
     if sebi_rows:                      # no SEBI answer -> the names are yesterday's; candidates are still re-read
         expected, stats = build_expected(prev, sebi_rows, today)

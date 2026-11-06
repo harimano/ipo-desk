@@ -578,13 +578,54 @@ def test_clocks_stamp_every_open_row_and_date_an_approval_lapse_without_overwrit
                       {"name": "Rumour", "bucket": "awaited"},
                       {"name": "Old Done", "bucket": "done", "stageDate": "2026-01-01"}]}
     patches: dict = {"Some DRHP": {"bucket": "done", "stage": "Listed"}}          # moved earlier this run: no stamp, it is leaving
-    assert filings._clocks(prev, patches, TODAY) == 1
+    assert filings._clocks(prev, patches, TODAY) == {"dated": 1, "lapsed": 0, "withdrawn": 0}
     assert patches["Fresh Approval"] == {"checkedAt": TODAY.isoformat(), "lapse": "2027-08-01"}
     assert patches["Hero FinCorp"] == {"checkedAt": TODAY.isoformat()}, "a hand-written lapse is never overwritten"
     assert patches["Undated Approval"] == {"checkedAt": TODAY.isoformat()}, "no stageDate, no clock"
     assert patches["Rumour"] == {"checkedAt": TODAY.isoformat()}
     assert patches["Some DRHP"] == {"bucket": "done", "stage": "Listed"} and "Old Done" not in patches
     assert set().union(*(set(p) for p in patches.values())) <= filings.ALLOWED_FIELDS
+
+
+def test_clocks_close_a_lapsed_approval_unless_an_rhp_or_record_date_holds_it():
+    later = dt.date(2026, 11, 6)
+    prev = {"quota": [{"name": "Hero FinCorp", "ticker": "HEROMOTOCO", "bucket": "approved", "stage": "SEBI approved", "stageDate": "2025-05-22", "lapse": "2026-09-30", "isNew": True},
+                      {"name": "RHP Filed Co", "ticker": "RHPCO", "bucket": "approved", "stage": "RHP filed", "stageDate": "2025-09-01", "lapse": "2026-09-01"},
+                      {"name": "Record Dated Co", "ticker": "RDCO", "bucket": "approved", "stage": "SEBI approved", "stageDate": "2025-09-01", "lapse": "2026-09-01", "recordDate": "2026-11-20"},
+                      {"name": "Still Good", "ticker": "SG", "bucket": "approved", "stageDate": "2026-08-01", "lapse": "2027-08-01"}]}
+    patches: dict = {}
+    assert filings._clocks(prev, patches, later) == {"dated": 0, "lapsed": 1, "withdrawn": 0}
+    assert patches["Hero FinCorp"] == {"bucket": "dropped", "stage": "SEBI approval lapsed", "stageDate": "2026-09-30", "isNew": False}
+    assert "checkedAt" not in patches["Hero FinCorp"], "a closed row is not stamped as open"
+    assert patches["RHP Filed Co"] == {"checkedAt": "2026-11-06"}, "an RHP uses the approval; the clock no longer applies"
+    assert patches["Record Dated Co"] == {"checkedAt": "2026-11-06"}
+    assert patches["Still Good"] == {"checkedAt": "2026-11-06"}
+    assert set().union(*(set(p) for p in patches.values())) <= filings.ALLOWED_FIELDS
+
+
+def test_clocks_close_on_an_announced_withdrawal_only_when_it_can_mean_this_row():
+    wd = {"source": "nse_ann", "url": "https://nsearchives.nseindia.com/x.pdf", "date": "2026-09-25",
+          "headline": "Prestige Estates Projects Limited has informed the Exchange about the withdrawal of DRHP by Subsidiary"}
+    named = {**wd, "headline": "Withdrawal of the DRHP filed by Two Sub A Limited"}
+    prev = {"quota": [{"name": "Prestige Hospitality Ventures", "ticker": "PRESTIGE", "bucket": "approved", "stageDate": "2025-08-01", "lapse": "2027-08-01", "needsReview": wd},
+                      {"name": "Two Sub A", "ticker": "TWO", "bucket": "drhp", "stageDate": "2026-06-01", "needsReview": named},
+                      {"name": "Two Sub B", "ticker": "TWO", "bucket": "drhp", "stageDate": "2026-06-01", "needsReview": named},
+                      {"name": "Refiled Since", "ticker": "RF", "bucket": "drhp", "stageDate": "2026-10-01", "needsReview": wd}]}
+    patches: dict = {}
+    assert filings._clocks(prev, patches, TODAY)["withdrawn"] == 2
+    assert patches["Prestige Hospitality Ventures"] == {"bucket": "dropped", "stage": "DRHP withdrawn", "stageDate": "2026-09-25", "isNew": False}, "the parent's only open row"
+    assert patches["Two Sub A"]["bucket"] == "dropped", "named in the announcement"
+    assert patches["Two Sub B"] == {"checkedAt": TODAY.isoformat()}, "a sibling the announcement does not name stays open"
+    assert patches["Refiled Since"] == {"checkedAt": TODAY.isoformat()}, "a filing dated after the withdrawal means a fresh DRHP"
+
+
+def test_a_dropped_row_reopens_on_a_later_filing():
+    row = {"name": "Hero FinCorp", "bucket": "dropped", "stage": "SEBI approval lapsed", "stageDate": "2026-09-30"}
+    patches: dict = {}
+    cls = {"stage": "DRHP filed", "bucket": "drhp", "kind": "drhp"}
+    ev = {"source": "sebi", "url": "https://sebi.gov.in/new.pdf", "headline": "Hero FinCorp Limited DRHP", "date": "2026-12-01"}
+    assert filings._transition(row, cls, ev, patches, dt.date(2026, 12, 2))
+    assert patches["Hero FinCorp"]["bucket"] == "drhp" and patches["Hero FinCorp"]["isNew"] is True
 
 
 def test_reconcile_moves_a_quota_row_whose_ipo_is_listed_and_dates_one_on_the_board():

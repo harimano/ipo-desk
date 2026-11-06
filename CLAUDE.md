@@ -156,7 +156,7 @@ document as assembled so far; `prev` is yesterday's.
   its lapse, a DRHP nine months without observations, a claimed stage with no date, a row without a fresh stamp — never by
   "untouched for N days" (5 Nov 2026: a row with no event is waiting, not neglected). It also discovers parents it does not know: NSE's market-wide `/api/corporate-announcements` (one call a
   board, 4 days, ~3,900 rows; works from the runners, BSE's does not) → `quotaLeads[]` (a listed company on a subsidiary's offer,
-  60 days). A lead from a watched parent moves its quota row (source `nse_ann`; a withdrawal only flags). A lead naming an `expected`
+  60 days). A lead from a watched parent moves its quota row (source `nse_ann`). SEBI's endings are the collector's too (`filings._close`, 6 Nov 2026): a lapsed approval with no RHP, or an announced withdrawal naming the row (or the parent's only open row), goes to `dropped` with the reason as its stage; a later filing reopens it. A lead naming an `expected`
   row, or an `auto` row whose first word is a listed group's (≤15 share it; stoplist), gets `quotaCandidate` — a flag, never a quota;
   promotion is still a person reading the DRHP. NSE's summary is sometimes just "General Updates" (JSW Cement, 25 Sep 2026): partial
   recall by construction, never fixed by reading the PDF. Every run it also reads TODAY's board and listings report: a quota

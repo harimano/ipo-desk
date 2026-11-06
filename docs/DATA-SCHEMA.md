@@ -4,7 +4,7 @@ meta: {asOf ISO+05:30, label "2 Sep 2026, 18:17 IST", quotaSourceNote, unresolve
        notesAsOf (when quotaSourceNote / newFindings / marketNotes last changed; absent = never recorded, the page reads it as old)}
 quota[]: {name, parent, parentFull, ticker, bucket: approved|drhp|awaited|done|dropped, stage (short label), rank (0-6),
           stageDate, detail (<= 2 sentences, factual), sizeCr, quota: true|false|null, quotaPct, recordDate, listingDate,
-          listingGainPct, lapse (hand-written, else stageDate + 12 months for an approved row — filings._clocks), expectedWindow,
+          listingGainPct, lapse (hand-written, else stageDate + 12 months for an approved row — filings._clocks; past it with no RHP or record date the row goes to dropped, stage "SEBI approval lapsed"; an announced withdrawal gives dropped / "DRHP withdrawn"; a later filing reopens it), expectedWindow,
           confidence: high|medium|low, sources[<=4], isNew, checkedAt (the day the quota radar last looked at the row; every
           open row, every run — an open row without a fresh stamp was skipped, which the audit reports as a fault)}
 sheets{name}: {parent, parentTicker, parentPrice{value, asOf}, status, timeline{drhp, sebiApproval, rhp, expectedWindow, recordDate},

@@ -182,7 +182,7 @@ def anomalies(doc: dict, logos_dir: pathlib.Path | None = None) -> list[dict]:
             dates = [sd, _date(q.get("recordDate")), _date((q.get("needsReview") or {}).get("date"))]
             if not any(dates):
                 add("quota row awaiting a filing" if bucket == "awaited" else "quota row claims a stage with no date", q["name"])
-            if bucket == "approved" and lapse and lapse < today:
+            if bucket == "approved" and lapse and lapse < today and not (q.get("stage") or "").upper().startswith("RHP") and not q.get("recordDate"):
                 add("quota row whose SEBI approval has lapsed", f"{q['name']} on {lapse}")
             if bucket == "drhp" and sd and (today - sd).days > DRHP_WAIT_DAYS:
                 add("DRHP older than nine months with no observations", f"{q['name']} since {sd}")
@@ -277,7 +277,7 @@ def diff(doc: dict, prev: dict | None) -> dict:
 #   task   a person's queue: research rows to read, a secret to set, a card to cap. Counted, never an alarm.
 # Every item says which it is and what the action is, so the line can be acted on without a conversation.
 KIND_ACTION = {
-    "quota row whose SEBI approval has lapsed": ("fault", "twelve months of observations are over with no RHP on SEBI's register: mark the row lapsed or withdrawn in data/research, or date the RHP"),
+    "quota row whose SEBI approval has lapsed": ("fault", "twelve months of observations are over with no RHP on SEBI's register: the collector closes such a row itself (filings._close), so one still open means the last full run did not reach the clocks — read its filings line"),
     "quota row claims a stage with no date": ("fault", "a DRHP or approved row needs its filing date: add stageDate from SEBI's register"),
     "quota row awaiting a filing": ("task", "an expected name with no filing yet: nothing to do until a DRHP appears; retire it if nobody expects it any more"),
     "DRHP older than nine months with no observations": ("task", "check SEBI's processing status: observations overdue, or the DRHP was withdrawn"),
