@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-08T12:52:07+05:30",
+  "asOf": "2026-11-08T18:15:11+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "8 Nov 2026, 12:52 IST",
+  "label": "8 Nov 2026, 18:15 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -2431,7 +2431,7 @@
    "bandLow": 88.0,
    "bandHigh": 94.0,
    "lotSize": 1200,
-   "issueSizeCr": 53.82,
+   "issueSizeCr": 56.68,
    "freshCr": 48.14,
    "ofsCr": 5.67,
    "gmp": 1.0,
@@ -16672,26 +16672,21 @@
  ],
  "flows": {
   "latest": {
-   "date": "2026-11-06",
-   "fiiNetCr": 13749.82,
-   "diiNetCr": -5968.7,
+   "date": "2026-11-08",
+   "fiiNetCr": -0.25,
+   "diiNetCr": -700.31,
    "previousDay": {
-    "date": "2026-11-05",
-    "fiiNetCr": 14974.68,
-    "diiNetCr": -10444.54
+    "date": "2026-11-06",
+    "fiiNetCr": 13749.82,
+    "diiNetCr": -5968.7
    },
    "source": "NSE provisional (fiidiiTradeReact)",
-   "fiiBuyCr": 30455.63,
-   "fiiSellCr": 16705.81,
-   "diiBuyCr": 18084.32,
-   "diiSellCr": 24053.02
+   "fiiBuyCr": 52.39,
+   "fiiSellCr": 52.64,
+   "diiBuyCr": 331.11,
+   "diiSellCr": 1031.42
   },
   "history": [
-   [
-    "2026-08-31",
-    -7986,
-    4589
-   ],
    [
     "2026-09-01",
     1143,
@@ -16886,6 +16881,11 @@
     "2026-11-06",
     13749.82,
     -5968.7
+   ],
+   [
+    "2026-11-08",
+    -0.25,
+    -700.31
    ]
   ],
   "monthly": [
@@ -86770,6 +86770,10 @@
    [
     "2026-11-06",
     261.35
+   ],
+   [
+    "2026-11-08",
+    265.7
    ]
   ],
   "Vaibhav Vyapaar": [
@@ -86874,6 +86878,10 @@
    [
     "2026-11-06",
     269.2
+   ],
+   [
+    "2026-11-08",
+    285.45
    ]
   ],
   "Ravita Engineering Services": [
@@ -86970,6 +86978,10 @@
    [
     "2026-11-06",
     668.9
+   ],
+   [
+    "2026-11-08",
+    664.75
    ]
   ],
   "Sahajanand Medical Technologies": [
@@ -87016,6 +87028,10 @@
    [
     "2026-11-06",
     526.2
+   ],
+   [
+    "2026-11-08",
+    534.7
    ]
   ],
   "Tonbo Imaging India": [
@@ -87062,6 +87078,10 @@
    [
     "2026-11-06",
     1525.7
+   ],
+   [
+    "2026-11-08",
+    1487.2
    ]
   ],
   "Zetwerk": [
@@ -87108,6 +87128,10 @@
    [
     "2026-11-06",
     160.71
+   ],
+   [
+    "2026-11-08",
+    165.48
    ]
   ],
   "Bonfiglioli Transmissions": [
@@ -87188,6 +87212,10 @@
    [
     "2026-11-06",
     1405.1
+   ],
+   [
+    "2026-11-08",
+    1421.7
    ]
   ],
   "Paras Healthcare": [
@@ -87222,6 +87250,10 @@
    [
     "2026-11-06",
     735.6
+   ],
+   [
+    "2026-11-08",
+    743.0
    ]
   ],
   "EAAA India Alternatives": [
@@ -87244,6 +87276,10 @@
    [
     "2026-11-06",
     1704.3
+   ],
+   [
+    "2026-11-08",
+    1667.3
    ]
   ],
   "SFC Environmental Technologies": [
@@ -87262,6 +87298,10 @@
    [
     "2026-11-06",
     410.65
+   ],
+   [
+    "2026-11-08",
+    418.55
    ]
   ],
   "BLS Polymers": [
@@ -87280,6 +87320,10 @@
    [
     "2026-11-06",
     242.6
+   ],
+   [
+    "2026-11-08",
+    241.08
    ]
   ],
   "Bombay Coated and Special Steels": [
@@ -87290,6 +87334,10 @@
    [
     "2026-11-06",
     90.07
+   ],
+   [
+    "2026-11-08",
+    85.57
    ]
   ],
   "Maxwell Engineering Solutions": [
@@ -87306,73 +87354,73 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-08T12:52:07+05:30",
+  "asOf": "2026-11-08T18:15:11+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-08T12:51:05+05:30",
-    "elapsed": 2.58,
+    "asOf": "2026-11-08T18:14:11+05:30",
+    "elapsed": 2.7,
     "calls": 6,
     "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=2 carried=0 +nse=0 +bse=0 exchange-only=0: 0 mainboard, 2 sme; 0 open, 0 upcoming",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "gmp",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "8-Nov 12:37",
-    "elapsed": 0.7,
+    "asOf": "8-Nov 17:37",
+    "elapsed": 0.66,
     "calls": 1,
     "note": "gmp: 1 board rows patched via investorgain; 0 active, 0 of them matched; gmp: 20 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); Fusion CX (₹13.5, investorgain); HD Fire Protect (₹70, investorgain) …",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-08T12:51:06+05:30",
-    "elapsed": 1.94,
-    "calls": 2,
-    "note": "2 records fetched for 2 identified listings (0 without an id); 0 anchor books updated, 95 on file",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "asOf": "2026-11-08",
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "2 listings identified, none due for a refresh",
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "subscription",
     "method": "none:ok",
     "status": "ok",
-    "asOf": "2026-11-08T12:51:08+05:30",
+    "asOf": "2026-11-08T18:14:12+05:30",
     "elapsed": 0.01,
     "calls": 0,
     "note": "no open or recently closed issues on the board",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "listings",
     "method": "yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-06",
-    "elapsed": 5.04,
+    "asOf": "2026-11-08",
+    "elapsed": 4.66,
     "calls": 0,
-    "note": "12 names priced, 0 moved to recent, 0 history points",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "note": "12 names priced, 0 moved to recent, 12 history points",
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-08",
-    "elapsed": 2.53,
+    "elapsed": 2.84,
     "calls": 2,
     "note": "1410 listings since 2022 (997 SME); fetched 2026: 307; QIB on file for 114 of 413 mainboard issues; shareholder-quota books frozen for 0",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "tape",
@@ -87382,8 +87430,8 @@
     "elapsed": 0.01,
     "calls": 0,
     "note": "211 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 187 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 187 days on file",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "anchorbook",
@@ -87393,107 +87441,107 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 923 on file, 589 partial (feed gave only the first names); 0 of 1410 listings still to fetch",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "evidence",
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-11-08",
-    "elapsed": 0.19,
+    "elapsed": 0.22,
     "calls": 0,
     "note": "track records: 923 of 923 anchor books have an outcome; 913 of 1498 investors with 2+; 1410 listings; windows: mainboard 134, SME 241; 3 warnings",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "players",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-08",
-    "elapsed": 28.08,
+    "elapsed": 27.98,
     "calls": 54,
     "note": "53 of 2839 anchor investors read (0 failed); names found for 0 of 2 unlisted issues",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "parents",
     "method": "yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-06",
-    "elapsed": 9.23,
+    "asOf": "2026-11-08",
+    "elapsed": 9.11,
     "calls": 0,
     "note": "5/5 parent prices; 32/36 investor stocks priced",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "filings",
     "method": "bse_ann:ok, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-11-08",
-    "elapsed": 6.24,
+    "elapsed": 5.99,
     "calls": 7,
-    "note": "bse_ann: feed of 25 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 5263 announcements scanned, 2 subsidiary-offer leads; 0 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 0 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 8 leads held; 19 rows patched, 14 kept previous stage",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "note": "bse_ann: feed of 117 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 5286 announcements scanned, 2 subsidiary-offer leads; 0 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 0 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 8 leads held; 19 rows patched, 14 kept previous stage",
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "planner",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-08",
-    "elapsed": 1.72,
+    "elapsed": 1.94,
     "calls": 3,
     "note": "report 607 (retail slots, fund reuse) did not answer: report 607: reportTableData missing or empty (msg=1) — carried nothing; 119 events 2026-11-01..2026-12-23, 2 issues with terms, 12 from the report only",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "offers",
     "method": "bse:ok",
     "status": "ok",
     "asOf": "2026-11-08",
-    "elapsed": 1.68,
+    "elapsed": 1.78,
     "calls": 3,
     "note": "bse rows=14: 7 rights, 18 buybacks, 0 ofs, 1 ncd; 14 refreshed, 0 new, 0 closed windows dropped",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-11-06",
-    "elapsed": 0.26,
+    "asOf": "2026-11-08",
+    "elapsed": 0.31,
     "calls": 1,
-    "note": "2026-11-06 already in history; FII +13,750 / DII -5,969 Cr",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "note": "appended 2026-11-08; FII -0 / DII -700 Cr",
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-06",
-    "elapsed": 1.77,
+    "elapsed": 1.87,
     "calls": 4,
-    "note": "bulk.csv: 96 deals; block.csv: 20 deals; 2 tracked-investor deals of 116; 13 patterns; BSE bulk: 42 deals, 18 in this year's listings; BSE block: 31 deals, 0 in this year's listings; listing deals: 41 of today's 116 deals are in this year's listings (11 stocks); 1794 kept over 60 days; 211 of 307 listings have an NSE symbol; 239 with a BSE code",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "note": "bulk.csv: 96 deals; block.csv: 20 deals; 2 tracked-investor deals of 116; 13 patterns; BSE bulk: 13 deals, 0 in this year's listings; BSE block: 31 deals, 0 in this year's listings; listing deals: 23 of today's 116 deals are in this year's listings (6 stocks); 1794 kept over 60 days; 211 of 307 listings have an NSE symbol; 239 with a BSE code",
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-11-07T16:08:14+05:30",
-    "elapsed": 1.36,
+    "elapsed": 0.69,
     "calls": 3,
     "note": "business-standard: 7/35 primary-market items; economic-times: 0/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 7 fresh, 25 kept",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "logos",
@@ -87503,8 +87551,8 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "69 logos on file; none to fetch",
-    "lastOk": "2026-11-08T12:52:07+05:30",
-    "dueBy": "2026-11-08T18:58:00+05:30"
+    "lastOk": "2026-11-08T18:15:11+05:30",
+    "dueBy": "2026-11-09T07:28:00+05:30"
    },
    {
     "area": "research layer",
@@ -87516,7 +87564,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "65s, 86 calls, 18/18 modules ok"
+    "note": "63s, 84 calls, 18/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -89074,28 +89122,28 @@
   "prices": {
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 400.0,
-    "asOf": "2026-11-06"
+    "value": 401.0,
+    "asOf": "2026-11-08"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 109.5,
-    "asOf": "2026-11-06"
+    "value": 110.82,
+    "asOf": "2026-11-08"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 237.61,
-    "asOf": "2026-11-06"
+    "value": 241.56,
+    "asOf": "2026-11-08"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 6403.0,
-    "asOf": "2026-11-06"
+    "value": 6354.0,
+    "asOf": "2026-11-08"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 57.15,
-    "asOf": "2026-11-06"
+    "value": 57.51,
+    "asOf": "2026-11-08"
    },
    "Tata Motors": {
     "symbol": "TATAMOTORS",
@@ -89104,53 +89152,53 @@
    },
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1320.0,
-    "asOf": "2026-11-06"
+    "value": 1324.0,
+    "asOf": "2026-11-08"
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 394.0,
-    "asOf": "2026-11-06"
+    "value": 396.85,
+    "asOf": "2026-11-08"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 82.08,
-    "asOf": "2026-11-06"
+    "value": 81.04,
+    "asOf": "2026-11-08"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 231.76,
-    "asOf": "2026-11-06"
+    "value": 234.8,
+    "asOf": "2026-11-08"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 788.25,
-    "asOf": "2026-11-06"
+    "value": 784.1,
+    "asOf": "2026-11-08"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 480.0,
-    "asOf": "2026-11-06"
+    "value": 480.5,
+    "asOf": "2026-11-08"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1322.9,
-    "asOf": "2026-11-06"
+    "value": 1314.7,
+    "asOf": "2026-11-08"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1864.7,
-    "asOf": "2026-11-06"
+    "value": 1855.1,
+    "asOf": "2026-11-08"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1191.9,
-    "asOf": "2026-11-06"
+    "value": 1198.2,
+    "asOf": "2026-11-08"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 18.59,
-    "asOf": "2026-11-06"
+    "value": 18.97,
+    "asOf": "2026-11-08"
    },
    "Gretex Corporate Services": {
     "symbol": "GRETEX",
@@ -89159,78 +89207,78 @@
    },
    "Zaggle Prepaid": {
     "symbol": "ZAGGLE",
-    "value": 165.24,
-    "asOf": "2026-11-06"
+    "value": 169.67,
+    "asOf": "2026-11-08"
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 104.18,
-    "asOf": "2026-11-06"
+    "value": 106.75,
+    "asOf": "2026-11-08"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1513.6,
-    "asOf": "2026-11-06"
+    "value": 1597.9,
+    "asOf": "2026-11-08"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 523.2,
-    "asOf": "2026-11-06"
+    "value": 534.7,
+    "asOf": "2026-11-08"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 297.2,
-    "asOf": "2026-11-06"
+    "value": 299.85,
+    "asOf": "2026-11-08"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 125.04,
-    "asOf": "2026-11-06"
+    "value": 133.18,
+    "asOf": "2026-11-08"
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
-    "value": 1115.5,
-    "asOf": "2026-11-06"
+    "value": 1166.6,
+    "asOf": "2026-11-08"
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1601.6,
-    "asOf": "2026-11-06"
+    "value": 1609.6,
+    "asOf": "2026-11-08"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1339.3,
-    "asOf": "2026-11-06"
+    "value": 1360.2,
+    "asOf": "2026-11-08"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 93.41,
-    "asOf": "2026-11-06"
+    "value": 96.12,
+    "asOf": "2026-11-08"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 499.55,
-    "asOf": "2026-11-06"
+    "value": 510.0,
+    "asOf": "2026-11-08"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 520.15,
-    "asOf": "2026-11-06"
+    "value": 519.5,
+    "asOf": "2026-11-08"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1219.5,
-    "asOf": "2026-11-06"
+    "value": 1238.3,
+    "asOf": "2026-11-08"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 453.55,
-    "asOf": "2026-11-06"
+    "value": 456.8,
+    "asOf": "2026-11-08"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 491.05,
-    "asOf": "2026-11-06"
+    "value": 497.55,
+    "asOf": "2026-11-08"
    },
    "Ashutosh Fibre (upcoming)": {
     "symbol": "ASHUTOSH",
@@ -89239,8 +89287,8 @@
    },
    "Sahajanand Medical Technologies (upcoming)": {
     "symbol": "SMT",
-    "value": 525.95,
-    "asOf": "2026-11-06"
+    "value": 534.7,
+    "asOf": "2026-11-08"
    },
    "Indo SMC": {
     "symbol": null,
@@ -128349,8 +128397,8 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1320.0,
-    "asOf": "2026-11-06"
+    "value": 1324.0,
+    "asOf": "2026-11-08"
    },
    "parentTicker": "RELIANCE",
    "sources": [
@@ -128402,8 +128450,8 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 127.4,
-    "asOf": "2026-11-06"
+    "value": 129.43,
+    "asOf": "2026-11-08"
    },
    "parentTicker": "EDELWEISS",
    "sources": [
@@ -128557,8 +128605,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 400.0,
-    "asOf": "2026-11-06"
+    "value": 401.0,
+    "asOf": "2026-11-08"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -128686,8 +128734,8 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5513.0,
-    "asOf": "2026-11-06"
+    "value": 5478.0,
+    "asOf": "2026-11-08"
    },
    "parentTicker": "HEROMOTOCO",
    "sources": [
@@ -128801,8 +128849,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 400.0,
-    "asOf": "2026-11-06"
+    "value": 401.0,
+    "asOf": "2026-11-08"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -132287,7 +132335,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-11-08T12:51:16+05:30",
+  "asOf": "2026-11-08T18:14:20+05:30",
   "dates": [
    "2026-02-04",
    "2026-02-05",
@@ -197761,13 +197809,13 @@
       "p90": 48.9
      },
      "d5": {
-      "n": 15,
-      "pos": 46.7,
-      "lo": 24.8,
-      "hi": 69.9,
-      "med": -1.4,
+      "n": 16,
+      "pos": 43.8,
+      "lo": 23.1,
+      "hi": 66.8,
+      "med": -1.8,
       "p10": -6.3,
-      "p90": 14.1
+      "p90": 14.0
      },
      "d30": {
       "n": 13,
@@ -201615,13 +201663,13 @@
       "p90": 48.2
      },
      "d5": {
-      "n": 11,
-      "pos": 63.6,
-      "lo": 35.4,
-      "hi": 84.8,
-      "med": 3.3,
+      "n": 12,
+      "pos": 58.3,
+      "lo": 32.0,
+      "hi": 80.7,
+      "med": 3.0,
       "p10": -4.3,
-      "p90": 20.3
+      "p90": 20.1
      },
      "d30": {
       "n": 5,
@@ -208165,12 +208213,12 @@
       "p90": 25.7
      },
      "d5": {
-      "n": 9,
-      "pos": 44.4,
-      "lo": 18.9,
-      "hi": 73.3,
-      "med": -4.2,
-      "p10": -10.1,
+      "n": 10,
+      "pos": 40.0,
+      "lo": 16.8,
+      "hi": 68.7,
+      "med": -3.2,
+      "p10": -9.6,
       "p90": 9.2
      },
      "d30": {
@@ -212719,13 +212767,13 @@
       "p90": 37.5
      },
      "d5": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 3.3,
-      "p10": -3.1,
-      "p90": 15.7
+      "n": 6,
+      "pos": 50.0,
+      "lo": 18.8,
+      "hi": 81.2,
+      "med": 0.9,
+      "p10": -3.2,
+      "p90": 14.6
      },
      "d30": {
       "n": 3,
@@ -213985,13 +214033,13 @@
       "p90": 59.2
      },
      "d5": {
-      "n": 8,
-      "pos": 100.0,
-      "lo": 67.6,
-      "hi": 100.0,
-      "med": 11.9,
-      "p10": 0.9,
-      "p90": 32.4
+      "n": 9,
+      "pos": 88.9,
+      "lo": 56.5,
+      "hi": 98.0,
+      "med": 9.1,
+      "p10": -0.4,
+      "p90": 29.2
      },
      "d30": {
       "n": 6,
@@ -220611,13 +220659,13 @@
       "p90": 15.4
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -5.1,
-      "p10": -11.0,
-      "p90": 0.8
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -2.3,
+      "p10": -10.5,
+      "p90": 1.4
      },
      "d30": {
       "n": 2,
@@ -221824,13 +221872,13 @@
       "p90": 45.7
      },
      "d5": {
-      "n": 6,
-      "pos": 66.7,
-      "lo": 30.0,
-      "hi": 90.3,
-      "med": 0.6,
-      "p10": -8.4,
-      "p90": 4.4
+      "n": 7,
+      "pos": 57.1,
+      "lo": 25.0,
+      "hi": 84.2,
+      "med": 0.1,
+      "p10": -8.0,
+      "p90": 4.2
      },
      "d30": {
       "n": 5,
@@ -221941,13 +221989,13 @@
       "p90": 69.4
      },
      "d5": {
-      "n": 6,
-      "pos": 50.0,
-      "lo": 18.8,
-      "hi": 81.2,
-      "med": -0.4,
-      "p10": -7.8,
-      "p90": 14.2
+      "n": 7,
+      "pos": 42.9,
+      "lo": 15.8,
+      "hi": 75.0,
+      "med": -1.9,
+      "p10": -7.5,
+      "p90": 12.4
      },
      "d30": {
       "n": 4,
@@ -226378,12 +226426,12 @@
       "p90": 45.4
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 0.0,
       "lo": 0.0,
-      "hi": 79.3,
-      "med": -1.9,
-      "p10": -1.9,
+      "hi": 65.8,
+      "med": -2.1,
+      "p10": -2.3,
       "p90": -1.9
      },
      "d30": {
@@ -230118,13 +230166,13 @@
       "p90": 86.0
      },
      "d5": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 1.3,
-      "p10": -9.2,
-      "p90": 15.6
+      "n": 6,
+      "pos": 50.0,
+      "lo": 18.8,
+      "hi": 81.2,
+      "med": -0.5,
+      "p10": -8.3,
+      "p90": 14.1
      },
      "d30": {
       "n": 4,
@@ -237824,13 +237872,13 @@
       "p90": 38.4
      },
      "d5": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 3.3,
-      "p10": 0.7,
-      "p90": 7.5
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 1.7,
+      "p10": -1.6,
+      "p90": 6.9
      },
      "d30": {
       "n": 3,
@@ -239309,13 +239357,13 @@
       "p90": 22.9
      },
      "d5": {
-      "n": 4,
-      "pos": 50.0,
-      "lo": 15.0,
-      "hi": 85.0,
-      "med": 2.4,
-      "p10": -6.5,
-      "p90": 40.1
+      "n": 5,
+      "pos": 40.0,
+      "lo": 11.8,
+      "hi": 76.9,
+      "med": -0.3,
+      "p10": -6.4,
+      "p90": 35.1
      },
      "d30": {
       "n": 3,
@@ -241205,13 +241253,13 @@
       "p90": 26.5
      },
      "d5": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 5.6,
-      "p10": 5.6,
-      "p90": 5.6
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 1.6,
+      "p10": -1.5,
+      "p90": 4.8
      },
      "d30": {
       "n": 1,
@@ -242463,13 +242511,13 @@
       "p90": 69.3
      },
      "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 1.3,
-      "p10": -4.2,
-      "p90": 16.9
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": -0.5,
+      "p10": -4.6,
+      "p90": 15.0
      },
      "d30": {
       "n": 3,
@@ -244803,13 +244851,13 @@
       "p90": 20.6
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -2.0,
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -2.3,
       "p10": -7.7,
-      "p90": 3.7
+      "p90": 3.6
      },
      "d30": {
       "n": 1,
@@ -246063,13 +246111,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 5.1,
-      "p10": 5.1,
-      "p90": 5.1
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 1.4,
+      "p10": -1.6,
+      "p90": 4.4
      },
      "d30": {
       "n": 0,
@@ -246153,13 +246201,13 @@
       "p90": 41.8
      },
      "d5": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 5.1,
-      "p10": 5.1,
-      "p90": 5.1
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 1.4,
+      "p10": -1.6,
+      "p90": 4.4
      },
      "d30": {
       "n": 0,
@@ -248219,13 +248267,13 @@
       "p90": 42.9
      },
      "d5": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 20.8,
-      "p10": 20.8,
-      "p90": 20.8
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 9.2,
+      "p10": 0.0,
+      "p90": 18.5
      },
      "d30": {
       "n": 1,
@@ -255197,13 +255245,13 @@
       "p90": 48.0
      },
      "d5": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 20.8,
-      "p10": 20.8,
-      "p90": 20.8
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 9.2,
+      "p10": 0.0,
+      "p90": 18.5
      },
      "d30": {
       "n": 1,
@@ -256294,13 +256342,13 @@
       "p90": 20.6
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 0.0,
       "lo": 0.0,
-      "hi": 79.3,
-      "med": -8.4,
-      "p10": -8.4,
-      "p90": -8.4
+      "hi": 65.8,
+      "med": -5.3,
+      "p10": -7.8,
+      "p90": -2.9
      },
      "d30": {
       "n": 1,
@@ -256861,13 +256909,13 @@
       "p90": 52.5
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -2.3,
+      "p10": -2.3,
+      "p90": -2.3
      },
      "d30": {
       "n": 0,
@@ -257590,13 +257638,13 @@
       "p90": 41.3
      },
      "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -2.3,
+      "p10": -2.3,
+      "p90": -2.3
      },
      "d30": {
       "n": 0,
@@ -263237,13 +263285,13 @@
       "p90": 9.6
      },
      "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 1.9,
-      "p10": -3.8,
-      "p90": 7.7
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -2.3,
+      "p10": -4.6,
+      "p90": 6.8
      },
      "d30": {
       "n": 2,
@@ -266112,13 +266160,13 @@
       "p90": 3.1
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 0.0,
       "lo": 0.0,
-      "hi": 79.3,
-      "med": -5.6,
-      "p10": -5.6,
-      "p90": -5.6
+      "hi": 65.8,
+      "med": -3.9,
+      "p10": -5.3,
+      "p90": -2.6
      },
      "d30": {
       "n": 1,
@@ -282464,13 +282512,13 @@
       "p90": 2.5
      },
      "d5": {
-      "n": 1,
+      "n": 2,
       "pos": 0.0,
       "lo": 0.0,
-      "hi": 79.3,
-      "med": -12.2,
-      "p10": -12.2,
-      "p90": -12.2
+      "hi": 65.8,
+      "med": -7.2,
+      "p10": -11.2,
+      "p90": -3.3
      },
      "d30": {
       "n": 1,
@@ -286937,6 +286985,9 @@
    },
    "1728": {
     "d5": 2.6
+   },
+   "1635": {
+    "d5": -2.3
    }
   },
   "dealRows": [
@@ -290611,6 +290662,42 @@
     "d5": 5.1,
     "d20": null,
     "done": false
+   },
+   {
+    "client": "CARNELIAN ASSET MANAGEMENT & ADVISORS PRIVATE LIMITED",
+    "key": "CARNELIAN ASSET MANAGEMENT ADVISORS",
+    "stock": "EAAA India Alternatives",
+    "sme": false,
+    "date": "2026-11-02",
+    "side": "net buyer",
+    "netCr": 118.43,
+    "d5": -2.3,
+    "d20": null,
+    "done": false
+   },
+   {
+    "client": "HDFC MUTUAL FUND",
+    "key": "HDFC MUTUAL FUND",
+    "stock": "EAAA India Alternatives",
+    "sme": false,
+    "date": "2026-11-02",
+    "side": "net buyer",
+    "netCr": 135.42,
+    "d5": -2.3,
+    "d20": null,
+    "done": false
+   },
+   {
+    "client": "LARSEN AND TOUBRO LIMITED",
+    "key": "LARSEN AND TOUBRO",
+    "stock": "EAAA India Alternatives",
+    "sme": false,
+    "date": "2026-11-02",
+    "side": "net buyer",
+    "netCr": 62.55,
+    "d5": -2.3,
+    "d20": null,
+    "done": false
    }
   ],
   "deals": [
@@ -292534,6 +292621,35 @@
        "p90": null
       },
       "netCr": 37.0
+     }
+    }
+   },
+   {
+    "key": "HDFC MUTUAL FUND",
+    "name": "HDFC MUTUAL FUND",
+    "n": 2,
+    "main": {
+     "buys": {
+      "n": 2,
+      "d5": {
+       "n": 2,
+       "pos": 50.0,
+       "lo": 9.5,
+       "hi": 90.5,
+       "med": 10.2,
+       "p10": 0.2,
+       "p90": 20.2
+      },
+      "d20": {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null
+      },
+      "netCr": 195.4
      }
     }
    },
