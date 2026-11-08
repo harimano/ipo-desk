@@ -487,3 +487,10 @@ and would have at every run until the next mainboard filing. `calendar` already 
 empty list beside a live one is attested: a warning now when the calendar check is ok, an error otherwise, both empty
 always an error (052e109). The page with no mainboard rows: seven tabs, twenty sheets, no console errors, the Board's
 "Nothing here" under *Now*.
+
+**8 Nov, Sunday — the token.** `LIVE_GITHUB_TOKEN` finally exists: a fine-grained GitHub token with public-repository read
+access only, stored as the repo secret through GitHub's own page (the terminal's hidden paste prompt swallowed it twice), a
+dispatched `deploy.yml` ran the "Hand the Worker a GitHub read token" step for the first time instead of skipping it, and
+`/live.json` answered through the Worker afterwards. It expires 8 Nov 2027; the fallback to `raw.githubusercontent.com` is
+silent, so the brief carries the date. The dead branches were already gone when the session looked — only `main`, `data` and
+`live` remain.

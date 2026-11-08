@@ -237,9 +237,8 @@ secret `DAU_SALT`; `SETUP.md` §1c / §4 / §5 for the clicks, rollback and one-
 `pre-invite` (PR of 30 Oct, merged: `/live.json` through the Worker). Freshness everywhere follows the intraday gate (6 Nov):
 a stamp says "no run since … · one was due …" only when a run was due, never "late" or "old" for data that is the latest.
 
-Branches (7 Nov 2026): every remote branch is dead — all sit at zero commits ahead of main except `friends-ready` (three
-commits whose work reached main another way) and `probe-bse` (PR 32's survey, closed unmerged). Hari to do: delete them
-on GitHub when convenient (`gh api -X DELETE repos/harimano/ipo-desk/git/refs/heads/<name>`); the checkout at
-`~/code/ipo-desk` still has `friends-ready` checked out, so switch it to `main` first (its layout predates two keys the
-collector now writes, which is why `test_layout` fails there). Optional: the `LIVE_GITHUB_TOKEN` secret (read-only)
-takes the CDN delay off `/live.json`. Then: the AI layer, last — design first, from `docs/AI-AND-PREDICTION.md` §3.
+Housekeeping done 8 Nov 2026: the dead remote branches are deleted (only `main`, `data`, `live` remain) and the checkout at
+`~/code/ipo-desk` is on `main`. `LIVE_GITHUB_TOKEN` is set (a fine-grained token, public repositories read-only, named
+"ipo-desk live.json"; `deploy.yml` hands it to the Worker, so `/live.json` reads GitHub's API with no CDN delay). It expires
+8 Nov 2027 and the Worker falls back to the raw route SILENTLY — regenerate it on GitHub and re-add the repo secret before then.
+Then: the AI layer, last — design first, from `docs/AI-AND-PREDICTION.md` §3.
