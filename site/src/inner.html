@@ -163,6 +163,13 @@ tr[data-row].cur { outline:none; box-shadow: inset 3px 0 0 var(--focus); backgro
 .q .r { display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
 .q .big { font-size:20px; font-weight:700; }
 .q .acts { display:flex; gap:6px; }
+.quiet .tags .go { margin-left:auto; font-size:12.5px; font-weight:700; text-decoration:none; color:var(--accent); white-space:nowrap; }
+.quiet .ttl { display:flex; align-items:center; gap:8px; } .quiet .ttl .lg { width:56px; height:28px; margin:0; }
+.quiet .ttl small { font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); margin-left:4px; }
+.quiet .kv { margin-top:8px; font-size:12.5px; gap:4px 12px; } .quiet .kv dd { margin:0; }
+.quiet .r .big { font-size:26px; letter-spacing:-.02em; } .quiet .r .d2 { font-size:12px; color:var(--ink-3); text-align:right; }
+.quiet .foot { grid-column:1/-1; margin-top:2px; padding-top:10px; border-top:1px solid var(--line); font-size:12px; color:var(--ink-3); }
+.cal > .empty { grid-column:1/-1; }
 .q.gone { opacity:0; transform:translateX(24px); }
 .kpis { display:grid; grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); gap:12px; }
 .kpi { padding:12px 16px; background:linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 140%); }
@@ -394,7 +401,7 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
 @media (max-width:760px) { .acct-menu { right:12px; left:12px; min-width:0; } .acct .st { display:none; } .acct { padding:0 9px; } }
 /* queue cards on a phone: one column, the amount and the buttons on a row under the text (the earlier rule at the top of
    this sheet lost to the base `.q` rules declared after it, so the title wrapped one word a line) */
-@media (max-width:760px) { .q { grid-template-columns:1fr; gap:10px; } .q .r { flex-direction:row; align-items:center; justify-content:space-between; flex-wrap:wrap; } .q.lead .ttl { font-size:18px; } }
+@media (max-width:760px) { .q { grid-template-columns:1fr; gap:10px; } .quiet .r { align-items:baseline; } .quiet .r .d2 { text-align:left; } .q .r { flex-direction:row; align-items:center; justify-content:space-between; flex-wrap:wrap; } .q.lead .ttl { font-size:18px; } }
 /* ---- the week strip and the capital planner (planner.js) ---- */
 .week { display:grid; grid-template-columns:repeat(8, minmax(118px,1fr)); gap:8px; overflow-x:auto; }
 .wd { border-radius:var(--r-sm); background:var(--surface-2); padding:8px 9px; min-width:0; } .wd.today { background:var(--accent-soft); outline:1px solid var(--accent-line); } .wd.off { background:transparent; border:1px dashed var(--line-2); }
@@ -486,6 +493,7 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
 <main>
   <section class="screen" id="s-today">
     <div class="today-h"><h1 id="todayTitle"></h1><span class="sum" id="todaySum"></span></div>
+    <div id="quiet-host"></div>
     <div class="queue" id="queue"></div>
     <div class="sec card"><div class="ch">This week <span class="sub" id="weekSub"></span></div><div class="cb"><div class="week" id="week"></div><div class="legend wk-leg" id="weekLeg"></div></div></div>
     <div class="sec card"><div class="ch">Capital planner <span class="sub">this week's open and upcoming issues, in order of close · the evidence beside each · no ranking</span></div><div class="cb" id="planner"></div></div>

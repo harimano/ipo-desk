@@ -207,8 +207,8 @@ function renderToday() {
   live.forEach(q => { if (q.recordDate) ev.push({ d: q.recordDate, w: q.name, s: "record date", c: "now" }); if (q.bucket === "approved" && q.lapse && days(q.lapse) <= 30) ev.push({ d: q.lapse, w: q.name, s: "approval lapses", c: "warn" }); });
   const byDay = {}; ev.filter(e => days(e.d) >= 0 && days(e.d) <= 30).forEach(e => (byDay[e.d] = byDay[e.d] || []).push(e));
   const daysArr = Object.keys(byDay).sort().slice(0, 7);
-  $("#cal").innerHTML = daysArr.map(k => { const es = byDay[k]; const c = es.some(e => e.c === "now") ? "now" : es.some(e => e.c === "warn") ? "warn" : ""; const groups = {}; es.forEach(e => (groups[e.s] = groups[e.s] || []).push(e.w)); return `<div class="day ${c}"><div class="d mono ${c === "now" ? "down" : c === "warn" ? "amb" : ""}">${fmtD(k)}</div>${Object.entries(groups).map(([s, ws]) => `<div class="w">${esc(ws.length > 2 ? ws.slice(0, 2).join(", ") + " +" + (ws.length - 2) : ws.join(", "))}<small>${s}</small></div>`).join("")}</div>`; }).join("") +
-    (live.some(q => q.name === "Reliance Jio" && !q.recordDate) ? `<div class="day est"><div class="d mono dim">?</div><div class="w dim">Jio record date<small>arrives with the RHP</small></div></div>` : "");
+  $("#cal").innerHTML = (daysArr.map(k => { const es = byDay[k]; const c = es.some(e => e.c === "now") ? "now" : es.some(e => e.c === "warn") ? "warn" : ""; const groups = {}; es.forEach(e => (groups[e.s] = groups[e.s] || []).push(e.w)); return `<div class="day ${c}"><div class="d mono ${c === "now" ? "down" : c === "warn" ? "amb" : ""}">${fmtD(k)}</div>${Object.entries(groups).map(([s, ws]) => `<div class="w">${esc(ws.length > 2 ? ws.slice(0, 2).join(", ") + " +" + (ws.length - 2) : ws.join(", "))}<small>${s}</small></div>`).join("")}</div>`; }).join("") +
+    (live.some(q => q.name === "Reliance Jio" && !q.recordDate) ? `<div class="day est"><div class="d mono dim">?</div><div class="w dim">Jio record date<small>arrives with the RHP</small></div></div>` : "")) || `<div class="empty">No dated event in the next 30 days.</div>`;
 }
 function queueAct(id, act, name) {
   const q = Q.find(z => z.name === name), b = findIssue(name);
@@ -852,6 +852,7 @@ document.addEventListener("keydown", e => {
 /* @include names.js */
 /* @include lockin.js */
 /* @include planner.js */
+/* @include quiet.js */
 /* @include records.js */
 /* @include research.js */
 /* @include scoreboard.js */
@@ -903,7 +904,7 @@ function renderFooter() {
     ${notes.length ? `<details class="inl"><summary>${notesSum}</summary><ul>${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul></details>` : ""}
     <div>Aggregated public data and analytical synthesis with both sides shown — not investment advice. Nothing here places orders. Press <b>?</b> for keys · <a href="#" data-intro-open>How to read this desk</a> · <a href="#" data-install-open>Add to home screen</a></div>`;
 }
-function renderAll() { renderTape(); renderToday(); renderWeek(); renderLotPlanner(); renderPlanner(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); renderStamps(); }
+function renderAll() { renderTape(); renderToday(); renderQuiet(); renderWeek(); renderLotPlanner(); renderPlanner(); renderPipe(); renderBoard(); renderBook(); if (screen === "score") renderScore(); renderStamps(); }
 renderFooter();
 noteChanges(store.get("ipo-seen", {}) || {}, DATA);
 try { renderAll(); renderResearchSelect(); liveText(); oldTags(); } catch (err) { document.querySelector("main").insertAdjacentHTML("afterbegin", `<div class="card" style="padding:14px 18px;border-color:var(--down);margin-bottom:16px"><b class="down">The page hit an error while rendering.</b> <span class="dim">${esc(err && err.message)}</span></div>`); console.error(err); }
