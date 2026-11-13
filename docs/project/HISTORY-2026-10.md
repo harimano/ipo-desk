@@ -522,3 +522,20 @@ call to `webnodejs.investorgain.com` carries `v=<epoch>` (`CACHE_BUST_HOSTS`), o
 the source, the age and the URL. A dispatched full run put both issues on the board at 12:27 IST, gate PASS.
 Lesson for the brief: a source's own `no-store` says nothing about the CDN in front of it; a short board with nothing red
 is the signature, and the run log now says "served from the CDN's cache" when it happens again.
+
+**The afternoon's two loose ends (3191d11, 2fa1632).** ipowatch had been the second GMP source only on
+paper: since at least 13 Nov its GMP page is a Next.js app with no `<table>`, so the parser raised `SourceChanged` every run
+and InvestorGain was the only live grey-market source. Reading the page's bundles (the Mac has no Node; `httpx` and a regex
+over the chunks were enough) found the call behind its "Gmp History" block — `ipowatch.in/server/api/ipo/GetIpoGMPHistory`,
+an IIS/ASP.NET JSON feed whose Mainline / SME tabs are a client-side filter over ONE list (`Type`: Mainboard, NSE Emerge,
+BSE SME), so SME GMP lives there too; the old `/sme-ipo-grey-market-premium/` page is a 404 and the sitemap has no SME GMP
+page. `sources/ipowatch.py` now reads the feed as structure (`ipoGmp` rupees, the percentage in `estListing` as the table
+had it, '₹0' + '(0.00%)' still "no quote", a `status` other than 1 or an empty `result` raises); the real reply of 13 Nov
+is the fixture, the two HTML fixtures and the oriz-ipo table walk are gone. The feed declares `s-maxage=600`, a cache the
+site asks for, so the host is not in `CACHE_BUST_HOSTS`. Verified: the parser against the live feed through the real
+`Session`, a throwaway `--only gmp` run (gate PASS) — which asked InvestorGain alone, because the chain consults the second
+source only when the first matched under half the active rows, and the one active row matched. The live loop learnt to
+stay home: `nothing_to_watch` derives every board row's status with the calendar module's `derive_status` and, when no
+row is Open and none lists today, `main()` logs one line and returns before the holiday lookup and the first tick — a
+listing day still runs for the pre-open card. On 13 Nov the 12:55 loop had polled NSE every five minutes for a market
+with nothing on it.

@@ -18,7 +18,8 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
 - `data` branch (orphan) — `latest.json` + `history/`, written ONLY by `ipo-desk-bot` in `collect.yml`. `live` branch —
   one amended commit of `live.json` from the five-minute market-hours loop (`collector/live.py`: mainboard from NSE
   `/api/ipo-detail`; every SME from Narada, at most every 10 min an issue; NSE's list total, then InvestorGain 566, as
-  fallbacks; every book tagged `src`; never an all-zero book; exits on an NSE trading holiday; GMP from IG 331). `scripts/pull_data.sh` copies `data` into `./data`.
+  fallbacks; every book tagged `src`; never an all-zero book; exits before the first tick on an NSE trading holiday
+  or when no board row is Open and none lists today (`nothing_to_watch`, 13 Nov 2026); GMP from IG 331). `scripts/pull_data.sh` copies `data` into `./data`.
 - `_site/` — built by `site/build.py`, never committed. `collector/layout.py` splits the document into
   `meta / board / pipeline / investors / research / history` parts; `boot.js` fetches `meta.json`, then only changed parts.
 - Schedule: full runs 06:43 and 18:13 IST; intraday (subscription + gmp + open issues' records) :07/:37 on weekdays;
@@ -124,6 +125,10 @@ document as assembled so far; `prev` is yesterday's.
   DRHP-stage lead stays SEBI's register (`expected[]`). `history` freezes the shareholder / employee book from the board row at
   listing into `comps`; `evidence` bands it apart (`bands.shareholder`, `ev.shareholder`); `alerts` says "Hold <parent> before
   <record date>" for a board reservation at the record-date milestones, the parent from the quota row linked by igId, never guessed.
+- `gmp`: InvestorGain 331, then ipowatch — since 13 Nov 2026 its JSON feed (`ipowatch.in/server/api/ipo/GetIpoGMPHistory`, found in
+  the page's Next.js bundles after the HTML table vanished; mainboard AND SME in one list under `Type`; the server declares a
+  10-min public cache, respected — not cache-busted). The second source is asked only when the first matched under half the
+  active rows, so a one-issue day logs one source; '₹0' with '(0.00%)' is "no quote", never 0.
 - `evidence` (no network): per segment — trailing window named on screen (12 months, else last 100), all-years secondary;
   total-subscription bands primary, QIB / retail labelled with their years (2026 only); GMP fit (a, b, q10/q90) — PROVISIONAL
   because report 377's GMP is stamped on listing morning: `details` writes `gmpEve`, `history` freezes it, and at 30 rows a
