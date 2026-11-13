@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-13T18:15:19+05:30",
+  "asOf": "2026-11-14T01:35:31+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "13 Nov 2026, 18:15 IST",
+  "label": "14 Nov 2026, 01:35 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -1796,14 +1796,14 @@
    "issueSizeCr": 455.49,
    "freshCr": 354.77,
    "ofsCr": 100.71,
-   "gmp": 45.0,
-   "gmpPct": 16.54,
+   "gmp": 40.0,
+   "gmpPct": 14.71,
    "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-13"
+    "at": "2026-11-14"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -1816,7 +1816,7 @@
    "igId": "2067",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-13T12:25:44+05:30",
+   "igFetchedAt": "2026-11-14T01:34:27+05:30",
    "sector": "Other Agricultural Products",
    "anchorShares": 0,
    "logo": "crystal-crop-protection-logo.png",
@@ -1870,9 +1870,9 @@
      "lots": 67
     }
    },
-   "gmpAsOf": "2026-11-13T12:02:00+05:30",
-   "gmpEve": 45.0,
-   "gmpEveAsOf": "2026-11-13T12:02:00+05:30",
+   "gmpAsOf": "2026-11-13T23:37:00+05:30",
+   "gmpEve": 40.0,
+   "gmpEveAsOf": "2026-11-13T23:37:00+05:30",
    "gmpSrc": "investorgain",
    "gmpWitness": {
     "src": "ipowatch",
@@ -2276,7 +2276,7 @@
     "status": "live"
    }
   ],
-  "asOf": "2026-11-13"
+  "asOf": "2026-11-14"
  },
  "recent": [
   {
@@ -2464,14 +2464,14 @@
    "issueSizeCr": 113.92,
    "freshCr": 113.92,
    "ofsCr": null,
-   "gmp": 0.0,
-   "gmpPct": 0.0,
-   "gmpTrend": "flat",
+   "gmp": 16.0,
+   "gmpPct": 6.53,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-13"
+    "at": "2026-11-14"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -2484,7 +2484,7 @@
    "igId": "1818",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-13T12:25:44+05:30",
+   "igFetchedAt": "2026-11-14T01:34:27+05:30",
    "refund": "2026-11-26",
    "sector": "Diversified Commercial Services",
    "anchorShares": 1386000,
@@ -2506,9 +2506,9 @@
      "lots": 3
     }
    },
-   "gmpAsOf": "2026-11-13T11:56:00+05:30",
-   "gmpEve": 0.0,
-   "gmpEveAsOf": "2026-11-13T11:56:00+05:30",
+   "gmpAsOf": "2026-11-13T23:37:00+05:30",
+   "gmpEve": 16.0,
+   "gmpEveAsOf": "2026-11-13T23:37:00+05:30",
    "facts": {
     "sector": "Diversified Commercial Services",
     "listingAt": "NSE SME",
@@ -2537,7 +2537,9 @@
      "rhp": "https://www.chittorgarh.net/reports/ipo_notes/watrana_rhp_11112026.pdf"
     },
     "asOf": "2026-11-13T10:12:00+05:30"
-   }
+   },
+   "gmpSrc": "investorgain",
+   "gmpWitness": null
   }
  ],
  "comps": [
@@ -16687,26 +16689,21 @@
  ],
  "flows": {
   "latest": {
-   "date": "2026-11-12",
-   "fiiNetCr": 7830.6,
-   "diiNetCr": -6331.17,
+   "date": "2026-11-13",
+   "fiiNetCr": 5736.55,
+   "diiNetCr": -2253.58,
    "previousDay": {
-    "date": "2026-11-11",
-    "fiiNetCr": 12563.33,
-    "diiNetCr": -8434.53
+    "date": "2026-11-12",
+    "fiiNetCr": 7830.6,
+    "diiNetCr": -6331.17
    },
    "source": "NSE provisional (fiidiiTradeReact)",
-   "fiiBuyCr": 20273.32,
-   "fiiSellCr": 12442.72,
-   "diiBuyCr": 15855.13,
-   "diiSellCr": 22186.3
+   "fiiBuyCr": 18339.57,
+   "fiiSellCr": 12603.02,
+   "diiBuyCr": 11745.95,
+   "diiSellCr": 13999.53
   },
   "history": [
-   [
-    "2026-09-04",
-    -3112,
-    8930
-   ],
    [
     "2026-09-07",
     280,
@@ -16901,6 +16898,11 @@
     "2026-11-12",
     7830.6,
     -6331.17
+   ],
+   [
+    "2026-11-13",
+    5736.55,
+    -2253.58
    ]
   ],
   "monthly": [
@@ -16956,7 +16958,7 @@
    "gmpImplied": 66.0,
    "listing": 52.8,
    "close1": 50.16,
-   "ltp": 47.66,
+   "ltp": 45.28,
    "bseCode": "545024",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-11-10T09:30:00+05:30"
@@ -16971,7 +16973,7 @@
    "gmpImplied": 95.0,
    "listing": 94.0,
    "close1": 89.3,
-   "ltp": 80.65,
+   "ltp": 76.65,
    "bseCode": null,
    "gmpEve": 1.0,
    "gmpEveAsOf": "2026-11-08T22:37:00+05:30"
@@ -16986,7 +16988,7 @@
    "gmpImplied": 208.0,
    "listing": 238.5,
    "close1": 237.7,
-   "ltp": 240.95,
+   "ltp": 252.95,
    "bseCode": "545021",
    "gmpEve": 8.0,
    "gmpEveAsOf": "2026-11-05T12:37:00+05:30"
@@ -17001,7 +17003,7 @@
    "gmpImplied": 147.0,
    "listing": 160.0,
    "close1": 168.0,
-   "ltp": 204.15,
+   "ltp": 214.35,
    "bseCode": null,
    "gmpEve": 38.0,
    "gmpEveAsOf": "2026-11-05T12:37:00+05:30"
@@ -17016,7 +17018,7 @@
    "gmpImplied": 105.0,
    "listing": 106.0,
    "close1": 107.5,
-   "ltp": 106.0,
+   "ltp": 106.7,
    "bseCode": "545020",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-11-05T12:33:00+05:30"
@@ -17031,7 +17033,7 @@
    "gmpImplied": 263.0,
    "listing": 300.2,
    "close1": 315.2,
-   "ltp": 289.15,
+   "ltp": 274.7,
    "bseCode": null,
    "gmpEve": 117.0,
    "gmpEveAsOf": "2026-11-05T12:37:00+05:30"
@@ -17046,7 +17048,7 @@
    "gmpImplied": 90.0,
    "listing": 91.0,
    "close1": 94.81,
-   "ltp": 81.72,
+   "ltp": 81.08,
    "bseCode": "545018",
    "gmpEve": 8.5,
    "gmpEveAsOf": "2026-11-04T15:37:00+05:30"
@@ -17061,7 +17063,7 @@
    "gmpImplied": 84.0,
    "listing": 90.0,
    "close1": 94.5,
-   "ltp": 105.26,
+   "ltp": 110.52,
    "bseCode": "545015",
    "gmpEve": 3.0,
    "gmpEveAsOf": "2026-11-03T15:37:00+05:30"
@@ -17076,7 +17078,7 @@
    "gmpImplied": 173.0,
    "listing": 171.0,
    "close1": 162.2,
-   "ltp": 170.96,
+   "ltp": 176.87,
    "bseCode": "545017",
    "gmpEve": 10.5,
    "gmpEveAsOf": "2026-11-03T15:37:00+05:30"
@@ -17091,7 +17093,7 @@
    "gmpImplied": 204.0,
    "listing": 203.0,
    "close1": 192.85,
-   "ltp": 141.85,
+   "ltp": 134.8,
    "bseCode": "545016",
    "gmpEve": 1.0,
    "gmpEveAsOf": "2026-11-03T15:37:00+05:30"
@@ -17106,7 +17108,7 @@
    "gmpImplied": 204.0,
    "listing": 204.0,
    "close1": 203.55,
-   "ltp": 220.65,
+   "ltp": 231.65,
    "bseCode": "545010"
   },
   {
@@ -17119,7 +17121,7 @@
    "gmpImplied": 219.0,
    "listing": 248.0,
    "close1": 269.3,
-   "ltp": 234.75,
+   "ltp": 271.23,
    "bseCode": "545011"
   },
   {
@@ -17132,7 +17134,7 @@
    "gmpImplied": 345.5,
    "listing": 355.1,
    "close1": 426.1,
-   "ltp": 461.3,
+   "ltp": 480.6,
    "bseCode": "545009"
   },
   {
@@ -17145,7 +17147,7 @@
    "gmpImplied": 1719.0,
    "listing": 1675.5,
    "close1": 1727.8,
-   "ltp": 1833.2,
+   "ltp": 1974.2,
    "bseCode": "545008"
   },
   {
@@ -17173,7 +17175,7 @@
    "gmpImplied": 1369.0,
    "listing": 1358.0,
    "close1": 1417.5,
-   "ltp": 1395.9,
+   "ltp": 1400.7,
    "bseCode": "545004",
    "gmpEve": 248.0,
    "gmpEveAsOf": "2026-10-27T21:02:00+05:30"
@@ -17188,7 +17190,7 @@
    "gmpImplied": 706.0,
    "listing": 720.0,
    "close1": 737.15,
-   "ltp": 882.2,
+   "ltp": 936.3,
    "bseCode": "545005",
    "gmpEve": 16.0,
    "gmpEveAsOf": "2026-10-27T21:02:00+05:30"
@@ -17203,7 +17205,7 @@
    "gmpImplied": 1152.0,
    "listing": 1160.0,
    "close1": 1133.8,
-   "ltp": 1521.7,
+   "ltp": 1538.5,
    "bseCode": "544999",
    "gmpEve": 443.0,
    "gmpEveAsOf": "2026-10-22T19:37:00+05:30"
@@ -17218,7 +17220,7 @@
    "gmpImplied": 152.2,
    "listing": 159.25,
    "close1": 138.3,
-   "ltp": 184.03,
+   "ltp": 184.53,
    "bseCode": "545000",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-10-22T19:37:00+05:30"
@@ -17233,7 +17235,7 @@
    "gmpImplied": 186.0,
    "listing": 179.0,
    "close1": 170.05,
-   "ltp": 174.35,
+   "ltp": 174.75,
    "bseCode": "544998",
    "gmpEve": 7.0,
    "gmpEveAsOf": "2026-10-22T19:37:00+05:30"
@@ -17248,7 +17250,7 @@
    "gmpImplied": 652.0,
    "listing": 586.0,
    "close1": 576.35,
-   "ltp": 722.35,
+   "ltp": 794.5,
    "bseCode": "544996",
    "gmpEve": 65.0,
    "gmpEveAsOf": "2026-10-22T19:37:00+05:30"
@@ -17263,7 +17265,7 @@
    "gmpImplied": 361.0,
    "listing": 371.15,
    "close1": 378.2,
-   "ltp": 504.65,
+   "ltp": 533.95,
    "bseCode": "545001",
    "gmpEve": 17.0,
    "gmpEveAsOf": "2026-10-22T19:37:00+05:30"
@@ -17278,7 +17280,7 @@
    "gmpImplied": 113.0,
    "listing": 112.0,
    "close1": 113.7,
-   "ltp": 118.6,
+   "ltp": 112.65,
    "bseCode": null,
    "gmpEve": 1.0,
    "gmpEveAsOf": "2026-10-21T19:37:00+05:30"
@@ -17293,7 +17295,7 @@
    "gmpImplied": 302.5,
    "listing": 305.0,
    "close1": 289.75,
-   "ltp": 302.0,
+   "ltp": 303.7,
    "bseCode": "544995",
    "gmpEve": 15.0,
    "gmpEveAsOf": "2026-10-21T19:37:00+05:30"
@@ -17308,7 +17310,7 @@
    "gmpImplied": 57.0,
    "listing": 52.9,
    "close1": 53.05,
-   "ltp": 65.95,
+   "ltp": 62.4,
    "bseCode": null,
    "gmpEve": 3.0,
    "gmpEveAsOf": "2026-10-20T15:37:00+05:30"
@@ -17323,7 +17325,7 @@
    "gmpImplied": 341.0,
    "listing": 335.0,
    "close1": 307.2,
-   "ltp": 284.3,
+   "ltp": 308.45,
    "bseCode": "544994",
    "gmpEve": 63.0,
    "gmpEveAsOf": "2026-10-20T15:37:00+05:30"
@@ -17338,7 +17340,7 @@
    "gmpImplied": 83.5,
    "listing": 80.0,
    "close1": 76.0,
-   "ltp": 39.45,
+   "ltp": 41.4,
    "bseCode": null,
    "gmpEve": 1.5,
    "gmpEveAsOf": "2026-10-11T17:37:00+05:30"
@@ -17353,7 +17355,7 @@
    "gmpImplied": 70.0,
    "listing": 56.0,
    "close1": 58.8,
-   "ltp": 40.85,
+   "ltp": 42.3,
    "bseCode": "544983",
    "gmpEve": 2.0,
    "gmpEveAsOf": "2026-10-08T11:37:00+05:30"
@@ -17368,7 +17370,7 @@
    "gmpImplied": 239.0,
    "listing": 221.0,
    "close1": 232.05,
-   "ltp": 168.35,
+   "ltp": 163.5,
    "bseCode": "544981",
    "gmpEve": 48.0,
    "gmpEveAsOf": "2026-10-08T11:37:00+05:30"
@@ -17383,7 +17385,7 @@
    "gmpImplied": 127.0,
    "listing": 115.0,
    "close1": 109.25,
-   "ltp": 56.66,
+   "ltp": 59.49,
    "bseCode": "544982",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-10-08T11:32:00+05:30"
@@ -17398,7 +17400,7 @@
    "gmpImplied": 311.0,
    "listing": 319.0,
    "close1": 319.05,
-   "ltp": 350.0,
+   "ltp": 352.0,
    "bseCode": "544976",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-10-07T22:28:00+05:30"
@@ -17413,7 +17415,7 @@
    "gmpImplied": 57.0,
    "listing": 60.0,
    "close1": 57.0,
-   "ltp": 52.0,
+   "ltp": 52.25,
    "bseCode": "544978",
    "gmpEve": 2.0,
    "gmpEveAsOf": "2026-10-07T22:37:00+05:30"
@@ -17428,7 +17430,7 @@
    "gmpImplied": 65.0,
    "listing": 104.4,
    "close1": 99.18,
-   "ltp": 63.5,
+   "ltp": 63.4,
    "bseCode": "544977",
    "gmpEve": 10.0,
    "gmpEveAsOf": "2026-10-07T22:37:00+05:30"
@@ -17443,7 +17445,7 @@
    "gmpImplied": 118.0,
    "listing": 111.0,
    "close1": 105.45,
-   "ltp": 55.05,
+   "ltp": 54.0,
    "bseCode": null,
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-10-07T22:35:00+05:30"
@@ -17458,7 +17460,7 @@
    "gmpImplied": 76.0,
    "listing": 80.0,
    "close1": 84.15,
-   "ltp": 65.11,
+   "ltp": 67.12,
    "bseCode": "544974",
    "gmpEve": 1.0,
    "gmpEveAsOf": "2026-10-07T22:37:00+05:30"
@@ -17473,7 +17475,7 @@
    "gmpImplied": 67.0,
    "listing": 74.2,
    "close1": 73.01,
-   "ltp": 89.5,
+   "ltp": 88.15,
    "bseCode": "544980",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-10-07T22:55:00+05:30"
@@ -17488,7 +17490,7 @@
    "gmpImplied": 111.0,
    "listing": 110.3,
    "close1": 104.8,
-   "ltp": 100.5,
+   "ltp": 100.38,
    "bseCode": "544975",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-10-07T22:33:00+05:30"
@@ -17503,7 +17505,7 @@
    "gmpImplied": 135.0,
    "listing": 126.0,
    "close1": 119.7,
-   "ltp": 87.2,
+   "ltp": 85.0,
    "bseCode": "544979",
    "gmpEve": 60.0,
    "gmpEveAsOf": "2026-10-07T22:37:00+05:30"
@@ -17518,7 +17520,7 @@
    "gmpImplied": 222.0,
    "listing": 215.0,
    "close1": 204.25,
-   "ltp": 119.42,
+   "ltp": 120.77,
    "bseCode": "544973",
    "gmpEve": 2.0,
    "gmpEveAsOf": "2026-10-07T22:37:00+05:30"
@@ -17533,7 +17535,7 @@
    "gmpImplied": 221.0,
    "listing": 224.2,
    "close1": 235.4,
-   "ltp": 505.95,
+   "ltp": 495.85,
    "bseCode": "544971",
    "gmpEve": 103.0,
    "gmpEveAsOf": "2026-10-06T19:37:00+05:30"
@@ -17548,7 +17550,7 @@
    "gmpImplied": 89.0,
    "listing": 89.0,
    "close1": 84.55,
-   "ltp": 79.3,
+   "ltp": 74.0,
    "bseCode": null,
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-10-06T19:29:00+05:30"
@@ -17563,7 +17565,7 @@
    "gmpImplied": 72.0,
    "listing": 72.3,
    "close1": 68.75,
-   "ltp": 47.2,
+   "ltp": 51.7,
    "bseCode": null,
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-10-06T19:32:00+05:30"
@@ -17578,7 +17580,7 @@
    "gmpImplied": 197.0,
    "listing": 200.0,
    "close1": 206.3,
-   "ltp": 135.0,
+   "ltp": 138.9,
    "bseCode": "544972",
    "gmpEve": 22.0,
    "gmpEveAsOf": "2026-10-06T19:37:00+05:30"
@@ -17593,7 +17595,7 @@
    "gmpImplied": 87.0,
    "listing": 101.0,
    "close1": 106.05,
-   "ltp": 100.5,
+   "ltp": 99.3,
    "bseCode": "544964",
    "gmpEve": 11.0,
    "gmpEveAsOf": "2026-10-03T06:02:00+05:30"
@@ -17608,7 +17610,7 @@
    "gmpImplied": 189.0,
    "listing": 148.0,
    "close1": 155.09,
-   "ltp": 132.43,
+   "ltp": 126.38,
    "bseCode": "544965",
    "gmpEve": 53.0,
    "gmpEveAsOf": "2026-10-03T06:02:00+05:30"
@@ -17623,7 +17625,7 @@
    "gmpImplied": 63.5,
    "listing": 62.0,
    "close1": 58.9,
-   "ltp": 36.33,
+   "ltp": 38.0,
    "bseCode": "544967",
    "gmpEve": 1.0,
    "gmpEveAsOf": "2026-10-03T11:37:00+05:30"
@@ -17638,7 +17640,7 @@
    "gmpImplied": 184.0,
    "listing": 171.0,
    "close1": 173.79,
-   "ltp": 137.36,
+   "ltp": 143.37,
    "bseCode": "544963",
    "gmpEve": 15.25,
    "gmpEveAsOf": "2026-10-03T06:02:00+05:30"
@@ -17653,7 +17655,7 @@
    "gmpImplied": 100.0,
    "listing": 79.2,
    "close1": 75.24,
-   "ltp": 27.6,
+   "ltp": 27.22,
    "bseCode": "544966",
    "gmpEve": 1.0,
    "gmpEveAsOf": "2026-10-03T06:02:00+05:30"
@@ -17668,7 +17670,7 @@
    "gmpImplied": 125.0,
    "listing": 110.0,
    "close1": 115.5,
-   "ltp": 189.05,
+   "ltp": 198.5,
    "bseCode": null,
    "gmpEve": 25.0,
    "gmpEveAsOf": "2026-10-03T06:02:00+05:30"
@@ -17683,7 +17685,7 @@
    "gmpImplied": 29.5,
    "listing": 25.0,
    "close1": 25.0,
-   "ltp": 9.21,
+   "ltp": 9.67,
    "bseCode": "544961",
    "gmpEve": 0.5,
    "gmpEveAsOf": "2026-10-03T06:02:00+05:30"
@@ -17713,7 +17715,7 @@
    "gmpImplied": 124.0,
    "listing": 133.8,
    "close1": 140.45,
-   "ltp": 127.3,
+   "ltp": 133.6,
    "bseCode": "544958",
    "gmpEve": 10.0,
    "gmpEveAsOf": "2026-10-03T06:02:00+05:30"
@@ -17728,7 +17730,7 @@
    "gmpImplied": 32.0,
    "listing": 28.32,
    "close1": 26.1,
-   "ltp": 19.7,
+   "ltp": 21.34,
    "bseCode": "544962",
    "gmpEve": 0.6,
    "gmpEveAsOf": "2026-10-03T06:02:00+05:30"
@@ -17743,7 +17745,7 @@
    "gmpImplied": 382.0,
    "listing": 450.0,
    "close1": 405.0,
-   "ltp": 376.95,
+   "ltp": 408.95,
    "bseCode": "544960",
    "gmpEve": 123.0,
    "gmpEveAsOf": "2026-10-03T06:02:00+05:30"
@@ -17758,7 +17760,7 @@
    "gmpImplied": 148.5,
    "listing": 142.0,
    "close1": 128.33,
-   "ltp": 105.58,
+   "ltp": 107.96,
    "bseCode": "544957",
    "gmpEve": 11.5,
    "gmpEveAsOf": "2026-10-03T06:02:00+05:30"
@@ -17773,7 +17775,7 @@
    "gmpImplied": 305.0,
    "listing": 305.0,
    "close1": 301.45,
-   "ltp": 232.25,
+   "ltp": 235.17,
    "bseCode": "544959",
    "gmpEve": -5.0,
    "gmpEveAsOf": "2026-10-03T06:02:00+05:30"
@@ -17788,7 +17790,7 @@
    "gmpImplied": 48.5,
    "listing": 55.0,
    "close1": 54.03,
-   "ltp": 55.98,
+   "ltp": 58.15,
    "bseCode": "544953",
    "gmpEve": 14.0,
    "gmpEveAsOf": "2026-09-30T16:02:00+05:30"
@@ -17803,7 +17805,7 @@
    "gmpImplied": 101.0,
    "listing": 100.05,
    "close1": 95.05,
-   "ltp": 35.64,
+   "ltp": 37.42,
    "bseCode": "544955",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-30T15:57:00+05:30"
@@ -17818,7 +17820,7 @@
    "gmpImplied": 106.0,
    "listing": 121.6,
    "close1": 115.52,
-   "ltp": 107.0,
+   "ltp": 104.0,
    "bseCode": "544954",
    "gmpEve": 38.0,
    "gmpEveAsOf": "2026-09-30T16:02:00+05:30"
@@ -17833,7 +17835,7 @@
    "gmpImplied": 451.0,
    "listing": 455.0,
    "close1": 417.0,
-   "ltp": 434.05,
+   "ltp": 450.95,
    "bseCode": "544952",
    "gmpEve": 38.0,
    "gmpEveAsOf": "2026-09-30T16:02:00+05:30"
@@ -17848,7 +17850,7 @@
    "gmpImplied": 88.0,
    "listing": 90.0,
    "close1": 90.6,
-   "ltp": 94.9,
+   "ltp": 94.5,
    "bseCode": "544948",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-29T22:29:00+05:30"
@@ -17878,7 +17880,7 @@
    "gmpImplied": 189.0,
    "listing": 235.0,
    "close1": 248.39,
-   "ltp": 198.35,
+   "ltp": 204.08,
    "bseCode": "544950",
    "gmpEve": 55.0,
    "gmpEveAsOf": "2026-09-29T22:37:00+05:30"
@@ -17893,7 +17895,7 @@
    "gmpImplied": 54.0,
    "listing": 53.73,
    "close1": 51.05,
-   "ltp": 30.5,
+   "ltp": 32.29,
    "bseCode": "544946",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-29T22:31:00+05:30"
@@ -17908,7 +17910,7 @@
    "gmpImplied": 115.0,
    "listing": 118.0,
    "close1": 123.9,
-   "ltp": 117.8,
+   "ltp": 112.0,
    "bseCode": null,
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-29T22:34:00+05:30"
@@ -17923,7 +17925,7 @@
    "gmpImplied": 368.5,
    "listing": 355.1,
    "close1": 322.95,
-   "ltp": 311.35,
+   "ltp": 312.6,
    "bseCode": "544945",
    "gmpEve": 6.5,
    "gmpEveAsOf": "2026-09-29T23:02:00+05:30"
@@ -17938,7 +17940,7 @@
    "gmpImplied": 78.0,
    "listing": 78.1,
    "close1": 78.9,
-   "ltp": 118.9,
+   "ltp": 124.7,
    "bseCode": null,
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-29T22:54:00+05:30"
@@ -17953,7 +17955,7 @@
    "gmpImplied": 192.0,
    "listing": 200.0,
    "close1": 210.0,
-   "ltp": 193.15,
+   "ltp": 193.69,
    "bseCode": "544949",
    "gmpEve": 7.0,
    "gmpEveAsOf": "2026-09-29T23:02:00+05:30"
@@ -17968,7 +17970,7 @@
    "gmpImplied": 381.0,
    "listing": 375.0,
    "close1": 300.0,
-   "ltp": 308.2,
+   "ltp": 313.45,
    "bseCode": "544951",
    "gmpEve": 6.0,
    "gmpEveAsOf": "2026-09-29T23:02:00+05:30"
@@ -17998,7 +18000,7 @@
    "gmpImplied": 106.0,
    "listing": 118.0,
    "close1": 122.9,
-   "ltp": 172.0,
+   "ltp": 169.85,
    "bseCode": "544943",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-28T12:32:00+05:30"
@@ -18013,7 +18015,7 @@
    "gmpImplied": 149.0,
    "listing": 155.0,
    "close1": 152.8,
-   "ltp": 133.74,
+   "ltp": 131.62,
    "bseCode": "544942",
    "gmpEve": 0.5,
    "gmpEveAsOf": "2026-09-26T06:02:00+05:30"
@@ -18028,7 +18030,7 @@
    "gmpImplied": 192.0,
    "listing": 201.4,
    "close1": 211.45,
-   "ltp": 159.5,
+   "ltp": 158.0,
    "bseCode": "544940",
    "gmpEve": 84.0,
    "gmpEveAsOf": "2026-09-27T21:37:00+05:30"
@@ -18043,7 +18045,7 @@
    "gmpImplied": 37.0,
    "listing": 38.0,
    "close1": 39.9,
-   "ltp": 75.05,
+   "ltp": 71.43,
    "bseCode": "544939",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-27T21:32:00+05:30"
@@ -18058,7 +18060,7 @@
    "gmpImplied": 122.5,
    "listing": 123.05,
    "close1": 129.2,
-   "ltp": 126.8,
+   "ltp": 125.7,
    "bseCode": "544941",
    "gmpEve": 6.5,
    "gmpEveAsOf": "2026-09-27T21:37:00+05:30"
@@ -18073,7 +18075,7 @@
    "gmpImplied": 54.0,
    "listing": 54.75,
    "close1": 54.05,
-   "ltp": 43.3,
+   "ltp": 45.65,
    "bseCode": null,
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-24T19:37:00+05:30"
@@ -18088,7 +18090,7 @@
    "gmpImplied": 1825.0,
    "listing": 1800.0,
    "close1": 1818.0,
-   "ltp": 1989.7,
+   "ltp": 1990.05,
    "bseCode": "544937",
    "gmpEve": 47.0,
    "gmpEveAsOf": "2026-09-23T21:37:00+05:30"
@@ -18103,7 +18105,7 @@
    "gmpImplied": 199.0,
    "listing": 224.2,
    "close1": 235.4,
-   "ltp": 283.15,
+   "ltp": 303.3,
    "bseCode": null,
    "gmpEve": 81.0,
    "gmpEveAsOf": "2026-09-23T21:37:00+05:30"
@@ -18118,7 +18120,7 @@
    "gmpImplied": 99.0,
    "listing": 102.31,
    "close1": 107.42,
-   "ltp": 112.04,
+   "ltp": 120.94,
    "bseCode": "544938",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-23T21:37:00+05:30"
@@ -18133,7 +18135,7 @@
    "gmpImplied": 104.0,
    "listing": 104.9,
    "close1": 103.05,
-   "ltp": 94.45,
+   "ltp": 94.0,
    "bseCode": null,
    "gmpEve": 3.0,
    "gmpEveAsOf": "2026-09-23T21:37:00+05:30"
@@ -18148,7 +18150,7 @@
    "gmpImplied": 584.0,
    "listing": 624.0,
    "close1": 765.15,
-   "ltp": 700.1,
+   "ltp": 739.2,
    "bseCode": "544934",
    "gmpEve": 135.0,
    "gmpEveAsOf": "2026-09-22T15:02:00+05:30"
@@ -18163,7 +18165,7 @@
    "gmpImplied": 122.0,
    "listing": 120.0,
    "close1": 127.99,
-   "ltp": 167.56,
+   "ltp": 173.06,
    "bseCode": "544935",
    "gmpEve": 27.0,
    "gmpEveAsOf": "2026-09-22T21:37:00+05:30"
@@ -18178,7 +18180,7 @@
    "gmpImplied": 81.0,
    "listing": 82.0,
    "close1": 98.51,
-   "ltp": 122.55,
+   "ltp": 125.32,
    "bseCode": "544936",
    "gmpEve": -3.0,
    "gmpEveAsOf": "2026-09-22T21:37:00+05:30"
@@ -18193,7 +18195,7 @@
    "gmpImplied": 344.0,
    "listing": 341.0,
    "close1": 323.95,
-   "ltp": 92.41,
+   "ltp": 97.03,
    "bseCode": "544931",
    "gmpEve": 3.0,
    "gmpEveAsOf": "2026-09-21T21:37:00+05:30"
@@ -18208,7 +18210,7 @@
    "gmpImplied": 69.0,
    "listing": 58.9,
    "close1": 57.08,
-   "ltp": 47.05,
+   "ltp": 47.0,
    "bseCode": "544933",
    "gmpEve": 12.0,
    "gmpEveAsOf": "2026-09-21T21:37:00+05:30"
@@ -18223,7 +18225,7 @@
    "gmpImplied": 67.0,
    "listing": 66.99,
    "close1": 63.65,
-   "ltp": 56.51,
+   "ltp": 53.76,
    "bseCode": "544932",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-21T21:35:00+05:30"
@@ -18238,7 +18240,7 @@
    "gmpImplied": 100.0,
    "listing": 99.0,
    "close1": 95.95,
-   "ltp": 97.74,
+   "ltp": 98.55,
    "bseCode": "544930",
    "gmpEve": 0.0,
    "gmpEveAsOf": "2026-09-20T15:30:00+05:30"
@@ -18268,7 +18270,7 @@
    "gmpImplied": 44.0,
    "listing": 43.0,
    "close1": 43.14,
-   "ltp": 48.68,
+   "ltp": 50.4,
    "bseCode": "544929",
    "gmpEve": 2.0,
    "gmpEveAsOf": "2026-09-20T15:37:00+05:30"
@@ -18283,7 +18285,7 @@
    "gmpImplied": 214.0,
    "listing": 250.0,
    "close1": 262.5,
-   "ltp": 274.25,
+   "ltp": 278.4,
    "bseCode": "544925"
   },
   {
@@ -18296,7 +18298,7 @@
    "gmpImplied": 90.0,
    "listing": 90.2,
    "close1": 90.77,
-   "ltp": 85.8,
+   "ltp": 85.1,
    "bseCode": "544922"
   },
   {
@@ -18309,7 +18311,7 @@
    "gmpImplied": 285.0,
    "listing": 273.0,
    "close1": 286.6,
-   "ltp": 237.25,
+   "ltp": 213.75,
    "bseCode": "544924"
   },
   {
@@ -18322,7 +18324,7 @@
    "gmpImplied": 143.0,
    "listing": 128.95,
    "close1": 122.55,
-   "ltp": 31.05,
+   "ltp": 31.28,
    "bseCode": "544926"
   },
   {
@@ -18335,7 +18337,7 @@
    "gmpImplied": 148.0,
    "listing": 154.0,
    "close1": 146.3,
-   "ltp": 137.11,
+   "ltp": 142.6,
    "bseCode": "544923"
   },
   {
@@ -18348,7 +18350,7 @@
    "gmpImplied": 104.0,
    "listing": 104.0,
    "close1": 105.5,
-   "ltp": 177.1,
+   "ltp": 185.95,
    "bseCode": "544919"
   },
   {
@@ -18361,7 +18363,7 @@
    "gmpImplied": 491.0,
    "listing": 482.45,
    "close1": 534.25,
-   "ltp": 619.9,
+   "ltp": 611.7,
    "bseCode": "544915"
   },
   {
@@ -18374,7 +18376,7 @@
    "gmpImplied": 95.0,
    "listing": 94.0,
    "close1": 89.3,
-   "ltp": 25.35,
+   "ltp": 25.15,
    "bseCode": null
   },
   {
@@ -18387,7 +18389,7 @@
    "gmpImplied": 151.0,
    "listing": 139.0,
    "close1": 137.05,
-   "ltp": 128.44,
+   "ltp": 129.28,
    "bseCode": null
   },
   {
@@ -18400,7 +18402,7 @@
    "gmpImplied": 333.0,
    "listing": 330.0,
    "close1": 345.75,
-   "ltp": 338.0,
+   "ltp": 322.15,
    "bseCode": "544916"
   },
   {
@@ -18413,7 +18415,7 @@
    "gmpImplied": 94.5,
    "listing": 94.5,
    "close1": 102.55,
-   "ltp": 151.32,
+   "ltp": 151.16,
    "bseCode": "544914"
   },
   {
@@ -18426,7 +18428,7 @@
    "gmpImplied": 91.0,
    "listing": 100.0,
    "close1": 105.0,
-   "ltp": 83.25,
+   "ltp": 78.16,
    "bseCode": "544920"
   },
   {
@@ -18439,7 +18441,7 @@
    "gmpImplied": 182.0,
    "listing": 189.0,
    "close1": 170.1,
-   "ltp": 131.93,
+   "ltp": 131.63,
    "bseCode": null
   },
   {
@@ -18452,7 +18454,7 @@
    "gmpImplied": 300.0,
    "listing": 320.0,
    "close1": 352.0,
-   "ltp": 380.2,
+   "ltp": 378.05,
    "bseCode": "544917"
   },
   {
@@ -18465,7 +18467,7 @@
    "gmpImplied": 814.0,
    "listing": 685.5,
    "close1": 751.5,
-   "ltp": 1064.4,
+   "ltp": 1045.25,
    "bseCode": "544911"
   },
   {
@@ -18478,7 +18480,7 @@
    "gmpImplied": 663.0,
    "listing": 610.0,
    "close1": 672.05,
-   "ltp": 820.8,
+   "ltp": 801.65,
    "bseCode": "544912"
   },
   {
@@ -18491,7 +18493,7 @@
    "gmpImplied": 221.0,
    "listing": 194.0,
    "close1": 215.35,
-   "ltp": 253.25,
+   "ltp": 256.2,
    "bseCode": "544913"
   },
   {
@@ -18504,7 +18506,7 @@
    "gmpImplied": 60.0,
    "listing": 60.0,
    "close1": 57.0,
-   "ltp": 20.68,
+   "ltp": 20.09,
    "bseCode": "544910"
   },
   {
@@ -18517,7 +18519,7 @@
    "gmpImplied": 177.0,
    "listing": 165.0,
    "close1": 132.0,
-   "ltp": 85.7,
+   "ltp": 84.62,
    "bseCode": "544909"
   },
   {
@@ -18530,7 +18532,7 @@
    "gmpImplied": 208.0,
    "listing": 224.9,
    "close1": 236.1,
-   "ltp": 126.1,
+   "ltp": 126.3,
    "bseCode": null
   },
   {
@@ -18543,7 +18545,7 @@
    "gmpImplied": 103.0,
    "listing": 81.6,
    "close1": 77.55,
-   "ltp": 38.45,
+   "ltp": 38.2,
    "bseCode": "544904"
   },
   {
@@ -18556,7 +18558,7 @@
    "gmpImplied": 202.0,
    "listing": 221.0,
    "close1": 194.37,
-   "ltp": 226.58,
+   "ltp": 219.48,
    "bseCode": "544903"
   },
   {
@@ -18569,7 +18571,7 @@
    "gmpImplied": 254.0,
    "listing": 239.0,
    "close1": 228.34,
-   "ltp": 295.82,
+   "ltp": 283.15,
    "bseCode": "544906"
   },
   {
@@ -18582,7 +18584,7 @@
    "gmpImplied": 118.0,
    "listing": 112.1,
    "close1": 106.5,
-   "ltp": 40.0,
+   "ltp": 39.9,
    "bseCode": "544905"
   },
   {
@@ -18595,7 +18597,7 @@
    "gmpImplied": 148.0,
    "listing": 140.0,
    "close1": 147.0,
-   "ltp": 130.75,
+   "ltp": 127.15,
    "bseCode": null
   },
   {
@@ -18608,7 +18610,7 @@
    "gmpImplied": 138.0,
    "listing": 157.7,
    "close1": 165.55,
-   "ltp": 202.85,
+   "ltp": 196.0,
    "bseCode": null
   },
   {
@@ -18621,7 +18623,7 @@
    "gmpImplied": 55.0,
    "listing": 56.0,
    "close1": 58.8,
-   "ltp": 41.0,
+   "ltp": 41.45,
    "bseCode": "544902"
   },
   {
@@ -18634,7 +18636,7 @@
    "gmpImplied": 565.0,
    "listing": 535.0,
    "close1": 568.55,
-   "ltp": 489.7,
+   "ltp": 492.75,
    "bseCode": "544901"
   },
   {
@@ -18647,7 +18649,7 @@
    "gmpImplied": 135.0,
    "listing": 139.0,
    "close1": 145.95,
-   "ltp": 192.0,
+   "ltp": 185.5,
    "bseCode": "544900"
   },
   {
@@ -18660,7 +18662,7 @@
    "gmpImplied": 57.0,
    "listing": 46.8,
    "close1": 49.14,
-   "ltp": 39.68,
+   "ltp": 38.34,
    "bseCode": "544897"
   },
   {
@@ -18673,7 +18675,7 @@
    "gmpImplied": 228.0,
    "listing": 230.0,
    "close1": 241.5,
-   "ltp": 258.6,
+   "ltp": 260.8,
    "bseCode": "544899"
   },
   {
@@ -18686,7 +18688,7 @@
    "gmpImplied": 740.0,
    "listing": 757.0,
    "close1": 908.4,
-   "ltp": 1265.2,
+   "ltp": 1260.5,
    "bseCode": "544898"
   },
   {
@@ -18699,7 +18701,7 @@
    "gmpImplied": 168.0,
    "listing": 150.0,
    "close1": 157.5,
-   "ltp": 185.65,
+   "ltp": 180.8,
    "bseCode": "544895"
   },
   {
@@ -18712,7 +18714,7 @@
    "gmpImplied": 120.0,
    "listing": 110.0,
    "close1": 110.39,
-   "ltp": 102.08,
+   "ltp": 102.14,
    "bseCode": "544894"
   },
   {
@@ -18725,7 +18727,7 @@
    "gmpImplied": 123.0,
    "listing": 111.0,
    "close1": 110.45,
-   "ltp": 96.0,
+   "ltp": 97.45,
    "bseCode": null
   },
   {
@@ -18738,7 +18740,7 @@
    "gmpImplied": 92.0,
    "listing": 72.0,
    "close1": 77.9,
-   "ltp": 41.49,
+   "ltp": 41.98,
    "bseCode": "544893"
   },
   {
@@ -18751,7 +18753,7 @@
    "gmpImplied": 1173.0,
    "listing": 988.0,
    "close1": 1097.7,
-   "ltp": 1642.4,
+   "ltp": 1611.3,
    "bseCode": "544889"
   },
   {
@@ -18764,7 +18766,7 @@
    "gmpImplied": 102.0,
    "listing": 100.0,
    "close1": 95.0,
-   "ltp": 77.85,
+   "ltp": 78.1,
    "bseCode": null
   },
   {
@@ -18777,7 +18779,7 @@
    "gmpImplied": 92.0,
    "listing": 75.0,
    "close1": 78.75,
-   "ltp": 76.75,
+   "ltp": 76.58,
    "bseCode": "544891"
   },
   {
@@ -18790,7 +18792,7 @@
    "gmpImplied": 102.0,
    "listing": 99.0,
    "close1": 94.05,
-   "ltp": 40.3,
+   "ltp": 39.6,
    "bseCode": null
   },
   {
@@ -18803,7 +18805,7 @@
    "gmpImplied": 171.0,
    "listing": 124.0,
    "close1": 125.65,
-   "ltp": 111.73,
+   "ltp": 116.24,
    "bseCode": "544890"
   },
   {
@@ -18816,7 +18818,7 @@
    "gmpImplied": 1078.0,
    "listing": 961.0,
    "close1": 908.15,
-   "ltp": 946.25,
+   "ltp": 956.2,
    "bseCode": "544888"
   },
   {
@@ -18829,7 +18831,7 @@
    "gmpImplied": 630.0,
    "listing": 634.0,
    "close1": 586.8,
-   "ltp": 533.2,
+   "ltp": 537.8,
    "bseCode": "544886"
   },
   {
@@ -18842,7 +18844,7 @@
    "gmpImplied": 100.0,
    "listing": 99.0,
    "close1": 94.05,
-   "ltp": 38.5,
+   "ltp": 37.99,
    "bseCode": "544884"
   },
   {
@@ -18855,7 +18857,7 @@
    "gmpImplied": 139.0,
    "listing": 137.0,
    "close1": 130.15,
-   "ltp": 28.81,
+   "ltp": 29.25,
    "bseCode": "544883"
   },
   {
@@ -18868,7 +18870,7 @@
    "gmpImplied": 178.5,
    "listing": 185.0,
    "close1": 168.7,
-   "ltp": 135.49,
+   "ltp": 132.86,
    "bseCode": "544885"
   },
   {
@@ -18881,7 +18883,7 @@
    "gmpImplied": 95.75,
    "listing": 103.3,
    "close1": 95.03,
-   "ltp": 91.0,
+   "ltp": 89.82,
    "bseCode": "544882"
   },
   {
@@ -18894,7 +18896,7 @@
    "gmpImplied": 410.0,
    "listing": 395.9,
    "close1": 369.2,
-   "ltp": 446.5,
+   "ltp": 440.6,
    "bseCode": "544881"
   },
   {
@@ -18907,7 +18909,7 @@
    "gmpImplied": 61.5,
    "listing": 60.25,
    "close1": 58.16,
-   "ltp": 46.41,
+   "ltp": 47.2,
    "bseCode": "544880"
   },
   {
@@ -18920,7 +18922,7 @@
    "gmpImplied": 151.0,
    "listing": 120.8,
    "close1": 114.8,
-   "ltp": 137.0,
+   "ltp": 136.1,
    "bseCode": null
   },
   {
@@ -18933,7 +18935,7 @@
    "gmpImplied": 275.0,
    "listing": 265.0,
    "close1": 248.44,
-   "ltp": 367.75,
+   "ltp": 349.4,
    "bseCode": "544879"
   },
   {
@@ -18946,7 +18948,7 @@
    "gmpImplied": 202.0,
    "listing": 230.0,
    "close1": 241.5,
-   "ltp": 416.9,
+   "ltp": 403.35,
    "bseCode": "544877"
   },
   {
@@ -18959,7 +18961,7 @@
    "gmpImplied": 97.0,
    "listing": 96.0,
    "close1": 100.8,
-   "ltp": 136.0,
+   "ltp": 134.35,
    "bseCode": "544876"
   },
   {
@@ -18972,7 +18974,7 @@
    "gmpImplied": 78.0,
    "listing": 74.0,
    "close1": 70.3,
-   "ltp": 29.95,
+   "ltp": 28.5,
    "bseCode": null
   },
   {
@@ -18985,7 +18987,7 @@
    "gmpImplied": 281.0,
    "listing": 359.1,
    "close1": 377.05,
-   "ltp": 432.3,
+   "ltp": 409.0,
    "bseCode": null
   },
   {
@@ -18998,7 +19000,7 @@
    "gmpImplied": 116.0,
    "listing": 115.0,
    "close1": 109.25,
-   "ltp": 30.51,
+   "ltp": 31.6,
    "bseCode": "544872"
   },
   {
@@ -19011,7 +19013,7 @@
    "gmpImplied": 118.0,
    "listing": 120.0,
    "close1": 121.65,
-   "ltp": 107.2,
+   "ltp": 105.35,
    "bseCode": null
   },
   {
@@ -19024,7 +19026,7 @@
    "gmpImplied": 418.0,
    "listing": 465.0,
    "close1": 502.55,
-   "ltp": 450.5,
+   "ltp": 453.15,
    "bseCode": "544870"
   },
   {
@@ -19037,7 +19039,7 @@
    "gmpImplied": 132.0,
    "listing": 131.0,
    "close1": 143.5,
-   "ltp": 129.97,
+   "ltp": 128.2,
    "bseCode": "544871"
   },
   {
@@ -19050,7 +19052,7 @@
    "gmpImplied": 131.5,
    "listing": 104.0,
    "close1": 98.8,
-   "ltp": 94.0,
+   "ltp": 95.27,
    "bseCode": "544869"
   },
   {
@@ -19063,7 +19065,7 @@
    "gmpImplied": 159.7,
    "listing": 165.0,
    "close1": 181.5,
-   "ltp": 297.6,
+   "ltp": 301.6,
    "bseCode": "544868"
   },
   {
@@ -19076,7 +19078,7 @@
    "gmpImplied": 1133.0,
    "listing": 1200.0,
    "close1": 1187.5,
-   "ltp": 1626.8,
+   "ltp": 1638.6,
    "bseCode": "544867"
   },
   {
@@ -19089,7 +19091,7 @@
    "gmpImplied": 923.0,
    "listing": 980.0,
    "close1": 1041.7,
-   "ltp": 1394.1,
+   "ltp": 1493.2,
    "bseCode": "544866"
   },
   {
@@ -19102,7 +19104,7 @@
    "gmpImplied": 175.0,
    "listing": 180.0,
    "close1": 189.0,
-   "ltp": 129.2,
+   "ltp": 129.7,
    "bseCode": null
   },
   {
@@ -19115,7 +19117,7 @@
    "gmpImplied": 172.0,
    "listing": 165.9,
    "close1": 145.1,
-   "ltp": 125.34,
+   "ltp": 130.02,
    "bseCode": "544865"
   },
   {
@@ -19128,7 +19130,7 @@
    "gmpImplied": 254.0,
    "listing": 284.0,
    "close1": 311.15,
-   "ltp": 490.35,
+   "ltp": 494.6,
    "bseCode": "544864"
   },
   {
@@ -19154,7 +19156,7 @@
    "gmpImplied": 155.0,
    "listing": 158.0,
    "close1": 165.9,
-   "ltp": 101.5,
+   "ltp": 102.5,
    "bseCode": "544859"
   },
   {
@@ -19167,7 +19169,7 @@
    "gmpImplied": 70.0,
    "listing": 72.0,
    "close1": 67.13,
-   "ltp": 45.33,
+   "ltp": 42.89,
    "bseCode": "544860"
   },
   {
@@ -19180,7 +19182,7 @@
    "gmpImplied": 117.0,
    "listing": 124.5,
    "close1": 130.7,
-   "ltp": 108.0,
+   "ltp": 110.95,
    "bseCode": "544858"
   },
   {
@@ -19193,7 +19195,7 @@
    "gmpImplied": 328.0,
    "listing": 329.65,
    "close1": 346.1,
-   "ltp": 390.75,
+   "ltp": 393.2,
    "bseCode": null
   },
   {
@@ -19206,7 +19208,7 @@
    "gmpImplied": 159.0,
    "listing": 170.0,
    "close1": 166.75,
-   "ltp": 159.0,
+   "ltp": 168.0,
    "bseCode": "544856"
   },
   {
@@ -19219,7 +19221,7 @@
    "gmpImplied": 109.0,
    "listing": 110.0,
    "close1": 111.68,
-   "ltp": 109.1,
+   "ltp": 117.5,
    "bseCode": "544854"
   },
   {
@@ -19232,7 +19234,7 @@
    "gmpImplied": 534.0,
    "listing": 520.0,
    "close1": 624.0,
-   "ltp": 744.95,
+   "ltp": 768.65,
    "bseCode": "544851"
   },
   {
@@ -19245,7 +19247,7 @@
    "gmpImplied": 103.0,
    "listing": 120.0,
    "close1": 126.0,
-   "ltp": 123.1,
+   "ltp": 125.0,
    "bseCode": "544852"
   },
   {
@@ -19258,7 +19260,7 @@
    "gmpImplied": 248.0,
    "listing": 245.0,
    "close1": 259.71,
-   "ltp": 253.8,
+   "ltp": 254.22,
    "bseCode": "544853"
   },
   {
@@ -19271,7 +19273,7 @@
    "gmpImplied": 597.0,
    "listing": 652.0,
    "close1": 666.95,
-   "ltp": 676.5,
+   "ltp": 681.4,
    "bseCode": "544847"
   },
   {
@@ -19284,7 +19286,7 @@
    "gmpImplied": 89.0,
    "listing": 90.0,
    "close1": 87.97,
-   "ltp": 73.0,
+   "ltp": 70.2,
    "bseCode": "544848"
   },
   {
@@ -19297,7 +19299,7 @@
    "gmpImplied": 501.0,
    "listing": 470.0,
    "close1": 493.5,
-   "ltp": 940.25,
+   "ltp": 941.8,
    "bseCode": "544844"
   },
   {
@@ -19336,7 +19338,7 @@
    "gmpImplied": 153.75,
    "listing": 155.0,
    "close1": 156.96,
-   "ltp": 151.98,
+   "ltp": 151.82,
    "bseCode": "543899"
   },
   {
@@ -19349,7 +19351,7 @@
    "gmpImplied": 138.0,
    "listing": 132.9,
    "close1": 126.55,
-   "ltp": 125.55,
+   "ltp": 128.25,
    "bseCode": "544840"
   },
   {
@@ -19362,7 +19364,7 @@
    "gmpImplied": 141.5,
    "listing": 136.0,
    "close1": 129.2,
-   "ltp": 270.35,
+   "ltp": 270.15,
    "bseCode": "544838"
   },
   {
@@ -19375,7 +19377,7 @@
    "gmpImplied": 442.0,
    "listing": 461.0,
    "close1": 494.65,
-   "ltp": 513.15,
+   "ltp": 509.15,
    "bseCode": "544839"
   },
   {
@@ -19388,7 +19390,7 @@
    "gmpImplied": 669.0,
    "listing": 700.0,
    "close1": 741.8,
-   "ltp": 1277.6,
+   "ltp": 1276.4,
    "bseCode": "544837"
   },
   {
@@ -19401,7 +19403,7 @@
    "gmpImplied": 126.0,
    "listing": 133.0,
    "close1": 126.35,
-   "ltp": 50.5,
+   "ltp": 48.5,
    "bseCode": "544835"
   },
   {
@@ -19414,7 +19416,7 @@
    "gmpImplied": 83.0,
    "listing": 87.0,
    "close1": 83.05,
-   "ltp": 132.7,
+   "ltp": 126.1,
    "bseCode": null
   },
   {
@@ -19427,7 +19429,7 @@
    "gmpImplied": 101.0,
    "listing": 100.0,
    "close1": 95.0,
-   "ltp": 44.5,
+   "ltp": 42.29,
    "bseCode": "544834"
   },
   {
@@ -19440,7 +19442,7 @@
    "gmpImplied": 484.0,
    "listing": 500.25,
    "close1": 528.5,
-   "ltp": 531.65,
+   "ltp": 528.55,
    "bseCode": "544833"
   },
   {
@@ -19453,7 +19455,7 @@
    "gmpImplied": 189.5,
    "listing": 205.0,
    "close1": 215.25,
-   "ltp": 239.05,
+   "ltp": 250.8,
    "bseCode": "544832"
   },
   {
@@ -19466,7 +19468,7 @@
    "gmpImplied": 639.0,
    "listing": 613.3,
    "close1": 609.9,
-   "ltp": 521.45,
+   "ltp": 515.65,
    "bseCode": "544829"
   },
   {
@@ -19479,7 +19481,7 @@
    "gmpImplied": 726.0,
    "listing": 628.9,
    "close1": 660.3,
-   "ltp": 940.7,
+   "ltp": 863.95,
    "bseCode": "544826"
   },
   {
@@ -19492,7 +19494,7 @@
    "gmpImplied": 106.0,
    "listing": 105.0,
    "close1": 99.75,
-   "ltp": 42.41,
+   "ltp": 43.16,
    "bseCode": "544825"
   },
   {
@@ -19505,7 +19507,7 @@
    "gmpImplied": 167.0,
    "listing": 196.15,
    "close1": 205.95,
-   "ltp": 356.0,
+   "ltp": 338.2,
    "bseCode": "544823"
   },
   {
@@ -19518,7 +19520,7 @@
    "gmpImplied": 76.0,
    "listing": 68.0,
    "close1": 68.5,
-   "ltp": 67.8,
+   "ltp": 67.95,
    "bseCode": null
   },
   {
@@ -19531,7 +19533,7 @@
    "gmpImplied": 253.0,
    "listing": 250.0,
    "close1": 262.85,
-   "ltp": 223.41,
+   "ltp": 211.03,
    "bseCode": "544822"
   },
   {
@@ -19544,7 +19546,7 @@
    "gmpImplied": 580.0,
    "listing": 569.0,
    "close1": 604.45,
-   "ltp": 549.45,
+   "ltp": 542.15,
    "bseCode": "544821"
   },
   {
@@ -19557,7 +19559,7 @@
    "gmpImplied": 146.0,
    "listing": 166.0,
    "close1": 174.3,
-   "ltp": 130.1,
+   "ltp": 129.7,
    "bseCode": null
   },
   {
@@ -19570,7 +19572,7 @@
    "gmpImplied": 183.0,
    "listing": 188.0,
    "close1": 182.98,
-   "ltp": 205.73,
+   "ltp": 205.71,
    "bseCode": "544814"
   },
   {
@@ -19583,7 +19585,7 @@
    "gmpImplied": 213.0,
    "listing": 192.0,
    "close1": 182.4,
-   "ltp": 162.0,
+   "ltp": 160.85,
    "bseCode": "544811"
   },
   {
@@ -19596,7 +19598,7 @@
    "gmpImplied": 158.0,
    "listing": 158.0,
    "close1": 147.25,
-   "ltp": 49.5,
+   "ltp": 50.2,
    "bseCode": null
   },
   {
@@ -19609,7 +19611,7 @@
    "gmpImplied": 86.5,
    "listing": 89.0,
    "close1": 93.45,
-   "ltp": 140.0,
+   "ltp": 138.0,
    "bseCode": "544810"
   },
   {
@@ -19622,7 +19624,7 @@
    "gmpImplied": 141.0,
    "listing": 112.8,
    "close1": 107.2,
-   "ltp": 119.0,
+   "ltp": 124.8,
    "bseCode": "544813"
   },
   {
@@ -19635,7 +19637,7 @@
    "gmpImplied": 70.0,
    "listing": 69.0,
    "close1": 72.45,
-   "ltp": 165.2,
+   "ltp": 171.85,
    "bseCode": "544812"
   },
   {
@@ -19648,7 +19650,7 @@
    "gmpImplied": 256.0,
    "listing": 418.0,
    "close1": 438.9,
-   "ltp": 213.85,
+   "ltp": 201.05,
    "bseCode": null
   },
   {
@@ -19674,7 +19676,7 @@
    "gmpImplied": 141.0,
    "listing": 130.0,
    "close1": 136.49,
-   "ltp": 25.72,
+   "ltp": 25.01,
    "bseCode": "544808"
   },
   {
@@ -19687,7 +19689,7 @@
    "gmpImplied": 42.0,
    "listing": 44.0,
    "close1": 45.67,
-   "ltp": 52.5,
+   "ltp": 51.45,
    "bseCode": "544807"
   },
   {
@@ -19700,7 +19702,7 @@
    "gmpImplied": 113.0,
    "listing": 113.0,
    "close1": 107.35,
-   "ltp": 82.35,
+   "ltp": 81.57,
    "bseCode": "544806"
   },
   {
@@ -19713,7 +19715,7 @@
    "gmpImplied": 196.0,
    "listing": 156.8,
    "close1": 161.7,
-   "ltp": 72.1,
+   "ltp": 71.98,
    "bseCode": "544805"
   },
   {
@@ -19726,7 +19728,7 @@
    "gmpImplied": 187.5,
    "listing": 190.0,
    "close1": 179.46,
-   "ltp": 316.2,
+   "ltp": 305.6,
    "bseCode": "544803"
   },
   {
@@ -19739,7 +19741,7 @@
    "gmpImplied": 106.0,
    "listing": 84.8,
    "close1": 80.6,
-   "ltp": 104.5,
+   "ltp": 104.65,
    "bseCode": "544804"
   },
   {
@@ -19752,7 +19754,7 @@
    "gmpImplied": 757.0,
    "listing": 500.0,
    "close1": 668.1,
-   "ltp": 91.02,
+   "ltp": 90.71,
    "bseCode": "544802"
   },
   {
@@ -19765,7 +19767,7 @@
    "gmpImplied": 53.0,
    "listing": 54.4,
    "close1": 57.1,
-   "ltp": 158.0,
+   "ltp": 160.0,
    "bseCode": null
   },
   {
@@ -19778,7 +19780,7 @@
    "gmpImplied": 80.0,
    "listing": 80.0,
    "close1": 76.0,
-   "ltp": 38.6,
+   "ltp": 38.97,
    "bseCode": "544800"
   },
   {
@@ -19791,7 +19793,7 @@
    "gmpImplied": 147.0,
    "listing": 134.9,
    "close1": 135.4,
-   "ltp": 61.13,
+   "ltp": 64.18,
    "bseCode": "544799"
   },
   {
@@ -19804,7 +19806,7 @@
    "gmpImplied": 353.0,
    "listing": 395.2,
    "close1": 414.95,
-   "ltp": 253.0,
+   "ltp": 250.75,
    "bseCode": null
   },
   {
@@ -19817,7 +19819,7 @@
    "gmpImplied": 238.0,
    "listing": 211.0,
    "close1": 221.55,
-   "ltp": 176.15,
+   "ltp": 174.15,
    "bseCode": null
   },
   {
@@ -19830,7 +19832,7 @@
    "gmpImplied": 112.0,
    "listing": 114.5,
    "close1": 120.2,
-   "ltp": 190.1,
+   "ltp": 195.5,
    "bseCode": "544798"
   },
   {
@@ -19843,7 +19845,7 @@
    "gmpImplied": 321.0,
    "listing": 257.0,
    "close1": 244.15,
-   "ltp": 102.06,
+   "ltp": 104.9,
    "bseCode": "544796"
   },
   {
@@ -19856,7 +19858,7 @@
    "gmpImplied": 23.0,
    "listing": 22.0,
    "close1": 23.1,
-   "ltp": 19.8,
+   "ltp": 19.16,
    "bseCode": "544797"
   },
   {
@@ -19869,7 +19871,7 @@
    "gmpImplied": 178.0,
    "listing": 151.0,
    "close1": 147.3,
-   "ltp": 123.0,
+   "ltp": 132.35,
    "bseCode": "544794"
   },
   {
@@ -19882,7 +19884,7 @@
    "gmpImplied": 170.0,
    "listing": 186.0,
    "close1": 195.3,
-   "ltp": 207.1,
+   "ltp": 199.95,
    "bseCode": "544793"
   },
   {
@@ -19895,7 +19897,7 @@
    "gmpImplied": 66.0,
    "listing": 66.0,
    "close1": 62.7,
-   "ltp": 44.9,
+   "ltp": 47.1,
    "bseCode": null
   },
   {
@@ -19908,7 +19910,7 @@
    "gmpImplied": 117.0,
    "listing": 92.8,
    "close1": 97.4,
-   "ltp": 90.4,
+   "ltp": 93.0,
    "bseCode": null
   },
   {
@@ -19921,7 +19923,7 @@
    "gmpImplied": 47.75,
    "listing": 48.25,
    "close1": 53.19,
-   "ltp": 59.91,
+   "ltp": 58.7,
    "bseCode": "544785"
   },
   {
@@ -19934,7 +19936,7 @@
    "gmpImplied": 166.0,
    "listing": 132.8,
    "close1": 126.2,
-   "ltp": 29.77,
+   "ltp": 29.49,
    "bseCode": "544779"
   },
   {
@@ -19960,7 +19962,7 @@
    "gmpImplied": 258.5,
    "listing": 268.0,
    "close1": 247.9,
-   "ltp": 222.52,
+   "ltp": 220.74,
    "bseCode": "544777"
   },
   {
@@ -19973,7 +19975,7 @@
    "gmpImplied": 217.0,
    "listing": 283.1,
    "close1": 297.25,
-   "ltp": 422.65,
+   "ltp": 417.05,
    "bseCode": "544773"
   },
   {
@@ -19999,7 +20001,7 @@
    "gmpImplied": 71.0,
    "listing": 70.0,
    "close1": 66.5,
-   "ltp": 48.7,
+   "ltp": 49.9,
    "bseCode": "544772"
   },
   {
@@ -20012,7 +20014,7 @@
    "gmpImplied": 69.0,
    "listing": 63.0,
    "close1": 60.57,
-   "ltp": 23.15,
+   "ltp": 23.5,
    "bseCode": "544771"
   },
   {
@@ -20025,7 +20027,7 @@
    "gmpImplied": 83.0,
    "listing": 83.0,
    "close1": 87.05,
-   "ltp": 84.98,
+   "ltp": 86.14,
    "bseCode": "544770"
   },
   {
@@ -20038,7 +20040,7 @@
    "gmpImplied": 91.0,
    "listing": 79.75,
    "close1": 75.77,
-   "ltp": 56.09,
+   "ltp": 57.7,
    "bseCode": "544769"
   },
   {
@@ -20064,7 +20066,7 @@
    "gmpImplied": 455.0,
    "listing": 452.0,
    "close1": 474.6,
-   "ltp": 553.85,
+   "ltp": 488.3,
    "bseCode": null
   },
   {
@@ -20077,7 +20079,7 @@
    "gmpImplied": 41.0,
    "listing": 43.0,
    "close1": 45.15,
-   "ltp": 109.5,
+   "ltp": 107.35,
    "bseCode": "544767"
   },
   {
@@ -20090,7 +20092,7 @@
    "gmpImplied": 130.0,
    "listing": 111.2,
    "close1": 115.8,
-   "ltp": 147.0,
+   "ltp": 150.0,
    "bseCode": null
   },
   {
@@ -20103,7 +20105,7 @@
    "gmpImplied": 86.0,
    "listing": 118.1,
    "close1": 124.0,
-   "ltp": 260.15,
+   "ltp": 282.0,
    "bseCode": "544765"
   },
   {
@@ -20116,7 +20118,7 @@
    "gmpImplied": 68.0,
    "listing": 75.0,
    "close1": 72.75,
-   "ltp": 161.15,
+   "ltp": 168.65,
    "bseCode": null
   },
   {
@@ -20129,7 +20131,7 @@
    "gmpImplied": 55.0,
    "listing": 54.5,
    "close1": 51.8,
-   "ltp": 20.5,
+   "ltp": 19.85,
    "bseCode": null
   },
   {
@@ -20142,7 +20144,7 @@
    "gmpImplied": 51.5,
    "listing": 52.5,
    "close1": 55.1,
-   "ltp": 99.6,
+   "ltp": 100.0,
    "bseCode": null
   },
   {
@@ -20155,7 +20157,7 @@
    "gmpImplied": 58.0,
    "listing": 59.75,
    "close1": 56.77,
-   "ltp": 30.91,
+   "ltp": 29.27,
    "bseCode": "544759"
   },
   {
@@ -20168,7 +20170,7 @@
    "gmpImplied": 185.0,
    "listing": 156.0,
    "close1": 163.8,
-   "ltp": 482.0,
+   "ltp": 494.95,
    "bseCode": null
   },
   {
@@ -20181,7 +20183,7 @@
    "gmpImplied": 104.0,
    "listing": 103.5,
    "close1": 103.66,
-   "ltp": 106.52,
+   "ltp": 106.18,
    "bseCode": "544758"
   },
   {
@@ -20194,7 +20196,7 @@
    "gmpImplied": 201.0,
    "listing": 213.1,
    "close1": 223.75,
-   "ltp": 418.5,
+   "ltp": 429.8,
    "bseCode": "544755"
   },
   {
@@ -20207,7 +20209,7 @@
    "gmpImplied": 98.0,
    "listing": 78.4,
    "close1": 82.3,
-   "ltp": 84.95,
+   "ltp": 87.4,
    "bseCode": null
   },
   {
@@ -20220,7 +20222,7 @@
    "gmpImplied": 189.0,
    "listing": 190.0,
    "close1": 208.63,
-   "ltp": 361.8,
+   "ltp": 352.1,
    "bseCode": "544754"
   },
   {
@@ -20233,7 +20235,7 @@
    "gmpImplied": 135.0,
    "listing": 134.5,
    "close1": 135.15,
-   "ltp": 100.0,
+   "ltp": 99.5,
    "bseCode": null
   },
   {
@@ -20246,7 +20248,7 @@
    "gmpImplied": 193.0,
    "listing": 205.0,
    "close1": 215.25,
-   "ltp": 289.75,
+   "ltp": 298.5,
    "bseCode": null
   },
   {
@@ -20259,7 +20261,7 @@
    "gmpImplied": 103.5,
    "listing": 104.6,
    "close1": 106.23,
-   "ltp": 112.72,
+   "ltp": 112.96,
    "bseCode": "544753"
   },
   {
@@ -20285,7 +20287,7 @@
    "gmpImplied": 101.75,
    "listing": 108.0,
    "close1": 109.94,
-   "ltp": 130.95,
+   "ltp": 129.0,
    "bseCode": "544751"
   },
   {
@@ -20298,7 +20300,7 @@
    "gmpImplied": 177.0,
    "listing": 178.0,
    "close1": 193.38,
-   "ltp": 124.27,
+   "ltp": 123.66,
    "bseCode": "544750"
   },
   {
@@ -20324,7 +20326,7 @@
    "gmpImplied": 80.0,
    "listing": 83.0,
    "close1": 78.99,
-   "ltp": 73.4,
+   "ltp": 74.95,
    "bseCode": "544746"
   },
   {
@@ -20337,7 +20339,7 @@
    "gmpImplied": 555.0,
    "listing": 565.0,
    "close1": 563.05,
-   "ltp": 1145.6,
+   "ltp": 1131.35,
    "bseCode": null
   },
   {
@@ -20350,7 +20352,7 @@
    "gmpImplied": 147.0,
    "listing": 125.0,
    "close1": 129.75,
-   "ltp": 331.3,
+   "ltp": 337.9,
    "bseCode": "544741"
   },
   {
@@ -20363,7 +20365,7 @@
    "gmpImplied": 392.0,
    "listing": 400.0,
    "close1": 406.4,
-   "ltp": 502.15,
+   "ltp": 496.85,
    "bseCode": "544742"
   },
   {
@@ -20376,7 +20378,7 @@
    "gmpImplied": 402.0,
    "listing": 366.0,
    "close1": 390.0,
-   "ltp": 476.25,
+   "ltp": 471.25,
    "bseCode": "544744"
   },
   {
@@ -20389,7 +20391,7 @@
    "gmpImplied": 215.5,
    "listing": 200.0,
    "close1": 180.0,
-   "ltp": 243.3,
+   "ltp": 242.25,
    "bseCode": "544743"
   },
   {
@@ -20402,7 +20404,7 @@
    "gmpImplied": 89.0,
    "listing": 89.25,
    "close1": 84.79,
-   "ltp": 314.0,
+   "ltp": 329.7,
    "bseCode": "544740"
   },
   {
@@ -20415,7 +20417,7 @@
    "gmpImplied": 177.0,
    "listing": 160.0,
    "close1": 154.06,
-   "ltp": 192.33,
+   "ltp": 189.2,
    "bseCode": "544739"
   },
   {
@@ -20428,7 +20430,7 @@
    "gmpImplied": 124.0,
    "listing": 124.0,
    "close1": 125.9,
-   "ltp": 170.0,
+   "ltp": 169.4,
    "bseCode": "544738"
   },
   {
@@ -20441,7 +20443,7 @@
    "gmpImplied": 146.0,
    "listing": 146.0,
    "close1": 146.65,
-   "ltp": 184.65,
+   "ltp": 181.0,
    "bseCode": "544735"
   },
   {
@@ -20454,7 +20456,7 @@
    "gmpImplied": 3.5,
    "listing": 107.0,
    "close1": 106.83,
-   "ltp": 118.75,
+   "ltp": 118.96,
    "bseCode": "544734"
   },
   {
@@ -20467,7 +20469,7 @@
    "gmpImplied": 322.0,
    "listing": 328.0,
    "close1": 356.25,
-   "ltp": 435.85,
+   "ltp": 438.7,
    "bseCode": "544733"
   },
   {
@@ -20480,7 +20482,7 @@
    "gmpImplied": 427.0,
    "listing": 467.7,
    "close1": 374.2,
-   "ltp": 277.13,
+   "ltp": 267.6,
    "bseCode": "544732"
   },
   {
@@ -20493,7 +20495,7 @@
    "gmpImplied": 125.0,
    "listing": 122.0,
    "close1": 113.03,
-   "ltp": 168.8,
+   "ltp": 167.01,
    "bseCode": "544731"
   },
   {
@@ -20506,7 +20508,7 @@
    "gmpImplied": 136.0,
    "listing": 153.0,
    "close1": 160.65,
-   "ltp": 486.65,
+   "ltp": 496.35,
    "bseCode": null
   },
   {
@@ -20519,7 +20521,7 @@
    "gmpImplied": 98.0,
    "listing": 100.05,
    "close1": 104.4,
-   "ltp": 202.8,
+   "ltp": 206.0,
    "bseCode": null
   },
   {
@@ -20532,7 +20534,7 @@
    "gmpImplied": 47.0,
    "listing": 47.3,
    "close1": 47.6,
-   "ltp": 94.0,
+   "ltp": 89.0,
    "bseCode": "544724"
   },
   {
@@ -20545,7 +20547,7 @@
    "gmpImplied": 1352.0,
    "listing": 1535.0,
    "close1": 1452.1,
-   "ltp": 3116.0,
+   "ltp": 3129.1,
    "bseCode": "544723"
   },
   {
@@ -20584,7 +20586,7 @@
    "gmpImplied": 145.0,
    "listing": 127.0,
    "close1": 133.35,
-   "ltp": 102.55,
+   "ltp": 89.5,
    "bseCode": null
   },
   {
@@ -20597,7 +20599,7 @@
    "gmpImplied": 227.0,
    "listing": 202.0,
    "close1": 205.15,
-   "ltp": 570.3,
+   "ltp": 582.8,
    "bseCode": "544720"
   },
   {
@@ -20610,7 +20612,7 @@
    "gmpImplied": 366.0,
    "listing": 375.0,
    "close1": 413.95,
-   "ltp": 629.7,
+   "ltp": 619.95,
    "bseCode": "544718"
   },
   {
@@ -20623,7 +20625,7 @@
    "gmpImplied": 50.0,
    "listing": 50.0,
    "close1": 52.5,
-   "ltp": 85.0,
+   "ltp": 83.05,
    "bseCode": "544710"
   },
   {
@@ -20636,7 +20638,7 @@
    "gmpImplied": 84.0,
    "listing": 64.1,
    "close1": 67.3,
-   "ltp": 113.0,
+   "ltp": 109.0,
    "bseCode": null
   },
   {
@@ -20649,7 +20651,7 @@
    "gmpImplied": 1018.0,
    "listing": 960.0,
    "close1": 867.9,
-   "ltp": 1305.3,
+   "ltp": 1317.6,
    "bseCode": "544717"
   },
   {
@@ -20662,7 +20664,7 @@
    "gmpImplied": 76.0,
    "listing": 68.0,
    "close1": 73.45,
-   "ltp": 38.46,
+   "ltp": 38.01,
    "bseCode": "544716"
   },
   {
@@ -20675,7 +20677,7 @@
    "gmpImplied": 127.0,
    "listing": 123.0,
    "close1": 116.85,
-   "ltp": 42.0,
+   "ltp": 43.24,
    "bseCode": "544711"
   },
   {
@@ -20688,7 +20690,7 @@
    "gmpImplied": 69.0,
    "listing": 55.2,
    "close1": 52.45,
-   "ltp": 31.0,
+   "ltp": 32.35,
    "bseCode": null
   },
   {
@@ -20701,7 +20703,7 @@
    "gmpImplied": 79.0,
    "listing": 83.0,
    "close1": 80.48,
-   "ltp": 107.6,
+   "ltp": 106.14,
    "bseCode": "544709"
   },
   {
@@ -20714,7 +20716,7 @@
    "gmpImplied": 110.0,
    "listing": 88.0,
    "close1": 83.6,
-   "ltp": 48.02,
+   "ltp": 46.5,
    "bseCode": "544708"
   },
   {
@@ -20727,7 +20729,7 @@
    "gmpImplied": 224.0,
    "listing": 229.0,
    "close1": 217.55,
-   "ltp": 195.0,
+   "ltp": 203.95,
    "bseCode": "544707"
   },
   {
@@ -20740,7 +20742,7 @@
    "gmpImplied": 119.0,
    "listing": 120.0,
    "close1": 114.0,
-   "ltp": 130.8,
+   "ltp": 129.95,
    "bseCode": null
   },
   {
@@ -20753,7 +20755,7 @@
    "gmpImplied": 872.0,
    "listing": 876.0,
    "close1": 847.4,
-   "ltp": 821.8,
+   "ltp": 830.8,
    "bseCode": "544700"
   },
   {
@@ -20766,7 +20768,7 @@
    "gmpImplied": 127.0,
    "listing": 129.0,
    "close1": 128.91,
-   "ltp": 158.38,
+   "ltp": 158.98,
    "bseCode": "544699"
   },
   {
@@ -20805,7 +20807,7 @@
    "gmpImplied": 88.0,
    "listing": 96.0,
    "close1": 100.8,
-   "ltp": 460.3,
+   "ltp": 479.0,
    "bseCode": null
   },
   {
@@ -20818,7 +20820,7 @@
    "gmpImplied": 193.0,
    "listing": 178.5,
    "close1": 192.15,
-   "ltp": 143.7,
+   "ltp": 142.0,
    "bseCode": null
   },
   {
@@ -20844,7 +20846,7 @@
    "gmpImplied": 197.0,
    "listing": 191.0,
    "close1": 191.2,
-   "ltp": 353.0,
+   "ltp": 348.8,
    "bseCode": "544694"
   },
   {
@@ -20857,7 +20859,7 @@
    "gmpImplied": 144.0,
    "listing": 144.0,
    "close1": 150.3,
-   "ltp": 270.0,
+   "ltp": 271.05,
    "bseCode": "544695"
   },
   {
@@ -20883,7 +20885,7 @@
    "gmpImplied": 64.0,
    "listing": 64.0,
    "close1": 63.16,
-   "ltp": 60.0,
+   "ltp": 63.0,
    "bseCode": "544688"
   },
   {
@@ -20896,7 +20898,7 @@
    "gmpImplied": 70.0,
    "listing": 65.0,
    "close1": 68.25,
-   "ltp": 105.4,
+   "ltp": 106.9,
    "bseCode": "544687"
   },
   {
@@ -20922,7 +20924,7 @@
    "gmpImplied": 157.5,
    "listing": 172.1,
    "close1": 180.7,
-   "ltp": 241.65,
+   "ltp": 229.9,
    "bseCode": null
   },
   {
@@ -20935,7 +20937,7 @@
    "gmpImplied": 104.0,
    "listing": 83.2,
    "close1": 79.05,
-   "ltp": 177.3,
+   "ltp": 180.8,
    "bseCode": "544684"
   },
   {
@@ -20948,7 +20950,7 @@
    "gmpImplied": 120.5,
    "listing": 112.6,
    "close1": 109.98,
-   "ltp": 292.15,
+   "ltp": 284.0,
    "bseCode": "544685"
   },
   {
@@ -20961,7 +20963,7 @@
    "gmpImplied": 47.0,
    "listing": 47.0,
    "close1": 44.65,
-   "ltp": 14.0,
+   "ltp": 13.98,
    "bseCode": "544683"
   },
   {
@@ -20987,7 +20989,7 @@
    "gmpImplied": 360.0,
    "listing": 318.0,
    "close1": 348.25,
-   "ltp": 551.05,
+   "ltp": 547.0,
    "bseCode": "544679"
   },
   {
@@ -21013,7 +21015,7 @@
    "gmpImplied": 159.0,
    "listing": 149.0,
    "close1": 154.8,
-   "ltp": 372.15,
+   "ltp": 362.0,
    "bseCode": "544681"
   },
   {
@@ -21039,7 +21041,7 @@
    "gmpImplied": 69.5,
    "listing": 77.5,
    "close1": 80.3,
-   "ltp": 138.95,
+   "ltp": 134.95,
    "bseCode": null
   },
   {
@@ -21065,7 +21067,7 @@
    "gmpImplied": 41.5,
    "listing": 45.0,
    "close1": 40.66,
-   "ltp": 31.86,
+   "ltp": 31.54,
    "bseCode": "544678"
   },
   {
@@ -21078,7 +21080,7 @@
    "gmpImplied": 41.0,
    "listing": 34.45,
    "close1": 32.75,
-   "ltp": 13.15,
+   "ltp": 13.6,
    "bseCode": null
   },
   {
@@ -21091,7 +21093,7 @@
    "gmpImplied": 174.0,
    "listing": 139.2,
    "close1": 132.25,
-   "ltp": 35.9,
+   "ltp": 36.03,
    "bseCode": "544676"
   },
   {
@@ -21104,7 +21106,7 @@
    "gmpImplied": 112.0,
    "listing": 89.0,
    "close1": 93.41,
-   "ltp": 129.5,
+   "ltp": 123.1,
    "bseCode": "544675"
   },
   {
@@ -21130,7 +21132,7 @@
    "gmpImplied": 336.0,
    "listing": 330.6,
    "close1": 327.8,
-   "ltp": 266.15,
+   "ltp": 242.85,
    "bseCode": null
   },
   {
@@ -35475,6 +35477,11 @@
  ],
  "news": [
   {
+   "title": "Anthropic IPO share orders from China are said to be rebuffed",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/anthropic-ipo-share-orders-from-china-are-said-to-be-rebuffed/articleshow/135809948.cms",
+   "date": "2026-11-13T21:58:14+05:30"
+  },
+  {
    "title": "Razorpay, Sembcorp Green Infra get Sebi nod to float IPOs",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/razorpay-sembcorp-green-infra-get-sebi-nod-to-float-ipos/articleshow/135803228.cms",
    "date": "2026-11-13T17:54:01+05:30"
@@ -35593,11 +35600,6 @@
    "title": "Bharti Airtel Share Price Live Updates: Disclosure Under Regulation 30 Of SEBI (Listing Obligations And Disclosure Requirements), Regulations, 2015",
    "url": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/bharti-airtel-share-price-today-live-06-nov-2026/liveblog/135591214.cms",
    "date": "2026-11-06T08:20:07+05:30"
-  },
-  {
-   "title": "Listed REITs beat Nifty over 2 years: Better bet than dividend stocks?",
-   "url": "https://www.business-standard.com/markets/news/listed-reits-beat-nifty-over-2-years-better-bet-than-dividend-stocks-126110501001_1.html",
-   "date": "2026-11-06T07:11:44+05:30"
   }
  ],
  "priceHistory": {
@@ -35797,6 +35799,10 @@
    [
     "2026-11-12",
     40.3
+   ],
+   [
+    "2026-11-13",
+    39.6
    ]
   ],
   "Aegeus Technologies": [
@@ -36035,6 +36041,10 @@
    [
     "2026-11-12",
     108.0
+   ],
+   [
+    "2026-11-13",
+    110.95
    ]
   ],
   "Alpine Texworld": [
@@ -36277,6 +36287,10 @@
    [
     "2026-11-12",
     42.41
+   ],
+   [
+    "2026-11-13",
+    43.16
    ]
   ],
   "Amtech Esters": [
@@ -36435,6 +36449,10 @@
    [
     "2026-11-12",
     83.25
+   ],
+   [
+    "2026-11-13",
+    78.16
    ]
   ],
   "Apana Logistics": [
@@ -36597,6 +36615,10 @@
    [
     "2026-11-12",
     20.68
+   ],
+   [
+    "2026-11-13",
+    20.09
    ]
   ],
   "Ardee Industries": [
@@ -36839,6 +36861,10 @@
    [
     "2026-11-12",
     45.33
+   ],
+   [
+    "2026-11-13",
+    42.89
    ]
   ],
   "Ashutosh Fibre": [
@@ -37021,6 +37047,10 @@
    [
     "2026-11-12",
     130.75
+   ],
+   [
+    "2026-11-13",
+    127.15
    ]
   ],
   "Asset Reconstruction Company (India)": [
@@ -37309,6 +37339,10 @@
    [
     "2026-11-12",
     946.25
+   ],
+   [
+    "2026-11-13",
+    956.2
    ]
   ],
   "Behari Lal Engineering": [
@@ -37543,6 +37577,10 @@
    [
     "2026-11-12",
     450.5
+   ],
+   [
+    "2026-11-13",
+    453.15
    ]
   ],
   "Caliber Mining": [
@@ -37785,6 +37823,10 @@
    [
     "2026-11-12",
     531.65
+   ],
+   [
+    "2026-11-13",
+    528.55
    ]
   ],
   "Cube Highways Trust InvIT": [
@@ -38027,6 +38069,10 @@
    [
     "2026-11-12",
     151.97
+   ],
+   [
+    "2026-11-13",
+    151.89
    ]
   ],
   "Deepa Jewellers": [
@@ -38205,6 +38251,10 @@
    [
     "2026-11-12",
     226.58
+   ],
+   [
+    "2026-11-13",
+    219.48
    ]
   ],
   "Dhoot Transmission": [
@@ -38447,6 +38497,10 @@
    [
     "2026-11-12",
     1626.8
+   ],
+   [
+    "2026-11-13",
+    1638.6
    ]
   ],
   "ESDS Software": [
@@ -38679,6 +38733,10 @@
    [
     "2026-11-12",
     135.49
+   ],
+   [
+    "2026-11-13",
+    132.86
    ]
   ],
   "Glass Wall Systems": [
@@ -38837,6 +38895,10 @@
    [
     "2026-11-12",
     253.25
+   ],
+   [
+    "2026-11-13",
+    256.2
    ]
   ],
   "H.R. Hygiene Products": [
@@ -39051,6 +39113,10 @@
    [
     "2026-11-12",
     73.0
+   ],
+   [
+    "2026-11-13",
+    70.2
    ]
   ],
   "Horizon Industrial Parks": [
@@ -39273,6 +39339,10 @@
    [
     "2026-11-12",
     46.41
+   ],
+   [
+    "2026-11-13",
+    47.2
    ]
   ],
   "Hy-Tech Engineers": [
@@ -39475,6 +39545,10 @@
    [
     "2026-11-12",
     76.62
+   ],
+   [
+    "2026-11-13",
+    76.77
    ]
   ],
   "Indo-MIM": [
@@ -39717,6 +39791,10 @@
    [
     "2026-11-12",
     1277.6
+   ],
+   [
+    "2026-11-13",
+    1276.4
    ]
   ],
   "Infrax Renewable": [
@@ -39871,6 +39949,10 @@
    [
     "2026-11-12",
     177.1
+   ],
+   [
+    "2026-11-13",
+    185.95
    ]
   ],
   "Juniper Green Energy": [
@@ -40113,6 +40195,10 @@
    [
     "2026-11-12",
     253.8
+   ],
+   [
+    "2026-11-13",
+    254.22
    ]
   ],
   "Kanohar Electricals": [
@@ -40271,6 +40357,10 @@
    [
     "2026-11-12",
     1064.4
+   ],
+   [
+    "2026-11-13",
+    1045.25
    ]
   ],
   "Karamtara Engineering": [
@@ -40429,6 +40519,10 @@
    [
     "2026-11-12",
     380.2
+   ],
+   [
+    "2026-11-13",
+    378.05
    ]
   ],
   "Kwick Forensic Solutions": [
@@ -40619,6 +40713,10 @@
    [
     "2026-11-12",
     185.65
+   ],
+   [
+    "2026-11-13",
+    180.8
    ]
   ],
   "LAPL Automotive": [
@@ -40861,6 +40959,10 @@
    [
     "2026-11-12",
     102.0
+   ],
+   [
+    "2026-11-13",
+    102.0
    ]
   ],
   "LCC Projects": [
@@ -41015,6 +41117,10 @@
    [
     "2026-11-12",
     131.93
+   ],
+   [
+    "2026-11-13",
+    131.63
    ]
   ],
   "LEAP India": [
@@ -41257,6 +41363,10 @@
    [
     "2026-11-12",
     125.34
+   ],
+   [
+    "2026-11-13",
+    130.02
    ]
   ],
   "Lalithaa Jewellery Mart": [
@@ -41483,6 +41593,10 @@
    [
     "2026-11-12",
     367.75
+   ],
+   [
+    "2026-11-13",
+    349.4
    ]
   ],
   "Lohia Corp": [
@@ -41725,6 +41839,10 @@
    [
     "2026-11-12",
     513.15
+   ],
+   [
+    "2026-11-13",
+    509.15
    ]
   ],
   "Lumino Industries": [
@@ -41915,6 +42033,10 @@
    [
     "2026-11-12",
     102.08
+   ],
+   [
+    "2026-11-13",
+    102.14
    ]
   ],
   "MV Electrosystems": [
@@ -42157,6 +42279,10 @@
    [
     "2026-11-12",
     744.95
+   ],
+   [
+    "2026-11-13",
+    768.65
    ]
   ],
   "Madhur Knit Crafts": [
@@ -42491,6 +42617,10 @@
    [
     "2026-11-12",
     132.7
+   ],
+   [
+    "2026-11-13",
+    126.1
    ]
   ],
   "Milky Mist": [
@@ -42743,6 +42873,10 @@
    [
     "2026-11-12",
     940.7
+   ],
+   [
+    "2026-11-13",
+    863.95
    ]
   ],
   "Molbio Diagnostics": [
@@ -42985,6 +43119,10 @@
    [
     "2026-11-12",
     1394.1
+   ],
+   [
+    "2026-11-13",
+    1493.2
    ]
   ],
   "Optimystix Entertainment": [
@@ -43227,6 +43365,10 @@
    [
     "2026-11-12",
     129.2
+   ],
+   [
+    "2026-11-13",
+    129.7
    ]
   ],
   "Phychem Technologies": [
@@ -43365,6 +43507,10 @@
    [
     "2026-11-12",
     41.0
+   ],
+   [
+    "2026-11-13",
+    41.45
    ]
   ],
   "Pranav Constructions": [
@@ -43527,6 +43673,10 @@
    [
     "2026-11-12",
     85.7
+   ],
+   [
+    "2026-11-13",
+    84.62
    ]
   ],
   "Prasol Chemicals": [
@@ -43685,6 +43835,10 @@
    [
     "2026-11-12",
     820.8
+   ],
+   [
+    "2026-11-13",
+    801.65
    ]
   ],
   "Priority Jewels": [
@@ -43871,6 +44025,10 @@
    [
     "2026-11-12",
     258.6
+   ],
+   [
+    "2026-11-13",
+    260.8
    ]
   ],
   "Purple Style Labs": [
@@ -44053,6 +44211,10 @@
    [
     "2026-11-12",
     489.7
+   ],
+   [
+    "2026-11-13",
+    492.75
    ]
   ],
   "Qualiance International": [
@@ -44219,6 +44381,10 @@
    [
     "2026-11-12",
     126.1
+   ],
+   [
+    "2026-11-13",
+    126.3
    ]
   ],
   "Rays of Belief": [
@@ -44397,6 +44563,10 @@
    [
     "2026-11-12",
     295.82
+   ],
+   [
+    "2026-11-13",
+    283.15
    ]
   ],
   "Rentomojo": [
@@ -44551,6 +44721,10 @@
    [
     "2026-11-12",
     619.9
+   ],
+   [
+    "2026-11-13",
+    611.7
    ]
   ],
   "SBI Funds Management": [
@@ -44793,6 +44967,10 @@
    [
     "2026-11-12",
     521.45
+   ],
+   [
+    "2026-11-13",
+    515.65
    ]
   ],
   "Shankesh Jewellers": [
@@ -45011,6 +45189,10 @@
    [
     "2026-11-12",
     91.0
+   ],
+   [
+    "2026-11-13",
+    89.82
    ]
   ],
   "Shanti Inorganics": [
@@ -45193,6 +45375,10 @@
    [
     "2026-11-12",
     202.85
+   ],
+   [
+    "2026-11-13",
+    196.0
    ]
   ],
   "Shiprocket": [
@@ -45427,6 +45613,10 @@
    [
     "2026-11-12",
     129.97
+   ],
+   [
+    "2026-11-13",
+    128.2
    ]
   ],
   "Skyways Air Services": [
@@ -45679,6 +45869,10 @@
    [
     "2026-11-12",
     239.05
+   ],
+   [
+    "2026-11-13",
+    250.8
    ]
   ],
   "Steamhouse India": [
@@ -45979,6 +46173,10 @@
    [
     "2026-11-12",
     446.5
+   ],
+   [
+    "2026-11-13",
+    440.6
    ]
   ],
   "Symbiotec Pharmalab": [
@@ -46185,6 +46383,10 @@
    [
     "2026-11-12",
     1642.4
+   ],
+   [
+    "2026-11-13",
+    1611.3
    ]
   ],
   "Technocraft Ventures": [
@@ -46427,6 +46629,10 @@
    [
     "2026-11-12",
     490.35
+   ],
+   [
+    "2026-11-13",
+    494.6
    ]
   ],
   "Tempsens Instruments (India)": [
@@ -46633,6 +46839,10 @@
    [
     "2026-11-12",
     533.2
+   ],
+   [
+    "2026-11-13",
+    537.8
    ]
   ],
   "Vinod Texworld": [
@@ -46787,6 +46997,10 @@
    [
     "2026-11-12",
     25.35
+   ],
+   [
+    "2026-11-13",
+    25.15
    ]
   ],
   "Xtranet Technologies": [
@@ -47029,6 +47243,10 @@
    [
     "2026-11-12",
     270.35
+   ],
+   [
+    "2026-11-13",
+    270.15
    ]
   ],
   "Veegaland Developers": [
@@ -47179,6 +47397,10 @@
    [
     "2026-11-12",
     137.11
+   ],
+   [
+    "2026-11-13",
+    142.6
    ]
   ],
   "Manika Plastech": [
@@ -47325,6 +47547,10 @@
    [
     "2026-11-12",
     48.68
+   ],
+   [
+    "2026-11-13",
+    50.4
    ]
   ],
   "Asset Reconstruction": [
@@ -47479,6 +47705,10 @@
    [
     "2026-11-12",
     128.44
+   ],
+   [
+    "2026-11-13",
+    129.28
    ]
   ],
   "Om Power Transmission": [
@@ -47721,6 +47951,10 @@
    [
     "2026-11-12",
     124.27
+   ],
+   [
+    "2026-11-13",
+    123.66
    ]
   ],
   "ESDS Software Solution": [
@@ -47907,6 +48141,10 @@
    [
     "2026-11-12",
     1265.2
+   ],
+   [
+    "2026-11-13",
+    1260.5
    ]
   ],
   "Vinit Mobile": [
@@ -48141,6 +48379,10 @@
    [
     "2026-11-12",
     49.5
+   ],
+   [
+    "2026-11-13",
+    50.2
    ]
   ],
   "OnEMI Technology": [
@@ -48383,6 +48625,10 @@
    [
     "2026-11-12",
     361.8
+   ],
+   [
+    "2026-11-13",
+    352.1
    ]
   ],
   "Anawil Wire & Engineering": [
@@ -48625,6 +48871,10 @@
    [
     "2026-11-12",
     390.75
+   ],
+   [
+    "2026-11-13",
+    393.2
    ]
   ],
   "Aye Finance": [
@@ -48867,6 +49117,10 @@
    [
     "2026-11-12",
     158.38
+   ],
+   [
+    "2026-11-13",
+    158.98
    ]
   ],
   "Knack Packaging": [
@@ -49109,6 +49363,10 @@
    [
     "2026-11-12",
     205.73
+   ],
+   [
+    "2026-11-13",
+    205.71
    ]
   ],
   "Shreedhar Spinners": [
@@ -49327,6 +49585,10 @@
    [
     "2026-11-12",
     158.0
+   ],
+   [
+    "2026-11-13",
+    160.0
    ]
   ],
   "IC Electricals": [
@@ -49569,6 +49831,10 @@
    [
     "2026-11-12",
     130.1
+   ],
+   [
+    "2026-11-13",
+    129.7
    ]
   ],
   "Turtlemint Fintech Solutions": [
@@ -49811,6 +50077,10 @@
    [
     "2026-11-12",
     61.13
+   ],
+   [
+    "2026-11-13",
+    64.18
    ]
   ],
   "Happy Steels": [
@@ -50045,6 +50315,10 @@
    [
     "2026-11-12",
     67.8
+   ],
+   [
+    "2026-11-13",
+    67.95
    ]
   ],
   "Sai Parenteral's": [
@@ -50287,6 +50561,10 @@
    [
     "2026-11-12",
     502.15
+   ],
+   [
+    "2026-11-13",
+    496.85
    ]
   ],
   "Clean Max Enviro Energy Solutions": [
@@ -50529,6 +50807,10 @@
    [
     "2026-11-12",
     1305.3
+   ],
+   [
+    "2026-11-13",
+    1317.6
    ]
   ],
   "Utkal Speciality": [
@@ -50751,6 +51033,10 @@
    [
     "2026-11-12",
     44.9
+   ],
+   [
+    "2026-11-13",
+    47.1
    ]
   ],
   "Laser Power & Infra": [
@@ -50993,6 +51279,10 @@
    [
     "2026-11-12",
     223.41
+   ],
+   [
+    "2026-11-13",
+    211.03
    ]
   ],
   "Advit Jewels": [
@@ -51235,6 +51525,10 @@
    [
     "2026-11-12",
     316.2
+   ],
+   [
+    "2026-11-13",
+    305.6
    ]
   ],
   "Fascinate Textiles": [
@@ -51457,6 +51751,10 @@
    [
     "2026-11-12",
     137.0
+   ],
+   [
+    "2026-11-13",
+    136.1
    ]
   ],
   "Clay Craft": [
@@ -51699,6 +51997,10 @@
    [
     "2026-11-12",
     176.15
+   ],
+   [
+    "2026-11-13",
+    174.15
    ]
   ],
   "Omnitech Engineering": [
@@ -51941,6 +52243,10 @@
    [
     "2026-11-12",
     570.3
+   ],
+   [
+    "2026-11-13",
+    582.8
    ]
   ],
   "PNGS Reva Diamond Jewellery": [
@@ -52183,6 +52489,10 @@
    [
     "2026-11-12",
     629.7
+   ],
+   [
+    "2026-11-13",
+    619.95
    ]
   ],
   "Amba Auto Sales & Services": [
@@ -52417,6 +52727,10 @@
    [
     "2026-11-12",
     100.0
+   ],
+   [
+    "2026-11-13",
+    99.5
    ]
   ],
   "Mobilise App": [
@@ -52563,6 +52877,10 @@
    [
     "2026-11-12",
     113.0
+   ],
+   [
+    "2026-11-13",
+    109.0
    ]
   ],
   "Armour Security": [
@@ -52761,6 +53079,10 @@
    [
     "2026-11-12",
     27.1
+   ],
+   [
+    "2026-11-13",
+    27.1
    ]
   ],
   "Annu Projects": [
@@ -52955,6 +53277,10 @@
    [
     "2026-11-12",
     41.49
+   ],
+   [
+    "2026-11-13",
+    41.98
    ]
   ],
   "Avana Electrosystems": [
@@ -53193,6 +53519,10 @@
    [
     "2026-11-12",
     138.95
+   ],
+   [
+    "2026-11-13",
+    134.95
    ]
   ],
   "E to E Transportation Infrastructure": [
@@ -53435,6 +53765,10 @@
    [
     "2026-11-12",
     266.15
+   ],
+   [
+    "2026-11-13",
+    242.85
    ]
   ],
   "Pramodini Medicare": [
@@ -53669,6 +54003,10 @@
    [
     "2026-11-12",
     107.2
+   ],
+   [
+    "2026-11-13",
+    105.35
    ]
   ],
   "Grover Jewells": [
@@ -53891,6 +54229,10 @@
    [
     "2026-11-12",
     460.3
+   ],
+   [
+    "2026-11-13",
+    479.0
    ]
   ],
   "Skyways Air": [
@@ -54089,6 +54431,10 @@
    [
     "2026-11-12",
     111.73
+   ],
+   [
+    "2026-11-13",
+    116.24
    ]
   ],
   "Manilam Industries": [
@@ -54247,6 +54593,10 @@
    [
     "2026-11-09",
     31.0
+   ],
+   [
+    "2026-11-13",
+    32.35
    ]
   ],
   "Skytech Infinite Platform": [
@@ -54473,6 +54823,10 @@
    [
     "2026-11-12",
     29.95
+   ],
+   [
+    "2026-11-13",
+    28.5
    ]
   ],
   "Waterways Leisure Tourism": [
@@ -54715,6 +55069,10 @@
    [
     "2026-11-12",
     91.02
+   ],
+   [
+    "2026-11-13",
+    90.71
    ]
   ],
   "Fractal Analytics": [
@@ -54957,6 +55315,10 @@
    [
     "2026-11-12",
     821.8
+   ],
+   [
+    "2026-11-13",
+    830.8
    ]
   ],
   "Victory Electric Vehicles": [
@@ -55171,6 +55533,10 @@
    [
     "2026-11-12",
     13.15
+   ],
+   [
+    "2026-11-13",
+    13.6
    ]
   ],
   "Shree Ram Twistex": [
@@ -55413,6 +55779,10 @@
    [
     "2026-11-12",
     38.46
+   ],
+   [
+    "2026-11-13",
+    38.01
    ]
   ],
   "Vivid Electromech": [
@@ -55655,6 +56025,10 @@
    [
     "2026-11-12",
     1145.6
+   ],
+   [
+    "2026-11-13",
+    1131.35
    ]
   ],
   "Simca Advertising": [
@@ -55897,6 +56271,10 @@
    [
     "2026-11-12",
     482.0
+   ],
+   [
+    "2026-11-13",
+    494.95
    ]
   ],
   "Manipal Payment and Identity Solutions": [
@@ -56051,6 +56429,10 @@
    [
     "2026-11-12",
     338.0
+   ],
+   [
+    "2026-11-13",
+    322.15
    ]
   ],
   "Kusumgar": [
@@ -56293,6 +56675,10 @@
    [
     "2026-11-12",
     549.45
+   ],
+   [
+    "2026-11-13",
+    542.15
    ]
   ],
   "Hexagon Nutrition": [
@@ -56535,6 +56921,10 @@
    [
     "2026-11-12",
     59.91
+   ],
+   [
+    "2026-11-13",
+    58.7
    ]
   ],
   "Biopol Chemicals": [
@@ -56768,6 +57158,10 @@
    ],
    [
     "2026-11-12",
+    46.5
+   ],
+   [
+    "2026-11-13",
     46.5
    ]
   ],
@@ -57121,6 +57515,10 @@
    [
     "2026-11-12",
     147.0
+   ],
+   [
+    "2026-11-13",
+    150.0
    ]
   ],
   "GSP Crop Science": [
@@ -57363,6 +57761,10 @@
    [
     "2026-11-12",
     435.85
+   ],
+   [
+    "2026-11-13",
+    438.7
    ]
   ],
   "SEDEMAC Mechatronics": [
@@ -57605,6 +58007,10 @@
    [
     "2026-11-12",
     3116.0
+   ],
+   [
+    "2026-11-13",
+    3129.1
    ]
   ],
   "Avience Biomedicals": [
@@ -57847,6 +58253,10 @@
    [
     "2026-11-12",
     253.0
+   ],
+   [
+    "2026-11-13",
+    250.75
    ]
   ],
   "Teamtech Formwork Solutions": [
@@ -58089,6 +58499,10 @@
    [
     "2026-11-12",
     161.15
+   ],
+   [
+    "2026-11-13",
+    168.65
    ]
   ],
   "Teja Engineering Industries": [
@@ -58311,6 +58725,10 @@
    [
     "2026-11-12",
     213.85
+   ],
+   [
+    "2026-11-13",
+    201.05
    ]
   ],
   "CKK Retail Mart": [
@@ -58791,6 +59209,10 @@
    [
     "2026-11-12",
     192.33
+   ],
+   [
+    "2026-11-13",
+    189.2
    ]
   ],
   "Shadowfax Technologies": [
@@ -59033,6 +59455,10 @@
    [
     "2026-11-12",
     292.15
+   ],
+   [
+    "2026-11-13",
+    284.0
    ]
   ],
   "CMR Green Technologies": [
@@ -59275,6 +59701,10 @@
    [
     "2026-11-12",
     222.52
+   ],
+   [
+    "2026-11-13",
+    220.74
    ]
   ],
   "Amagi Media Labs": [
@@ -59517,6 +59947,10 @@
    [
     "2026-11-12",
     551.05
+   ],
+   [
+    "2026-11-13",
+    547.0
    ]
   ],
   "Amir Chand Jagdish Kumar": [
@@ -59759,6 +60193,10 @@
    [
     "2026-11-12",
     242.83
+   ],
+   [
+    "2026-11-13",
+    243.14
    ]
   ],
   "Value 360 Communications": [
@@ -59981,6 +60419,10 @@
    [
     "2026-11-12",
     84.95
+   ],
+   [
+    "2026-11-13",
+    87.4
    ]
   ],
   "Striders Impex": [
@@ -60305,6 +60747,10 @@
    [
     "2026-11-12",
     151.32
+   ],
+   [
+    "2026-11-13",
+    151.16
    ]
   ],
   "Srinibas Pradhan Constructions": [
@@ -60483,6 +60929,10 @@
    [
     "2026-11-12",
     202.8
+   ],
+   [
+    "2026-11-13",
+    206.0
    ]
   ],
   "Brandman Retail": [
@@ -60713,6 +61163,10 @@
    [
     "2026-11-12",
     143.7
+   ],
+   [
+    "2026-11-13",
+    142.0
    ]
   ],
   "Gaudium IVF": [
@@ -60955,6 +61409,10 @@
    [
     "2026-11-12",
     107.6
+   ],
+   [
+    "2026-11-13",
+    106.14
    ]
   ],
   "RFBL Flexi Pack": [
@@ -61125,6 +61583,10 @@
    [
     "2026-11-12",
     99.6
+   ],
+   [
+    "2026-11-13",
+    100.0
    ]
   ],
   "Rajputana Stainless": [
@@ -61367,6 +61829,10 @@
    [
     "2026-11-12",
     168.8
+   ],
+   [
+    "2026-11-13",
+    167.01
    ]
   ],
   "Credent Connect": [
@@ -61597,6 +62063,10 @@
    [
     "2026-11-12",
     432.3
+   ],
+   [
+    "2026-11-13",
+    409.0
    ]
   ],
   "Genxai Analytics": [
@@ -61839,6 +62309,10 @@
    [
     "2026-11-12",
     90.4
+   ],
+   [
+    "2026-11-13",
+    93.0
    ]
   ],
   "Adisoft Technologies": [
@@ -62081,6 +62555,10 @@
    [
     "2026-11-12",
     289.75
+   ],
+   [
+    "2026-11-13",
+    298.5
    ]
   ],
   "Apsis Aerocom": [
@@ -62323,6 +62801,10 @@
    [
     "2026-11-12",
     486.65
+   ],
+   [
+    "2026-11-13",
+    496.35
    ]
   ],
   "Yaap Digital": [
@@ -62565,6 +63047,10 @@
    [
     "2026-11-12",
     102.55
+   ],
+   [
+    "2026-11-13",
+    89.5
    ]
   ],
   "CSM Technologies": [
@@ -62807,6 +63293,10 @@
    [
     "2026-11-12",
     82.35
+   ],
+   [
+    "2026-11-13",
+    81.57
    ]
   ],
   "Marushika Technology": [
@@ -63001,6 +63491,10 @@
    [
     "2026-11-12",
     130.8
+   ],
+   [
+    "2026-11-13",
+    129.95
    ]
   ],
   "KRM Ayurveda": [
@@ -63243,6 +63737,10 @@
    [
     "2026-11-12",
     241.65
+   ],
+   [
+    "2026-11-13",
+    229.9
    ]
   ],
   "Milky Mist Dairy Food": [
@@ -63481,6 +63979,10 @@
    [
     "2026-11-12",
     297.6
+   ],
+   [
+    "2026-11-13",
+    301.6
    ]
   ],
   "Manipal Health Enterprises": [
@@ -63723,6 +64225,10 @@
    [
     "2026-11-12",
     676.5
+   ],
+   [
+    "2026-11-13",
+    681.4
    ]
   ],
   "Powerica": [
@@ -63965,6 +64471,10 @@
    [
     "2026-11-12",
     476.25
+   ],
+   [
+    "2026-11-13",
+    471.25
    ]
   ],
   "Propshop Events & Exhibitions": [
@@ -64389,6 +64899,10 @@
    [
     "2026-11-12",
     20.5
+   ],
+   [
+    "2026-11-13",
+    19.85
    ]
   ],
   "Innovision": [
@@ -64631,6 +65145,10 @@
    [
     "2026-11-12",
     277.13
+   ],
+   [
+    "2026-11-13",
+    267.6
    ]
   ],
   "Q-Line Biotec": [
@@ -64873,6 +65391,10 @@
    [
     "2026-11-12",
     553.85
+   ],
+   [
+    "2026-11-13",
+    488.3
    ]
   ],
   "Aastha Spintex": [
@@ -65115,6 +65637,10 @@
    [
     "2026-11-12",
     25.72
+   ],
+   [
+    "2026-11-13",
+    25.01
    ]
   ],
   "Madhur Knit": [
@@ -65301,6 +65827,10 @@
    [
     "2026-11-12",
     77.85
+   ],
+   [
+    "2026-11-13",
+    78.1
    ]
   ],
   "Sumax Engineering": [
@@ -65495,6 +66025,10 @@
    [
     "2026-11-12",
     96.0
+   ],
+   [
+    "2026-11-13",
+    97.45
    ]
   ],
   "Bharat Coking Coal": [
@@ -65737,6 +66271,10 @@
    [
     "2026-11-12",
     31.86
+   ],
+   [
+    "2026-11-13",
+    31.54
    ]
   ],
   "Propshare Celestia": [
@@ -65906,6 +66444,10 @@
    ],
    [
     "2026-11-12",
+    999000.0
+   ],
+   [
+    "2026-11-13",
     999000.0
    ]
   ],
@@ -66145,6 +66687,10 @@
    [
     "2026-11-12",
     101.5
+   ],
+   [
+    "2026-11-13",
+    102.5
    ]
   ],
   "Sham Foam": [
@@ -66375,6 +66921,10 @@
    [
     "2026-11-12",
     94.0
+   ],
+   [
+    "2026-11-13",
+    95.27
    ]
   ],
   "Accord Transformer & Switchgear": [
@@ -66617,6 +67167,10 @@
    [
     "2026-11-12",
     85.0
+   ],
+   [
+    "2026-11-13",
+    83.05
    ]
   ],
   "Mehul Telecom": [
@@ -66851,6 +67405,10 @@
    [
     "2026-11-12",
     130.95
+   ],
+   [
+    "2026-11-13",
+    129.0
    ]
   ],
   "Highness Microelectronics": [
@@ -67073,6 +67631,10 @@
    [
     "2026-11-09",
     331.3
+   ],
+   [
+    "2026-11-13",
+    337.9
    ]
   ],
   "Digilogic Systems": [
@@ -67315,6 +67877,10 @@
    [
     "2026-11-12",
     177.3
+   ],
+   [
+    "2026-11-13",
+    180.8
    ]
   ],
   "Poojaa Precision Engg.": [
@@ -67557,6 +68123,10 @@
    [
     "2026-11-12",
     940.25
+   ],
+   [
+    "2026-11-13",
+    941.8
    ]
   ],
   "Novus Loyalty": [
@@ -67799,6 +68369,10 @@
    [
     "2026-11-12",
     184.65
+   ],
+   [
+    "2026-11-13",
+    181.0
    ]
   ],
   "Defrail Technologies": [
@@ -68195,6 +68769,10 @@
    [
     "2026-11-12",
     23.15
+   ],
+   [
+    "2026-11-13",
+    23.5
    ]
   ],
   "Seemax Resources": [
@@ -68385,6 +68963,10 @@
    [
     "2026-11-12",
     119.0
+   ],
+   [
+    "2026-11-13",
+    124.8
    ]
   ],
   "Modern Diagnostic": [
@@ -68837,6 +69419,10 @@
    [
     "2026-11-12",
     105.4
+   ],
+   [
+    "2026-11-13",
+    106.9
    ]
   ],
   "Elfin Agro India": [
@@ -69043,6 +69629,10 @@
    [
     "2026-11-12",
     94.0
+   ],
+   [
+    "2026-11-13",
+    89.0
    ]
   ],
   "Horizon Reclaim (India)": [
@@ -69285,6 +69875,10 @@
    [
     "2026-11-12",
     123.0
+   ],
+   [
+    "2026-11-13",
+    132.35
    ]
   ],
   "Kratikal Tech": [
@@ -69527,6 +70121,10 @@
    [
     "2026-11-12",
     162.0
+   ],
+   [
+    "2026-11-13",
+    160.85
    ]
   ],
   "GRE Renew Enertech": [
@@ -69975,6 +70573,10 @@
    [
     "2026-11-12",
     125.55
+   ],
+   [
+    "2026-11-13",
+    128.25
    ]
   ],
   "Technocrats Plasma Systems": [
@@ -70201,6 +70803,10 @@
    [
     "2026-11-12",
     416.9
+   ],
+   [
+    "2026-11-13",
+    403.35
    ]
   ],
   "Riyaasat Lifestyle": [
@@ -70379,6 +70985,10 @@
    [
     "2026-11-12",
     104.5
+   ],
+   [
+    "2026-11-13",
+    104.65
    ]
   ],
   "Vahh Chemicals": [
@@ -70743,6 +71353,10 @@
    [
     "2026-11-12",
     82.5
+   ],
+   [
+    "2026-11-13",
+    82.5
    ]
   ],
   "Farm Peace": [
@@ -70893,6 +71507,10 @@
    [
     "2026-11-11",
     40.0
+   ],
+   [
+    "2026-11-13",
+    39.9
    ]
   ],
   "Merritronix": [
@@ -71135,6 +71753,10 @@
    [
     "2026-11-12",
     422.65
+   ],
+   [
+    "2026-11-13",
+    417.05
    ]
   ],
   "Sampark India Logistics": [
@@ -71361,6 +71983,10 @@
    [
     "2026-11-12",
     140.0
+   ],
+   [
+    "2026-11-13",
+    138.0
    ]
   ],
   "Adon Agro Commodities": [
@@ -71602,6 +72228,10 @@
    ],
    [
     "2026-11-12",
+    99.0
+   ],
+   [
+    "2026-11-13",
     99.0
    ]
   ],
@@ -71845,6 +72475,10 @@
    [
     "2026-11-12",
     165.2
+   ],
+   [
+    "2026-11-13",
+    171.85
    ]
   ],
   "Susan Electricals India": [
@@ -72087,6 +72721,10 @@
    [
     "2026-11-12",
     207.1
+   ],
+   [
+    "2026-11-13",
+    199.95
    ]
   ],
   "Advance Technoforge": [
@@ -72328,6 +72966,10 @@
    ],
    [
     "2026-11-12",
+    75.0
+   ],
+   [
+    "2026-11-13",
     75.0
    ]
   ],
@@ -72709,6 +73351,10 @@
    [
     "2026-11-12",
     30.91
+   ],
+   [
+    "2026-11-13",
+    29.27
    ]
   ],
   "Maharaja & Speedex India": [
@@ -72859,6 +73505,10 @@
    [
     "2026-11-12",
     274.25
+   ],
+   [
+    "2026-11-13",
+    278.4
    ]
   ],
   "Recode Studios": [
@@ -73101,6 +73751,10 @@
    [
     "2026-11-12",
     418.5
+   ],
+   [
+    "2026-11-13",
+    429.8
    ]
   ],
   "Citius Transnet InvIT": [
@@ -73339,6 +73993,10 @@
    [
     "2026-11-12",
     112.95
+   ],
+   [
+    "2026-11-13",
+    113.45
    ]
   ],
   "Fusion Klassroom Edutech": [
@@ -73573,6 +74231,10 @@
    [
     "2026-11-12",
     159.0
+   ],
+   [
+    "2026-11-13",
+    168.0
    ]
   ],
   "UHM Vacation": [
@@ -73807,6 +74469,10 @@
    [
     "2026-11-12",
     29.77
+   ],
+   [
+    "2026-11-13",
+    29.49
    ]
   ],
   "Kiaasa Retail": [
@@ -74049,6 +74715,10 @@
    [
     "2026-11-12",
     42.0
+   ],
+   [
+    "2026-11-13",
+    43.24
    ]
   ],
   "Aureate Tradde": [
@@ -74267,6 +74937,10 @@
    [
     "2026-11-09",
     48.7
+   ],
+   [
+    "2026-11-13",
+    49.9
    ]
   ],
   "Yaashvi Jewellers": [
@@ -74501,6 +75175,10 @@
    [
     "2026-11-12",
     84.98
+   ],
+   [
+    "2026-11-13",
+    86.14
    ]
   ],
   "Jivial Industries": [
@@ -74659,6 +75337,10 @@
    [
     "2026-11-12",
     72.1
+   ],
+   [
+    "2026-11-13",
+    71.98
    ]
   ],
   "Yashhtej Industries (India)": [
@@ -74885,6 +75567,10 @@
    [
     "2026-11-12",
     48.02
+   ],
+   [
+    "2026-11-13",
+    46.5
    ]
   ],
   "Paluck Technologies": [
@@ -75071,6 +75757,10 @@
    [
     "2026-11-12",
     39.68
+   ],
+   [
+    "2026-11-13",
+    38.34
    ]
   ],
   "Oneindig Technologies": [
@@ -75265,6 +75955,10 @@
    [
     "2026-11-12",
     123.1
+   ],
+   [
+    "2026-11-13",
+    125.0
    ]
   ],
   "Emiac Technologies": [
@@ -75617,6 +76311,10 @@
    [
     "2026-11-12",
     230.0
+   ],
+   [
+    "2026-11-13",
+    230.0
    ]
   ],
   "Gabion Technologies": [
@@ -75855,6 +76553,10 @@
    [
     "2026-11-12",
     129.5
+   ],
+   [
+    "2026-11-13",
+    123.1
    ]
   ],
   "Tipco Engineering": [
@@ -76097,6 +76799,10 @@
    [
     "2026-11-12",
     314.0
+   ],
+   [
+    "2026-11-13",
+    329.7
    ]
   ],
   "Shree Balaji Mala": [
@@ -76283,6 +76989,10 @@
    [
     "2026-11-12",
     50.5
+   ],
+   [
+    "2026-11-13",
+    48.5
    ]
   ],
   "Safety Controls": [
@@ -76521,6 +77231,10 @@
    [
     "2026-11-12",
     73.4
+   ],
+   [
+    "2026-11-13",
+    74.95
    ]
   ],
   "Bagmane REIT": [
@@ -76763,6 +77477,10 @@
    [
     "2026-11-12",
     106.46
+   ],
+   [
+    "2026-11-13",
+    106.23
    ]
   ],
   "Mopshop Distribution": [
@@ -76977,6 +77695,10 @@
    [
     "2026-11-12",
     28.81
+   ],
+   [
+    "2026-11-13",
+    29.25
    ]
   ],
   "Fly-Hi Maritime": [
@@ -77155,6 +77877,10 @@
    [
     "2026-11-12",
     38.45
+   ],
+   [
+    "2026-11-13",
+    38.2
    ]
   ],
   "Anubhav Plast": [
@@ -77345,6 +78071,10 @@
    [
     "2026-11-12",
     38.6
+   ],
+   [
+    "2026-11-13",
+    38.97
    ]
   ],
   "Vegorama Punjabi Angithi": [
@@ -77583,6 +78313,10 @@
    [
     "2026-11-12",
     260.15
+   ],
+   [
+    "2026-11-13",
+    282.0
    ]
   ],
   "Aritas Vinyl": [
@@ -77793,6 +78527,10 @@
    [
     "2026-11-11",
     14.0
+   ],
+   [
+    "2026-11-13",
+    13.98
    ]
   ],
   "M R Maniveni": [
@@ -78117,6 +78855,10 @@
    [
     "2026-11-06",
     195.0
+   ],
+   [
+    "2026-11-13",
+    203.95
    ]
   ],
   "Q&T Foods": [
@@ -78347,6 +79089,10 @@
    [
     "2026-11-12",
     30.51
+   ],
+   [
+    "2026-11-13",
+    31.6
    ]
   ],
   "PAN HR Solutions": [
@@ -78747,6 +79493,10 @@
    [
     "2026-11-12",
     372.15
+   ],
+   [
+    "2026-11-13",
+    362.0
    ]
   ],
   "Panchatv Bharat": [
@@ -78817,6 +79567,10 @@
    [
     "2026-11-12",
     31.05
+   ],
+   [
+    "2026-11-13",
+    31.28
    ]
   ],
   "Raksan Transformers": [
@@ -78967,6 +79721,10 @@
    [
     "2026-11-12",
     237.25
+   ],
+   [
+    "2026-11-13",
+    213.75
    ]
   ],
   "Devson Catalyst": [
@@ -79209,6 +79967,10 @@
    [
     "2026-11-12",
     356.0
+   ],
+   [
+    "2026-11-13",
+    338.2
    ]
   ],
   "ENS Enterprises": [
@@ -79435,6 +80197,10 @@
    [
     "2026-11-12",
     136.0
+   ],
+   [
+    "2026-11-13",
+    134.35
    ]
   ],
   "Dhanwel Hybrid Seeds": [
@@ -79617,6 +80383,10 @@
    [
     "2026-11-12",
     38.5
+   ],
+   [
+    "2026-11-13",
+    37.99
    ]
   ],
   "Crazy Snacks": [
@@ -79743,6 +80513,10 @@
    [
     "2026-11-12",
     52.5
+   ],
+   [
+    "2026-11-13",
+    51.45
    ]
   ],
   "Harikanta Overseas": [
@@ -79953,6 +80727,10 @@
    [
     "2026-11-12",
     56.09
+   ],
+   [
+    "2026-11-13",
+    57.7
    ]
   ],
   "Dhaval Packaging": [
@@ -80195,6 +80973,10 @@
    [
     "2026-11-12",
     109.1
+   ],
+   [
+    "2026-11-13",
+    117.5
    ]
   ],
   "Diksha Polymers": [
@@ -80297,6 +81079,10 @@
    [
     "2026-11-03",
     190.1
+   ],
+   [
+    "2026-11-13",
+    195.5
    ]
   ],
   "Kasturi Metal Composite": [
@@ -80499,6 +81285,10 @@
    [
     "2026-11-12",
     60.0
+   ],
+   [
+    "2026-11-13",
+    63.0
    ]
   ],
   "Om Galaxy": [
@@ -80645,6 +81435,10 @@
    [
     "2026-11-12",
     85.8
+   ],
+   [
+    "2026-11-13",
+    85.1
    ]
   ],
   "Autofurnish": [
@@ -80855,6 +81649,10 @@
    [
     "2026-11-04",
     109.5
+   ],
+   [
+    "2026-11-13",
+    107.35
    ]
   ],
   "Raajmarg Infra Investment Trust": [
@@ -81097,6 +81895,10 @@
    [
     "2026-11-12",
     118.8
+   ],
+   [
+    "2026-11-13",
+    118.8
    ]
   ],
   "Liotech Industries": [
@@ -81331,6 +82133,10 @@
    [
     "2026-11-12",
     102.06
+   ],
+   [
+    "2026-11-13",
+    104.9
    ]
   ],
   "Accretion Nutraveda": [
@@ -81497,6 +82303,10 @@
    [
     "2026-11-12",
     353.0
+   ],
+   [
+    "2026-11-13",
+    348.8
    ]
   ],
   "Leapfrog Engineering": [
@@ -81707,6 +82517,10 @@
    [
     "2026-11-12",
     19.8
+   ],
+   [
+    "2026-11-13",
+    19.16
    ]
   ],
   "Gulf Lloyds": [
@@ -81945,6 +82759,10 @@
    [
     "2026-11-12",
     44.5
+   ],
+   [
+    "2026-11-13",
+    42.29
    ]
   ],
   "Msafe Equipments": [
@@ -82187,6 +83005,10 @@
    [
     "2026-11-12",
     270.0
+   ],
+   [
+    "2026-11-13",
+    271.05
    ]
   ],
   "Complete Sports and Management": [
@@ -82373,6 +83195,10 @@
    [
     "2026-11-12",
     192.0
+   ],
+   [
+    "2026-11-13",
+    185.5
    ]
   ],
   "Speciality Medicines": [
@@ -82607,6 +83433,10 @@
    [
     "2026-11-12",
     170.0
+   ],
+   [
+    "2026-11-13",
+    169.4
    ]
   ],
   "Yajur Fibres": [
@@ -82849,6 +83679,10 @@
    [
     "2026-11-12",
     35.9
+   ],
+   [
+    "2026-11-13",
+    36.03
    ]
   ],
   "Narmadesh Brass Industries": [
@@ -83085,6 +83919,10 @@
    [
     "2026-11-12",
     122.55
+   ],
+   [
+    "2026-11-13",
+    125.32
    ]
   ],
   "Jindal Supreme (India)": [
@@ -83301,6 +84139,10 @@
    [
     "2026-11-12",
     700.1
+   ],
+   [
+    "2026-11-13",
+    739.2
    ]
   ],
   "Jindal Supreme": [
@@ -83439,6 +84281,10 @@
    [
     "2026-11-12",
     167.56
+   ],
+   [
+    "2026-11-13",
+    173.06
    ]
   ],
   "Sonaselection India": [
@@ -83573,6 +84419,10 @@
    [
     "2026-11-12",
     112.04
+   ],
+   [
+    "2026-11-13",
+    120.94
    ]
   ],
   "Axiom Gas Engineering": [
@@ -83703,6 +84553,10 @@
    [
     "2026-11-12",
     43.3
+   ],
+   [
+    "2026-11-13",
+    45.65
    ]
   ],
   "Kheria Autocomp": [
@@ -83837,6 +84691,10 @@
    [
     "2026-11-12",
     94.45
+   ],
+   [
+    "2026-11-13",
+    94.0
    ]
   ],
   "SpectraA Technology Solutions": [
@@ -83971,6 +84829,10 @@
    [
     "2026-11-12",
     283.15
+   ],
+   [
+    "2026-11-13",
+    303.3
    ]
   ],
   "NSE": [
@@ -84105,6 +84967,10 @@
    [
     "2026-11-12",
     1989.7
+   ],
+   [
+    "2026-11-13",
+    1990.05
    ]
   ],
   "Varmora Granito": [
@@ -84227,6 +85093,10 @@
    [
     "2026-11-12",
     133.74
+   ],
+   [
+    "2026-11-13",
+    131.62
    ]
   ],
   "Himalaya Nutravedics": [
@@ -84349,6 +85219,10 @@
    [
     "2026-11-12",
     172.0
+   ],
+   [
+    "2026-11-13",
+    169.85
    ]
   ],
   "Adroit Industries": [
@@ -84467,6 +85341,10 @@
    [
     "2026-11-12",
     198.35
+   ],
+   [
+    "2026-11-13",
+    204.08
    ]
   ],
   "ArMee Infotech": [
@@ -84585,6 +85463,10 @@
    [
     "2026-11-12",
     308.2
+   ],
+   [
+    "2026-11-13",
+    313.45
    ]
   ],
   "Elevate Campuses": [
@@ -84703,6 +85585,10 @@
    [
     "2026-11-12",
     311.35
+   ],
+   [
+    "2026-11-13",
+    312.6
    ]
   ],
   "Swastika Infra": [
@@ -84821,6 +85707,10 @@
    [
     "2026-11-12",
     193.15
+   ],
+   [
+    "2026-11-13",
+    193.69
    ]
   ],
   "Core Integra Consulting": [
@@ -84935,6 +85825,10 @@
    [
     "2026-11-12",
     118.9
+   ],
+   [
+    "2026-11-13",
+    124.7
    ]
   ],
   "Pooja Logistics": [
@@ -85053,6 +85947,10 @@
    [
     "2026-11-12",
     117.8
+   ],
+   [
+    "2026-11-13",
+    112.0
    ]
   ],
   "A-One Steels": [
@@ -85167,6 +86065,10 @@
    [
     "2026-11-12",
     434.05
+   ],
+   [
+    "2026-11-13",
+    450.95
    ]
   ],
   "Moneyview": [
@@ -85281,6 +86183,10 @@
    [
     "2026-11-12",
     55.98
+   ],
+   [
+    "2026-11-13",
+    58.15
    ]
   ],
   "Acevector": [
@@ -85391,6 +86297,10 @@
    [
     "2026-11-12",
     19.7
+   ],
+   [
+    "2026-11-13",
+    21.34
    ]
   ],
   "German Green Steel": [
@@ -85501,6 +86411,10 @@
    [
     "2026-11-12",
     105.58
+   ],
+   [
+    "2026-11-13",
+    107.96
    ]
   ],
   "Orient Cables": [
@@ -85611,6 +86525,10 @@
    [
     "2026-11-12",
     376.95
+   ],
+   [
+    "2026-11-13",
+    408.95
    ]
   ],
   "Runwal Enterprises": [
@@ -85721,6 +86639,10 @@
    [
     "2026-11-12",
     232.25
+   ],
+   [
+    "2026-11-13",
+    235.17
    ]
   ],
   "SRIT India": [
@@ -85827,6 +86749,10 @@
    [
     "2026-11-12",
     132.43
+   ],
+   [
+    "2026-11-13",
+    126.38
    ]
   ],
   "Shah Investor's Home": [
@@ -85933,6 +86859,10 @@
    [
     "2026-11-12",
     137.36
+   ],
+   [
+    "2026-11-13",
+    143.37
    ]
   ],
   "Himalayan Solar": [
@@ -86030,6 +86960,10 @@
    ],
    [
     "2026-11-12",
+    83.0
+   ],
+   [
+    "2026-11-13",
     83.0
    ]
   ],
@@ -86137,6 +87071,10 @@
    [
     "2026-11-12",
     189.05
+   ],
+   [
+    "2026-11-13",
+    198.5
    ]
   ],
   "Green Asia Impex": [
@@ -86223,6 +87161,10 @@
    [
     "2026-11-12",
     79.3
+   ],
+   [
+    "2026-11-13",
+    74.0
    ]
   ],
   "Papadmalji Agro Foods": [
@@ -86317,6 +87259,10 @@
    [
     "2026-11-12",
     47.2
+   ],
+   [
+    "2026-11-13",
+    51.7
    ]
   ],
   "Nityas Gems & Jewellery": [
@@ -86415,6 +87361,10 @@
    [
     "2026-11-12",
     65.11
+   ],
+   [
+    "2026-11-13",
+    67.12
    ]
   ],
   "Vishal Nirmiti": [
@@ -86513,6 +87463,10 @@
    [
     "2026-11-12",
     119.42
+   ],
+   [
+    "2026-11-13",
+    120.77
    ]
   ],
   "Eventions": [
@@ -86611,6 +87565,10 @@
    [
     "2026-11-12",
     55.05
+   ],
+   [
+    "2026-11-13",
+    54.0
    ]
   ],
   "R.K.Fashion Accessories": [
@@ -86689,6 +87647,10 @@
    [
     "2026-11-12",
     39.45
+   ],
+   [
+    "2026-11-13",
+    41.4
    ]
   ],
   "HD Fire Protect": [
@@ -86829,6 +87791,10 @@
    [
     "2026-11-12",
     65.95
+   ],
+   [
+    "2026-11-13",
+    62.4
    ]
   ],
   "Fusion CX": [
@@ -86961,6 +87927,10 @@
    [
     "2026-11-12",
     118.6
+   ],
+   [
+    "2026-11-13",
+    112.65
    ]
   ],
   "Bonfigloli Transmissions": [
@@ -87283,6 +88253,10 @@
    [
     "2026-11-12",
     722.35
+   ],
+   [
+    "2026-11-13",
+    794.5
    ]
   ],
   "Jio Platforms": [
@@ -87557,6 +88531,10 @@
    [
     "2026-11-12",
     289.15
+   ],
+   [
+    "2026-11-13",
+    274.7
    ]
   ],
   "HGS (India)": [
@@ -87575,6 +88553,10 @@
    [
     "2026-11-12",
     204.15
+   ],
+   [
+    "2026-11-13",
+    214.35
    ]
   ],
   "Vedant Poly Fabs": [
@@ -87589,6 +88571,10 @@
    [
     "2026-11-12",
     80.65
+   ],
+   [
+    "2026-11-13",
+    76.65
    ]
   ],
   "Vectras Enprocon": [
@@ -87603,21 +88589,25 @@
    [
     "2026-11-12",
     80.65
+   ],
+   [
+    "2026-11-13",
+    76.65
    ]
   ]
  },
  "integrity": {
-  "asOf": "2026-11-13T18:15:19+05:30",
+  "asOf": "2026-11-14T01:35:31+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-13T18:14:18+05:30",
-    "elapsed": 3.38,
+    "asOf": "2026-11-14T01:34:25+05:30",
+    "elapsed": 3.87,
     "calls": 6,
     "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=2 carried=0 +nse=0 +bse=0 exchange-only=0: 1 mainboard, 1 sme; 0 open, 2 upcoming",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
@@ -87625,32 +88615,32 @@
     "method": "investorgain:ok, ipowatch:ok",
     "status": "ok",
     "asOf": "9-Nov 9:37",
-    "elapsed": 1.83,
+    "elapsed": 1.82,
     "calls": 2,
-    "note": "gmp: 1 board rows patched via investorgain; 2 active, 1 of them matched; gmp: second site — 1 agree (within 2% of the issue price), 0 differ, 0 quoted by one site only; gmp: 19 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Jio Platforms (₹250, investorgain) …",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "note": "gmp: 2 board rows patched via investorgain; 2 active, 2 of them matched; gmp: second site — 1 agree (within 2% of the issue price), 0 differ, 0 quoted by one site only; gmp: 20 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Jio Platforms (₹250, investorgain) …",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-13",
-    "elapsed": 0.01,
-    "calls": 0,
-    "note": "2 listings identified, none due for a refresh",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "asOf": "2026-11-14T01:34:27+05:30",
+    "elapsed": 1.52,
+    "calls": 2,
+    "note": "2 records fetched for 2 identified listings (0 without an id); 0 anchor books updated, 97 on file",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "subscription",
     "method": "none:ok",
     "status": "ok",
-    "asOf": "2026-11-13T18:14:20+05:30",
+    "asOf": "2026-11-14T01:34:29+05:30",
     "elapsed": 0.01,
     "calls": 0,
     "note": "no open or recently closed issues on the board",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
@@ -87658,153 +88648,153 @@
     "method": "yahoo:ok",
     "status": "ok",
     "asOf": "2026-11-13",
-    "elapsed": 3.83,
+    "elapsed": 2.78,
     "calls": 0,
     "note": "12 names priced, 0 moved to recent, 0 history points",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-13",
-    "elapsed": 2.59,
+    "asOf": "2026-11-14",
+    "elapsed": 3.32,
     "calls": 2,
     "note": "1412 listings since 2022 (999 SME); fetched 2026: 309; QIB on file for 114 of 413 mainboard issues; shareholder-quota books frozen for 0",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "tape",
     "method": "nsearchives:ok",
     "status": "ok",
-    "asOf": "2026-11-12",
-    "elapsed": 0.01,
-    "calls": 0,
-    "note": "213 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 187 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 187 days on file",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "asOf": "2026-11-13",
+    "elapsed": 0.88,
+    "calls": 2,
+    "note": "213 listings with an NSE symbol; 1 NSE file(s) read, 160 closes added; 187 trading days on file, 0 still to fill · 96 BSE-only listings; 1 BSE file(s) read, 87 closes added, 187 days on file",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "anchorbook",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-13",
+    "asOf": "2026-11-14",
     "elapsed": 0.0,
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 923 on file, 589 partial (feed gave only the first names); 0 of 1412 listings still to fetch",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "evidence",
     "method": "computed:ok",
     "status": "ok",
-    "asOf": "2026-11-13",
-    "elapsed": 0.26,
+    "asOf": "2026-11-14",
+    "elapsed": 0.1,
     "calls": 0,
-    "note": "track records: 923 of 923 anchor books have an outcome; 913 of 1498 investors with 2+; 1412 listings; windows: mainboard 132, SME 242; 3 warnings",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "note": "track records: 923 of 923 anchor books have an outcome; 913 of 1498 investors with 2+; 1412 listings; windows: mainboard 132, SME 241; 3 warnings",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "players",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-13",
-    "elapsed": 28.09,
+    "asOf": "2026-11-14",
+    "elapsed": 30.32,
     "calls": 54,
     "note": "53 of 2839 anchor investors read (0 failed); names found for 0 of 2 unlisted issues",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "parents",
     "method": "yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-13",
-    "elapsed": 9.58,
+    "asOf": "2026-11-12",
+    "elapsed": 8.45,
     "calls": 0,
     "note": "5/5 parent prices; 32/36 investor stocks priced",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "filings",
     "method": "bse_ann:ok, sebi:ok, nse_ann:ok",
     "status": "ok",
-    "asOf": "2026-11-13",
-    "elapsed": 6.41,
+    "asOf": "2026-11-14",
+    "elapsed": 7.9,
     "calls": 7,
-    "note": "bse_ann: feed of 0 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 3261 announcements scanned, 0 subsidiary-offer leads; 0 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 0 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 8 leads held; 19 rows patched, 14 kept previous stage",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "note": "bse_ann: feed of 28 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 3530 announcements scanned, 0 subsidiary-offer leads; 0 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 0 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 8 leads held; 19 rows patched, 14 kept previous stage",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "planner",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-13",
-    "elapsed": 1.61,
+    "asOf": "2026-11-14",
+    "elapsed": 1.87,
     "calls": 3,
-    "note": "report 607 (retail slots, fund reuse) did not answer: report 607: reportTableData missing or empty (msg=1) — carried nothing; 104 events 2026-11-06..2026-12-28, 2 issues with terms, 6 from the report only",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "note": "101 events 2026-11-07..2026-12-29, 2 issues with terms, 2 from the report only",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "offers",
     "method": "bse:ok",
     "status": "ok",
-    "asOf": "2026-11-13",
-    "elapsed": 2.58,
+    "asOf": "2026-11-14",
+    "elapsed": 2.79,
     "calls": 3,
     "note": "bse rows=17: 12 rights, 17 buybacks, 0 ofs, 1 ncd; 17 refreshed, 0 new, 0 closed windows dropped",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-11-12",
-    "elapsed": 0.26,
+    "asOf": "2026-11-13",
+    "elapsed": 0.5,
     "calls": 1,
-    "note": "2026-11-12 already in history; FII +7,831 / DII -6,331 Cr",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "note": "appended 2026-11-13; FII +5,737 / DII -2,254 Cr",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
-    "asOf": "2026-11-12",
-    "elapsed": 1.86,
+    "asOf": "2026-11-13",
+    "elapsed": 1.85,
     "calls": 4,
-    "note": "bulk.csv: 134 deals; block.csv: 2 deals; 0 tracked-investor deals of 136; 13 patterns; BSE bulk: 51 deals, 8 in this year's listings; BSE block: 31 deals, 0 in this year's listings; listing deals: 33 of today's 136 deals are in this year's listings (11 stocks); 1877 kept over 60 days; 212 of 309 listings have an NSE symbol; 240 with a BSE code",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "note": "bulk.csv: 136 deals; block.csv: 26 deals; 0 tracked-investor deals of 162; 13 patterns; BSE bulk: 51 deals, 8 in this year's listings; BSE block: 31 deals, 0 in this year's listings; listing deals: 59 of today's 162 deals are in this year's listings (11 stocks); 1928 kept over 60 days; 212 of 309 listings have an NSE symbol; 240 with a BSE code",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
-    "asOf": "2026-11-13T17:54:01+05:30",
-    "elapsed": 0.9,
+    "asOf": "2026-11-13T21:58:14+05:30",
+    "elapsed": 0.43,
     "calls": 3,
-    "note": "business-standard: 1/35 primary-market items; economic-times: 2/50 primary-market items; moneycontrol-ipo: changed — no entries parsed: '<!DOCTYPE html> <html>   <head>     <met; 3 fresh, 25 kept",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "note": "business-standard: 1/35 primary-market items; economic-times: 3/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 4 fresh, 25 kept",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
     "area": "logos",
     "method": "none:ok",
     "status": "ok",
-    "asOf": "2026-11-13",
+    "asOf": "2026-11-14",
     "elapsed": 0.0,
     "calls": 0,
     "note": "71 logos on file; none to fetch",
-    "lastOk": "2026-11-13T18:15:19+05:30",
+    "lastOk": "2026-11-14T01:35:31+05:30",
     "dueBy": "2026-11-14T07:28:00+05:30"
    },
    {
@@ -87817,7 +88807,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "65s, 85 calls, 18/18 modules ok"
+    "note": "70s, 89 calls, 18/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -89375,28 +90365,28 @@
   "prices": {
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 403.5,
-    "asOf": "2026-11-13"
+    "value": 404.3,
+    "asOf": "2026-11-12"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 116.38,
-    "asOf": "2026-11-13"
+    "value": 115.36,
+    "asOf": "2026-11-12"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 237.91,
-    "asOf": "2026-11-13"
+    "value": 242.25,
+    "asOf": "2026-11-12"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 6772.0,
-    "asOf": "2026-11-13"
+    "value": 6209.0,
+    "asOf": "2026-11-12"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 57.41,
-    "asOf": "2026-11-13"
+    "value": 58.53,
+    "asOf": "2026-11-12"
    },
    "Tata Motors": {
     "symbol": "TATAMOTORS",
@@ -89406,52 +90396,52 @@
    "Reliance Industries": {
     "symbol": "RELIANCE",
     "value": 1339.7,
-    "asOf": "2026-11-13"
+    "asOf": "2026-11-12"
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 399.3,
-    "asOf": "2026-11-13"
+    "value": 404.0,
+    "asOf": "2026-11-12"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 75.83,
-    "asOf": "2026-11-13"
+    "value": 76.8,
+    "asOf": "2026-11-12"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 225.0,
-    "asOf": "2026-11-13"
+    "value": 224.5,
+    "asOf": "2026-11-12"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 804.0,
-    "asOf": "2026-11-13"
+    "value": 812.3,
+    "asOf": "2026-11-12"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 488.55,
-    "asOf": "2026-11-13"
+    "value": 490.4,
+    "asOf": "2026-11-12"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1331.0,
-    "asOf": "2026-11-13"
+    "value": 1342.9,
+    "asOf": "2026-11-12"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1865.0,
-    "asOf": "2026-11-13"
+    "value": 1887.1,
+    "asOf": "2026-11-12"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1187.6,
-    "asOf": "2026-11-13"
+    "value": 1190.0,
+    "asOf": "2026-11-12"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 18.35,
-    "asOf": "2026-11-13"
+    "value": 18.24,
+    "asOf": "2026-11-12"
    },
    "Gretex Corporate Services": {
     "symbol": "GRETEX",
@@ -89460,78 +90450,78 @@
    },
    "Zaggle Prepaid": {
     "symbol": "ZAGGLE",
-    "value": 173.32,
-    "asOf": "2026-11-13"
+    "value": 173.03,
+    "asOf": "2026-11-12"
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 106.14,
-    "asOf": "2026-11-13"
+    "value": 107.6,
+    "asOf": "2026-11-12"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1611.3,
-    "asOf": "2026-11-13"
+    "value": 1642.4,
+    "asOf": "2026-11-12"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 537.8,
-    "asOf": "2026-11-13"
+    "value": 533.2,
+    "asOf": "2026-11-12"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 301.6,
-    "asOf": "2026-11-13"
+    "value": 297.6,
+    "asOf": "2026-11-12"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 128.2,
-    "asOf": "2026-11-13"
+    "value": 129.97,
+    "asOf": "2026-11-12"
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
-    "value": 1260.5,
-    "asOf": "2026-11-13"
+    "value": 1265.2,
+    "asOf": "2026-11-12"
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1638.6,
-    "asOf": "2026-11-13"
+    "value": 1626.8,
+    "asOf": "2026-11-12"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1493.2,
-    "asOf": "2026-11-13"
+    "value": 1394.1,
+    "asOf": "2026-11-12"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 102.14,
-    "asOf": "2026-11-13"
+    "value": 102.08,
+    "asOf": "2026-11-12"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 515.65,
-    "asOf": "2026-11-13"
+    "value": 521.45,
+    "asOf": "2026-11-12"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 528.55,
-    "asOf": "2026-11-13"
+    "value": 531.65,
+    "asOf": "2026-11-12"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1276.4,
-    "asOf": "2026-11-13"
+    "value": 1277.6,
+    "asOf": "2026-11-12"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 453.15,
-    "asOf": "2026-11-13"
+    "value": 450.5,
+    "asOf": "2026-11-12"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 492.75,
-    "asOf": "2026-11-13"
+    "value": 489.7,
+    "asOf": "2026-11-12"
    },
    "Ashutosh Fibre (upcoming)": {
     "symbol": "ASHUTOSH",
@@ -89590,6 +90580,74 @@
     "daysSinceListing": 10,
     "issuePrice": 204.0,
     "vsIssuePct": 13.3
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "TECHNOCRAF",
+    "stock": "Technocraft Ventures",
+    "client": "ACME CAPITAL MARKET LIMITED",
+    "side": "SELL",
+    "qty": 330591.0,
+    "price": 504.12,
+    "valueCr": 16.67,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-14",
+    "daysSinceListing": 91,
+    "issuePrice": 212.0,
+    "vsIssuePct": 137.8
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "TECHNOCRAF",
+    "stock": "Technocraft Ventures",
+    "client": "ACME CAPITAL MARKET LIMITED",
+    "side": "BUY",
+    "qty": 330591.0,
+    "price": 502.24,
+    "valueCr": 16.6,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-14",
+    "daysSinceListing": 91,
+    "issuePrice": 212.0,
+    "vsIssuePct": 136.9
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "SSRETAIL",
+    "stock": "SS Retail",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 407852.0,
+    "price": 731.86,
+    "valueCr": 29.85,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-23",
+    "daysSinceListing": 51,
+    "issuePrice": 424.0,
+    "vsIssuePct": 72.6
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "SSRETAIL",
+    "stock": "SS Retail",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 405200.0,
+    "price": 734.46,
+    "valueCr": 29.76,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-23",
+    "daysSinceListing": 51,
+    "issuePrice": 424.0,
+    "vsIssuePct": 73.2
    },
    {
     "date": "2026-11-13",
@@ -89661,6 +90719,295 @@
    },
    {
     "date": "2026-11-13",
+    "symbol": "MAXENGS",
+    "stock": "Maxwell Engineering Solutions",
+    "client": "NEO APEX SHARE BROKING SERVICES LLP",
+    "side": "SELL",
+    "qty": 85600.0,
+    "price": 276.06,
+    "valueCr": 2.36,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-11-06",
+    "daysSinceListing": 7,
+    "issuePrice": 158.0,
+    "vsIssuePct": 74.7
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 176515.0,
+    "price": 781.27,
+    "valueCr": 13.79,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 99,
+    "issuePrice": 425.0,
+    "vsIssuePct": 83.8
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 196892.0,
+    "price": 785.13,
+    "valueCr": 15.46,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 99,
+    "issuePrice": 425.0,
+    "vsIssuePct": 84.7
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 261733.0,
+    "price": 787.13,
+    "valueCr": 20.6,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 99,
+    "issuePrice": 425.0,
+    "vsIssuePct": 85.2
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 277518.0,
+    "price": 783.64,
+    "valueCr": 21.75,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 99,
+    "issuePrice": 425.0,
+    "vsIssuePct": 84.4
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 196633.0,
+    "price": 784.97,
+    "valueCr": 15.44,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 99,
+    "issuePrice": 425.0,
+    "vsIssuePct": 84.7
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 209141.0,
+    "price": 777.36,
+    "valueCr": 16.26,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 99,
+    "issuePrice": 425.0,
+    "vsIssuePct": 82.9
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 261733.0,
+    "price": 786.96,
+    "valueCr": 20.6,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 99,
+    "issuePrice": 425.0,
+    "vsIssuePct": 85.2
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 269224.0,
+    "price": 784.44,
+    "valueCr": 21.12,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 99,
+    "issuePrice": 425.0,
+    "vsIssuePct": 84.6
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "HGSINDIALT",
+    "stock": "HGS (India)",
+    "client": "NEO APEX SHARE BROKING SERVICES LLP",
+    "side": "BUY",
+    "qty": 57600.0,
+    "price": 214.35,
+    "valueCr": 1.23,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-11-06",
+    "daysSinceListing": 7,
+    "issuePrice": 120.0,
+    "vsIssuePct": 78.6
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BCSSL",
+    "stock": "Bombay Coated and Special Steels",
+    "client": "PINKAL SHAILESHKUMAR JOGANI",
+    "side": "BUY",
+    "qty": 325000.0,
+    "price": 81.25,
+    "valueCr": 2.64,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-05",
+    "daysSinceListing": 8,
+    "issuePrice": 82.0,
+    "vsIssuePct": -0.9
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "MARWADI SHARES AND FINANCE LTD.",
+    "side": "SELL",
+    "qty": 300257.0,
+    "price": 263.6,
+    "valueCr": 7.91,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 75.7
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "MAHAVEER COMSTOCK TRADIND LLP",
+    "side": "SELL",
+    "qty": 308912.0,
+    "price": 264.63,
+    "valueCr": 8.17,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 76.4
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "J4S FINANCIAL SOLUTIONS LLP",
+    "side": "SELL",
+    "qty": 382738.0,
+    "price": 264.01,
+    "valueCr": 10.1,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 76.0
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "J4S FINANCIAL SOLUTIONS LLP",
+    "side": "SELL",
+    "qty": 401038.0,
+    "price": 264.36,
+    "valueCr": 10.6,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 76.2
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "CLT RESEARCH TECH PRIVATE LTD",
+    "side": "SELL",
+    "qty": 443080.0,
+    "price": 268.96,
+    "valueCr": 11.92,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 79.3
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "IRAGE BROKING SERVICES LLP",
+    "side": "SELL",
+    "qty": 547258.0,
+    "price": 265.25,
+    "valueCr": 14.52,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 76.8
+   },
+   {
+    "date": "2026-11-13",
     "symbol": "545011",
     "stock": "BLS Polymers",
     "client": "IRAGE BROKING SERVICES LLP",
@@ -89678,6 +91025,244 @@
    },
    {
     "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "BLITZQUANT RESEARCH LLP",
+    "side": "SELL",
+    "qty": 575572.0,
+    "price": 262.61,
+    "valueCr": 15.12,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 75.1
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "DIPAN MEHTA COMMODITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 606418.0,
+    "price": 263.17,
+    "valueCr": 15.96,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 75.4
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "NK SECURITIES RESEARCH PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 618010.0,
+    "price": 264.02,
+    "valueCr": 16.32,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 76.0
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "IMC INDIA SECURITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 766014.0,
+    "price": 265.66,
+    "valueCr": 20.35,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 77.1
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "JUMP TRADING FINANCIAL INDIA PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 825482.0,
+    "price": 259.51,
+    "valueCr": 21.42,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 73.0
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 899688.0,
+    "price": 259.71,
+    "valueCr": 23.37,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 73.1
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "MATHISYS QUANTCAP LLP",
+    "side": "SELL",
+    "qty": 961950.0,
+    "price": 260.5,
+    "valueCr": 25.06,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 73.7
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 1818564.0,
+    "price": 261.87,
+    "valueCr": 47.62,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 74.6
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 1833792.0,
+    "price": 263.39,
+    "valueCr": 48.3,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 75.6
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "MICROCURVES TRADING PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 2441818.0,
+    "price": 264.4,
+    "valueCr": 64.56,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 76.3
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 2553662.0,
+    "price": 263.05,
+    "valueCr": 67.17,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 75.4
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "PLUTUS WEALTH MANAGEMENT LLP",
+    "side": "SELL",
+    "qty": 3883186.0,
+    "price": 265.23,
+    "valueCr": 102.99,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 76.8
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "MARWADI SHARES AND FINANCE LTD.",
+    "side": "BUY",
+    "qty": 318559.0,
+    "price": 262.05,
+    "valueCr": 8.35,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 74.7
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "MAHAVEER COMSTOCK TRADIND LLP",
+    "side": "BUY",
+    "qty": 328912.0,
+    "price": 264.96,
+    "valueCr": 8.71,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 76.6
+   },
+   {
+    "date": "2026-11-13",
     "symbol": "545011",
     "stock": "BLS Polymers",
     "client": "IRAGE BROKING SERVICES LLP",
@@ -89692,6 +91277,278 @@
     "daysSinceListing": 10,
     "issuePrice": 150.0,
     "vsIssuePct": 76.5
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "J4S FINANCIAL SOLUTIONS LLP",
+    "side": "BUY",
+    "qty": 382738.0,
+    "price": 263.86,
+    "valueCr": 10.1,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 75.9
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "J4S FINANCIAL SOLUTIONS LLP",
+    "side": "BUY",
+    "qty": 401038.0,
+    "price": 264.29,
+    "valueCr": 10.6,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 76.2
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "CLT RESEARCH TECH PRIVATE LTD",
+    "side": "BUY",
+    "qty": 443080.0,
+    "price": 268.86,
+    "valueCr": 11.91,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 79.2
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "BLITZQUANT RESEARCH LLP",
+    "side": "BUY",
+    "qty": 575572.0,
+    "price": 262.5,
+    "valueCr": 15.11,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 75.0
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "DIPAN MEHTA COMMODITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 614418.0,
+    "price": 263.14,
+    "valueCr": 16.17,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 75.4
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "NK SECURITIES RESEARCH PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 618010.0,
+    "price": 263.85,
+    "valueCr": 16.31,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 75.9
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "IRAGE BROKING SERVICES LLP",
+    "side": "BUY",
+    "qty": 758783.0,
+    "price": 266.85,
+    "valueCr": 20.25,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 77.9
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "JUMP TRADING FINANCIAL INDIA PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 825482.0,
+    "price": 262.01,
+    "valueCr": 21.63,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 74.7
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "IMC INDIA SECURITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 880204.0,
+    "price": 263.49,
+    "valueCr": 23.19,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 75.7
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "MATHISYS QUANTCAP LLP",
+    "side": "BUY",
+    "qty": 972049.0,
+    "price": 260.59,
+    "valueCr": 25.33,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 73.7
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 1252333.0,
+    "price": 262.11,
+    "valueCr": 32.82,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 74.7
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 1763975.0,
+    "price": 262.86,
+    "valueCr": 46.37,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 75.2
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 1829458.0,
+    "price": 263.26,
+    "valueCr": 48.16,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 75.5
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "MICROCURVES TRADING PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 2441818.0,
+    "price": 264.06,
+    "valueCr": 64.48,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 76.0
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 2553662.0,
+    "price": 262.93,
+    "valueCr": 67.14,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 75.3
+   },
+   {
+    "date": "2026-11-13",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "PLUTUS WEALTH MANAGEMENT LLP",
+    "side": "BUY",
+    "qty": 3883186.0,
+    "price": 265.12,
+    "valueCr": 102.95,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 10,
+    "issuePrice": 150.0,
+    "vsIssuePct": 76.7
    },
    {
     "date": "2026-11-12",
@@ -126007,7 +127864,7 @@
     "headline": "Mahanadi Coalfields Ltd. - Draft Abridged Prospectus",
     "date": "2026-09-04"
    },
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "dropped",
@@ -126066,7 +127923,7 @@
     "headline": "Indian Energy Exchange Limited has informed the Exchange about General Updates about Receipt of Observation Letter from SEBI by Indian Gas Exchange Limited, An Associate Company of IEX, for its Proposed Initial Public Offering.",
     "date": "2026-10-13"
    },
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "dropped",
@@ -126157,7 +128014,7 @@
     "headline": "NLC India Limited has informed the Exchange regarding 'Offer for Sale (OFS) of up to 10,00,00,000 (Ten Crore) equity shares of face value ofRs.10 each held by the Company in NLC India Renewables Limited (NIRL), WhollyNLC India Limited( Navratna - Government of India Enterprise)Registered Office: No.",
     "date": "2026-11-04"
    },
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "drhp",
@@ -126202,7 +128059,7 @@
      "url": "https://nsearchives.nseindia.com/corporate/COALINDIA_02112026120108_SECL.pdf"
     }
    },
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "drhp",
@@ -126224,7 +128081,7 @@
    "stage": "DRHP filed",
    "stageDate": "2026-11-07",
    "ticker": "AMBER",
-   "checkedAt": "2026-11-13",
+   "checkedAt": "2026-11-14",
    "needsReview": {
     "source": "nse_ann",
     "url": "https://nsearchives.nseindia.com/corporate/AMBER_07112026112953_StockExchangeIntimations_ILJINDRHPFiling.pdf",
@@ -126252,7 +128109,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "SJVN",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "awaited",
@@ -126274,7 +128131,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "TATAMOTORS",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "awaited",
@@ -126296,7 +128153,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "RELIANCE",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "awaited",
@@ -126318,7 +128175,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "LICI",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "awaited",
@@ -126340,7 +128197,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "NHPC",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "awaited",
@@ -126362,7 +128219,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "ONGC",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "awaited",
@@ -126384,7 +128241,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "HDFCBANK",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "awaited",
@@ -126406,7 +128263,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "KOTAKBANK",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "awaited",
@@ -126428,7 +128285,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "AXISBANK",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "awaited",
@@ -126450,7 +128307,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "BAJAJFINSV",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "awaited",
@@ -126472,7 +128329,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "BAJAJFINSV",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "awaited",
@@ -126494,7 +128351,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "NAUKRI",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "awaited",
@@ -126516,7 +128373,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "BAJAJHIND",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "awaited",
@@ -126538,7 +128395,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "GRETEX",
-   "checkedAt": "2026-11-13"
+   "checkedAt": "2026-11-14"
   },
   {
    "bucket": "dropped",
@@ -130105,7 +131962,7 @@
    "parent": "Reliance Industries",
    "parentPrice": {
     "value": 1339.7,
-    "asOf": "2026-11-13"
+    "asOf": "2026-11-12"
    },
    "parentTicker": "RELIANCE",
    "sources": [
@@ -130157,8 +132014,8 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 136.19,
-    "asOf": "2026-11-13"
+    "value": 133.21,
+    "asOf": "2026-11-12"
    },
    "parentTicker": "EDELWEISS",
    "sources": [
@@ -130312,8 +132169,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 403.5,
-    "asOf": "2026-11-13"
+    "value": 404.3,
+    "asOf": "2026-11-12"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -130441,8 +132298,8 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5385.0,
-    "asOf": "2026-11-13"
+    "value": 5342.0,
+    "asOf": "2026-11-12"
    },
    "parentTicker": "HEROMOTOCO",
    "sources": [
@@ -130556,8 +132413,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 403.5,
-    "asOf": "2026-11-13"
+    "value": 404.3,
+    "asOf": "2026-11-12"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -130604,7 +132461,7 @@
   }
  },
  "evidence": {
-  "asOf": "2026-11-13",
+  "asOf": "2026-11-14",
   "rfAnnual": 0.07,
   "minN": 30,
   "edges": {
@@ -131322,8 +133179,8 @@
    "sme": {
     "window": {
      "rule": "last 12 months",
-     "n": 242,
-     "from": "2025-11-13",
+     "n": 241,
+     "from": "2025-11-14",
      "to": "2026-11-11"
     },
     "n": 999,
@@ -131340,10 +133197,10 @@
         "p90": 7.3
        },
        {
-        "n": 64,
-        "pos": 46.9,
-        "lo": 35.2,
-        "hi": 58.9,
+        "n": 63,
+        "pos": 46.0,
+        "lo": 34.3,
+        "hi": 58.2,
         "med": 0.0,
         "p10": -20.0,
         "p90": 11.1
@@ -131418,13 +133275,13 @@
         "p90": 4.8
        },
        {
-        "n": 66,
-        "pos": 47.0,
-        "lo": 35.4,
-        "hi": 58.8,
+        "n": 65,
+        "pos": 46.2,
+        "lo": 34.6,
+        "hi": 58.1,
         "med": 0.0,
-        "p10": -17.3,
-        "p90": 13.7
+        "p10": -17.8,
+        "p90": 13.8
        },
        {
         "n": 30,
@@ -131653,11 +133510,11 @@
        "p90": 5.3
       },
       {
-       "n": 32,
-       "held": 68.8,
-       "lo": 51.4,
-       "hi": 82.0,
-       "med": 5.2,
+       "n": 31,
+       "held": 67.7,
+       "lo": 50.1,
+       "hi": 81.4,
+       "med": 5.1,
        "p10": -5.1,
        "p90": 6.1
       },
@@ -131905,13 +133762,13 @@
     },
     "fit": {
      "r377": {
-      "n": 136,
-      "a": 1.13,
-      "b": 0.986,
+      "n": 135,
+      "a": 1.11,
+      "b": 0.987,
       "r2": 0.74,
-      "sd": 17.1,
-      "q10": -20.2,
-      "q90": 19.3
+      "sd": 17.2,
+      "q10": -20.3,
+      "q90": 19.4
      },
      "eve": {
       "n": 30,
@@ -132393,7 +134250,7 @@
  "records": {
   "2067": {
    "name": "Crystal Crop Protection",
-   "fetchedAt": "2026-11-13T12:25:44+05:30",
+   "fetchedAt": "2026-11-14T01:34:27+05:30",
    "about": [
     "Crystal Crop Protection is an Indian agri-inputs company built around two pillars: agrochemicals and seeds. Everything it makes is tailored to the conditions and needs of Indian farmers. Offerings: Crop protection: Herbicides, fungicides and insecticides, sold under more than 174 brands in a range of pack sizes, including smaller, farmer-friendly formats. The branded business has been its faster-growing segment. Crop nutrition and natural solutions: Bio-stimulants, bio-protectants, plant growth regulators, liquid fertilizers and micronutrients. Seeds: Cotton, cereals, oilseeds, fodder crops, vegetables and flowers, sold across India and exported to markets such as Japan, the USA and Thailand. Exports: Formulations and technicals shipped to Bangladesh, Nepal and several countries in Africa and Asia. Crystal follows a fully integrated model that links research, seed breeding, technology-enabled manufacturing and distribution. Its R&D centre is in Sonipat, Haryana, and the company also works with multinational partners on innovation. Production is spread across Haryana, Gujarat, Jammu & Kashmir, Maharashtra, Telangana and Karnataka, covering formulations, technicals and seed processing. As of 30 September 2025, formulation plants had a combined installed capacity of 75,962 MT, while technicals facilities stood at 3,456 MT. Products reach the market through over 13,000 distributors and 36 distribution centres across India."
    ],
@@ -132619,10 +134476,10 @@
    "gmpHistory": [
     {
      "date": "2026-11-13",
-     "gmp": 45.0,
-     "est": 317.0,
-     "pct": 16.54,
-     "kostakSauda": "1900/26600"
+     "gmp": 40.0,
+     "est": 312.0,
+     "pct": 14.71,
+     "kostakSauda": "1700/23800"
     }
    ],
    "company": {
@@ -132633,7 +134490,7 @@
   },
   "1818": {
    "name": "Watrana Rentals",
-   "fetchedAt": "2026-11-13T12:25:44+05:30",
+   "fetchedAt": "2026-11-14T01:34:27+05:30",
    "about": [
     "Watrana Rentals Limited is engaged in providing rental and trading solutions for material handling equipment (MHE) and cargo handling requirements. Its product portfolio includes battery-operated, diesel and gas-powered forklifts, electric stackers, pallet trucks, specialised attachments such as paper-roll clamps, bale clamps and side shifters, along with various ground-support equipment. The company is an ISO 9001:2015, ISO 45001:2018 and ISO 14001:2015 certified supplier of industrial material handling equipment, catering to the requirements of customers across various industries in India. The company's business operations are primarily divided into the following segments: Rental Solutions: Offers material handling equipment on a rental basis, enabling customers to meet their operational requirements while avoiding significant upfront capital expenditure and long-term ownership commitments. Trading in MHE: Engages in the sale of material handling equipment, providing customers with suitable equipment options based on their operational requirements and budgets. Trading in Batteries for MHE: Supplies batteries compatible with different material handling equipment models, catering to both rental customers and equipment buyers. The company has an extensive pan-India presence, with more than 304 rental sites, enabling it to provide equipment accessibility and timely service support to customers across different locations. As of April 30, 2025, the company had an operational fleet of over 1,441 material handling equipment units. Its fleet comprises diesel and electric forklifts, reach trucks, battery-operated stackers, pallet trucks, order pickers, towing trucks and other equipment. As of April 30, 2025, the company had a workforce of approximately 3,122 employees, comprising equipment operators, technicians, engineers, site supervisors and other support staff. Competitive Strengths: Experienced Promoters and Management: Backed by experienced promoters and a senior management team with strong technical knowledge and industry expertise. Skilled Workforce: A large and trained workforce that plays an important role in delivering efficient and reliable services to customers across India. Focus on Quality Assurance: Emphasises service quality and operational standards across its business activities. Extensive Network Presence: Established pan-India network of rental locations, supporting wider customer reach and efficient service delivery."
    ],
@@ -132870,10 +134727,10 @@
    "gmpHistory": [
     {
      "date": "2026-11-13",
-     "gmp": 0.0,
-     "est": 245.0,
-     "pct": 0.0,
-     "kostakSauda": "--"
+     "gmp": 16.0,
+     "est": 261.0,
+     "pct": 6.53,
+     "kostakSauda": "7300"
     }
    ],
    "company": {
@@ -132884,7 +134741,7 @@
   }
  },
  "players": {
-  "asOf": "2026-11-13",
+  "asOf": "2026-11-14",
   "tracked": 53,
   "of": 2839,
   "latestPerInvestor": 5,
@@ -133924,9 +135781,8 @@
   ]
  },
  "tape": {
-  "asOf": "2026-11-13T18:14:27+05:30",
+  "asOf": "2026-11-14T01:34:35+05:30",
   "dates": [
-   "2026-02-09",
    "2026-02-10",
    "2026-02-11",
    "2026-02-12",
@@ -134112,7 +135968,8 @@
    "2026-11-06",
    "2026-11-09",
    "2026-11-11",
-   "2026-11-12"
+   "2026-11-12",
+   "2026-11-13"
   ],
   "noFile": [
    "2026-03-03",
@@ -134346,7 +136203,6 @@
   "n": 213,
   "bse": {
    "dates": [
-    "2026-02-09",
     "2026-02-10",
     "2026-02-11",
     "2026-02-12",
@@ -134532,7 +136388,8 @@
     "2026-11-06",
     "2026-11-09",
     "2026-11-11",
-    "2026-11-12"
+    "2026-11-12",
+    "2026-11-13"
    ],
    "noFile": [
     "2026-03-03",
@@ -134650,7 +136507,7 @@
   }
  },
  "anchorBooks": {
-  "asOf": "2026-11-13",
+  "asOf": "2026-11-14",
   "n": 923,
   "books": {
    "1782": {
@@ -197592,7 +199449,7 @@
   }
  },
  "trackRecords": {
-  "asOf": "2026-11-13",
+  "asOf": "2026-11-14",
   "booksOn": 923,
   "withOutcome": 923,
   "investors": 1498,
@@ -200345,13 +202202,13 @@
       "p90": 18.2
      },
      "d30": {
-      "n": 15,
-      "pos": 53.3,
-      "lo": 30.1,
-      "hi": 75.2,
-      "med": 3.2,
-      "p10": -17.8,
-      "p90": 37.3
+      "n": 16,
+      "pos": 50.0,
+      "lo": 28.0,
+      "hi": 72.0,
+      "med": -1.3,
+      "p10": -17.6,
+      "p90": 37.0
      },
      "lead": {
       "n": 2,
@@ -201321,13 +203178,13 @@
       "p90": 21.6
      },
      "d30": {
-      "n": 11,
-      "pos": 36.4,
-      "lo": 15.2,
-      "hi": 64.6,
-      "med": -6.2,
-      "p10": -11.7,
-      "p90": 28.1
+      "n": 12,
+      "pos": 33.3,
+      "lo": 13.8,
+      "hi": 60.9,
+      "med": -6.8,
+      "p10": -12.4,
+      "p90": 26.6
      },
      "lead": {
       "n": 11,
@@ -202298,13 +204155,13 @@
       "p90": 15.1
      },
      "d30": {
-      "n": 6,
-      "pos": 33.3,
-      "lo": 9.7,
-      "hi": 70.0,
-      "med": -2.9,
-      "p10": -16.8,
-      "p90": 27.3
+      "n": 7,
+      "pos": 42.9,
+      "lo": 15.8,
+      "hi": 75.0,
+      "med": -1.6,
+      "p10": -15.2,
+      "p90": 32.5
      },
      "lead": {
       "n": 10,
@@ -207701,13 +209558,13 @@
       "p90": 19.6
      },
      "d30": {
-      "n": 10,
-      "pos": 50.0,
-      "lo": 23.7,
-      "hi": 76.3,
-      "med": 0.1,
-      "p10": -13.1,
-      "p90": 25.7
+      "n": 11,
+      "pos": 45.5,
+      "lo": 21.3,
+      "hi": 72.0,
+      "med": -5.8,
+      "p10": -14.1,
+      "p90": 25.4
      },
      "lead": {
       "n": 0,
@@ -209313,13 +211170,13 @@
       "p90": 19.3
      },
      "d30": {
-      "n": 7,
-      "pos": 71.4,
-      "lo": 35.9,
-      "hi": 91.8,
-      "med": 4.8,
-      "p10": -5.0,
-      "p90": 26.7
+      "n": 8,
+      "pos": 62.5,
+      "lo": 30.6,
+      "hi": 86.3,
+      "med": 4.0,
+      "p10": -13.0,
+      "p90": 24.7
      },
      "lead": {
       "n": 0,
@@ -209817,13 +211674,13 @@
       "p90": 9.2
      },
      "d30": {
-      "n": 6,
-      "pos": 50.0,
-      "lo": 18.8,
-      "hi": 81.2,
-      "med": -0.1,
-      "p10": -14.7,
-      "p90": 15.1
+      "n": 7,
+      "pos": 42.9,
+      "lo": 15.8,
+      "hi": 75.0,
+      "med": -6.2,
+      "p10": -15.2,
+      "p90": 14.3
      },
      "lead": {
       "n": 2,
@@ -213231,13 +215088,13 @@
       "p90": 49.9
      },
      "d30": {
-      "n": 6,
-      "pos": 83.3,
-      "lo": 43.6,
-      "hi": 97.0,
-      "med": 16.5,
-      "p10": -3.3,
-      "p90": 37.6
+      "n": 7,
+      "pos": 71.4,
+      "lo": 35.9,
+      "hi": 91.8,
+      "med": 11.4,
+      "p10": -14.8,
+      "p90": 34.5
      },
      "lead": {
       "n": 2,
@@ -216104,13 +217961,13 @@
       "p90": 3.4
      },
      "d30": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 0.1,
-      "p10": -21.6,
-      "p90": 21.7
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 27.1,
+      "p10": -16.2,
+      "p90": 36.0
      },
      "lead": {
       "n": 3,
@@ -218125,13 +219982,13 @@
       "p90": 22.7
      },
      "d30": {
-      "n": 5,
-      "pos": 20.0,
-      "lo": 3.6,
-      "hi": 62.4,
-      "med": -16.8,
-      "p10": -20.4,
-      "p90": 9.5
+      "n": 6,
+      "pos": 16.7,
+      "lo": 3.0,
+      "hi": 56.4,
+      "med": -15.4,
+      "p10": -20.1,
+      "p90": 6.3
      },
      "lead": {
       "n": 1,
@@ -226343,13 +228200,13 @@
       "p90": 27.1
      },
      "d30": {
-      "n": 6,
-      "pos": 16.7,
-      "lo": 3.0,
-      "hi": 56.4,
-      "med": -11.5,
-      "p10": -19.2,
-      "p90": 6.8
+      "n": 7,
+      "pos": 14.3,
+      "lo": 2.6,
+      "hi": 51.3,
+      "med": -12.5,
+      "p10": -18.7,
+      "p90": 3.7
      },
      "lead": {
       "n": 0,
@@ -226855,13 +228712,13 @@
       "p90": 19.6
      },
      "d30": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 32.0,
-      "p10": 15.5,
-      "p90": 34.6
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 21.7,
+      "p10": -6.4,
+      "p90": 34.3
      },
      "lead": {
       "n": 1,
@@ -227922,13 +229779,13 @@
       "p90": 4.6
      },
      "d30": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -5.5,
-      "p10": -13.3,
-      "p90": 2.2
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -14.1,
+      "p10": -15.0,
+      "p90": 0.5
      },
      "lead": {
       "n": 0,
@@ -228138,13 +229995,13 @@
       "p90": -3.4
      },
      "d30": {
-      "n": 3,
+      "n": 4,
       "pos": 0.0,
       "lo": 0.0,
-      "hi": 56.2,
-      "med": -18.5,
-      "p10": -21.0,
-      "p90": -17.1
+      "hi": 49.0,
+      "med": -17.6,
+      "p10": -20.7,
+      "p90": -14.9
      },
      "lead": {
       "n": 1,
@@ -231986,13 +233843,13 @@
       "p90": 73.3
      },
      "d30": {
-      "n": 5,
-      "pos": 40.0,
-      "lo": 11.8,
-      "hi": 76.9,
-      "med": -12.5,
-      "p10": -17.8,
-      "p90": 39.0
+      "n": 6,
+      "pos": 33.3,
+      "lo": 9.7,
+      "hi": 70.0,
+      "med": -13.3,
+      "p10": -17.6,
+      "p90": 36.2
      },
      "lead": {
       "n": 0,
@@ -232310,13 +234167,13 @@
       "p90": 4.0
      },
      "d30": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -2.8,
-      "p10": -5.5,
-      "p90": -0.1
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -6.2,
+      "p10": -12.5,
+      "p90": -0.8
      },
      "lead": {
       "n": 2,
@@ -235439,13 +237296,13 @@
       "p90": 26.0
      },
      "d30": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 38.6,
-      "p10": 12.6,
-      "p90": 67.2
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 22.4,
+      "p10": -8.0,
+      "p90": 63.7
      },
      "lead": {
       "n": 0,
@@ -236627,13 +238484,13 @@
       "p90": 13.3
      },
      "d30": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 21.6,
-      "p10": -5.0,
-      "p90": 63.8
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": 5.0,
+      "p10": -13.4,
+      "p90": 58.6
      },
      "lead": {
       "n": 0,
@@ -247535,13 +249392,13 @@
       "p90": -14.0
      },
      "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -14.1,
+      "p10": -14.1,
+      "p90": -14.1
      },
      "lead": {
       "n": 3,
@@ -264241,13 +266098,13 @@
       "p90": -14.0
      },
      "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -14.1,
+      "p10": -14.1,
+      "p90": -14.1
      },
      "lead": {
       "n": 1,
@@ -288506,10 +290363,12 @@
     "d30": -30.6
    },
    "1852": {
-    "d5": -14.0
+    "d5": -14.0,
+    "d30": -14.1
    },
    "2230": {
-    "d5": 5.1
+    "d5": 5.1,
+    "d30": 38.2
    },
    "2268": {
     "d5": -14.5
@@ -290817,8 +292676,8 @@
     "side": "net buyer",
     "netCr": 1.47,
     "d5": -3.1,
-    "d20": null,
-    "done": false
+    "d20": -1.8,
+    "done": true
    },
    {
     "client": "STITCHED TEXTILES LIMITED",
@@ -290829,8 +292688,8 @@
     "side": "net seller",
     "netCr": -1.01,
     "d5": -3.1,
-    "d20": null,
-    "done": false
+    "d20": -1.8,
+    "done": true
    },
    {
     "client": "IRAGE BROKING SERVICES LLP",
@@ -291021,8 +292880,8 @@
     "side": "net seller",
     "netCr": -8.65,
     "d5": -16.7,
-    "d20": null,
-    "done": false
+    "d20": -20.2,
+    "done": true
    },
    {
     "client": "D3 STOCK VISION LLP",
@@ -291033,8 +292892,8 @@
     "side": "net seller",
     "netCr": -2.64,
     "d5": -16.7,
-    "d20": null,
-    "done": false
+    "d20": -12.2,
+    "done": true
    },
    {
     "client": "IMC INDIA SECURITIES PRIVATE LIMITED",
@@ -291045,8 +292904,8 @@
     "side": "net buyer",
     "netCr": 2.75,
     "d5": -16.7,
-    "d20": null,
-    "done": false
+    "d20": -12.2,
+    "done": true
    },
    {
     "client": "SETU SECURITIES PVT LTD",
@@ -291057,8 +292916,8 @@
     "side": "net seller",
     "netCr": -2.35,
     "d5": -16.7,
-    "d20": null,
-    "done": false
+    "d20": -12.2,
+    "done": true
    },
    {
     "client": "IRAGE BROKING SERVICES LLP",
@@ -291069,8 +292928,8 @@
     "side": "net buyer",
     "netCr": 12.61,
     "d5": -16.4,
-    "d20": null,
-    "done": false
+    "d20": -21.4,
+    "done": true
    },
    {
     "client": "ARIHANT CAPITAL MARKETS LIMITED",
@@ -291081,8 +292940,8 @@
     "side": "net seller",
     "netCr": -3.07,
     "d5": -2.6,
-    "d20": null,
-    "done": false
+    "d20": -9.4,
+    "done": true
    },
    {
     "client": "NEO APEX SHARE BROKING SERVICES LLP",
@@ -291093,8 +292952,8 @@
     "side": "net seller",
     "netCr": -1.95,
     "d5": 1.8,
-    "d20": null,
-    "done": false
+    "d20": 4.3,
+    "done": true
    },
    {
     "client": "INDRA KIRAN VENTURES",
@@ -292645,6 +294504,18 @@
     "done": false
    },
    {
+    "client": "RAVI AMIT JALAN",
+    "key": "RAVI AMIT JALAN",
+    "stock": "Amir Chand Jagdish Kumar",
+    "sme": false,
+    "date": "2026-11-05",
+    "side": "net buyer",
+    "netCr": 20.6,
+    "d5": 0.3,
+    "d20": null,
+    "done": false
+   },
+   {
     "client": "AU SMALL FINANCE BANK LIMITED",
     "key": "AU SMALL FINANCE BANK",
     "stock": "Bombay Coated and Special Steels",
@@ -292691,64 +294562,49 @@
     "d5": -14.7,
     "d20": null,
     "done": false
+   },
+   {
+    "client": "YUGA STOCKS AND COMMODITIES PRIVATE LIMITED",
+    "key": "YUGA STOCKS AND COMMODITIES",
+    "stock": "Maharaja & Speedex India",
+    "sme": true,
+    "date": "2026-11-05",
+    "side": "net seller",
+    "netCr": -5.34,
+    "d5": 11.4,
+    "d20": null,
+    "done": false
+   },
+   {
+    "client": "ARIHANT CAPITAL MARKETS LIMITED",
+    "key": "ARIHANT CAPITAL MARKETS",
+    "stock": "Sunshine Pictures",
+    "sme": false,
+    "date": "2026-11-05",
+    "side": "net seller",
+    "netCr": -2.37,
+    "d5": 14.1,
+    "d20": null,
+    "done": false
+   },
+   {
+    "client": "LRSD CAPITAL PRIVATE LIMITED",
+    "key": "LRSD CAPITAL",
+    "stock": "Technocraft Ventures",
+    "sme": false,
+    "date": "2026-11-05",
+    "side": "net seller",
+    "netCr": -20.69,
+    "d5": -2.2,
+    "d20": null,
+    "done": false
    }
   ],
   "deals": [
    {
-    "key": "IRAGE BROKING SERVICES",
-    "name": "IRAGE BROKING SERVICES LLP",
-    "n": 12,
-    "main": {
-     "buys": {
-      "n": 4,
-      "d5": {
-       "n": 4,
-       "pos": 25.0,
-       "lo": 4.6,
-       "hi": 69.9,
-       "med": -9.8,
-       "p10": -17.2,
-       "p90": 9.6
-      },
-      "d20": {
-       "n": 2,
-       "pos": 0.0,
-       "lo": 0.0,
-       "hi": 65.8,
-       "med": -14.3,
-       "p10": -20.2,
-       "p90": -8.4
-      },
-      "netCr": 82.4
-     },
-     "sells": {
-      "n": 8,
-      "d5": {
-       "n": 8,
-       "pos": 50.0,
-       "lo": 21.5,
-       "hi": 78.5,
-       "med": 3.7,
-       "p10": -6.0,
-       "p90": 33.1
-      },
-      "d20": {
-       "n": 6,
-       "pos": 16.7,
-       "lo": 3.0,
-       "hi": 56.4,
-       "med": -11.5,
-       "p10": -26.2,
-       "p90": 3.1
-      },
-      "netCr": -104.6
-     }
-    }
-   },
-   {
     "key": "ARIHANT CAPITAL MARKETS",
     "name": "ARIHANT CAPITAL MARKETS LIMITED",
-    "n": 11,
+    "n": 12,
     "main": {
      "buys": {
       "n": 3,
@@ -292773,26 +294629,77 @@
       "netCr": 16.7
      },
      "sells": {
-      "n": 8,
+      "n": 9,
       "d5": {
-       "n": 8,
-       "pos": 50.0,
-       "lo": 21.5,
-       "hi": 78.5,
-       "med": -0.8,
-       "p10": -12.9,
-       "p90": 5.7
+       "n": 9,
+       "pos": 55.6,
+       "lo": 26.7,
+       "hi": 81.1,
+       "med": 0.9,
+       "p10": -12.8,
+       "p90": 13.9
+      },
+      "d20": {
+       "n": 4,
+       "pos": 0.0,
+       "lo": 0.0,
+       "hi": 49.0,
+       "med": -11.4,
+       "p10": -13.3,
+       "p90": -9.9
+      },
+      "netCr": -54.0
+     }
+    }
+   },
+   {
+    "key": "IRAGE BROKING SERVICES",
+    "name": "IRAGE BROKING SERVICES LLP",
+    "n": 12,
+    "main": {
+     "buys": {
+      "n": 4,
+      "d5": {
+       "n": 4,
+       "pos": 25.0,
+       "lo": 4.6,
+       "hi": 69.9,
+       "med": -9.8,
+       "p10": -17.2,
+       "p90": 9.6
       },
       "d20": {
        "n": 3,
        "pos": 0.0,
        "lo": 0.0,
        "hi": 56.2,
-       "med": -11.8,
-       "p10": -13.6,
-       "p90": -11.2
+       "med": -21.4,
+       "p10": -21.6,
+       "p90": -9.8
       },
-      "netCr": -51.6
+      "netCr": 82.4
+     },
+     "sells": {
+      "n": 8,
+      "d5": {
+       "n": 8,
+       "pos": 50.0,
+       "lo": 21.5,
+       "hi": 78.5,
+       "med": 3.7,
+       "p10": -6.0,
+       "p90": 33.1
+      },
+      "d20": {
+       "n": 6,
+       "pos": 16.7,
+       "lo": 3.0,
+       "hi": 56.4,
+       "med": -11.5,
+       "p10": -26.2,
+       "p90": 3.1
+      },
+      "netCr": -104.6
      }
     }
    },
@@ -292932,13 +294839,13 @@
        "p90": 1.3
       },
       "d20": {
-       "n": 2,
-       "pos": 0.0,
-       "lo": 0.0,
-       "hi": 65.8,
-       "med": -7.8,
-       "p10": -9.2,
-       "p90": -6.4
+       "n": 3,
+       "pos": 33.3,
+       "lo": 6.1,
+       "hi": 79.2,
+       "med": -6.1,
+       "p10": -8.9,
+       "p90": 2.2
       },
       "netCr": -7.9
      }
@@ -292987,6 +294894,81 @@
        "p90": 1.2
       },
       "netCr": -3.9
+     }
+    }
+   },
+   {
+    "key": "YUGA STOCKS AND COMMODITIES",
+    "name": "YUGA STOCKS AND COMMODITIES PRIVATE LIMITED",
+    "n": 7,
+    "main": {
+     "buys": {
+      "n": 5,
+      "d5": {
+       "n": 5,
+       "pos": 60.0,
+       "lo": 23.1,
+       "hi": 88.2,
+       "med": 2.4,
+       "p10": -11.4,
+       "p90": 37.1
+      },
+      "d20": {
+       "n": 4,
+       "pos": 50.0,
+       "lo": 15.0,
+       "hi": 85.0,
+       "med": 0.4,
+       "p10": -5.2,
+       "p90": 9.6
+      },
+      "netCr": 37.5
+     },
+     "sells": {
+      "n": 1,
+      "d5": {
+       "n": 1,
+       "pos": 0.0,
+       "lo": 0.0,
+       "hi": 79.3,
+       "med": -10.6,
+       "p10": -10.6,
+       "p90": -10.6
+      },
+      "d20": {
+       "n": 1,
+       "pos": 0.0,
+       "lo": 0.0,
+       "hi": 79.3,
+       "med": -16.9,
+       "p10": -16.9,
+       "p90": -16.9
+      },
+      "netCr": -3.8
+     }
+    },
+    "sme": {
+     "sells": {
+      "n": 1,
+      "d5": {
+       "n": 1,
+       "pos": 100.0,
+       "lo": 20.7,
+       "hi": 100.0,
+       "med": 11.4,
+       "p10": 11.4,
+       "p90": 11.4
+      },
+      "d20": {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null
+      },
+      "netCr": -5.3
      }
     }
    },
@@ -293139,57 +295121,6 @@
     }
    },
    {
-    "key": "YUGA STOCKS AND COMMODITIES",
-    "name": "YUGA STOCKS AND COMMODITIES PRIVATE LIMITED",
-    "n": 6,
-    "main": {
-     "buys": {
-      "n": 5,
-      "d5": {
-       "n": 5,
-       "pos": 60.0,
-       "lo": 23.1,
-       "hi": 88.2,
-       "med": 2.4,
-       "p10": -11.4,
-       "p90": 37.1
-      },
-      "d20": {
-       "n": 4,
-       "pos": 50.0,
-       "lo": 15.0,
-       "hi": 85.0,
-       "med": 0.4,
-       "p10": -5.2,
-       "p90": 9.6
-      },
-      "netCr": 37.5
-     },
-     "sells": {
-      "n": 1,
-      "d5": {
-       "n": 1,
-       "pos": 0.0,
-       "lo": 0.0,
-       "hi": 79.3,
-       "med": -10.6,
-       "p10": -10.6,
-       "p90": -10.6
-      },
-      "d20": {
-       "n": 1,
-       "pos": 0.0,
-       "lo": 0.0,
-       "hi": 79.3,
-       "med": -16.9,
-       "p10": -16.9,
-       "p90": -16.9
-      },
-      "netCr": -3.8
-     }
-    }
-   },
-   {
     "key": "EQUISM CAPITAL",
     "name": "EQUISM CAPITAL PRIVATE  LIMITED",
     "n": 5,
@@ -293257,13 +295188,13 @@
        "p90": -3.1
       },
       "d20": {
-       "n": 0,
-       "pos": null,
-       "lo": null,
-       "hi": null,
-       "med": null,
-       "p10": null,
-       "p90": null
+       "n": 1,
+       "pos": 0.0,
+       "lo": 0.0,
+       "hi": 79.3,
+       "med": -1.8,
+       "p10": -1.8,
+       "p90": -1.8
       },
       "netCr": -1.0
      }
@@ -293308,13 +295239,13 @@
        "p90": 2.5
       },
       "d20": {
-       "n": 0,
-       "pos": null,
-       "lo": null,
-       "hi": null,
-       "med": null,
-       "p10": null,
-       "p90": null
+       "n": 1,
+       "pos": 0.0,
+       "lo": 0.0,
+       "hi": 79.3,
+       "med": -12.2,
+       "p10": -12.2,
+       "p90": -12.2
       },
       "netCr": -3.1
      }
@@ -294877,6 +296808,35 @@
     }
    },
    {
+    "key": "LRSD CAPITAL",
+    "name": "LRSD CAPITAL PRIVATE LIMITED",
+    "n": 2,
+    "main": {
+     "sells": {
+      "n": 2,
+      "d5": {
+       "n": 2,
+       "pos": 0.0,
+       "lo": 0.0,
+       "hi": 65.8,
+       "med": -6.8,
+       "p10": -10.6,
+       "p90": -3.1
+      },
+      "d20": {
+       "n": 0,
+       "pos": null,
+       "lo": null,
+       "hi": null,
+       "med": null,
+       "p10": null,
+       "p90": null
+      },
+      "netCr": -24.4
+     }
+    }
+   },
+   {
     "key": "GOLDENDUNES BUILDHOME",
     "name": "GOLDENDUNES BUILDHOME PRIVATE LIMITED",
     "n": 2,
@@ -295503,52 +297463,10 @@
   }
  },
  "calendar": {
-  "asOf": "2026-11-13",
-  "from": "2026-11-06",
-  "to": "2026-12-28",
+  "asOf": "2026-11-14",
+  "from": "2026-11-07",
+  "to": "2026-12-29",
   "events": [
-   {
-    "date": "2026-11-06",
-    "kind": "allotment",
-    "name": "Antala Industries",
-    "igId": "2375",
-    "src": "ig554"
-   },
-   {
-    "date": "2026-11-06",
-    "kind": "refund",
-    "name": "Vedant Poly Fabs",
-    "igId": "2297",
-    "src": "ig554"
-   },
-   {
-    "date": "2026-11-06",
-    "kind": "listing",
-    "name": "HGS (India)",
-    "igId": "2241",
-    "src": "ig554"
-   },
-   {
-    "date": "2026-11-06",
-    "kind": "listing",
-    "name": "Johnsoncab Electricals",
-    "igId": "2371",
-    "src": "ig554"
-   },
-   {
-    "date": "2026-11-06",
-    "kind": "listing",
-    "name": "Maxwell Engineering Solutions",
-    "igId": "1965",
-    "src": "ig554"
-   },
-   {
-    "date": "2026-11-06",
-    "kind": "listing",
-    "name": "Vectras Enprocon",
-    "igId": "1998",
-    "src": "ig554"
-   },
    {
     "date": "2026-11-07",
     "kind": "lockin30",
@@ -296414,6 +298332,33 @@
     "sme": true,
     "src": "anchors",
     "amountCr": 3.38
+   },
+   {
+    "date": "2026-12-29",
+    "kind": "lockin90",
+    "name": "Himalayan Solar",
+    "igId": "1975",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 3.88
+   },
+   {
+    "date": "2026-12-29",
+    "kind": "lockin90",
+    "name": "SRIT India",
+    "igId": "2121",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 32.76
+   },
+   {
+    "date": "2026-12-29",
+    "kind": "lockin90",
+    "name": "Shah Investor's Home",
+    "igId": "1926",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": 13.53
    }
   ],
   "issues": {
@@ -296489,36 +298434,7 @@
     "name": "Antala Industries",
     "igId": "2375",
     "kinds": [
-     "allotment",
      "refund",
-     "listing"
-    ]
-   },
-   {
-    "name": "HGS (India)",
-    "igId": "2241",
-    "kinds": [
-     "listing"
-    ]
-   },
-   {
-    "name": "Johnsoncab Electricals",
-    "igId": "2371",
-    "kinds": [
-     "listing"
-    ]
-   },
-   {
-    "name": "Maxwell Engineering Solutions",
-    "igId": "1965",
-    "kinds": [
-     "listing"
-    ]
-   },
-   {
-    "name": "Vectras Enprocon",
-    "igId": "1998",
-    "kinds": [
      "listing"
     ]
    },
@@ -296526,7 +298442,6 @@
     "name": "Vedant Poly Fabs",
     "igId": "2297",
     "kinds": [
-     "refund",
      "listing"
     ]
    }
@@ -296541,8 +298456,8 @@
     "events": 55
    },
    "ig607": {
-    "rows": 0,
-    "matched": 0
+    "rows": 1,
+    "matched": 1
    }
   }
  },
