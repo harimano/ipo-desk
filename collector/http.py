@@ -47,6 +47,11 @@ SEBI = "https://www.sebi.gov.in"
 BLOCK_STATUSES = {401, 403, 421, 429, 503}
 MAX_BODY = 40 * 1024 * 1024
 RETRY_SLEEPS = (0.5, 1.0, 2.0)
+STALE_CACHE_S = 600           # a CDN HIT older than this is a stale reply, named in the run log (13 Nov 2026: InvestorGain's list, 3.7 h)
+# Hosts whose every call carries `v=<epoch>`, so Cloudflare's edge can never answer for the origin. 13 Nov 2026: InvestorGain's
+# `v2/ipo/list-read` came back HIT at age 13365 s and a record at 78 min, `no-store` notwithstanding; the reports (331, 566)
+# sit ~10 min — long enough to hand the five-minute live loop a stale book. One rule here covers every module and live.py.
+CACHE_BUST_HOSTS = frozenset({"webnodejs.investorgain.com"})
 NETWORK_FAULTS = (httpx.ConnectError, httpx.ReadTimeout, httpx.ConnectTimeout, httpx.RemoteProtocolError,
                   httpx.ReadError, httpx.WriteError, httpx.PoolTimeout, httpx.ProxyError)
 
@@ -96,6 +101,8 @@ class Session:
                  headers: dict | None = None, params: dict | None = None, data: dict | None = None,
                  timeout: float | None = None, allow_statuses: frozenset[int] = frozenset()) -> httpx.Response:
         host = httpx.URL(url).host
+        if host in CACHE_BUST_HOSTS:
+            params = {**(params or {}), "v": int(time.time())}
         last_exc: Exception | None = None
         for attempt, sleep in enumerate((0.0,) + RETRY_SLEEPS):
             if sleep:
@@ -114,6 +121,7 @@ class Session:
                 raise SourceDown(source, f"HTTP {r.status_code}", url, r.status_code)
             if len(r.content) > MAX_BODY:
                 raise SourceChanged(source, f"body {len(r.content)} B exceeds cap", url)
+            _note_cache(r, source, url)
             return r
         raise SourceDown(source, f"{type(last_exc).__name__}: {last_exc}", url)
 
@@ -197,3 +205,23 @@ def _json_or_raise(r: httpx.Response, source: str):
     if data in (None, "", [], {}):
         raise SourceChanged(source, "empty JSON body", str(r.url))
     return data
+
+
+def cache_age(r: httpx.Response) -> int | None:
+    """Seconds a CDN has held this reply, when it says so: Cloudflare's `cf-cache-status: HIT` with an `Age` header. None
+    when the reply came from the origin (MISS, EXPIRED, DYNAMIC, BYPASS) or the headers are absent."""
+    if r.headers.get("cf-cache-status", "").strip().upper() != "HIT":
+        return None
+    try:
+        return int(r.headers.get("age", "0"))
+    except ValueError:
+        return None
+
+
+def _note_cache(r: httpx.Response, source: str, url: str) -> None:
+    """The tripwire behind CACHE_BUST_HOSTS. 13 Nov 2026: InvestorGain's list came back HIT, age 13365 s, `no-store`
+    notwithstanding, and the board was one issue short with nothing red anywhere. If the buster ever stops working, or
+    another source grows a cache, this line says so in the run log."""
+    age = cache_age(r)
+    if age is not None and age > STALE_CACHE_S:
+        log.warning("%s: served from the CDN's cache, %d min old — a stale reply, not the source's answer: %s", source, age // 60, url)
