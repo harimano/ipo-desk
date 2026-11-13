@@ -312,9 +312,15 @@ function bidWord(b) {
   return { tag: [n <= 1 ? "now" : "soon", "Closes " + rel(n)], when: `Closes ${fmtD(b.close)} · ${rel(n)}<div class="dt">${shut ? "bidding closed for today · reopens " + c.nextOpen : "QIBs bid on the last afternoon — early QIB figures say little"}</div>`, plan: [n <= 1 ? "now" : n <= 3 ? "soon" : "plan", rel(n)], over: false };
 }
 function marketPill() {
-  const c = clock();
+  const c = clock(), T = "IPO bidding on the exchange platform runs 10 am – 5 pm IST on weekdays while an issue is open (NSE trading 9:15 – 3:30). Exchange holidays the page does not know read as weekdays.";
+  if (!allIssues().some(b => b.status === "Open")) {        // an empty day (13 Nov 2026): the pill names the pipeline, not the clock
+    const up = allIssues().filter(b => b.status === "Upcoming").sort((x, y) => (x.open || "9999").localeCompare(y.open || "9999")), nx = up[0], n = nx && nx.open ? days(nx.open) : null;
+    const tail = !nx ? "none on the calendar" : !nx.open ? "next date TBA" : n <= 0 ? "opens today 10 am" : n === 1 ? "opens tomorrow 10 am" : `next opens ${d(nx.open).toLocaleDateString("en-IN", { weekday: "short" })} ${fmtD(nx.open)}`;
+    const txt = `No issue open${up.length ? ` · ${up.length} upcoming` : ""} · ${tail}`, cls = n != null && n <= 7 ? "upcoming" : "bid";   // blue once the next open is a week out
+    return nx ? `<a class="pill ${cls} mkt" href="${hashFor("board", nx.name)}" title="${T} Tap: the Board row."><i></i>${esc(txt)}</a>` : `<span class="pill bid mkt" title="${T}"><i></i>${esc(txt)}</span>`;
+  }
   const [cls, txt] = c.phase === "open" ? ["open", `IPO bidding open · till 5 pm`] : c.phase === "weekend" ? ["bid", "Weekend · bidding Mon 10 am"] : ["bid", `Bidding closed · opens ${c.nextOpen}`];
-  return `<span class="pill ${cls} mkt" title="IPO bidding on the exchange platform runs 10 am – 5 pm IST on weekdays (NSE trading 9:15 – 3:30). Exchange holidays the page does not know read as weekdays."><i></i>${txt}</span>`;
+  return `<span class="pill ${cls} mkt" title="${T}"><i></i>${txt}</span>`;
 }
 
 // the Board's "quota" mark beside the name (the same mark as Market's pipeline chips' `quota?`): the record shows a shareholder
