@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-13T01:59:46+05:30",
+  "asOf": "2026-11-13T06:45:00+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "13 Nov 2026, 01:59 IST",
+  "label": "13 Nov 2026, 06:45 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -87410,84 +87410,84 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-13T01:59:46+05:30",
+  "asOf": "2026-11-13T06:45:00+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-13T01:58:24+05:30",
-    "elapsed": 3.25,
+    "asOf": "2026-11-13T06:43:51+05:30",
+    "elapsed": 3.15,
     "calls": 6,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=1 carried=1 +nse=0 +bse=0 exchange-only=0: 1 mainboard, 0 sme; 0 open, 1 upcoming",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=1 carried=0 +nse=0 +bse=0 exchange-only=0: 1 mainboard, 0 sme; 0 open, 1 upcoming",
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:changed",
     "status": "ok",
     "asOf": "9-Nov 9:37",
-    "elapsed": 1.97,
+    "elapsed": 1.99,
     "calls": 2,
     "note": "gmp: 0 board rows patched via investorgain; 1 active, 0 of them matched; gmp: 20 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); Fusion CX (₹13.5, investorgain); HGS (India) (₹27, investorgain) …",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-13T01:58:26+05:30",
-    "elapsed": 0.86,
-    "calls": 1,
-    "note": "1 records fetched for 1 identified listings (0 without an id); 0 anchor books updated, 95 on file",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "asOf": "2026-11-13",
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "1 listings identified, none due for a refresh",
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "subscription",
     "method": "none:ok",
     "status": "ok",
-    "asOf": "2026-11-13T01:58:27+05:30",
-    "elapsed": 0.01,
+    "asOf": "2026-11-13T06:43:53+05:30",
+    "elapsed": 0.0,
     "calls": 0,
     "note": "no open or recently closed issues on the board",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "listings",
     "method": "yahoo:ok",
     "status": "ok",
     "asOf": "2026-11-11",
-    "elapsed": 4.38,
+    "elapsed": 3.05,
     "calls": 0,
-    "note": "12 names priced, 0 moved to recent, 1 history points",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "note": "12 names priced, 0 moved to recent, 0 history points",
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-13",
-    "elapsed": 3.27,
+    "elapsed": 3.37,
     "calls": 2,
     "note": "1412 listings since 2022 (999 SME); fetched 2026: 309; QIB on file for 114 of 413 mainboard issues; shareholder-quota books frozen for 0",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "tape",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-12",
-    "elapsed": 2.65,
-    "calls": 2,
-    "note": "213 listings with an NSE symbol; 1 NSE file(s) read, 161 closes added; 187 trading days on file, 0 still to fill · 96 BSE-only listings; 1 BSE file(s) read, 85 closes added, 187 days on file",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "213 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 187 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 187 days on file",
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "anchorbook",
@@ -87497,8 +87497,8 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 923 on file, 589 partial (feed gave only the first names); 0 of 1412 listings still to fetch",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "evidence",
@@ -87508,96 +87508,96 @@
     "elapsed": 0.17,
     "calls": 0,
     "note": "track records: 923 of 923 anchor books have an outcome; 913 of 1498 investors with 2+; 1412 listings; windows: mainboard 132, SME 242; 3 warnings",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "players",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-13",
-    "elapsed": 37.2,
+    "elapsed": 36.53,
     "calls": 54,
     "note": "53 of 2839 anchor investors read (0 failed); names found for 0 of 1 unlisted issues",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "parents",
     "method": "yahoo:ok",
     "status": "ok",
     "asOf": "2026-11-11",
-    "elapsed": 10.42,
+    "elapsed": 9.97,
     "calls": 0,
     "note": "5/5 parent prices; 32/36 investor stocks priced",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "filings",
     "method": "bse_ann:ok, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-11-13",
-    "elapsed": 8.21,
+    "elapsed": 5.11,
     "calls": 7,
-    "note": "bse_ann: feed of 761 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 2378 announcements scanned, 0 subsidiary-offer leads; 0 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 0 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 8 leads held; 19 rows patched, 14 kept previous stage",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "note": "bse_ann: feed of 770 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 2382 announcements scanned, 0 subsidiary-offer leads; 0 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 0 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 8 leads held; 19 rows patched, 14 kept previous stage",
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "planner",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-13",
-    "elapsed": 2.3,
+    "elapsed": 1.99,
     "calls": 3,
     "note": "report 607 (retail slots, fund reuse) did not answer: report 607: reportTableData missing or empty (msg=1) — carried nothing; 92 events 2026-11-06..2026-12-28, 1 issues with terms, 6 from the report only",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "offers",
     "method": "bse:ok",
     "status": "ok",
     "asOf": "2026-11-13",
-    "elapsed": 2.98,
+    "elapsed": 2.44,
     "calls": 3,
-    "note": "bse rows=16: 11 rights, 17 buybacks, 0 ofs, 1 ncd; 16 refreshed, 0 new, 1 closed windows dropped",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "note": "bse rows=16: 11 rights, 17 buybacks, 0 ofs, 1 ncd; 16 refreshed, 0 new, 0 closed windows dropped",
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-11-12",
-    "elapsed": 0.64,
+    "elapsed": 0.35,
     "calls": 1,
     "note": "2026-11-12 already in history; FII +7,831 / DII -6,331 Cr",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-12",
-    "elapsed": 4.04,
-    "calls": 6,
+    "elapsed": 2.6,
+    "calls": 4,
     "note": "bulk.csv: 134 deals; block.csv: 2 deals; 0 tracked-investor deals of 136; 13 patterns; BSE bulk: 38 deals, 5 in this year's listings; BSE block: 31 deals, 0 in this year's listings; listing deals: 30 of today's 136 deals are in this year's listings (9 stocks); 1869 kept over 60 days; 212 of 309 listings have an NSE symbol; 240 with a BSE code",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-11-12T14:57:57+05:30",
-    "elapsed": 0.51,
+    "elapsed": 0.46,
     "calls": 3,
     "note": "business-standard: 1/35 primary-market items; economic-times: 1/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 2 fresh, 25 kept",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "logos",
@@ -87607,8 +87607,8 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "70 logos on file; none to fetch",
-    "lastOk": "2026-11-13T01:59:46+05:30",
-    "dueBy": "2026-11-13T07:28:00+05:30"
+    "lastOk": "2026-11-13T06:45:00+05:30",
+    "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "research layer",
@@ -87620,7 +87620,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "85s, 90 calls, 18/18 modules ok"
+    "note": "72s, 85 calls, 18/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -133285,7 +133285,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-11-13T01:58:35+05:30",
+  "asOf": "2026-11-13T06:44:00+05:30",
   "dates": [
    "2026-02-09",
    "2026-02-10",
