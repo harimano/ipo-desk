@@ -100,7 +100,7 @@ def run(session: Session, prev: dict, res: Result, today: dt.date | None = None)
             res.notes.append(f"{streak} records failed in a row; stopping for this run")
             break
         try:
-            raw = session.get_json(ig.IPO_DETAIL_URL.format(id=r["igId"]), source=ig.SOURCE, headers=ig.HEADERS)
+            raw = session.get_json(ig.IPO_DETAIL_URL.format(id=r["igId"]), source=ig.SOURCE, headers=ig.HEADERS, params=ig.fresh())
             res.calls += 1
             rec = (raw.get("ipoData") or [{}])[0] if isinstance(raw, dict) else {}
             book = ig.parse_anchor_book(rec.get("anchor_investor_detail"))

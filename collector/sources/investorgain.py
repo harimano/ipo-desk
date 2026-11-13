@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import datetime as dt
 import re
+import time
 from zoneinfo import ZoneInfo
 
 from selectolax.lexbor import LexborHTMLParser as HTMLParser
@@ -201,8 +202,16 @@ def parse_ipo_list(data) -> list[dict]:
     return out
 
 
+def fresh() -> dict:
+    """Query string for the `v2/ipo` calls. 13 Nov 2026: Cloudflare served `list-read` from its edge for 3.7 h (cf-cache-status
+    HIT, age 13365) and a record for 78 min, `cache-control: no-store` notwithstanding — the board missed an SME issue the
+    site had listed all morning. A changing `v` makes every call a MISS (probed from the Mac, Singapore edge). The report
+    endpoints revalidate on their own (EXPIRED, then origin) and keep their URLs."""
+    return {"v": int(time.time())}
+
+
 def fetch_ipo_list(session) -> list[dict]:
-    return parse_ipo_list(session.get_json(IPO_LIST_URL, source=SOURCE, headers=HEADERS))
+    return parse_ipo_list(session.get_json(IPO_LIST_URL, source=SOURCE, headers=HEADERS, params=fresh()))
 
 
 def _drop_empty(d: dict) -> dict:
@@ -474,7 +483,7 @@ def shareholder_quota(ipo: dict) -> dict:
 
 
 def fetch_detail(session, ig_id: str) -> dict:
-    return normalise_detail(session.get_json(IPO_DETAIL_URL.format(id=ig_id), source=SOURCE, headers=HEADERS))
+    return normalise_detail(session.get_json(IPO_DETAIL_URL.format(id=ig_id), source=SOURCE, headers=HEADERS, params=fresh()))
 
 
 # ---------------------------------------------------------------------------------------------
