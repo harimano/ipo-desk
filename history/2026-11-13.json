@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-13T06:45:00+05:30",
+  "asOf": "2026-11-13T12:27:13+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "13 Nov 2026, 06:45 IST",
+  "label": "13 Nov 2026, 12:27 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -203,6 +203,26 @@
    ],
    "stage": "DRHP filed 30 Oct 2025",
    "window": null
+  },
+  {
+   "name": "Sitaram Denims India",
+   "window": null,
+   "stage": "DRHP filed 13 Nov 2026",
+   "sizeCr": null,
+   "sizeText": "DRHP 13 Nov",
+   "note": null,
+   "parent": null,
+   "sources": [
+    "https://www.sebi.gov.in/filings/public-issues/nov-2026/sitaram-denims-india-ltd-drhp_105736.html"
+   ],
+   "auto": true,
+   "lastFiling": {
+    "register": "DRHP",
+    "kind": "Prospectus",
+    "date": "2026-11-13",
+    "title": "Sitaram Denims India Ltd - Draft Abridged Prospectus",
+    "url": "https://www.sebi.gov.in/filings/public-issues/nov-2026/sitaram-denims-india-ltd-drhp_105736.html"
+   }
   },
   {
    "name": "Hindustan Coca-Cola Holdings",
@@ -840,27 +860,6 @@
     "date": "2026-10-05",
     "title": "Tenty Limited - Draft Abridged Prospectus",
     "url": "https://www.sebi.gov.in/filings/public-issues/oct-2026/tenty-limited-drhp_105006.html"
-   }
-  },
-  {
-   "name": "Tanvi Exports India",
-   "window": null,
-   "stage": "DRHP filed 5 Oct 2026",
-   "sizeCr": null,
-   "sizeText": "DRHP 5 Oct",
-   "note": null,
-   "parent": null,
-   "sources": [
-    "https://www.sebi.gov.in/filings/public-issues/oct-2026/tanvi-exports-india-limited-drhp_105002.html",
-    "https://www.sebi.gov.in/filings/public-issues/oct-2026/tanvi-exports-india-limited_105002.html"
-   ],
-   "auto": true,
-   "lastFiling": {
-    "register": "DRHP",
-    "kind": "Prospectus",
-    "date": "2026-10-05",
-    "title": "Tanvi Exports India Limited - Draft Abridged Prospectus",
-    "url": "https://www.sebi.gov.in/filings/public-issues/oct-2026/tanvi-exports-india-limited-drhp_105002.html"
    }
   }
  ],
@@ -1777,19 +1776,19 @@
    "slug": "crystal-crop-protection",
    "type": "Mainboard",
    "status": "Upcoming",
-   "open": null,
-   "close": null,
-   "allotment": null,
-   "listing": null,
-   "bandLow": null,
-   "bandHigh": null,
-   "lotSize": null,
-   "issueSizeCr": null,
-   "freshCr": 439.29,
-   "ofsCr": null,
-   "gmp": null,
-   "gmpPct": null,
-   "gmpTrend": null,
+   "open": "2026-11-18",
+   "close": "2026-11-20",
+   "allotment": "2026-11-23",
+   "listing": "2026-11-26",
+   "bandLow": 259.0,
+   "bandHigh": 272.0,
+   "lotSize": 55,
+   "issueSizeCr": 455.49,
+   "freshCr": 354.77,
+   "ofsCr": 100.71,
+   "gmp": 45.0,
+   "gmpPct": 16.54,
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": {
     "flag": false,
@@ -1807,7 +1806,7 @@
    "igId": "2067",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-13T01:58:26+05:30",
+   "igFetchedAt": "2026-11-13T12:25:44+05:30",
    "sector": "Other Agricultural Products",
    "anchorShares": 0,
    "logo": "crystal-crop-protection-logo.png",
@@ -1815,14 +1814,21 @@
     "sector": "Other Agricultural Products",
     "listingAt": "BSE, NSE",
     "kpis": {
-     "asOf": "2025-03-31",
-     "roe": 8.31,
-     "roce": 16.43,
-     "debtEquity": 0.65,
-     "ronw": 7.46,
-     "patMargin": 4.33,
-     "ebitdaMargin": 11.72,
-     "promoterPre": 86.69
+     "asOf": "2026-06-30",
+     "roe": 6.91,
+     "roce": 9.78,
+     "debtEquity": 0.41,
+     "ronw": 6.25,
+     "patMargin": 11.23,
+     "ebitdaMargin": 20.2,
+     "pb": 1.59,
+     "eps": 9.65,
+     "epsPost": 33.29,
+     "pe": 28.19,
+     "pePost": 8.17,
+     "mcapCr": 4438.18,
+     "promoterPre": 84.92,
+     "promoterPost": 75.85
     },
     "registrar": "MUFG Intime India Pvt.Ltd.",
     "leadManagers": [
@@ -1831,10 +1837,32 @@
      "IIFL Capital Services Ltd."
     ],
     "docs": {
-     "drhp": "https://www.sebi.gov.in/filings/public-issues/dec-2025/crystal-crop-protection-limited-drhp_98530.html"
+     "drhp": "https://www.sebi.gov.in/filings/public-issues/dec-2025/crystal-crop-protection-limited-drhp_98530.html",
+     "rhp": "https://www.iiflcapital.com/institutional-equities/upload/investmentbanking/prospects/crystal_crop_protection_limited_-_red_herring_prospectus.pdf"
     },
-    "asOf": "2026-11-12T14:34:00+05:30"
-   }
+    "asOf": "2026-11-13T11:20:00+05:30"
+   },
+   "refund": "2026-11-25",
+   "apply": {
+    "retail": {
+     "amount": 14960,
+     "shares": 55,
+     "lots": 1
+    },
+    "snii": {
+     "amount": 209440,
+     "shares": 770,
+     "lots": 14
+    },
+    "bnii": {
+     "amount": 1002320,
+     "shares": 3685,
+     "lots": 67
+    }
+   },
+   "gmpAsOf": "2026-11-13T12:02:00+05:30",
+   "gmpEve": 45.0,
+   "gmpEveAsOf": "2026-11-13T12:02:00+05:30"
   }
  ],
  "offers": {
@@ -2390,7 +2418,98 @@
    "symbol": "HDFIRE"
   }
  ],
- "sme": [],
+ "sme": [
+  {
+   "name": "Watrana Rentals",
+   "slug": "watrana-rentals",
+   "type": "NSE SME",
+   "status": "Upcoming",
+   "open": "2026-11-19",
+   "close": "2026-11-23",
+   "allotment": "2026-11-25",
+   "listing": "2026-11-27",
+   "bandLow": 232.0,
+   "bandHigh": 245.0,
+   "lotSize": 600,
+   "issueSizeCr": 113.92,
+   "freshCr": 113.92,
+   "ofsCr": null,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
+   "sub": null,
+   "shareholderQuota": {
+    "flag": false,
+    "src": "ig",
+    "at": "2026-11-13"
+   },
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "1818",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-11-13T12:25:44+05:30",
+   "refund": "2026-11-26",
+   "sector": "Diversified Commercial Services",
+   "anchorShares": 1386000,
+   "logo": "watrana-logo.jpg",
+   "apply": {
+    "retail": {
+     "amount": 294000,
+     "shares": 1200,
+     "lots": 2
+    },
+    "snii": {
+     "amount": 294000,
+     "shares": 1800,
+     "lots": 3
+    },
+    "bnii": {
+     "amount": 1029000,
+     "shares": 1800,
+     "lots": 3
+    }
+   },
+   "gmpAsOf": "2026-11-13T11:56:00+05:30",
+   "gmpEve": 0.0,
+   "gmpEveAsOf": "2026-11-13T11:56:00+05:30",
+   "facts": {
+    "sector": "Diversified Commercial Services",
+    "listingAt": "NSE SME",
+    "kpis": {
+     "asOf": "2026-06-30",
+     "roe": 8.59,
+     "roce": 4.87,
+     "ronw": 7.67,
+     "patMargin": 14.37,
+     "ebitdaMargin": 33.91,
+     "pb": 2.63,
+     "eps": 25.49,
+     "epsPost": 18.8,
+     "pe": 9.61,
+     "pePost": 13.03,
+     "mcapCr": 400.34,
+     "promoterPre": 100.0,
+     "promoterPost": 70.0
+    },
+    "registrar": "Maashitla Securities Pvt.Ltd.",
+    "leadManagers": [
+     "Oneview Corporate Advisors Pvt.ltd."
+    ],
+    "docs": {
+     "drhp": "https://nsearchives.nseindia.com/emerge/corporates/content/Registration_30062025193837_DRHPWRL.pdf",
+     "rhp": "https://www.chittorgarh.net/reports/ipo_notes/watrana_rhp_11112026.pdf"
+    },
+    "asOf": "2026-11-13T10:12:00+05:30"
+   }
+  }
+ ],
  "comps": [
   {
    "name": "Antala Industries",
@@ -35326,6 +35445,11 @@
  ],
  "news": [
   {
+   "title": "Carlsberg said to start road show for $600 million India IPO",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/carlsberg-said-to-start-road-show-for-600-million-india-ipo/articleshow/135790402.cms",
+   "date": "2026-11-13T10:45:15+05:30"
+  },
+  {
    "title": "Paytm zooms 7%, reclaims ₹1,900 for 1st time since listing day in Nov 2021",
    "url": "https://www.business-standard.com/markets/news/paytm-zooms-7-reclaims-1-900-for-1st-time-since-listing-day-in-nov-2021-126111200790_1.html",
    "date": "2026-11-12T14:57:57+05:30"
@@ -35444,11 +35568,6 @@
    "title": "Sebi allows mutual funds to net cash market obligations from April",
    "url": "https://www.business-standard.com/markets/news/sebi-allows-mutual-funds-to-net-cash-market-obligations-from-april-126110501727_1.html",
    "date": "2026-11-05T18:56:35+05:30"
-  },
-  {
-   "title": "Sebi eases investor accreditation norms, lets fund managers certify status",
-   "url": "https://www.business-standard.com/markets/news/sebi-eases-investor-accreditation-norms-lets-fund-managers-certify-status-126110501539_1.html",
-   "date": "2026-11-05T17:54:11+05:30"
   }
  ],
  "priceHistory": {
@@ -86610,6 +86729,10 @@
    [
     "2026-11-12",
     292.0
+   ],
+   [
+    "2026-11-13",
+    312.7
    ]
   ],
   "Vaibhav Vyapaar": [
@@ -86742,6 +86865,10 @@
    [
     "2026-11-12",
     294.2
+   ],
+   [
+    "2026-11-13",
+    310.95
    ]
   ],
   "Ravita Engineering Services": [
@@ -86866,6 +86993,10 @@
    [
     "2026-11-12",
     728.9
+   ],
+   [
+    "2026-11-13",
+    794.55
    ]
   ],
   "Sahajanand Medical Technologies": [
@@ -86928,6 +87059,10 @@
    [
     "2026-11-12",
     512.25
+   ],
+   [
+    "2026-11-13",
+    534.75
    ]
   ],
   "Tonbo Imaging India": [
@@ -86990,6 +87125,10 @@
    [
     "2026-11-12",
     1559.6
+   ],
+   [
+    "2026-11-13",
+    1524.7
    ]
   ],
   "Zetwerk": [
@@ -87052,6 +87191,10 @@
    [
     "2026-11-12",
     186.11
+   ],
+   [
+    "2026-11-13",
+    187.1
    ]
   ],
   "Bonfiglioli Transmissions": [
@@ -87160,6 +87303,10 @@
    [
     "2026-11-12",
     1398.5
+   ],
+   [
+    "2026-11-13",
+    1404.1
    ]
   ],
   "Paras Healthcare": [
@@ -87210,6 +87357,10 @@
    [
     "2026-11-12",
     906.0
+   ],
+   [
+    "2026-11-13",
+    923.7
    ]
   ],
   "EAAA India Alternatives": [
@@ -87248,6 +87399,10 @@
    [
     "2026-11-12",
     1831.1
+   ],
+   [
+    "2026-11-13",
+    1835.5
    ]
   ],
   "SFC Environmental Technologies": [
@@ -87282,6 +87437,10 @@
    [
     "2026-11-12",
     441.7
+   ],
+   [
+    "2026-11-13",
+    477.8
    ]
   ],
   "BLS Polymers": [
@@ -87316,6 +87475,10 @@
    [
     "2026-11-12",
     233.98
+   ],
+   [
+    "2026-11-13",
+    265.21
    ]
   ],
   "Bombay Coated and Special Steels": [
@@ -87342,6 +87505,10 @@
    [
     "2026-11-12",
     81.5
+   ],
+   [
+    "2026-11-13",
+    81.48
    ]
   ],
   "Maxwell Engineering Solutions": [
@@ -87410,61 +87577,61 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-13T06:45:00+05:30",
+  "asOf": "2026-11-13T12:27:13+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-13T06:43:51+05:30",
-    "elapsed": 3.15,
+    "asOf": "2026-11-13T12:25:43+05:30",
+    "elapsed": 3.7,
     "calls": 6,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=1 carried=0 +nse=0 +bse=0 exchange-only=0: 1 mainboard, 0 sme; 0 open, 1 upcoming",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=2 carried=0 +nse=0 +bse=0 exchange-only=0: 1 mainboard, 1 sme; 0 open, 2 upcoming",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "gmp",
-    "method": "investorgain:ok, ipowatch:changed",
+    "method": "investorgain:ok",
     "status": "ok",
     "asOf": "9-Nov 9:37",
-    "elapsed": 1.99,
-    "calls": 2,
-    "note": "gmp: 0 board rows patched via investorgain; 1 active, 0 of them matched; gmp: 20 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); Fusion CX (₹13.5, investorgain); HGS (India) (₹27, investorgain) …",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "elapsed": 0.82,
+    "calls": 1,
+    "note": "gmp: 1 board rows patched via investorgain; 1 active, 1 of them matched; gmp: 19 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Jio Platforms (₹250, investorgain) …",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-13",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "1 listings identified, none due for a refresh",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "asOf": "2026-11-13T12:25:44+05:30",
+    "elapsed": 1.59,
+    "calls": 2,
+    "note": "2 records fetched for 2 identified listings (0 without an id); 2 anchor books updated, 97 on file; 1 first records fetched for upcoming issues",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "subscription",
     "method": "none:ok",
     "status": "ok",
-    "asOf": "2026-11-13T06:43:53+05:30",
-    "elapsed": 0.0,
+    "asOf": "2026-11-13T12:25:46+05:30",
+    "elapsed": 0.01,
     "calls": 0,
     "note": "no open or recently closed issues on the board",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "listings",
     "method": "yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-11",
-    "elapsed": 3.05,
+    "asOf": "2026-11-13",
+    "elapsed": 4.75,
     "calls": 0,
-    "note": "12 names priced, 0 moved to recent, 0 history points",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "note": "12 names priced, 0 moved to recent, 12 history points",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
@@ -87472,10 +87639,10 @@
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-13",
-    "elapsed": 3.37,
+    "elapsed": 3.19,
     "calls": 2,
     "note": "1412 listings since 2022 (999 SME); fetched 2026: 309; QIB on file for 114 of 413 mainboard issues; shareholder-quota books frozen for 0",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
@@ -87486,7 +87653,7 @@
     "elapsed": 0.01,
     "calls": 0,
     "note": "213 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 187 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 187 days on file",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
@@ -87497,7 +87664,7 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 923 on file, 589 partial (feed gave only the first names); 0 of 1412 listings still to fetch",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
@@ -87505,10 +87672,10 @@
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-11-13",
-    "elapsed": 0.17,
+    "elapsed": 0.21,
     "calls": 0,
     "note": "track records: 923 of 923 anchor books have an outcome; 913 of 1498 investors with 2+; 1412 listings; windows: mainboard 132, SME 242; 3 warnings",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
@@ -87516,21 +87683,21 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-13",
-    "elapsed": 36.53,
+    "elapsed": 33.21,
     "calls": 54,
-    "note": "53 of 2839 anchor investors read (0 failed); names found for 0 of 1 unlisted issues",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "note": "53 of 2839 anchor investors read (0 failed); names found for 0 of 2 unlisted issues",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "parents",
     "method": "yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-11",
-    "elapsed": 9.97,
+    "asOf": "2026-11-13",
+    "elapsed": 11.98,
     "calls": 0,
     "note": "5/5 parent prices; 32/36 investor stocks priced",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
@@ -87538,10 +87705,10 @@
     "method": "bse_ann:ok, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-11-13",
-    "elapsed": 5.11,
+    "elapsed": 22.75,
     "calls": 7,
-    "note": "bse_ann: feed of 770 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 2382 announcements scanned, 0 subsidiary-offer leads; 0 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 0 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 8 leads held; 19 rows patched, 14 kept previous stage",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "note": "bse_ann: feed of 0 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 2495 announcements scanned, 0 subsidiary-offer leads; 0 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 0 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 1 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 8 leads held; 19 rows patched, 14 kept previous stage",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
@@ -87549,10 +87716,10 @@
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-13",
-    "elapsed": 1.99,
+    "elapsed": 2.06,
     "calls": 3,
-    "note": "report 607 (retail slots, fund reuse) did not answer: report 607: reportTableData missing or empty (msg=1) — carried nothing; 92 events 2026-11-06..2026-12-28, 1 issues with terms, 6 from the report only",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "note": "report 607 (retail slots, fund reuse) did not answer: report 607: reportTableData missing or empty (msg=1) — carried nothing; 104 events 2026-11-06..2026-12-28, 2 issues with terms, 6 from the report only",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
@@ -87560,10 +87727,10 @@
     "method": "bse:ok",
     "status": "ok",
     "asOf": "2026-11-13",
-    "elapsed": 2.44,
+    "elapsed": 3.6,
     "calls": 3,
     "note": "bse rows=16: 11 rights, 17 buybacks, 0 ofs, 1 ncd; 16 refreshed, 0 new, 0 closed windows dropped",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
@@ -87571,10 +87738,10 @@
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-11-12",
-    "elapsed": 0.35,
+    "elapsed": 0.44,
     "calls": 1,
     "note": "2026-11-12 already in history; FII +7,831 / DII -6,331 Cr",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
@@ -87582,32 +87749,32 @@
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-12",
-    "elapsed": 2.6,
+    "elapsed": 2.79,
     "calls": 4,
     "note": "bulk.csv: 134 deals; block.csv: 2 deals; 0 tracked-investor deals of 136; 13 patterns; BSE bulk: 38 deals, 5 in this year's listings; BSE block: 31 deals, 0 in this year's listings; listing deals: 30 of today's 136 deals are in this year's listings (9 stocks); 1869 kept over 60 days; 212 of 309 listings have an NSE symbol; 240 with a BSE code",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
-    "asOf": "2026-11-12T14:57:57+05:30",
-    "elapsed": 0.46,
+    "asOf": "2026-11-13T10:45:15+05:30",
+    "elapsed": 1.04,
     "calls": 3,
-    "note": "business-standard: 1/35 primary-market items; economic-times: 1/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 2 fresh, 25 kept",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "note": "business-standard: 1/35 primary-market items; economic-times: 1/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 2 fresh, 25 kept",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
     "area": "logos",
-    "method": "none:ok",
+    "method": "chittorgarh.net:ok",
     "status": "ok",
     "asOf": "2026-11-13",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "70 logos on file; none to fetch",
-    "lastOk": "2026-11-13T06:45:00+05:30",
+    "elapsed": 0.18,
+    "calls": 1,
+    "note": "1 logos made, 0 missing, 0 errors; 0 left; 71 on file",
+    "lastOk": "2026-11-13T12:27:13+05:30",
     "dueBy": "2026-11-13T18:58:00+05:30"
    },
    {
@@ -87620,7 +87787,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "72s, 85 calls, 18/18 modules ok"
+    "note": "94s, 87 calls, 18/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -89178,28 +89345,28 @@
   "prices": {
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 406.3,
-    "asOf": "2026-11-11"
+    "value": 403.95,
+    "asOf": "2026-11-13"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 114.05,
-    "asOf": "2026-11-11"
+    "value": 115.09,
+    "asOf": "2026-11-13"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 248.73,
-    "asOf": "2026-11-11"
+    "value": 238.7,
+    "asOf": "2026-11-13"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 6195.0,
-    "asOf": "2026-11-11"
+    "value": 6769.0,
+    "asOf": "2026-11-13"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 59.56,
-    "asOf": "2026-11-11"
+    "value": 58.09,
+    "asOf": "2026-11-13"
    },
    "Tata Motors": {
     "symbol": "TATAMOTORS",
@@ -89208,53 +89375,53 @@
    },
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1335.4,
-    "asOf": "2026-11-11"
+    "value": 1338.5,
+    "asOf": "2026-11-13"
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 400.0,
-    "asOf": "2026-11-11"
+    "value": 401.65,
+    "asOf": "2026-11-13"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 77.9,
-    "asOf": "2026-11-11"
+    "value": 76.12,
+    "asOf": "2026-11-13"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 234.8,
-    "asOf": "2026-11-11"
+    "value": 226.03,
+    "asOf": "2026-11-13"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 806.6,
-    "asOf": "2026-11-11"
+    "value": 800.15,
+    "asOf": "2026-11-13"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 487.7,
-    "asOf": "2026-11-11"
+    "value": 484.65,
+    "asOf": "2026-11-13"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1336.4,
-    "asOf": "2026-11-11"
+    "value": 1335.2,
+    "asOf": "2026-11-13"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1845.0,
-    "asOf": "2026-11-11"
+    "value": 1854.5,
+    "asOf": "2026-11-13"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1190.0,
-    "asOf": "2026-11-11"
+    "value": 1185.4,
+    "asOf": "2026-11-13"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 18.45,
-    "asOf": "2026-11-11"
+    "value": 18.42,
+    "asOf": "2026-11-13"
    },
    "Gretex Corporate Services": {
     "symbol": "GRETEX",
@@ -89263,78 +89430,78 @@
    },
    "Zaggle Prepaid": {
     "symbol": "ZAGGLE",
-    "value": 171.11,
-    "asOf": "2026-11-11"
+    "value": 171.2,
+    "asOf": "2026-11-13"
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 110.29,
-    "asOf": "2026-11-11"
+    "value": 105.73,
+    "asOf": "2026-11-13"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1538.6,
-    "asOf": "2026-11-11"
+    "value": 1606.0,
+    "asOf": "2026-11-13"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 537.4,
-    "asOf": "2026-11-11"
+    "value": 539.0,
+    "asOf": "2026-11-13"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 302.6,
-    "asOf": "2026-11-11"
+    "value": 301.0,
+    "asOf": "2026-11-13"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 127.69,
-    "asOf": "2026-11-11"
+    "value": 128.02,
+    "asOf": "2026-11-13"
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
-    "value": 1205.0,
-    "asOf": "2026-11-11"
+    "value": 1265.9,
+    "asOf": "2026-11-13"
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1579.1,
-    "asOf": "2026-11-11"
+    "value": 1634.4,
+    "asOf": "2026-11-13"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1318.6,
-    "asOf": "2026-11-11"
+    "value": 1476.1,
+    "asOf": "2026-11-13"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 99.38,
-    "asOf": "2026-11-11"
+    "value": 103.65,
+    "asOf": "2026-11-13"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 513.5,
-    "asOf": "2026-11-11"
+    "value": 513.55,
+    "asOf": "2026-11-13"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 526.6,
-    "asOf": "2026-11-11"
+    "value": 529.2,
+    "asOf": "2026-11-13"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1286.7,
-    "asOf": "2026-11-11"
+    "value": 1261.9,
+    "asOf": "2026-11-13"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 445.35,
-    "asOf": "2026-11-11"
+    "value": 450.05,
+    "asOf": "2026-11-13"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 491.3,
-    "asOf": "2026-11-11"
+    "value": 494.95,
+    "asOf": "2026-11-13"
    },
    "Ashutosh Fibre (upcoming)": {
     "symbol": "ASHUTOSH",
@@ -89343,8 +89510,8 @@
    },
    "Sahajanand Medical Technologies (upcoming)": {
     "symbol": "SMT",
-    "value": 498.0,
-    "asOf": "2026-11-11"
+    "value": 535.0,
+    "asOf": "2026-11-13"
    },
    "Indo SMC": {
     "symbol": null,
@@ -122375,6 +122542,41 @@
  },
  "anchors": [
   {
+   "name": "Watrana Rentals",
+   "date": "2026-11-18",
+   "amountCr": 33.96,
+   "issueSizeCr": 113.92,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-12-25",
+   "lockIn90": "2027-02-23",
+   "anchorShares": 1386000,
+   "price": 245.0,
+   "amountBasis": "exchange-json",
+   "anchor": "₹33.96 Cr anchor book · bid 18 Nov · 30% of the issue · lock-in ends 25 Dec (half) and 23 Feb",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "Crystal Crop Protection",
+   "date": "2026-11-17",
+   "amountCr": null,
+   "issueSizeCr": 455.49,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2026-12-23",
+   "lockIn90": "2027-02-21",
+   "anchor": "bid 17 Nov · lock-in ends 23 Dec (half) and 21 Feb",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
    "name": "HGS (India)",
    "date": "2026-10-29",
    "amountCr": 9.76,
@@ -129736,8 +129938,8 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1335.4,
-    "asOf": "2026-11-11"
+    "value": 1338.5,
+    "asOf": "2026-11-13"
    },
    "parentTicker": "RELIANCE",
    "sources": [
@@ -129789,8 +129991,8 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 131.63,
-    "asOf": "2026-11-11"
+    "value": 130.7,
+    "asOf": "2026-11-13"
    },
    "parentTicker": "EDELWEISS",
    "sources": [
@@ -129944,8 +130146,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 406.3,
-    "asOf": "2026-11-11"
+    "value": 403.95,
+    "asOf": "2026-11-13"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -130073,8 +130275,8 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5345.0,
-    "asOf": "2026-11-11"
+    "value": 5322.5,
+    "asOf": "2026-11-13"
    },
    "parentTicker": "HEROMOTOCO",
    "sources": [
@@ -130188,8 +130390,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 406.3,
-    "asOf": "2026-11-11"
+    "value": 403.95,
+    "asOf": "2026-11-13"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -132025,12 +132227,12 @@
  "records": {
   "2067": {
    "name": "Crystal Crop Protection",
-   "fetchedAt": "2026-11-13T01:58:26+05:30",
+   "fetchedAt": "2026-11-13T12:25:44+05:30",
    "about": [
     "Crystal Crop Protection is an Indian agri-inputs company built around two pillars: agrochemicals and seeds. Everything it makes is tailored to the conditions and needs of Indian farmers. Offerings: Crop protection: Herbicides, fungicides and insecticides, sold under more than 174 brands in a range of pack sizes, including smaller, farmer-friendly formats. The branded business has been its faster-growing segment. Crop nutrition and natural solutions: Bio-stimulants, bio-protectants, plant growth regulators, liquid fertilizers and micronutrients. Seeds: Cotton, cereals, oilseeds, fodder crops, vegetables and flowers, sold across India and exported to markets such as Japan, the USA and Thailand. Exports: Formulations and technicals shipped to Bangladesh, Nepal and several countries in Africa and Asia. Crystal follows a fully integrated model that links research, seed breeding, technology-enabled manufacturing and distribution. Its R&D centre is in Sonipat, Haryana, and the company also works with multinational partners on innovation. Production is spread across Haryana, Gujarat, Jammu & Kashmir, Maharashtra, Telangana and Karnataka, covering formulations, technicals and seed processing. As of 30 September 2025, formulation plants had a combined installed capacity of 75,962 MT, while technicals facilities stood at 3,456 MT. Products reach the market through over 13,000 distributors and 36 distribution centres across India."
    ],
    "desc": [
-    "Crystal Crop Protection is a crop solutions company with agrochemicals and seeds as its core offerings. Its portfolio includes crop protection products such as herbicides, fungicides and insecticides, along with natural crop solutions like bio-stimulants, bio-protectants, plant growth regulators, liquid fertilizers and micronutrients. It also offer seeds for field crops, vegetable crops and flowers. Its products are designed specifically for Indian farmers and are supported by strong in-house research and development, as well as collaborations with multinational companies. The company follows a fully integrated business model that combines R&D, seed breeding, backward-integrated and technology-enabled manufacturing, and a pan-India distribution network, with a strong focus on farmers’ needs. The company offers over 174 crop protection product brands in various pack sizes, including farmer-friendly packs. Its branded crop protection business has grown faster and the company also export formulations and technicals to several countries including Bangladesh, Nepal and parts of Africa and Asia. In seeds, it has a diversified portfolio covering cotton, cereals, oilseeds, fodder crops, vegetables and flowers, with sales across India and exports to countries such as Japan, the USA and Thailand. The company operates multiple manufacturing facilities for formulations, technicals and seed processing across Haryana, Gujarat, Jammu & Kashmir, Maharashtra, Telangana and Karnataka. It has R&D centre in Sonipat, Haryana. As of Sep 30, 2025, its formulation manufacturing units had combined installed capacity of 75,962.00 MT and technicals manufacturing facilities aggregate installed capacity stood at 3,456 MT. The business has a strong pan-India network of over 13,000 distributors and 36 distribution centers. Competitive strengths Strong R&D capabilities backed by advanced technology infrastructure and collaborations A deep connect with Indian farmers resulting in strong brand equity Operational excellence with focus on our multi-pronged go-to-market strategy Vertically integrated manufacturing operations backed by robust R&D capabilities and strong supply chain Strategic acquisitions and successful integration of growth opportunities Diversification across business verticals, geographies, product categories and crops"
+    "Incorporated in 1994, Crystal Crop Protection is a crop solutions company with agrochemicals and seeds as its core offerings. Its portfolio includes crop protection products such as herbicides, fungicides and insecticides, along with natural crop solutions like bio-stimulants, bio-protectants, plant growth regulators, liquid fertilizers and micronutrients. It also offer seeds for field crops, vegetable crops and flowers. The offerings are customized for Indian farmers through research and development (“R&D”) including by collaborations with various multinational companies, delivering relevant solutions that aim to enhance farm economics, yield, productivity and profitability. Product Portfolio: Crop protection products and natural crop solutions Seed business Its products are designed specifically for Indian farmers and are supported by strong in-house research and development, as well as collaborations with multinational companies. The company follows a fully integrated business model that combines R&D, seed breeding, backward-integrated and technology-enabled manufacturing, and a pan-India distribution network, with a strong focus on farmers’ needs. As of June 30, 2026, The company hold 63 PVP registrations granted in cotton, pearl millet, sorghum and mustard and maintain a strong run-rate of new product launches with an innovation index of 24.62%. They have a portfolio of over 275 hybrid seeds, comprising 111 field crop varieties, 139 vegetable seed varieties and 25 marigold seed varieties. As of June 30, 2026, we have a pan-India distribution network across 23 states and four union territories with an aggregate of 14,717 independent distributors, across business segments and brands. The business has a strong pan-India network of over 13,000 distributors and 36 distribution centers. Competitive strengths Strong R&D capabilities backed by advanced technology infrastructure and collaborations A deep connect with Indian farmers resulting in strong brand equity Operational excellence with focus on our multi-pronged go-to-market strategy Vertically integrated manufacturing operations backed by robust R&D capabilities and strong supply chain Strategic acquisitions and successful integration of growth opportunities Diversification across business verticals, geographies, product categories and crops"
    ],
    "promoters": "Nand Kishore Aggarwal, Ankur Aggarwal, Komal Aggarwal, Ankur Aggarwal KNK Family Trust",
    "objects": {
@@ -132042,13 +132244,13 @@
     "rows": [
      [
       "1",
-      "Repayment/pre-payment, in full or part, of certain borrowings availed by Company",
-      "31.29"
+      "Repayment/pre-payment, in full or part, of certain borrowings availed by the Company",
+      "247.94"
      ],
      [
       "2",
       "Investment in Material Subsidiary namely Saffire Crop Science Private Limited for repayment/ pre-payment, in full or in part, of all or a portion of certain of its outstanding borrowings",
-      "2.21"
+      "22.06"
      ],
      [
       "3",
@@ -132058,67 +132260,74 @@
      [
       "",
       "Total",
-      "33.50"
+      "270.00"
      ]
     ]
    },
    "financials": {
     "head": [
      "Period Ended",
-     "30 Sep 2025",
+     "30 Jun 2026",
+     "31 Mar 2026",
      "31 Mar 2025",
-     "31 Mar 2024",
-     "31 Mar 2023"
+     "31 Mar 2024"
     ],
     "rows": [
      [
       "Assets",
-      "3,859.23",
-      "3,542.90",
-      "2,541.92",
-      "2,472.07"
+      "4,498.27",
+      "3,927.24",
+      "3,538.43",
+      "2,541.92"
      ],
      [
       "Total Income",
-      "1,995.86",
+      "1,209.21",
+      "3,180.98",
       "2,731.94",
-      "2,271.71",
-      "2,532.89"
+      "2,271.71"
      ],
      [
       "Profit After Tax",
-      "153.51",
+      "135.78",
+      "144.91",
       "118.39",
-      "87.24",
-      "76.60"
+      "87.24"
      ],
      [
       "EBITDA",
-      "333.22",
+      "241.78",
+      "456.23",
       "315.28",
-      "209.06",
-      "231.86"
+      "209.06"
      ],
      [
       "NET Worth",
-      "1,748.90",
+      "",
+      "2,039.76",
       "1,600.10",
-      "1,488.39",
-      "1,408.10"
+      "1,488.39"
+     ],
+     [
+      "Reserves and Surplus",
+      "1,524.85",
+      "1,386.12",
+      "1,296.90",
+      "1,197.23"
      ],
      [
       "Total Borrowing",
-      "1,205.24",
+      "952.02",
+      "820.04",
       "947.02",
-      "577.29",
-      "612.70"
+      "577.29"
      ],
      [
       "Amount in ₹ Crore"
      ]
     ],
     "title": "Company Financials (Restated Consolidated)",
-    "asOf": null
+    "asOf": "2026-06-30"
    },
    "peers": {
     "head": [
@@ -132134,66 +132343,66 @@
     "rows": [
      [
       "Crystal Crop Protection Ltd.",
-      "9.37",
-      "9.37",
-      "125.53",
+      "11.43",
+      "11.06",
+      "160.03",
       "",
-      "7.46",
+      "7.14",
       "",
-      ""
+      "Consolidated"
      ],
      [
       "Kaveri Seed Co.Ltd.",
-      "55.10",
-      "55.10",
-      "290.42",
-      "17.75",
-      "18.83",
-      "3.37",
-      ""
+      "56.94",
+      "56.94",
+      "341.53",
+      "12.13",
+      "16.07",
+      "2.02",
+      "Consolidated"
      ],
      [
       "Sumitomo Chemical India Ltd.",
-      "10.13",
-      "10.13",
-      "58.06",
-      "45.88",
-      "17.44",
-      "8.00",
-      ""
+      "10.88",
+      "10.88",
+      "67.84",
+      "31.20",
+      "14.95",
+      "5.06",
+      "Consolidated"
      ],
      [
       "Bayer Cropscience Ltd.",
-      "126.38",
-      "126.38",
-      "634.24",
-      "35.58",
-      "19.93",
-      "7.09",
-      ""
+      "153.35",
+      "153.35",
+      "659.89",
+      "22.73",
+      "19.15",
+      "5.29",
+      "Consolidated"
      ],
      [
       "Rallis India Ltd.",
-      "6.43",
-      "6.43",
-      "97.26",
-      "39.78",
-      "6.62",
-      "2.63",
-      ""
+      "9.46",
+      "9.46",
+      "104.40",
+      "19.93",
+      "6.16",
+      "1.81",
+      "Consolidated"
      ],
      [
       "Dhanuka Agritech Ltd.",
-      "65.55",
-      "65.55",
-      "310.96",
-      "19.09",
-      "21.18",
-      "4.04",
-      ""
+      "63.72",
+      "63.72",
+      "372.89",
+      "14.38",
+      "17.67",
+      "2.46",
+      "Consolidated"
      ]
     ],
-    "asOf": "2025-03-31"
+    "asOf": "2026-03-31"
    },
    "reservation": {
     "head": [
@@ -132217,30 +132426,293 @@
    },
    "kpiPeriods": [
     {
-     "asOf": "2025-03-31",
-     "roe": 8.31,
-     "roce": 16.43,
-     "ronw": 7.46,
-     "patMargin": 4.33,
-     "ebitdaMargin": 11.72,
-     "debtEquity": 0.65
+     "asOf": "2026-03-31",
+     "roe": 7.94,
+     "roce": 16.06,
+     "ronw": 7.14,
+     "patMargin": 4.56,
+     "ebitdaMargin": 14.47,
+     "debtEquity": 0.41
+    },
+    {
+     "asOf": "2026-06-30",
+     "roe": 6.91,
+     "roce": 9.78,
+     "ronw": 6.25,
+     "patMargin": 11.23,
+     "ebitdaMargin": 20.2,
+     "debtEquity": 0.41
     }
    ],
    "holding": {
-    "promoterPre": 86.69,
-    "sharesPre": 134569911.0,
-    "sharesPost": 0.0
+    "promoterPre": 84.92,
+    "promoterPost": 75.85,
+    "sharesPre": 150116700.0,
+    "sharesPost": 163168280.0
    },
    "gmpHistory": [
     {
-     "date": "2026-11-12",
-     "gmp": 0.0,
-     "kostakSauda": "--"
+     "date": "2026-11-13",
+     "gmp": 45.0,
+     "est": 317.0,
+     "pct": 16.54,
+     "kostakSauda": "1900/26600"
     }
    ],
    "company": {
     "address": "206, 2nd Floor, Span Trade Centre Opp. Kochrab, Gandhi Ashram, Near Paldi Char Rasta, Ashram Road Ellisbridge",
     "website": "https://www.crystalcropprotection.com/",
+    "process": "Book Build Issue"
+   }
+  },
+  "1818": {
+   "name": "Watrana Rentals",
+   "fetchedAt": "2026-11-13T12:25:44+05:30",
+   "about": [
+    "Watrana Rentals Limited is engaged in providing rental and trading solutions for material handling equipment (MHE) and cargo handling requirements. Its product portfolio includes battery-operated, diesel and gas-powered forklifts, electric stackers, pallet trucks, specialised attachments such as paper-roll clamps, bale clamps and side shifters, along with various ground-support equipment. The company is an ISO 9001:2015, ISO 45001:2018 and ISO 14001:2015 certified supplier of industrial material handling equipment, catering to the requirements of customers across various industries in India. The company's business operations are primarily divided into the following segments: Rental Solutions: Offers material handling equipment on a rental basis, enabling customers to meet their operational requirements while avoiding significant upfront capital expenditure and long-term ownership commitments. Trading in MHE: Engages in the sale of material handling equipment, providing customers with suitable equipment options based on their operational requirements and budgets. Trading in Batteries for MHE: Supplies batteries compatible with different material handling equipment models, catering to both rental customers and equipment buyers. The company has an extensive pan-India presence, with more than 304 rental sites, enabling it to provide equipment accessibility and timely service support to customers across different locations. As of April 30, 2025, the company had an operational fleet of over 1,441 material handling equipment units. Its fleet comprises diesel and electric forklifts, reach trucks, battery-operated stackers, pallet trucks, order pickers, towing trucks and other equipment. As of April 30, 2025, the company had a workforce of approximately 3,122 employees, comprising equipment operators, technicians, engineers, site supervisors and other support staff. Competitive Strengths: Experienced Promoters and Management: Backed by experienced promoters and a senior management team with strong technical knowledge and industry expertise. Skilled Workforce: A large and trained workforce that plays an important role in delivering efficient and reliable services to customers across India. Focus on Quality Assurance: Emphasises service quality and operational standards across its business activities. Extensive Network Presence: Established pan-India network of rental locations, supporting wider customer reach and efficient service delivery."
+   ],
+   "desc": [
+    "Incorporated on November 19, 2019, Watrana Rentals Limited specializes in material and cargo handling equipment rentals, offering a fleet that includes forklifts (battery‑operated, diesel, gas), electric stackers, pallet trucks, speciality attachments (e.g., paper‑roll clamps, bale clamps, side shifters), and ground‑support gear. They engaged in the business of providing material handling equipment (“MHE”) on a rental basis and trading of new and used MHE and batteries used in MHE. They cater to customers operating across various industries, including automotive, tyre, beverage, glass, paper, logistics & warehouse. The company's business can be segregated into the following:- Rental Solutions : Provides rental services for MHE tailored to meet business needs for flexibility without long-term capital investment. Trading in MHE: Engaged in trading MHE, this offer allows customers to buy material handling equipment suited to their budget and needs. Trading in Batteries for MHEs: Offers various batteries compatible with MHE models for rental and trading clients. As of June 30, 2026, the company owned a fleet of two thousand six hundred forty-six (2,646) MHE units and thirty-three (33) AWP units, with an additional five MHE units and two AWP units taken on rent from third party suppliers. As of June 30, 2026, The company had 3,883 employees across various functions, including strategy and planning, administration and human resources, finance, operations, procurement, stores, safety and service. Competitive Strength : Experienced Promoters and a senior management team with technical expertise Workforce is a key asset in delivering high-quality service to clients across India. Quality Assurance of services is an integral part of the company's operations. Wide network coverage."
+   ],
+   "promoters": "Sanjeev Kumar Watrana, Rajeev Kumar Watrana, Neha Watrana",
+   "objects": {
+    "head": [
+     "#",
+     "Issue Objects",
+     "Est Amt (₹ Cr.)"
+    ],
+    "rows": [
+     [
+      "1",
+      "Purchase of material handling equipment (MHE), aerial work platform (AWP) and batteries",
+      "98.13"
+     ],
+     [
+      "2",
+      "General Corporate Purposes",
+      ""
+     ],
+     [
+      "",
+      "Total",
+      "98.13"
+     ]
+    ]
+   },
+   "financials": {
+    "head": [
+     "Period Ended",
+     "30 Jun 2026",
+     "31 Mar 2026",
+     "31 Mar 2025",
+     "31 Mar 2024"
+    ],
+    "rows": [
+     [
+      "Assets",
+      "301.71",
+      "287.07",
+      "201.82",
+      "147.69"
+     ],
+     [
+      "Total Income",
+      "53.62",
+      "211.69",
+      "179.66",
+      "130.23"
+     ],
+     [
+      "Profit After Tax",
+      "7.68",
+      "29.16",
+      "24.43",
+      "18.05"
+     ],
+     [
+      "EBITDA",
+      "18.13",
+      "65.01",
+      "51.77",
+      "37.98"
+     ],
+     [
+      "NET Worth",
+      "93.24",
+      "85.55",
+      "56.39",
+      "31.96"
+     ],
+     [
+      "Reserves and Surplus",
+      "83.23",
+      "75.54",
+      "46.38",
+      "31.95"
+     ],
+     [
+      "Total Borrowing",
+      "164.72",
+      "164.08",
+      "110.54",
+      "93.12"
+     ],
+     [
+      "Amount in ₹ Crore"
+     ]
+    ],
+    "title": "Company Financials (Restated)",
+    "asOf": "2026-06-30"
+   },
+   "peers": {
+    "head": [
+     "Company Name",
+     "EPS (Basic)",
+     "EPS (Diluted)",
+     "NAV (₹ per share)",
+     "P/E (x)",
+     "RoNW (%)",
+     "P/BV Ratio",
+     "Financial statements"
+    ],
+    "rows": [
+     [
+      "Watrana Rentals Ltd.",
+      "29.13",
+      "29.13",
+      "85.47",
+      "",
+      "34.08",
+      "",
+      "Standalone"
+     ],
+     [
+      "Seemax Resources Ltd.",
+      "5.83",
+      "5.83",
+      "24.90",
+      "16.07",
+      "23.41",
+      "3.88",
+      "Standalone"
+     ],
+     [
+      "Leap India Ltd.",
+      "1.52",
+      "1.50",
+      "24.52",
+      "76.81",
+      "6.19",
+      "3.88",
+      "Consolidated"
+     ]
+    ],
+    "asOf": "2026-03-31"
+   },
+   "reservation": {
+    "head": [
+     "Investor Category",
+     "Shares",
+     "% of Net Issue",
+     "% of Total Issue"
+    ],
+    "rows": [
+     [
+      "QIB",
+      "23,22,000",
+      "49.94%",
+      "47.37%"
+     ],
+     [
+      "Anchor Investor",
+      "13,86,000",
+      "",
+      "28.27%"
+     ],
+     [
+      "QIB (Ex. Anchor)",
+      "9,36,000",
+      "",
+      "19.09%"
+     ],
+     [
+      "NII (HNI)",
+      "6,98,400",
+      "15.02%",
+      "14.25%"
+     ],
+     [
+      "bNII > ₹10L",
+      "4,65,600",
+      "",
+      "9.50%"
+     ],
+     [
+      "sNII < ₹10L",
+      "2,32,800",
+      "",
+      "4.75%"
+     ],
+     [
+      "Retail",
+      "16,29,600",
+      "35.05%",
+      "33.24%"
+     ],
+     [
+      "Firm Reservations"
+     ],
+     [
+      "Market Maker",
+      "2,52,000",
+      "",
+      "5.14%"
+     ],
+     [
+      "Total",
+      "49,02,000",
+      "100.00%",
+      "100.00%"
+     ]
+    ]
+   },
+   "kpiPeriods": [
+    {
+     "asOf": "2026-03-31",
+     "roe": 41.08,
+     "roce": 19.06,
+     "ronw": 29.13,
+     "patMargin": 13.8,
+     "ebitdaMargin": 30.76,
+     "debtEquity": 2.91
+    },
+    {
+     "asOf": "2026-06-30",
+     "roe": 8.59,
+     "roce": 4.87,
+     "ronw": 7.67,
+     "patMargin": 14.37,
+     "ebitdaMargin": 33.91
+    }
+   ],
+   "holding": {
+    "promoterPre": 100.0,
+    "promoterPost": 70.0,
+    "sharesPre": 11438500.0,
+    "sharesPost": 16340500.0
+   },
+   "gmpHistory": [
+    {
+     "date": "2026-11-13",
+     "gmp": 0.0,
+     "est": 245.0,
+     "pct": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
+   "company": {
+    "address": "B-2, Third Floor, Derawal Nagar, Near Model Town Metro Station, Gujranwala Colony",
+    "website": "https://watranarentals.com/",
     "process": "Book Build Issue"
    }
   }
@@ -133104,6 +133576,7 @@
    }
   },
   "covered": [
+   "1818",
    "2067"
   ],
   "league": [
@@ -133285,7 +133758,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-11-13T06:44:00+05:30",
+  "asOf": "2026-11-13T12:25:54+05:30",
   "dates": [
    "2026-02-09",
    "2026-02-10",
@@ -294857,6 +295330,10 @@
   "2067": {
    "src": "crystal-crop-protection-logo.png",
    "at": "2026-11-12"
+  },
+  "1818": {
+   "src": "watrana-logo.jpg",
+   "at": "2026-11-13"
   }
  },
  "calendar": {
@@ -295009,6 +295486,22 @@
     "amountCr": 16.51
    },
    {
+    "date": "2026-11-18",
+    "kind": "open",
+    "name": "Crystal Crop Protection",
+    "igId": "2067",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-19",
+    "kind": "open",
+    "name": "Watrana Rentals",
+    "igId": "1818",
+    "sme": true,
+    "src": "record"
+   },
+   {
     "date": "2026-11-19",
     "kind": "lockin30",
     "name": "Bonfigloli Transmissions",
@@ -295054,6 +295547,14 @@
     "amountCr": 1125.62
    },
    {
+    "date": "2026-11-20",
+    "kind": "close",
+    "name": "Crystal Crop Protection",
+    "igId": "2067",
+    "sme": false,
+    "src": "record"
+   },
+   {
     "date": "2026-11-22",
     "kind": "lockin90",
     "name": "Tempsens Instruments (India)",
@@ -295061,6 +295562,22 @@
     "sme": false,
     "src": "anchors",
     "amountCr": 97.28
+   },
+   {
+    "date": "2026-11-23",
+    "kind": "close",
+    "name": "Watrana Rentals",
+    "igId": "1818",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-23",
+    "kind": "allotment",
+    "name": "Crystal Crop Protection",
+    "igId": "2067",
+    "sme": false,
+    "src": "record"
    },
    {
     "date": "2026-11-24",
@@ -295091,6 +295608,22 @@
    },
    {
     "date": "2026-11-25",
+    "kind": "allotment",
+    "name": "Watrana Rentals",
+    "igId": "1818",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-25",
+    "kind": "refund",
+    "name": "Crystal Crop Protection",
+    "igId": "2067",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-25",
     "kind": "lockin90",
     "name": "Symbiotec Pharmalab",
     "igId": "2069",
@@ -295100,12 +295633,36 @@
    },
    {
     "date": "2026-11-26",
+    "kind": "refund",
+    "name": "Watrana Rentals",
+    "igId": "1818",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-26",
+    "kind": "listing",
+    "name": "Crystal Crop Protection",
+    "igId": "2067",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-11-26",
     "kind": "lockin30",
     "name": "Core4 Engineers",
     "igId": "2229",
     "sme": true,
     "src": "anchors",
     "amountCr": 7.18
+   },
+   {
+    "date": "2026-11-27",
+    "kind": "listing",
+    "name": "Watrana Rentals",
+    "igId": "1818",
+    "sme": true,
+    "src": "record"
    },
    {
     "date": "2026-11-27",
@@ -295496,6 +296053,15 @@
    },
    {
     "date": "2026-12-23",
+    "kind": "lockin30",
+    "name": "Crystal Crop Protection",
+    "igId": "2067",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": null
+   },
+   {
+    "date": "2026-12-23",
     "kind": "lockin90",
     "name": "FX Multitech",
     "igId": "1589",
@@ -295538,6 +296104,15 @@
     "sme": true,
     "src": "anchors",
     "amountCr": 3.15
+   },
+   {
+    "date": "2026-12-25",
+    "kind": "lockin30",
+    "name": "Watrana Rentals",
+    "igId": "1818",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 16.98
    },
    {
     "date": "2026-12-26",
@@ -295680,7 +296255,67 @@
     "name": "Crystal Crop Protection",
     "sme": false,
     "status": "Upcoming",
-    "fundReuse": []
+    "open": "2026-11-18",
+    "close": "2026-11-20",
+    "allotment": "2026-11-23",
+    "refund": "2026-11-25",
+    "listing": "2026-11-26",
+    "blocks": {
+     "retail": {
+      "amount": 14960,
+      "shares": 55,
+      "lots": 1
+     },
+     "snii": {
+      "amount": 209440,
+      "shares": 770,
+      "lots": 14
+     },
+     "bnii": {
+      "amount": 1002320,
+      "shares": 3685,
+      "lots": 67
+     }
+    },
+    "releaseDate": "2026-11-25",
+    "releaseSrc": "refund",
+    "blockedDays": 5,
+    "fundReuse": [],
+    "lockIn30": "2026-12-23",
+    "lockIn90": "2027-02-21"
+   },
+   "1818": {
+    "name": "Watrana Rentals",
+    "sme": true,
+    "status": "Upcoming",
+    "open": "2026-11-19",
+    "close": "2026-11-23",
+    "allotment": "2026-11-25",
+    "refund": "2026-11-26",
+    "listing": "2026-11-27",
+    "blocks": {
+     "retail": {
+      "amount": 294000,
+      "shares": 1200,
+      "lots": 2
+     },
+     "snii": {
+      "amount": 294000,
+      "shares": 1800,
+      "lots": 3
+     },
+     "bnii": {
+      "amount": 1029000,
+      "shares": 1800,
+      "lots": 3
+     }
+    },
+    "releaseDate": "2026-11-26",
+    "releaseSrc": "refund",
+    "blockedDays": 3,
+    "fundReuse": [],
+    "lockIn30": "2026-12-25",
+    "lockIn90": "2027-02-23"
    }
   },
   "unlinked": [
@@ -295737,7 +296372,7 @@
      "2026-11",
      "2026-12"
     ],
-    "events": 45
+    "events": 55
    },
    "ig607": {
     "rows": 0,
