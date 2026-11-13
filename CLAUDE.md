@@ -23,8 +23,8 @@ Other docs: `README.md` architecture + the seven enforced rules · `docs/MODULE-
   `meta / board / pipeline / investors / research / history` parts; `boot.js` fetches `meta.json`, then only changed parts.
 - Schedule: full runs 06:43 and 18:13 IST; intraday (subscription + gmp + open issues' records) :07/:37 on weekdays;
   `live.yml` 08:55 and 12:55. GitHub's cron is best-effort, so a Cloudflare Worker (`ops/trigger-worker/`) dispatches them.
-  A workflow's push does not trigger other workflows: `collect.yml` dispatches `deploy.yml`; a page-only change needs
-  `gh workflow run deploy.yml`. A workflow file GitHub cannot parse (6 Nov 2026: a bare `env:` left under a step) shows as
+  A workflow's push does not trigger other workflows: `collect.yml` dispatches `deploy.yml`; `deploy.yml` also runs on every
+  push to main (13 Nov 2026: a page-only push deploys by itself), so `gh workflow run deploy.yml` is for a redeploy without a push. A workflow file GitHub cannot parse (6 Nov 2026: a bare `env:` left under a step) shows as
   0 s runs named by the file path and refuses both cron and dispatch — the board went 22 h stale; `/admin` groups runs by
   workflow file so it says so. An intraday run whose predecessor refused at the gate on the same commit skips green with one
   `::warning::` carrying the refusal (`scripts/prev_gate.py`); the full runs and any push to main retry and fail loudly.
@@ -111,6 +111,10 @@ document as assembled so far; `prev` is yesterday's.
   does not return them, named in the module note) ·
   607 allotment planner · 554 event calendar · 551 all anchor investors · 561 one investor's IPOs (id is the LAST path
   segment; the free feed returns only the latest FIVE — a members' limit, do not work around it).
+  **Every call to `webnodejs.investorgain.com` carries `v=<epoch>` from the session** (`http.CACHE_BUST_HOSTS`, 13 Nov 2026:
+  Cloudflare served `list-read` 3.7 h stale and the reports ~10 min, `no-store` notwithstanding — the board was one SME issue
+  short with nothing red; a source's own cache headers say nothing about the CDN in front of it). Any reply from any source
+  that is a CDN HIT older than 10 min is a `served from the CDN's cache` WARNING in the run log: read it before the parser.
   `details` writes `shareholderQuota` on every row it has a record for (5 Nov 2026: the record's structured reservation fields;
   `shareholder_reservation_flag` is dead — `prefer_shareholders_status` / shares offered are the signal; `{flag:false}` = checked,
   none; None = no record yet; `recordDate` = the record's `record_date`, the eligibility day; the parent is prose there, never parsed;
@@ -218,6 +222,9 @@ group-name, and the `quotaLeads` list folded; a `quota?` mark on Market's pipeli
 when `shareholderQuota.flag` is set, and a planner row with `igId` links to its Board row) · `hold.js` (hold-or-sell meter: Today, Board row, Scoreboard) · `deals.js` (Market > Superinvestors: one tracker card per listing with deals — price vs issue, round-trip / net buyer / net seller counts per client×stock, sold│bought bar, rows folded under; Money that stayed; Repeat clients; `Mine` = held or starred; counts only) ·
 `lockin.js` (Anchor lock-ins: 30 / 90-day expiries from `anchors[]` in a −10/+45 day window, next 14 days open, rest folded, free-to-sell amount, price vs issue, sales on the tape since; `trackerQueueItems()` puts lock-ins, the day's deals, followed names, and a strong-record anchor in an unlisted book (5+ IPOs, 70%+ listed up — the filter is printed on the card) on the Today queue) ·
 `records.js` (Anchor track records + today's books read against them; fetches the lazy `data/books.json` on demand via `DATA.lazy.books.hash`; `recKey` mirrors `anchorbook.investor_key`) ·
+`quiet.js` (the first card on Today when no row is Open and nothing lists within 7 days, 13 Nov 2026: the next issue by opening
+date with logo, dates, band, lot, size, the last listing from `listedPerf`, the SME count, the calendar check's source and time,
+the next run — never a verdict; the tape pill `marketPill` says "No issue open · N upcoming · next opens …" and links the Board row) ·
 `intro.js` (How to read this desk: seven steps with static pictures, once per device then from the account menu / footer) · `report.js` (Wrong number?: a line under every Today card and Board detail → `POST /api/report` → D1 `reports`, ntfy when `NTFY_TOPIC` is a Worker secret, listed on `/admin`; a report never changes a figure) · `install.js` (Add to home screen: `manifest.webmanifest` + `icons/` copied by `build.py`, fetched with the Access cookie; no service worker, so Chrome offers Install from its own menu and the card shows the device's steps) · `logo()` in app.js (board, SME screener, sheet headers; white chip in dark mode) · `names.js` (Your names: the followed investors matched by normalised substring against anchor books, anchor letters and both deal files; `follows()`, `+` buttons via `[data-follow]`) · `scoreboard.js` (Open calls, GMP
 calibration with the collector's fit, hit-rate by month, band explorer). Shared evidence helpers in `app.js`: `EVD`, `SEG`,
 `EDG`, `bandOf`, `edgeLbl`, `evBand`, `evCls` (coloured by the INTERVAL), `evOf(b, seg, cat)` — `cat` = retail / shareholder /

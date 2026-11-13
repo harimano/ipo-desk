@@ -494,3 +494,31 @@ dispatched `deploy.yml` ran the "Hand the Worker a GitHub read token" step for t
 `/live.json` answered through the Worker afterwards. It expires 8 Nov 2027; the fallback to `raw.githubusercontent.com` is
 silent, so the brief carries the date. The dead branches were already gone when the session looked — only `main`, `data` and
 `live` remain.
+
+## 13 Nov 2026 — "the desk has been down": a lull, a quiet card, and a CDN that answered for the source
+
+**It was not down.** Every run green, the Worker answering, and a board of one upcoming row with no dates: the post-Diwali
+lull. InvestorGain's list, NSE's current and upcoming feeds, Chittorgarh's mainboard dashboard and ipowatch all agreed on
+one issue, Crystal Crop Protection, whose dates InvestorGain published at 10:40 IST, after the 06:43 run. Today's "Next 30
+days" card was blank and the tape said "IPO bidding open · till 5 pm" about an exchange platform with nothing on it. Two
+page changes, mocked three times before a line was written (ddd14c5, 213cf6c): `quiet.js`, the first card on Today when
+no row is Open and nothing lists within seven days — the next issue as the headline with its logo, dates / band / lot /
+size, the last listing from `listedPerf` (`recent` is the mainboard tracker only), the SME count, the calendar check's
+source and time, the collector's next slot, and the big date with a countdown on the right like every other queue card;
+and `marketPill` on an empty day: "No issue open · N upcoming · next opens Tue 18 Nov", grey until the open is a week
+out, then the upcoming blue, a link to the Board row. Lesson on taste: "professional" meant no chatter and no verdicts,
+not less weight — a bare label list read as a disabled state. Lesson on process: a page-only push deploys by itself now
+(`deploy.yml` runs on push and after every collect); the brief had said otherwise.
+
+**Hari: "but is the market really empty idk".** It was not quite. Chittorgarh's SME dashboard had Watrana Rentals, 19–23
+Nov, which InvestorGain's list did not — until the same `list-read` URL was called with a query string. The bare URL came
+back `cf-cache-status: HIT`, `age: 13365` (3.7 h), `cache-control: no-store` notwithstanding; `ipo-detail-read/2067` was a
+HIT at 78 min; the busted calls were a MISS and carried Watrana and the record's freshly announced dates. Cloudflare's
+cache is per edge, so what the runners had been reading, and for how long, is unknown. First fix (20fd0a7): `v=<epoch>`
+on the list and the record. A tripwire written beside it fired on its first live run: reports 331 and 566 answered HIT at
+~10 min — enough to hand the five-minute live loop a stale book — so the rule moved into the session (91ef1ec): every
+call to `webnodejs.investorgain.com` carries `v=<epoch>` (`CACHE_BUST_HOSTS`), one place for every module and `live.py`;
+`_note_cache` logs a WARNING for any reply from any source with `cf-cache-status: HIT` and Age over ten minutes, naming
+the source, the age and the URL. A dispatched full run put both issues on the board at 12:27 IST, gate PASS.
+Lesson for the brief: a source's own `no-store` says nothing about the CDN in front of it; a short board with nothing red
+is the signature, and the run log now says "served from the CDN's cache" when it happens again.
