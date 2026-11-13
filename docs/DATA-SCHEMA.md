@@ -13,7 +13,7 @@ sheets{name}: {parent, parentTicker, parentPrice{value, asOf}, status, timeline{
           valuation{impliedMcapCr, impliedMcapNote, impliedPE, impliedPENote, impliedPB, peers[[name, multiple, "PE"|"PB"]]},
           bull[], bear[], flags[], street[{who, date, view}], logistics, sources[]}
 mainboard[] / sme[]: {name, slug, type "Mainboard"|"NSE SME"|"BSE SME", status, open, close, allotment, listing, bandLow, bandHigh, lotSize,
-          issueSizeCr, freshCr, ofsCr, gmp, gmpPct, gmpTrend up|down|flat, sub{qib, nii, retail, bnii?, snii?, other?, employee?, shareholder?, total, asOf, src nse|narada|bse|chittorgarh, catAsOf? (page only)},
+          issueSizeCr, freshCr, ofsCr, gmp, gmpPct, gmpTrend up|down|flat, gmpSrc (the figure's source), gmpWitness{src, gmp, gmpPct, agree true|false|null} | null (the second grey-market site's quote beside the figure; agree = within 2% of the issue price, null = the figure's source had no quote; the page prints it only when not true), sub{qib, nii, retail, bnii?, snii?, other?, employee?, shareholder?, total, asOf, src nse|narada|bse|chittorgarh, catAsOf? (page only)},
           logo? (InvestorGain's logo file name), apps?{quota: {reserved, received, reservedSrc rhp|rhp=narada|narada}, asOf} (Narada's application counts — counts only; not yet rendered),
           shareholderQuota (owner `details`, from the InvestorGain record's structured reservation fields; 5 Nov 2026):
             null = no record read yet · {flag: false, src "ig", at YYYY-MM-DD, flagOnly?: true} = record read, no reservation

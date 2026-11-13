@@ -128,7 +128,11 @@ document as assembled so far; `prev` is yesterday's.
 - `gmp`: InvestorGain 331, then ipowatch — since 13 Nov 2026 its JSON feed (`ipowatch.in/server/api/ipo/GetIpoGMPHistory`, found in
   the page's Next.js bundles after the HTML table vanished; mainboard AND SME in one list under `Type`; the server declares a
   10-min public cache, respected — not cache-busted). The second source is asked only when the first matched under half the
-  active rows, so a one-issue day logs one source; '₹0' with '(0.00%)' is "no quote", never 0.
+  active rows; '₹0' with '(0.00%)' is "no quote", never 0. Since the same day BOTH are fetched every run: the one that did not
+  supply the figure is the WITNESS (`gmpWitness{src, gmp, gmpPct, agree}`, `agree` = within 2% of the issue price, `WITNESS_TOL`;
+  null when the figure's source had no quote; `gmpSrc` names the figure's). The page prints "ipowatch says ₹32" only when agree
+  is not true (`witLine`); two sites relay the same dealers, so agreement is weak evidence — the witness catches a dead feed or a
+  wrong row. InvestorGain stays the figure: the GMP fit is calibrated on its history.
 - `evidence` (no network): per segment — trailing window named on screen (12 months, else last 100), all-years secondary;
   total-subscription bands primary, QIB / retail labelled with their years (2026 only); GMP fit (a, b, q10/q90) — PROVISIONAL
   because report 377's GMP is stamped on listing morning: `details` writes `gmpEve`, `history` freezes it, and at 30 rows a

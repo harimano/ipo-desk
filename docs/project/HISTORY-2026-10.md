@@ -539,3 +539,17 @@ stay home: `nothing_to_watch` derives every board row's status with the calendar
 row is Open and none lists today, `main()` logs one line and returns before the holiday lookup and the first tick — a
 listing day still runs for the pre-open card. On 13 Nov the 12:55 loop had polled NSE every five minutes for a market
 with nothing on it.
+
+**"Is one source enough?"** Hari's question after the fix above, and the honest answer was: enough to have a number, not to
+trust it — the chain wrote InvestorGain's figure and asked ipowatch only when InvestorGain covered under half the active
+rows, so on an ordinary day one site decided every GMP on the board. Two grey-market sites largely relay the same dealers,
+so agreement is weak evidence the figure is right; what a second site catches is a feed that stopped, a CDN serving
+yesterday, a parser on the wrong row — this morning's failure on the other side of the chain. The first mock (three cards
+and a field dump) was "a bit confusing"; the second was two cells: the GMP cell as it is, and the same cell with one grey
+line, "ipowatch says ₹32". Built as that: `gmp` fetches every source every run, the figure is filled exactly as before
+(`gmpSrc` names its source; InvestorGain stays it because the fit is calibrated on its history), and the other source's
+quote stands beside it as `gmpWitness{src, gmp, gmpPct, agree}` — `agree` within 2% of the issue price (`WITNESS_TOL`;
+Crystal Crop at ₹272: about ₹5), null when the figure's source had no quote, a stale witness cleared. The page's `witLine`
+prints the line in the Board cell and the sheet header only when `agree` is not true, and re-reads agreement when
+`live.json` moves the figure. First live run: InvestorGain ₹48, ipowatch ₹45 — agree. The module note counts agree /
+differ / one-site-only each run, so a month from now the question has data.

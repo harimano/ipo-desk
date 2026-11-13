@@ -177,7 +177,8 @@ def test_name_normalisation_matches_board_spelling():
     assert res.ok and res.source == "investorgain"
     assert list(res.rows["mainboard"]) == ["Kanohar Electricals"]          # board's spelling, not the site's
     assert res.rows["mainboard"]["Kanohar Electricals"] == {"gmp": 45.0, "gmpPct": 12.5, "gmpTrend": "flat",
-                                                            "issueSizeCr": 480.0}       # the feed's whole-issue figure
+                                                            "issueSizeCr": 480.0,       # the feed's whole-issue figure
+                                                            "gmpSrc": "investorgain", "gmpWitness": None}   # ipowatch did not quote it
     assert any("not on the board" in n and "Dhoot Transmission" in n for n in res.notes)   # off-board -> notes
 
 
@@ -251,3 +252,53 @@ def test_live_feed_alias_and_whole_issue_size():
     assert rows["NSE (National Stock Exchange of India)"]["gmp"] is not None
     assert rows["Hero Motors"]["issueSizeCr"] == 1000.0
     assert not any("NSE (National" in u for u in res.unresolved)
+
+
+# ------------------------------------------------------------------ the witness (13 Nov 2026)
+def _kanohar(gmp_text, est_text):
+    """ipowatch quoting Kanohar (InvestorGain's fixture: ₹45 on a ₹360 band)."""
+    return {"ipowatch.in": iw_feed(("Kanohar Electricals", gmp_text, est_text, "₹342 - ₹360", "Mainboard", "Open"))}
+
+
+def test_witness_agrees_within_two_percent_of_the_issue_price():
+    s = FakeSession(json_={**ALL_OK_JSON, **_kanohar("₹40", "₹400 (11.11%)")})         # ₹5 apart on ₹360 = 1.4%
+    res = gmp.run(s, board({"name": "Kanohar Electricals", "bandHigh": 360}), Result(module="gmp"))
+    row = res.rows["mainboard"]["Kanohar Electricals"]
+    assert row["gmp"] == 45.0 and row["gmpSrc"] == "investorgain", "InvestorGain stays the figure"
+    assert row["gmpWitness"] == {"src": "ipowatch", "gmp": 40.0, "gmpPct": 11.11, "agree": True}
+    assert [t["source"] for t in res.tried] == ["investorgain", "ipowatch"], "both fetched every run"
+    assert res.source == "investorgain", "the witness is not a winner"
+    assert any("1 agree" in n and "0 differ" in n for n in res.notes)
+
+
+def test_witness_differs_beyond_it_and_the_figure_does_not_move():
+    s = FakeSession(json_={**ALL_OK_JSON, **_kanohar("₹30", "₹390 (8.33%)")})          # ₹15 apart = 4.2%
+    res = gmp.run(s, board({"name": "Kanohar Electricals", "bandHigh": 360}), Result(module="gmp"))
+    row = res.rows["mainboard"]["Kanohar Electricals"]
+    assert row["gmp"] == 45.0 and row["gmpWitness"]["agree"] is False and row["gmpWitness"]["gmp"] == 30.0
+    assert any("0 agree" in n and "1 differ" in n for n in res.notes)
+
+
+def test_a_quote_on_the_second_site_only_is_a_witness_without_a_figure():
+    """InvestorGain covers the active rows (so ipowatch fills nothing) but has no quote for one name ipowatch quotes:
+    the row keeps "no quote" and carries the second site's number; a stale witness elsewhere is cleared."""
+    feed = {"ipowatch.in": iw_feed(("Kanohar Electricals", "₹45", "₹405 (12.50%)", "₹342 - ₹360", "Mainboard", "Open"),
+                                   ("Watrana Rentals", "₹12", "₹257 (4.90%)", "₹232 - ₹245", "NSE Emerge", "Upcoming"))}
+    s = FakeSession(json_={**ALL_OK_JSON, **feed})
+    prev = board({"name": "Kanohar Electricals", "bandHigh": 360},
+                 {"name": "Watrana Rentals", "type": "NSE SME", "status": "Upcoming", "bandHigh": 245},
+                 {"name": "Old Witness Co", "status": "Closed", "gmpWitness": {"src": "ipowatch", "gmp": 9, "gmpPct": 1, "agree": None}})
+    res = gmp.run(s, prev, Result(module="gmp"))
+    assert res.rows["mainboard"]["Kanohar Electricals"]["gmpWitness"]["agree"] is True
+    assert res.rows["sme"]["Watrana Rentals"] == {"gmpWitness": {"src": "ipowatch", "gmp": 12.0, "gmpPct": 4.9, "agree": None}}, \
+        "no figure written: the figure's source had none"
+    assert res.rows["mainboard"]["Old Witness Co"] == {"gmpWitness": None}, "yesterday's witness does not outlive the quote"
+    assert any("1 agree" in n and "1 quoted by one site only" in n for n in res.notes)
+
+
+def test_witness_helper_edge_cases():
+    fig = {"gmp": 45.0, "source": "investorgain"}
+    assert gmp.witness({"bandHigh": 360}, fig, []) is None
+    assert gmp.witness({}, fig, [{"gmp": 45.0, "source": "ipowatch"}])["agree"] is True, "no band anywhere: equal quotes agree"
+    assert gmp.witness({}, fig, [{"gmp": 46.0, "source": "ipowatch"}])["agree"] is False
+    assert gmp.witness({}, None, [{"gmp": 46.0, "source": "ipowatch"}])["agree"] is None
