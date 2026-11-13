@@ -38,6 +38,7 @@ from zoneinfo import ZoneInfo
 
 from .errors import SourceBlocked, SourceError
 from .http import Session
+from .modules.calendar import derive_status
 from .modules.subscription import _as_of, combine, has_values
 from .sources import investorgain, narada, nse_ipo, nse_preopen
 
@@ -209,6 +210,24 @@ def tick(session: Session, doc: dict, prev: dict, now: dt.datetime) -> dict:
     return out
 
 
+def nothing_to_watch(doc: dict, today: dt.date) -> str | None:
+    """Why the loop has no work today, else None: no board row is Open (the collector's own status derivation, from the
+    row's dates) and none lists today (the pre-open card needs the loop even with nothing open). 13 Nov 2026: a board of
+    one upcoming issue had the loop asking NSE every five minutes for an empty market."""
+    n, status = 0, []
+    for key in ("mainboard", "sme"):
+        for r in doc.get(key) or []:
+            if not isinstance(r, dict) or not r.get("name"):
+                continue
+            n += 1
+            st = derive_status(r.get("open"), r.get("close"), r.get("listing"), today)
+            if st == "Open" or r.get("listing") == today.isoformat():
+                return None
+            status.append(st)
+    return f"nothing open and nothing listing today ({n} board rows: " + ", ".join(
+        f"{status.count(k)} {k.lower()}" for k in ("Upcoming", "Closed", "Listed") if k in status) + ")"
+
+
 def trading_holiday(session: Session, day: dt.date) -> str | None:
     """NSE's equity-segment holiday for `day` (its description), else None. Fails open: a list that will not load
     never costs a trading day."""
@@ -246,8 +265,13 @@ def main(argv=None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)-7s %(name)s  %(message)s", datefmt="%H:%M:%S")
     out_p, session = pathlib.Path(a.out), Session()
     prev = json.loads(out_p.read_text()) if out_p.exists() and out_p.stat().st_size > 2 else {}
-    if a.until:                                     # a loop on a market holiday would poll a closed market all day
-        why = trading_holiday(session, dt.datetime.now(IST).date())
+    if a.until:                                     # a loop on a market holiday, or an empty market, would poll it all day
+        today = dt.datetime.now(IST).date()
+        why = nothing_to_watch(json.loads(pathlib.Path(a.board).read_text()), today)
+        if why:
+            log.info("%s: no loop today", why)
+            return 0
+        why = trading_holiday(session, today)
         if why:
             log.info("NSE trading holiday (%s): no loop today", why)
             return 0

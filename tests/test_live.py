@@ -148,3 +148,28 @@ def test_an_sme_gets_narada_s_split_and_application_counts_at_most_every_ten_min
     s3 = S(nar={"VIDYAWIRE": NAR})
     live.tick(s3, DOC, again, NOW + dt.timedelta(minutes=10))
     assert "narada:VIDYAWIRE" in s3.calls
+
+
+def test_the_loop_idles_when_nothing_is_open_and_nothing_lists(tmp_path, monkeypatch):
+    """13 Nov 2026: one upcoming row on the board and the loop polled NSE every five minutes for an empty market."""
+    quiet = {"mainboard": [{"name": "Crystal Crop Protection", "igId": "2067", "open": "2026-11-18", "close": "2026-11-20"},
+                           {"name": "Done", "igId": "1", "open": "2026-11-03", "close": "2026-11-05", "listing": "2026-11-10"}],
+             "sme": [{"name": "Watrana Rentals", "igId": "2075", "open": "2026-11-19", "close": "2026-11-23"}]}
+    assert live.nothing_to_watch(quiet, dt.date(2026, 11, 13)) == "nothing open and nothing listing today (3 board rows: 2 upcoming, 1 listed)"
+    assert live.nothing_to_watch(quiet, dt.date(2026, 11, 18)) is None, "opening day: Open by the collector's own derivation"
+    assert live.nothing_to_watch(quiet, dt.date(2026, 11, 10)) is None, "listing day: the pre-open card needs the loop"
+    assert live.nothing_to_watch(DOC, NOW.date()) is None
+    assert live.nothing_to_watch({"mainboard": [], "sme": []}, NOW.date()).startswith("nothing open")
+    # wired before any network call: no holiday lookup, no tick, no file
+    board, out = tmp_path / "latest.json", tmp_path / "live.json"
+    board.write_text(json.dumps(quiet))
+    monkeypatch.setattr(live, "trading_holiday", lambda session, day: (_ for _ in ()).throw(AssertionError("asked NSE")))
+    monkeypatch.setattr(live, "tick", lambda *a: (_ for _ in ()).throw(AssertionError("ticked")))
+
+    class Today(dt.datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return cls(2026, 11, 13, 8, 55, tzinfo=tz)
+    monkeypatch.setattr(live.dt, "datetime", Today)
+    assert live.main(["--board", str(board), "--out", str(out), "--until", "17:20"]) == 0
+    assert not out.exists()
