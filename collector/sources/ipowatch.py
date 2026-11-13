@@ -1,86 +1,76 @@
-"""IPOWatch — https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/
+"""IPOWatch — the GMP page's own JSON feed.
 
-Server-rendered HTML (no JS). Header verified 2026-08-04 by oriz-ipo:
-  ['IPO Name', 'IPO GMP*', 'Trend', 'Price Band', 'Est. Listing', 'Date', 'Type', 'Status', 'Last Updated']
-Since Nov 2026 (`board-2026-11.html`, caught by the gmp "changed" note on /admin):
-  ['Company', 'GMP*', 'Trend', 'Price Band', 'Est. Gain', 'Date'] — the name is an <a>, the status a <span> under it
-  in the same cell, no Type column, and "no grey market yet" is '₹0' with Est. Gain = the band ('₹105 (0.00%)').
-Both shapes parse; a third raises SourceChanged.
+    https://ipowatch.in/server/api/ipo/GetIpoGMPHistory
 
-KEY QUIRK: the GMP **percentage** lives in the 'Est. Listing' column (e.g. '₹1,116 (28.13%)'), NOT in
-'IPO GMP*' ('₹245' = absolute rupees). The header row is `<tr><td><strong>…` rather than `<th>`, so the
-walk reads `th,td`. 'Price Band' holds only the upper price ('₹871').
+Found 13 Nov 2026 by reading the site's Next.js bundles: the page (`/ipo-grey-market-premium-latest-ipo-gmp/`) lost its
+`<table>` when the site moved to Next.js that month — the "Gmp History" block renders this call client-side, with a
+Mainline / SME filter over the SAME list (`Type`: 'Mainboard', 'NSE Emerge', 'BSE SME'), so mainboard and SME GMP live in
+one response; the old `/sme-ipo-grey-market-premium/` page is a 404 and the sitemap has no SME GMP page. The HTML parser
+that read the table (header shapes of Aug and early Nov 2026) is gone with the table.
 
-Table walk copied from chirag127/oriz-ipo `src/ipo_watch/sources/ipowatch.py` (MIT, THIRD_PARTY.md),
-adapted to take the page text instead of fetching itself.
+Response (real, `data/fixtures/ipowatch/gmp-history-2026-11-13.json`):
+  {"status": 1, "message": "IPO GMP Data Retrieved Successfully", "result": [
+     {"id": 1149, "ipoName": "Crystal Crop Protection", "ipo_slug": "...", "ipoGmp": "₹45", "trendIcon": "fa-arrow-up",
+      "trendColor": "#28A745", "priceBand": "₹259 - ₹272", "estListing": "₹317 (16.54%)", "IPODate": "18 Nov - 20 Nov",
+      "Type": "Mainboard", "Status": "Upcoming", "LastUpdated": "13 Nov, 12:12"}], "jwtToken": null, "totalCount": 0}
+
+KEY QUIRK, unchanged from the table it fed: the GMP **percentage** lives in `estListing` ('₹317 (16.54%)'), `ipoGmp` is
+absolute rupees. "No grey market yet" is '₹0' with a '(0.00%)' estimate — a placeholder, never a zero premium: the row's
+gmp is None (the module writes "no quote", not 0). Only the status in `status` and the list in `result` are trusted: an
+answer without them raises SourceChanged, never [].
+
+The server sends `cache-control: public, max-age=300, s-maxage=600` and its own `x-cache` — a ten-minute cache the site
+declares, respected (the host is NOT in `http.CACHE_BUST_HOSTS`; the module runs half an hour apart).
 """
 from __future__ import annotations
 
-from selectolax.lexbor import LexborHTMLParser as HTMLParser
-
 from ..errors import SourceChanged
-from ._parse import clean, compute_gmp_pct, parse_money, parse_pct
+from ._parse import clean, compute_gmp_pct, parse_money, parse_pct, upper_band
 
 SOURCE = "ipowatch"
-URL = "https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/"
+URL = "https://ipowatch.in/server/api/ipo/GetIpoGMPHistory"
+PAGE = "https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/"       # what the feed renders, for the notes
 
 
-def parse_ipowatch(html: str) -> list[dict]:
-    tree = HTMLParser(html or "")
+def parse_gmp_history(data) -> list[dict]:
+    if not isinstance(data, dict):
+        raise SourceChanged(SOURCE, f"expected a JSON object, got {type(data).__name__}", URL)
+    if data.get("status") != 1:
+        raise SourceChanged(SOURCE, f"status {data.get('status')!r}: {str(data.get('message') or '')[:80]}", URL)
+    rows = data.get("result")
+    if not isinstance(rows, list) or not rows:
+        raise SourceChanged(SOURCE, "result missing or empty", URL)
     out: list[dict] = []
-    for table in tree.css("table"):
-        rows = table.css("tr")
-        if len(rows) < 2:
+    for raw in rows:
+        if not isinstance(raw, dict):
             continue
-        header = [clean(c.text()).lower() for c in rows[0].css("th,td")]
-        if not (any("ipo" in h or "company" in h for h in header) and any("gmp" in h for h in header)):
+        name = clean(raw.get("ipoName"))
+        if not name:
             continue
-        idx = {h: i for i, h in enumerate(header)}
-
-        def col(cells, *keys, idx=idx):
-            for k in keys:
-                for h, i in idx.items():
-                    if k in h and i < len(cells):
-                        return clean(cells[i].text())
-            return ""
-
-        for row in rows[1:]:
-            cells = row.css("td")
-            if len(cells) < 2:
-                continue
-            link = cells[0].css_first("a")
-            name = clean(link.text()) if link else clean(cells[0].text())
-            if not name:
-                continue
-            badge = cells[0].css_first("span")                              # Nov 2026: 'Open' / 'Closed' under the name
-            status = col(cells, "status") or (clean(badge.text()) if badge else "")
-            gmp_cell = col(cells, "gmp")                                    # '₹245' absolute
-            est_cell = col(cells, "est. listing", "est listing", "est. gain", "listing", "gain")  # '₹1,116 (28.13%)'
-            gmp = parse_money(gmp_cell)
-            gmp_pct = parse_pct(est_cell)
-            # "No grey market yet" is a placeholder, not a zero premium: '₹0' + '₹- (0.00%)' (Aug 2026 shape) or
-            # '₹0' + '₹105 (0.00%)' (Nov 2026). The collector would otherwise patch a real 0 onto the board.
-            if parse_money(est_cell.split("(")[0]) is None or (gmp == 0 and not gmp_pct):
-                gmp, gmp_pct = None, None
-            r = {
-                "name": name,
-                "gmp": gmp,
-                "gmpPct": gmp_pct,
-                "bandHigh": parse_money(col(cells, "price")),
-                "open": None, "close": None, "listing": None,
-                "dateText": col(cells, "date"),
-                "type": col(cells, "type"),
-                "status": status,
-                "source": SOURCE,
-            }
-            compute_gmp_pct(r)
-            out.append(r)
-        if out:
-            break
+        gmp_text, est_text = clean(raw.get("ipoGmp")), clean(raw.get("estListing"))
+        gmp = parse_money(gmp_text)
+        gmp_pct = parse_pct(est_text)
+        if gmp == 0 and not gmp_pct:                         # '₹0' + '(0.00%)': no grey market yet, not a zero premium
+            gmp, gmp_pct = None, None
+        r = {
+            "name": name,
+            "gmp": gmp,
+            "gmpPct": gmp_pct if gmp is not None else None,
+            "bandHigh": upper_band(clean(raw.get("priceBand"))),
+            "open": None, "close": None, "listing": None,
+            "dateText": clean(raw.get("IPODate")),
+            "type": clean(raw.get("Type")),
+            "status": clean(raw.get("Status")),
+            "updated": clean(raw.get("LastUpdated")),
+            "iwId": str(raw.get("id") or "") or None,
+            "source": SOURCE,
+        }
+        compute_gmp_pct(r)
+        out.append(r)
     if not out:
-        raise SourceChanged(SOURCE, "no GMP table rows parsed", URL)
+        raise SourceChanged(SOURCE, f"{len(rows)} rows but none had an ipoName — field names changed?", URL)
     return out
 
 
 def fetch(session) -> list[dict]:
-    return parse_ipowatch(session.get_text(URL, source=SOURCE))
+    return parse_gmp_history(session.get_json(URL, source=SOURCE, headers={"Referer": PAGE}))

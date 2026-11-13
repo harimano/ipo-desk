@@ -9,11 +9,11 @@ Copied, in places adapted, into this repository:
 | Here | From |
 |---|---|
 | `collector/sources/_parse.py` — `parse_money`, `parse_pct`, `upper_band`, `clean` (verbatim); `compute_gmp_pct` (adapted to dict rows) | `src/ipo_watch/util.py`, `src/ipo_watch/sources/base.py` |
-| `collector/sources/ipowatch.py` — table walk and header-substring `col()` helper | `src/ipo_watch/sources/ipowatch.py` |
+| `collector/sources/ipowatch.py` — table walk and header-substring `col()` helper (until 13 Nov 2026, when the site's table went and the source became its JSON feed; nothing of oriz-ipo remains in that file) | `src/ipo_watch/sources/ipowatch.py` |
 | `collector/sources/ipopremium.py` — table walk | `src/ipo_watch/sources/ipopremium.py` |
 | `collector/modules/gmp.py` — failover loop shape ("first source with a usable GMP row wins") | `src/ipo_watch/sources/chain.py` |
 | `collector/notify.py` — `_esc`, `send_telegram`, `send_ntfy`, message chunking | `src/ipo_watch/notify/channels.py` |
-| `data/fixtures/ipowatch/board.html` | `tests/fixtures/ipowatch.html` |
+| `data/fixtures/ipowatch/board.html` (deleted 13 Nov 2026 with the table parser) | `tests/fixtures/ipowatch.html` |
 
 The Playwright-based sources (InvestorGain page scrape, Chittorgarh) were **not** copied.
 

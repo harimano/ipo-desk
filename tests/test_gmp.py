@@ -60,44 +60,57 @@ def board(*rows):
 
 
 ALL_OK_JSON = {"webnodejs.investorgain.com": json.loads(fixture("investorgain", "v2.json"))}
-ALL_OK_TEXT = {"ipowatch.in": fixture("ipowatch", "board.html")}
+
+
+def iw_feed(*rows) -> dict:
+    """ipowatch's GetIpoGMPHistory shape (the real one is the 13 Nov 2026 fixture), for the module tests:
+    (name, gmp text, est-listing text, price band, type, status)."""
+    return {"status": 1, "message": "IPO GMP Data Retrieved Successfully", "jwtToken": None, "totalCount": 0, "id": 0,
+            "result": [{"id": i + 1, "ipoName": n, "ipo_slug": n.lower().replace(" ", "-"), "ipoGmp": g, "trendIcon": "fa-arrow-up",
+                        "trendColor": "#28A745", "priceBand": b, "estListing": e, "IPODate": "18 Nov - 20 Nov", "Type": t,
+                        "Status": st, "LastUpdated": "13 Nov, 12:12"} for i, (n, g, e, b, t, st) in enumerate(rows)]}
+
+
+ALL_OK_IW = {"ipowatch.in": iw_feed(("Dhoot Transmission", "₹245", "₹1,116 (28.13%)", "₹826 - ₹871", "Mainboard", "Upcoming"),
+                                    ("LEAP India", "₹4", "₹359 (1.13%)", "₹337 - ₹355", "Mainboard", "Open"),
+                                    ("Technocraft Ventures", "₹10", "₹110 (10.00%)", "₹95 - ₹100", "Mainboard", "Upcoming"),
+                                    ("MV Electrosystems", "₹100", "₹300 (50.00%)", "₹190 - ₹200", "BSE SME", "Open"),
+                                    ("Molbio Diagnostics", "₹0", "₹105 (0.00%)", "₹100 - ₹105", "Mainboard", "Upcoming"))}
 
 
 # ------------------------------------------------------------------ parsers
-def test_ipowatch_parser_on_fixture():
-    rows = ipowatch.parse_ipowatch(fixture("ipowatch", "board.html"))
-    assert len(rows) >= 5
-    assert all(r["name"] for r in rows)
+def test_ipowatch_parser_on_real_feed():
+    """GetIpoGMPHistory, 13 Nov 2026: the one upcoming issue of a quiet week."""
+    rows = ipowatch.parse_gmp_history(json.loads(fixture("ipowatch", "gmp-history-2026-11-13.json")))
+    assert [r["name"] for r in rows] == ["Crystal Crop Protection"]
+    c = rows[0]
+    assert c["gmp"] == 45.0 and c["gmpPct"] == 16.54 and c["bandHigh"] == 272.0        # % from estListing, not ipoGmp
+    assert c["type"] == "Mainboard" and c["status"] == "Upcoming" and c["dateText"] == "18 Nov - 20 Nov"
+    assert c["updated"] == "13 Nov, 12:12" and c["iwId"] == "1149" and c["source"] == "ipowatch"
+
+
+def test_ipowatch_no_quote_and_sme_rows():
+    """'₹0' + '(0.00%)' is "no grey market yet", never a zero premium; SME rows share the list under `Type`."""
+    rows = ipowatch.parse_gmp_history(ALL_OK_IW["ipowatch.in"])
     by = {r["name"]: r for r in rows}
-    d = by["Dhoot Transmission"]
-    assert d["gmp"] == 245.0 and d["gmpPct"] == 28.13 and d["bandHigh"] == 871.0   # % from Est. Listing
-    assert d["status"] == "Upcoming" and d["type"] == "Mainboard"
-    assert by["Molbio Diagnostics"]["gmp"] is None                                  # '₹0' / '₹- (0.00%)' placeholder
-    assert sum(1 for r in rows if r["gmpPct"] is not None) >= 3
+    assert by["Molbio Diagnostics"]["gmp"] is None and by["Molbio Diagnostics"]["gmpPct"] is None
+    assert by["MV Electrosystems"]["gmp"] == 100.0 and by["MV Electrosystems"]["type"] == "BSE SME"
+    assert by["Dhoot Transmission"]["gmpPct"] == 28.13 and by["Dhoot Transmission"]["bandHigh"] == 871.0
     assert all(-50 <= r["gmpPct"] <= 500 for r in rows if r["gmpPct"] is not None)
 
 
-def test_ipowatch_parser_on_nov_2026_shape():
-    """Company / GMP* / Trend / Price Band / Est. Gain / Date — status inside the name cell, no Type column."""
-    rows = ipowatch.parse_ipowatch(fixture("ipowatch", "board-2026-11.html"))
-    by = {r["name"]: r for r in rows}
-    assert set(by) == {"Vedant Poly Fabs", "Johnsoncab Electricals", "HGS (India)", "Maxwell Engineering", "Vectras Enprocon", "Antala Industries"}
-    m = by["Maxwell Engineering"]
-    assert m["gmp"] == 113.0 and m["gmpPct"] == 71.52 and m["bandHigh"] == 158.0 and m["status"] == "Closed"
-    assert by["Antala Industries"]["status"] == "Open" and by["Antala Industries"]["dateText"] == "29-5 Nov"
-    assert by["Antala Industries"]["gmp"] is None and by["Vectras Enprocon"]["gmp"] is None   # '₹0' + '(0.00%)' = no quote
-    assert by["Vedant Poly Fabs"]["gmp"] == 1.0 and by["Vedant Poly Fabs"]["gmpPct"] == 1.06
-
-
 def test_ipowatch_changed_shape_raises():
-    with pytest.raises(SourceChanged):
-        ipowatch.parse_ipowatch("<html><body><table><tr><th>Foo</th><th>Bar</th></tr><tr><td>x</td><td>y</td></tr></table></body></html>")
-    with pytest.raises(SourceChanged):
-        ipowatch.parse_ipowatch("")
+    for bad in ({"status": 0, "message": "Something went wrong", "result": None},
+                {"status": 1, "result": []},                          # an empty list is never success (rule 5)
+                {"status": 1, "result": [{"name": "x", "gmp": 1}]},   # fields renamed
+                [], "", None):
+        with pytest.raises(SourceChanged):
+            ipowatch.parse_gmp_history(bad)
 
 
-
-
+def test_ipowatch_fetch_uses_the_json_feed():
+    s = FakeSession(json_=ALL_OK_IW)
+    assert len(ipowatch.fetch(s)) == 5 and s.calls == [ipowatch.URL]
 
 
 def test_investorgain_parser_on_fixture():
@@ -138,7 +151,7 @@ def test_investorgain_fetch_uses_session_and_raises_on_retired_endpoint():
 
 # ------------------------------------------------------------------ module
 def test_chain_falls_through_to_ipowatch_when_investorgain_retired():
-    s = FakeSession(text=ALL_OK_TEXT, json_={"webnodejs.investorgain.com": {"msg": "API not found"}})
+    s = FakeSession(json_={"webnodejs.investorgain.com": {"msg": "API not found"}, **ALL_OK_IW})
     prev = board({"name": "Dhoot Transmission", "status": "Upcoming", "gmp": 200},
                  {"name": "LEAP India", "status": "Open"})
     res = gmp.run(s, prev, Result(module="gmp"))
@@ -158,7 +171,7 @@ def test_name_normalisation_matches_board_spelling():
     assert gmp.normalise("Kanohar Electricals Ltd IPO") == gmp.normalise("Kanohar Electricals")
     assert gmp.normalise("Dhoot Transmission (Mainboard)") == "dhoot transmission"
     assert gmp.normalise("Anawil Wire & Engineering IPO") == gmp.normalise("Anawil Wire and Engineering")
-    s = FakeSession(json_=ALL_OK_JSON, text=ALL_OK_TEXT)
+    s = FakeSession(json_={**ALL_OK_JSON, **ALL_OK_IW})
     prev = board({"name": "Kanohar Electricals", "status": "Open", "bandHigh": 360})
     res = gmp.run(s, prev, Result(module="gmp"))
     assert res.ok and res.source == "investorgain"
@@ -171,7 +184,7 @@ def test_name_normalisation_matches_board_spelling():
 def test_gmp_trend_against_prev():
     assert gmp.trend(45, 40) == "up" and gmp.trend(45, 50) == "down" and gmp.trend(45, 45) == "flat"
     assert gmp.trend(45, None) == "flat"
-    s = FakeSession(json_=ALL_OK_JSON, text=ALL_OK_TEXT)
+    s = FakeSession(json_={**ALL_OK_JSON, **ALL_OK_IW})
     prev = board({"name": "Kanohar Electricals", "gmp": 40},
                  {"name": "Dhoot Transmission", "status": "Upcoming", "gmp": 300},
                  {"name": "LEAP India", "gmp": 4},
@@ -186,7 +199,7 @@ def test_gmp_trend_against_prev():
 
 
 def test_board_row_absent_from_every_source_keeps_prev_gmp():
-    s = FakeSession(json_=ALL_OK_JSON, text=ALL_OK_TEXT)
+    s = FakeSession(json_={**ALL_OK_JSON, **ALL_OK_IW})
     prev = board({"name": "Kanohar Electricals", "gmp": 40},
                  {"name": "Zeta Unknown Industries", "gmp": 77, "gmpPct": 5.5, "gmpTrend": "up"},
                  {"name": "Omega Upcoming Co", "status": "Upcoming", "gmp": 12})
@@ -203,7 +216,7 @@ def test_board_row_absent_from_every_source_keeps_prev_gmp():
 
 def test_low_coverage_winner_is_topped_up_from_next_source():
     """investorgain knows only 1 of 4 active names -> ipowatch is consulted for the rest and merged."""
-    s = FakeSession(json_=ALL_OK_JSON, text=ALL_OK_TEXT)
+    s = FakeSession(json_={**ALL_OK_JSON, **ALL_OK_IW})
     prev = board({"name": "Kanohar Electricals", "gmp": 40},
                  {"name": "Technocraft Ventures", "status": "Upcoming"},
                  {"name": "Ardee Industries", "status": "Upcoming"},
@@ -216,10 +229,8 @@ def test_low_coverage_winner_is_topped_up_from_next_source():
 
 
 def test_gmp_pct_computed_from_board_band_when_source_lacks_it():
-    html = ('<table><tr><td><strong>IPO Name</strong></td><td><strong>IPO GMP*</strong></td>'
-            '<td><strong>Price Band</strong></td><td><strong>Est. Listing</strong></td></tr>'
-            '<tr><td>Kanohar Electricals</td><td>₹36</td><td>₹-</td><td>₹396</td></tr></table>')
-    s = FakeSession(text={"ipowatch.in": html}, json_={"webnodejs.investorgain.com": SourceDown("investorgain", "boom")})
+    feed = iw_feed(("Kanohar Electricals", "₹36", "₹396", "₹-", "Mainboard", "Open"))      # no % and no band from the site
+    s = FakeSession(json_={"ipowatch.in": feed, "webnodejs.investorgain.com": SourceDown("investorgain", "boom")})
     prev = board({"name": "Kanohar Electricals", "bandHigh": 360})
     res = gmp.run(s, prev, Result(module="gmp"))
     assert res.ok and res.rows["mainboard"]["Kanohar Electricals"]["gmpPct"] == 10.0
