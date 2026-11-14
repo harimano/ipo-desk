@@ -553,3 +553,11 @@ Crystal Crop at ₹272: about ₹5), null when the figure's source had no quote,
 prints the line in the Board cell and the sheet header only when `agree` is not true, and re-reads agreement when
 `live.json` moves the figure. First live run: InvestorGain ₹48, ipowatch ₹45 — agree. The module note counts agree /
 differ / one-site-only each run, so a month from now the question has data.
+
+**14 Nov, the first morning with the witness.** Both sites moved together overnight (Crystal Crop ₹48 → ₹27 on InvestorGain,
+₹45 → ₹30 on ipowatch; Watrana ₹18 / ₹16): agree, nothing on the page — as designed. Mahanadi Coalfields, new on the board at
+13:06, sat a run with a GMP from `details` and no source or witness: `gmp` built its name list from `prev`, the only module
+still doing so. It reads today's board now (`res.doc or prev`, the pattern every other module uses), with the trend and the
+witness-clearing still against yesterday's row. The same row showed a second gap: with no price band yet, "2% of the issue
+price" had nothing to measure and ₹12.5 against ₹13 read as a disagreement — before the band is known, a gap of ₹1 or less
+is rounding (`NO_BAND_RUPEES`). A `--only calendar,gmp` throwaway run showed all three rows with a source and a witness.

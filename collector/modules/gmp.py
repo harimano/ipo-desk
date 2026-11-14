@@ -20,6 +20,7 @@ existing names — the board's spelling wins, GMP-site spellings never reach the
   * GMP rows for IPOs not on our board  -> res.notes (never added to the board)
   * board rows absent from every source -> keep their previous gmp (no patch); Open ones -> res.unresolved
   * gmpTrend = up/down/flat vs the row's previous gmp in `prev`; flat when there is no previous value
+  * the board is TODAY's (`res.doc`, the calendar this run built), so an issue that appears this run is quoted this run
 """
 from __future__ import annotations
 
@@ -39,6 +40,7 @@ ALIASES_DIR = pathlib.Path(__file__).resolve().parents[2] / "data"
 BOARDS = ("mainboard", "sme")
 ACTIVE = {"Open", "Upcoming"}
 WITNESS_TOL = 0.02          # two sites within 2% of the issue price agree (Crystal Crop at ₹272: about ₹5); `app.js` mirrors it
+NO_BAND_RUPEES = 1.0        # before the band is known (Mahanadi Coalfields, 14 Nov 2026: ₹12.5 vs ₹13 read as a disagreement)
 _DROP_WORDS = re.compile(r"\b(limited|ltd|ipo|mainboard|mainline|sme|nse|bse)\b")
 _PUNCT = re.compile(r"[^a-z0-9 ]+")
 
@@ -85,7 +87,8 @@ def witness(row: dict, figure: dict | None, others: list[dict]) -> dict | None:
         band = row.get("bandHigh") or figure.get("bandHigh") or q.get("bandHigh")
         try:
             gap = abs(float(q["gmp"]) - float(figure["gmp"]))
-            w["agree"] = gap <= WITNESS_TOL * float(band) if band else gap == 0
+            # no price band yet (dates TBA): quotes are in whole or half rupees, so a ₹1 gap is rounding, not disagreement
+            w["agree"] = gap <= WITNESS_TOL * float(band) if band else gap <= NO_BAND_RUPEES
         except (TypeError, ValueError):
             w["agree"] = None
     return w
@@ -108,7 +111,10 @@ def _attempts(session: Session) -> list[tuple[str, callable]]:
 
 
 def run(session: Session, prev: dict, res: Result, attempts: list[tuple[str, callable]] | None = None) -> Result:
-    rows = _board_rows(prev)
+    # today's board, as `calendar` just built it (14 Nov 2026: Mahanadi Coalfields joined the board at 13:06 and went a run
+    # without a GMP source or witness because this read yesterday's document); `prev` only when there is no doc (tests, --only)
+    rows = _board_rows(res.doc or prev)
+    before = {row["name"]: row for _, row in _board_rows(prev)}       # yesterday's gmp / witness, for the trend and the clearing
     board_index: dict[str, str] = {}
     for _, row in rows:
         board_index.setdefault(normalise(row["name"]), row["name"])
@@ -182,7 +188,7 @@ def run(session: Session, prev: dict, res: Result, attempts: list[tuple[str, cal
         if src is None:
             if row.get("status") == "Open":
                 res.unresolved.append(f"gmp: no grey-market print found for open issue {row['name']}")
-            if w or row.get("gmpWitness"):                 # a second site's quote on a row with no figure; or a stale one to clear
+            if w or before.get(row["name"], row).get("gmpWitness"):   # a second site's quote on a row with no figure; or a stale one to clear
                 patches.setdefault(key, {})[row["name"]] = {"gmpWitness": w}
             continue
         pct = src.get("gmpPct")
@@ -191,7 +197,7 @@ def run(session: Session, prev: dict, res: Result, attempts: list[tuple[str, cal
                 pct = round(float(src["gmp"]) / float(row["bandHigh"]) * 100, 2)
             except (TypeError, ValueError, ZeroDivisionError):
                 pct = None
-        patch = {"gmp": src["gmp"], "gmpPct": pct, "gmpTrend": trend(src["gmp"], row.get("gmp")),
+        patch = {"gmp": src["gmp"], "gmpPct": pct, "gmpTrend": trend(src["gmp"], before.get(row["name"], row).get("gmp")),
                  "gmpSrc": src.get("source"), "gmpWitness": w}
         # The feed also quotes the whole issue at the upper band. NSE's list cannot: its share count is net of
         # the anchor portion, so calendar's figure runs ~30% short on every mainboard issue (Hero Motors: 744 Cr

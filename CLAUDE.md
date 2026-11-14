@@ -129,7 +129,7 @@ document as assembled so far; `prev` is yesterday's.
   the page's Next.js bundles after the HTML table vanished; mainboard AND SME in one list under `Type`; the server declares a
   10-min public cache, respected — not cache-busted). The second source is asked only when the first matched under half the
   active rows; '₹0' with '(0.00%)' is "no quote", never 0. Since the same day BOTH are fetched every run: the one that did not
-  supply the figure is the WITNESS (`gmpWitness{src, gmp, gmpPct, agree}`, `agree` = within 2% of the issue price, `WITNESS_TOL`;
+  supply the figure is the WITNESS (`gmpWitness{src, gmp, gmpPct, agree}`, `agree` = within 2% of the issue price, `WITNESS_TOL`, or ₹1 before the band is known;
   null when the figure's source had no quote; `gmpSrc` names the figure's). The page prints "ipowatch says ₹32" only when agree
   is not true (`witLine`); two sites relay the same dealers, so agreement is weak evidence — the witness catches a dead feed or a
   wrong row. InvestorGain stays the figure: the GMP fit is calibrated on its history.

@@ -299,6 +299,20 @@ def test_a_quote_on_the_second_site_only_is_a_witness_without_a_figure():
 def test_witness_helper_edge_cases():
     fig = {"gmp": 45.0, "source": "investorgain"}
     assert gmp.witness({"bandHigh": 360}, fig, []) is None
-    assert gmp.witness({}, fig, [{"gmp": 45.0, "source": "ipowatch"}])["agree"] is True, "no band anywhere: equal quotes agree"
-    assert gmp.witness({}, fig, [{"gmp": 46.0, "source": "ipowatch"}])["agree"] is False
+    assert gmp.witness({}, fig, [{"gmp": 46.0, "source": "ipowatch"}])["agree"] is True, "no band yet: within ₹1 is rounding"
+    assert gmp.witness({}, fig, [{"gmp": 47.0, "source": "ipowatch"}])["agree"] is False
     assert gmp.witness({}, None, [{"gmp": 46.0, "source": "ipowatch"}])["agree"] is None
+
+
+def test_a_row_new_to_the_board_this_run_is_quoted_this_run():
+    """14 Nov 2026: Mahanadi Coalfields joined the board at 13:06 and sat a run with no source and no witness, because the
+    module read yesterday's document. It reads today's board (`res.doc`) when there is one; `prev` is the fallback."""
+    yesterday = board({"name": "Kanohar Electricals", "gmp": 40})
+    today = board({"name": "Kanohar Electricals"}, {"name": "Dhoot Transmission", "status": "Upcoming", "bandHigh": 871})   # the calendar's fresh rows: gmp None
+    s = FakeSession(json_={**ALL_OK_JSON, **ALL_OK_IW})
+    res = gmp.run(s, yesterday, Result(module="gmp", doc=copy.deepcopy(today)))
+    assert set(res.rows["mainboard"]) == {"Kanohar Electricals", "Dhoot Transmission"}
+    d = res.rows["mainboard"]["Dhoot Transmission"]
+    assert d["gmp"] == 245.0 and d["gmpSrc"] == "investorgain" and d["gmpWitness"]["agree"] is True   # both sites quote it
+    assert res.rows["mainboard"]["Kanohar Electricals"]["gmpTrend"] == "up", "the trend still reads yesterday's gmp, not the fresh row's None"
+    assert "Dhoot Transmission" not in gmp.run(s, yesterday, Result(module="gmp")).rows["mainboard"], "no doc: prev, as before"
