@@ -23,7 +23,8 @@ def test_stale_hit_is_warned(caplog):
 
 
 def test_fresh_hit_and_misses_are_quiet(caplog):
-    for h in ({"cf-cache-status": "HIT", "age": "30"}, {"cf-cache-status": "MISS"}, {"cf-cache-status": "EXPIRED", "age": "9999"}, {}):
+    for h in ({"cf-cache-status": "HIT", "age": "30"}, {"cf-cache-status": "MISS"}, {"cf-cache-status": "EXPIRED", "age": "9999"}, {},
+              {"cf-cache-status": "HIT", "age": "884820", "content-type": "image/png"}):      # a logo PNG held for days: a CDN doing its job
         _get(_client(h), caplog)
     assert not caplog.messages
     assert cache_age(httpx.Response(200, headers={"cf-cache-status": "EXPIRED", "age": "9999"})) is None

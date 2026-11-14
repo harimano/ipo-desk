@@ -222,6 +222,8 @@ def _note_cache(r: httpx.Response, source: str, url: str) -> None:
     """The tripwire behind CACHE_BUST_HOSTS. 13 Nov 2026: InvestorGain's list came back HIT, age 13365 s, `no-store`
     notwithstanding, and the board was one issue short with nothing red anywhere. If the buster ever stops working, or
     another source grows a cache, this line says so in the run log."""
+    if r.headers.get("content-type", "").split(";")[0].strip().lower().startswith("image/"):
+        return                                                  # a logo held for days is a CDN doing its job (14 Nov 2026: the first firing)
     age = cache_age(r)
     if age is not None and age > STALE_CACHE_S:
         log.warning("%s: served from the CDN's cache, %d min old — a stale reply, not the source's answer: %s", source, age // 60, url)
