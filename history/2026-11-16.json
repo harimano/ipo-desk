@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-16T13:30:40+05:30",
+  "asOf": "2026-11-16T18:15:33+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "16 Nov 2026, 13:30 IST",
+  "label": "16 Nov 2026, 18:15 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -39,7 +39,6 @@
   ],
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
-   "[details] Mahanadi Coalfields: reservation table says 0 shares for shareholders, the record's fields say a reservation (prefer_shareholders_status / shares_offered_shareholders) — read the record before trusting shareholderQuota",
    "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics"
   ]
  },
@@ -1779,6 +1778,11 @@
    "shares": 600,
    "price": 245.0,
    "listDate": "2026-11-27"
+  },
+  "Mahanadi Coalfields": {
+   "shares": 110,
+   "price": 136.0,
+   "listDate": "2026-11-27"
   }
  },
  "mainboard": [
@@ -1797,9 +1801,9 @@
    "issueSizeCr": 455.49,
    "freshCr": 354.77,
    "ofsCr": 100.71,
-   "gmp": 15.0,
-   "gmpPct": 5.51,
-   "gmpTrend": "flat",
+   "gmp": 13.0,
+   "gmpPct": 4.78,
+   "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": {
     "flag": false,
@@ -1812,10 +1816,10 @@
    "sources": [
     "InvestorGain IPO list"
    ],
-   "symbol": null,
-   "series": null,
+   "symbol": "CRYSTALCP",
+   "series": "EQUITY",
    "igId": "2067",
-   "bseIpoNo": null,
+   "bseIpoNo": "8089",
    "bseScripCode": null,
    "igFetchedAt": "2026-11-16T13:29:29+05:30",
    "sector": "Other Agricultural Products",
@@ -1877,8 +1881,8 @@
    "gmpSrc": "investorgain",
    "gmpWitness": {
     "src": "ipowatch",
-    "gmp": 15.0,
-    "gmpPct": 5.51,
+    "gmp": 13.0,
+    "gmpPct": 4.78,
     "agree": true
    }
   },
@@ -1897,8 +1901,8 @@
    "issueSizeCr": 8981.12,
    "freshCr": null,
    "ofsCr": 8981.12,
-   "gmp": 5.75,
-   "gmpPct": 4.23,
+   "gmp": 4.3,
+   "gmpPct": 3.16,
    "gmpTrend": "down",
    "sub": null,
    "shareholderQuota": {
@@ -1967,8 +1971,8 @@
    "gmpSrc": "investorgain",
    "gmpWitness": {
     "src": "ipowatch",
-    "gmp": 7.0,
-    "gmpPct": 5.15,
+    "gmp": 6.0,
+    "gmpPct": 4.41,
     "agree": true
    },
    "apply": {
@@ -2212,6 +2216,20 @@
     "status": "live",
     "type": "Open market",
     "url": "https://ipowatch.in/sis-buyback-2026/"
+   },
+   {
+    "name": "Jyothy Labs",
+    "open": "2026-11-17",
+    "close": "2026-11-23",
+    "price": 240.0,
+    "record": null,
+    "deal": null,
+    "detail": null,
+    "note": "BSE public issues list",
+    "url": "https://www.bseindia.com/markets/PublicIssues/IPOIssues_new.aspx",
+    "type": "Tender / open offer",
+    "bseIpoNo": "8090",
+    "status": "upcoming"
    },
    {
     "name": "Geship",
@@ -2540,12 +2558,12 @@
    "bandLow": 232.0,
    "bandHigh": 245.0,
    "lotSize": 600,
-   "issueSizeCr": 113.92,
+   "issueSizeCr": 120.1,
    "freshCr": 113.92,
    "ofsCr": null,
-   "gmp": 22.0,
-   "gmpPct": 8.98,
-   "gmpTrend": "flat",
+   "gmp": 25.0,
+   "gmpPct": 10.2,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": {
     "flag": false,
@@ -2558,8 +2576,8 @@
    "sources": [
     "InvestorGain IPO list"
    ],
-   "symbol": null,
-   "series": null,
+   "symbol": "WATRANA",
+   "series": "SME",
    "igId": "1818",
    "bseIpoNo": null,
    "bseScripCode": null,
@@ -2620,8 +2638,8 @@
    "gmpSrc": "investorgain",
    "gmpWitness": {
     "src": "ipowatch",
-    "gmp": 20.0,
-    "gmpPct": 8.16,
+    "gmp": 22.0,
+    "gmpPct": 8.98,
     "agree": true
    }
   }
@@ -16773,26 +16791,21 @@
  ],
  "flows": {
   "latest": {
-   "date": "2026-11-13",
-   "fiiNetCr": 5736.55,
-   "diiNetCr": -2253.58,
+   "date": "2026-11-16",
+   "fiiNetCr": 4864.68,
+   "diiNetCr": -3519.05,
    "previousDay": {
-    "date": "2026-11-12",
-    "fiiNetCr": 7830.6,
-    "diiNetCr": -6331.17
+    "date": "2026-11-13",
+    "fiiNetCr": 5736.55,
+    "diiNetCr": -2253.58
    },
    "source": "NSE provisional (fiidiiTradeReact)",
-   "fiiBuyCr": 18339.57,
-   "fiiSellCr": 12603.02,
-   "diiBuyCr": 11745.95,
-   "diiSellCr": 13999.53
+   "fiiBuyCr": 15636.88,
+   "fiiSellCr": 10772.2,
+   "diiBuyCr": 11752.03,
+   "diiSellCr": 15271.08
   },
   "history": [
-   [
-    "2026-09-07",
-    280,
-    567
-   ],
    [
     "2026-09-17",
     -3208.76,
@@ -16987,6 +17000,11 @@
     "2026-11-13",
     5736.55,
     -2253.58
+   ],
+   [
+    "2026-11-16",
+    4864.68,
+    -3519.05
    ]
   ],
   "monthly": [
@@ -35561,6 +35579,31 @@
  ],
  "news": [
   {
+   "title": "Sebi sets up expert panel to review IPO, FPO and capital-raising norms",
+   "url": "https://www.business-standard.com/markets/news/sebi-sets-up-expert-panel-to-review-ipo-fpo-and-capital-raising-norms-126111601512_1.html",
+   "date": "2026-11-16T17:53:51+05:30"
+  },
+  {
+   "title": "S&amp;P 500, Nasdaq futures slide as Nvidia earnings, Anthropic debut loom",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/sp-500-nasdaq-futures-slide-as-nvidia-earnings-anthropic-debut-loom/articleshow/135888956.cms",
+   "date": "2026-11-16T17:49:06+05:30"
+  },
+  {
+   "title": "AIF commitments hit a high of ₹18.68 trillion as of September: Sebi data",
+   "url": "https://www.business-standard.com/markets/news/aif-commitments-hit-a-high-of-18-68-trillion-as-of-september-sebi-data-126111601365_1.html",
+   "date": "2026-11-16T17:48:30+05:30"
+  },
+  {
+   "title": "Sebi may propose raising FPI beneficial ownership threshold to 25%",
+   "url": "https://www.business-standard.com/markets/news/sebi-may-propose-raising-fpi-beneficial-ownership-threshold-to-25-126111601237_1.html",
+   "date": "2026-11-16T15:55:07+05:30"
+  },
+  {
+   "title": "Sebi may propose raising FPI beneficial ownership threshold to 25%; plans consultation paper",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-may-propose-raising-fpi-beneficial-ownership-threshold-to-25-plans-consultation-paper/articleshow/135883637.cms",
+   "date": "2026-11-16T15:51:12+05:30"
+  },
+  {
    "title": "Mahanadi IPO explained: Valuation, reserves, risks and Coal India strategy",
    "url": "https://www.business-standard.com/markets/ipo/mahanadi-ipo-explained-valuation-reserves-risks-and-coal-india-strategy-126111600933_1.html",
    "date": "2026-11-16T12:57:29+05:30"
@@ -35659,31 +35702,6 @@
    "title": "Nasdaq futures slip with Nvidia woes, Anthropic IPO in focus",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/nasdaq-futures-slip-with-nvidia-woes-anthropic-ipo-in-focus/articleshow/135711347.cms",
    "date": "2026-11-10T18:19:57+05:30"
-  },
-  {
-   "title": "Anthropic's IPO: A close look at AI frontrunner's rapid growth, spiraling costs",
-   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/anthropics-ipo-a-close-look-at-ai-frontrunners-rapid-growth-spiraling-costs/articleshow/135711237.cms",
-   "date": "2026-11-10T18:15:55+05:30"
-  },
-  {
-   "title": "Individual ownership in NSE-listed firms hits record 19.5% in Q2FY27",
-   "url": "https://www.business-standard.com/markets/news/individual-ownership-in-nse-listed-firms-hits-record-19-5-in-q2fy27-126111000550_1.html",
-   "date": "2026-11-10T16:48:46+05:30"
-  },
-  {
-   "title": "Anthropic plans IPO live stream with Amodei, JPMorgan CEO Dimon",
-   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/anthropic-plans-ipo-live-stream-with-amodei-jpmorgan-ceo-dimon/articleshow/135699137.cms",
-   "date": "2026-11-10T09:54:56+05:30"
-  },
-  {
-   "title": "Anthropic retracts details of $69 billion IPO filing sent to bankers. Why analysts are raising worries over valuations",
-   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/anthropic-sends-out-then-retracts-details-of-ipo-filing-emails-show/articleshow/135696816.cms",
-   "date": "2026-11-10T07:48:28+05:30"
-  },
-  {
-   "title": "MakeMyTrip's India arm gets Sebi nod to float IPO",
-   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/makemytrips-india-arm-gets-sebi-nod-to-float-ipo/articleshow/135675673.cms",
-   "date": "2026-11-09T13:42:31+05:30"
   }
  ],
  "priceHistory": {
@@ -88117,73 +88135,73 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-16T13:30:40+05:30",
+  "asOf": "2026-11-16T18:15:33+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-16T13:29:27+05:30",
-    "elapsed": 3.75,
-    "calls": 6,
-    "note": "bse not merged (blocked): BSE issue numbers for new rows wait for the next run; investorgain list=3 carried=0 +nse=0 +bse=0 exchange-only=0: 2 mainboard, 1 sme; 0 open, 3 upcoming",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "asOf": "2026-11-16T18:14:16+05:30",
+    "elapsed": 4.08,
+    "calls": 5,
+    "note": "investorgain list=3 carried=0 +nse=2 +bse=1 exchange-only=0: 2 mainboard, 1 sme; 0 open, 3 upcoming",
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:ok",
     "status": "ok",
     "asOf": "9-Nov 9:37",
-    "elapsed": 1.82,
+    "elapsed": 2.07,
     "calls": 2,
     "note": "gmp: 3 board rows patched via investorgain; 3 active, 3 of them matched; gmp: second site — 3 agree (within 2% of the issue price), 0 differ, 0 quoted by one site only; gmp: 18 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Jio Platforms (₹250, investorgain) …",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-16T13:29:29+05:30",
-    "elapsed": 2.03,
-    "calls": 3,
-    "note": "3 records fetched for 3 identified listings (0 without an id); 0 anchor books updated, 98 on file",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "asOf": "2026-11-16",
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "3 listings identified, none due for a refresh",
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "subscription",
     "method": "none:ok",
     "status": "ok",
-    "asOf": "2026-11-16T13:29:32+05:30",
+    "asOf": "2026-11-16T18:14:18+05:30",
     "elapsed": 0.01,
     "calls": 0,
     "note": "no open or recently closed issues on the board",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "listings",
     "method": "yahoo:ok",
     "status": "ok",
     "asOf": "2026-11-16",
-    "elapsed": 4.86,
+    "elapsed": 3.64,
     "calls": 0,
-    "note": "12 names priced, 0 moved to recent, 12 history points",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "note": "12 names priced, 0 moved to recent, 0 history points",
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-16",
-    "elapsed": 2.65,
+    "elapsed": 3.61,
     "calls": 2,
     "note": "1412 listings since 2022 (999 SME); fetched 2026: 309; QIB on file for 114 of 413 mainboard issues; shareholder-quota books frozen for 0",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "tape",
@@ -88193,8 +88211,8 @@
     "elapsed": 0.01,
     "calls": 0,
     "note": "213 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "anchorbook",
@@ -88204,8 +88222,8 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 923 on file, 589 partial (feed gave only the first names); 0 of 1412 listings still to fetch",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "evidence",
@@ -88215,96 +88233,96 @@
     "elapsed": 0.2,
     "calls": 0,
     "note": "track records: 923 of 923 anchor books have an outcome; 913 of 1498 investors with 2+; 1412 listings; windows: mainboard 131, SME 239; 3 warnings",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "players",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-16",
-    "elapsed": 32.6,
+    "elapsed": 36.04,
     "calls": 54,
     "note": "53 of 2839 anchor investors read (0 failed); names found for 0 of 3 unlisted issues",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "parents",
     "method": "yahoo:ok",
     "status": "ok",
     "asOf": "2026-11-16",
-    "elapsed": 11.72,
+    "elapsed": 13.78,
     "calls": 0,
     "note": "5/5 parent prices; 32/36 investor stocks priced",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "filings",
-    "method": "bse_ann:ok, sebi:changed, nse_ann:ok",
+    "method": "bse_ann:ok, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-11-16",
-    "elapsed": 7.72,
+    "elapsed": 7.59,
     "calls": 7,
-    "note": "bse_ann: feed of 6363 announcements today, 0/8 parents in it, 0 stage changes; discover: 3969 announcements scanned, 1 subsidiary-offer leads; 1 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 1 found held; clocks: 19 open rows stamped, 0 given a lapse date; discover: 4 candidates (0 by announcement, 4 by group name); 9 leads held; 19 rows patched, 14 kept previous stage",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "note": "bse_ann: feed of 8900 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 1 stage changes; discover: 4334 announcements scanned, 1 subsidiary-offer leads; 1 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 1 found held; clocks: 19 open rows stamped, 1 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 4 candidates (0 by announcement, 4 by group name); 9 leads held; 19 rows patched, 14 kept previous stage",
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "planner",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-16",
-    "elapsed": 1.63,
+    "elapsed": 2.25,
     "calls": 3,
     "note": "108 events 2026-11-09..2026-12-31, 3 issues with terms, 2 from the report only",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "offers",
     "method": "bse:ok",
     "status": "ok",
     "asOf": "2026-11-16",
-    "elapsed": 3.6,
+    "elapsed": 2.45,
     "calls": 3,
-    "note": "bse rows=18: 13 rights, 14 buybacks, 0 ofs, 1 ncd; 17 refreshed, 1 new, 0 closed windows dropped",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "note": "bse rows=19: 13 rights, 15 buybacks, 0 ofs, 1 ncd; 18 refreshed, 1 new, 0 closed windows dropped",
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
-    "asOf": "2026-11-13",
-    "elapsed": 0.36,
+    "asOf": "2026-11-16",
+    "elapsed": 0.37,
     "calls": 1,
-    "note": "2026-11-13 already in history; FII +5,737 / DII -2,254 Cr",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "note": "appended 2026-11-16; FII +4,865 / DII -3,519 Cr",
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
-    "asOf": "2026-11-13",
-    "elapsed": 1.32,
+    "asOf": "2026-11-16",
+    "elapsed": 2.1,
     "calls": 4,
-    "note": "bulk.csv: 136 deals; block.csv: 26 deals; 0 tracked-investor deals of 162; 13 patterns; BSE bulk: 51 deals, 8 in this year's listings; BSE block: 31 deals, 0 in this year's listings; listing deals: 59 of today's 162 deals are in this year's listings (11 stocks); 1928 kept over 60 days; 212 of 309 listings have an NSE symbol; 240 with a BSE code",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "note": "bulk.csv: 134 deals; block.csv: NO RECORDS; 0 tracked-investor deals of 134; 13 patterns; BSE bulk: 60 deals, 17 in this year's listings; BSE block: 31 deals, 0 in this year's listings; listing deals: 63 of today's 134 deals are in this year's listings (15 stocks); 1991 kept over 60 days; 212 of 309 listings have an NSE symbol; 240 with a BSE code",
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
-    "asOf": "2026-11-16T12:57:29+05:30",
-    "elapsed": 0.84,
+    "asOf": "2026-11-16T17:53:51+05:30",
+    "elapsed": 1.61,
     "calls": 3,
-    "note": "business-standard: 7/35 primary-market items; economic-times: 1/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 8 fresh, 25 kept",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "note": "business-standard: 9/35 primary-market items; economic-times: 2/50 primary-market items; moneycontrol-ipo: down — HTTP 502; 11 fresh, 25 kept",
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "logos",
@@ -88314,8 +88332,8 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "72 logos on file; none to fetch",
-    "lastOk": "2026-11-16T13:30:40+05:30",
-    "dueBy": "2026-11-16T18:58:00+05:30"
+    "lastOk": "2026-11-16T18:15:33+05:30",
+    "dueBy": "2026-11-17T07:28:00+05:30"
    },
    {
     "area": "research layer",
@@ -88327,7 +88345,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "77s, 88 calls, 18/18 modules ok"
+    "note": "82s, 84 calls, 18/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -89873,27 +89891,27 @@
   "prices": {
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 400.35,
+    "value": 397.5,
     "asOf": "2026-11-16"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 115.32,
+    "value": 115.54,
     "asOf": "2026-11-16"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 235.24,
+    "value": 235.99,
     "asOf": "2026-11-16"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 6242.0,
+    "value": 6252.0,
     "asOf": "2026-11-16"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 56.4,
+    "value": 56.58,
     "asOf": "2026-11-16"
    },
    "Tata Motors": {
@@ -89903,52 +89921,52 @@
    },
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1340.8,
+    "value": 1344.8,
     "asOf": "2026-11-16"
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 399.5,
+    "value": 400.0,
     "asOf": "2026-11-16"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 74.83,
+    "value": 75.05,
     "asOf": "2026-11-16"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 225.55,
+    "value": 226.99,
     "asOf": "2026-11-16"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 815.95,
+    "value": 816.5,
     "asOf": "2026-11-16"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 493.9,
+    "value": 494.2,
     "asOf": "2026-11-16"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1336.2,
+    "value": 1342.4,
     "asOf": "2026-11-16"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1846.0,
+    "value": 1848.2,
     "asOf": "2026-11-16"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1174.6,
+    "value": 1169.9,
     "asOf": "2026-11-16"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 17.94,
+    "value": 18.02,
     "asOf": "2026-11-16"
    },
    "Gretex Corporate Services": {
@@ -89958,77 +89976,77 @@
    },
    "Zaggle Prepaid": {
     "symbol": "ZAGGLE",
-    "value": 162.85,
+    "value": 160.94,
     "asOf": "2026-11-16"
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 105.5,
+    "value": 103.42,
     "asOf": "2026-11-16"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1588.2,
+    "value": 1573.5,
     "asOf": "2026-11-16"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 534.2,
+    "value": 536.2,
     "asOf": "2026-11-16"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 308.0,
+    "value": 307.8,
     "asOf": "2026-11-16"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 126.24,
+    "value": 126.55,
     "asOf": "2026-11-16"
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
-    "value": 1198.0,
+    "value": 1197.5,
     "asOf": "2026-11-16"
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1596.0,
+    "value": 1603.8,
     "asOf": "2026-11-16"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1492.9,
+    "value": 1486.4,
     "asOf": "2026-11-16"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 98.43,
+    "value": 97.96,
     "asOf": "2026-11-16"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 507.4,
+    "value": 510.0,
     "asOf": "2026-11-16"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 536.9,
+    "value": 532.45,
     "asOf": "2026-11-16"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1183.8,
+    "value": 1243.2,
     "asOf": "2026-11-16"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 430.7,
+    "value": 427.65,
     "asOf": "2026-11-16"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 495.25,
+    "value": 494.95,
     "asOf": "2026-11-16"
    },
    "Ashutosh Fibre (upcoming)": {
@@ -90038,7 +90056,7 @@
    },
    "Sahajanand Medical Technologies (upcoming)": {
     "symbol": "SMT",
-    "value": 544.95,
+    "value": 543.25,
     "asOf": "2026-11-16"
    },
    "Indo SMC": {
@@ -90055,6 +90073,1077 @@
    }
   },
   "listingDeals": [
+   {
+    "date": "2026-11-16",
+    "symbol": "544770",
+    "stock": "Yaashvi Jewellers",
+    "client": "DAVINDER SINGH",
+    "side": "SELL",
+    "qty": 160000.0,
+    "price": 80.18,
+    "valueCr": 1.28,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-06-02",
+    "daysSinceListing": 167,
+    "issuePrice": 83.0,
+    "vsIssuePct": -3.4
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "TECHNOCRAF",
+    "stock": "Technocraft Ventures",
+    "client": "ACME CAPITAL MARKET LIMITED",
+    "side": "SELL",
+    "qty": 204997.0,
+    "price": 487.65,
+    "valueCr": 10.0,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-14",
+    "daysSinceListing": 94,
+    "issuePrice": 212.0,
+    "vsIssuePct": 130.0
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "TECHNOCRAF",
+    "stock": "Technocraft Ventures",
+    "client": "ACME CAPITAL MARKET LIMITED",
+    "side": "BUY",
+    "qty": 204997.0,
+    "price": 483.75,
+    "valueCr": 9.92,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-14",
+    "daysSinceListing": 94,
+    "issuePrice": 212.0,
+    "vsIssuePct": 128.2
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544793",
+    "stock": "Susan Electricals India",
+    "client": "A.T. TRADE OVERSEAS PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 2000.0,
+    "price": 192.25,
+    "valueCr": 0.04,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-06-18",
+    "daysSinceListing": 151,
+    "issuePrice": 127.0,
+    "vsIssuePct": 51.4
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544793",
+    "stock": "Susan Electricals India",
+    "client": "MANSI SHARE AND STOCK BROKING PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 140500.0,
+    "price": 190.05,
+    "valueCr": 2.67,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-06-18",
+    "daysSinceListing": 151,
+    "issuePrice": 127.0,
+    "vsIssuePct": 49.6
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544793",
+    "stock": "Susan Electricals India",
+    "client": "MANSI SHARE AND STOCK BROKING PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 1500.0,
+    "price": 190.67,
+    "valueCr": 0.03,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-06-18",
+    "daysSinceListing": 151,
+    "issuePrice": 127.0,
+    "vsIssuePct": 50.1
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544793",
+    "stock": "Susan Electricals India",
+    "client": "A.T. TRADE OVERSEAS PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 151500.0,
+    "price": 190.08,
+    "valueCr": 2.88,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-06-18",
+    "daysSinceListing": 151,
+    "issuePrice": 127.0,
+    "vsIssuePct": 49.7
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "SUNSHINE",
+    "stock": "Sunshine Pictures",
+    "client": "ARIHANT CAPITAL MARKETS LIMITED",
+    "side": "SELL",
+    "qty": 359763.0,
+    "price": 478.09,
+    "valueCr": 17.2,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-25",
+    "daysSinceListing": 83,
+    "issuePrice": 360.0,
+    "vsIssuePct": 32.8
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "SUNSHINE",
+    "stock": "Sunshine Pictures",
+    "client": "ARIHANT CAPITAL MARKETS LIMITED",
+    "side": "BUY",
+    "qty": 140975.0,
+    "price": 471.41,
+    "valueCr": 6.65,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-25",
+    "daysSinceListing": 83,
+    "issuePrice": 360.0,
+    "vsIssuePct": 30.9
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "SKYWAYS",
+    "stock": "Skyways Air",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 741920.0,
+    "price": 128.03,
+    "valueCr": 9.5,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 76,
+    "issuePrice": 138.0,
+    "vsIssuePct": -7.2
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "SKYWAYS",
+    "stock": "Skyways Air",
+    "client": "MICROCURVES TRADING PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 871943.0,
+    "price": 127.82,
+    "valueCr": 11.15,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 76,
+    "issuePrice": 138.0,
+    "vsIssuePct": -7.4
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "SKYWAYS",
+    "stock": "Skyways Air",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 973124.0,
+    "price": 125.34,
+    "valueCr": 12.2,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 76,
+    "issuePrice": 138.0,
+    "vsIssuePct": -9.2
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "SKYWAYS",
+    "stock": "Skyways Air",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 1184396.0,
+    "price": 127.46,
+    "valueCr": 15.1,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 76,
+    "issuePrice": 138.0,
+    "vsIssuePct": -7.6
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "SKYWAYS",
+    "stock": "Skyways Air",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 727922.0,
+    "price": 127.99,
+    "valueCr": 9.32,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 76,
+    "issuePrice": 138.0,
+    "vsIssuePct": -7.3
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "SKYWAYS",
+    "stock": "Skyways Air",
+    "client": "MICROCURVES TRADING PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 871943.0,
+    "price": 127.9,
+    "valueCr": 11.15,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 76,
+    "issuePrice": 138.0,
+    "vsIssuePct": -7.3
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "SKYWAYS",
+    "stock": "Skyways Air",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 934874.0,
+    "price": 125.52,
+    "valueCr": 11.73,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 76,
+    "issuePrice": 138.0,
+    "vsIssuePct": -9.0
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "SKYWAYS",
+    "stock": "Skyways Air",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 1184396.0,
+    "price": 127.58,
+    "valueCr": 15.11,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 76,
+    "issuePrice": 138.0,
+    "vsIssuePct": -7.6
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "SKYWAYS",
+    "stock": "Skyways Air",
+    "client": "THAKKAR NILESHKUMAR FARSHURAM HUF",
+    "side": "BUY",
+    "qty": 1935000.0,
+    "price": 128.57,
+    "valueCr": 24.88,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-09-01",
+    "daysSinceListing": 76,
+    "issuePrice": 138.0,
+    "vsIssuePct": -6.8
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544826",
+    "stock": "Millworks Technologies",
+    "client": "MANSI SHARE AND STOCK BROKING PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 40500.0,
+    "price": 801.85,
+    "valueCr": 3.25,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-07-21",
+    "daysSinceListing": 118,
+    "issuePrice": 331.0,
+    "vsIssuePct": 142.3
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544826",
+    "stock": "Millworks Technologies",
+    "client": "LRSD CAPITAL  PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 604800.0,
+    "price": 691.88,
+    "valueCr": 41.84,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-07-21",
+    "daysSinceListing": 118,
+    "issuePrice": 331.0,
+    "vsIssuePct": 109.0
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544826",
+    "stock": "Millworks Technologies",
+    "client": "LRSD CAPITAL  PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 132000.0,
+    "price": 772.25,
+    "valueCr": 10.19,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-07-21",
+    "daysSinceListing": 118,
+    "issuePrice": 331.0,
+    "vsIssuePct": 133.3
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544826",
+    "stock": "Millworks Technologies",
+    "client": "MANSI SHARE AND STOCK BROKING PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 1066200.0,
+    "price": 691.88,
+    "valueCr": 73.77,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-07-21",
+    "daysSinceListing": 118,
+    "issuePrice": 331.0,
+    "vsIssuePct": 109.0
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "IMC INDIA SECURITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 136878.0,
+    "price": 817.94,
+    "valueCr": 11.2,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 92.5
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "PLUTUS WEALTH MANAGEMENT LLP",
+    "side": "SELL",
+    "qty": 161789.0,
+    "price": 819.88,
+    "valueCr": 13.26,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 92.9
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "CLT RESEARCH TECH PRIVATE LTD",
+    "side": "SELL",
+    "qty": 168721.0,
+    "price": 832.45,
+    "valueCr": 14.05,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 95.9
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "BLITZQUANT RESEARCH LLP",
+    "side": "SELL",
+    "qty": 173868.0,
+    "price": 832.27,
+    "valueCr": 14.47,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 95.8
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 261243.0,
+    "price": 818.96,
+    "valueCr": 21.39,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 92.7
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 376421.0,
+    "price": 815.15,
+    "valueCr": 30.68,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 91.8
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "MICROCURVES TRADING PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 433720.0,
+    "price": 825.64,
+    "valueCr": 35.81,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 94.3
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 556398.0,
+    "price": 815.89,
+    "valueCr": 45.4,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 92.0
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 612688.0,
+    "price": 820.02,
+    "valueCr": 50.24,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 92.9
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "PLUTUS WEALTH MANAGEMENT LLP",
+    "side": "BUY",
+    "qty": 161789.0,
+    "price": 819.67,
+    "valueCr": 13.26,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 92.9
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "IMC INDIA SECURITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 161624.0,
+    "price": 824.23,
+    "valueCr": 13.32,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 93.9
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "CLT RESEARCH TECH PRIVATE LTD",
+    "side": "BUY",
+    "qty": 168721.0,
+    "price": 832.03,
+    "valueCr": 14.04,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 95.8
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "BLITZQUANT RESEARCH LLP",
+    "side": "BUY",
+    "qty": 173868.0,
+    "price": 831.91,
+    "valueCr": 14.46,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 95.7
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "JUNOMONETA FINSOL PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 261802.0,
+    "price": 819.3,
+    "valueCr": 21.45,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 92.8
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 405090.0,
+    "price": 819.64,
+    "valueCr": 33.2,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 92.9
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "MICROCURVES TRADING PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 433720.0,
+    "price": 824.98,
+    "valueCr": 35.78,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 94.1
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 551072.0,
+    "price": 820.31,
+    "valueCr": 45.2,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 93.0
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "MVELECTRO",
+    "stock": "MV Electrosystems",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 612688.0,
+    "price": 820.9,
+    "valueCr": 50.3,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-08-06",
+    "daysSinceListing": 102,
+    "issuePrice": 425.0,
+    "vsIssuePct": 93.2
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544863",
+    "stock": "LAPL Automotive",
+    "client": "MANSI SHARE AND STOCK BROKING PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 1200.0,
+    "price": 98.0,
+    "valueCr": 0.01,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-08-13",
+    "daysSinceListing": 95,
+    "issuePrice": 94.0,
+    "vsIssuePct": 4.3
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544863",
+    "stock": "LAPL Automotive",
+    "client": "MANSI SHARE AND STOCK BROKING PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 90000.0,
+    "price": 97.29,
+    "valueCr": 0.88,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-08-13",
+    "daysSinceListing": 95,
+    "issuePrice": 94.0,
+    "vsIssuePct": 3.5
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544711",
+    "stock": "Kiaasa Retail",
+    "client": "ARUN SARITHRA",
+    "side": "SELL",
+    "qty": 105000.0,
+    "price": 41.1,
+    "valueCr": 0.43,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-03-02",
+    "daysSinceListing": 259,
+    "issuePrice": 127.0,
+    "vsIssuePct": -67.6
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "HGSINDIALT",
+    "stock": "HGS (India)",
+    "client": "STATSOL RESEARCH LLP",
+    "side": "SELL",
+    "qty": 63600.0,
+    "price": 215.0,
+    "valueCr": 1.37,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-11-06",
+    "daysSinceListing": 10,
+    "issuePrice": 120.0,
+    "vsIssuePct": 79.2
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "HGSINDIALT",
+    "stock": "HGS (India)",
+    "client": "NEO APEX SHARE BROKING SERVICES LLP",
+    "side": "SELL",
+    "qty": 75600.0,
+    "price": 225.02,
+    "valueCr": 1.7,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-11-06",
+    "daysSinceListing": 10,
+    "issuePrice": 120.0,
+    "vsIssuePct": 87.5
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "HGSINDIALT",
+    "stock": "HGS (India)",
+    "client": "PARMI SHAH",
+    "side": "BUY",
+    "qty": 98400.0,
+    "price": 222.86,
+    "valueCr": 2.19,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-11-06",
+    "daysSinceListing": 10,
+    "issuePrice": 120.0,
+    "vsIssuePct": 85.7
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544905",
+    "stock": "Farm Peace",
+    "client": "QAPLA INVESTMENTS",
+    "side": "SELL",
+    "qty": 188000.0,
+    "price": 39.65,
+    "valueCr": 0.75,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-09-08",
+    "daysSinceListing": 69,
+    "issuePrice": 59.0,
+    "vsIssuePct": -32.8
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544905",
+    "stock": "Farm Peace",
+    "client": "PROGNOSIS SECURITIES PVT. LTD.",
+    "side": "BUY",
+    "qty": 200000.0,
+    "price": 39.64,
+    "valueCr": 0.79,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-09-08",
+    "daysSinceListing": 69,
+    "issuePrice": 59.0,
+    "vsIssuePct": -32.8
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "544961",
+    "stock": "Dudani Retail",
+    "client": "SAGARPADMAKARSALVI",
+    "side": "BUY",
+    "qty": 52000.0,
+    "price": 9.67,
+    "valueCr": 0.05,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-10-05",
+    "daysSinceListing": 42,
+    "issuePrice": 29.0,
+    "vsIssuePct": -66.7
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "QE SECURITIES LLP",
+    "side": "SELL",
+    "qty": 313141.0,
+    "price": 266.79,
+    "valueCr": 8.35,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 13,
+    "issuePrice": 150.0,
+    "vsIssuePct": 77.9
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 325175.0,
+    "price": 267.71,
+    "valueCr": 8.71,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 13,
+    "issuePrice": 150.0,
+    "vsIssuePct": 78.5
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 592994.0,
+    "price": 267.94,
+    "valueCr": 15.89,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 13,
+    "issuePrice": 150.0,
+    "vsIssuePct": 78.6
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "PLUTUS WEALTH MANAGEMENT LLP",
+    "side": "SELL",
+    "qty": 789620.0,
+    "price": 268.28,
+    "valueCr": 21.18,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 13,
+    "issuePrice": 150.0,
+    "vsIssuePct": 78.9
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "HRTI PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 257091.0,
+    "price": 268.84,
+    "valueCr": 6.91,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 13,
+    "issuePrice": 150.0,
+    "vsIssuePct": 79.2
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "QE SECURITIES LLP",
+    "side": "BUY",
+    "qty": 296316.0,
+    "price": 266.99,
+    "valueCr": 7.91,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 13,
+    "issuePrice": 150.0,
+    "vsIssuePct": 78.0
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "ALPHAGREP SECURITIES PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 592994.0,
+    "price": 267.76,
+    "valueCr": 15.88,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 13,
+    "issuePrice": 150.0,
+    "vsIssuePct": 78.5
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "BLSPOLY",
+    "stock": "BLS Polymers",
+    "client": "PLUTUS WEALTH MANAGEMENT LLP",
+    "side": "BUY",
+    "qty": 789620.0,
+    "price": 268.18,
+    "valueCr": 21.18,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-11-03",
+    "daysSinceListing": 13,
+    "issuePrice": 150.0,
+    "vsIssuePct": 78.8
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "545024",
+    "stock": "Antala Industries",
+    "client": "ASNANI STOCK BROKER PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 90000.0,
+    "price": 43.02,
+    "valueCr": 0.39,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-11-11",
+    "daysSinceListing": 5,
+    "issuePrice": 66.0,
+    "vsIssuePct": -34.8
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "545024",
+    "stock": "Antala Industries",
+    "client": "ANUJ AGARWAL",
+    "side": "BUY",
+    "qty": 150000.0,
+    "price": 43.02,
+    "valueCr": 0.65,
+    "exchange": "BSE",
+    "kind": "bulk",
+    "sme": true,
+    "listedOn": "2026-11-11",
+    "daysSinceListing": 5,
+    "issuePrice": 66.0,
+    "vsIssuePct": -34.8
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "AONESTEELS",
+    "stock": "A-One Steels",
+    "client": "BULLPULSE MARKETEDGE PRIVATE LIMITED",
+    "side": "SELL",
+    "qty": 392688.0,
+    "price": 468.42,
+    "valueCr": 18.39,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 46,
+    "issuePrice": 405.0,
+    "vsIssuePct": 15.7
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "AONESTEELS",
+    "stock": "A-One Steels",
+    "client": "ACME CAPITAL MARKET LIMITED",
+    "side": "SELL",
+    "qty": 1025899.0,
+    "price": 471.27,
+    "valueCr": 48.35,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 46,
+    "issuePrice": 405.0,
+    "vsIssuePct": 16.4
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "AONESTEELS",
+    "stock": "A-One Steels",
+    "client": "BULLPULSE MARKETEDGE PRIVATE LIMITED",
+    "side": "BUY",
+    "qty": 392688.0,
+    "price": 467.3,
+    "valueCr": 18.35,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 46,
+    "issuePrice": 405.0,
+    "vsIssuePct": 15.4
+   },
+   {
+    "date": "2026-11-16",
+    "symbol": "AONESTEELS",
+    "stock": "A-One Steels",
+    "client": "ACME CAPITAL MARKET LIMITED",
+    "side": "BUY",
+    "qty": 1025899.0,
+    "price": 469.33,
+    "valueCr": 48.15,
+    "exchange": "NSE",
+    "kind": "bulk",
+    "sme": false,
+    "listedOn": "2026-10-01",
+    "daysSinceListing": 46,
+    "issuePrice": 405.0,
+    "vsIssuePct": 15.9
+   },
    {
     "date": "2026-11-13",
     "symbol": "545010",
@@ -127357,12 +128446,12 @@
    "ticker": "EDELWEISS"
   },
   {
-   "bucket": "drhp",
+   "bucket": "approved",
    "confidence": "medium",
    "detail": "Coal India filed the DRHP on 1 Sep 2026 (exchange update 2 Sep 2026; some outlets report 31 Aug) for a 100% offer for sale of up to 66,18,36,300 equity shares of face value Rs 2 (about 10% stake); BRLMs SBI Caps, Axis Capital, BOB Caps, IDBI Capital and IIFL Capital, registrar KFin. Allocation reported as QIB up to 50%, NII 15%, retail 35%; no dated report mentions a Coal India shareholder reservation, and no rupee size was disclosed as of 7 Sep 2026.",
    "expectedWindow": "Within FY27 (by 31 Mar 2027) per CIL CMD, 31 Aug 2026; CMD also cited calendar year-end 2026",
-   "isNew": false,
-   "lapse": null,
+   "isNew": true,
+   "lapse": "2027-11-13",
    "listingDate": "2026-11-27",
    "listingGainPct": null,
    "name": "Mahanadi Coalfields",
@@ -127379,14 +128468,14 @@
     "https://www.business-standard.com/companies/news/south-eastern-coalfields-mahanadi-coalfields-ipo-by-year-end-cil-cmd-126083100671_1.html",
     "https://www.freepressjournal.in/business/mahanadi-coalfields-ipo-moves-ahead-as-coal-india-files-drhp-for-10-stake-sale-through-ofs"
    ],
-   "stage": "DRHP filed",
-   "stageDate": "2026-09-01",
+   "stage": "RHP filed",
+   "stageDate": "2026-11-13",
    "ticker": "COALINDIA",
    "needsReview": {
     "source": "sebi",
-    "url": "https://www.sebi.gov.in/filings/public-issues/sep-2026/mahanadi-coalfields-ltd-drhp_104290.html",
-    "headline": "Mahanadi Coalfields Ltd. - Draft Abridged Prospectus",
-    "date": "2026-09-04"
+    "url": "https://www.sebi.gov.in/filings/public-issues/nov-2026/mahanadi-coalfields-limited-rhp_105777.html",
+    "headline": "Mahanadi Coalfields Limited - RHP",
+    "date": "2026-11-13"
    },
    "checkedAt": "2026-11-16",
    "igId": "2401"
@@ -131486,7 +132575,7 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1340.8,
+    "value": 1344.8,
     "asOf": "2026-11-16"
    },
    "parentTicker": "RELIANCE",
@@ -131539,7 +132628,7 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 131.3,
+    "value": 131.78,
     "asOf": "2026-11-16"
    },
    "parentTicker": "EDELWEISS",
@@ -131694,7 +132783,7 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 400.35,
+    "value": 397.5,
     "asOf": "2026-11-16"
    },
    "parentTicker": "COALINDIA",
@@ -131823,7 +132912,7 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5332.5,
+    "value": 5359.5,
     "asOf": "2026-11-16"
    },
    "parentTicker": "HEROMOTOCO",
@@ -131938,7 +133027,7 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 400.35,
+    "value": 397.5,
     "asOf": "2026-11-16"
    },
    "parentTicker": "COALINDIA",
@@ -135570,7 +136659,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-11-16T13:29:39+05:30",
+  "asOf": "2026-11-16T18:14:26+05:30",
   "dates": [
    "2026-02-12",
    "2026-02-13",
