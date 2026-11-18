@@ -627,13 +627,7 @@ function renderMarket() {
     $("#compBins").innerHTML = (tb ? tb.map((s, i) => `<div class="bin ${binCls(s)}" title="${evLong(s)}"><div class="v mono">${s.n ? pct(s.med, true) : "—"}</div><div class="l">${edgeLbl(ed, i, "x")} · ${s.n ? s.n + " issues" : "none"}</div></div>`).join("") : `<div class="dim">Evidence not yet computed.</div>`)
       + `<div class="dim" style="grid-column:1/-1;font-size:12px">${segLbl}, all years · median listing gain by total subscription. ${liveP.length ? "Diamonds are today's open " + segLbl + " books at their GMP-implied return — one far above the cloud for its book is froth." : "No open " + segLbl + " book yet."}</div>`;
     // flows
-    const Fh = DATA.flows || {}, H = (Fh.history || []).slice(-20); let run = 0; const cum = H.map(r => (run += (r[1] || 0) + (r[2] || 0)));
-    mcharts.f = new Chart($("#flowsChart2"), { data: { labels: H.map(r => fmtD(r[0])), datasets: [
-        { type: "line", label: "Cumulative FII + DII", data: cum, borderColor: lav, backgroundColor: lav + "22", fill: true, borderWidth: 2, pointRadius: 0, tension: .25, yAxisID: "y1", order: 0 },
-        { type: "bar", label: "FII net", data: H.map(r => r[1]), backgroundColor: H.map(r => r[1] >= 0 ? up : down), borderRadius: 3, maxBarThickness: 16, order: 1 },
-        { type: "bar", label: "DII net", data: H.map(r => r[2]), backgroundColor: acc + "aa", borderRadius: 3, maxBarThickness: 16, order: 1 }] },
-      options: { responsive: true, maintainAspectRatio: false, interaction: { mode: "index", intersect: false }, plugins: { legend: { position: "bottom", labels: { color: text, boxWidth: 10 } }, tooltip: { callbacks: { label: c => `${c.dataset.label}: ${sgn(Math.round(c.raw))} Cr` } } },
-        scales: { x: { type: "category", ticks: { color: text, maxRotation: 0, autoSkip: true, maxTicksLimit: 8 }, grid: { display: false } }, y: { type: "linear", title: { display: true, text: "₹ Cr a day", color: text }, ticks: { color: text }, grid: { color: grid } }, y1: { type: "linear", position: "right", title: { display: true, text: "cumulative ₹ Cr", color: text }, ticks: { color: text }, grid: { display: false } } } } });
+    mcharts.f = ftChart({ up, down, acc, lav, text, grid });
   } else { $("#compBins").innerHTML = ""; }
   // anchor x-ray — fetched fields only: book sizes from `anchors` (details), the largest anchor investors from `players`
   const hbar = (rows, max, fmt, col) => rows.map(r => `<div class="hb"><div class="n" title="${esc(r.n)}">${esc(r.n)}${r.s ? `<small>${esc(r.s)}</small>` : ""}</div><div class="bar"><i class="${col ? col(r) : ""}" style="width:${Math.max(2, r.v / max * 100)}%"></i></div><div class="v num">${fmt(r.v)}</div></div>`).join("");
@@ -680,6 +674,7 @@ function renderMarket() {
   $("#flowKpis").innerHTML = L ? [["FII net", L.fiiNetCr, P0.fiiNetCr, gross(L.fiiBuyCr, L.fiiSellCr)], ["DII net", L.diiNetCr, P0.diiNetCr, gross(L.diiBuyCr, L.diiSellCr)], ["Combined", (L.fiiNetCr || 0) + (L.diiNetCr || 0), P0.fiiNetCr != null ? (P0.fiiNetCr || 0) + (P0.diiNetCr || 0) : null, "the two biggest pools together"]]
     .map(([l, v, was, d2]) => `<div class="kpi card"><div class="lbl">${l} · ${fmtD(L.date)}</div><div class="v mono ${cls(v)}">${sgn(Math.round(v))} Cr</div><div class="d">${was != null ? `previous session ${sgn(Math.round(was))} Cr` : ""}${d2 ? `<br>${d2}` : ""}</div></div>`).join("") : "";
   $("#flowCtx").innerHTML = flowContext(F.history || []);
+  renderFtTotals();
   // ===== smart money: anchor cards =====
   const curIss = allIssues().filter(b => b.status === "Open" || b.status === "Upcoming" || (b.status === "Closed" && days(b.listing) >= 0));
   const WL = watchNames();
@@ -853,6 +848,7 @@ document.addEventListener("keydown", e => {
     let cur = 0; heads.forEach((h, i) => { if (h.getBoundingClientRect().top - top() <= 48) cur = i; });
     [...nav.children].forEach((b, i) => b.setAttribute("aria-current", String(i === cur))); const on = nav.children[cur]; if (on && on.scrollIntoView) on.scrollIntoView({ block: "nearest", inline: "nearest" }); }); }, { passive: true });
 })();
+/* @include flowtrend.js */
 /* @include hold.js */
 /* @include quota.js */
 /* @include quotaradar.js */

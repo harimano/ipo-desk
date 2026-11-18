@@ -228,3 +228,12 @@ Fixture: `ipo-detail-2306-JIO-shareholder.json` (120 chars a field, like 2305 / 
   only once they are dated. 335 is buybacks, 332 empty, 334 a by-year count. So a reservation can be read from the record about a week
   before the issue opens — AFTER its record date on every example — and the lead that matters (hold the parent before the RHP) can
   only come from the DRHP: SEBI's register (`expected[]`) and the parent's NSE announcement (`quotaLeads`), which `filings` reads.
+
+## NSDL FPI Monitor (surveyed 18 Nov 2026) — FII history
+
+`https://www.fpi.nsdl.co.in/web/Reports/` — plain GETs, HTML tables, no cookie needed. `Yearwise.aspx?RptType=5` FPI net investment by
+financial year since 1992-93; `Yearwise.aspx?RptType=6` the current calendar year by month (earlier years are an ASP.NET form post
+with `__VIEWSTATE`: not used); `Monthly.aspx` every reporting day of the current month, equity split into "Stock Exchange" and
+"Primary market & others". FINAL depository figures, FPIs only — not NSE's provisional cash figure. Parser: `collector/sources/nsdl.py`.
+Looked at and not used: Moneycontrol's FII/DII page (NSE's own figures, 30 days in `__NEXT_DATA__`, no history API found) and SEBI's
+mutual-fund trends (`OtherAction.do?doMfd=yes&type=2`: MF only, two weeks late). No source publishes DII by month or year.
