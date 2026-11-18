@@ -38,7 +38,11 @@ evidence: {asOf, rfAnnual, minN, edges{total,qib,retail,gmp}, segments{main,sme}
 listedPerf[] rows may carry gmpEve, gmpEveAsOf: the desk's own last GMP stamped before listing day, frozen once.
 anchors[]: {name, anchor, date, amountCr, issueSizeCr, count, topTierShare, investors[{name, cat, amountCr, pct}], sources[], note}
 flows: {latest{date, fiiNetCr, diiNetCr, previousDay, source}, history[[date, fii, dii], ...] (<= 40 rows, append),
-        monthly[[label, fiiNetCr, sentence]] (last 3), rotation{fiiSelling[[sector, evidence]], diiBuying[[sector, evidence]]}, note}
+        monthly[[label, fiiNetCr, sentence]] (last 3), rotation{fiiSelling[[sector, evidence]], diiBuying[[sector, evidence]]}, note,
+        trend{own[{m "YYYY-MM", fii, dii, n, fiiUp, diiUp, from, to}] (our NSE rows by month; frozen as rows leave the 40-row cap; the only DII history),
+              nsdl{asOf, checkedAt, since, years[[fy, equityCr]] (last 12 financial years), year, months[[YYYY-MM, equityCr]], ytd,
+                   primary{month, net, days, top{date, net}}, days[[reportingDate, exchangeNet, primaryNet]]} | null (NSDL final FPI equity; kept when NSDL refuses),
+              facts[str]}}   NSE provisional (latest / history / own) and NSDL final (nsdl) are different series: never merged.
 investors: {asOf, watchlist[], portfolios[], moves[], holdings[], bulkDeals[{date, investor, vehicle, stock, side BUY|SELL, qty, price, valueCr, exchange, source}], insiders[], recentListings[], anchorActivity[], notes[]}
   - `listingDeals[]` (owned by `deals`, 60 days, newest first): every NSE bulk/block deal whose stock listed this year, whoever the client —
     {date, symbol, stock (the board / listedPerf name), client, side BUY|SELL, qty, price, valueCr, exchange, kind bulk|block, sme,

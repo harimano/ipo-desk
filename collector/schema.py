@@ -84,7 +84,8 @@ def empty_data() -> dict:
     d["logos"] = {}
     d["calendar"] = {"asOf": None, "from": None, "to": None, "events": [], "issues": {}, "unlinked": [], "conflicts": [], "sources": {}}
     d["offers"] = {"asOf": None, "rights": [], "buybacks": [], "ofs": [], "ncd": []}
-    d["flows"] = {"latest": None, "history": [], "monthly": [], "rotation": {"fiiSelling": [], "diiBuying": []}, "note": None}
+    d["flows"] = {"latest": None, "history": [], "monthly": [], "rotation": {"fiiSelling": [], "diiBuying": []}, "note": None,
+                  "trend": {"own": [], "nsdl": None, "facts": []}}
     d["investors"] = {"asOf": None, "watchlist": [], "portfolios": [], "moves": [], "holdings": [],
                       "bulkDeals": [], "listingDeals": [], "listingSymbols": {}, "insiders": [], "recentListings": [],
                       "anchorActivity": [], "notes": []}

@@ -1,0 +1,576 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><title>
+	FPI Net Investment Details (Financial Year)
+</title>
+    <script type="text/javascript">
+
+        function PrintData() {
+
+            var prtGrid = document.getElementById('rpt');
+
+            prtGrid.border = 1;
+
+            var prtwin = window.open('', 'PrintGridViewData', 'left=100,top=100,width=1000,height=1000,tollbar=0,scrollbars=1,status=0,resizable=1');
+
+            prtwin.document.write(prtGrid.outerHTML);
+
+            prtwin.document.close();
+
+            prtwin.focus();
+
+            prtwin.print();
+
+            prtwin.close();
+
+        }
+
+    </script>
+    <script type="text/javascript">
+        function ExportDIVtoExcel() {
+            var html = '';
+            html += $("#rpt").html();
+            html = $.trim(html);
+
+            //vinay 12042022
+            html = html.replace('Currency:', '');            
+            var pattern1 = '<select id=\"ddlCurr\".+?</select>';
+            var r2 = html.match(pattern1);
+            html = html.replace(r2, '');
+            //end
+
+            html = html.replace(/>/g, '&gt;');
+            html = html.replace(/</g, '&lt;');
+
+            $("input[id$='HdnValexceldata']").val(html);
+        }
+    </script>
+    
+    <script src="https://www.fpi.nsdl.co.in/web/Scripts/jquery-3.5.1.js?20180306" type="text/javascript"></script>    
+</head>
+<body>
+    <link href="https://www.fpi.nsdl.co.in/web/Css/nsdl.css?ref=20180306" rel="stylesheet" />
+
+    <form method="post" action="./Yearwise.aspx?RptType=5" id="frmLatest">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['frmLatest'];
+if (!theForm) {
+    theForm = document.frmLatest;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B1F238DB" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="MApsEfV/i34MDDKRnyHX85trDHEzblhx3ZUIFq0dG4/YiqADyXWj8G8Tgc7Ede+LPyoru7KWrUi0N8Z0hsiRg0K9Ln5CN0UXe+JDyI3sDkjYRso8Yf/LMkxqMB/4bKBW7ZdRJ3/0PgpZ61mRf2dshQ3Sbd6TmdtTG4OoiPr2msa68c3RkzTw1h1Y66spMVuC" />
+</div>
+        <div class="mainWrapper">
+            
+
+    <script type="text/javascript" src="https://www.fpi.nsdl.co.in/web/Scripts/dw_event.js"></script>
+    <script type="text/javascript" src="https://www.fpi.nsdl.co.in/web/Scripts/font.js"></script>
+
+<script type="text/javascript" language="javascript">
+    //function DisableBackButton() {
+    //    window.history.forward()
+    //}
+    //DisableBackButton();
+    //window.onload = DisableBackButton;
+    //window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
+    //window.onunload = function () { void (0) }
+ </script>
+
+
+
+<script type="text/javascript">
+    //window.history.pushState(null, null, window.location.href);
+    //window.onpopstate = function () {
+    //    window.history.go(1);
+    //};
+    window.history.forward();
+    window.onload = function () {
+        window.history.forward();
+    };
+
+    window.onunload = function () {
+        null;
+    };
+    </script>
+
+
+<script type="text/javascript">
+
+
+    /**
+      * Disable right-click of mouse, F12 key, and save key combinations on page
+      * By Arthur Gareginyan (arthurgareginyan[at]gmail[dot]com)
+      * For full source code, visit https://mycyberuniverse.com
+      */
+    window.onload = function () {
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        }, false);
+        document.addEventListener("keydown", function (e) {
+            //document.onkeydown = function(e) {
+            // "I" key
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+                disabledEvent(e);
+            }
+            // "J" key
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+                disabledEvent(e);
+            }
+            // "S" key + macOS
+            if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+                disabledEvent(e);
+            }
+            // "U" key
+            if (e.ctrlKey && e.keyCode == 85) {
+                disabledEvent(e);
+            }
+            // "F12" key
+            if (event.keyCode == 123) {
+                disabledEvent(e);
+            }
+        }, false);
+        function disabledEvent(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            } else if (window.event) {
+                window.event.cancelBubble = true;
+            }
+            e.preventDefault();
+            return false;
+        }
+    };
+</script>
+
+<div class="main_header position_R">
+			<div class="fL" style="background:#f5ecc4;height:100px;width:165px;">
+				<a href="https://www.fpi.nsdl.co.in/web/Default.aspx" ><img  class="mL5 mT25" src="https://www.fpi.nsdl.co.in/web/Images/nsdl_logo.png" alt="NSDL logo" height="52" width="152" /></a>
+			</div>
+			<div id="HeaderControl_fpilogo" class="fL mL20 mT50" style="display:;">
+				<a href="https://www.fpi.nsdl.co.in/web/Default.aspx"><img src="https://www.fpi.nsdl.co.in/web/Images/subhead_new.png" alt="NSDL Logo"  /></a>
+			</div>
+    		<div id="HeaderControl_tradelogo" class="fL mL20 mT50" style="display:none;">
+				<a href="https://www.fpi.nsdl.co.in/web/Default.aspx"><img src="https://www.fpi.nsdl.co.in/web/Images/subhead_new1.png" alt="NSDL Logo"  /></a>
+			</div>
+    
+			<div class="fR mT45 w350">
+				<div id="HeaderControl_dvHlinks" class="fL mR5 tabs01 mT5">
+					
+                    <div id="HeaderControl_headmenu">
+						<div class="tabslist"><a class="tabslist" href="https://www.fpi.nsdl.co.in/web/Reports/ReportsListing.aspx">FPI Investments</a></div>
+						<div class="pp1" style="color:floralwhite">|</div>
+                        <div class="tabslist"><a class="tabslist" title="Foreign Investment Limit Monitoring(FILM)" href="https://www.fpi.nsdl.co.in/web/Reports/ForeignInvestmentLimitMonitoringListing.aspx">Foreign Investment Limit Monitoring</a> </div>
+						<div class="pp1" style="color:floralwhite">|</div>
+						<div class="tabslist"> <a class="tabslist" href="https://www.fpi.nsdl.co.in/web/HomePage/FrmHomePage.aspx">Common Application Form</a></div>
+                        <div style="clear:both;"></div>
+					</div>
+                   
+				 </div>
+				
+				<div id="HeaderControl_dvLogin" class="fL mR5"><a id="HeaderControl_btnLogin" href="javascript:__doPostBack(&#39;HeaderControl$btnLogin&#39;,&#39;&#39;)"><img src="https://www.fpi.nsdl.co.in/web/Images/login.png" height="38" width="63" alt="Login" /></a></div>
+                
+				<div class="clr"></div>
+                <div class="position_A clr fontAdjust" id="sizer">
+					<div class="display_B mT4 s11 b clrYellow fL">Font Size :</div>
+					<a title="Decrease text size" href="#" class="decrease mT5 display_B fL"><img alt="" src="https://www.fpi.nsdl.co.in/web/Images/Sm_A.png"></a>
+					<a title="Restore default font-sizes" href="#" class="reset mT4 display_B fL"><img alt="" src="https://www.fpi.nsdl.co.in/web/Images/Md_A.png"></a>
+					<a title="Increase text size" href="#" class="increase mT4 display_B fL"><img alt="" src="https://www.fpi.nsdl.co.in/web/Images/Bg_A.png"></a>
+				</div>
+			</div>
+			<div class="clr"></div>
+		</div>
+
+<script type="text/javascript">
+    //Prevents backspace except in the case of textareas and text inputs to prevent user navigation.
+    $(document).keydown(function (e) {
+        var preventKeyPress;
+        if (e.keyCode == 8) {
+            var d = e.srcElement || e.target;
+            switch (d.tagName.toUpperCase()) {
+                case 'TEXTAREA':
+                    preventKeyPress = d.readOnly || d.disabled;
+                    break;
+                case 'INPUT':
+                    preventKeyPress = d.readOnly || d.disabled ||
+                        (d.attributes["type"] && $.inArray(d.attributes["type"].value.toLowerCase(), ["radio", "checkbox", "submit", "button"]) >= 0);
+                    break;
+                case 'DIV':
+                    preventKeyPress = d.readOnly || d.disabled || !(d.attributes["contentEditable"] && d.attributes["contentEditable"].value == "true");
+                    break;
+                default:
+                    preventKeyPress = true;
+                    break;
+            }
+        }
+        else
+            preventKeyPress = false;
+
+        if (preventKeyPress)
+            e.preventDefault();
+    });
+</script> 
+
+            <div id="mainContent" class="main_content">
+                
+
+<div style="padding-bottom:10px;border-bottom:1px solid #edeeee;"><!-- Breadcrumbs -->
+    <div class="fL">
+	    <div id="BrdControl_dvBreadcrumbs" class="tabs03"><ul><li><a href='https://www.fpi.nsdl.co.in/web/Default.aspx'>Home</a></li><li><a href='https://www.fpi.nsdl.co.in/web/Reports/ReportsListing.aspx'>FPI Investments</a></li><li><span class='last s12'>View Report</span></li></ul></div>
+    </div>
+    <div class="clr"></div>
+</div>
+
+                
+                <table id='tblhdrddl' border='0' width="100%" >
+                <tr>
+                <td width="83%" nowrap="">
+                <div id="dvHdr" class="heading01 mT10">FPI Net Investment Details (Financial Year)</div>
+                
+                </td>
+
+                <td align="right">
+                <div id="dvDDL" style="float: right;">
+                    
+                    
+                    
+                 
+                </div>
+                </td>
+                
+                </tr>
+                </table>
+                
+                 
+ <input type="submit" name="Button1" value="Export To Excel" onclick="ExportDIVtoExcel();" id="Button1" class="gry_center01 btn_Text" style="padding-top:0px;margin-top:18px;float:right;" /> 
+                <div id="Div1" class="" style="background: url(&#39;../Images/top_arrow.png&#39;) no-repeat 30px 1px; padding-top: 6px; height: 5px;">
+                    <!--height:8px; -->
+                    <div style="border-bottom: 3px solid #4d4d4d; padding-bottom: 2px;"></div>
+                </div>
+                
+                
+                <br />
+                
+
+                <div id="rpt" class="mT10" style="float:right;width:100%;"><table cellspacing='0' cellpadding='0' width='100%' class='tbls01'><tr><th style='border-right-style: none;'>&nbsp;</th><th align='center' colspan='12' style='text-align:center;font-size:10pt;color:blue;border-right: 0px; '>FPI Net Investments - Financial Year</th><th align='center' colspan='1' style='text-align:right; font-size:10pt;'><label id='lbl1' runat='server' style='margin-left: 10px;'>Currency: </label><select id='ddlCurr' style=' height: 23px; width: 62px;'><option value='INR' selected>INR</option><option value='USD' >USD</option></select></th></tr><tr><th align='center' rowspan='3' style='font-size:10pt'>Financial Year</th><th align='center' colspan='13' style='text-align:center;font-size:10pt'>INR crores</th></tr><tr><th align='center' style='text-align:center;font-size:10pt'>Equity</th><th align='center' colspan='3' style='text-align:center;font-size:10pt'>Debt</th><th align='center' style='text-align:center;font-size:10pt'>Hybrid</th><th align='center' colspan='5' style='text-align:center;font-size:10pt'>Mutual Funds</th><th align='center' style='text-align:center;font-size:10pt;word-wrap:break-word;width:150px;'>Alternative Investment Funds(AIFs)</th><th align='center' rowspan='2' style='text-align:center;font-size:10pt'>Total for the FY</th><th align='center' rowspan='2' style='text-align:center;font-size:10pt'>Cumulative total (upto the FY)</th></tr><tr><th align='center' style='text-align:center;font-size:10pt'>Equity</th><th align='center' style='text-align:center;font-size:10pt'>Debt-General Limit</th><th align='center' style='text-align:center;font-size:10pt'>Debt-VRR</th><th align='center' style='text-align:center;font-size:10pt'>Debt-FAR</th><th align='center' style='text-align:center;font-size:10pt'>Hybrid</th><th align='center' style='text-align:center;font-size:10pt'>Equity</th><th align='center' style='text-align:center;font-size:10pt'>Debt</th><th align='center' style='text-align:center;font-size:10pt'>Hybrid</th><th align='center' style='text-align:center;font-size:10pt'>Solution Oriented</th><th align='center' style='text-align:center;font-size:10pt'>Other</th><th align='center' style='text-align:center;font-size:10pt'>AIF</th></tr></tr><tr><td>1992-93</td><td style='text-align:right;'>13</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>13</td><td style='text-align:right;'>13</td></tr><tr><td>1993-94</td><td style='text-align:right;'>5127</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>5127</td><td style='text-align:right;'>5140</td></tr><tr><td>1994-95</td><td style='text-align:right;'>4796</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>4796</td><td style='text-align:right;'>9936</td></tr><tr><td>1995-96</td><td style='text-align:right;'>6942</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>6942</td><td style='text-align:right;'>16878</td></tr><tr><td>1996-97</td><td style='text-align:right;'>8546</td><td style='text-align:right;'>29</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>8575</td><td style='text-align:right;'>25453</td></tr><tr><td>1997-98</td><td style='text-align:right;'>5267</td><td style='text-align:right;'>691</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>5958</td><td style='text-align:right;'>31411</td></tr><tr><td>1998-99</td><td style='text-align:right;'>29973</td><td style='text-align:right;'>-147</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>29826</td><td style='text-align:right;'>61237</td></tr><tr><td>1999-00</td><td style='text-align:right;'>9669</td><td style='text-align:right;'>452</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>10121</td><td style='text-align:right;'>71358</td></tr><tr><td>2000-01</td><td style='text-align:right;'>10207</td><td style='text-align:right;'>-273</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>9934</td><td style='text-align:right;'>81292</td></tr><tr><td>2001-02</td><td style='text-align:right;'>8072</td><td style='text-align:right;'>690</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>8762</td><td style='text-align:right;'>90054</td></tr><tr><td>2002-03</td><td style='text-align:right;'>2528</td><td style='text-align:right;'>162</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>2690</td><td style='text-align:right;'>92744</td></tr><tr><td>2003-04</td><td style='text-align:right;'>39959</td><td style='text-align:right;'>5805</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>45764</td><td style='text-align:right;'>138508</td></tr><tr><td>2004-05</td><td style='text-align:right;'>44121</td><td style='text-align:right;'>1759</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>45880</td><td style='text-align:right;'>184388</td></tr><tr><td>2005-06</td><td style='text-align:right;'>48800</td><td style='text-align:right;'>-7334</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>41466</td><td style='text-align:right;'>225854</td></tr><tr><td>2006-07</td><td style='text-align:right;'>25236</td><td style='text-align:right;'>5605</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>30841</td><td style='text-align:right;'>256695</td></tr><tr><td>2007-08</td><td style='text-align:right;'>53404</td><td style='text-align:right;'>12775</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>66179</td><td style='text-align:right;'>322874</td></tr><tr><td>2008-09</td><td style='text-align:right;'>-47706</td><td style='text-align:right;'>1895</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>-45811</td><td style='text-align:right;'>277063</td></tr><tr><td>2009-10</td><td style='text-align:right;'>30877</td><td style='text-align:right;'>20047</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>50924</td><td style='text-align:right;'>327987</td></tr><tr><td>2010-11</td><td style='text-align:right;'>110121</td><td style='text-align:right;'>36317</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>146438</td><td style='text-align:right;'>474425</td></tr><tr><td>2011-12</td><td style='text-align:right;'>43738</td><td style='text-align:right;'>49987</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>93725</td><td style='text-align:right;'>568150</td></tr><tr><td>2012-13</td><td style='text-align:right;'>140031</td><td style='text-align:right;'>28334</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>168365</td><td style='text-align:right;'>736515</td></tr><tr><td>2013-14</td><td style='text-align:right;'>79709</td><td style='text-align:right;'>-28059</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>51650</td><td style='text-align:right;'>788165</td></tr><tr><td>2014-15</td><td style='text-align:right;'>111333</td><td style='text-align:right;'>166127</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>277462</td><td style='text-align:right;'>1065627</td></tr><tr><td>2015-16</td><td style='text-align:right;'>-14172</td><td style='text-align:right;'>-4004</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>-18176</td><td style='text-align:right;'>1047451</td></tr><tr><td>2016-17</td><td style='text-align:right;'>55703</td><td style='text-align:right;'>-7292</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>48411</td><td style='text-align:right;'>1095862</td></tr><tr><td>2017-18</td><td style='text-align:right;'>25635</td><td style='text-align:right;'>119036</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>11</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>144682</td><td style='text-align:right;'>1240544</td></tr><tr><td>2018-19</td><td style='text-align:right;'>-88</td><td style='text-align:right;'>-42357</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>3515</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>-38930</td><td style='text-align:right;'>1201614</td></tr><tr><td>2019-20</td><td style='text-align:right;'>6153</td><td style='text-align:right;'>-48710</td><td style='text-align:right;'>7331</td><td style='text-align:right;'>0</td><td style='text-align:right;'>7698</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>-27528</td><td style='text-align:right;'>1174086</td></tr><tr><td>2020-21</td><td style='text-align:right;'>274032</td><td style='text-align:right;'>-50443</td><td style='text-align:right;'>33265</td><td style='text-align:right;'>0</td><td style='text-align:right;'>10247</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>267101</td><td style='text-align:right;'>1441187</td></tr><tr><td>2021-22</td><td style='text-align:right;'>-140010</td><td style='text-align:right;'>1628</td><td style='text-align:right;'>12642</td><td style='text-align:right;'>0</td><td style='text-align:right;'>3498</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>-122242</td><td style='text-align:right;'>1318945</td></tr><tr><td>2022-23</td><td style='text-align:right;'>-37632</td><td style='text-align:right;'>-8937</td><td style='text-align:right;'>5814</td><td style='text-align:right;'>0</td><td style='text-align:right;'>-181</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>-40936</td><td style='text-align:right;'>1278008</td></tr><tr><td>2023-24</td><td style='text-align:right;'>208212</td><td style='text-align:right;'>121059</td><td style='text-align:right;'>-2972</td><td style='text-align:right;'>0</td><td style='text-align:right;'>12767</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>0</td><td style='text-align:right;'>339066</td><td style='text-align:right;'>1617074</td></tr><tr><td>2024-25</td><td style='text-align:right;'>-127041</td><td style='text-align:right;'>55734</td><td style='text-align:right;'>6737</td><td style='text-align:right;'>80691</td><td style='text-align:right;'>4425</td><td style='text-align:right;'>-667</td><td style='text-align:right;'>-124</td><td style='text-align:right;'>-9</td><td style='text-align:right;'>0</td><td style='text-align:right;'>271</td><td style='text-align:right;'>0</td><td style='text-align:right;'>20018</td><td style='text-align:right;'>1637092</td></tr><tr><td>2025-26</td><td style='text-align:right;'>-180832</td><td style='text-align:right;'>12429</td><td style='text-align:right;'>-2071</td><td style='text-align:right;'>15449</td><td style='text-align:right;'>-371</td><td style='text-align:right;'>2750</td><td style='text-align:right;'>-595</td><td style='text-align:right;'>-56</td><td style='text-align:right;'>-3</td><td style='text-align:right;'>603</td><td style='text-align:right;'>5</td><td style='text-align:right;'>-152691</td><td style='text-align:right;'>1484401</td></tr><tr><td>2026-27 **</td><td style='text-align:right;'>-57796</td><td style='text-align:right;'>54299</td><td style='text-align:right;'>-22235</td><td style='text-align:right;'>18728</td><td style='text-align:right;'>-4922</td><td style='text-align:right;'>10424</td><td style='text-align:right;'>19</td><td style='text-align:right;'>-72</td><td style='text-align:right;'>0</td><td style='text-align:right;'>875</td><td style='text-align:right;'>1</td><td style='text-align:right;'>-679</td><td style='text-align:right;'>1483722</td></tr><tr class='total'><td style='text-align:right'>Total</td><td style='text-align:right;'>782927</td><td style='text-align:right;'>497304</td><td style='text-align:right;'>38511</td><td style='text-align:right;'>114868</td><td style='text-align:right;'>36687</td><td style='text-align:right;'>12507</td><td style='text-align:right;'>-700</td><td style='text-align:right;'>-137</td><td style='text-align:right;'>-3</td><td style='text-align:right;'>1749</td><td style='text-align:right;'>6</td><td style='text-align:right;'>1483723</td><td style='text-align:right'></td></tr><tr><td colspan='14' style='text-align:left'><br /><br />** up to 18 Nov 2026</td></tr></table></div>
+                <br />
+                <br />
+                <input type="button" id="btnPrint" value="Print" onclick="PrintData()" style="background-color: #0099FF; border: solid;display:none;" />&nbsp;&nbsp;
+ 
+                <input type="hidden" name="HdnValexceldata" id="HdnValexceldata" />                
+                <input type="hidden" name="hdnCurr" id="hdnCurr" />                                      
+            </div>
+
+
+
+            
+
+            
+<link href="../Css/footer.css" rel="stylesheet" />
+<script src="../Scripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function ContactNote() {
+        var left = (screen.width / 2) - (600 / 2);
+        var top = (screen.height / 2) - (300 / 2);
+        popupWindow = window.open('/ContactUs.html', 'popUpWindow', 'height=400,width=600,top=' + top + ',left=' + left + ',titlebar=yes,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=yes,directories=no,status=no');
+    }
+    function TermsAndConditionNote() {
+        var left = (screen.width / 2) - (600 / 2);
+        var top = (screen.height / 2) - (300 / 2);
+        popupWindow = window.open('/TermsAndCondition.html', 'popUpWindow', 'top=' + top + ',left=' + left + ',titlebar=yes,resizable=no,scrollbars=yes,toolbar=no,menubar=no,location=yes,directories=no,status=no');
+    }
+    function PrivacyPolicy() {
+        var left = (screen.width / 2) - (600 / 2);
+        var top = (screen.height / 2) - (300 / 2);
+        popupWindow = window.open('/PrivacyPolicy.html', 'popUpWindow', 'top=' + top + ',left=' + left + ',titlebar=yes,resizable=no,scrollbars=yes,toolbar=no,menubar=no,location=yes,directories=no,status=no');
+    }
+    function Feedback() {
+        var left = (screen.width / 2) - (900 / 2);
+        var top = (screen.height / 2) - (450 / 2);
+        popupWindow = window.open('/Feedback.aspx', 'popUpWindow', 'height=700,width=700,top=' + top + ',left=' + left + ',titlebar=yes,resizable=yes,scrollbars=yes,toolbar=yes,menubar=yes,location=yes,directories=no,status=no');//KETAN SHAH||15112022
+    }
+</script>
+<div class="main_footer">
+	
+		<div class="fR mR10 mT10">
+			
+
+            <div class="bottonlinks">
+              
+			    <a href="#" id="contactuslink" data-target="#modalcontactus" tabindex="19" onkeypress="" style="cursor: pointer;" data-toggle="modal" class="footlink">Contact Us:</a>
+				
+				
+				
+				
+                <a href="#" id="termsadncondition" tabindex="21" data-target="#modaltermscondition" style="cursor: pointer;" data-toggle="modal" class="footlink">Terms and Condition:</a>
+
+				  <a href="#" id="termsprivacylink" tabindex="22" data-target="#modalprivacypolicy" style="cursor: pointer;" data-toggle="modal" class="footlink">Privacy Policy:</a>
+                  
+
+                  
+			    
+				
+            <a href="#" tabindex="25" onclick="Feedback();" class="footlink">Feedback</a>
+			</div>
+
+
+			<div class="clr"></div>
+			<div class="s11 clraaa aR">
+			<label id="FooterControl_lblReleaseDate" name="lblReleaseDate">Website updated as on: 13 Nov 2026</label>&nbsp &nbsp &nbsp &nbsp	© Copyright 2014, National Securities Depository Ltd. (NSDL)
+			</div>
+		</div>
+
+     <div class="fL mL10 mT10" >
+            <div class="bottonlinks">
+               <a href="https://twitter.com/NSDL_Depository" target="_blank"> <img style="margin: 0px;border-radius: 15px;" alt="twitter" src="../Images/25X25PixTweet.jpg"></a>
+               <a href="https://www.linkedin.com/company/national-securities-depository-limited/" target="_blank"> <img style="border-radius: 15px;" alt="linkedin" src="../Images/25X25PixIn.jpg"></a>
+            <a href="https://www.facebook.com/NSDL-National-Securities-Depository-Limited-101492279013266" target="_blank"> <img style="border-radius: 15px;" alt="facebook" src="../Images/25X25PixFB.jpg"></a>     
+            <a href="https://www.youtube.com/c/NSDLNationalSecuritiesDepositoryLimited" target="_blank"> <img style="border-radius: 15px;" alt="youtube" src="../Images/25X25PixYt.jpg"></a>
+                
+                 <//div>
+            </div>
+
+      
+          <div class="modal fade" id="modalcontactus" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="background:#882017;color:white;">
+                                 <button type="button" class="close" data-dismiss="modal">X</button>
+                  
+
+                        <h3 style="margin-top:0px;margin-bottom:0px"><b>Contact Us</b></h3>
+                    </div>
+                    <div class="modal-header">
+                       
+                        <h4 style="margin-top:0px;margin-bottom:0px"><b>For any queries, you can contact NSDL at</b></h4>
+                    </div>
+                    <div class="modal-body" >
+
+                        
+                          <b>Address:</b><br />
+                          <!--Changed by Shivani on 26/08/2024-->
+                          National Securities Depository Limited<br />
+                          3rd Floor, Naman Chamber,<br />
+                          Plot C-32, G-Block,<br />
+                          Bandra Kurla Complex,<br />
+                          Bandra East, Mumbai - 400 013,<br />
+                          India.<br />
+                          Tel No: 91-22-6944-8400/ 8500<br />
+                          
+                          Email :<span style="color:blue;">fpiassist[at]nsdl[dot]com</span>
+                        
+                        
+                          
+                     
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+            
+
+            <div class="modal fade" id="modalprivacypolicy" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="background:#882017;color:white;">
+                       <button type="button" class="close" data-dismiss="modal">X</button>
+                        <h3><b>Privacy Policy</b></h3>
+                    </div>
+                    <div class="modal-header">
+                      
+                        <h4><b>Privacy Policy for the use of <strong>FPI</strong> services of NSDL by Shareholder.</b></h4>
+                    </div>
+                    <div class="modal-body" style="list-style: none;">
+
+                        <ul>
+                          <li>1.<strong>Definitions:</strong> In this document, the following words and phrases have the meaning set opposite them unless the context indicates otherwise:</li>
+                          <li style="margin-left: 2%;">A) <strong>NSDL:</strong> means National Securities Depository Limited, a company incorporated under the Companies Act, 1956 and registered under the Depositories Act, 1996 with Securities and Exchange Board of India.</li>
+                          <li style="margin-left: 2%;">B) <strong>FPI:</strong> means a process for recording votes by the members/shareholders using a computer based machine to display an electronic ballot and to record the vote and also the number of votes polled in favour or against such that the entire voting gets registered and counted in an electronic registry in a centralized server.</li>
+                          <li style="margin-left: 2%;">C) <strong>Internet:</strong> refers to a Global network of inter connected Computers network, each using Transmission Control Protocol / Internet Protocol or any combination thereof or such other standard network inter connection protocols as is used to transmit data that is directly or indirectly delivered to a Computer.</li>
+                          <li style="margin-left: 2%;">D) <strong>User:</strong> The User could be anyone from the following entities:-</li>
+                          <li style="margin-left: 3%;">i) Issuer who places its resolutions for voting on the <strong>FPI</strong> system of NSDL.</li>
+                          <li style="margin-left: 3%;">ii) Registrar &amp; Transfer Agent through which the Issuer has established electronic connectivity with NSDL and has been authorised by the Issuer for taking necessary actions on its behalf in respect of activities pertaining to <strong>FPI</strong> system of NSDL.</li>
+                          <li style="margin-left: 3%;">iii) Scrutinizer appointed by the Issuer to conduct the voting process in <strong>FPI</strong> system of NSDL.</li>
+                          <li style="margin-left: 3%;">iv) Shareholders who casts vote in the <strong>FPI</strong> system of NSDL.</li>
+                          <li>2.<strong>Disclosure of Personal Information:</strong> The User agrees that NSDL may hold and process its Personal Information on computer or otherwise in connection with <strong>FPI</strong> as well as for statistical analysis. The User also agrees that NSDL may disclose, in strict confidence, to other institutions, such Personal Information as may be reasonably necessary for reasons inclusive of but not limited to the following:</li>
+                          <li style="margin-left: 3%;">i) In compliance with a legal directive &amp; For fraud prevention purposes, etc.</li>
+                          <li>3.<strong>Proprietary Rights:</strong> The User acknowledges that the software underlying <strong>FPI</strong> is the legal property of NSDL. The permission given by NSDL to access&nbsp;&nbsp;&nbsp; <strong>FPI</strong> will not convey any proprietary or ownership rights in the above software. The User shall not attempt to modify, translate, disassemble, decompile or reverse engineer the software underlying <strong>FPI</strong> or create any derivative product based on that software.</li>
+                          <li>4.<strong>Safeguards:</strong></li>
+                          <li style="margin-left: 3%;">i) The User agrees to commit the password/PIN to memory and not record it in any form including written or electronic.</li>
+                             <li style="margin-left: 3%;">ii) The User agrees to keep the password/PIN confidential and to not reveal the same to any third party.</li>
+                             <li style="margin-left: 3%;">iii) The User agrees that he shall not let any unauthorised person to have access to computers or leave them unattended while accessing<strong>FPI</strong>.</li>
+                          <li>5.<strong>Voting in respect of Demat Accounts/folios held in joint name:</strong> User agrees that in respect of account/folios held in joint holding pattern, the vote casted using the User ID and password sent to first holder shall be recognized on behalf of all joint holders of that account/folio.</li>
+                          <li>6.<strong>Recognition of Vote:</strong> User agrees that by casting the vote through <strong>FPI</strong>, the same shall only be considered for voting, where any other means of voting is also undertaken by him.</li>
+                          <li>7.<strong>Change of Terms and Conditions:</strong> NSDL reserves the absolute discretion to amend or supplement any of the terms and conditions at any time and will endeavour to give prior notice of fifteen days wherever feasible for such changes. NSDL may introduce new services within <strong>FPI</strong> from time to time. The existence and availability of the new services will be notified to the Users as and when they become available. The changed terms and conditions applicable to the new features in <strong>FPI</strong> shall be communicated to the User. By using these new services, the User agrees to be bound by the revised terms and conditions as may be applicable. The availability / non-availability of a particular service shall be advised either through email, web page of NSDL or written communication.</li>
+                          <li>8.<strong>Non-Transferability:</strong> The right of use of <strong>FPI</strong> service of NSDL is not transferable by a User under any circumstance and shall be used by the concerned User only.</li>
+                          <li>9.<strong>Liability:</strong> NSDL shall not be liable to the User for any transactions executed on the <strong>FPI</strong> system and the User hereby fully indemnifies and hold NSDL harmless against any action, suit, proceeding initiated against it or any loss, cost or damage incurred by it as a result thereof. NSDL shall under no circumstance be liable to the User if the access is not available in the desired manner for reasons including but not limited to natural calamities, legal restraints, faults in the telecommunication network or network failure or any other reason beyond the control of NSDL. Under no circumstance shall NSDL be liable for damages whatsoever whether such damages are direct, indirect, incidental, consequential and irrespective whether any claim is based on loss of revenue, interruption of business, or any loss of any character or nature and whether sustained by the user or any other person. Illegal or improper use of <strong>FPI</strong> system of NSDL shall render the User liable for payment of financial charges as decided by NSDL and may result in suspension of the access to <strong>FPI</strong> system.</li>
+                          <li>10.<strong>Governing Law:</strong> These terms and conditions and / or the use of the services provided through <strong>FPI</strong> shall be governed by the laws of the Republic of India and no other nation. The User agrees to submit to the exclusive jurisdiction of the Courts located in Mumbai, India as regards any claims or matters arising under these terms and conditions. Any dispute or difference arising between the User shall be settled by mutual consultation / discussion, failing which the same shall be referred to arbitration. The Arbitration proceedings shall be governed and conducted in accordance with the Indian Arbitration and Conciliation Act, 1996 and that the Arbitration proceedings shall take place in Mumbai. NSDL accepts no liability whatsoever, direct or indirect, for non-compliance with the laws of any country other than the Republic of India. The mere fact that <strong>FPI</strong> can be accessed through Internet by a User in a country other than India shall not be interpreted to imply that the laws of the said country govern these terms and conditions.</li>
+                          <li><strong>Disclaimer:</strong></li>
+                          <li style="margin-left: 4%;">All information provided in <strong>FPI</strong> system of NSDL is obtained by NSDL from sources believed to be accurate and reliable. Access and use of <strong>FPI</strong> system of NSDL is a confirmation by the Users that they have understood and accepted the terms and conditions for using this service. All proprietary rights in the information received shall remain the property of NSDL. Reproduction, redistribution and transmission of any information contained on the website are strictly prohibited. The information provided in <strong>FPI</strong> system is without warranty of any kind and NSDL shall not be liable for any damages, losses (direct or indirect) whatsoever, due to disruption or non availability of any of services/facility(ies) due to maintenance/technical fault/error or any failure in telecommunication network or any error in any software or hardware systems. NSDL makes no representation and disclaims all express, implied and statutory warranties of any kind to the user and/or any third party including warranties as to accuracy, timeliness, completeness, merchantability or fitness of the information for any particular purpose.</li>
+                          </ul>                    
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+            
+            <div class="modal fade" id="modaltermscondition" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="background:#882017;color:white;">
+               <button type="button" class="close" data-dismiss="modal">X</button>
+                        <h3><b>Terms &amp; Conditions</b></h3>
+                    </div>
+                    <div class="modal-header">
+                      
+                        <h4><b>Terms and Conditions for the use of <strong>FPI</strong> services of NSDL by Shareholder.</b></h4>
+                    </div>
+                    <div class="modal-body" style="list-style: none;">
+
+                        <ul>
+                          <li>1.<strong>Definitions:</strong> In this document, the following words and phrases have the meaning set opposite them unless the context indicates otherwise:</li>
+                          <li style="margin-left: 2%;">A) <strong>NSDL:</strong> means National Securities Depository Limited, a company incorporated under the Companies Act, 1956 and registered under the Depositories Act, 1996 with Securities and Exchange Board of India.</li>
+                          <li style="margin-left: 2%;">B) <strong>FPI:</strong> means a process for recording votes by the members/shareholders using a computer based machine to display an electronic ballot and to record the vote and also the number of votes polled in favour or against such that the entire voting gets registered and counted in an electronic registry in a centralized server.</li>
+                          <li style="margin-left: 2%;">C) <strong>Internet:</strong> refers to a Global network of inter connected Computers network, each using Transmission Control Protocol / Internet Protocol or any combination thereof or such other standard network inter connection protocols as is used to transmit data that is directly or indirectly delivered to a Computer.</li>
+                          <li style="margin-left: 2%;">D) <strong>User:</strong> The User could be anyone from the following entities:-</li>
+                          <li style="margin-left: 3%;">i) Issuer who places its resolutions for voting on the <strong>FPI</strong> system of NSDL.</li>
+                          <li style="margin-left: 3%;">ii) Registrar &amp; Transfer Agent through which the Issuer has established electronic connectivity with NSDL and has been authorised by the Issuer for taking necessary actions on its behalf in respect of activities pertaining to <strong>FPI</strong> system of NSDL.</li>
+                          <li style="margin-left: 3%;">iii) Scrutinizer appointed by the Issuer to conduct the voting process in <strong>FPI</strong> system of NSDL.</li>
+                          <li style="margin-left: 3%;">iv) Shareholders who casts vote in the <strong>FPI</strong> system of NSDL.</li>
+                          <li>2.<strong>Disclosure of Personal Information:</strong> The User agrees that NSDL may hold and process its Personal Information on computer or otherwise in connection with <strong>FPI</strong> as well as for statistical analysis. The User also agrees that NSDL may disclose, in strict confidence, to other institutions, such Personal Information as may be reasonably necessary for reasons inclusive of but not limited to the following:</li>
+                          <li style="margin-left: 3%;">i) In compliance with a legal directive &amp; For fraud prevention purposes, etc.</li>
+                          <li>3.<strong>Proprietary Rights:</strong> The User acknowledges that the software underlying <strong>FPI</strong> is the legal property of NSDL. The permission given by NSDL to access&nbsp;&nbsp;&nbsp; <strong>FPI</strong> will not convey any proprietary or ownership rights in the above software. The User shall not attempt to modify, translate, disassemble, decompile or reverse engineer the software underlying <strong>FPI</strong> or create any derivative product based on that software.</li>
+                          <li>4.<strong>Safeguards:</strong></li>
+                          <li style="margin-left: 3%;">i) The User agrees to commit the password/PIN to memory and not record it in any form including written or electronic.</li>
+                             <li style="margin-left: 3%;">ii) The User agrees to keep the password/PIN confidential and to not reveal the same to any third party.</li>
+                             <li style="margin-left: 3%;">iii) The User agrees that he shall not let any unauthorised person to have access to computers or leave them unattended while accessing<strong>FPI</strong>.</li>
+                          <li>5.<strong>Voting in respect of Demat Accounts/folios held in joint name:</strong> User agrees that in respect of account/folios held in joint holding pattern, the vote casted using the User ID and password sent to first holder shall be recognized on behalf of all joint holders of that account/folio.</li>
+                          <li>6.<strong>Recognition of Vote:</strong> User agrees that by casting the vote through <strong>FPI</strong>, the same shall only be considered for voting, where any other means of voting is also undertaken by him.</li>
+                          <li>7.<strong>Change of Terms and Conditions:</strong> NSDL reserves the absolute discretion to amend or supplement any of the terms and conditions at any time and will endeavour to give prior notice of fifteen days wherever feasible for such changes. NSDL may introduce new services within <strong>FPI</strong> from time to time. The existence and availability of the new services will be notified to the Users as and when they become available. The changed terms and conditions applicable to the new features in <strong>FPI</strong> shall be communicated to the User. By using these new services, the User agrees to be bound by the revised terms and conditions as may be applicable. The availability / non-availability of a particular service shall be advised either through email, web page of NSDL or written communication.</li>
+                          <li>8.<strong>Non-Transferability:</strong> The right of use of <strong>FPI</strong> service of NSDL is not transferable by a User under any circumstance and shall be used by the concerned User only.</li>
+                          <li>9.<strong>Liability:</strong> NSDL shall not be liable to the User for any transactions executed on the <strong>FPI</strong> system and the User hereby fully indemnifies and hold NSDL harmless against any action, suit, proceeding initiated against it or any loss, cost or damage incurred by it as a result thereof. NSDL shall under no circumstance be liable to the User if the access is not available in the desired manner for reasons including but not limited to natural calamities, legal restraints, faults in the telecommunication network or network failure or any other reason beyond the control of NSDL. Under no circumstance shall NSDL be liable for damages whatsoever whether such damages are direct, indirect, incidental, consequential and irrespective whether any claim is based on loss of revenue, interruption of business, or any loss of any character or nature and whether sustained by the user or any other person. Illegal or improper use of <strong>FPI</strong> system of NSDL shall render the User liable for payment of financial charges as decided by NSDL and may result in suspension of the access to <strong>FPI</strong> system.</li>
+                          <li>10.<strong>Governing Law:</strong> These terms and conditions and / or the use of the services provided through <strong>FPI</strong> shall be governed by the laws of the Republic of India and no other nation. The User agrees to submit to the exclusive jurisdiction of the Courts located in Mumbai, India as regards any claims or matters arising under these terms and conditions. Any dispute or difference arising between the User shall be settled by mutual consultation / discussion, failing which the same shall be referred to arbitration. The Arbitration proceedings shall be governed and conducted in accordance with the Indian Arbitration and Conciliation Act, 1996 and that the Arbitration proceedings shall take place in Mumbai. NSDL accepts no liability whatsoever, direct or indirect, for non-compliance with the laws of any country other than the Republic of India. The mere fact that <strong>FPI</strong> can be accessed through Internet by a User in a country other than India shall not be interpreted to imply that the laws of the said country govern these terms and conditions.</li>
+                          <li><strong>Disclaimer:</strong></li>
+                          <li style="margin-left: 4%;">All information provided in <strong>FPI</strong> system of NSDL is obtained by NSDL from sources believed to be accurate and reliable. Access and use of <strong>FPI</strong> system of NSDL is a confirmation by the Users that they have understood and accepted the terms and conditions for using this service. All proprietary rights in the information received shall remain the property of NSDL. Reproduction, redistribution and transmission of any information contained on the website are strictly prohibited. The information provided in <strong>FPI</strong> system is without warranty of any kind and NSDL shall not be liable for any damages, losses (direct or indirect) whatsoever, due to disruption or non availability of any of services/facility(ies) due to maintenance/technical fault/error or any failure in telecommunication network or any error in any software or hardware systems. NSDL makes no representation and disclaims all express, implied and statutory warranties of any kind to the user and/or any third party including warranties as to accuracy, timeliness, completeness, merchantability or fitness of the information for any particular purpose.</li>
+                            </ul>                    
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+          <div class="modal fade" id="aboutus" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="background:#882017;color:white;">
+                       <button type="button" class="close" data-dismiss="modal"">X</button>
+                        <h3><b>About Us</b></h3>
+                    </div>
+                    <div class="modal-header">
+                      
+                        <h4><b>For any queries, you can contact NSDL at</b></h4>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+
+            <div class="modal fade" id="help" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="background:#882017;color:white;">
+                        <button type="button" class="close" data-dismiss="modal" style="color:white;"><b>&times;</b></button>
+                        <h3><b>Help</b></h3>
+                    </div>
+                    <div class="modal-header">
+                      
+                        <h4><b>For any queries, you can contact NSDL at</b></h4>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+</div>
+        </div>
+    </form>
+    <script language="javascript" type ="text/javascript">
+        // $(document).ready(function(){
+        //     debugger;
+        // $("ddlCurr").change(function(){
+
+        //     var selCurr = $(this).children("option:selected").val();
+
+        //     alert("Currency - " + selCurr);
+
+        // });
+        //});
+
+        $("#ddlCurr").change(function (e) {
+
+            //alert("currency" + $("#ddlCurr").val());
+            //debugger;
+            document.getElementById("hdnCurr").value = $("#ddlCurr").val();
+            //window.Location= "Yearwise.aspx?RptType=6" ;
+            __doPostBack();
+            // var jsonData = JSON.stringify({ aData: aData });
+            //$.ajax({
+            //    type: "POST",
+            //    //getListOfCars is my webmethod   
+            //    url: "Yearwise.aspx?RptType=6&year=2011&CurrVal=" + $("#ddlCurr").val() + "",
+            //    data: jsonData,
+            //    contentType: "application/json; charset=utf-8",
+            //    dataType: "json", // dataType is json format
+            //    success: OnSuccess,
+            //    error: OnErrorCall
+            //});
+
+            //function OnSuccess(response) {
+            //    alert("Currency");
+            //    console.log(response.d)
+            //}
+            //function OnErrorCall(response) { console.log(error); }
+        });
+
+
+
+        </script>
+
+
+
+</body>
+</html>
