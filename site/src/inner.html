@@ -555,16 +555,18 @@ ul.plain { padding-left:18px; } ul.plain li { margin:3px 0; }
     <div class="sec"><div class="sec-h"><h2>SME screener</h2><span class="sub">click a column to sort · QIB conviction, track record and EV are this desk's own SME history, banded by subscription (QIB books are 2026 only)</span><span class="right legend"><span><i style="background:var(--up)"></i>95% range clearly &gt;50% positive</span><span><i style="background:var(--amber)"></i>range straddles 50%</span><span><i style="background:var(--down)"></i>95% range clearly &lt;50%</span></span></div><div class="card tw"><table id="smeScreen" class="srtbl"></table></div></div>
 
     <div class="sec grid g2" data-nav="Flows">
-      <div class="card"><div class="ch">FII / DII daily flows <span class="sub" id="flowsSub2"></span><span class="right filters" id="ftView" style="flex-wrap:nowrap;flex-shrink:0;display:none"><button data-ft="d" aria-pressed="true">Days</button><button data-ft="m" aria-pressed="false">Months</button><button data-ft="y" aria-pressed="false">Years</button></span></div><div class="cb"><div id="flowKpis" class="kpis" style="margin-bottom:10px"></div><div class="chart-wrap" style="height:280px"><canvas id="flowsChart2"></canvas></div></div></div>
+      <div class="card"><div class="ch"><span style="white-space:nowrap">FII / DII daily flows</span> <span class="sub" id="flowsSub2"></span><span class="right filters" id="ftView" style="flex-wrap:nowrap;flex-shrink:0;display:none"><button data-ft="d" aria-pressed="true">Days</button><button data-ft="m" aria-pressed="false">Months</button><button data-ft="y" aria-pressed="false">Years</button></span></div><div class="cb"><div id="flowKpis" class="kpis" style="margin-bottom:10px"></div><div class="chart-wrap" style="height:280px"><canvas id="flowsChart2"></canvas></div></div></div>
       <div class="card"><div class="ch">Flow context <span class="sub">what the daily figures add up to · computed from the sessions on file</span></div><div class="cb">
         <div id="flowCtx"></div>
         </div></div>
-      <div id="ftBox" style="grid-column:1/-1" hidden>
-        <div class="lbl" style="margin-bottom:8px">The month and the year so far</div>
-        <div class="kpis" id="ftTotals"></div>
-        <div class="chips" id="ftFacts"></div>
-        <div class="dt" id="ftNote" style="margin-top:10px"></div>
-      </div>
+    </div>
+    <!-- OUTSIDE the grid above: a full-width child of an auto-fit grid keeps its empty tracks open, and the two cards
+         shrink into the first two of four columns on a wide screen (18 Nov 2026) -->
+    <div id="ftBox" style="margin-top:16px" hidden>
+      <div class="lbl" style="margin-bottom:8px">The month and the year so far</div>
+      <div class="kpis" id="ftTotals"></div>
+      <div class="chips" id="ftFacts"></div>
+      <div class="dt" id="ftNote" style="margin-top:10px"></div>
     </div>
 
     <div class="sec"><div class="sec-h"><h2>Anchors on the board</h2><span class="sub">one line per current issue: the anchor book, how many of the largest anchors are in, and what past books like it did at listing</span></div>
