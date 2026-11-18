@@ -87,7 +87,7 @@ def _from_nse(session: Session, prev: dict, res: Result) -> str | None:
                         "diiNetCr": prev_latest.get("diiNetCr")}
     latest = {
         "date": date, "fiiNetCr": fii["net"], "diiNetCr": dii["net"], "previousDay": previous_day,
-        "source": "NSE provisional (fiidiiTradeReact)",
+        "source": "NSE provisional",      # shown on the page: a label a reader can use, not the endpoint's name
         "fiiBuyCr": fii["buy"], "fiiSellCr": fii["sell"], "diiBuyCr": dii["buy"], "diiSellCr": dii["sell"],
     }
     history = [h for h in (prev_flows.get("history") or []) if isinstance(h, list) and h]
