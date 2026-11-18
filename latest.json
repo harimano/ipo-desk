@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-18T19:37:02+05:30",
+  "asOf": "2026-11-19T01:56:24+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "18 Nov 2026, 19:37 IST",
+  "label": "19 Nov 2026, 01:56 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -39,7 +39,9 @@
   ],
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
-   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics"
+   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
+   "[details] Mahanadi Coalfields: reservation table says 0 shares for shareholders, the record's fields say a reservation (prefer_shareholders_status / shares_offered_shareholders) — read the record before trusting shareholderQuota",
+   "[subscription] subscription missing for Mahanadi Coalfields, Watrana Rentals — check NSE/BSE ids on the row"
   ]
  },
  "expected": [
@@ -1822,9 +1824,9 @@
    "issueSizeCr": 455.49,
    "freshCr": 354.77,
    "ofsCr": 100.71,
-   "gmp": 19.0,
-   "gmpPct": 6.99,
-   "gmpTrend": "flat",
+   "gmp": 18.0,
+   "gmpPct": 6.62,
+   "gmpTrend": "down",
    "sub": {
     "qib": 2.07,
     "nii": 0.75,
@@ -1837,7 +1839,7 @@
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-18"
+    "at": "2026-11-19"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -1850,7 +1852,7 @@
    "igId": "2067",
    "bseIpoNo": "8089",
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-18T18:26:54+05:30",
+   "igFetchedAt": "2026-11-19T01:56:05+05:30",
    "sector": "Other Agricultural Products",
    "anchorShares": 4998708,
    "logo": "crystal-crop-protection-logo.png",
@@ -1920,9 +1922,9 @@
      "offered": 101215
     }
    },
-   "gmpAsOf": "2026-11-18T18:02:00+05:30",
-   "gmpEve": 19.0,
-   "gmpEveAsOf": "2026-11-18T18:02:00+05:30",
+   "gmpAsOf": "2026-11-18T23:37:00+05:30",
+   "gmpEve": 18.0,
+   "gmpEveAsOf": "2026-11-18T23:37:00+05:30",
    "gmpSrc": "investorgain",
    "gmpWitness": {
     "src": "ipowatch",
@@ -1966,7 +1968,7 @@
      "received": 110995,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-18T18:27:12+05:30"
+    "asOf": "2026-11-19T01:56:12+05:30"
    }
   },
   {
@@ -1999,7 +2001,7 @@
     "parent": null,
     "recordDate": "2026-11-13",
     "src": "ig",
-    "at": "2026-11-18"
+    "at": "2026-11-19"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -2012,14 +2014,14 @@
    "igId": "2401",
    "bseIpoNo": "8092",
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-18T16:08:22+05:30",
+   "igFetchedAt": "2026-11-19T01:56:05+05:30",
    "refund": "2026-11-26",
    "sector": "Coal",
    "anchorShares": 0,
    "logo": "mahanadi-coalfields-ltdlogo.png",
-   "gmpAsOf": "2026-11-18T15:37:00+05:30",
-   "gmpEve": 3.4,
-   "gmpEveAsOf": "2026-11-18T15:37:00+05:30",
+   "gmpAsOf": "2026-11-18T23:37:00+05:30",
+   "gmpEve": 3.1,
+   "gmpEveAsOf": "2026-11-18T23:37:00+05:30",
    "facts": {
     "sector": "Coal",
     "listingAt": "BSE, NSE",
@@ -2049,7 +2051,7 @@
      "drhp": "https://nsearchives.nseindia.com/corporate/Registration_01092026212900_MCLDRHP.pdf",
      "rhp": "https://www.sebi.gov.in/filings/public-issues/nov-2026/mahanadi-coalfields-limited-rhp_105777.html"
     },
-    "asOf": "2026-11-17T12:43:00+05:30"
+    "asOf": "2026-11-18T23:00:00+05:30"
    },
    "gmpSrc": "investorgain",
    "gmpWitness": {
@@ -2651,20 +2653,6 @@
     "InvestorGain IPO list"
    ],
    "symbol": "FUSIONCX"
-  },
-  {
-   "name": "HD Fire Protect",
-   "type": "Mainboard",
-   "listingDate": "2026-10-21",
-   "issuePrice": 271.0,
-   "listingPrice": 335.0,
-   "gainPct": 23.62,
-   "closeDay1": 306.75,
-   "closeDay1GainPct": 13.19,
-   "sources": [
-    "InvestorGain IPO list"
-   ],
-   "symbol": "HDFIRE"
   }
  ],
  "sme": [
@@ -2680,17 +2668,17 @@
    "bandLow": 232.0,
    "bandHigh": 245.0,
    "lotSize": 600,
-   "issueSizeCr": 120.1,
+   "issueSizeCr": 113.92,
    "freshCr": 113.92,
    "ofsCr": null,
-   "gmp": 37.0,
-   "gmpPct": 15.1,
-   "gmpTrend": "flat",
+   "gmp": 62.0,
+   "gmpPct": 25.31,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-18"
+    "at": "2026-11-19"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -2703,7 +2691,7 @@
    "igId": "1818",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-18T16:08:22+05:30",
+   "igFetchedAt": "2026-11-19T01:56:05+05:30",
    "refund": "2026-11-26",
    "sector": "Diversified Commercial Services",
    "anchorShares": 1386000,
@@ -2725,9 +2713,9 @@
      "lots": 3
     }
    },
-   "gmpAsOf": "2026-11-18T15:37:00+05:30",
-   "gmpEve": 37.0,
-   "gmpEveAsOf": "2026-11-18T15:37:00+05:30",
+   "gmpAsOf": "2026-11-18T23:37:00+05:30",
+   "gmpEve": 62.0,
+   "gmpEveAsOf": "2026-11-18T23:37:00+05:30",
    "facts": {
     "sector": "Diversified Commercial Services",
     "listingAt": "NSE SME",
@@ -2753,16 +2741,17 @@
     ],
     "docs": {
      "drhp": "https://nsearchives.nseindia.com/emerge/corporates/content/Registration_30062025193837_DRHPWRL.pdf",
-     "rhp": "https://nsearchives.nseindia.com/content/ipo/RHP_WATRANA.zip"
+     "rhp": "https://nsearchives.nseindia.com/content/ipo/RHP_WATRANA.zip",
+     "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/company-letter-watrana.pdf"
     },
-    "asOf": "2026-11-17T12:48:00+05:30"
+    "asOf": "2026-11-18T20:04:00+05:30"
    },
    "gmpSrc": "investorgain",
    "gmpWitness": {
     "src": "ipowatch",
     "gmp": 37.0,
     "gmpPct": 15.1,
-    "agree": true
+    "agree": false
    }
   }
  ],
@@ -36252,10 +36241,6 @@
   ],
   "Aegeus Technologies": [
    [
-    "2026-08-20",
-    166.05
-   ],
-   [
     "2026-08-21",
     161.9
    ],
@@ -36489,10 +36474,6 @@
    ]
   ],
   "Alpine Texworld": [
-   [
-    "2026-08-20",
-    59.41
-   ],
    [
     "2026-08-21",
     58.5
@@ -37075,10 +37056,6 @@
    ]
   ],
   "Ardee Industries": [
-   [
-    "2026-08-20",
-    61.48
-   ],
    [
     "2026-08-21",
     60.2
@@ -37812,10 +37789,6 @@
   ],
   "Behari Lal Engineering": [
    [
-    "2026-08-20",
-    504.25
-   ],
-   [
     "2026-08-21",
     494.95
    ],
@@ -38054,10 +38027,6 @@
   ],
   "Caliber Mining": [
    [
-    "2026-08-20",
-    506.95
-   ],
-   [
     "2026-08-21",
     529.65
    ],
@@ -38295,10 +38264,6 @@
    ]
   ],
   "Cube Highways Trust InvIT": [
-   [
-    "2026-08-20",
-    157.12
-   ],
    [
     "2026-08-21",
     156.91
@@ -38727,10 +38692,6 @@
    ]
   ],
   "Dhoot Transmission": [
-   [
-    "2026-08-20",
-    1468.65
-   ],
    [
     "2026-08-21",
     1478.95
@@ -39383,10 +39344,6 @@
    ]
   ],
   "H.R. Hygiene Products": [
-   [
-    "2026-08-20",
-    78.35
-   ],
    [
     "2026-08-21",
     73.98
@@ -40046,10 +40003,6 @@
   ],
   "Indo-MIM": [
    [
-    "2026-08-20",
-    919.55
-   ],
-   [
     "2026-08-21",
     882.1
    ],
@@ -40453,10 +40406,6 @@
    ]
   ],
   "Juniper Green Energy": [
-   [
-    "2026-08-20",
-    273.76
-   ],
    [
     "2026-08-21",
     265.8
@@ -41238,10 +41187,6 @@
   ],
   "LAPL Automotive": [
    [
-    "2026-08-20",
-    112.83
-   ],
-   [
     "2026-08-21",
     118.43
    ],
@@ -41645,10 +41590,6 @@
    ]
   ],
   "LEAP India": [
-   [
-    "2026-08-20",
-    166.66
-   ],
    [
     "2026-08-21",
     162.02
@@ -42126,10 +42067,6 @@
   ],
   "Lohia Corp": [
    [
-    "2026-08-20",
-    539.85
-   ],
-   [
     "2026-08-21",
     577.15
    ],
@@ -42570,10 +42507,6 @@
   ],
   "MV Electrosystems": [
    [
-    "2026-08-20",
-    568.3
-   ],
-   [
     "2026-08-21",
     591.15
    ],
@@ -42904,10 +42837,6 @@
   ],
   "Metalic Technoforge": [
    [
-    "2026-08-20",
-    151.5
-   ],
-   [
     "2026-08-21",
     147.2
    ],
@@ -43145,10 +43074,6 @@
    ]
   ],
   "Millworks Technologies": [
-   [
-    "2026-08-20",
-    786.3
-   ],
    [
     "2026-08-21",
     827.5
@@ -43388,10 +43313,6 @@
   ],
   "Molbio Diagnostics": [
    [
-    "2026-08-20",
-    1036.65
-   ],
-   [
     "2026-08-21",
     1098.45
    ],
@@ -43629,10 +43550,6 @@
    ]
   ],
   "Optimystix Entertainment": [
-   [
-    "2026-08-20",
-    179.95
-   ],
    [
     "2026-08-21",
     174.0
@@ -45288,10 +45205,6 @@
   ],
   "SBI Funds Management": [
    [
-    "2026-08-20",
-    555.5
-   ],
-   [
     "2026-08-21",
     549.55
    ],
@@ -45954,10 +45867,6 @@
   ],
   "Shiprocket": [
    [
-    "2026-08-20",
-    141.65
-   ],
-   [
     "2026-08-21",
     140.81
    ],
@@ -46205,10 +46114,6 @@
    ]
   ],
   "Sotefin Bharat": [
-   [
-    "2026-08-20",
-    249.35
-   ],
    [
     "2026-08-21",
     250.25
@@ -46978,10 +46883,6 @@
   ],
   "Technocraft Ventures": [
    [
-    "2026-08-20",
-    330.37
-   ],
-   [
     "2026-08-21",
     332.61
    ],
@@ -47603,10 +47504,6 @@
    ]
   ],
   "Xtranet Technologies": [
-   [
-    "2026-08-20",
-    160.18
-   ],
    [
     "2026-08-21",
     167.03
@@ -48332,10 +48229,6 @@
   ],
   "Om Power Transmission": [
    [
-    "2026-08-20",
-    162.7
-   ],
-   [
     "2026-08-21",
     163.09
    ],
@@ -48772,10 +48665,6 @@
   ],
   "Vinit Mobile": [
    [
-    "2026-08-20",
-    62.7
-   ],
-   [
     "2026-08-21",
     65.8
    ],
@@ -49005,10 +48894,6 @@
    ]
   ],
   "OnEMI Technology": [
-   [
-    "2026-08-20",
-    302.65
-   ],
    [
     "2026-08-21",
     310.95
@@ -49248,10 +49133,6 @@
   ],
   "Anawil Wire & Engineering": [
    [
-    "2026-08-20",
-    443.0
-   ],
-   [
     "2026-08-21",
     465.15
    ],
@@ -49489,10 +49370,6 @@
    ]
   ],
   "Aye Finance": [
-   [
-    "2026-08-20",
-    169.69
-   ],
    [
     "2026-08-21",
     170.02
@@ -49732,10 +49609,6 @@
   ],
   "Knack Packaging": [
    [
-    "2026-08-20",
-    209.17
-   ],
-   [
     "2026-08-21",
     203.55
    ],
@@ -49974,10 +49847,6 @@
   ],
   "Shreedhar Spinners": [
    [
-    "2026-08-20",
-    116.55
-   ],
-   [
     "2026-08-21",
     111.1
    ],
@@ -50191,10 +50060,6 @@
    ]
   ],
   "IC Electricals": [
-   [
-    "2026-08-20",
-    136.75
-   ],
    [
     "2026-08-21",
     139.9
@@ -50434,10 +50299,6 @@
   ],
   "Turtlemint Fintech Solutions": [
    [
-    "2026-08-20",
-    144.6
-   ],
-   [
     "2026-08-21",
     149.34
    ],
@@ -50676,10 +50537,6 @@
   ],
   "Happy Steels": [
    [
-    "2026-08-20",
-    77.7
-   ],
-   [
     "2026-08-21",
     87.45
    ],
@@ -50909,10 +50766,6 @@
    ]
   ],
   "Sai Parenteral's": [
-   [
-    "2026-08-20",
-    543.4
-   ],
    [
     "2026-08-21",
     540.85
@@ -51152,10 +51005,6 @@
   ],
   "Clean Max Enviro Energy Solutions": [
    [
-    "2026-08-20",
-    1220.1
-   ],
-   [
     "2026-08-21",
     1266.9
    ],
@@ -51394,10 +51243,6 @@
   ],
   "Utkal Speciality": [
    [
-    "2026-08-20",
-    55.3
-   ],
-   [
     "2026-08-21",
     52.55
    ],
@@ -51615,10 +51460,6 @@
    ]
   ],
   "Laser Power & Infra": [
-   [
-    "2026-08-20",
-    328.4
-   ],
    [
     "2026-08-21",
     337.55
@@ -51857,10 +51698,6 @@
    ]
   ],
   "Advit Jewels": [
-   [
-    "2026-08-20",
-    173.84
-   ],
    [
     "2026-08-21",
     177.41
@@ -52334,10 +52171,6 @@
   ],
   "Clay Craft": [
    [
-    "2026-08-20",
-    164.2
-   ],
-   [
     "2026-08-21",
     155.5
    ],
@@ -52575,10 +52408,6 @@
    ]
   ],
   "Omnitech Engineering": [
-   [
-    "2026-08-20",
-    574.0
-   ],
    [
     "2026-08-21",
     581.0
@@ -52818,10 +52647,6 @@
   ],
   "PNGS Reva Diamond Jewellery": [
    [
-    "2026-08-20",
-    552.5
-   ],
-   [
     "2026-08-21",
     555.8
    ],
@@ -53060,10 +52885,6 @@
   ],
   "Amba Auto Sales & Services": [
    [
-    "2026-08-20",
-    105.4
-   ],
-   [
     "2026-08-21",
     107.95
    ],
@@ -53294,10 +53115,6 @@
   ],
   "Mobilise App": [
    [
-    "2026-08-20",
-    105.25
-   ],
-   [
     "2026-08-24",
     105.0
    ],
@@ -53443,10 +53260,6 @@
    ]
   ],
   "Armour Security": [
-   [
-    "2026-08-20",
-    18.3
-   ],
    [
     "2026-08-21",
     18.55
@@ -53844,10 +53657,6 @@
   ],
   "Avana Electrosystems": [
    [
-    "2026-08-20",
-    147.4
-   ],
-   [
     "2026-08-21",
     147.55
    ],
@@ -54081,10 +53890,6 @@
    ]
   ],
   "E to E Transportation Infrastructure": [
-   [
-    "2026-08-20",
-    297.8
-   ],
    [
     "2026-08-21",
     289.05
@@ -54324,10 +54129,6 @@
   ],
   "Pramodini Medicare": [
    [
-    "2026-08-20",
-    118.1
-   ],
-   [
     "2026-08-21",
     118.0
    ],
@@ -54565,10 +54366,6 @@
    ]
   ],
   "Grover Jewells": [
-   [
-    "2026-08-20",
-    234.0
-   ],
    [
     "2026-08-21",
     242.0
@@ -55394,10 +55191,6 @@
   ],
   "Waterways Leisure Tourism": [
    [
-    "2026-08-20",
-    907.75
-   ],
-   [
     "2026-08-21",
     978.4
    ],
@@ -55635,10 +55428,6 @@
    ]
   ],
   "Fractal Analytics": [
-   [
-    "2026-08-20",
-    855.25
-   ],
    [
     "2026-08-21",
     846.7
@@ -55878,10 +55667,6 @@
   ],
   "Victory Electric Vehicles": [
    [
-    "2026-08-20",
-    16.3
-   ],
-   [
     "2026-08-21",
     16.4
    ],
@@ -56091,10 +55876,6 @@
    ]
   ],
   "Shree Ram Twistex": [
-   [
-    "2026-08-20",
-    39.35
-   ],
    [
     "2026-08-21",
     39.92
@@ -56334,10 +56115,6 @@
   ],
   "Vivid Electromech": [
    [
-    "2026-08-20",
-    1571.0
-   ],
-   [
     "2026-08-21",
     1559.6
    ],
@@ -56575,10 +56352,6 @@
    ]
   ],
   "Simca Advertising": [
-   [
-    "2026-08-20",
-    245.85
-   ],
    [
     "2026-08-21",
     242.5
@@ -56984,10 +56757,6 @@
   ],
   "Kusumgar": [
    [
-    "2026-08-20",
-    572.5
-   ],
-   [
     "2026-08-21",
     581.95
    ],
@@ -57226,10 +56995,6 @@
   ],
   "Hexagon Nutrition": [
    [
-    "2026-08-20",
-    70.11
-   ],
-   [
     "2026-08-21",
     70.21
    ],
@@ -57467,10 +57232,6 @@
    ]
   ],
   "Biopol Chemicals": [
-   [
-    "2026-08-20",
-    97.9
-   ],
    [
     "2026-08-21",
     97.0
@@ -57840,10 +57601,6 @@
   ],
   "Bio Medica Laboratories": [
    [
-    "2026-08-20",
-    155.0
-   ],
-   [
     "2026-08-21",
     156.7
    ],
@@ -58057,10 +57814,6 @@
    ]
   ],
   "GSP Crop Science": [
-   [
-    "2026-08-20",
-    590.5
-   ],
    [
     "2026-08-21",
     594.0
@@ -58300,10 +58053,6 @@
   ],
   "SEDEMAC Mechatronics": [
    [
-    "2026-08-20",
-    3261.4
-   ],
-   [
     "2026-08-21",
     3253.1
    ],
@@ -58541,10 +58290,6 @@
    ]
   ],
   "Avience Biomedicals": [
-   [
-    "2026-08-20",
-    240.0
-   ],
    [
     "2026-08-21",
     255.9
@@ -58784,10 +58529,6 @@
   ],
   "Teamtech Formwork Solutions": [
    [
-    "2026-08-20",
-    128.95
-   ],
-   [
     "2026-08-21",
     135.35
    ],
@@ -59026,10 +58767,6 @@
   ],
   "Teja Engineering Industries": [
    [
-    "2026-08-20",
-    352.15
-   ],
-   [
     "2026-08-21",
     334.55
    ],
@@ -59247,10 +58984,6 @@
    ]
   ],
   "CKK Retail Mart": [
-   [
-    "2026-08-20",
-    149.0
-   ],
    [
     "2026-08-21",
     145.1
@@ -59477,10 +59210,6 @@
    ]
   ],
   "Central Mine Planning": [
-   [
-    "2026-08-20",
-    234.49
-   ],
    [
     "2026-08-21",
     233.66
@@ -59720,10 +59449,6 @@
   ],
   "Shadowfax Technologies": [
    [
-    "2026-08-20",
-    258.0
-   ],
-   [
     "2026-08-21",
     255.39
    ],
@@ -59961,10 +59686,6 @@
    ]
   ],
   "CMR Green Technologies": [
-   [
-    "2026-08-20",
-    213.75
-   ],
    [
     "2026-08-21",
     212.87
@@ -60204,10 +59925,6 @@
   ],
   "Amagi Media Labs": [
    [
-    "2026-08-20",
-    576.45
-   ],
-   [
     "2026-08-21",
     599.85
    ],
@@ -60446,10 +60163,6 @@
   ],
   "Amir Chand Jagdish Kumar": [
    [
-    "2026-08-20",
-    182.56
-   ],
-   [
     "2026-08-21",
     175.82
    ],
@@ -60687,10 +60400,6 @@
    ]
   ],
   "Value 360 Communications": [
-   [
-    "2026-08-20",
-    76.65
-   ],
    [
     "2026-08-21",
     75.55
@@ -61246,10 +60955,6 @@
   ],
   "Srinibas Pradhan Constructions": [
    [
-    "2026-08-20",
-    149.0
-   ],
-   [
     "2026-08-21",
     151.0
    ],
@@ -61415,10 +61120,6 @@
    ]
   ],
   "Brandman Retail": [
-   [
-    "2026-08-20",
-    158.7
-   ],
    [
     "2026-08-21",
     160.45
@@ -61645,10 +61346,6 @@
    ]
   ],
   "Gaudium IVF": [
-   [
-    "2026-08-20",
-    113.68
-   ],
    [
     "2026-08-21",
     111.41
@@ -61888,10 +61585,6 @@
   ],
   "RFBL Flexi Pack": [
    [
-    "2026-08-20",
-    95.7
-   ],
-   [
     "2026-08-21",
     100.4
    ],
@@ -62065,10 +61758,6 @@
    ]
   ],
   "Rajputana Stainless": [
-   [
-    "2026-08-20",
-    165.55
-   ],
    [
     "2026-08-21",
     164.85
@@ -62308,10 +61997,6 @@
   ],
   "Credent Connect": [
    [
-    "2026-08-20",
-    377.05
-   ],
-   [
     "2026-08-21",
     375.0
    ],
@@ -62549,10 +62234,6 @@
    ]
   ],
   "Genxai Analytics": [
-   [
-    "2026-08-20",
-    79.45
-   ],
    [
     "2026-08-21",
     78.5
@@ -62792,10 +62473,6 @@
   ],
   "Adisoft Technologies": [
    [
-    "2026-08-20",
-    188.45
-   ],
-   [
     "2026-08-21",
     206.25
    ],
@@ -63033,10 +62710,6 @@
    ]
   ],
   "Apsis Aerocom": [
-   [
-    "2026-08-20",
-    530.25
-   ],
    [
     "2026-08-21",
     540.85
@@ -63276,10 +62949,6 @@
   ],
   "Yaap Digital": [
    [
-    "2026-08-20",
-    138.0
-   ],
-   [
     "2026-08-21",
     136.2
    ],
@@ -63517,10 +63186,6 @@
    ]
   ],
   "CSM Technologies": [
-   [
-    "2026-08-20",
-    99.37
-   ],
    [
     "2026-08-21",
     99.55
@@ -63954,10 +63619,6 @@
   ],
   "KRM Ayurveda": [
    [
-    "2026-08-20",
-    289.15
-   ],
-   [
     "2026-08-21",
     277.05
    ],
@@ -64195,10 +63856,6 @@
    ]
   ],
   "Milky Mist Dairy Food": [
-   [
-    "2026-08-20",
-    184.89
-   ],
    [
     "2026-08-21",
     189.22
@@ -64438,10 +64095,6 @@
   ],
   "Manipal Health Enterprises": [
    [
-    "2026-08-20",
-    724.35
-   ],
-   [
     "2026-08-21",
     715.3
    ],
@@ -64679,10 +64332,6 @@
    ]
   ],
   "Powerica": [
-   [
-    "2026-08-20",
-    533.9
-   ],
    [
     "2026-08-21",
     518.3
@@ -64922,10 +64571,6 @@
   ],
   "Propshop Events & Exhibitions": [
    [
-    "2026-08-20",
-    69.5
-   ],
-   [
     "2026-08-21",
     70.05
    ],
@@ -65115,10 +64760,6 @@
    ]
   ],
   "NFP Sampoorna Foods": [
-   [
-    "2026-08-20",
-    22.5
-   ],
    [
     "2026-08-21",
     22.6
@@ -65337,10 +64978,6 @@
    ]
   ],
   "Innovision": [
-   [
-    "2026-08-20",
-    269.45
-   ],
    [
     "2026-08-21",
     264.55
@@ -65580,10 +65217,6 @@
   ],
   "Q-Line Biotec": [
    [
-    "2026-08-20",
-    512.0
-   ],
-   [
     "2026-08-21",
     549.75
    ],
@@ -65821,10 +65454,6 @@
    ]
   ],
   "Aastha Spintex": [
-   [
-    "2026-08-20",
-    73.32
-   ],
    [
     "2026-08-21",
     73.03
@@ -66468,10 +66097,6 @@
   ],
   "Bharat Coking Coal": [
    [
-    "2026-08-20",
-    33.27
-   ],
-   [
     "2026-08-21",
     34.81
    ],
@@ -66710,10 +66335,6 @@
   ],
   "Propshare Celestia": [
    [
-    "2026-08-20",
-    1005500.0
-   ],
-   [
     "2026-08-21",
     1009000.0
    ],
@@ -66879,10 +66500,6 @@
    ]
   ],
   "G.V. Electricals": [
-   [
-    "2026-08-20",
-    145.65
-   ],
    [
     "2026-08-21",
     141.55
@@ -67118,10 +66735,6 @@
   ],
   "Sham Foam": [
    [
-    "2026-08-20",
-    89.25
-   ],
-   [
     "2026-08-21",
     84.8
    ],
@@ -67351,10 +66964,6 @@
    ]
   ],
   "Accord Transformer & Switchgear": [
-   [
-    "2026-08-20",
-    60.65
-   ],
    [
     "2026-08-21",
     59.95
@@ -67594,10 +67203,6 @@
   ],
   "Mehul Telecom": [
    [
-    "2026-08-20",
-    87.99
-   ],
-   [
     "2026-08-21",
     88.0
    ],
@@ -67828,10 +67433,6 @@
   ],
   "Highness Microelectronics": [
    [
-    "2026-08-20",
-    190.0
-   ],
-   [
     "2026-08-21",
     183.7
    ],
@@ -68049,10 +67650,6 @@
    ]
   ],
   "Digilogic Systems": [
-   [
-    "2026-08-20",
-    204.6
-   ],
    [
     "2026-08-21",
     207.6
@@ -68292,10 +67889,6 @@
   ],
   "Poojaa Precision Engg.": [
    [
-    "2026-08-20",
-    642.9
-   ],
-   [
     "2026-08-21",
     653.85
    ],
@@ -68533,10 +68126,6 @@
    ]
   ],
   "Novus Loyalty": [
-   [
-    "2026-08-20",
-    155.3
-   ],
    [
     "2026-08-21",
     160.0
@@ -68776,10 +68365,6 @@
   ],
   "Defrail Technologies": [
    [
-    "2026-08-20",
-    73.9
-   ],
-   [
     "2026-08-21",
     71.0
    ],
@@ -68941,10 +68526,6 @@
    ]
   ],
   "Rajnandini Fashion India": [
-   [
-    "2026-08-20",
-    35.0
-   ],
    [
     "2026-08-21",
     33.88
@@ -69353,10 +68934,6 @@
    ]
   ],
   "Modern Diagnostic": [
-   [
-    "2026-08-20",
-    51.8
-   ],
    [
     "2026-08-21",
     51.0
@@ -69806,10 +69383,6 @@
   ],
   "Elfin Agro India": [
    [
-    "2026-08-20",
-    86.0
-   ],
-   [
     "2026-08-21",
     88.0
    ],
@@ -70015,10 +69588,6 @@
    ]
   ],
   "Horizon Reclaim (India)": [
-   [
-    "2026-08-20",
-    119.05
-   ],
    [
     "2026-08-21",
     124.55
@@ -70258,10 +69827,6 @@
   ],
   "Kratikal Tech": [
    [
-    "2026-08-20",
-    174.0
-   ],
-   [
     "2026-08-21",
     177.7
    ],
@@ -70500,10 +70065,6 @@
   ],
   "GRE Renew Enertech": [
    [
-    "2026-08-20",
-    174.5
-   ],
-   [
     "2026-08-21",
     175.0
    ],
@@ -70717,10 +70278,6 @@
    ]
   ],
   "Silverstorm Parks & Resorts": [
-   [
-    "2026-08-20",
-    130.35
-   ],
    [
     "2026-08-21",
     128.2
@@ -71186,10 +70743,6 @@
   ],
   "Riyaasat Lifestyle": [
    [
-    "2026-08-20",
-    67.2
-   ],
-   [
     "2026-08-21",
     69.0
    ],
@@ -71368,10 +70921,6 @@
   ],
   "Vahh Chemicals": [
    [
-    "2026-08-20",
-    49.02
-   ],
-   [
     "2026-08-24",
     45.26
    ],
@@ -71505,10 +71054,6 @@
    ]
   ],
   "SMR Jewels": [
-   [
-    "2026-08-20",
-    96.25
-   ],
    [
     "2026-08-21",
     95.0
@@ -71894,10 +71439,6 @@
   ],
   "Merritronix": [
    [
-    "2026-08-20",
-    304.8
-   ],
-   [
     "2026-08-21",
     341.3
    ],
@@ -72136,10 +71677,6 @@
   ],
   "Sampark India Logistics": [
    [
-    "2026-08-20",
-    89.0
-   ],
-   [
     "2026-08-21",
     89.0
    ],
@@ -72361,10 +71898,6 @@
    ]
   ],
   "Adon Agro Commodities": [
-   [
-    "2026-08-20",
-    87.2
-   ],
    [
     "2026-08-21",
     86.0
@@ -72604,10 +72137,6 @@
   ],
   "Atharva Polyplast": [
    [
-    "2026-08-20",
-    71.13
-   ],
-   [
     "2026-08-21",
     70.5
    ],
@@ -72845,10 +72374,6 @@
    ]
   ],
   "Susan Electricals India": [
-   [
-    "2026-08-20",
-    311.15
-   ],
    [
     "2026-08-21",
     320.75
@@ -73088,10 +72613,6 @@
   ],
   "Advance Technoforge": [
    [
-    "2026-08-20",
-    78.69
-   ],
-   [
     "2026-08-21",
     82.62
    ],
@@ -73330,10 +72851,6 @@
   ],
   "Kanishk Aluminium India": [
    [
-    "2026-08-20",
-    23.72
-   ],
-   [
     "2026-08-21",
     24.74
    ],
@@ -73511,10 +73028,6 @@
    ]
   ],
   "Goldline Pharmaceutical": [
-   [
-    "2026-08-20",
-    41.19
-   ],
    [
     "2026-08-21",
     40.97
@@ -73876,10 +73389,6 @@
   ],
   "Recode Studios": [
    [
-    "2026-08-20",
-    312.0
-   ],
-   [
     "2026-08-21",
     317.0
    ],
@@ -74118,10 +73627,6 @@
   ],
   "Citius Transnet InvIT": [
    [
-    "2026-08-20",
-    113.98
-   ],
-   [
     "2026-08-21",
     114.42
    ],
@@ -74356,10 +73861,6 @@
   ],
   "Fusion Klassroom Edutech": [
    [
-    "2026-08-20",
-    174.0
-   ],
-   [
     "2026-08-21",
     180.4
    ],
@@ -74590,10 +74091,6 @@
   ],
   "UHM Vacation": [
    [
-    "2026-08-20",
-    37.0
-   ],
-   [
     "2026-08-21",
     35.0
    ],
@@ -74823,10 +74320,6 @@
    ]
   ],
   "Kiaasa Retail": [
-   [
-    "2026-08-20",
-    32.0
-   ],
    [
     "2026-08-21",
     32.2
@@ -75280,10 +74773,6 @@
   ],
   "Yaashvi Jewellers": [
    [
-    "2026-08-20",
-    84.88
-   ],
-   [
     "2026-08-21",
     90.31
    ],
@@ -75514,10 +75003,6 @@
   ],
   "Jivial Industries": [
    [
-    "2026-08-20",
-    82.0
-   ],
-   [
     "2026-08-21",
     88.0
    ],
@@ -75667,10 +75152,6 @@
    ]
   ],
   "Yashhtej Industries (India)": [
-   [
-    "2026-08-20",
-    53.98
-   ],
    [
     "2026-08-21",
     52.0
@@ -76092,10 +75573,6 @@
   ],
   "Oneindig Technologies": [
    [
-    "2026-08-20",
-    136.32
-   ],
-   [
     "2026-08-21",
     144.47
    ],
@@ -76286,10 +75763,6 @@
   ],
   "Emiac Technologies": [
    [
-    "2026-08-20",
-    88.93
-   ],
-   [
     "2026-08-21",
     89.98
    ],
@@ -76451,10 +75924,6 @@
    ]
   ],
   "Shayona Engineering": [
-   [
-    "2026-08-20",
-    135.45
-   ],
    [
     "2026-08-25",
     135.5
@@ -76637,10 +76106,6 @@
    ]
   ],
   "Gabion Technologies": [
-   [
-    "2026-08-20",
-    72.19
-   ],
    [
     "2026-08-21",
     72.6
@@ -76875,10 +76340,6 @@
    ]
   ],
   "Tipco Engineering": [
-   [
-    "2026-08-20",
-    204.8
-   ],
    [
     "2026-08-21",
     215.0
@@ -77118,10 +76579,6 @@
   ],
   "Shree Balaji Mala": [
    [
-    "2026-08-20",
-    68.3
-   ],
-   [
     "2026-08-21",
     66.0
    ],
@@ -77299,10 +76756,6 @@
    ]
   ],
   "Safety Controls": [
-   [
-    "2026-08-20",
-    65.17
-   ],
    [
     "2026-08-21",
     68.44
@@ -77537,10 +76990,6 @@
    ]
   ],
   "Bagmane REIT": [
-   [
-    "2026-08-20",
-    107.14
-   ],
    [
     "2026-08-21",
     107.44
@@ -78192,10 +77641,6 @@
   ],
   "Anubhav Plast": [
    [
-    "2026-08-20",
-    50.0
-   ],
-   [
     "2026-08-21",
     50.5
    ],
@@ -78377,10 +77822,6 @@
    ]
   ],
   "Vegorama Punjabi Angithi": [
-   [
-    "2026-08-20",
-    236.25
-   ],
    [
     "2026-08-21",
     248.05
@@ -78615,10 +78056,6 @@
    ]
   ],
   "Aritas Vinyl": [
-   [
-    "2026-08-20",
-    12.75
-   ],
    [
     "2026-08-21",
     13.03
@@ -79150,10 +78587,6 @@
   ],
   "Q&T Foods": [
    [
-    "2026-08-20",
-    103.8
-   ],
-   [
     "2026-08-21",
     98.65
    ],
@@ -79541,10 +78974,6 @@
    ]
   ],
   "INDO SMC": [
-   [
-    "2026-08-20",
-    503.4
-   ],
    [
     "2026-08-21",
     517.6
@@ -80027,10 +79456,6 @@
    ]
   ],
   "Devson Catalyst": [
-   [
-    "2026-08-20",
-    277.55
-   ],
    [
     "2026-08-21",
     272.1
@@ -81026,10 +80451,6 @@
   ],
   "Dhaval Packaging": [
    [
-    "2026-08-20",
-    126.81
-   ],
-   [
     "2026-08-21",
     132.93
    ],
@@ -81268,10 +80689,6 @@
   ],
   "Diksha Polymers": [
    [
-    "2026-08-20",
-    143.0
-   ],
-   [
     "2026-08-21",
     143.75
    ],
@@ -81365,10 +80782,6 @@
    ]
   ],
   "Kasturi Metal Composite": [
-   [
-    "2026-08-20",
-    52.75
-   ],
    [
     "2026-08-21",
     52.01
@@ -81726,10 +81139,6 @@
   ],
   "Autofurnish": [
    [
-    "2026-08-20",
-    54.0
-   ],
-   [
     "2026-08-21",
     55.0
    ],
@@ -81935,10 +81344,6 @@
    ]
   ],
   "Raajmarg Infra Investment Trust": [
-   [
-    "2026-08-20",
-    121.68
-   ],
    [
     "2026-08-21",
     121.71
@@ -82178,10 +81583,6 @@
   ],
   "Liotech Industries": [
    [
-    "2026-08-20",
-    100.1
-   ],
-   [
     "2026-08-21",
     102.35
    ],
@@ -82411,10 +81812,6 @@
    ]
   ],
   "Accretion Nutraveda": [
-   [
-    "2026-08-20",
-    277.0
-   ],
    [
     "2026-08-21",
     286.0
@@ -82788,10 +82185,6 @@
   ],
   "Gulf Lloyds": [
    [
-    "2026-08-20",
-    40.64
-   ],
-   [
     "2026-08-21",
     42.67
    ],
@@ -83025,10 +82418,6 @@
    ]
   ],
   "Msafe Equipments": [
-   [
-    "2026-08-20",
-    241.9
-   ],
    [
     "2026-08-21",
     242.4
@@ -83466,10 +82855,6 @@
   ],
   "Speciality Medicines": [
    [
-    "2026-08-20",
-    157.25
-   ],
-   [
     "2026-08-21",
     151.2
    ],
@@ -83699,10 +83084,6 @@
    ]
   ],
   "Yajur Fibres": [
-   [
-    "2026-08-20",
-    33.01
-   ],
    [
     "2026-08-21",
     33.65
@@ -83941,10 +83322,6 @@
    ]
   ],
   "Narmadesh Brass Industries": [
-   [
-    "2026-08-20",
-    335.0
-   ],
    [
     "2026-08-21",
     334.0
@@ -89300,8 +88677,41 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-18T19:37:02+05:30",
+  "asOf": "2026-11-19T01:56:24+05:30",
   "checks": [
+   {
+    "area": "gmp",
+    "method": "investorgain:ok, ipowatch:ok",
+    "status": "ok",
+    "asOf": "9-Nov 9:37",
+    "elapsed": 2.03,
+    "calls": 2,
+    "note": "gmp: 3 board rows patched via investorgain; 3 active, 3 of them matched; gmp: second site — 2 agree (within 2% of the issue price), 1 differ, 0 quoted by one site only; gmp: 18 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Jio Platforms (₹250, investorgain) …",
+    "lastOk": "2026-11-19T01:56:24+05:30",
+    "dueBy": "2026-11-19T07:28:00+05:30"
+   },
+   {
+    "area": "details",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-11-19T01:56:05+05:30",
+    "elapsed": 3.08,
+    "calls": 3,
+    "note": "3 records fetched for 3 identified listings (0 without an id); 0 anchor books updated, 98 on file",
+    "lastOk": "2026-11-19T01:56:24+05:30",
+    "dueBy": "2026-11-19T07:28:00+05:30"
+   },
+   {
+    "area": "subscription",
+    "method": "nse:ok",
+    "status": "ok",
+    "asOf": "2026-11-19T01:56:24+05:30",
+    "elapsed": 15.87,
+    "calls": 9,
+    "note": "1/3 rows patched via nse; no subscription for: Mahanadi Coalfields, Watrana Rentals",
+    "lastOk": "2026-11-19T01:56:24+05:30",
+    "dueBy": "2026-11-19T07:28:00+05:30"
+   },
    {
     "area": "flows",
     "method": "nse:ok",
@@ -89311,41 +88721,6 @@
     "calls": 5,
     "note": "2026-11-18 already in history; nsdl to 2026-11-18: 11 months, 12 years; FII +5,867 / DII -3,160 Cr",
     "lastOk": "2026-11-18T19:37:02+05:30",
-    "dueBy": "2026-11-19T07:28:00+05:30"
-   },
-   {
-    "area": "gmp",
-    "method": "investorgain:ok, ipowatch:ok",
-    "status": "ok",
-    "asOf": "9-Nov 9:37",
-    "elapsed": 3.08,
-    "calls": 2,
-    "note": "gmp: 3 board rows patched via investorgain; 3 active, 3 of them matched; gmp: second site — 3 agree (within 2% of the issue price), 0 differ, 0 quoted by one site only; gmp: 18 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Jio Platforms (₹250, investorgain) …",
-    "lastOk": "2026-11-18T18:27:12+05:30",
-    "dueBy": "2026-11-19T07:28:00+05:30",
-    "carried": true
-   },
-   {
-    "area": "details",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-11-18T18:26:54+05:30",
-    "elapsed": 9.71,
-    "calls": 1,
-    "note": "1 records fetched for 3 identified listings (0 without an id); 0 anchor books updated, 98 on file",
-    "lastOk": "2026-11-18T18:27:12+05:30",
-    "dueBy": "2026-11-19T07:28:00+05:30",
-    "carried": true
-   },
-   {
-    "area": "subscription",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-11-18T18:27:12+05:30",
-    "elapsed": 8.24,
-    "calls": 3,
-    "note": "1/1 rows patched via nse",
-    "lastOk": "2026-11-18T18:27:12+05:30",
     "dueBy": "2026-11-19T07:28:00+05:30",
     "carried": true
    },
@@ -89527,7 +88902,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "7s, 5 calls, 1/1 modules ok"
+    "note": "21s, 14 calls, 3/3 modules ok"
    }
   ],
   "discrepancies": [
@@ -127777,7 +127152,9 @@
    "count": null,
    "topTierShare": null,
    "investors": [],
-   "sources": [],
+   "sources": [
+    "https://www.chittorgarh.net/reports/anchor-investor/company-letter-watrana.pdf"
+   ],
    "source": "exchange-json",
    "auto": true,
    "lockIn30": "2026-12-25",
@@ -137477,7 +136854,7 @@
  "records": {
   "2067": {
    "name": "Crystal Crop Protection",
-   "fetchedAt": "2026-11-18T18:26:54+05:30",
+   "fetchedAt": "2026-11-19T01:56:05+05:30",
    "about": [
     "Crystal Crop Protection is an Indian agri-inputs company built around two pillars: agrochemicals and seeds. Everything it makes is tailored to the conditions and needs of Indian farmers. Offerings: Crop protection: Herbicides, fungicides and insecticides, sold under more than 174 brands in a range of pack sizes, including smaller, farmer-friendly formats. The branded business has been its faster-growing segment. Crop nutrition and natural solutions: Bio-stimulants, bio-protectants, plant growth regulators, liquid fertilizers and micronutrients. Seeds: Cotton, cereals, oilseeds, fodder crops, vegetables and flowers, sold across India and exported to markets such as Japan, the USA and Thailand. Exports: Formulations and technicals shipped to Bangladesh, Nepal and several countries in Africa and Asia. Crystal follows a fully integrated model that links research, seed breeding, technology-enabled manufacturing and distribution. Its R&D centre is in Sonipat, Haryana, and the company also works with multinational partners on innovation. Production is spread across Haryana, Gujarat, Jammu & Kashmir, Maharashtra, Telangana and Karnataka, covering formulations, technicals and seed processing. As of 30 September 2025, formulation plants had a combined installed capacity of 75,962 MT, while technicals facilities stood at 3,456 MT. Products reach the market through over 13,000 distributors and 36 distribution centres across India."
    ],
@@ -137760,9 +137137,9 @@
    "gmpHistory": [
     {
      "date": "2026-11-18",
-     "gmp": 19.0,
-     "est": 291.0,
-     "pct": 6.99,
+     "gmp": 18.0,
+     "est": 290.0,
+     "pct": 6.62,
      "kostakSauda": "800/11200"
     },
     {
@@ -137823,7 +137200,7 @@
   },
   "1818": {
    "name": "Watrana Rentals",
-   "fetchedAt": "2026-11-18T16:08:22+05:30",
+   "fetchedAt": "2026-11-19T01:56:05+05:30",
    "about": [
     "Watrana Rentals Limited is engaged in providing rental and trading solutions for material handling equipment (MHE) and cargo handling requirements. Its product portfolio includes battery-operated, diesel and gas-powered forklifts, electric stackers, pallet trucks, specialised attachments such as paper-roll clamps, bale clamps and side shifters, along with various ground-support equipment. The company is an ISO 9001:2015, ISO 45001:2018 and ISO 14001:2015 certified supplier of industrial material handling equipment, catering to the requirements of customers across various industries in India. The company's business operations are primarily divided into the following segments: Rental Solutions: Offers material handling equipment on a rental basis, enabling customers to meet their operational requirements while avoiding significant upfront capital expenditure and long-term ownership commitments. Trading in MHE: Engages in the sale of material handling equipment, providing customers with suitable equipment options based on their operational requirements and budgets. Trading in Batteries for MHE: Supplies batteries compatible with different material handling equipment models, catering to both rental customers and equipment buyers. The company has an extensive pan-India presence, with more than 304 rental sites, enabling it to provide equipment accessibility and timely service support to customers across different locations. As of April 30, 2025, the company had an operational fleet of over 1,441 material handling equipment units. Its fleet comprises diesel and electric forklifts, reach trucks, battery-operated stackers, pallet trucks, order pickers, towing trucks and other equipment. As of April 30, 2025, the company had a workforce of approximately 3,122 employees, comprising equipment operators, technicians, engineers, site supervisors and other support staff. Competitive Strengths: Experienced Promoters and Management: Backed by experienced promoters and a senior management team with strong technical knowledge and industry expertise. Skilled Workforce: A large and trained workforce that plays an important role in delivering efficient and reliable services to customers across India. Focus on Quality Assurance: Emphasises service quality and operational standards across its business activities. Extensive Network Presence: Established pan-India network of rental locations, supporting wider customer reach and efficient service delivery."
    ],
@@ -138060,10 +137437,10 @@
    "gmpHistory": [
     {
      "date": "2026-11-18",
-     "gmp": 37.0,
-     "est": 282.0,
-     "pct": 15.1,
-     "kostakSauda": "16900"
+     "gmp": 62.0,
+     "est": 307.0,
+     "pct": 25.31,
+     "kostakSauda": "28300"
     },
     {
      "date": "2026-11-17",
@@ -138109,7 +137486,7 @@
   },
   "2401": {
    "name": "Mahanadi Coalfields",
-   "fetchedAt": "2026-11-18T16:08:22+05:30",
+   "fetchedAt": "2026-11-19T01:56:05+05:30",
    "about": [
     "Mahanadi Coalfields Limited (MCL) is one of India's largest coal producers and is primarily engaged in mining and supplying non-coking coal. The Company operates mainly in the Talcher and Ib Valley coalfields of Odisha and supplies coal to power plants and industries such as steel, cement, aluminium and paper. Mahanadi Coalfields is a wholly owned subsidiary of Coal India Limited. As of June 30, 2026, it operated 17 mines, including 14 open-cast and three underground mines. The Company uses modern machinery and technology to improve mining efficiency and control operating costs. It also operates the Ib Valley Coal Washery, with a capacity of 10 million tonnes per year, to produce better-quality coal with lower ash content. Its railway and road network supports coal transportation to customers across several Indian states. The Company supplies coal through long-term Fuel Supply Agreements (FSAs) and focuses on operational efficiency, technological development and environmental initiatives, including solar power projects. As of June 30, 2026, it had 20,473 permanent employees."
    ],
@@ -138302,9 +137679,9 @@
    "gmpHistory": [
     {
      "date": "2026-11-18",
-     "gmp": 3.4,
-     "est": 139.4,
-     "pct": 2.5,
+     "gmp": 3.1,
+     "est": 139.1,
+     "pct": 2.28,
      "kostakSauda": "300/4200"
     },
     {
