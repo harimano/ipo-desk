@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-18T19:33:33+05:30",
+  "asOf": "2026-11-18T19:37:02+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "18 Nov 2026, 19:33 IST",
+  "label": "18 Nov 2026, 19:37 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -16921,7 +16921,7 @@
     "fiiNetCr": 4195.38,
     "diiNetCr": 196.93
    },
-   "source": "NSE provisional (fiidiiTradeReact)",
+   "source": "NSE provisional",
    "fiiBuyCr": 17913.16,
    "fiiSellCr": 12046.38,
    "diiBuyCr": 14602.25,
@@ -17205,7 +17205,7 @@
    ],
    "nsdl": {
     "asOf": "2026-11-18",
-    "checkedAt": "2026-11-18T14:03:33+00:00",
+    "checkedAt": "2026-11-18T14:07:02+00:00",
     "years": [
      [
       "2015-16",
@@ -89300,17 +89300,17 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-18T19:33:33+05:30",
+  "asOf": "2026-11-18T19:37:02+05:30",
   "checks": [
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-11-18",
-    "elapsed": 9.0,
+    "elapsed": 7.07,
     "calls": 5,
     "note": "2026-11-18 already in history; nsdl to 2026-11-18: 11 months, 12 years; FII +5,867 / DII -3,160 Cr",
-    "lastOk": "2026-11-18T19:33:33+05:30",
+    "lastOk": "2026-11-18T19:37:02+05:30",
     "dueBy": "2026-11-19T07:28:00+05:30"
    },
    {
@@ -89527,7 +89527,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "9s, 5 calls, 1/1 modules ok"
+    "note": "7s, 5 calls, 1/1 modules ok"
    }
   ],
   "discrepancies": [
