@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-18T18:27:12+05:30",
+  "asOf": "2026-11-18T19:33:33+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "18 Nov 2026, 18:27 IST",
+  "label": "18 Nov 2026, 19:33 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -17169,7 +17169,220 @@
     ]
    ]
   },
-  "note": "7 Sep 2026 provisional NSE cash figures from NiftyTrader (single source): FII +₹280 Cr, DII +₹567 Cr; Nifty 23,779 (−0.50%). Sector rotation evidence is from NSDL first-half-August data (FPIs bought financial services Rs 6,535 cr, autos Rs 4,420 cr, consumer services Rs 3,407 cr, healthcare Rs 2,918 cr, IT Rs 2,537 cr); second-half-August sector data not yet captured. DII sector breakdown not available."
+  "note": "7 Sep 2026 provisional NSE cash figures from NiftyTrader (single source): FII +₹280 Cr, DII +₹567 Cr; Nifty 23,779 (−0.50%). Sector rotation evidence is from NSDL first-half-August data (FPIs bought financial services Rs 6,535 cr, autos Rs 4,420 cr, consumer services Rs 3,407 cr, healthcare Rs 2,918 cr, IT Rs 2,537 cr); second-half-August sector data not yet captured. DII sector breakdown not available.",
+  "trend": {
+   "own": [
+    {
+     "m": "2026-09",
+     "fii": -31944.52,
+     "dii": 35510.43,
+     "n": 7,
+     "fiiUp": 1,
+     "diiUp": 7,
+     "from": "2026-09-21",
+     "to": "2026-09-30"
+    },
+    {
+     "m": "2026-10",
+     "fii": -45161.71,
+     "dii": 62220.11,
+     "n": 20,
+     "fiiUp": 6,
+     "diiUp": 17,
+     "from": "2026-10-01",
+     "to": "2026-10-30"
+    },
+    {
+     "m": "2026-11",
+     "fii": 94229.31,
+     "dii": -55570.66,
+     "n": 13,
+     "fiiUp": 12,
+     "diiUp": 1,
+     "from": "2026-11-02",
+     "to": "2026-11-18"
+    }
+   ],
+   "nsdl": {
+    "asOf": "2026-11-18",
+    "checkedAt": "2026-11-18T14:03:33+00:00",
+    "years": [
+     [
+      "2015-16",
+      -14172.0
+     ],
+     [
+      "2016-17",
+      55703.0
+     ],
+     [
+      "2017-18",
+      25635.0
+     ],
+     [
+      "2018-19",
+      -88.0
+     ],
+     [
+      "2019-20",
+      6153.0
+     ],
+     [
+      "2020-21",
+      274032.0
+     ],
+     [
+      "2021-22",
+      -140010.0
+     ],
+     [
+      "2022-23",
+      -37632.0
+     ],
+     [
+      "2023-24",
+      208212.0
+     ],
+     [
+      "2024-25",
+      -127041.0
+     ],
+     [
+      "2025-26",
+      -180832.0
+     ],
+     [
+      "2026-27",
+      -57796.0
+     ]
+    ],
+    "since": "1992-93",
+    "year": 2026,
+    "months": [
+     [
+      "2026-01",
+      -35962.0
+     ],
+     [
+      "2026-02",
+      22615.0
+     ],
+     [
+      "2026-03",
+      -117775.0
+     ],
+     [
+      "2026-04",
+      -60847.0
+     ],
+     [
+      "2026-05",
+      -32963.0
+     ],
+     [
+      "2026-06",
+      -49340.0
+     ],
+     [
+      "2026-07",
+      20200.0
+     ],
+     [
+      "2026-08",
+      29631.0
+     ],
+     [
+      "2026-09",
+      -35861.0
+     ],
+     [
+      "2026-10",
+      -34843.0
+     ],
+     [
+      "2026-11",
+      106229.0
+     ]
+    ],
+    "ytd": -188916.0,
+    "primary": {
+     "month": "2026-11",
+     "net": 5863.52,
+     "days": 12,
+     "top": {
+      "date": "2026-11-18",
+      "net": 5350.82
+     }
+    },
+    "days": [
+     [
+      "2026-11-02",
+      4318.9,
+      138.9
+     ],
+     [
+      "2026-11-03",
+      3271.21,
+      80.91
+     ],
+     [
+      "2026-11-04",
+      6898.62,
+      154.12
+     ],
+     [
+      "2026-11-05",
+      7861.18,
+      -30.78
+     ],
+     [
+      "2026-11-06",
+      16168.66,
+      109.33
+     ],
+     [
+      "2026-11-09",
+      14729.37,
+      38.36
+     ],
+     [
+      "2026-11-11",
+      6967.23,
+      -7.88
+     ],
+     [
+      "2026-11-12",
+      14678.72,
+      15.0
+     ],
+     [
+      "2026-11-13",
+      8884.07,
+      14.73
+     ],
+     [
+      "2026-11-16",
+      5564.89,
+      0.01
+     ],
+     [
+      "2026-11-17",
+      5107.61,
+      0.0
+     ],
+     [
+      "2026-11-18",
+      5914.86,
+      5350.82
+     ]
+    ]
+   },
+   "facts": [
+    "Biggest FPI buying month of 2026 so far",
+    "First net-buying month since August",
+    "Financial year 2026-27 so far: −₹57,796 Cr"
+   ]
+  }
  },
  "listedPerf": [
   {
@@ -89087,8 +89300,19 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-18T18:27:12+05:30",
+  "asOf": "2026-11-18T19:33:33+05:30",
   "checks": [
+   {
+    "area": "flows",
+    "method": "nse:ok",
+    "status": "ok",
+    "asOf": "2026-11-18",
+    "elapsed": 9.0,
+    "calls": 5,
+    "note": "2026-11-18 already in history; nsdl to 2026-11-18: 11 months, 12 years; FII +5,867 / DII -3,160 Cr",
+    "lastOk": "2026-11-18T19:33:33+05:30",
+    "dueBy": "2026-11-19T07:28:00+05:30"
+   },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:ok",
@@ -89098,7 +89322,8 @@
     "calls": 2,
     "note": "gmp: 3 board rows patched via investorgain; 3 active, 3 of them matched; gmp: second site — 3 agree (within 2% of the issue price), 0 differ, 0 quoted by one site only; gmp: 18 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Jio Platforms (₹250, investorgain) …",
     "lastOk": "2026-11-18T18:27:12+05:30",
-    "dueBy": "2026-11-19T07:28:00+05:30"
+    "dueBy": "2026-11-19T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "details",
@@ -89109,7 +89334,8 @@
     "calls": 1,
     "note": "1 records fetched for 3 identified listings (0 without an id); 0 anchor books updated, 98 on file",
     "lastOk": "2026-11-18T18:27:12+05:30",
-    "dueBy": "2026-11-19T07:28:00+05:30"
+    "dueBy": "2026-11-19T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "subscription",
@@ -89120,7 +89346,8 @@
     "calls": 3,
     "note": "1/1 rows patched via nse",
     "lastOk": "2026-11-18T18:27:12+05:30",
-    "dueBy": "2026-11-19T07:28:00+05:30"
+    "dueBy": "2026-11-19T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "calendar",
@@ -89255,18 +89482,6 @@
     "carried": true
    },
    {
-    "area": "flows",
-    "method": "nse:ok",
-    "status": "ok",
-    "asOf": "2026-11-18",
-    "elapsed": 0.53,
-    "calls": 1,
-    "note": "appended 2026-11-18; FII +5,867 / DII -3,160 Cr",
-    "lastOk": "2026-11-18T18:16:26+05:30",
-    "dueBy": "2026-11-19T07:28:00+05:30",
-    "carried": true
-   },
-   {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
@@ -89312,7 +89527,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "21s, 6 calls, 3/3 modules ok"
+    "note": "9s, 5 calls, 1/1 modules ok"
    }
   ],
   "discrepancies": [
