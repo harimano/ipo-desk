@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-18T02:52:50+05:30",
+  "asOf": "2026-11-18T06:45:12+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "18 Nov 2026, 02:52 IST",
+  "label": "18 Nov 2026, 06:45 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -1841,7 +1841,7 @@
    "igId": "2067",
    "bseIpoNo": "8089",
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-18T02:51:26+05:30",
+   "igFetchedAt": "2026-11-18T06:44:10+05:30",
    "sector": "Other Agricultural Products",
    "anchorShares": 4998708,
    "logo": "crystal-crop-protection-logo.png",
@@ -1896,9 +1896,9 @@
      "lots": 67
     }
    },
-   "gmpAsOf": "2026-11-17T23:37:00+05:30",
+   "gmpAsOf": "2026-11-18T06:02:00+05:30",
    "gmpEve": 19.0,
-   "gmpEveAsOf": "2026-11-17T23:37:00+05:30",
+   "gmpEveAsOf": "2026-11-18T06:02:00+05:30",
    "gmpSrc": "investorgain",
    "gmpWitness": {
     "src": "ipowatch",
@@ -1922,9 +1922,9 @@
    "issueSizeCr": 8981.12,
    "freshCr": null,
    "ofsCr": 8981.12,
-   "gmp": 3.65,
-   "gmpPct": 2.68,
-   "gmpTrend": "flat",
+   "gmp": 3.75,
+   "gmpPct": 2.76,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": {
     "flag": true,
@@ -88951,47 +88951,47 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-18T02:52:50+05:30",
+  "asOf": "2026-11-18T06:45:12+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-18T02:51:23+05:30",
-    "elapsed": 4.02,
+    "asOf": "2026-11-18T06:44:08+05:30",
+    "elapsed": 3.36,
     "calls": 5,
     "note": "investorgain list=3 carried=0 +nse=2 +bse=2 exchange-only=0: 2 mainboard, 1 sme; 1 open, 2 upcoming",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:ok",
     "status": "ok",
     "asOf": "9-Nov 9:37",
-    "elapsed": 1.99,
+    "elapsed": 1.53,
     "calls": 2,
     "note": "gmp: 3 board rows patched via investorgain; 3 active, 3 of them matched; gmp: second site — 2 agree (within 2% of the issue price), 1 differ, 0 quoted by one site only; gmp: 18 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Bonfiglioli Transmissions (₹66, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Jio Platforms (₹250, investorgain) …",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T10:22:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-18T02:51:26+05:30",
-    "elapsed": 1.23,
+    "asOf": "2026-11-18T06:44:10+05:30",
+    "elapsed": 0.68,
     "calls": 1,
     "note": "1 records fetched for 3 identified listings (0 without an id); 0 anchor books updated, 98 on file",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T10:22:00+05:30"
    },
    {
     "area": "subscription",
     "method": "nse/narada/bse/chittorgarh:changed, subscription:changed",
     "status": "stale",
     "asOf": null,
-    "elapsed": 6.3,
+    "elapsed": 6.38,
     "calls": 4,
     "note": "kept previous — Crystal Crop Protection: nse: no book (all zero or nothing classified); narada: no book yet; bse: HTTP 403; chittorgarh: report 21: no subscription table with QIB/Total headers",
     "lastOk": "2026-11-17T18:15:21+05:30",
@@ -89002,143 +89002,143 @@
     "method": "yahoo:ok",
     "status": "ok",
     "asOf": "2026-11-16",
-    "elapsed": 6.0,
+    "elapsed": 5.76,
     "calls": 0,
     "note": "12 names priced, 0 moved to recent, 0 history points",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-18",
-    "elapsed": 3.55,
+    "elapsed": 2.17,
     "calls": 2,
     "note": "1412 listings since 2022 (999 SME); fetched 2026: 309; QIB on file for 114 of 413 mainboard issues; shareholder-quota books frozen for 0",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "tape",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-17",
-    "elapsed": 0.95,
-    "calls": 2,
-    "note": "213 listings with an NSE symbol; 1 NSE file(s) read, 158 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 1 BSE file(s) read, 83 closes added, 185 days on file",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "213 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file",
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "anchorbook",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-18",
-    "elapsed": 3.52,
-    "calls": 3,
-    "note": "0 anchor books read (3 without an anchor table, 0 failed); 923 on file, 589 partial (feed gave only the first names); 0 of 1412 listings still to fetch",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "0 anchor books read (0 without an anchor table, 0 failed); 923 on file, 589 partial (feed gave only the first names); 0 of 1412 listings still to fetch",
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "evidence",
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-11-18",
-    "elapsed": 0.1,
+    "elapsed": 0.23,
     "calls": 0,
     "note": "track records: 923 of 923 anchor books have an outcome; 913 of 1498 investors with 2+; 1412 listings; windows: mainboard 131, SME 239; 3 warnings",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "players",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-18",
-    "elapsed": 32.79,
+    "elapsed": 23.9,
     "calls": 54,
     "note": "53 of 2839 anchor investors read (0 failed); names found for 1 of 3 unlisted issues",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "parents",
     "method": "yahoo:ok",
     "status": "ok",
     "asOf": "2026-11-16",
-    "elapsed": 11.37,
+    "elapsed": 9.45,
     "calls": 0,
     "note": "5/5 parent prices; 31/35 investor stocks priced",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "filings",
     "method": "bse_ann:ok, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-11-18",
-    "elapsed": 8.11,
+    "elapsed": 5.92,
     "calls": 7,
-    "note": "bse_ann: feed of 0 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 2524 announcements scanned, 1 subsidiary-offer leads; 1 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 1 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 5 candidates (1 by announcement, 4 by group name); 9 leads held; 19 rows patched, 14 kept previous stage",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "note": "bse_ann: feed of 12 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 2524 announcements scanned, 1 subsidiary-offer leads; 1 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 1 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 5 candidates (1 by announcement, 4 by group name); 9 leads held; 19 rows patched, 14 kept previous stage",
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "planner",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-18",
-    "elapsed": 2.1,
+    "elapsed": 2.03,
     "calls": 4,
     "note": "105 events 2026-11-11..2027-01-02, 3 issues with terms, 1 from the report only",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "offers",
     "method": "bse:ok",
     "status": "ok",
     "asOf": "2026-11-18",
-    "elapsed": 3.54,
+    "elapsed": 2.12,
     "calls": 3,
     "note": "bse rows=19: 14 rights, 15 buybacks, 0 ofs, 1 ncd; 19 refreshed, 0 new, 0 closed windows dropped",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-11-17",
-    "elapsed": 0.47,
+    "elapsed": 0.19,
     "calls": 1,
     "note": "2026-11-17 already in history; FII +4,195 / DII +197 Cr",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-17",
-    "elapsed": 2.26,
+    "elapsed": 2.09,
     "calls": 4,
     "note": "bulk.csv: 122 deals; block.csv: 61 deals; 0 tracked-investor deals of 183; 13 patterns; BSE bulk: 74 deals, 12 in this year's listings; BSE block: 31 deals, 0 in this year's listings; listing deals: 46 of today's 183 deals are in this year's listings (9 stocks); 2037 kept over 60 days; 212 of 309 listings have an NSE symbol; 240 with a BSE code",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-11-17T22:45:08+05:30",
-    "elapsed": 0.83,
+    "elapsed": 0.2,
     "calls": 3,
     "note": "business-standard: 3/35 primary-market items; economic-times: 2/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 5 fresh, 25 kept",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "logos",
@@ -89148,8 +89148,8 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "72 logos on file; none to fetch",
-    "lastOk": "2026-11-18T02:52:50+05:30",
-    "dueBy": "2026-11-18T07:28:00+05:30"
+    "lastOk": "2026-11-18T06:45:12+05:30",
+    "dueBy": "2026-11-18T18:58:00+05:30"
    },
    {
     "area": "research layer",
@@ -89161,7 +89161,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "91s, 95 calls, 17/18 modules ok"
+    "note": "67s, 90 calls, 17/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -136448,7 +136448,7 @@
  "records": {
   "2067": {
    "name": "Crystal Crop Protection",
-   "fetchedAt": "2026-11-18T02:51:26+05:30",
+   "fetchedAt": "2026-11-18T06:44:10+05:30",
    "about": [
     "Crystal Crop Protection is an Indian agri-inputs company built around two pillars: agrochemicals and seeds. Everything it makes is tailored to the conditions and needs of Indian farmers. Offerings: Crop protection: Herbicides, fungicides and insecticides, sold under more than 174 brands in a range of pack sizes, including smaller, farmer-friendly formats. The branded business has been its faster-growing segment. Crop nutrition and natural solutions: Bio-stimulants, bio-protectants, plant growth regulators, liquid fertilizers and micronutrients. Seeds: Cotton, cereals, oilseeds, fodder crops, vegetables and flowers, sold across India and exported to markets such as Japan, the USA and Thailand. Exports: Formulations and technicals shipped to Bangladesh, Nepal and several countries in Africa and Asia. Crystal follows a fully integrated model that links research, seed breeding, technology-enabled manufacturing and distribution. Its R&D centre is in Sonipat, Haryana, and the company also works with multinational partners on innovation. Production is spread across Haryana, Gujarat, Jammu & Kashmir, Maharashtra, Telangana and Karnataka, covering formulations, technicals and seed processing. As of 30 September 2025, formulation plants had a combined installed capacity of 75,962 MT, while technicals facilities stood at 3,456 MT. Products reach the market through over 13,000 distributors and 36 distribution centres across India."
    ],
@@ -136676,6 +136676,13 @@
     "sharesPost": 163168280.0
    },
    "gmpHistory": [
+    {
+     "date": "2026-11-18",
+     "gmp": 19.0,
+     "est": 291.0,
+     "pct": 6.99,
+     "kostakSauda": "800/11200"
+    },
     {
      "date": "2026-11-17",
      "gmp": 19.0,
@@ -138280,7 +138287,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-11-18T02:51:43+05:30",
+  "asOf": "2026-11-18T06:44:25+05:30",
   "dates": [
    "2026-02-16",
    "2026-02-17",
