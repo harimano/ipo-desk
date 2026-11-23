@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-23T18:15:48+05:30",
+  "asOf": "2026-11-23T19:54:54+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "23 Nov 2026, 18:15 IST",
+  "label": "23 Nov 2026, 19:54 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -2003,8 +2003,8 @@
    "issueSizeCr": 8981.12,
    "freshCr": null,
    "ofsCr": 8981.12,
-   "gmp": 0.2,
-   "gmpPct": 0.15,
+   "gmp": 0.1,
+   "gmpPct": 0.07,
    "gmpTrend": "down",
    "sub": {
     "qib": 4.95,
@@ -2013,7 +2013,7 @@
     "total": 1.52,
     "employee": 0.22,
     "shareholder": 0.56,
-    "asOf": "2026-11-23T18:09:00+05:30",
+    "asOf": "2026-11-23T19:00:00+05:30",
     "src": "nse"
    },
    "shareholderQuota": {
@@ -2040,14 +2040,14 @@
    "igId": "2401",
    "bseIpoNo": "8092",
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-23T18:14:18+05:30",
+   "igFetchedAt": "2026-11-23T19:54:50+05:30",
    "refund": "2026-11-26",
    "sector": "Coal",
    "anchorShares": 168768255,
    "logo": "mahanadi-coalfields-ltdlogo.png",
-   "gmpAsOf": "2026-11-23T17:37:00+05:30",
-   "gmpEve": 0.2,
-   "gmpEveAsOf": "2026-11-23T17:37:00+05:30",
+   "gmpAsOf": "2026-11-23T19:37:00+05:30",
+   "gmpEve": 0.1,
+   "gmpEveAsOf": "2026-11-23T19:37:00+05:30",
    "facts": {
     "sector": "Coal",
     "listingAt": "BSE, NSE",
@@ -2166,7 +2166,7 @@
      "received": 632451,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-23T18:14:22+05:30"
+    "asOf": "2026-11-23T19:54:54+05:30"
    }
   },
   {
@@ -2346,9 +2346,9 @@
    "issueSizeCr": 125.16,
    "freshCr": 99.1,
    "ofsCr": 26.06,
-   "gmp": 21.0,
-   "gmpPct": 12.21,
-   "gmpTrend": "flat",
+   "gmp": 21.5,
+   "gmpPct": 12.5,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": {
     "flag": false,
@@ -3024,7 +3024,7 @@
     "snii": 128.68,
     "retail": 108.71,
     "total": 150.55,
-    "asOf": "2026-11-23T18:14:23+05:30",
+    "asOf": "2026-11-23T19:54:54+05:30",
     "src": "narada"
    },
    "shareholderQuota": {
@@ -3043,7 +3043,7 @@
    "igId": "1818",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-23T18:14:18+05:30",
+   "igFetchedAt": "2026-11-23T19:54:50+05:30",
    "refund": "2026-11-26",
    "sector": "Diversified Commercial Services",
    "anchorShares": 1386000,
@@ -3065,9 +3065,9 @@
      "lots": 3
     }
    },
-   "gmpAsOf": "2026-11-23T17:37:00+05:30",
+   "gmpAsOf": "2026-11-23T19:37:00+05:30",
    "gmpEve": 40.0,
-   "gmpEveAsOf": "2026-11-23T17:37:00+05:30",
+   "gmpEveAsOf": "2026-11-23T19:37:00+05:30",
    "facts": {
     "sector": "Diversified Commercial Services",
     "listingAt": "NSE SME",
@@ -3136,7 +3136,7 @@
      "received": 194416,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-23T18:14:23+05:30"
+    "asOf": "2026-11-23T19:54:54+05:30"
    }
   },
   {
@@ -3154,9 +3154,9 @@
    "issueSizeCr": 93.66,
    "freshCr": 88.98,
    "ofsCr": null,
-   "gmp": 5.0,
-   "gmpPct": 3.52,
-   "gmpTrend": "flat",
+   "gmp": 10.0,
+   "gmpPct": 7.04,
+   "gmpTrend": "up",
    "sub": null,
    "shareholderQuota": {
     "flag": false,
@@ -3234,7 +3234,7 @@
     "src": "ipowatch",
     "gmp": 5.0,
     "gmpPct": 3.52,
-    "agree": true
+    "agree": false
    }
   },
   {
@@ -90979,8 +90979,41 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-23T18:15:48+05:30",
+  "asOf": "2026-11-23T19:54:54+05:30",
   "checks": [
+   {
+    "area": "gmp",
+    "method": "investorgain:ok, ipowatch:ok",
+    "status": "ok",
+    "asOf": "9-Nov 9:37",
+    "elapsed": 2.0,
+    "calls": 2,
+    "note": "gmp: 8 board rows patched via investorgain; 8 active, 7 of them matched; gmp: second site — 7 agree (within 2% of the issue price), 1 differ, 0 quoted by one site only; gmp: 12 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Jio Platforms (₹250, investorgain); Johnsoncab Electricals (₹8, investorgain) …",
+    "lastOk": "2026-11-23T19:54:54+05:30",
+    "dueBy": "2026-11-24T07:28:00+05:30"
+   },
+   {
+    "area": "details",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-11-23T19:54:50+05:30",
+    "elapsed": 1.81,
+    "calls": 2,
+    "note": "2 records fetched for 9 identified listings (0 without an id); 0 anchor books updated, 103 on file",
+    "lastOk": "2026-11-23T19:54:54+05:30",
+    "dueBy": "2026-11-24T07:28:00+05:30"
+   },
+   {
+    "area": "subscription",
+    "method": "narada+nse:ok",
+    "status": "ok",
+    "asOf": "2026-11-23T19:54:54+05:30",
+    "elapsed": 2.53,
+    "calls": 4,
+    "note": "2/2 rows patched via narada, nse",
+    "lastOk": "2026-11-23T19:54:54+05:30",
+    "dueBy": "2026-11-24T07:28:00+05:30"
+   },
    {
     "area": "calendar",
     "method": "investorgain:ok",
@@ -90990,40 +91023,8 @@
     "calls": 5,
     "note": "investorgain list=9 carried=0 +nse=4 +bse=1 exchange-only=0: 6 mainboard, 3 sme; 2 open, 6 upcoming",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
-   },
-   {
-    "area": "gmp",
-    "method": "investorgain:ok, ipowatch:ok",
-    "status": "ok",
-    "asOf": "9-Nov 9:37",
-    "elapsed": 2.08,
-    "calls": 2,
-    "note": "gmp: 8 board rows patched via investorgain; 8 active, 7 of them matched; gmp: second site — 8 agree (within 2% of the issue price), 0 differ, 0 quoted by one site only; gmp: 12 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Jio Platforms (₹250, investorgain); Johnsoncab Electricals (₹8, investorgain) …",
-    "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
-   },
-   {
-    "area": "details",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-11-23T18:14:18+05:30",
-    "elapsed": 2.45,
-    "calls": 2,
-    "note": "2 records fetched for 9 identified listings (0 without an id); 0 anchor books updated, 103 on file",
-    "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
-   },
-   {
-    "area": "subscription",
-    "method": "narada+nse:ok",
-    "status": "ok",
-    "asOf": "2026-11-23T18:14:23+05:30",
-    "elapsed": 1.86,
-    "calls": 3,
-    "note": "2/2 rows patched via narada, nse",
-    "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "listings",
@@ -91034,7 +91035,8 @@
     "calls": 0,
     "note": "6 names priced, 0 moved to recent, 0 history points",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "history",
@@ -91045,7 +91047,8 @@
     "calls": 2,
     "note": "1412 listings since 2022 (999 SME); fetched 2026: 309; QIB on file for 114 of 413 mainboard issues; shareholder-quota books frozen for 0",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "tape",
@@ -91056,7 +91059,8 @@
     "calls": 0,
     "note": "213 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "anchorbook",
@@ -91067,7 +91071,8 @@
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 923 on file, 589 partial (feed gave only the first names); 0 of 1412 listings still to fetch",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "evidence",
@@ -91078,7 +91083,8 @@
     "calls": 0,
     "note": "track records: 923 of 923 anchor books have an outcome; 913 of 1498 investors with 2+; 1412 listings; windows: mainboard 126, SME 237; 3 warnings",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "players",
@@ -91089,7 +91095,8 @@
     "calls": 55,
     "note": "54 of 2839 anchor investors read (0 failed); names found for 1 of 9 unlisted issues",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "parents",
@@ -91100,7 +91107,8 @@
     "calls": 0,
     "note": "5/5 parent prices; 31/35 investor stocks priced",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "filings",
@@ -91111,7 +91119,8 @@
     "calls": 7,
     "note": "bse_ann: feed of 9055 announcements today, 2/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1545 announcements scanned, 1 subsidiary-offer leads; 1 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 1 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 5 candidates (1 by announcement, 4 by group name); 10 leads held; 19 rows patched, 14 kept previous stage",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "planner",
@@ -91122,7 +91131,8 @@
     "calls": 4,
     "note": "142 events 2026-11-16..2027-01-07, 9 issues with terms, 0 from the report only",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "offers",
@@ -91133,7 +91143,8 @@
     "calls": 3,
     "note": "bse rows=19: 16 rights, 14 buybacks, 0 ofs, 1 ncd; 19 refreshed, 0 new, 0 closed windows dropped",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "flows",
@@ -91144,7 +91155,8 @@
     "calls": 4,
     "note": "2026-11-20 already in history; nsdl to 2026-11-23: 11 months, 12 years; FII +10,308 / DII -4,860 Cr",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "deals",
@@ -91155,7 +91167,8 @@
     "calls": 4,
     "note": "bulk.csv: 89 deals; block.csv: 5 deals; 0 tracked-investor deals of 94; 13 patterns; BSE bulk: 128 deals, 18 in this year's listings; BSE block: 4 deals, 0 in this year's listings; listing deals: 29 of today's 94 deals are in this year's listings (10 stocks); 1945 kept over 60 days; 212 of 309 listings have an NSE symbol; 240 with a BSE code",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "news",
@@ -91166,7 +91179,8 @@
     "calls": 3,
     "note": "business-standard: 4/35 primary-market items; economic-times: 5/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 9 fresh, 25 kept",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "logos",
@@ -91177,7 +91191,8 @@
     "calls": 0,
     "note": "78 logos on file; none to fetch",
     "lastOk": "2026-11-23T18:15:48+05:30",
-    "dueBy": "2026-11-24T07:28:00+05:30"
+    "dueBy": "2026-11-24T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "research layer",
@@ -91189,7 +91204,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "98s, 94 calls, 18/18 modules ok"
+    "note": "7s, 8 calls, 3/3 modules ok"
    }
   ],
   "discrepancies": [
@@ -137395,7 +137410,7 @@
   },
   "1818": {
    "name": "Watrana Rentals",
-   "fetchedAt": "2026-11-23T18:14:18+05:30",
+   "fetchedAt": "2026-11-23T19:54:50+05:30",
    "about": [
     "Watrana Rentals Limited is engaged in providing rental and trading solutions for material handling equipment (MHE) and cargo handling requirements. Its product portfolio includes battery-operated, diesel and gas-powered forklifts, electric stackers, pallet trucks, specialised attachments such as paper-roll clamps, bale clamps and side shifters, along with various ground-support equipment. The company is an ISO 9001:2015, ISO 45001:2018 and ISO 14001:2015 certified supplier of industrial material handling equipment, catering to the requirements of customers across various industries in India. The company's business operations are primarily divided into the following segments: Rental Solutions: Offers material handling equipment on a rental basis, enabling customers to meet their operational requirements while avoiding significant upfront capital expenditure and long-term ownership commitments. Trading in MHE: Engages in the sale of material handling equipment, providing customers with suitable equipment options based on their operational requirements and budgets. Trading in Batteries for MHE: Supplies batteries compatible with different material handling equipment models, catering to both rental customers and equipment buyers. The company has an extensive pan-India presence, with more than 304 rental sites, enabling it to provide equipment accessibility and timely service support to customers across different locations. As of April 30, 2025, the company had an operational fleet of over 1,441 material handling equipment units. Its fleet comprises diesel and electric forklifts, reach trucks, battery-operated stackers, pallet trucks, order pickers, towing trucks and other equipment. As of April 30, 2025, the company had a workforce of approximately 3,122 employees, comprising equipment operators, technicians, engineers, site supervisors and other support staff. Competitive Strengths: Experienced Promoters and Management: Backed by experienced promoters and a senior management team with strong technical knowledge and industry expertise. Skilled Workforce: A large and trained workforce that plays an important role in delivering efficient and reliable services to customers across India. Focus on Quality Assurance: Emphasises service quality and operational standards across its business activities. Extensive Network Presence: Established pan-India network of rental locations, supporting wider customer reach and efficient service delivery."
    ],
@@ -137704,7 +137719,7 @@
      "retailBidCr": 615.46
     },
     {
-     "asOf": "2026-11-23T17:41:00+05:30",
+     "asOf": "2026-11-23T17:56:00+05:30",
      "qib": 161.11,
      "nii": 233.67,
      "bnii": 286.17,
@@ -137723,7 +137738,7 @@
   },
   "2401": {
    "name": "Mahanadi Coalfields",
-   "fetchedAt": "2026-11-23T18:14:18+05:30",
+   "fetchedAt": "2026-11-23T19:54:50+05:30",
    "about": [
     "Mahanadi Coalfields Limited (MCL) is one of India's largest coal producers and is primarily engaged in mining and supplying non-coking coal. The Company operates mainly in the Talcher and Ib Valley coalfields of Odisha and supplies coal to power plants and industries such as steel, cement, aluminium and paper. Mahanadi Coalfields is a wholly owned subsidiary of Coal India Limited. As of June 30, 2026, it operated 17 mines, including 14 open-cast and three underground mines. The Company uses modern machinery and technology to improve mining efficiency and control operating costs. It also operates the Ib Valley Coal Washery, with a capacity of 10 million tonnes per year, to produce better-quality coal with lower ash content. Its railway and road network supports coal transportation to customers across several Indian states. The Company supplies coal through long-term Fuel Supply Agreements (FSAs) and focuses on operational efficiency, technological development and environmental initiatives, including solar power projects. As of June 30, 2026, it had 20,473 permanent employees."
    ],
@@ -137980,9 +137995,9 @@
    "gmpHistory": [
     {
      "date": "2026-11-23",
-     "gmp": 0.2,
-     "est": 136.2,
-     "pct": 0.15,
+     "gmp": 0.1,
+     "est": 136.1,
+     "pct": 0.07,
      "kostakSauda": "--"
     },
     {
@@ -138054,7 +138069,7 @@
      "retailBidCr": 671.6
     },
     {
-     "asOf": "2026-11-23T17:41:00+05:30",
+     "asOf": "2026-11-23T17:56:00+05:30",
      "qib": 4.95,
      "nii": 0.66,
      "bnii": 0.62,
