@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-23T14:08:29+05:30",
+  "asOf": "2026-11-23T14:44:42+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "23 Nov 2026, 14:08 IST",
+  "label": "23 Nov 2026, 14:44 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -1809,6 +1809,11 @@
    "shares": 1000,
    "price": 142.0,
    "listDate": "2026-12-02"
+  },
+  "Foodlink F&B Holdings": {
+   "shares": 78,
+   "price": 191.0,
+   "listDate": "2026-12-03"
   }
  },
  "mainboard": [
@@ -1993,12 +1998,12 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 2.64,
-    "nii": 0.41,
-    "retail": 0.38,
-    "total": 0.9,
+    "nii": 0.44,
+    "retail": 0.39,
+    "total": 0.91,
     "employee": 0.17,
-    "shareholder": 0.46,
-    "asOf": "2026-11-23T14:03:00+05:30",
+    "shareholder": 0.47,
+    "asOf": "2026-11-23T14:33:00+05:30",
     "src": "nse"
    },
    "shareholderQuota": {
@@ -2025,14 +2030,14 @@
    "igId": "2401",
    "bseIpoNo": "8092",
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-23T14:08:23+05:30",
+   "igFetchedAt": "2026-11-23T14:35:39+05:30",
    "refund": "2026-11-26",
    "sector": "Coal",
    "anchorShares": 168768255,
    "logo": "mahanadi-coalfields-ltdlogo.png",
-   "gmpAsOf": "2026-11-23T13:37:00+05:30",
+   "gmpAsOf": "2026-11-23T14:02:00+05:30",
    "gmpEve": 0.4,
-   "gmpEveAsOf": "2026-11-23T13:37:00+05:30",
+   "gmpEveAsOf": "2026-11-23T14:02:00+05:30",
    "facts": {
     "sector": "Coal",
     "listingAt": "BSE, NSE",
@@ -2113,45 +2118,45 @@
    "apps": {
     "qib": {
      "reserved": 112512173,
-     "received": 1289,
+     "received": 1530,
      "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 54795,
-     "received": 10055,
+     "received": 10618,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 36529,
-     "received": 2274,
+     "received": 2466,
      "reservedSrc": "rhp"
     },
     "snii": {
      "reserved": 18264,
-     "received": 7781,
+     "received": 8152,
      "reservedSrc": "rhp"
     },
     "retail": {
      "reserved": 1789966,
-     "received": 402365,
+     "received": 412514,
      "reservedSrc": "rhp=narada"
     },
     "employee": {
      "reserved": 300835,
-     "received": 10222,
+     "received": 10571,
      "reservedSrc": "narada"
     },
     "shareholder": {
      "reserved": 601669,
-     "received": 96424,
+     "received": 99231,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 115259438,
-     "received": 520355,
+     "received": 534464,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-23T14:08:28+05:30"
+    "asOf": "2026-11-23T14:35:48+05:30"
    }
   },
   {
@@ -2314,6 +2319,97 @@
      "drhp": "https://www.sebi.gov.in/filings/public-issues/oct-2025/integris-medtech-limited_97425.html"
     },
     "asOf": "2026-11-20T14:04:00+05:30"
+   }
+  },
+  {
+   "name": "Matangi Rubber",
+   "slug": "matangi-rubber",
+   "type": "Mainboard",
+   "status": "Upcoming",
+   "open": "2026-12-01",
+   "close": "2026-12-03",
+   "allotment": "2026-12-04",
+   "listing": "2026-12-08",
+   "bandLow": 163.0,
+   "bandHigh": 172.0,
+   "lotSize": 87,
+   "issueSizeCr": 125.16,
+   "freshCr": 99.1,
+   "ofsCr": 26.06,
+   "gmp": 0.0,
+   "gmpPct": 0.0,
+   "gmpTrend": "flat",
+   "sub": null,
+   "shareholderQuota": {
+    "flag": false,
+    "src": "ig",
+    "at": "2026-11-23"
+   },
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "2290",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "igFetchedAt": "2026-11-23T14:35:39+05:30",
+   "refund": "2026-12-07",
+   "sector": "Tyres & Rubber Products",
+   "anchorShares": 0,
+   "logo": "matangi-rubber-logo.png",
+   "apply": {
+    "retail": {
+     "amount": 14964,
+     "shares": 87,
+     "lots": 1
+    },
+    "snii": {
+     "amount": 209496,
+     "shares": 1218,
+     "lots": 14
+    },
+    "bnii": {
+     "amount": 1002588,
+     "shares": 5829,
+     "lots": 67
+    }
+   },
+   "gmpAsOf": "2026-11-23T13:53:00+05:30",
+   "gmpEve": 0.0,
+   "gmpEveAsOf": "2026-11-23T13:53:00+05:30",
+   "facts": {
+    "sector": "Tyres & Rubber Products",
+    "listingAt": "BSE, NSE",
+    "kpis": {
+     "asOf": "2026-06-30",
+     "roe": 4.9,
+     "roce": 4.34,
+     "debtEquity": 0.8,
+     "ronw": 4.9,
+     "patMargin": 13.39,
+     "ebitdaMargin": 22.43,
+     "pb": 2.93,
+     "eps": 9.77,
+     "epsPost": 8.97,
+     "pe": 17.6,
+     "pePost": 19.18,
+     "mcapCr": 492.22,
+     "promoterPre": 81.11,
+     "promoterPost": 60.01
+    },
+    "registrar": "Bigshare Services Pvt.Ltd.",
+    "leadManagers": [
+     "Sarthi Capital Advisors Pvt.ltd."
+    ],
+    "docs": {
+     "drhp": "https://nsearchives.nseindia.com/corporate/Registration_25052026235319_Matangi_Draft_Red_Herring_Prospectus.pdf",
+     "rhp": "https://matangirubber.com/wp-content/uploads/2026/11/Matangi_Red-Herring-Prospectus.pdf"
+    },
+    "asOf": "2026-11-23T09:22:00+05:30"
    }
   },
   {
@@ -2537,6 +2633,19 @@
     "url": "https://www.bseindia.com/markets/PublicIssues/IPOIssues_new.aspx",
     "bseIpoNo": "8094",
     "status": "open-holders"
+   },
+   {
+    "name": "Ironwood Education",
+    "open": "2026-11-25",
+    "close": "2026-12-04",
+    "price": 41.0,
+    "record": null,
+    "deal": null,
+    "detail": null,
+    "note": "BSE public issues list",
+    "url": "https://www.bseindia.com/markets/PublicIssues/IPOIssues_new.aspx",
+    "bseIpoNo": "8096",
+    "status": "upcoming"
    },
    {
     "name": "Mihika Industries",
@@ -2892,13 +3001,13 @@
    "gmpPct": 16.33,
    "gmpTrend": "flat",
    "sub": {
-    "qib": 42.6,
-    "nii": 132.43,
-    "bnii": 164.83,
-    "snii": 67.62,
-    "retail": 65.8,
-    "total": 73.4,
-    "asOf": "2026-11-23T14:08:29+05:30",
+    "qib": 50.18,
+    "nii": 153.82,
+    "bnii": 191.23,
+    "snii": 79.01,
+    "retail": 72.96,
+    "total": 83.73,
+    "asOf": "2026-11-23T14:35:48+05:30",
     "src": "narada"
    },
    "shareholderQuota": {
@@ -2917,7 +3026,7 @@
    "igId": "1818",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-23T14:08:23+05:30",
+   "igFetchedAt": "2026-11-23T14:35:39+05:30",
    "refund": "2026-11-26",
    "sector": "Diversified Commercial Services",
    "anchorShares": 1386000,
@@ -2939,9 +3048,9 @@
      "lots": 3
     }
    },
-   "gmpAsOf": "2026-11-23T13:37:00+05:30",
+   "gmpAsOf": "2026-11-23T14:02:00+05:30",
    "gmpEve": 40.0,
-   "gmpEveAsOf": "2026-11-23T13:37:00+05:30",
+   "gmpEveAsOf": "2026-11-23T14:02:00+05:30",
    "facts": {
     "sector": "Diversified Commercial Services",
     "listingAt": "NSE SME",
@@ -2982,35 +3091,35 @@
    "apps": {
     "qib": {
      "reserved": 1560,
-     "received": 63,
+     "received": 73,
      "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 388,
-     "received": 25905,
+     "received": 30149,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 259,
-     "received": 17642,
+     "received": 20483,
      "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 129,
-     "received": 8263,
+     "received": 9666,
      "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 1358,
-     "received": 89360,
+     "received": 99075,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 3306,
-     "received": 115328,
+     "received": 129297,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-23T14:08:29+05:30"
+    "asOf": "2026-11-23T14:35:48+05:30"
    }
   },
   {
@@ -3109,6 +3218,102 @@
     "gmp": 5.0,
     "gmpPct": 3.52,
     "agree": true
+   }
+  },
+  {
+   "name": "A J Packaging",
+   "slug": "a-j-packaging",
+   "type": "NSE SME",
+   "status": "Upcoming",
+   "open": "2026-12-01",
+   "close": "2026-12-03",
+   "allotment": "2026-12-04",
+   "listing": "2026-12-08",
+   "bandLow": 175.0,
+   "bandHigh": 180.0,
+   "lotSize": 800,
+   "issueSizeCr": 51.29,
+   "freshCr": 46.79,
+   "ofsCr": 4.5,
+   "gmp": 20.0,
+   "gmpPct": 11.11,
+   "gmpTrend": "flat",
+   "sub": null,
+   "shareholderQuota": {
+    "flag": false,
+    "src": "ig",
+    "at": "2026-11-23"
+   },
+   "listingPrice": null,
+   "listingGainPct": null,
+   "currentPrice": null,
+   "sources": [
+    "InvestorGain IPO list"
+   ],
+   "symbol": null,
+   "series": null,
+   "igId": "2247",
+   "bseIpoNo": null,
+   "bseScripCode": null,
+   "gmpSrc": "investorgain",
+   "gmpWitness": {
+    "src": "ipowatch",
+    "gmp": 20.0,
+    "gmpPct": 11.11,
+    "agree": true
+   },
+   "igFetchedAt": "2026-11-23T14:35:39+05:30",
+   "refund": "2026-12-07",
+   "sector": "Packaging",
+   "anchorShares": 840000,
+   "logo": "aj-packaging-logo.jpg",
+   "apply": {
+    "retail": {
+     "amount": 288000,
+     "shares": 1600,
+     "lots": 2
+    },
+    "snii": {
+     "amount": 288000,
+     "shares": 2400,
+     "lots": 3
+    },
+    "bnii": {
+     "amount": 1008000,
+     "shares": 2400,
+     "lots": 3
+    }
+   },
+   "gmpAsOf": "2026-11-23T14:02:00+05:30",
+   "gmpEve": 20.0,
+   "gmpEveAsOf": "2026-11-23T14:02:00+05:30",
+   "facts": {
+    "sector": "Packaging",
+    "listingAt": "NSE SME",
+    "kpis": {
+     "asOf": "2026-06-30",
+     "roe": 29.09,
+     "roce": 24.16,
+     "debtEquity": 1.47,
+     "patMargin": 4.42,
+     "ebitdaMargin": 10.93,
+     "eps": 10.2,
+     "epsPost": 13.28,
+     "pe": 17.65,
+     "pePost": 13.55,
+     "mcapCr": 189.09,
+     "promoterPre": 92.72,
+     "promoterPost": 66.07
+    },
+    "registrar": "MUFG Intime India Pvt.Ltd.",
+    "leadManagers": [
+     "D&A Financial Services Pvt.Ltd."
+    ],
+    "docs": {
+     "drhp": "https://nsearchives.nseindia.com/emerge/corporates/content/Registration_30032026183242_DRHP_AJPackagingLtd_300326.pdf",
+     "rhp": "https://dnafinserv.com/wp-content/uploads/2026/11/Red-Herring-Prospectus.pdf"
+    },
+    "asOf": "2026-11-23T09:06:00+05:30"
    }
   }
  ],
@@ -17551,7 +17756,7 @@
    ],
    "nsdl": {
     "asOf": "2026-11-20",
-    "checkedAt": "2026-11-23T01:15:20+00:00",
+    "checkedAt": "2026-11-23T09:14:39+00:00",
     "years": [
      [
       "2015-16",
@@ -36270,6 +36475,16 @@
  ],
  "news": [
   {
+   "title": "India EM weight rises 4 pp: Axis lists 3 factors that can sustain FII flows",
+   "url": "https://www.business-standard.com/markets/news/india-em-weight-rises-4-pp-axis-lists-3-factors-that-can-sustain-fii-flows-126112300425_1.html",
+   "date": "2026-11-23T12:46:05+05:30"
+  },
+  {
+   "title": "Tata Chemicals jumps 4.5% as Tata Sons listing debate puts stake in focus",
+   "url": "https://www.business-standard.com/markets/news/tata-chemicals-jumps-4-5-as-tata-sons-listing-debate-puts-stake-in-focus-126112300276_1.html",
+   "date": "2026-11-23T11:02:11+05:30"
+  },
+  {
    "title": "InvIT IPO rush gathers pace, 4-5 trusts likely to go public by Mar 2027",
    "url": "https://www.business-standard.com/markets/ipo/invit-ipo-rush-gathers-pace-4-5-trusts-likely-to-go-public-by-mar-2027-126112200225_1.html",
    "date": "2026-11-22T12:26:08+05:30"
@@ -36383,16 +36598,6 @@
    "title": "Tiger-backed Razorpay set to file for India IPO as early as next week",
    "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/tiger-backed-razorpay-set-to-file-for-india-ipo-as-early-as-next-week/articleshow/135983381.cms",
    "date": "2026-11-19T14:15:45+05:30"
-  },
-  {
-   "title": "NLC India Renewables files IPO papers, plans ₹3,300 crore fresh issue",
-   "url": "https://www.business-standard.com/companies/news/nlc-india-renewables-files-ipo-papers-plans-3-300-crore-fresh-issue-126111900441_1.html",
-   "date": "2026-11-19T13:19:12+05:30"
-  },
-  {
-   "title": "Tiger Global Management backed Razorpay prepares to file for IPO next week",
-   "url": "https://www.business-standard.com/companies/news/tiger-global-management-backed-razorpay-prepares-to-file-for-ipo-next-week-126111900494_1.html",
-   "date": "2026-11-19T13:05:48+05:30"
   }
  ],
  "priceHistory": {
@@ -90262,6 +90467,10 @@
    [
     "2026-11-20",
     1387.7
+   ],
+   [
+    "2026-11-23",
+    1374.8
    ]
   ],
   "Paras Healthcare": [
@@ -90336,6 +90545,10 @@
    [
     "2026-11-20",
     844.1
+   ],
+   [
+    "2026-11-23",
+    831.05
    ]
   ],
   "EAAA India Alternatives": [
@@ -90398,6 +90611,10 @@
    [
     "2026-11-20",
     1860.5
+   ],
+   [
+    "2026-11-23",
+    1812.1
    ]
   ],
   "SFC Environmental Technologies": [
@@ -90456,6 +90673,10 @@
    [
     "2026-11-20",
     441.55
+   ],
+   [
+    "2026-11-23",
+    433.5
    ]
   ],
   "BLS Polymers": [
@@ -90514,6 +90735,10 @@
    [
     "2026-11-20",
     270.24
+   ],
+   [
+    "2026-11-23",
+    267.65
    ]
   ],
   "Bombay Coated and Special Steels": [
@@ -90564,6 +90789,10 @@
    [
     "2026-11-20",
     83.71
+   ],
+   [
+    "2026-11-23",
+    85.02
    ]
   ],
   "Maxwell Engineering Solutions": [
@@ -90728,76 +90957,73 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-23T14:08:29+05:30",
+  "asOf": "2026-11-23T14:44:42+05:30",
   "checks": [
+   {
+    "area": "calendar",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-11-23T14:35:37+05:30",
+    "elapsed": 5.2,
+    "calls": 5,
+    "note": "investorgain list=9 carried=0 +nse=3 +bse=1 exchange-only=0: 6 mainboard, 3 sme; 2 open, 6 upcoming",
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
+   },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:ok",
     "status": "ok",
     "asOf": "9-Nov 9:37",
-    "elapsed": 1.81,
+    "elapsed": 2.08,
     "calls": 2,
-    "note": "gmp: 6 board rows patched via investorgain; 6 active, 5 of them matched; gmp: second site — 5 agree (within 2% of the issue price), 1 differ, 0 quoted by one site only; gmp: 14 GMP-site names not on the board: A J Packaging (₹20, investorgain); A J Packaging (₹20, ipowatch); Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain) …",
-    "lastOk": "2026-11-23T14:08:29+05:30",
-    "dueBy": "2026-11-23T15:22:00+05:30"
+    "note": "gmp: 7 board rows patched via investorgain; 8 active, 6 of them matched; gmp: second site — 6 agree (within 2% of the issue price), 1 differ, 0 quoted by one site only; gmp: 12 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Jio Platforms (₹250, investorgain); Johnsoncab Electricals (₹8, investorgain) …",
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T15:52:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-23T14:08:23+05:30",
-    "elapsed": 1.84,
-    "calls": 2,
-    "note": "2 records fetched for 7 identified listings (0 without an id); 0 anchor books updated, 101 on file",
-    "lastOk": "2026-11-23T14:08:29+05:30",
-    "dueBy": "2026-11-23T15:22:00+05:30"
+    "asOf": "2026-11-23T14:35:39+05:30",
+    "elapsed": 7.44,
+    "calls": 4,
+    "note": "4 records fetched for 9 identified listings (0 without an id); 2 anchor books updated, 103 on file; 2 first records fetched for upcoming issues",
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T15:52:00+05:30"
    },
    {
     "area": "subscription",
     "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-11-23T14:08:29+05:30",
-    "elapsed": 3.22,
-    "calls": 4,
+    "asOf": "2026-11-23T14:35:48+05:30",
+    "elapsed": 1.65,
+    "calls": 3,
     "note": "2/2 rows patched via narada, nse",
-    "lastOk": "2026-11-23T14:08:29+05:30",
-    "dueBy": "2026-11-23T15:22:00+05:30"
-   },
-   {
-    "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-11-23T06:44:07+05:30",
-    "elapsed": 3.81,
-    "calls": 5,
-    "note": "investorgain list=7 carried=0 +nse=3 +bse=1 exchange-only=0: 5 mainboard, 2 sme; 2 open, 4 upcoming",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T15:52:00+05:30"
    },
    {
     "area": "listings",
     "method": "yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-20",
-    "elapsed": 4.53,
+    "asOf": "2026-11-23",
+    "elapsed": 6.15,
     "calls": 0,
-    "note": "6 names priced, 0 moved to recent, 0 history points",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "note": "6 names priced, 0 moved to recent, 6 history points",
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 2.71,
+    "elapsed": 7.71,
     "calls": 2,
     "note": "1412 listings since 2022 (999 SME); fetched 2026: 309; QIB on file for 114 of 413 mainboard issues; shareholder-quota books frozen for 0",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "tape",
@@ -90807,9 +91033,8 @@
     "elapsed": 0.01,
     "calls": 0,
     "note": "213 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "anchorbook",
@@ -90819,129 +91044,118 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 923 on file, 589 partial (feed gave only the first names); 0 of 1412 listings still to fetch",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "evidence",
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 0.24,
+    "elapsed": 0.23,
     "calls": 0,
     "note": "track records: 923 of 923 anchor books have an outcome; 913 of 1498 investors with 2+; 1412 listings; windows: mainboard 126, SME 237; 3 warnings",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "players",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 29.32,
+    "elapsed": 490.24,
     "calls": 55,
-    "note": "54 of 2839 anchor investors read (0 failed); names found for 1 of 7 unlisted issues",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "note": "54 of 2839 anchor investors read (13 failed); names found for 1 of 9 unlisted issues",
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "parents",
     "method": "yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-20",
-    "elapsed": 9.39,
+    "asOf": "2026-11-23",
+    "elapsed": 9.52,
     "calls": 0,
     "note": "5/5 parent prices; 31/35 investor stocks priced",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "filings",
     "method": "bse_ann:ok, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 5.78,
+    "elapsed": 4.08,
     "calls": 7,
-    "note": "bse_ann: feed of 1 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1232 announcements scanned, 1 subsidiary-offer leads; 1 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 1 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 5 candidates (1 by announcement, 4 by group name); 10 leads held; 19 rows patched, 14 kept previous stage",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "note": "bse_ann: feed of 0 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1363 announcements scanned, 1 subsidiary-offer leads; 1 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 1 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 5 candidates (1 by announcement, 4 by group name); 10 leads held; 19 rows patched, 14 kept previous stage",
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "planner",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 2.35,
+    "elapsed": 2.91,
     "calls": 4,
-    "note": "130 events 2026-11-16..2027-01-07, 7 issues with terms, 0 from the report only",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "note": "142 events 2026-11-16..2027-01-07, 9 issues with terms, 0 from the report only",
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "offers",
     "method": "bse:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 2.92,
+    "elapsed": 3.9,
     "calls": 3,
-    "note": "bse rows=18: 15 rights, 14 buybacks, 0 ofs, 1 ncd; 18 refreshed, 0 new, 0 closed windows dropped",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "note": "bse rows=19: 16 rights, 14 buybacks, 0 ofs, 1 ncd; 18 refreshed, 1 new, 0 closed windows dropped",
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-11-20",
-    "elapsed": 4.88,
+    "elapsed": 4.91,
     "calls": 4,
     "note": "2026-11-20 already in history; nsdl to 2026-11-20: 11 months, 12 years; FII +10,308 / DII -4,860 Cr",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-20",
-    "elapsed": 1.97,
+    "elapsed": 2.65,
     "calls": 4,
     "note": "bulk.csv: 108 deals; block.csv: 5 deals; 0 tracked-investor deals of 113; 13 patterns; BSE bulk: 96 deals, 12 in this year's listings; BSE block: 7 deals, 0 in this year's listings; listing deals: 37 of today's 113 deals are in this year's listings (8 stocks); 1916 kept over 60 days; 212 of 309 listings have an NSE symbol; 240 with a BSE code",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
-    "asOf": "2026-11-22T12:26:08+05:30",
-    "elapsed": 0.56,
+    "asOf": "2026-11-23T12:46:05+05:30",
+    "elapsed": 0.73,
     "calls": 3,
-    "note": "business-standard: 5/35 primary-market items; economic-times: 6/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 11 fresh, 25 kept",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "note": "business-standard: 6/35 primary-market items; economic-times: 6/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 12 fresh, 25 kept",
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "logos",
-    "method": "none:ok",
+    "method": "chittorgarh.net:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 0.0,
-    "calls": 0,
-    "note": "76 logos on file; none to fetch",
-    "lastOk": "2026-11-23T06:45:23+05:30",
-    "dueBy": "2026-11-23T18:58:00+05:30",
-    "carried": true
+    "elapsed": 0.39,
+    "calls": 2,
+    "note": "2 logos made, 0 missing, 0 errors; 0 left; 78 on file",
+    "lastOk": "2026-11-23T14:44:42+05:30",
+    "dueBy": "2026-11-23T18:58:00+05:30"
    },
    {
     "area": "research layer",
@@ -90953,7 +91167,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "7s, 8 calls, 3/3 modules ok"
+    "note": "551s, 98 calls, 18/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -92485,28 +92699,28 @@
   "prices": {
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 390.0,
-    "asOf": "2026-11-20"
+    "value": 381.85,
+    "asOf": "2026-11-23"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 113.15,
-    "asOf": "2026-11-20"
+    "value": 109.25,
+    "asOf": "2026-11-23"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 233.79,
-    "asOf": "2026-11-20"
+    "value": 227.35,
+    "asOf": "2026-11-23"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 6740.5,
-    "asOf": "2026-11-20"
+    "value": 6855.0,
+    "asOf": "2026-11-23"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 55.78,
-    "asOf": "2026-11-20"
+    "value": 55.03,
+    "asOf": "2026-11-23"
    },
    "Tata Motors": {
     "symbol": "TATAMOTORS",
@@ -92515,53 +92729,53 @@
    },
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1377.5,
-    "asOf": "2026-11-20"
+    "value": 1351.2,
+    "asOf": "2026-11-23"
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 410.7,
-    "asOf": "2026-11-20"
+    "value": 410.15,
+    "asOf": "2026-11-23"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 76.61,
-    "asOf": "2026-11-20"
+    "value": 75.32,
+    "asOf": "2026-11-23"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 223.46,
-    "asOf": "2026-11-20"
+    "value": 222.61,
+    "asOf": "2026-11-23"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 846.0,
-    "asOf": "2026-11-20"
+    "value": 821.7,
+    "asOf": "2026-11-23"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 515.8,
-    "asOf": "2026-11-20"
+    "value": 503.55,
+    "asOf": "2026-11-23"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1446.0,
-    "asOf": "2026-11-20"
+    "value": 1397.1,
+    "asOf": "2026-11-23"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1892.0,
-    "asOf": "2026-11-20"
+    "value": 1878.3,
+    "asOf": "2026-11-23"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1177.7,
-    "asOf": "2026-11-20"
+    "value": 1188.9,
+    "asOf": "2026-11-23"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 16.97,
-    "asOf": "2026-11-20"
+    "value": 16.53,
+    "asOf": "2026-11-23"
    },
    "Gretex Corporate Services": {
     "symbol": "GRETEX",
@@ -92570,73 +92784,73 @@
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 99.57,
-    "asOf": "2026-11-20"
+    "value": 97.24,
+    "asOf": "2026-11-23"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1598.6,
-    "asOf": "2026-11-20"
+    "value": 1569.2,
+    "asOf": "2026-11-23"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 513.7,
-    "asOf": "2026-11-20"
+    "value": 499.55,
+    "asOf": "2026-11-23"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 323.65,
-    "asOf": "2026-11-20"
+    "value": 339.3,
+    "asOf": "2026-11-23"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 109.78,
-    "asOf": "2026-11-20"
+    "value": 108.19,
+    "asOf": "2026-11-23"
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
-    "value": 1129.8,
-    "asOf": "2026-11-20"
+    "value": 1073.4,
+    "asOf": "2026-11-23"
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1597.3,
-    "asOf": "2026-11-20"
+    "value": 1573.5,
+    "asOf": "2026-11-23"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1495.5,
-    "asOf": "2026-11-20"
+    "value": 1450.8,
+    "asOf": "2026-11-23"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 91.94,
-    "asOf": "2026-11-20"
+    "value": 89.11,
+    "asOf": "2026-11-23"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 533.55,
-    "asOf": "2026-11-20"
+    "value": 525.05,
+    "asOf": "2026-11-23"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 540.3,
-    "asOf": "2026-11-20"
+    "value": 529.6,
+    "asOf": "2026-11-23"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1263.2,
-    "asOf": "2026-11-20"
+    "value": 1283.3,
+    "asOf": "2026-11-23"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 408.35,
-    "asOf": "2026-11-20"
+    "value": 390.1,
+    "asOf": "2026-11-23"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 488.0,
-    "asOf": "2026-11-20"
+    "value": 482.3,
+    "asOf": "2026-11-23"
    },
    "Ashutosh Fibre (upcoming)": {
     "symbol": "ASHUTOSH",
@@ -92645,8 +92859,8 @@
    },
    "Sahajanand Medical Technologies (upcoming)": {
     "symbol": "SMT",
-    "value": 527.6,
-    "asOf": "2026-11-20"
+    "value": 560.3,
+    "asOf": "2026-11-23"
    },
    "Indo SMC": {
     "symbol": null,
@@ -126492,6 +126706,41 @@
    "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
   },
   {
+   "name": "Matangi Rubber",
+   "date": "2026-11-30",
+   "amountCr": null,
+   "issueSizeCr": 125.16,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2027-01-03",
+   "lockIn90": "2027-03-04",
+   "anchor": "bid 30 Nov · lock-in ends 3 Jan (half) and 4 Mar",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
+   "name": "A J Packaging",
+   "date": "2026-11-30",
+   "amountCr": 15.12,
+   "issueSizeCr": 51.29,
+   "count": null,
+   "topTierShare": null,
+   "investors": [],
+   "sources": [],
+   "source": "exchange-json",
+   "auto": true,
+   "lockIn30": "2027-01-03",
+   "lockIn90": "2027-03-04",
+   "anchorShares": 840000,
+   "price": 180.0,
+   "amountBasis": "exchange-json",
+   "anchor": "₹15.12 Cr anchor book · bid 30 Nov · 29% of the issue · lock-in ends 3 Jan (half) and 4 Mar",
+   "note": "Anchor shares, allocation price, bid date and lock-in dates are fields of InvestorGain's IPO record. Who took the book is published only as the issuer's letter (linked), which a run does not read."
+  },
+  {
    "name": "Integris Medtech",
    "date": "2026-11-26",
    "amountCr": null,
@@ -133949,8 +134198,8 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1377.5,
-    "asOf": "2026-11-20"
+    "value": 1351.2,
+    "asOf": "2026-11-23"
    },
    "parentTicker": "RELIANCE",
    "sources": [
@@ -134002,8 +134251,8 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 130.5,
-    "asOf": "2026-11-20"
+    "value": 129.4,
+    "asOf": "2026-11-23"
    },
    "parentTicker": "EDELWEISS",
    "sources": [
@@ -134157,8 +134406,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 390.0,
-    "asOf": "2026-11-20"
+    "value": 381.85,
+    "asOf": "2026-11-23"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -134286,8 +134535,8 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5536.0,
-    "asOf": "2026-11-20"
+    "value": 5525.5,
+    "asOf": "2026-11-23"
    },
    "parentTicker": "HEROMOTOCO",
    "sources": [
@@ -134401,8 +134650,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 390.0,
-    "asOf": "2026-11-20"
+    "value": 381.85,
+    "asOf": "2026-11-23"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -136631,7 +136880,7 @@
   },
   "1818": {
    "name": "Watrana Rentals",
-   "fetchedAt": "2026-11-23T14:08:23+05:30",
+   "fetchedAt": "2026-11-23T14:35:39+05:30",
    "about": [
     "Watrana Rentals Limited is engaged in providing rental and trading solutions for material handling equipment (MHE) and cargo handling requirements. Its product portfolio includes battery-operated, diesel and gas-powered forklifts, electric stackers, pallet trucks, specialised attachments such as paper-roll clamps, bale clamps and side shifters, along with various ground-support equipment. The company is an ISO 9001:2015, ISO 45001:2018 and ISO 14001:2015 certified supplier of industrial material handling equipment, catering to the requirements of customers across various industries in India. The company's business operations are primarily divided into the following segments: Rental Solutions: Offers material handling equipment on a rental basis, enabling customers to meet their operational requirements while avoiding significant upfront capital expenditure and long-term ownership commitments. Trading in MHE: Engages in the sale of material handling equipment, providing customers with suitable equipment options based on their operational requirements and budgets. Trading in Batteries for MHE: Supplies batteries compatible with different material handling equipment models, catering to both rental customers and equipment buyers. The company has an extensive pan-India presence, with more than 304 rental sites, enabling it to provide equipment accessibility and timely service support to customers across different locations. As of April 30, 2025, the company had an operational fleet of over 1,441 material handling equipment units. Its fleet comprises diesel and electric forklifts, reach trucks, battery-operated stackers, pallet trucks, order pickers, towing trucks and other equipment. As of April 30, 2025, the company had a workforce of approximately 3,122 employees, comprising equipment operators, technicians, engineers, site supervisors and other support staff. Competitive Strengths: Experienced Promoters and Management: Backed by experienced promoters and a senior management team with strong technical knowledge and industry expertise. Skilled Workforce: A large and trained workforce that plays an important role in delivering efficient and reliable services to customers across India. Focus on Quality Assurance: Emphasises service quality and operational standards across its business activities. Extensive Network Presence: Established pan-India network of rental locations, supporting wider customer reach and efficient service delivery."
    ],
@@ -136940,15 +137189,15 @@
      "retailBidCr": 615.46
     },
     {
-     "asOf": "2026-11-23T13:42:00+05:30",
-     "qib": 32.07,
-     "nii": 120.43,
-     "bnii": 149.83,
-     "snii": 61.63,
-     "retail": 60.81,
-     "total": 65.32,
-     "bidCr": 5223.82,
-     "retailBidCr": 2427.79
+     "asOf": "2026-11-23T14:12:00+05:30",
+     "qib": 44.21,
+     "nii": 135.19,
+     "bnii": 168.13,
+     "snii": 69.31,
+     "retail": 66.84,
+     "total": 74.97,
+     "bidCr": 5995.51,
+     "retailBidCr": 2668.46
     }
    ],
    "company": {
@@ -136959,7 +137208,7 @@
   },
   "2401": {
    "name": "Mahanadi Coalfields",
-   "fetchedAt": "2026-11-23T14:08:23+05:30",
+   "fetchedAt": "2026-11-23T14:35:39+05:30",
    "about": [
     "Mahanadi Coalfields Limited (MCL) is one of India's largest coal producers and is primarily engaged in mining and supplying non-coking coal. The Company operates mainly in the Talcher and Ib Valley coalfields of Odisha and supplies coal to power plants and industries such as steel, cement, aluminium and paper. Mahanadi Coalfields is a wholly owned subsidiary of Coal India Limited. As of June 30, 2026, it operated 17 mines, including 14 open-cast and three underground mines. The Company uses modern machinery and technology to improve mining efficiency and control operating costs. It also operates the Ib Valley Coal Washery, with a capacity of 10 million tonnes per year, to produce better-quality coal with lower ash content. Its railway and road network supports coal transportation to customers across several Indian states. The Company supplies coal through long-term Fuel Supply Agreements (FSAs) and focuses on operational efficiency, technological development and environmental initiatives, including solar power projects. As of June 30, 2026, it had 20,473 permanent employees."
    ],
@@ -137290,16 +137539,16 @@
      "retailBidCr": 671.6
     },
     {
-     "asOf": "2026-11-23T13:41:00+05:30",
+     "asOf": "2026-11-23T14:11:00+05:30",
      "qib": 2.64,
-     "nii": 0.38,
-     "bnii": 0.32,
-     "snii": 0.5,
-     "retail": 0.38,
-     "employee": 0.16,
-     "total": 0.89,
-     "bidCr": 5968.98,
-     "retailBidCr": 1019.66
+     "nii": 0.41,
+     "bnii": 0.36,
+     "snii": 0.53,
+     "retail": 0.39,
+     "employee": 0.17,
+     "total": 0.9,
+     "bidCr": 6045.0,
+     "retailBidCr": 1045.45
     }
    ],
    "company": {
@@ -138155,6 +138404,470 @@
     "website": "http://www.integrismedtech.com/",
     "process": "Book Build Issue"
    }
+  },
+  "2290": {
+   "name": "Matangi Rubber",
+   "fetchedAt": "2026-11-23T14:35:39+05:30",
+   "about": [
+    "Matangi Rubber Limited is engaged in manufacturing tyres, tyre tubes, tyre flaps and rubber compounds. The Company mainly serves the two-wheeler and three-wheeler tyre segments, while its tubes and flaps are also used in trucks, buses and other commercial vehicles. The Company operates through three business models: manufacturing and selling products under its own brand, contract manufacturing for customers, and job work using customer-supplied raw materials. It also manufactures rubber compounds used in various rubber products. The Company operates five manufacturing plants across three locations: Selaqui (Dehradun, Uttarakhand), Bhind (Madhya Pradesh) and Gummidipoondi (Chennai, Tamil Nadu). Its manufacturing facilities are supported by in-house production, testing and warehousing infrastructure. The Company has an established manufacturing relationship with JK Tyre and also serves other customers through contract manufacturing and job work. Competitive Strengths Five manufacturing plants across three locations. Established manufacturing relationship with JK Tyre. Experienced workforce and management team. Established experience in the tyre and rubber industry. In-house manufacturing and testing facilities. Diverse product portfolio covering tyres, tubes, flaps and rubber compounds. Multiple business models, including own-brand sales, contract manufacturing and job work."
+   ],
+   "desc": [
+    "Incorporated on June 23, 2004 , Matangi Rubber Limited is engaged in the manufacturing of tyres, tyre flaps, tyre tubes and rubber compounds. It primarily caters to the two-wheeler and three-wheeler tyre segments, while its tyre flaps and tubes are used in commercial vehicles such as trucks, buses and heavy utility vehicles. The Company operates through three business models: manufacturing and selling, contract manufacturing and job work services. Under its manufacturing and selling model, it manufactures and sells tyre tubes under its own brand. Its contract manufacturing activities primarily involve producing customised tyre flaps bearing clients’ logos, while its job work services involve processing raw materials supplied by customers into tyres, tyre flaps and tubes in return for conversion charges. The Company also manufactures rubber compounds used in the production of other rubber products. The Company operates five manufacturing plants across three locations, comprising two facilities at Selaqui, Dehradun, Uttarakhand, two facilities at Bhind, Gwalior, Madhya Pradesh, and one facility at Gummidipoondi, Chennai, Tamil Nadu. These facilities support the manufacturing of tyre flaps, tyre tubes, two-wheeler and three-wheeler tyres and rubber compounds. Its operations are supported by in-house production infrastructure, testing equipment and warehousing facilities for storing raw materials, finished goods and scrap. The Company has an established manufacturing relationship with JK Tyre and also serves other customers through contract manufacturing and job work arrangements. As of June 30, 2026, the Company had a total workforce of 285 employees across its offices and manufacturing locations. Competitive Strengths Five Manufacturing Plants Across Three Locations. Established Manufacturing Relationship with JK Tyre. Skilled Workforce Across Manufacturing and Support Functions. Established Manufacturing Experience in the Rubber and Tyre Industry. Integrated Manufacturing Infrastructure and In-House Production Capabilities. Diversified Product Portfolio Across Tyres, Tyre Flaps, Tubes and Rubber Compounds. Diversified Business Model Covering Own-Brand Sales, Contract Manufacturing and Job Work."
+   ],
+   "promoters": "Mohit Gupta, Manju Gupta, Radhika Gupta, Vandana Rubber & Chemicals Pvt.Ltd.",
+   "objects": {
+    "head": [
+     "#",
+     "Issue Objects",
+     "Est Amt (₹ Cr.)"
+    ],
+    "rows": [
+     [
+      "1",
+      "Repayment/ pre-payment in full or in part, of certain outstanding loans availed by the Company",
+      "45.00"
+     ],
+     [
+      "2",
+      "Funding Capital Expenditure requirements for setting up green field manufacturing facility for Rubber Recycling Products (Bhind, Madhya Pradesh)",
+      "19.06"
+     ],
+     [
+      "3",
+      "Funding Capital Expenditure requirements for setting up green field manufacturing facility for production of Solid Tyres (Bhind, Madhya Pradesh)",
+      "8.44"
+     ],
+     [
+      "4",
+      "General Corporate Purposes",
+      ""
+     ],
+     [
+      "",
+      "Total",
+      "72.49"
+     ]
+    ]
+   },
+   "financials": {
+    "head": [
+     "Period Ended",
+     "30 Jun 2026",
+     "31 Mar 2026",
+     "31 Mar 2025",
+     "31 Mar 2024"
+    ],
+    "rows": [
+     [
+      "Assets",
+      "289.23",
+      "276.89",
+      "206.11",
+      "120.12"
+     ],
+     [
+      "Total Income",
+      "47.93",
+      "132.22",
+      "106.30",
+      "91.26"
+     ],
+     [
+      "Profit After Tax",
+      "6.42",
+      "22.33",
+      "20.03",
+      "4.81"
+     ],
+     [
+      "EBITDA",
+      "10.71",
+      "35.06",
+      "30.89",
+      "10.38"
+     ],
+     [
+      "NET Worth",
+      "134.12",
+      "127.75",
+      "85.16",
+      "40.20"
+     ],
+     [
+      "Reserves and Surplus",
+      "111.27",
+      "116.32",
+      "81.73",
+      "37.48"
+     ],
+     [
+      "Total Borrowing",
+      "106.98",
+      "108.91",
+      "93.68",
+      "61.86"
+     ],
+     [
+      "Amount in ₹ Crore"
+     ]
+    ],
+    "title": "Company Financials (Restated Consolidated)",
+    "asOf": "2026-06-30"
+   },
+   "peers": {
+    "head": [
+     "Company Name",
+     "EPS (Basic)",
+     "P/E (x)",
+     "RoNW (%)",
+     "Financial statements"
+    ],
+    "rows": [
+     [
+      "Matangi Rubber Ltd.",
+      "10.36",
+      "",
+      "20.98",
+      "Consolidated"
+     ],
+     [
+      "Ceat Ltd.",
+      "172.78",
+      "20.50",
+      "14.81",
+      ""
+     ],
+     [
+      "Tvs Srichakra Ltd.",
+      "93.03",
+      "49.54",
+      "10.34",
+      ""
+     ],
+     [
+      "Tolins Tyres Ltd.",
+      "9.03",
+      "9.51",
+      "10.41",
+      ""
+     ]
+    ],
+    "asOf": "2026-03-31"
+   },
+   "reservation": {
+    "head": [
+     "Investor Category",
+     "Shares"
+    ],
+    "rows": [
+     [
+      "QIB",
+      "Not more than 50% of the Net Offer"
+     ],
+     [
+      "Retail",
+      "Not less than 35% of the Net Offer"
+     ],
+     [
+      "NII",
+      "Not Less than 15% of the Net Issue"
+     ]
+    ]
+   },
+   "kpiPeriods": [
+    {
+     "asOf": "2026-03-31",
+     "roe": 20.98,
+     "roce": 15.41,
+     "ronw": 20.98,
+     "patMargin": 16.89,
+     "ebitdaMargin": 27.02,
+     "debtEquity": 0.85
+    },
+    {
+     "asOf": "2026-06-30",
+     "roe": 4.9,
+     "roce": 4.34,
+     "ronw": 4.9,
+     "patMargin": 13.39,
+     "ebitdaMargin": 22.43,
+     "debtEquity": 0.8
+    }
+   ],
+   "holding": {
+    "promoterPre": 81.11,
+    "promoterPost": 60.01,
+    "sharesPre": 22855450.0,
+    "sharesPost": 28617281.0
+   },
+   "gmpHistory": [
+    {
+     "date": "2026-11-23",
+     "gmp": 0.0,
+     "est": 172.0,
+     "pct": 0.0,
+     "kostakSauda": "--"
+    }
+   ],
+   "company": {
+    "address": "Unit No. 401, 4th Floor, Southern Park, Saket District Center, Saket (South Delhi)",
+    "website": "https://www.matangirubber.com/",
+    "process": "Book Build Issue"
+   }
+  },
+  "2247": {
+   "name": "A J Packaging",
+   "fetchedAt": "2026-11-23T14:35:39+05:30",
+   "about": [
+    "```html A J Packaging is engaged in the manufacturing of a wide variety of metal tin containers in different shapes, including round, oval, and rectangular designs. Its product range covers capacities from 50 grams to 500 grams and 50 ml to 5,000 ml. The company provides various packaging solutions, including printed, lacquered, embossed, specially shaped, and tailor-made metal cans to suit the diverse packaging needs of solid, powdered, and liquid products. The company operates manufacturing units in Hyderabad, Telangana; Ghaziabad, Uttar Pradesh; and Khandala, Maharashtra. These strategically located facilities enable it to cater to the packaging requirements of prominent FMCG companies and paint manufacturers across domestic as well as international markets. A J Packaging follows a business-to-business (B2B) model and supplies its metal packaging products to several established clients. Its customer base includes CCL Products (India) Limited, Indus Coffee, Vayhan Coffee, Modigold and Beverages, Mrs. Bectors Food Specialities Limited, Haldirams Foods International Private Limited, R K Ganapathi Chettiar, SLN Coffee Private Limited, Marino Foods Private Limited, and Asian Paints Limited. Competitive Strengths: Established Track Record Diverse Product Range State-of-the-Art Manufacturing Facilities Strong Customer Base Strategic Location"
+   ],
+   "desc": [
+    "Incorporated in 1995, A J packaging specializes in manufacturing a diverse range of metal tin cans in multiple shapes such as oval, rectangular, and round, with capacities ranging from 50 grams to 500 grams and 50 ml to 5000 ml. The company offers an extensive product portfolio that includes printed, lacquered, embossed, uniquely shaped, and fully customizable metal cans. These products are designed to meet the packaging requirements of various solid, powdered, and liquid goods. The company operated under B2B model. Products: Oval shaped Cans Round shaped Cans (Locking mechanism) Round shaped Cans (Welding mechanism) Rectangular/ Square shaped cans Embossed and Shaped cans The company supply its products to several well-known companies, including CCL Products (India) Limited, Indus Coffee, Vayhan Coffee, Modigold and Beverages, Mrs. Bectors Food Specialities Limited, Haldirams Foods International Private Limited, R K Ganapathi Chettiar, SLN Coffee Private Limited, Marino Foods Private Limited, and Asian Paints Limited. With manufacturing facilities strategically located in Hyderabad (Telangana), Ghaziabad (Uttar Pradesh), and Khandala (Maharashtra), it efficiently serves leading FMCG brands and the paint industry across both domestic and international markets. As of June 30, 2026, the Company employed approximately 109 personnel, comprising skilled, semi-skilled, and unskilled workers across various functions. Competitive Strengths: Product Range and Production capabilities Strong relationship with existing customers and suppliers Focus on Quality Standards and Assurances The industry-related skills and knowledge can be leveraged to diversify our customer-base and gain wallet share with existing customers by expanding product portfolio Strategic Location of Manufacturing Units Experienced management team with Industry expertise"
+   ],
+   "promoters": "Ajay Agarwal, Nitin Agarwal, Ranjani Agarwal, A J Cans Pvt.Ltd.",
+   "objects": {
+    "head": [
+     "#",
+     "Issue Objects",
+     "Est Amt (₹ Cr.)"
+    ],
+    "rows": [
+     [
+      "1",
+      "Repayment/Prepayment in full or in part, of certain loans availed by the Company",
+      "7.00"
+     ],
+     [
+      "2",
+      "To Meet the Working Capital requirement of Company",
+      "29.30"
+     ],
+     [
+      "3",
+      "General Corporate Purpose",
+      ""
+     ],
+     [
+      "",
+      "Total",
+      "36.30"
+     ]
+    ]
+   },
+   "financials": {
+    "head": [
+     "Period Ended",
+     "30 Jun 2026",
+     "31 Mar 2026",
+     "31 Mar 2025",
+     "31 Mar 2024"
+    ],
+    "rows": [
+     [
+      "Assets",
+      "175.11",
+      "182.14",
+      "155.03",
+      "138.04"
+     ],
+     [
+      "Total Income",
+      "79.24",
+      "223.69",
+      "193.94",
+      "210.40"
+     ],
+     [
+      "Profit After Tax",
+      "3.49",
+      "7.91",
+      "5.12",
+      "3.78"
+     ],
+     [
+      "EBITDA",
+      "8.66",
+      "26.63",
+      "21.47",
+      "18.69"
+     ],
+     [
+      "NET Worth",
+      "47.95",
+      "44.46",
+      "37.33",
+      "26.70"
+     ],
+     [
+      "Reserves and Surplus",
+      "40.19",
+      "36.71",
+      "29.57",
+      "21.86"
+     ],
+     [
+      "Total Borrowing",
+      "",
+      "75.00",
+      "69.79",
+      "70.13"
+     ],
+     [
+      "Amount in ₹ Crore"
+     ]
+    ],
+    "title": "Company Financials (Restated Consolidated)",
+    "asOf": "2026-06-30"
+   },
+   "peers": {
+    "head": [
+     "Company Name",
+     "EPS (Basic)",
+     "EPS (Diluted)",
+     "NAV (₹ per share)",
+     "P/E (x)",
+     "RoNW (%)",
+     "P/BV Ratio",
+     "Financial statements"
+    ],
+    "rows": [
+     [
+      "AJ Packaging Ltd.",
+      "10.20",
+      "10.20",
+      "57.33",
+      "",
+      "17.79",
+      "",
+      "Restated"
+     ],
+     [
+      "Shetron Ltd.",
+      "4.44",
+      "4.44",
+      "68.55",
+      "26.13",
+      "6.48",
+      "1.71",
+      ""
+     ],
+     [
+      "Kaira Can Co.Ltd.",
+      "19.43",
+      "19.43",
+      "984.03",
+      "69.80",
+      "1.97",
+      "1.38",
+      ""
+     ],
+     [
+      "Rajeshwari Cans Ltd.",
+      "2.14",
+      "2.14",
+      "27.16",
+      "6.59",
+      "15.73",
+      "0.52",
+      ""
+     ]
+    ],
+    "asOf": "2025-03-31"
+   },
+   "reservation": {
+    "head": [
+     "Investor Category",
+     "Shares",
+     "% of Net Issue",
+     "% of Total Issue"
+    ],
+    "rows": [
+     [
+      "QIB",
+      "14,06,400",
+      "49.35%",
+      "46.88%"
+     ],
+     [
+      "Anchor Investor",
+      "8,40,000",
+      "",
+      "28.00%"
+     ],
+     [
+      "QIB (Ex. Anchor)",
+      "5,66,400",
+      "",
+      "18.88%"
+     ],
+     [
+      "NII (HNI)",
+      "4,32,000",
+      "15.16%",
+      "14.40%"
+     ],
+     [
+      "Retail",
+      "10,11,200",
+      "35.49%",
+      "33.71%"
+     ],
+     [
+      "Firm Reservations"
+     ],
+     [
+      "Market Maker",
+      "1,50,400",
+      "",
+      "5.01%"
+     ],
+     [
+      "Total",
+      "30,00,000",
+      "100.00%",
+      "100.00%"
+     ]
+    ]
+   },
+   "kpiPeriods": [
+    {
+     "asOf": "2026-03-31",
+     "roe": 17.79,
+     "roce": 17.41,
+     "ronw": 17.79,
+     "patMargin": 3.55,
+     "ebitdaMargin": 11.9,
+     "debtEquity": 1.69
+    },
+    {
+     "asOf": "2026-06-30",
+     "roe": 29.09,
+     "roce": 24.16,
+     "patMargin": 4.42,
+     "ebitdaMargin": 10.93,
+     "debtEquity": 1.47
+    }
+   ],
+   "holding": {
+    "promoterPre": 92.72,
+    "promoterPost": 66.07,
+    "sharesPre": 7755245.0,
+    "sharesPost": 10505245.0
+   },
+   "gmpHistory": [
+    {
+     "date": "2026-11-23",
+     "gmp": 20.0,
+     "est": 200.0,
+     "pct": 11.11,
+     "kostakSauda": "12200"
+    }
+   ],
+   "company": {
+    "address": "Plot No.-120 CIE, Gandhinagar, Balanagar",
+    "website": "https://ajpack.net/",
+    "process": "Book Build Issue"
+   }
   }
  },
  "players": {
@@ -138164,27 +138877,6 @@
   "latestPerInvestor": 5,
   "books": {
    "2401": [
-    {
-     "id": "14666",
-     "name": "NIPPON INDIA SMALL CAP FUND",
-     "ipos": 132,
-     "investedCr": 4539.54,
-     "ticketCr": 34.39
-    },
-    {
-     "id": "15787",
-     "name": "LIFE INSURANCE CORP.OF INDIA",
-     "ipos": 14,
-     "investedCr": 3815.28,
-     "ticketCr": 272.52
-    },
-    {
-     "id": "171",
-     "name": "ABU DHABI INVESTMENT AUTHORITY-MONSOON",
-     "ipos": 44,
-     "investedCr": 2507.08,
-     "ticketCr": 56.98
-    },
     {
      "id": "15764",
      "name": "BAJAJ LIFE INSURANCE LTD.",
@@ -139098,12 +139790,6 @@
    }
   },
   "covered": [
-   "1810",
-   "1818",
-   "2029",
-   "2067",
-   "2232",
-   "2349",
    "2401"
   ],
   "league": [
@@ -139285,7 +139971,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-11-23T06:44:24+05:30",
+  "asOf": "2026-11-23T14:36:02+05:30",
   "dates": [
    "2026-02-19",
    "2026-02-20",
@@ -298541,6 +299227,18 @@
     "d5": -11.5,
     "d20": null,
     "done": false
+   },
+   {
+    "client": "HRTI PRIVATE LIMITED",
+    "key": "HRTI",
+    "stock": "BLS Polymers",
+    "sme": false,
+    "date": "2026-11-16",
+    "side": "net seller",
+    "netCr": -1.8,
+    "d5": 1.0,
+    "d20": null,
+    "done": false
    }
   ],
   "deals": [
@@ -298841,6 +299539,57 @@
     }
    },
    {
+    "key": "HRTI",
+    "name": "HRTI PRIVATE LIMITED",
+    "n": 9,
+    "main": {
+     "buys": {
+      "n": 5,
+      "d5": {
+       "n": 5,
+       "pos": 40.0,
+       "lo": 11.8,
+       "hi": 76.9,
+       "med": -8.3,
+       "p10": -9.2,
+       "p90": 3.4
+      },
+      "d20": {
+       "n": 3,
+       "pos": 0.0,
+       "lo": 0.0,
+       "hi": 56.2,
+       "med": -22.0,
+       "p10": -26.3,
+       "p90": -8.1
+      },
+      "netCr": 31.5
+     },
+     "sells": {
+      "n": 4,
+      "d5": {
+       "n": 4,
+       "pos": 50.0,
+       "lo": 15.0,
+       "hi": 85.0,
+       "med": -2.5,
+       "p10": -6.4,
+       "p90": 1.8
+      },
+      "d20": {
+       "n": 3,
+       "pos": 0.0,
+       "lo": 0.0,
+       "hi": 56.2,
+       "med": -7.8,
+       "p10": -14.4,
+       "p90": -7.5
+      },
+      "netCr": -6.2
+     }
+    }
+   },
+   {
     "key": "YUGA STOCKS AND COMMODITIES",
     "name": "YUGA STOCKS AND COMMODITIES PRIVATE LIMITED",
     "n": 8,
@@ -298912,57 +299661,6 @@
        "p90": null
       },
       "netCr": -7.4
-     }
-    }
-   },
-   {
-    "key": "HRTI",
-    "name": "HRTI PRIVATE LIMITED",
-    "n": 8,
-    "main": {
-     "buys": {
-      "n": 5,
-      "d5": {
-       "n": 5,
-       "pos": 40.0,
-       "lo": 11.8,
-       "hi": 76.9,
-       "med": -8.3,
-       "p10": -9.2,
-       "p90": 3.4
-      },
-      "d20": {
-       "n": 3,
-       "pos": 0.0,
-       "lo": 0.0,
-       "hi": 56.2,
-       "med": -22.0,
-       "p10": -26.3,
-       "p90": -8.1
-      },
-      "netCr": 31.5
-     },
-     "sells": {
-      "n": 3,
-      "d5": {
-       "n": 3,
-       "pos": 33.3,
-       "lo": 6.1,
-       "hi": 79.2,
-       "med": -6.1,
-       "p10": -6.5,
-       "p90": 0.5
-      },
-      "d20": {
-       "n": 3,
-       "pos": 0.0,
-       "lo": 0.0,
-       "hi": 56.2,
-       "med": -7.8,
-       "p10": -14.4,
-       "p90": -7.5
-      },
-      "netCr": -4.5
      }
     }
    },
@@ -301624,6 +302322,14 @@
   "2029": {
    "src": "integris-medtech-logo.png",
    "at": "2026-11-20"
+  },
+  "2290": {
+   "src": "matangi-rubber-logo.png",
+   "at": "2026-11-23"
+  },
+  "2247": {
+   "src": "aj-packaging-logo.jpg",
+   "at": "2026-11-23"
   }
  },
  "calendar": {
@@ -301963,6 +302669,22 @@
    },
    {
     "date": "2026-12-01",
+    "kind": "open",
+    "name": "A J Packaging",
+    "igId": "2247",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-12-01",
+    "kind": "open",
+    "name": "Matangi Rubber",
+    "igId": "2290",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-12-01",
     "kind": "close",
     "name": "Integris Medtech",
     "igId": "2029",
@@ -302091,6 +302813,22 @@
    },
    {
     "date": "2026-12-03",
+    "kind": "close",
+    "name": "A J Packaging",
+    "igId": "2247",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-12-03",
+    "kind": "close",
+    "name": "Matangi Rubber",
+    "igId": "2290",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-12-03",
     "kind": "refund",
     "name": "Integris Medtech",
     "igId": "2029",
@@ -302133,6 +302871,22 @@
    },
    {
     "date": "2026-12-04",
+    "kind": "allotment",
+    "name": "A J Packaging",
+    "igId": "2247",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-12-04",
+    "kind": "allotment",
+    "name": "Matangi Rubber",
+    "igId": "2290",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-12-04",
     "kind": "listing",
     "name": "Integris Medtech",
     "igId": "2029",
@@ -302166,10 +302920,42 @@
     "src": "record"
    },
    {
+    "date": "2026-12-07",
+    "kind": "refund",
+    "name": "A J Packaging",
+    "igId": "2247",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-12-07",
+    "kind": "refund",
+    "name": "Matangi Rubber",
+    "igId": "2290",
+    "sme": false,
+    "src": "record"
+   },
+   {
     "date": "2026-12-08",
     "kind": "refund",
     "name": "Monomark Engineering",
     "igId": "2232",
+    "sme": false,
+    "src": "record"
+   },
+   {
+    "date": "2026-12-08",
+    "kind": "listing",
+    "name": "A J Packaging",
+    "igId": "2247",
+    "sme": true,
+    "src": "record"
+   },
+   {
+    "date": "2026-12-08",
+    "kind": "listing",
+    "name": "Matangi Rubber",
+    "igId": "2290",
     "sme": false,
     "src": "record"
    },
@@ -302696,6 +303482,24 @@
    },
    {
     "date": "2027-01-03",
+    "kind": "lockin30",
+    "name": "A J Packaging",
+    "igId": "2247",
+    "sme": true,
+    "src": "anchors",
+    "amountCr": 7.56
+   },
+   {
+    "date": "2027-01-03",
+    "kind": "lockin30",
+    "name": "Matangi Rubber",
+    "igId": "2290",
+    "sme": false,
+    "src": "anchors",
+    "amountCr": null
+   },
+   {
+    "date": "2027-01-03",
     "kind": "lockin90",
     "name": "Shree TNB Polymers",
     "igId": "2282",
@@ -302867,6 +303671,23 @@
     "allotment": "2026-12-01",
     "refund": "2026-12-02",
     "listing": "2026-12-03",
+    "blocks": {
+     "retail": {
+      "amount": 14898,
+      "shares": 78,
+      "lots": 1
+     },
+     "snii": {
+      "amount": 208572,
+      "shares": 1092,
+      "lots": 14
+     },
+     "bnii": {
+      "amount": 1013064,
+      "shares": 5304,
+      "lots": 68
+     }
+    },
     "releaseDate": "2026-12-02",
     "releaseSrc": "refund",
     "blockedDays": 2,
@@ -302893,6 +303714,39 @@
     ],
     "lockIn30": "2027-01-01",
     "lockIn90": "2027-03-02"
+   },
+   "2290": {
+    "name": "Matangi Rubber",
+    "sme": false,
+    "status": "Upcoming",
+    "open": "2026-12-01",
+    "close": "2026-12-03",
+    "allotment": "2026-12-04",
+    "refund": "2026-12-07",
+    "listing": "2026-12-08",
+    "blocks": {
+     "retail": {
+      "amount": 14964,
+      "shares": 87,
+      "lots": 1
+     },
+     "snii": {
+      "amount": 209496,
+      "shares": 1218,
+      "lots": 14
+     },
+     "bnii": {
+      "amount": 1002588,
+      "shares": 5829,
+      "lots": 67
+     }
+    },
+    "releaseDate": "2026-12-07",
+    "releaseSrc": "refund",
+    "blockedDays": 4,
+    "fundReuse": [],
+    "lockIn30": "2027-01-03",
+    "lockIn90": "2027-03-04"
    },
    "2232": {
     "name": "Monomark Engineering",
@@ -302975,6 +303829,39 @@
     "releaseSrc": "refund",
     "blockedDays": 4,
     "fundReuse": []
+   },
+   "2247": {
+    "name": "A J Packaging",
+    "sme": true,
+    "status": "Upcoming",
+    "open": "2026-12-01",
+    "close": "2026-12-03",
+    "allotment": "2026-12-04",
+    "refund": "2026-12-07",
+    "listing": "2026-12-08",
+    "blocks": {
+     "retail": {
+      "amount": 288000,
+      "shares": 1600,
+      "lots": 2
+     },
+     "snii": {
+      "amount": 288000,
+      "shares": 2400,
+      "lots": 3
+     },
+     "bnii": {
+      "amount": 1008000,
+      "shares": 2400,
+      "lots": 3
+     }
+    },
+    "releaseDate": "2026-12-07",
+    "releaseSrc": "refund",
+    "blockedDays": 4,
+    "fundReuse": [],
+    "lockIn30": "2027-01-03",
+    "lockIn90": "2027-03-04"
    }
   },
   "unlinked": [],
@@ -302986,7 +303873,7 @@
      "2026-12",
      "2027-01"
     ],
-    "events": 80
+    "events": 90
    },
    "ig607": {
     "rows": 5,
