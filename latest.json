@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-25T03:50:48+05:30",
+  "asOf": "2026-11-25T04:17:58+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "25 Nov 2026, 03:50 IST",
+  "label": "25 Nov 2026, 04:17 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -1849,7 +1849,7 @@
    "ofsCr": 100.71,
    "gmp": 19.0,
    "gmpPct": 6.99,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 15.81,
     "nii": 39.16,
@@ -2187,7 +2187,7 @@
    "ofsCr": 168.76,
    "gmp": 21.0,
    "gmpPct": 10.99,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": {
     "flag": false,
@@ -2446,7 +2446,7 @@
    "freshCr": null,
    "ofsCr": null,
    "gmp": 23.0,
-   "gmpPct": 0.0,
+   "gmpPct": null,
    "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": {
@@ -2650,7 +2650,7 @@
     "note": "BSE public issues list",
     "url": "https://www.bseindia.com/markets/PublicIssues/IPOIssues_new.aspx",
     "bseIpoNo": "8096",
-    "status": "upcoming"
+    "status": "open-holders"
    },
    {
     "name": "Mihika Industries",
@@ -2862,7 +2862,7 @@
     "status": "live"
    }
   ],
-  "asOf": "2026-11-24"
+  "asOf": "2026-11-25"
  },
  "recent": [
   {
@@ -2963,7 +2963,7 @@
    "bandLow": 232.0,
    "bandHigh": 245.0,
    "lotSize": 600,
-   "issueSizeCr": 113.92,
+   "issueSizeCr": 120.1,
    "freshCr": 113.92,
    "ofsCr": null,
    "gmp": 40.0,
@@ -3092,7 +3092,7 @@
    "name": "Shree Siddhivinayak Greentech Industries",
    "slug": "shree-siddhivinayak-greentech-industries",
    "type": "NSE SME",
-   "status": "Upcoming",
+   "status": "Open",
    "open": "2026-11-25",
    "close": "2026-11-27",
    "allotment": "2026-11-30",
@@ -3105,7 +3105,7 @@
    "ofsCr": null,
    "gmp": 20.0,
    "gmpPct": 14.08,
-   "gmpTrend": "up",
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": {
     "flag": false,
@@ -3123,7 +3123,7 @@
    "igId": "2349",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-25T03:50:31+05:30",
+   "igFetchedAt": "2026-11-25T04:16:32+05:30",
    "refund": "2026-12-01",
    "sector": "Sugar",
    "anchorShares": 0,
@@ -3287,12 +3287,12 @@
    "bandLow": 175.0,
    "bandHigh": 180.0,
    "lotSize": 800,
-   "issueSizeCr": 51.29,
+   "issueSizeCr": 54.0,
    "freshCr": 46.79,
    "ofsCr": 4.5,
    "gmp": 18.0,
    "gmpPct": 10.0,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": null,
    "shareholderQuota": {
     "flag": false,
@@ -17811,7 +17811,7 @@
    ],
    "nsdl": {
     "asOf": "2026-11-23",
-    "checkedAt": "2026-11-24T12:45:25+00:00",
+    "checkedAt": "2026-11-24T22:47:55+00:00",
     "years": [
      [
       "2015-16",
@@ -36535,6 +36535,11 @@
  ],
  "news": [
   {
+   "title": "IIFCL IPO: Govt to part sale stake, company to issue fresh shares",
+   "url": "https://www.business-standard.com/markets/ipo/iifcl-ipo-govt-to-part-sale-stake-company-to-issue-fresh-shares-126112400446_1.html",
+   "date": "2026-11-24T22:48:39+05:30"
+  },
+  {
    "title": "Anthropic CEO Dario Amodei sells shares worth USD 280.41 million following IPO",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/anthropic-ceo-dario-amodei-sells-shares-worth-usd-280-41-million-following-ipo/articleshow/136129119.cms",
    "date": "2026-11-24T17:07:14+05:30"
@@ -36653,11 +36658,6 @@
    "title": "Sebi roadmap focuses on faster IPOs, easier foreign investor access: Official",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-roadmap-focuses-on-faster-ipos-easier-foreign-investor-access-official/articleshow/135998128.cms",
    "date": "2026-11-19T21:29:26+05:30"
-  },
-  {
-   "title": "Six listed REIT firms distribute Rs 3,234 cr in Q2 to over 5.25 lakh unitholders",
-   "url": "https://economictimes.indiatimes.com/markets/digital-real-estate/realty-news/six-listed-reit-firms-distribute-rs-3234-cr-in-q2-to-over-5-25-lakh-unitholders/articleshow/135998101.cms",
-   "date": "2026-11-19T21:27:34+05:30"
   }
  ],
  "priceHistory": {
@@ -90697,28 +90697,39 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-25T03:50:48+05:30",
+  "asOf": "2026-11-25T04:17:58+05:30",
   "checks": [
+   {
+    "area": "calendar",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-11-25T04:16:30+05:30",
+    "elapsed": 4.32,
+    "calls": 5,
+    "note": "investorgain list=10 carried=0 +nse=2 +bse=1 exchange-only=0: 6 mainboard, 4 sme; 1 open, 6 upcoming",
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
+   },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:ok",
     "status": "ok",
     "asOf": "9-Nov 9:37",
-    "elapsed": 2.2,
+    "elapsed": 2.11,
     "calls": 2,
     "note": "gmp: 7 board rows patched via investorgain; 7 active, 5 of them matched; gmp: second site — 5 agree (within 2% of the issue price), 2 differ, 0 quoted by one site only; gmp: 11 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Johnsoncab Electricals (₹8, investorgain); M.K.Sons Fine Jewels (₹11, investorgain) …",
-    "lastOk": "2026-11-25T03:50:48+05:30",
+    "lastOk": "2026-11-25T04:17:58+05:30",
     "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-25T03:50:31+05:30",
-    "elapsed": 9.51,
-    "calls": 10,
-    "note": "10 records fetched for 10 identified listings (0 without an id); 0 anchor books updated, 103 on file",
-    "lastOk": "2026-11-25T03:50:48+05:30",
+    "asOf": "2026-11-25T04:16:32+05:30",
+    "elapsed": 0.91,
+    "calls": 1,
+    "note": "1 records fetched for 10 identified listings (0 without an id); 0 anchor books updated, 103 on file",
+    "lastOk": "2026-11-25T04:17:58+05:30",
     "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
@@ -90726,191 +90737,165 @@
     "method": "nse/narada/bse/chittorgarh:changed, subscription:changed",
     "status": "stale",
     "asOf": null,
-    "elapsed": 7.01,
-    "calls": 4,
+    "elapsed": 1.37,
+    "calls": 3,
     "note": "kept previous — Shree Siddhivinayak Greentech Industries: narada: no book yet; nse: no book (all zero or nothing classified); chittorgarh: report 21: no subscription table with QIB/Total headers",
     "lastOk": "2026-11-24T18:15:28+05:30",
     "dueBy": null
-   },
-   {
-    "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-11-24T18:14:11+05:30",
-    "elapsed": 4.13,
-    "calls": 5,
-    "note": "investorgain list=10 carried=0 +nse=2 +bse=1 exchange-only=0: 6 mainboard, 4 sme; 0 open, 7 upcoming",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
    },
    {
     "area": "listings",
     "method": "yahoo:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 6.36,
+    "elapsed": 7.46,
     "calls": 0,
     "note": "6 names priced, 0 moved to recent, 0 history points",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-24",
-    "elapsed": 2.55,
+    "asOf": "2026-11-25",
+    "elapsed": 3.51,
     "calls": 2,
     "note": "1412 listings since 2022 (999 SME); fetched 2026: 309; QIB on file for 114 of 413 mainboard issues; shareholder-quota books frozen for 0",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "tape",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 0.01,
-    "calls": 0,
-    "note": "213 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "elapsed": 1.01,
+    "calls": 2,
+    "note": "213 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 184 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 184 days on file",
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "anchorbook",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-24",
-    "elapsed": 0.01,
+    "asOf": "2026-11-25",
+    "elapsed": 0.0,
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 923 on file, 589 partial (feed gave only the first names); 0 of 1412 listings still to fetch",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "evidence",
     "method": "computed:ok",
     "status": "ok",
-    "asOf": "2026-11-24",
-    "elapsed": 0.17,
+    "asOf": "2026-11-25",
+    "elapsed": 0.2,
     "calls": 0,
     "note": "track records: 923 of 923 anchor books have an outcome; 913 of 1498 investors with 2+; 1412 listings; windows: mainboard 126, SME 237; 3 warnings",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "players",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-24",
-    "elapsed": 26.12,
+    "asOf": "2026-11-25",
+    "elapsed": 35.52,
     "calls": 55,
     "note": "54 of 2839 anchor investors read (0 failed); names found for 1 of 10 unlisted issues",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "parents",
     "method": "yahoo:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 11.29,
+    "elapsed": 12.34,
     "calls": 0,
     "note": "5/5 parent prices; 31/35 investor stocks priced",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "filings",
     "method": "bse_ann:ok, sebi:ok, nse_ann:ok",
     "status": "ok",
-    "asOf": "2026-11-24",
-    "elapsed": 7.57,
+    "asOf": "2026-11-25",
+    "elapsed": 5.78,
     "calls": 7,
-    "note": "bse_ann: feed of 5844 announcements today, 2/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1363 announcements scanned, 1 subsidiary-offer leads; 1 quota rows carry both the register row and the parent's announcement; 1 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 1 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 5 candidates (1 by announcement, 4 by group name); 11 leads held; 19 rows patched, 14 kept previous stage",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "note": "bse_ann: feed of 1 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 964 announcements scanned, 1 subsidiary-offer leads; 1 quota rows carry both the register row and the parent's announcement; 1 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 1 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 5 candidates (1 by announcement, 4 by group name); 9 leads held; 19 rows patched, 14 kept previous stage",
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "planner",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-24",
-    "elapsed": 2.2,
+    "asOf": "2026-11-25",
+    "elapsed": 2.4,
     "calls": 4,
-    "note": "147 events 2026-11-17..2027-01-08, 10 issues with terms, 0 from the report only",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "note": "145 events 2026-11-18..2027-01-09, 10 issues with terms, 0 from the report only",
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "offers",
     "method": "bse:ok",
     "status": "ok",
-    "asOf": "2026-11-24",
-    "elapsed": 2.49,
+    "asOf": "2026-11-25",
+    "elapsed": 4.47,
     "calls": 3,
     "note": "bse rows=17: 15 rights, 11 buybacks, 0 ofs, 1 ncd; 17 refreshed, 0 new, 0 closed windows dropped",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 5.5,
+    "elapsed": 6.9,
     "calls": 4,
     "note": "2026-11-23 already in history; nsdl to 2026-11-23: 11 months, 12 years; FII +5,673 / DII -2,760 Cr",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 1.69,
+    "elapsed": 2.07,
     "calls": 4,
-    "note": "bulk.csv: 89 deals; block.csv: 5 deals; 0 tracked-investor deals of 94; 13 patterns; BSE bulk: 128 deals, 18 in this year's listings; BSE block: 4 deals, 0 in this year's listings; listing deals: 29 of today's 94 deals are in this year's listings (10 stocks); 1945 kept over 60 days; 212 of 309 listings have an NSE symbol; 240 with a BSE code",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "note": "bulk.csv: 89 deals; block.csv: 5 deals; 0 tracked-investor deals of 94; 13 patterns; BSE bulk: 128 deals, 18 in this year's listings; BSE block: 4 deals, 0 in this year's listings; listing deals: 29 of today's 94 deals are in this year's listings (10 stocks); 1869 kept over 60 days; 212 of 309 listings have an NSE symbol; 240 with a BSE code",
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
-    "asOf": "2026-11-24T17:07:14+05:30",
-    "elapsed": 0.73,
+    "asOf": "2026-11-24T22:48:39+05:30",
+    "elapsed": 0.56,
     "calls": 3,
-    "note": "business-standard: 5/35 primary-market items; economic-times: 2/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 7 fresh, 25 kept",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "note": "business-standard: 6/35 primary-market items; economic-times: 2/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 8 fresh, 25 kept",
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "logos",
     "method": "none:ok",
     "status": "ok",
-    "asOf": "2026-11-24",
+    "asOf": "2026-11-25",
     "elapsed": 0.0,
     "calls": 0,
     "note": "79 logos on file; none to fetch",
-    "lastOk": "2026-11-24T18:15:28+05:30",
-    "dueBy": "2026-11-25T07:28:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-25T04:17:58+05:30",
+    "dueBy": "2026-11-25T07:28:00+05:30"
    },
    {
     "area": "research layer",
@@ -90922,7 +90907,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "19s, 16 calls, 2/3 modules ok"
+    "note": "93s, 95 calls, 17/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -129051,12 +129036,12 @@
    "stageDate": "2026-11-13",
    "ticker": "COALINDIA",
    "needsReview": {
-    "source": "sebi",
-    "url": "https://www.sebi.gov.in/filings/public-issues/nov-2026/mahanadi-coalfields-limited-rhp_105777.html",
-    "headline": "Mahanadi Coalfields Limited - RHP<br><a href='https://www.sebi.gov.in/sebi_data/commondocs/nov-2026/Mahanadi%20Coalfields%20Limited_DAP_p.pdf' style=color:#000000> Mahanadi Coalfields Limited - Abridged Prospectus</a>",
-    "date": "2026-11-13"
+    "source": "nse_ann",
+    "url": "https://nsearchives.nseindia.in/corporate/COALINDIA_24112026070916_MCL-Prospectus.pdf",
+    "headline": "Disclosure under Regulation 30 of Securities and Exchange Board of India(Listing Obligations and Disclosure Requirements) Regulations, 2015 ( ListingRegulations ) Initial public o&#64256;ering ( IPO ) of equity shares of face value &#8377; 2 each( Equity Shares ) of Mahanadi Coalfield Limited, a sub",
+    "date": "2026-11-24"
    },
-   "checkedAt": "2026-11-24",
+   "checkedAt": "2026-11-25",
    "igId": "2401"
   },
   {
@@ -129116,7 +129101,7 @@
     "headline": "Indian Energy Exchange Limited has informed the Exchange about General Updates about Receipt of Observation Letter from SEBI by Indian Gas Exchange Limited, An Associate Company of IEX, for its Proposed Initial Public Offering.",
     "date": "2026-10-13"
    },
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "dropped",
@@ -129207,7 +129192,7 @@
     "headline": "NLC India Limited has informed the Exchange about NLC India Renewables Limited (NIRL), a whollyowned subsidiary Company of NLC India Limited, has filed the Draft Red Herring Prospectus(DRHP) with SEBI, BSE Limited (BSE) and National Stock Exchange of India Limited (NSE)on 19.11.2026.",
     "date": "2026-11-19"
    },
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "drhp",
@@ -129234,10 +129219,10 @@
    "stageDate": "2026-11-02",
    "ticker": "COALINDIA",
    "needsReview": {
-    "source": "sebi",
-    "url": "https://www.sebi.gov.in/filings/public-issues/nov-2026/south-eastern-coalfields-limited-drhp_105620.html",
-    "headline": "South Eastern Coalfields Limited- DRHP <br><a href='https://www.sebi.gov.in/sebi_data/commondocs/nov-2026/Sunil%20Gold%20India%20Limited-prospectus_p.pdf' style=color:#000000>South Eastern Coalfields Limited - Draft Abridged Prospectus</a>",
-    "date": "2026-11-04",
+    "source": "nse_ann",
+    "url": "https://nsearchives.nseindia.in/corporate/COALINDIA_24112026070916_MCL-Prospectus.pdf",
+    "headline": "Disclosure under Regulation 30 of Securities and Exchange Board of India(Listing Obligations and Disclosure Requirements) Regulations, 2015 ( ListingRegulations ) Initial public o&#64256;ering ( IPO ) of equity shares of face value &#8377; 2 each( Equity Shares ) of Mahanadi Coalfield Limited, a sub",
+    "date": "2026-11-24",
     "register": {
      "register": "DRHP",
      "kind": "DRHP",
@@ -129252,7 +129237,7 @@
      "url": "https://nsearchives.nseindia.com/corporate/COALINDIA_02112026120108_SECL.pdf"
     }
    },
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "drhp",
@@ -129274,7 +129259,7 @@
    "stage": "DRHP filed",
    "stageDate": "2026-11-07",
    "ticker": "AMBER",
-   "checkedAt": "2026-11-24",
+   "checkedAt": "2026-11-25",
    "needsReview": {
     "source": "nse_ann",
     "url": "https://nsearchives.nseindia.com/corporate/AMBER_07112026112953_StockExchangeIntimations_ILJINDRHPFiling.pdf",
@@ -129302,7 +129287,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "SJVN",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "awaited",
@@ -129324,7 +129309,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "TATAMOTORS",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "awaited",
@@ -129346,7 +129331,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "RELIANCE",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "awaited",
@@ -129368,7 +129353,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "LICI",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "awaited",
@@ -129390,7 +129375,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "NHPC",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "awaited",
@@ -129412,7 +129397,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "ONGC",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "awaited",
@@ -129434,7 +129419,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "HDFCBANK",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "awaited",
@@ -129456,7 +129441,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "KOTAKBANK",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "awaited",
@@ -129478,7 +129463,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "AXISBANK",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "awaited",
@@ -129500,7 +129485,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "BAJAJFINSV",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "awaited",
@@ -129522,7 +129507,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "BAJAJFINSV",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "awaited",
@@ -129544,7 +129529,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "NAUKRI",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "awaited",
@@ -129566,7 +129551,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "BAJAJHIND",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "awaited",
@@ -129588,7 +129573,7 @@
    "stage": "DRHP awaited",
    "stageDate": null,
    "ticker": "GRETEX",
-   "checkedAt": "2026-11-24"
+   "checkedAt": "2026-11-25"
   },
   {
    "bucket": "dropped",
@@ -133666,7 +133651,7 @@
   }
  },
  "evidence": {
-  "asOf": "2026-11-24",
+  "asOf": "2026-11-25",
   "rfAnnual": 0.07,
   "minN": 30,
   "edges": {
@@ -136543,7 +136528,7 @@
   },
   "2349": {
    "name": "Shree Siddhivinayak Greentech Industries",
-   "fetchedAt": "2026-11-25T03:50:31+05:30",
+   "fetchedAt": "2026-11-25T04:16:32+05:30",
    "about": [
     "Shree Siddhivinayak Greentech Industries Limited is an integrated agro-processing company engaged in the production of Jaggery Powder, Khandsari Sugar, jaggery-based value-added food products and sugarcane-derived by-products. The company also operates a Cane Seed nursery to support sugarcane cultivation and strengthen its backward integration capabilities. Its business model caters to both B2B and B2C markets. While its B2B portfolio includes jaggery powder, Khandsari sugar and industrial by-products, its consumer-facing products are marketed under the \"Feel Guddy\" brand, which offers jaggery-based premixes such as Jaggery Tea, Jaggery Coffee, Instant Rice Kheer, Jaggery Laddoo and Jaggery Lapsi. The company operates an integrated sugarcane processing model, enabling it to derive multiple products from a single agricultural input. Alongside its primary products, it commercially utilises processing by-products, including bagasse, molasses, press mud and ash, to improve resource efficiency and minimise waste. Its operations are supported by backward integration through cane seed cultivation, in-house processing infrastructure and established procurement networks. This integrated approach enables the company to serve diverse industrial and retail customer segments while focusing on sustainable and resource-efficient manufacturing. Shree Siddhivinayak Greentech Industries Limited places emphasis on production efficiency, quality assurance, sustainable operations and continuous product development. As of March 31, 2026, the company had 155 permanent employees across various functions, including production, engineering, agriculture, administration, sales, finance, security and other operational departments. Competitive Strengths Integrated Sugarcane Processing Infrastructure: An integrated manufacturing model that enables the production of multiple sugarcane-based products and value-added derivatives. Backward Integration and Farmer Network: Cane seed nursery operations and farmer relationships that support sugarcane cultivation and raw material sourcing. Strategic Location and Procurement Efficiency: Proximity to key sugarcane-growing regions, facilitating efficient procurement and raw material availability. Seasonal Operational Expertise: Experience in managing seasonal sugarcane processing cycles and optimising production capacity utilisation. Sustainable and Zero-Waste Manufacturing: Efficient utilisation of sugarcane and its by-products to minimise waste and maximise resource recovery. Captive Power Generation: Improved energy efficiency through the utilisation of available processing resources for captive power generation. Diversified Product Portfolio: A combination of industrial-grade products and branded consumer offerings catering to B2B and B2C markets. Government Incentives: Potential benefits from applicable government policies and incentive schemes supporting the sugar and agro-processing industries."
    ],
@@ -138131,7 +138116,7 @@
   }
  },
  "players": {
-  "asOf": "2026-11-24",
+  "asOf": "2026-11-25",
   "tracked": 54,
   "of": 2839,
   "latestPerInvestor": 5,
@@ -139261,9 +139246,8 @@
   ]
  },
  "tape": {
-  "asOf": "2026-11-24T18:14:29+05:30",
+  "asOf": "2026-11-25T04:16:46+05:30",
   "dates": [
-   "2026-02-20",
    "2026-02-23",
    "2026-02-24",
    "2026-02-25",
@@ -139461,7 +139445,8 @@
    "2026-09-14",
    "2026-10-02",
    "2026-10-20",
-   "2026-11-10"
+   "2026-11-10",
+   "2026-11-24"
   ],
   "names": {
    "Antala Industries": "ANTALA",
@@ -139681,7 +139666,6 @@
   "n": 213,
   "bse": {
    "dates": [
-    "2026-02-20",
     "2026-02-23",
     "2026-02-24",
     "2026-02-25",
@@ -139879,7 +139863,8 @@
     "2026-09-14",
     "2026-10-02",
     "2026-10-20",
-    "2026-11-10"
+    "2026-11-10",
+    "2026-11-24"
    ],
    "names": {
     "Himalaya Nutravedics": "544943",
@@ -139983,7 +139968,7 @@
   }
  },
  "anchorBooks": {
-  "asOf": "2026-11-24",
+  "asOf": "2026-11-25",
   "n": 923,
   "books": {
    "1782": {
@@ -202925,7 +202910,7 @@
   }
  },
  "trackRecords": {
-  "asOf": "2026-11-24",
+  "asOf": "2026-11-25",
   "booksOn": 923,
   "withOutcome": 923,
   "investors": 1498,
@@ -301527,27 +301512,6 @@
    "seqId": "106815701",
    "sme": false,
    "watched": true
-  },
-  {
-   "parentSymbol": "PRESTIGE",
-   "parentName": "Prestige Estates Projects Limited",
-   "kind": "withdrawn",
-   "text": "Prestige Estates Projects Limited has informed the Exchange about the withdrawal of DRHP by Subsidiary",
-   "url": "https://nsearchives.nseindia.com/corporate/PRESTIGE_25092026182037_Emerald_-_PEPL_DRHP_Withdrawal_Intimaiton.pdf",
-   "date": "2026-09-25",
-   "seqId": "106794560",
-   "sme": false,
-   "watched": true
-  },
-  {
-   "parentSymbol": "KPIL",
-   "parentName": "Kalpataru Projects International Limited",
-   "kind": "ipo",
-   "text": "Kalpataru Projects International Limited has informed the Exchange about Initial public offering of equity shares of Linjemontage i Grästorp AB, a first level step down material subsidiary of the Company ( LMG )",
-   "url": "https://nsearchives.nseindia.com/corporate/KALPATPOWR_25092026085505_KPILSEIntimation25092026.pdf",
-   "date": "2026-09-25",
-   "seqId": "106792590",
-   "sme": false
   }
  ],
  "logos": {
@@ -301869,28 +301833,10 @@
   }
  },
  "calendar": {
-  "asOf": "2026-11-24",
-  "from": "2026-11-17",
-  "to": "2027-01-08",
+  "asOf": "2026-11-25",
+  "from": "2026-11-18",
+  "to": "2027-01-09",
   "events": [
-   {
-    "date": "2026-11-17",
-    "kind": "lockin30",
-    "name": "Fusion CX",
-    "igId": "1792",
-    "sme": false,
-    "src": "anchors",
-    "amountCr": 157.95
-   },
-   {
-    "date": "2026-11-17",
-    "kind": "lockin30",
-    "name": "Ravita Engineering Services",
-    "igId": "2220",
-    "sme": true,
-    "src": "anchors",
-    "amountCr": 16.51
-   },
    {
     "date": "2026-11-18",
     "kind": "open",
@@ -303380,7 +303326,7 @@
    "2349": {
     "name": "Shree Siddhivinayak Greentech Industries",
     "sme": true,
-    "status": "Upcoming",
+    "status": "Open",
     "open": "2026-11-25",
     "close": "2026-11-27",
     "allotment": "2026-11-30",
@@ -303511,7 +303457,7 @@
     "book": true
    },
    "first": "2026-11-14",
-   "last": "2026-11-24"
+   "last": "2026-11-25"
   }
  ]
 }
