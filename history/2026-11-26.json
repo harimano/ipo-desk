@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-26T14:38:38+05:30",
+  "asOf": "2026-11-26T15:03:12+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "26 Nov 2026, 14:38 IST",
+  "label": "26 Nov 2026, 15:03 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -1868,9 +1868,9 @@
     "src": "ig",
     "at": "2026-11-26"
    },
-   "listingPrice": null,
-   "listingGainPct": null,
-   "currentPrice": null,
+   "listingPrice": 278.0,
+   "listingGainPct": 2.21,
+   "currentPrice": 277.35,
    "sources": [
     "InvestorGain IPO list"
    ],
@@ -2198,10 +2198,10 @@
    "gmpTrend": "flat",
    "sub": {
     "qib": 0.0,
-    "nii": 0.28,
-    "retail": 1.93,
-    "total": 0.44,
-    "asOf": "2026-11-26T14:36:00+05:30",
+    "nii": 0.29,
+    "retail": 2.0,
+    "total": 0.45,
+    "asOf": "2026-11-26T14:57:00+05:30",
     "src": "nse"
    },
    "shareholderQuota": {
@@ -2227,14 +2227,14 @@
     "gmpPct": 7.33,
     "agree": true
    },
-   "igFetchedAt": "2026-11-26T14:38:29+05:30",
+   "igFetchedAt": "2026-11-26T15:01:54+05:30",
    "refund": "2026-12-02",
    "sector": "Restaurants",
    "anchorShares": 8499483,
    "logo": "foodlink-fb-india-ltd-logo.jpeg",
-   "gmpAsOf": "2026-11-26T14:02:00+05:30",
+   "gmpAsOf": "2026-11-26T14:37:00+05:30",
    "gmpEve": 14.0,
-   "gmpEveAsOf": "2026-11-26T14:02:00+05:30",
+   "gmpEveAsOf": "2026-11-26T14:37:00+05:30",
    "facts": {
     "sector": "Restaurants",
     "listingAt": "BSE, NSE",
@@ -2320,7 +2320,7 @@
      "received": 34762,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-26T14:38:38+05:30"
+    "asOf": "2026-11-26T15:02:02+05:30"
    }
   },
   {
@@ -2353,8 +2353,8 @@
    "sources": [
     "InvestorGain IPO list"
    ],
-   "symbol": null,
-   "series": null,
+   "symbol": "MATANGI",
+   "series": "EQUITY",
    "igId": "2290",
    "bseIpoNo": null,
    "bseScripCode": null,
@@ -3176,7 +3176,7 @@
     "snii": 0.34,
     "retail": 1.13,
     "total": 1.01,
-    "asOf": "2026-11-26T14:38:38+05:30",
+    "asOf": "2026-11-26T15:02:02+05:30",
     "src": "narada"
    },
    "shareholderQuota": {
@@ -3195,7 +3195,7 @@
    "igId": "2349",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-26T14:38:29+05:30",
+   "igFetchedAt": "2026-11-26T15:01:54+05:30",
    "refund": "2026-12-01",
    "sector": "Sugar",
    "anchorShares": 0,
@@ -3217,9 +3217,9 @@
      "lots": 3
     }
    },
-   "gmpAsOf": "2026-11-26T14:02:00+05:30",
+   "gmpAsOf": "2026-11-26T14:37:00+05:30",
    "gmpEve": 18.0,
-   "gmpEveAsOf": "2026-11-26T14:02:00+05:30",
+   "gmpEveAsOf": "2026-11-26T14:37:00+05:30",
    "facts": {
     "sector": "Sugar",
     "listingAt": "NSE SME",
@@ -3288,7 +3288,7 @@
      "received": 1909,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-26T14:38:38+05:30"
+    "asOf": "2026-11-26T15:02:02+05:30"
    }
   },
   {
@@ -3485,6 +3485,21 @@
   }
  ],
  "comps": [
+  {
+   "name": "Crystal Crop Protection",
+   "igId": "2067",
+   "year": 2026,
+   "sme": false,
+   "total": 17.68,
+   "ret": 2.21,
+   "retClose": null,
+   "qib": 15.81,
+   "nii": 39.16,
+   "retail": 9.71,
+   "snii": 27.11,
+   "bnii": 45.19,
+   "employee": 8.67
+  },
   {
    "name": "Antala Industries",
    "igId": "2375",
@@ -17923,7 +17938,7 @@
    ],
    "nsdl": {
     "asOf": "2026-11-25",
-    "checkedAt": "2026-11-26T01:15:44+00:00",
+    "checkedAt": "2026-11-26T09:33:09+00:00",
     "years": [
      [
       "2015-16",
@@ -18123,6 +18138,21 @@
   }
  },
  "listedPerf": [
+  {
+   "name": "Crystal Crop Protection",
+   "igId": "2067",
+   "date": "2026-11-26",
+   "sme": false,
+   "issue": 272.0,
+   "gmp": 17.0,
+   "gmpImplied": 289.0,
+   "listing": 278.0,
+   "close1": null,
+   "ltp": 0.0,
+   "bseCode": "545031",
+   "gmpEve": 18.0,
+   "gmpEveAsOf": "2026-11-25T15:37:00+05:30"
+  },
   {
    "name": "Antala Industries",
    "igId": "2375",
@@ -36652,6 +36682,21 @@
  ],
  "news": [
   {
+   "title": "LCC Projects hits 10% upper band on order win; but 40% below IPO price",
+   "url": "https://www.business-standard.com/markets/news/lcc-projects-hits-10-upper-band-on-order-win-but-40-below-ipo-price-126112600648_1.html",
+   "date": "2026-11-26T14:33:47+05:30"
+  },
+  {
+   "title": "Crystal Crop Protection lists at 3% premium after 17-times IPO subscription",
+   "url": "https://www.business-standard.com/markets/news/crystal-crop-protection-lists-at-3-premium-after-17-times-ipo-subscription-126112600232_1.html",
+   "date": "2026-11-26T10:57:10+05:30"
+  },
+  {
+   "title": "Foodlink F&B IPO review: Why brokerages are divided on ₹361-crore issue",
+   "url": "https://www.business-standard.com/markets/news/foodlink-f-b-ipo-review-why-brokerages-are-divided-on-361-crore-issue-126112600087_1.html",
+   "date": "2026-11-26T08:59:45+05:30"
+  },
+  {
    "title": "Look past grey market hype, focus on fundamentals when applying for IPOs",
    "url": "https://www.business-standard.com/finance/personal-finance/look-past-grey-market-hype-focus-on-fundamentals-when-applying-for-ipos-126112501292_1.html",
    "date": "2026-11-25T23:36:38+05:30"
@@ -36760,21 +36805,6 @@
    "title": "Indian investors show strong appetite for Anthropic's blockbuster IPO",
    "url": "https://www.business-standard.com/markets/news/indian-investors-show-strong-appetite-for-anthropic-s-blockbuster-ipo-126112001087_1.html",
    "date": "2026-11-20T21:24:13+05:30"
-  },
-  {
-   "title": "Anthropic shares tumble after record IPO as AI trade faces reality check",
-   "url": "https://www.business-standard.com/markets/news/anthropic-shares-tumble-after-record-ipo-as-ai-trade-faces-reality-check-126112001268_1.html",
-   "date": "2026-11-20T21:06:41+05:30"
-  },
-  {
-   "title": "Sebi plans tighter tenure caps for exchange MDs, public interest directors",
-   "url": "https://www.business-standard.com/markets/news/sebi-plans-tighter-tenure-caps-for-exchange-mds-public-interest-directors-126112001247_1.html",
-   "date": "2026-11-20T20:45:33+05:30"
-  },
-  {
-   "title": "Sebi proposes limiting tenure of chief executives, independent directors of stock exchanges, market infrastruction institutions",
-   "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-proposes-limiting-tenure-of-chief-executives-independent-directors-at-exchanges/articleshow/136031465.cms",
-   "date": "2026-11-20T20:39:36+05:30"
   }
  ],
  "priceHistory": {
@@ -90792,6 +90822,10 @@
    [
     "2026-11-25",
     1783.7
+   ],
+   [
+    "2026-11-26",
+    1905.0
    ]
   ],
   "SFC Environmental Technologies": [
@@ -90858,6 +90892,10 @@
    [
     "2026-11-25",
     421.35
+   ],
+   [
+    "2026-11-26",
+    421.45
    ]
   ],
   "BLS Polymers": [
@@ -90924,6 +90962,10 @@
    [
     "2026-11-25",
     262.54
+   ],
+   [
+    "2026-11-26",
+    266.0
    ]
   ],
   "Bombay Coated and Special Steels": [
@@ -90982,6 +91024,10 @@
    [
     "2026-11-25",
     81.78
+   ],
+   [
+    "2026-11-26",
+    82.46
    ]
   ],
   "Maxwell Engineering Solutions": [
@@ -91175,79 +91221,82 @@
     "2026-11-25",
     50.85
    ]
+  ],
+  "Crystal Crop Protection": [
+   [
+    "2026-11-26",
+    277.35
+   ]
   ]
  },
  "integrity": {
-  "asOf": "2026-11-26T14:38:38+05:30",
+  "asOf": "2026-11-26T15:03:12+05:30",
   "checks": [
+   {
+    "area": "calendar",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-11-26T15:01:52+05:30",
+    "elapsed": 4.76,
+    "calls": 5,
+    "note": "investorgain list=9 carried=1 +nse=6 +bse=1 exchange-only=0: 6 mainboard, 4 sme; 2 open, 5 upcoming",
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
+   },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:ok",
     "status": "ok",
     "asOf": "9-Nov 9:37",
-    "elapsed": 2.17,
+    "elapsed": 1.66,
     "calls": 2,
     "note": "gmp: 9 board rows patched via investorgain; 7 active, 6 of them matched; gmp: second site — 5 agree (within 2% of the issue price), 3 differ, 0 quoted by one site only; gmp: 11 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Johnsoncab Electricals (₹8, investorgain); M.K.Sons Fine Jewels (₹11, investorgain) …",
-    "lastOk": "2026-11-26T14:38:38+05:30",
+    "lastOk": "2026-11-26T15:03:12+05:30",
     "dueBy": "2026-11-26T15:52:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-26T14:38:29+05:30",
-    "elapsed": 2.23,
+    "asOf": "2026-11-26T15:01:54+05:30",
+    "elapsed": 1.74,
     "calls": 2,
     "note": "2 records fetched for 10 identified listings (0 without an id); 0 anchor books updated, 103 on file",
-    "lastOk": "2026-11-26T14:38:38+05:30",
+    "lastOk": "2026-11-26T15:03:12+05:30",
     "dueBy": "2026-11-26T15:52:00+05:30"
    },
    {
     "area": "subscription",
     "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-11-26T14:38:38+05:30",
-    "elapsed": 6.91,
-    "calls": 4,
+    "asOf": "2026-11-26T15:02:02+05:30",
+    "elapsed": 6.24,
+    "calls": 3,
     "note": "2/2 rows patched via narada, nse",
-    "lastOk": "2026-11-26T14:38:38+05:30",
+    "lastOk": "2026-11-26T15:03:12+05:30",
     "dueBy": "2026-11-26T15:52:00+05:30"
-   },
-   {
-    "area": "calendar",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-11-26T06:44:06+05:30",
-    "elapsed": 4.37,
-    "calls": 5,
-    "note": "investorgain list=9 carried=1 +nse=5 +bse=1 exchange-only=0: 6 mainboard, 4 sme; 2 open, 5 upcoming",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
    },
    {
     "area": "listings",
     "method": "yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-23",
-    "elapsed": 9.21,
+    "asOf": "2026-11-26",
+    "elapsed": 5.66,
     "calls": 0,
-    "note": "4 names priced, 0 moved to recent, 0 history points",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "note": "5 names priced, 0 moved to recent, 5 history points",
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 3.14,
+    "elapsed": 2.82,
     "calls": 2,
-    "note": "1412 listings since 2022 (999 SME); fetched 2026: 309; QIB on file for 114 of 413 mainboard issues; shareholder-quota books frozen for 0",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "note": "1413 listings since 2022 (999 SME); fetched 2026: 310; QIB on file for 115 of 414 mainboard issues; shareholder-quota books frozen for 0",
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "tape",
@@ -91257,129 +91306,118 @@
     "elapsed": 0.01,
     "calls": 0,
     "note": "214 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "anchorbook",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 1.08,
-    "calls": 1,
-    "note": "1 anchor books read (0 without an anchor table, 0 failed); 924 on file, 589 partial (feed gave only the first names); 0 of 1413 listings still to fetch",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "elapsed": 0.0,
+    "calls": 0,
+    "note": "0 anchor books read (0 without an anchor table, 0 failed); 924 on file, 589 partial (feed gave only the first names); 0 of 1413 listings still to fetch",
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "evidence",
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 0.21,
+    "elapsed": 0.27,
     "calls": 0,
-    "note": "track records: 923 of 924 anchor books have an outcome; 913 of 1498 investors with 2+; 1412 listings; windows: mainboard 126, SME 237; 3 warnings",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "note": "track records: 924 of 924 anchor books have an outcome; 913 of 1499 investors with 2+; 1413 listings; windows: mainboard 127, SME 237; 3 warnings",
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "players",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 36.6,
+    "elapsed": 28.96,
     "calls": 55,
     "note": "54 of 2839 anchor investors read (0 failed); names found for 1 of 9 unlisted issues",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "parents",
     "method": "yahoo:ok",
     "status": "ok",
-    "asOf": "2026-11-23",
-    "elapsed": 14.04,
+    "asOf": "2026-11-26",
+    "elapsed": 9.1,
     "calls": 0,
     "note": "5/5 parent prices; 31/35 investor stocks priced",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "filings",
     "method": "bse_ann:ok, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 8.91,
+    "elapsed": 5.17,
     "calls": 7,
-    "note": "bse_ann: feed of 19 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1228 announcements scanned, 2 subsidiary-offer leads; 1 quota rows carry both the register row and the parent's announcement; 1 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 1 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 5 candidates (1 by announcement, 4 by group name); 10 leads held; 19 rows patched, 14 kept previous stage",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "note": "bse_ann: feed of 6076 announcements today, 1/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1365 announcements scanned, 2 subsidiary-offer leads; 1 quota rows carry both the register row and the parent's announcement; 1 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 1 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 5 candidates (1 by announcement, 4 by group name); 10 leads held; 19 rows patched, 14 kept previous stage",
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "planner",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 2.7,
+    "elapsed": 2.25,
     "calls": 4,
     "note": "144 events 2026-11-19..2027-01-10, 9 issues with terms, 0 from the report only",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "offers",
     "method": "bse:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 4.32,
+    "elapsed": 4.73,
     "calls": 3,
     "note": "bse rows=18: 16 rights, 11 buybacks, 0 ofs, 1 ncd; 18 refreshed, 0 new, 0 closed windows dropped",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-11-25",
-    "elapsed": 5.9,
+    "elapsed": 6.54,
     "calls": 4,
     "note": "2026-11-25 already in history; nsdl to 2026-11-25: 11 months, 12 years; FII +4,479 / DII +4,019 Cr",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-25",
-    "elapsed": 2.15,
+    "elapsed": 2.22,
     "calls": 4,
     "note": "bulk.csv: 103 deals; block.csv: 21 deals; 0 tracked-investor deals of 124; 13 patterns; BSE bulk: 96 deals, 13 in this year's listings; BSE block: 2 deals, 0 in this year's listings; listing deals: 23 of today's 124 deals are in this year's listings (12 stocks); 1892 kept over 60 days; 213 of 310 listings have an NSE symbol; 241 with a BSE code",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
-    "asOf": "2026-11-25T23:36:38+05:30",
-    "elapsed": 0.79,
+    "asOf": "2026-11-26T14:33:47+05:30",
+    "elapsed": 0.61,
     "calls": 3,
-    "note": "business-standard: 3/35 primary-market items; economic-times: 4/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 7 fresh, 25 kept",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "note": "business-standard: 6/35 primary-market items; economic-times: 4/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 10 fresh, 25 kept",
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "logos",
@@ -91389,9 +91427,8 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "79 logos on file; none to fetch",
-    "lastOk": "2026-11-26T06:45:48+05:30",
-    "dueBy": "2026-11-26T18:58:00+05:30",
-    "carried": true
+    "lastOk": "2026-11-26T15:03:12+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "research layer",
@@ -91403,7 +91440,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "12s, 8 calls, 3/3 modules ok"
+    "note": "84s, 94 calls, 18/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -92935,28 +92972,28 @@
   "prices": {
    "Coal India": {
     "symbol": "COALINDIA",
-    "value": 382.0,
-    "asOf": "2026-11-23"
+    "value": 389.15,
+    "asOf": "2026-11-26"
    },
    "IEX": {
     "symbol": "IEX",
-    "value": 109.15,
-    "asOf": "2026-11-23"
+    "value": 112.3,
+    "asOf": "2026-11-26"
    },
    "NLC India": {
     "symbol": "NLCINDIA",
-    "value": 227.16,
-    "asOf": "2026-11-23"
+    "value": 229.1,
+    "asOf": "2026-11-26"
    },
    "Amber Enterprises": {
     "symbol": "AMBER",
-    "value": 6850.0,
-    "asOf": "2026-11-23"
+    "value": 6857.0,
+    "asOf": "2026-11-26"
    },
    "SJVN": {
     "symbol": "SJVN",
-    "value": 54.96,
-    "asOf": "2026-11-23"
+    "value": 55.16,
+    "asOf": "2026-11-26"
    },
    "Tata Motors": {
     "symbol": "TATAMOTORS",
@@ -92965,128 +93002,128 @@
    },
    "Reliance Industries": {
     "symbol": "RELIANCE",
-    "value": 1351.0,
-    "asOf": "2026-11-23"
+    "value": 1396.0,
+    "asOf": "2026-11-26"
    },
    "LIC": {
     "symbol": "LICI",
-    "value": 407.3,
-    "asOf": "2026-11-23"
+    "value": 410.65,
+    "asOf": "2026-11-26"
    },
    "NHPC": {
     "symbol": "NHPC",
-    "value": 75.36,
-    "asOf": "2026-11-23"
+    "value": 76.22,
+    "asOf": "2026-11-26"
    },
    "ONGC": {
     "symbol": "ONGC",
-    "value": 222.85,
-    "asOf": "2026-11-23"
+    "value": 223.41,
+    "asOf": "2026-11-26"
    },
    "HDFC Bank": {
     "symbol": "HDFCBANK",
-    "value": 817.8,
-    "asOf": "2026-11-23"
+    "value": 861.0,
+    "asOf": "2026-11-26"
    },
    "Kotak Mahindra Bank": {
     "symbol": "KOTAKBANK",
-    "value": 502.85,
-    "asOf": "2026-11-23"
+    "value": 508.1,
+    "asOf": "2026-11-26"
    },
    "Axis Bank": {
     "symbol": "AXISBANK",
-    "value": 1388.6,
-    "asOf": "2026-11-23"
+    "value": 1408.4,
+    "asOf": "2026-11-26"
    },
    "Bajaj Finserv": {
     "symbol": "BAJAJFINSV",
-    "value": 1880.1,
-    "asOf": "2026-11-23"
+    "value": 1889.2,
+    "asOf": "2026-11-26"
    },
    "Info Edge": {
     "symbol": "NAUKRI",
-    "value": 1187.5,
-    "asOf": "2026-11-23"
+    "value": 1223.5,
+    "asOf": "2026-11-26"
    },
    "Bajaj Hindusthan Sugar": {
     "symbol": "BAJAJHIND",
-    "value": 16.47,
-    "asOf": "2026-11-23"
+    "value": 17.15,
+    "asOf": "2026-11-26"
    },
    "Gretex Corporate Services": {
     "symbol": "GRETEX",
     "value": 222.4,
-    "asOf": "2026-11-23"
+    "asOf": "2026-11-25"
    },
    "Gaudium IVF and Women Health": {
     "symbol": "GAUDIUMIVF",
-    "value": 97.49,
-    "asOf": "2026-11-23"
+    "value": 95.64,
+    "asOf": "2026-11-26"
    },
    "Symbiotec Pharmalab": {
     "symbol": "SYMBIOTEC",
-    "value": 1562.6,
-    "asOf": "2026-11-23"
+    "value": 1514.4,
+    "asOf": "2026-11-26"
    },
    "Tempsens Instruments": {
     "symbol": "TEMPSENS",
-    "value": 498.9,
-    "asOf": "2026-11-23"
+    "value": 488.3,
+    "asOf": "2026-11-26"
    },
    "Milky Mist Dairy Food": {
     "symbol": "MILKYMIST",
-    "value": 339.45,
-    "asOf": "2026-11-23"
+    "value": 355.6,
+    "asOf": "2026-11-26"
    },
    "Shiprocket": {
     "symbol": "SHIPROCKET",
-    "value": 108.08,
-    "asOf": "2026-11-23"
+    "value": 109.52,
+    "asOf": "2026-11-26"
    },
    "ESDS Software Solution": {
     "symbol": "ESDS",
-    "value": 1073.4,
-    "asOf": "2026-11-23"
+    "value": 1107.2,
+    "asOf": "2026-11-26"
    },
    "Dhoot Transmission": {
     "symbol": "DHOOTTRANS",
-    "value": 1579.9,
-    "asOf": "2026-11-23"
+    "value": 1577.5,
+    "asOf": "2026-11-26"
    },
    "Molbio Diagnostics": {
     "symbol": "MOLBIO",
-    "value": 1446.9,
-    "asOf": "2026-11-23"
+    "value": 1523.0,
+    "asOf": "2026-11-26"
    },
    "Lumino Industries": {
     "symbol": "LUMINO",
-    "value": 88.93,
-    "asOf": "2026-11-23"
+    "value": 86.74,
+    "asOf": "2026-11-26"
    },
    "SBI Funds Management": {
     "symbol": "SBIFUNDS",
-    "value": 524.95,
-    "asOf": "2026-11-23"
+    "value": 533.55,
+    "asOf": "2026-11-26"
    },
    "Caliber Mining and Logistics": {
     "symbol": "CMLL",
-    "value": 535.75,
-    "asOf": "2026-11-23"
+    "value": 529.85,
+    "asOf": "2026-11-26"
    },
    "Indo-MIM": {
     "symbol": "INDOMIM",
-    "value": 1281.5,
-    "asOf": "2026-11-23"
+    "value": 1294.1,
+    "asOf": "2026-11-26"
    },
    "Behari Lal Engineering": {
     "symbol": "BLEL",
-    "value": 391.0,
-    "asOf": "2026-11-23"
+    "value": 371.8,
+    "asOf": "2026-11-26"
    },
    "Purple Style Labs (upcoming, not yet listed)": {
     "symbol": "PERNIASPOP",
-    "value": 477.3,
-    "asOf": "2026-11-23"
+    "value": 468.4,
+    "asOf": "2026-11-26"
    },
    "Ashutosh Fibre (upcoming)": {
     "symbol": "ASHUTOSH",
@@ -93095,8 +93132,8 @@
    },
    "Sahajanand Medical Technologies (upcoming)": {
     "symbol": "SMT",
-    "value": 557.45,
-    "asOf": "2026-11-23"
+    "value": 549.35,
+    "asOf": "2026-11-26"
    },
    "Indo SMC": {
     "symbol": null,
@@ -129932,10 +129969,10 @@
    "stageDate": "2026-11-13",
    "ticker": "COALINDIA",
    "needsReview": {
-    "source": "sebi",
-    "url": "https://www.sebi.gov.in/filings/public-issues/nov-2026/mahanadi-coalfields-limited-rhp_105777.html",
-    "headline": "Mahanadi Coalfields Limited - RHP<br><a href='https://www.sebi.gov.in/sebi_data/commondocs/nov-2026/Mahanadi%20Coalfields%20Limited_DAP_p.pdf' style=color:#000000> Mahanadi Coalfields Limited - Abridged Prospectus</a>",
-    "date": "2026-11-13"
+    "source": "nse_ann",
+    "url": "https://nsearchives.nseindia.in/corporate/COALINDIA_24112026070916_MCL-Prospectus.pdf",
+    "headline": "Disclosure under Regulation 30 of Securities and Exchange Board of India(Listing Obligations and Disclosure Requirements) Regulations, 2015 ( ListingRegulations ) Initial public o&#64256;ering ( IPO ) of equity shares of face value &#8377; 2 each( Equity Shares ) of Mahanadi Coalfield Limited, a sub",
+    "date": "2026-11-24"
    },
    "checkedAt": "2026-11-26",
    "igId": "2401"
@@ -130128,10 +130165,10 @@
    "stageDate": "2026-11-02",
    "ticker": "COALINDIA",
    "needsReview": {
-    "source": "sebi",
-    "url": "https://www.sebi.gov.in/filings/public-issues/nov-2026/south-eastern-coalfields-limited-drhp_105620.html",
-    "headline": "South Eastern Coalfields Limited- DRHP <br><a href='https://www.sebi.gov.in/sebi_data/commondocs/nov-2026/Sunil%20Gold%20India%20Limited-prospectus_p.pdf' style=color:#000000>South Eastern Coalfields Limited - Draft Abridged Prospectus</a>",
-    "date": "2026-11-04",
+    "source": "nse_ann",
+    "url": "https://nsearchives.nseindia.in/corporate/COALINDIA_24112026070916_MCL-Prospectus.pdf",
+    "headline": "Disclosure under Regulation 30 of Securities and Exchange Board of India(Listing Obligations and Disclosure Requirements) Regulations, 2015 ( ListingRegulations ) Initial public o&#64256;ering ( IPO ) of equity shares of face value &#8377; 2 each( Equity Shares ) of Mahanadi Coalfield Limited, a sub",
+    "date": "2026-11-24",
     "register": {
      "register": "DRHP",
      "kind": "DRHP",
@@ -134060,8 +134097,8 @@
    "metrics": [],
    "parent": "Reliance Industries",
    "parentPrice": {
-    "value": 1351.0,
-    "asOf": "2026-11-23"
+    "value": 1396.0,
+    "asOf": "2026-11-26"
    },
    "parentTicker": "RELIANCE",
    "sources": [
@@ -134113,8 +134150,8 @@
    "metrics": [],
    "parent": "Edelweiss Financial Services",
    "parentPrice": {
-    "value": 128.15,
-    "asOf": "2026-11-23"
+    "value": 123.91,
+    "asOf": "2026-11-26"
    },
    "parentTicker": "EDELWEISS",
    "sources": [
@@ -134268,8 +134305,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 382.0,
-    "asOf": "2026-11-23"
+    "value": 389.15,
+    "asOf": "2026-11-26"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -134397,8 +134434,8 @@
    "metrics": [],
    "parent": "Hero MotoCorp",
    "parentPrice": {
-    "value": 5535.0,
-    "asOf": "2026-11-23"
+    "value": 5782.0,
+    "asOf": "2026-11-26"
    },
    "parentTicker": "HEROMOTOCO",
    "sources": [
@@ -134512,8 +134549,8 @@
    ],
    "parent": "Coal India",
    "parentPrice": {
-    "value": 382.0,
-    "asOf": "2026-11-23"
+    "value": 389.15,
+    "asOf": "2026-11-26"
    },
    "parentTicker": "COALINDIA",
    "sources": [
@@ -134620,11 +134657,11 @@
    "main": {
     "window": {
      "rule": "last 12 months",
-     "n": 126,
+     "n": 127,
      "from": "2025-11-26",
-     "to": "2026-11-05"
+     "to": "2026-11-26"
     },
-    "n": 413,
+    "n": 414,
     "bands": {
      "total": {
       "window": [
@@ -134647,13 +134684,13 @@
         "p90": 9.9
        },
        {
-        "n": 25,
-        "pos": 76.0,
-        "lo": 56.6,
-        "hi": 88.5,
-        "med": 7.1,
+        "n": 26,
+        "pos": 76.9,
+        "lo": 57.9,
+        "hi": 89.0,
+        "med": 7.0,
         "p10": 0.0,
-        "p90": 23.5
+        "p90": 23.1
        },
        {
         "n": 45,
@@ -134685,13 +134722,13 @@
         "p90": 10.5
        },
        {
-        "n": 98,
-        "pos": 69.4,
-        "lo": 59.7,
-        "hi": 77.6,
-        "med": 7.7,
-        "p10": -4.7,
-        "p90": 31.0
+        "n": 99,
+        "pos": 69.7,
+        "lo": 60.0,
+        "hi": 77.9,
+        "med": 7.6,
+        "p10": -4.6,
+        "p90": 30.9
        },
        {
         "n": 159,
@@ -134716,13 +134753,13 @@
         "p90": 2.7
        },
        {
-        "n": 44,
-        "pos": 68.2,
-        "lo": 53.4,
-        "hi": 80.0,
-        "med": 3.7,
-        "p10": -2.2,
-        "p90": 10.4
+        "n": 45,
+        "pos": 68.9,
+        "lo": 54.3,
+        "hi": 80.5,
+        "med": 3.5,
+        "p10": -2.1,
+        "p90": 10.3
        },
        {
         "n": 30,
@@ -134754,12 +134791,12 @@
         "p90": 5.1
        },
        {
-        "n": 122,
-        "pos": 63.9,
-        "lo": 55.1,
-        "hi": 71.9,
-        "med": 2.6,
-        "p10": -3.9,
+        "n": 123,
+        "pos": 64.2,
+        "lo": 55.4,
+        "hi": 72.1,
+        "med": 2.5,
+        "p10": -3.8,
         "p90": 10.0
        },
        {
@@ -134794,13 +134831,13 @@
         "p90": 5.5
        },
        {
-        "n": 19,
-        "pos": 78.9,
-        "lo": 56.7,
-        "hi": 91.5,
-        "med": 4.6,
-        "p10": -2.0,
-        "p90": 10.9
+        "n": 20,
+        "pos": 80.0,
+        "lo": 58.4,
+        "hi": 91.9,
+        "med": 4.5,
+        "p10": -1.0,
+        "p90": 10.7
        },
        {
         "n": 18,
@@ -134824,7 +134861,7 @@
       "years": [
        2026
       ],
-      "n": 114
+      "n": 115
      },
      "retail": {
       "rows": [
@@ -134847,13 +134884,13 @@
         "p90": 9.0
        },
        {
-        "n": 20,
-        "pos": 70.0,
-        "lo": 48.1,
-        "hi": 85.5,
-        "med": 6.8,
+        "n": 21,
+        "pos": 71.4,
+        "lo": 50.0,
+        "hi": 86.2,
+        "med": 6.7,
         "p10": -11.5,
-        "p90": 19.9
+        "p90": 17.9
        },
        {
         "n": 27,
@@ -135039,18 +135076,18 @@
        "evMean": -0.51
       },
       {
-       "n": 20,
-       "pos": 70.0,
-       "lo": 48.1,
-       "hi": 85.5,
-       "med": 6.8,
+       "n": 21,
+       "pos": 71.4,
+       "lo": 50.0,
+       "hi": 86.2,
+       "med": 6.7,
        "p10": -11.5,
-       "p90": 19.9,
-       "oddsMed": 15.8,
-       "evMed": 1.08,
-       "evP10": -1.46,
-       "evP90": 2.69,
-       "evMean": 0.76
+       "p90": 17.9,
+       "oddsMed": 14.9,
+       "evMed": 0.91,
+       "evP10": -1.34,
+       "evP90": 2.5,
+       "evMean": 0.73
       },
       {
        "n": 27,
@@ -135161,13 +135198,13 @@
     "anchors": {
      "rows": [
       {
-       "n": 23,
-       "pos": 78.3,
-       "lo": 58.1,
-       "hi": 90.3,
-       "med": 5.5,
-       "p10": -1.8,
-       "p90": 42.5
+       "n": 24,
+       "pos": 79.2,
+       "lo": 59.5,
+       "hi": 90.8,
+       "med": 5.1,
+       "p10": -1.6,
+       "p90": 40.1
       },
       {
        "n": 3,
@@ -135197,23 +135234,31 @@
        "p90": 16.6
       }
      ],
-     "n": 33,
+     "n": 34,
      "since": "2026-09-23",
-     "of": 53
+     "of": 54
     },
     "fit": {
      "r377": {
-      "n": 116,
-      "a": -1.86,
+      "n": 117,
+      "a": -1.89,
       "b": 1.059,
       "r2": 0.83,
-      "sd": 10.0,
+      "sd": 9.9,
       "q10": -9.9,
       "q90": 9.4
      },
-     "eve": null,
+     "eve": {
+      "n": 30,
+      "a": -2.13,
+      "b": 1.228,
+      "r2": 0.81,
+      "sd": 10.1,
+      "q10": -10.1,
+      "q90": 10.4
+     },
      "provisional": false,
-     "eveRows": 31,
+     "eveRows": 32,
      "r377OnSameRows": null
     },
     "byYear": {
@@ -135254,13 +135299,13 @@
       "p90": 29.4
      },
      "2026": {
-      "n": 114,
-      "pos": 69.3,
-      "lo": 60.3,
-      "hi": 77.0,
-      "med": 6.9,
-      "p10": -8.4,
-      "p90": 40.9
+      "n": 115,
+      "pos": 69.6,
+      "lo": 60.6,
+      "hi": 77.2,
+      "med": 6.8,
+      "p10": -8.2,
+      "p90": 40.7
      }
     },
     "lockin": {
@@ -136366,7 +136411,7 @@
   "warnings": [
    {
     "code": "category-one-year-mainboard",
-    "text": "mainboard: QIB and retail bands, and expected value, rest on 114 listings from 2026 alone — category books are not published for earlier years."
+    "text": "mainboard: QIB and retail bands, and expected value, rest on 115 listings from 2026 alone — category books are not published for earlier years."
    },
    {
     "code": "category-one-year-SME",
@@ -137437,7 +137482,7 @@
   },
   "2349": {
    "name": "Shree Siddhivinayak Greentech Industries",
-   "fetchedAt": "2026-11-26T14:38:29+05:30",
+   "fetchedAt": "2026-11-26T15:01:54+05:30",
    "about": [
     "Shree Siddhivinayak Greentech Industries Limited is an integrated agro-processing company engaged in the production of Jaggery Powder, Khandsari Sugar, jaggery-based value-added food products and sugarcane-derived by-products. The company also operates a Cane Seed nursery to support sugarcane cultivation and strengthen its backward integration capabilities. Its business model caters to both B2B and B2C markets. While its B2B portfolio includes jaggery powder, Khandsari sugar and industrial by-products, its consumer-facing products are marketed under the \"Feel Guddy\" brand, which offers jaggery-based premixes such as Jaggery Tea, Jaggery Coffee, Instant Rice Kheer, Jaggery Laddoo and Jaggery Lapsi. The company operates an integrated sugarcane processing model, enabling it to derive multiple products from a single agricultural input. Alongside its primary products, it commercially utilises processing by-products, including bagasse, molasses, press mud and ash, to improve resource efficiency and minimise waste. Its operations are supported by backward integration through cane seed cultivation, in-house processing infrastructure and established procurement networks. This integrated approach enables the company to serve diverse industrial and retail customer segments while focusing on sustainable and resource-efficient manufacturing. Shree Siddhivinayak Greentech Industries Limited places emphasis on production efficiency, quality assurance, sustainable operations and continuous product development. As of March 31, 2026, the company had 155 permanent employees across various functions, including production, engineering, agriculture, administration, sales, finance, security and other operational departments. Competitive Strengths Integrated Sugarcane Processing Infrastructure: An integrated manufacturing model that enables the production of multiple sugarcane-based products and value-added derivatives. Backward Integration and Farmer Network: Cane seed nursery operations and farmer relationships that support sugarcane cultivation and raw material sourcing. Strategic Location and Procurement Efficiency: Proximity to key sugarcane-growing regions, facilitating efficient procurement and raw material availability. Seasonal Operational Expertise: Experience in managing seasonal sugarcane processing cycles and optimising production capacity utilisation. Sustainable and Zero-Waste Manufacturing: Efficient utilisation of sugarcane and its by-products to minimise waste and maximise resource recovery. Captive Power Generation: Improved energy efficiency through the utilisation of available processing resources for captive power generation. Diversified Product Portfolio: A combination of industrial-grade products and branded consumer offerings catering to B2B and B2C markets. Government Incentives: Potential benefits from applicable government policies and incentive schemes supporting the sugar and agro-processing industries."
    ],
@@ -137704,15 +137749,15 @@
      "retailBidCr": 10.0
     },
     {
-     "asOf": "2026-11-26T14:12:00+05:30",
+     "asOf": "2026-11-26T14:41:00+05:30",
      "qib": 4.27,
-     "nii": 0.72,
+     "nii": 0.73,
      "bnii": 0.9,
-     "snii": 0.34,
-     "retail": 1.17,
-     "total": 0.98,
-     "bidCr": 87.1,
-     "retailBidCr": 51.57
+     "snii": 0.37,
+     "retail": 1.27,
+     "total": 1.03,
+     "bidCr": 91.85,
+     "retailBidCr": 55.92
     }
    ],
    "company": {
@@ -137723,7 +137768,7 @@
   },
   "1810": {
    "name": "Foodlink F&B Holdings",
-   "fetchedAt": "2026-11-26T14:38:29+05:30",
+   "fetchedAt": "2026-11-26T15:01:54+05:30",
    "about": [
     "```html Foodlink F&B Holdings (India) Limited is a prominent player in the catering and hospitality industry, offering a wide range of food and beverage services across domestic and international markets. The company follows an integrated business model built around three major business verticals: Events Catering: Specialised catering services for weddings, corporate gatherings, MICE events, sporting events, and private celebrations. Casual Dining Restaurants and Cloud Kitchens: Operations covering dine-in restaurants and delivery-focused cloud kitchen formats. Banquets and Integrated F&B Services: Premium banquet venues and comprehensive food and beverage solutions offered under the Jade Luxury Banquets brand. As of December 31, 2024, the company had an operational presence in India and the United Arab Emirates (UAE). In addition, it has delivered catering services for events across several international destinations, including Switzerland, Turkey, Italy, Spain, France, Oman, Qatar, Egypt, Jordan, the Maldives, Thailand, and Nigeria. As disclosed in its Draft Red Herring Prospectus (DRHP), Foodlink operated 30 casual dining restaurant and cloud kitchen units. Of these, 18 units were located across 13 locations in two Indian cities, while the remaining 12 units operated across six locations in Dubai. To support its catering and restaurant operations, the company has established five centralised kitchens in key Indian cities: Mumbai (Maharashtra), Ahmedabad (Gujarat), Mohali (Punjab), Hyderabad (Telangana), and New Delhi. These facilities form an important part of its food preparation and distribution network. As of December 31, 2024, Foodlink had a total workforce of 1,235 employees supporting its business operations and service delivery. Competitive Strengths: Leadership in Premium Catering: Ranked as India's largest organised ultra-luxury and luxury catering company by revenue for Fiscal 2024 among its Indian peers, with services covering weddings, MICE events, sports events, personal celebrations, and banquets. Strong Customer Relationships: Focus on delivering distinctive, innovative, and high-quality food and hospitality experiences, supported by a diversified portfolio of reputed customers. Efficient Kitchen and Supply Chain Network: Strategically positioned centralised kitchens, established operating procedures, and streamlined supply chain capabilities that support consistent service delivery. International Market Presence: Geographically diversified operations and catering experience across multiple domestic and overseas markets. Experienced Leadership: Backed by promoters and a professional management team with extensive industry experience and expertise in the catering and hospitality sector. ```"
    ],
@@ -137968,15 +138013,15 @@
    ],
    "bidding": [
     {
-     "asOf": "2026-11-26T14:11:00+05:30",
+     "asOf": "2026-11-26T14:41:00+05:30",
      "qib": 0.0,
-     "nii": 0.28,
+     "nii": 0.29,
      "bnii": 0.23,
-     "snii": 0.36,
-     "retail": 1.9,
-     "total": 0.42,
-     "bidCr": 83.35,
-     "retailBidCr": 68.46
+     "snii": 0.39,
+     "retail": 1.99,
+     "total": 0.44,
+     "bidCr": 87.47,
+     "retailBidCr": 71.93
     }
    ],
    "company": {
@@ -140320,7 +140365,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-11-26T06:44:30+05:30",
+  "asOf": "2026-11-26T15:02:11+05:30",
   "dates": [
    "2026-02-23",
    "2026-02-24",
@@ -204140,8 +204185,8 @@
  "trackRecords": {
   "asOf": "2026-11-26",
   "booksOn": 924,
-  "withOutcome": 923,
-  "investors": 1498,
+  "withOutcome": 924,
+  "investors": 1499,
   "minRows": 2,
   "lead": 2,
   "rows": [
@@ -211086,6 +211131,132 @@
     ]
    },
    {
+    "key": "CITIGROUP GLOBAL MARKETS MAURITIUS",
+    "name": "CITIGROUP GLOBAL MARKETS MAURITIUS PVT.LTD.",
+    "cr": 123.4,
+    "n": 19,
+    "main": {
+     "n": 19,
+     "pos": 68.4,
+     "lo": 46.0,
+     "hi": 84.6,
+     "med": 2.2,
+     "p10": -9.9,
+     "p90": 26.7,
+     "close1": {
+      "n": 18,
+      "pos": 66.7,
+      "lo": 43.7,
+      "hi": 83.7,
+      "med": 6.3,
+      "p10": -9.5,
+      "p90": 24.3
+     },
+     "d5": {
+      "n": 14,
+      "pos": 35.7,
+      "lo": 16.3,
+      "hi": 61.2,
+      "med": -2.1,
+      "p10": -11.3,
+      "p90": 9.6
+     },
+     "d30": {
+      "n": 13,
+      "pos": 30.8,
+      "lo": 12.7,
+      "hi": 57.6,
+      "med": -7.3,
+      "p10": -15.2,
+      "p90": 17.2
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 5.32,
+      "ret": 2.21
+     },
+     {
+      "igId": "1728",
+      "name": "Paras Healthcare",
+      "sme": false,
+      "date": "2026-10-28",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 3.9
+     },
+     {
+      "igId": "1917",
+      "name": "Elevate Campuses",
+      "sme": false,
+      "date": "2026-09-30",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": -1.91
+     },
+     {
+      "igId": "1827",
+      "name": "Manipal Payment and Identity Solutions",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 7.23,
+      "ret": -2.65
+     },
+     {
+      "igId": "2081",
+      "name": "Deepa Jewellers",
+      "sme": false,
+      "date": "2026-09-08",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 24.86
+     },
+     {
+      "igId": "1619",
+      "name": "Lumino Industries",
+      "sme": false,
+      "date": "2026-09-03",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 34.15
+     },
+     {
+      "igId": "2069",
+      "name": "Symbiotec Pharmalab",
+      "sme": false,
+      "date": "2026-09-01",
+      "lead": false,
+      "amtCr": 5.73,
+      "ret": 0.0
+     },
+     {
+      "igId": "1820",
+      "name": "Skyways Air",
+      "sme": false,
+      "date": "2026-09-01",
+      "lead": false,
+      "amtCr": 5.04,
+      "ret": -10.14
+     }
+    ]
+   },
+   {
     "key": "CRAFT EMERGING MARKET FUND PCC ELITE CAPITAL FUND",
     "name": "CRAFT EMERGING MARKET FUND PCC-ELITE CAPITAL FUND",
     "cr": 78.8,
@@ -211888,132 +212059,6 @@
       "lead": false,
       "amtCr": 12.49,
       "ret": 15.62
-     }
-    ]
-   },
-   {
-    "key": "CITIGROUP GLOBAL MARKETS MAURITIUS",
-    "name": "CITIGROUP GLOBAL MARKETS MAURITIUS PVT.LTD.",
-    "cr": 118.1,
-    "n": 18,
-    "main": {
-     "n": 18,
-     "pos": 66.7,
-     "lo": 43.7,
-     "hi": 83.7,
-     "med": 2.9,
-     "p10": -10.0,
-     "p90": 27.6,
-     "close1": {
-      "n": 18,
-      "pos": 66.7,
-      "lo": 43.7,
-      "hi": 83.7,
-      "med": 6.3,
-      "p10": -9.5,
-      "p90": 24.3
-     },
-     "d5": {
-      "n": 14,
-      "pos": 35.7,
-      "lo": 16.3,
-      "hi": 61.2,
-      "med": -2.1,
-      "p10": -11.3,
-      "p90": 9.6
-     },
-     "d30": {
-      "n": 13,
-      "pos": 30.8,
-      "lo": 12.7,
-      "hi": 57.6,
-      "med": -7.3,
-      "p10": -15.2,
-      "p90": 17.2
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "1728",
-      "name": "Paras Healthcare",
-      "sme": false,
-      "date": "2026-10-28",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 3.9
-     },
-     {
-      "igId": "1917",
-      "name": "Elevate Campuses",
-      "sme": false,
-      "date": "2026-09-30",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": -1.91
-     },
-     {
-      "igId": "1827",
-      "name": "Manipal Payment and Identity Solutions",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 7.23,
-      "ret": -2.65
-     },
-     {
-      "igId": "2081",
-      "name": "Deepa Jewellers",
-      "sme": false,
-      "date": "2026-09-08",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 24.86
-     },
-     {
-      "igId": "1619",
-      "name": "Lumino Industries",
-      "sme": false,
-      "date": "2026-09-03",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 34.15
-     },
-     {
-      "igId": "2069",
-      "name": "Symbiotec Pharmalab",
-      "sme": false,
-      "date": "2026-09-01",
-      "lead": false,
-      "amtCr": 5.73,
-      "ret": 0.0
-     },
-     {
-      "igId": "1820",
-      "name": "Skyways Air",
-      "sme": false,
-      "date": "2026-09-01",
-      "lead": false,
-      "amtCr": 5.04,
-      "ret": -10.14
-     },
-     {
-      "igId": "1868",
-      "name": "LEAP India",
-      "sme": false,
-      "date": "2026-08-14",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 4.34
      }
     ]
    },
@@ -212824,6 +212869,132 @@
     ]
    },
    {
+    "key": "WHITEOAK CAPITAL FLEXI CAP FUND",
+    "name": "WHITEOAK CAPITAL FLEXI CAP FUND",
+    "cr": 229.0,
+    "n": 17,
+    "main": {
+     "n": 17,
+     "pos": 76.5,
+     "lo": 52.7,
+     "hi": 90.4,
+     "med": 5.5,
+     "p10": -0.8,
+     "p90": 30.2,
+     "close1": {
+      "n": 16,
+      "pos": 62.5,
+      "lo": 38.6,
+      "hi": 81.5,
+      "med": 8.1,
+      "p10": -9.6,
+      "p90": 37.0
+     },
+     "d5": {
+      "n": 9,
+      "pos": 55.6,
+      "lo": 26.7,
+      "hi": 81.1,
+      "med": 3.3,
+      "p10": -4.6,
+      "p90": 19.2
+     },
+     "d30": {
+      "n": 5,
+      "pos": 60.0,
+      "lo": 23.1,
+      "hi": 88.2,
+      "med": 6.1,
+      "p10": -14.5,
+      "p90": 8.2
+     },
+     "lead": {
+      "n": 5,
+      "pos": 80.0,
+      "lo": 37.6,
+      "hi": 96.4,
+      "med": 27.6,
+      "p10": 1.2,
+      "p90": 35.5
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 12.08,
+      "ret": 2.21
+     },
+     {
+      "igId": "2306",
+      "name": "Jio Platforms",
+      "sme": false,
+      "date": "2026-10-28",
+      "lead": false,
+      "amtCr": 47.0,
+      "ret": 21.36
+     },
+     {
+      "igId": "2279",
+      "name": "Zetwerk",
+      "sme": false,
+      "date": "2026-10-23",
+      "lead": false,
+      "amtCr": 15.0,
+      "ret": 5.46
+     },
+     {
+      "igId": "2124",
+      "name": "Bonfiglioli Transmissions",
+      "sme": false,
+      "date": "2026-10-23",
+      "lead": false,
+      "amtCr": 5.5,
+      "ret": 0.0
+     },
+     {
+      "igId": "1842",
+      "name": "Sahajanand Medical Technologies",
+      "sme": false,
+      "date": "2026-10-23",
+      "lead": false,
+      "amtCr": 6.34,
+      "ret": 7.89
+     },
+     {
+      "igId": "1917",
+      "name": "Elevate Campuses",
+      "sme": false,
+      "date": "2026-09-30",
+      "lead": false,
+      "amtCr": 14.5,
+      "ret": -1.91
+     },
+     {
+      "igId": "2305",
+      "name": "NSE",
+      "sme": false,
+      "date": "2026-09-24",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 0.84
+     },
+     {
+      "igId": "2080",
+      "name": "Horizon Industrial Parks",
+      "sme": false,
+      "date": "2026-08-24",
+      "lead": false,
+      "amtCr": 15.61,
+      "ret": 0.42
+     }
+    ]
+   },
+   {
     "key": "KINGSMAN WEALTH FUND PCC KIF II",
     "name": "KINGSMAN WEALTH FUND PCC-KIF II",
     "cr": 25.2,
@@ -212946,132 +213117,6 @@
       "lead": false,
       "amtCr": 1.01,
       "ret": 90.0
-     }
-    ]
-   },
-   {
-    "key": "WHITEOAK CAPITAL FLEXI CAP FUND",
-    "name": "WHITEOAK CAPITAL FLEXI CAP FUND",
-    "cr": 216.9,
-    "n": 16,
-    "main": {
-     "n": 16,
-     "pos": 75.0,
-     "lo": 50.5,
-     "hi": 89.8,
-     "med": 6.7,
-     "p10": -1.0,
-     "p90": 30.9,
-     "close1": {
-      "n": 16,
-      "pos": 62.5,
-      "lo": 38.6,
-      "hi": 81.5,
-      "med": 8.1,
-      "p10": -9.6,
-      "p90": 37.0
-     },
-     "d5": {
-      "n": 9,
-      "pos": 55.6,
-      "lo": 26.7,
-      "hi": 81.1,
-      "med": 3.3,
-      "p10": -4.6,
-      "p90": 19.2
-     },
-     "d30": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 6.1,
-      "p10": -14.5,
-      "p90": 8.2
-     },
-     "lead": {
-      "n": 5,
-      "pos": 80.0,
-      "lo": 37.6,
-      "hi": 96.4,
-      "med": 27.6,
-      "p10": 1.2,
-      "p90": 35.5
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2306",
-      "name": "Jio Platforms",
-      "sme": false,
-      "date": "2026-10-28",
-      "lead": false,
-      "amtCr": 47.0,
-      "ret": 21.36
-     },
-     {
-      "igId": "2279",
-      "name": "Zetwerk",
-      "sme": false,
-      "date": "2026-10-23",
-      "lead": false,
-      "amtCr": 15.0,
-      "ret": 5.46
-     },
-     {
-      "igId": "2124",
-      "name": "Bonfiglioli Transmissions",
-      "sme": false,
-      "date": "2026-10-23",
-      "lead": false,
-      "amtCr": 5.5,
-      "ret": 0.0
-     },
-     {
-      "igId": "1842",
-      "name": "Sahajanand Medical Technologies",
-      "sme": false,
-      "date": "2026-10-23",
-      "lead": false,
-      "amtCr": 6.34,
-      "ret": 7.89
-     },
-     {
-      "igId": "1917",
-      "name": "Elevate Campuses",
-      "sme": false,
-      "date": "2026-09-30",
-      "lead": false,
-      "amtCr": 14.5,
-      "ret": -1.91
-     },
-     {
-      "igId": "2305",
-      "name": "NSE",
-      "sme": false,
-      "date": "2026-09-24",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 0.84
-     },
-     {
-      "igId": "2080",
-      "name": "Horizon Industrial Parks",
-      "sme": false,
-      "date": "2026-08-24",
-      "lead": false,
-      "amtCr": 15.61,
-      "ret": 0.42
-     },
-     {
-      "igId": "1809",
-      "name": "Juniper Green Energy",
-      "sme": false,
-      "date": "2026-08-06",
-      "lead": false,
-      "amtCr": 16.0,
-      "ret": 8.89
      }
     ]
    },
@@ -213242,6 +213287,176 @@
       "lead": false,
       "amtCr": 1.01,
       "ret": 3.94
+     }
+    ]
+   },
+   {
+    "key": "WHITEOAK CAPITAL MULTI CAP FUND",
+    "name": "WHITEOAK CAPITAL MULTI CAP FUND",
+    "cr": 100.5,
+    "n": 15,
+    "main": {
+     "n": 14,
+     "pos": 78.6,
+     "lo": 52.4,
+     "hi": 92.4,
+     "med": 4.7,
+     "p10": -1.3,
+     "p90": 45.5,
+     "close1": {
+      "n": 13,
+      "pos": 61.5,
+      "lo": 35.5,
+      "hi": 82.3,
+      "med": 6.4,
+      "p10": -8.0,
+      "p90": 74.1
+     },
+     "d5": {
+      "n": 10,
+      "pos": 40.0,
+      "lo": 16.8,
+      "hi": 68.7,
+      "med": -1.6,
+      "p10": -4.4,
+      "p90": 9.4
+     },
+     "d30": {
+      "n": 7,
+      "pos": 42.9,
+      "lo": 15.8,
+      "hi": 75.0,
+      "med": -10.5,
+      "p10": -15.8,
+      "p90": 14.5
+     },
+     "lead": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 79.8,
+      "p10": 49.2,
+      "p90": 110.5
+     }
+    },
+    "sme": {
+     "n": 1,
+     "pos": 100.0,
+     "lo": 20.7,
+     "hi": 100.0,
+     "med": 4.2,
+     "p10": 4.2,
+     "p90": 4.2,
+     "close1": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -0.6,
+      "p10": -0.6,
+      "p90": -0.6
+     },
+     "d5": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 5.52,
+      "ret": 2.21
+     },
+     {
+      "igId": "2306",
+      "name": "Jio Platforms",
+      "sme": false,
+      "date": "2026-10-28",
+      "lead": false,
+      "amtCr": 12.0,
+      "ret": 21.36
+     },
+     {
+      "igId": "1728",
+      "name": "Paras Healthcare",
+      "sme": false,
+      "date": "2026-10-28",
+      "lead": false,
+      "amtCr": 6.5,
+      "ret": 3.9
+     },
+     {
+      "igId": "2279",
+      "name": "Zetwerk",
+      "sme": false,
+      "date": "2026-10-23",
+      "lead": false,
+      "amtCr": 9.15,
+      "ret": 5.46
+     },
+     {
+      "igId": "1917",
+      "name": "Elevate Campuses",
+      "sme": false,
+      "date": "2026-09-30",
+      "lead": false,
+      "amtCr": 6.5,
+      "ret": -1.91
+     },
+     {
+      "igId": "2305",
+      "name": "NSE",
+      "sme": false,
+      "date": "2026-09-24",
+      "lead": false,
+      "amtCr": 8.0,
+      "ret": 0.84
+     },
+     {
+      "igId": "2076",
+      "name": "SS Retail",
+      "sme": false,
+      "date": "2026-09-23",
+      "lead": false,
+      "amtCr": 4.5,
+      "ret": 47.17
+     },
+     {
+      "igId": "1848",
+      "name": "Asset Reconstruction",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 0.0
      }
     ]
    },
@@ -214342,176 +214557,6 @@
     ]
    },
    {
-    "key": "WHITEOAK CAPITAL MULTI CAP FUND",
-    "name": "WHITEOAK CAPITAL MULTI CAP FUND",
-    "cr": 95.0,
-    "n": 14,
-    "main": {
-     "n": 13,
-     "pos": 76.9,
-     "lo": 49.7,
-     "hi": 91.8,
-     "med": 5.5,
-     "p10": -1.5,
-     "p90": 46.0,
-     "close1": {
-      "n": 13,
-      "pos": 61.5,
-      "lo": 35.5,
-      "hi": 82.3,
-      "med": 6.4,
-      "p10": -8.0,
-      "p90": 74.1
-     },
-     "d5": {
-      "n": 10,
-      "pos": 40.0,
-      "lo": 16.8,
-      "hi": 68.7,
-      "med": -1.6,
-      "p10": -4.4,
-      "p90": 9.4
-     },
-     "d30": {
-      "n": 7,
-      "pos": 42.9,
-      "lo": 15.8,
-      "hi": 75.0,
-      "med": -10.5,
-      "p10": -15.8,
-      "p90": 14.5
-     },
-     "lead": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 79.8,
-      "p10": 49.2,
-      "p90": 110.5
-     }
-    },
-    "sme": {
-     "n": 1,
-     "pos": 100.0,
-     "lo": 20.7,
-     "hi": 100.0,
-     "med": 4.2,
-     "p10": 4.2,
-     "p90": 4.2,
-     "close1": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -0.6,
-      "p10": -0.6,
-      "p90": -0.6
-     },
-     "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "ipos": [
-     {
-      "igId": "2306",
-      "name": "Jio Platforms",
-      "sme": false,
-      "date": "2026-10-28",
-      "lead": false,
-      "amtCr": 12.0,
-      "ret": 21.36
-     },
-     {
-      "igId": "1728",
-      "name": "Paras Healthcare",
-      "sme": false,
-      "date": "2026-10-28",
-      "lead": false,
-      "amtCr": 6.5,
-      "ret": 3.9
-     },
-     {
-      "igId": "2279",
-      "name": "Zetwerk",
-      "sme": false,
-      "date": "2026-10-23",
-      "lead": false,
-      "amtCr": 9.15,
-      "ret": 5.46
-     },
-     {
-      "igId": "1917",
-      "name": "Elevate Campuses",
-      "sme": false,
-      "date": "2026-09-30",
-      "lead": false,
-      "amtCr": 6.5,
-      "ret": -1.91
-     },
-     {
-      "igId": "2305",
-      "name": "NSE",
-      "sme": false,
-      "date": "2026-09-24",
-      "lead": false,
-      "amtCr": 8.0,
-      "ret": 0.84
-     },
-     {
-      "igId": "2076",
-      "name": "SS Retail",
-      "sme": false,
-      "date": "2026-09-23",
-      "lead": false,
-      "amtCr": 4.5,
-      "ret": 47.17
-     },
-     {
-      "igId": "1848",
-      "name": "Asset Reconstruction",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "1876",
-      "name": "Hy-Tech Engineers",
-      "sme": false,
-      "date": "2026-09-01",
-      "lead": true,
-      "amtCr": 7.08,
-      "ret": 41.51
-     }
-    ]
-   },
-   {
     "key": "PINE OAK GLOBAL FUND",
     "name": "PINE OAK GLOBAL FUND",
     "cr": 89.8,
@@ -214678,6 +214723,132 @@
       "lead": true,
       "amtCr": 1.07,
       "ret": -21.78
+     }
+    ]
+   },
+   {
+    "key": "ASHOKA INDIA EQUITY INVESTMENT TRUST",
+    "name": "ASHOKA INDIA EQUITY INVESTMENT TRUST PLC",
+    "cr": 212.8,
+    "n": 14,
+    "main": {
+     "n": 14,
+     "pos": 85.7,
+     "lo": 60.1,
+     "hi": 96.0,
+     "med": 10.8,
+     "p10": -1.3,
+     "p90": 79.9,
+     "close1": {
+      "n": 13,
+      "pos": 76.9,
+      "lo": 49.7,
+      "hi": 91.8,
+      "med": 9.8,
+      "p10": -5.7,
+      "p90": 72.7
+     },
+     "d5": {
+      "n": 7,
+      "pos": 42.9,
+      "lo": 15.8,
+      "hi": 75.0,
+      "med": -1.3,
+      "p10": -14.0,
+      "p90": 17.9
+     },
+     "d30": {
+      "n": 6,
+      "pos": 33.3,
+      "lo": 9.7,
+      "hi": 70.0,
+      "med": -6.0,
+      "p10": -10.3,
+      "p90": 12.8
+     },
+     "lead": {
+      "n": 7,
+      "pos": 85.7,
+      "lo": 48.7,
+      "hi": 97.4,
+      "med": 10.6,
+      "p10": -1.9,
+      "p90": 45.2
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": true,
+      "amtCr": 20.0,
+      "ret": 2.21
+     },
+     {
+      "igId": "2369",
+      "name": "Tonbo Imaging India",
+      "sme": false,
+      "date": "2026-10-23",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 65.71
+     },
+     {
+      "igId": "1917",
+      "name": "Elevate Campuses",
+      "sme": false,
+      "date": "2026-09-30",
+      "lead": false,
+      "amtCr": 14.51,
+      "ret": -1.91
+     },
+     {
+      "igId": "2081",
+      "name": "Deepa Jewellers",
+      "sme": false,
+      "date": "2026-09-08",
+      "lead": false,
+      "amtCr": 9.0,
+      "ret": 24.86
+     },
+     {
+      "igId": "1862",
+      "name": "Lohia Corp",
+      "sme": false,
+      "date": "2026-07-30",
+      "lead": false,
+      "amtCr": 40.54,
+      "ret": 8.47
+     },
+     {
+      "igId": "1610",
+      "name": "Caliber Mining",
+      "sme": false,
+      "date": "2026-07-24",
+      "lead": true,
+      "amtCr": 25.0,
+      "ret": 17.98
+     },
+     {
+      "igId": "1877",
+      "name": "Knack Packaging",
+      "sme": false,
+      "date": "2026-07-08",
+      "lead": true,
+      "amtCr": 15.0,
+      "ret": 10.59
+     },
+     {
+      "igId": "1591",
+      "name": "OnEMI Technology",
+      "sme": false,
+      "date": "2026-05-08",
+      "lead": false,
+      "amtCr": 11.11,
+      "ret": 11.11
      }
     ]
    },
@@ -215954,132 +216125,6 @@
     ]
    },
    {
-    "key": "ASHOKA INDIA EQUITY INVESTMENT TRUST",
-    "name": "ASHOKA INDIA EQUITY INVESTMENT TRUST PLC",
-    "cr": 192.8,
-    "n": 13,
-    "main": {
-     "n": 13,
-     "pos": 84.6,
-     "lo": 57.8,
-     "hi": 95.7,
-     "med": 11.1,
-     "p10": -1.5,
-     "p90": 81.9,
-     "close1": {
-      "n": 13,
-      "pos": 76.9,
-      "lo": 49.7,
-      "hi": 91.8,
-      "med": 9.8,
-      "p10": -5.7,
-      "p90": 72.7
-     },
-     "d5": {
-      "n": 7,
-      "pos": 42.9,
-      "lo": 15.8,
-      "hi": 75.0,
-      "med": -1.3,
-      "p10": -14.0,
-      "p90": 17.9
-     },
-     "d30": {
-      "n": 6,
-      "pos": 33.3,
-      "lo": 9.7,
-      "hi": 70.0,
-      "med": -6.0,
-      "p10": -10.3,
-      "p90": 12.8
-     },
-     "lead": {
-      "n": 6,
-      "pos": 83.3,
-      "lo": 43.6,
-      "hi": 97.0,
-      "med": 11.9,
-      "p10": 0.5,
-      "p90": 52.0
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2369",
-      "name": "Tonbo Imaging India",
-      "sme": false,
-      "date": "2026-10-23",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 65.71
-     },
-     {
-      "igId": "1917",
-      "name": "Elevate Campuses",
-      "sme": false,
-      "date": "2026-09-30",
-      "lead": false,
-      "amtCr": 14.51,
-      "ret": -1.91
-     },
-     {
-      "igId": "2081",
-      "name": "Deepa Jewellers",
-      "sme": false,
-      "date": "2026-09-08",
-      "lead": false,
-      "amtCr": 9.0,
-      "ret": 24.86
-     },
-     {
-      "igId": "1862",
-      "name": "Lohia Corp",
-      "sme": false,
-      "date": "2026-07-30",
-      "lead": false,
-      "amtCr": 40.54,
-      "ret": 8.47
-     },
-     {
-      "igId": "1610",
-      "name": "Caliber Mining",
-      "sme": false,
-      "date": "2026-07-24",
-      "lead": true,
-      "amtCr": 25.0,
-      "ret": 17.98
-     },
-     {
-      "igId": "1877",
-      "name": "Knack Packaging",
-      "sme": false,
-      "date": "2026-07-08",
-      "lead": true,
-      "amtCr": 15.0,
-      "ret": 10.59
-     },
-     {
-      "igId": "1591",
-      "name": "OnEMI Technology",
-      "sme": false,
-      "date": "2026-05-08",
-      "lead": false,
-      "amtCr": 11.11,
-      "ret": 11.11
-     },
-     {
-      "igId": "1366",
-      "name": "All Time Plastics",
-      "sme": false,
-      "date": "2025-08-14",
-      "lead": true,
-      "amtCr": 13.99,
-      "ret": 13.2
-     }
-    ]
-   },
-   {
     "key": "SBI GENERAL INSURANCE",
     "name": "SBI GENERAL INSURANCE CO.LTD.",
     "cr": 215.2,
@@ -216750,6 +216795,176 @@
       "lead": false,
       "amtCr": 12.0,
       "ret": 3.5
+     }
+    ]
+   },
+   {
+    "key": "WHITEOAK CAPITAL MID CAP FUND",
+    "name": "WHITEOAK CAPITAL MID CAP FUND",
+    "cr": 169.9,
+    "n": 12,
+    "main": {
+     "n": 11,
+     "pos": 72.7,
+     "lo": 43.4,
+     "hi": 90.3,
+     "med": 3.9,
+     "p10": -9.9,
+     "p90": 34.1,
+     "close1": {
+      "n": 10,
+      "pos": 50.0,
+      "lo": 23.7,
+      "hi": 76.3,
+      "med": 1.7,
+      "p10": -10.2,
+      "p90": 34.2
+     },
+     "d5": {
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": 0.6,
+      "p10": -4.3,
+      "p90": 13.3
+     },
+     "d30": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -4.3,
+      "p10": -14.3,
+      "p90": 5.7
+     },
+     "lead": {
+      "n": 4,
+      "pos": 50.0,
+      "lo": 15.0,
+      "hi": 85.0,
+      "med": 8.4,
+      "p10": -8.7,
+      "p90": 28.9
+     }
+    },
+    "sme": {
+     "n": 1,
+     "pos": 100.0,
+     "lo": 20.7,
+     "hi": 100.0,
+     "med": 26.2,
+     "p10": 26.2,
+     "p90": 26.2,
+     "close1": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 19.9,
+      "p10": 19.9,
+      "p90": 19.9
+     },
+     "d5": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 26.2,
+      "p10": 26.2,
+      "p90": 26.2
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 9.86,
+      "ret": 2.21
+     },
+     {
+      "igId": "1728",
+      "name": "Paras Healthcare",
+      "sme": false,
+      "date": "2026-10-28",
+      "lead": false,
+      "amtCr": 19.0,
+      "ret": 3.9
+     },
+     {
+      "igId": "2279",
+      "name": "Zetwerk",
+      "sme": false,
+      "date": "2026-10-23",
+      "lead": false,
+      "amtCr": 20.8,
+      "ret": 5.46
+     },
+     {
+      "igId": "2080",
+      "name": "Horizon Industrial Parks",
+      "sme": false,
+      "date": "2026-08-24",
+      "lead": false,
+      "amtCr": 11.84,
+      "ret": 0.42
+     },
+     {
+      "igId": "1809",
+      "name": "Juniper Green Energy",
+      "sme": false,
+      "date": "2026-08-06",
+      "lead": false,
+      "amtCr": 20.0,
+      "ret": 8.89
+     },
+     {
+      "igId": "1492",
+      "name": "LG Electronics",
+      "sme": false,
+      "date": "2025-10-14",
+      "lead": false,
+      "amtCr": 51.43,
+      "ret": 50.01
+     },
+     {
+      "igId": "1436",
+      "name": "Epack Prefab Technologies",
+      "sme": false,
+      "date": "2025-10-01",
+      "lead": false,
+      "amtCr": 8.35,
+      "ret": -9.88
+     },
+     {
+      "igId": "1435",
+      "name": "Jaro Institute",
+      "sme": false,
+      "date": "2025-09-30",
+      "lead": true,
+      "amtCr": 5.66,
+      "ret": 0.0
      }
     ]
    },
@@ -218438,176 +218653,6 @@
       "lead": true,
       "amtCr": 3.0,
       "ret": 48.73
-     }
-    ]
-   },
-   {
-    "key": "WHITEOAK CAPITAL MID CAP FUND",
-    "name": "WHITEOAK CAPITAL MID CAP FUND",
-    "cr": 160.0,
-    "n": 11,
-    "main": {
-     "n": 10,
-     "pos": 70.0,
-     "lo": 39.7,
-     "hi": 89.2,
-     "med": 4.7,
-     "p10": -10.1,
-     "p90": 35.7,
-     "close1": {
-      "n": 10,
-      "pos": 50.0,
-      "lo": 23.7,
-      "hi": 76.3,
-      "med": 1.7,
-      "p10": -10.2,
-      "p90": 34.2
-     },
-     "d5": {
-      "n": 4,
-      "pos": 50.0,
-      "lo": 15.0,
-      "hi": 85.0,
-      "med": 0.6,
-      "p10": -4.3,
-      "p90": 13.3
-     },
-     "d30": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -4.3,
-      "p10": -14.3,
-      "p90": 5.7
-     },
-     "lead": {
-      "n": 4,
-      "pos": 50.0,
-      "lo": 15.0,
-      "hi": 85.0,
-      "med": 8.4,
-      "p10": -8.7,
-      "p90": 28.9
-     }
-    },
-    "sme": {
-     "n": 1,
-     "pos": 100.0,
-     "lo": 20.7,
-     "hi": 100.0,
-     "med": 26.2,
-     "p10": 26.2,
-     "p90": 26.2,
-     "close1": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 19.9,
-      "p10": 19.9,
-      "p90": 19.9
-     },
-     "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 26.2,
-      "p10": 26.2,
-      "p90": 26.2
-     }
-    },
-    "ipos": [
-     {
-      "igId": "1728",
-      "name": "Paras Healthcare",
-      "sme": false,
-      "date": "2026-10-28",
-      "lead": false,
-      "amtCr": 19.0,
-      "ret": 3.9
-     },
-     {
-      "igId": "2279",
-      "name": "Zetwerk",
-      "sme": false,
-      "date": "2026-10-23",
-      "lead": false,
-      "amtCr": 20.8,
-      "ret": 5.46
-     },
-     {
-      "igId": "2080",
-      "name": "Horizon Industrial Parks",
-      "sme": false,
-      "date": "2026-08-24",
-      "lead": false,
-      "amtCr": 11.84,
-      "ret": 0.42
-     },
-     {
-      "igId": "1809",
-      "name": "Juniper Green Energy",
-      "sme": false,
-      "date": "2026-08-06",
-      "lead": false,
-      "amtCr": 20.0,
-      "ret": 8.89
-     },
-     {
-      "igId": "1492",
-      "name": "LG Electronics",
-      "sme": false,
-      "date": "2025-10-14",
-      "lead": false,
-      "amtCr": 51.43,
-      "ret": 50.01
-     },
-     {
-      "igId": "1436",
-      "name": "Epack Prefab Technologies",
-      "sme": false,
-      "date": "2025-10-01",
-      "lead": false,
-      "amtCr": 8.35,
-      "ret": -9.88
-     },
-     {
-      "igId": "1435",
-      "name": "Jaro Institute",
-      "sme": false,
-      "date": "2025-09-30",
-      "lead": true,
-      "amtCr": 5.66,
-      "ret": 0.0
-     },
-     {
-      "igId": "1279",
-      "name": "Sambhv Steel Tubes",
-      "sme": false,
-      "date": "2025-07-02",
-      "lead": true,
-      "amtCr": 6.08,
-      "ret": 34.15
      }
     ]
    },
@@ -225144,6 +225189,132 @@
     ]
    },
    {
+    "key": "GROWW SMALL CAP FUND",
+    "name": "GROWW SMALL CAP FUND",
+    "cr": 43.4,
+    "n": 9,
+    "main": {
+     "n": 9,
+     "pos": 44.4,
+     "lo": 18.9,
+     "hi": 73.3,
+     "med": 0.0,
+     "p10": -2.1,
+     "p90": 9.9,
+     "close1": {
+      "n": 8,
+      "pos": 50.0,
+      "lo": 21.5,
+      "hi": 78.5,
+      "med": 0.3,
+      "p10": -9.4,
+      "p90": 13.4
+     },
+     "d5": {
+      "n": 8,
+      "pos": 62.5,
+      "lo": 30.6,
+      "hi": 86.3,
+      "med": 6.4,
+      "p10": -6.8,
+      "p90": 16.1
+     },
+     "d30": {
+      "n": 7,
+      "pos": 28.6,
+      "lo": 8.2,
+      "hi": 64.1,
+      "med": -11.0,
+      "p10": -19.7,
+      "p90": 26.7
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 1.63,
+      "ret": 2.21
+     },
+     {
+      "igId": "2124",
+      "name": "Bonfiglioli Transmissions",
+      "sme": false,
+      "date": "2026-10-23",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "1917",
+      "name": "Elevate Campuses",
+      "sme": false,
+      "date": "2026-09-30",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": -1.91
+     },
+     {
+      "igId": "1848",
+      "name": "Asset Reconstruction",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 3.3,
+      "ret": 0.0
+     },
+     {
+      "igId": "1827",
+      "name": "Manipal Payment and Identity Solutions",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 8.0,
+      "ret": -2.65
+     },
+     {
+      "igId": "2119",
+      "name": "Kanohar Electricals",
+      "sme": false,
+      "date": "2026-09-16",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 8.47
+     },
+     {
+      "igId": "2069",
+      "name": "Symbiotec Pharmalab",
+      "sme": false,
+      "date": "2026-09-01",
+      "lead": false,
+      "amtCr": 3.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "1828",
+      "name": "Gaja Alternative Asset Management",
+      "sme": false,
+      "date": "2026-08-26",
+      "lead": false,
+      "amtCr": 2.42,
+      "ret": 15.62
+     }
+    ]
+   },
+   {
     "key": "FLUMEN INVESTMENT TRUST 1729 GROWTH FUND I",
     "name": "FLUMEN INVESTMENT TRUST-1729 GROWTH FUND I",
     "cr": 27.2,
@@ -229748,132 +229919,6 @@
     ]
    },
    {
-    "key": "GROWW SMALL CAP FUND",
-    "name": "GROWW SMALL CAP FUND",
-    "cr": 41.7,
-    "n": 8,
-    "main": {
-     "n": 8,
-     "pos": 37.5,
-     "lo": 13.7,
-     "hi": 69.4,
-     "med": 0.0,
-     "p10": -2.1,
-     "p90": 10.6,
-     "close1": {
-      "n": 8,
-      "pos": 50.0,
-      "lo": 21.5,
-      "hi": 78.5,
-      "med": 0.3,
-      "p10": -9.4,
-      "p90": 13.4
-     },
-     "d5": {
-      "n": 8,
-      "pos": 62.5,
-      "lo": 30.6,
-      "hi": 86.3,
-      "med": 6.4,
-      "p10": -6.8,
-      "p90": 16.1
-     },
-     "d30": {
-      "n": 7,
-      "pos": 28.6,
-      "lo": 8.2,
-      "hi": 64.1,
-      "med": -11.0,
-      "p10": -19.7,
-      "p90": 26.7
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2124",
-      "name": "Bonfiglioli Transmissions",
-      "sme": false,
-      "date": "2026-10-23",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "1917",
-      "name": "Elevate Campuses",
-      "sme": false,
-      "date": "2026-09-30",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": -1.91
-     },
-     {
-      "igId": "1848",
-      "name": "Asset Reconstruction",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 3.3,
-      "ret": 0.0
-     },
-     {
-      "igId": "1827",
-      "name": "Manipal Payment and Identity Solutions",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 8.0,
-      "ret": -2.65
-     },
-     {
-      "igId": "2119",
-      "name": "Kanohar Electricals",
-      "sme": false,
-      "date": "2026-09-16",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 8.47
-     },
-     {
-      "igId": "2069",
-      "name": "Symbiotec Pharmalab",
-      "sme": false,
-      "date": "2026-09-01",
-      "lead": false,
-      "amtCr": 3.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "1828",
-      "name": "Gaja Alternative Asset Management",
-      "sme": false,
-      "date": "2026-08-26",
-      "lead": false,
-      "amtCr": 2.42,
-      "ret": 15.62
-     },
-     {
-      "igId": "1868",
-      "name": "LEAP India",
-      "sme": false,
-      "date": "2026-08-14",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 4.34
-     }
-    ]
-   },
-   {
     "key": "KOTAK ELSS TAX SAVER FUND",
     "name": "KOTAK ELSS TAX SAVER FUND",
     "cr": 194.5,
@@ -233088,6 +233133,123 @@
       "lead": false,
       "amtCr": 0.05,
       "ret": 20.09
+     }
+    ]
+   },
+   {
+    "key": "GROWW MULTICAP FUND",
+    "name": "GROWW MULTICAP FUND",
+    "cr": 40.7,
+    "n": 7,
+    "main": {
+     "n": 7,
+     "pos": 71.4,
+     "lo": 35.9,
+     "hi": 91.8,
+     "med": 2.2,
+     "p10": -1.1,
+     "p90": 10.4,
+     "close1": {
+      "n": 6,
+      "pos": 83.3,
+      "lo": 43.6,
+      "hi": 97.0,
+      "med": 3.7,
+      "p10": -3.4,
+      "p90": 8.7
+     },
+     "d5": {
+      "n": 6,
+      "pos": 33.3,
+      "lo": 9.7,
+      "hi": 70.0,
+      "med": -3.3,
+      "p10": -10.8,
+      "p90": 6.7
+     },
+     "d30": {
+      "n": 6,
+      "pos": 33.3,
+      "lo": 9.7,
+      "hi": 70.0,
+      "med": -11.8,
+      "p10": -20.1,
+      "p90": 12.4
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 3.32,
+      "ret": 2.21
+     },
+     {
+      "igId": "2305",
+      "name": "NSE",
+      "sme": false,
+      "date": "2026-09-24",
+      "lead": false,
+      "amtCr": 3.75,
+      "ret": 0.84
+     },
+     {
+      "igId": "1827",
+      "name": "Manipal Payment and Identity Solutions",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 8.0,
+      "ret": -2.65
+     },
+     {
+      "igId": "2069",
+      "name": "Symbiotec Pharmalab",
+      "sme": false,
+      "date": "2026-09-01",
+      "lead": false,
+      "amtCr": 7.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "1828",
+      "name": "Gaja Alternative Asset Management",
+      "sme": false,
+      "date": "2026-08-26",
+      "lead": false,
+      "amtCr": 5.57,
+      "ret": 15.62
+     },
+     {
+      "igId": "1868",
+      "name": "LEAP India",
+      "sme": false,
+      "date": "2026-08-14",
+      "lead": false,
+      "amtCr": 9.99,
+      "ret": 4.34
+     },
+     {
+      "igId": "2210",
+      "name": "SBI Funds Management",
+      "sme": false,
+      "date": "2026-07-21",
+      "lead": false,
+      "amtCr": 3.06,
+      "ret": 6.85
      }
     ]
    },
@@ -240381,114 +240543,6 @@
     ]
    },
    {
-    "key": "GROWW MULTICAP FUND",
-    "name": "GROWW MULTICAP FUND",
-    "cr": 37.4,
-    "n": 6,
-    "main": {
-     "n": 6,
-     "pos": 66.7,
-     "lo": 30.0,
-     "hi": 90.3,
-     "med": 2.6,
-     "p10": -1.3,
-     "p90": 11.2,
-     "close1": {
-      "n": 6,
-      "pos": 83.3,
-      "lo": 43.6,
-      "hi": 97.0,
-      "med": 3.7,
-      "p10": -3.4,
-      "p90": 8.7
-     },
-     "d5": {
-      "n": 6,
-      "pos": 33.3,
-      "lo": 9.7,
-      "hi": 70.0,
-      "med": -3.3,
-      "p10": -10.8,
-      "p90": 6.7
-     },
-     "d30": {
-      "n": 6,
-      "pos": 33.3,
-      "lo": 9.7,
-      "hi": 70.0,
-      "med": -11.8,
-      "p10": -20.1,
-      "p90": 12.4
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2305",
-      "name": "NSE",
-      "sme": false,
-      "date": "2026-09-24",
-      "lead": false,
-      "amtCr": 3.75,
-      "ret": 0.84
-     },
-     {
-      "igId": "1827",
-      "name": "Manipal Payment and Identity Solutions",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 8.0,
-      "ret": -2.65
-     },
-     {
-      "igId": "2069",
-      "name": "Symbiotec Pharmalab",
-      "sme": false,
-      "date": "2026-09-01",
-      "lead": false,
-      "amtCr": 7.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "1828",
-      "name": "Gaja Alternative Asset Management",
-      "sme": false,
-      "date": "2026-08-26",
-      "lead": false,
-      "amtCr": 5.57,
-      "ret": 15.62
-     },
-     {
-      "igId": "1868",
-      "name": "LEAP India",
-      "sme": false,
-      "date": "2026-08-14",
-      "lead": false,
-      "amtCr": 9.99,
-      "ret": 4.34
-     },
-     {
-      "igId": "2210",
-      "name": "SBI Funds Management",
-      "sme": false,
-      "date": "2026-07-21",
-      "lead": false,
-      "amtCr": 3.06,
-      "ret": 6.85
-     }
-    ]
-   },
-   {
     "key": "MAYBANK SECURITIES PTE ODI",
     "name": "MAYBANK SECURITIES PTE.LTD.-ODI",
     "cr": 65.5,
@@ -241457,6 +241511,114 @@
       "lead": true,
       "amtCr": 1.01,
       "ret": 0.0
+     }
+    ]
+   },
+   {
+    "key": "NOMURA SINGAPORE",
+    "name": "NOMURA SINGAPORE LTD.",
+    "cr": 32.6,
+    "n": 6,
+    "main": {
+     "n": 6,
+     "pos": 50.0,
+     "lo": 18.8,
+     "hi": 81.2,
+     "med": -0.2,
+     "p10": -10.7,
+     "p90": 16.7,
+     "close1": {
+      "n": 5,
+      "pos": 60.0,
+      "lo": 23.1,
+      "hi": 88.2,
+      "med": 2.0,
+      "p10": -10.1,
+      "p90": 13.8
+     },
+     "d5": {
+      "n": 5,
+      "pos": 60.0,
+      "lo": 23.1,
+      "hi": 88.2,
+      "med": 4.3,
+      "p10": -18.3,
+      "p90": 12.7
+     },
+     "d30": {
+      "n": 5,
+      "pos": 60.0,
+      "lo": 23.1,
+      "hi": 88.2,
+      "med": 4.1,
+      "p10": -14.0,
+      "p90": 17.5
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 5.32,
+      "ret": 2.21
+     },
+     {
+      "igId": "1827",
+      "name": "Manipal Payment and Identity Solutions",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 7.23,
+      "ret": -2.65
+     },
+     {
+      "igId": "2081",
+      "name": "Deepa Jewellers",
+      "sme": false,
+      "date": "2026-09-08",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 24.86
+     },
+     {
+      "igId": "1820",
+      "name": "Skyways Air",
+      "sme": false,
+      "date": "2026-09-01",
+      "lead": false,
+      "amtCr": 5.04,
+      "ret": -10.14
+     },
+     {
+      "igId": "1862",
+      "name": "Lohia Corp",
+      "sme": false,
+      "date": "2026-07-30",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 8.47
+     },
+     {
+      "igId": "1885",
+      "name": "Turtlemint Fintech Solutions",
+      "sme": false,
+      "date": "2026-06-29",
+      "lead": false,
+      "amtCr": 5.01,
+      "ret": -11.25
      }
     ]
    },
@@ -242742,6 +242904,149 @@
       "lead": false,
       "amtCr": 5.0,
       "ret": 17.98
+     }
+    ]
+   },
+   {
+    "key": "SILVER STRIDE INDIA GLOBAL FUND",
+    "name": "SILVER STRIDE INDIA GLOBAL FUND",
+    "cr": 31.3,
+    "n": 5,
+    "main": {
+     "n": 2,
+     "pos": 100.0,
+     "lo": 34.2,
+     "hi": 100.0,
+     "med": 18.2,
+     "p10": 5.4,
+     "p90": 31.0,
+     "close1": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 34.6,
+      "p10": 34.6,
+      "p90": 34.6
+     },
+     "d5": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -1.9,
+      "p10": -1.9,
+      "p90": -1.9
+     },
+     "d30": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -8.7,
+      "p10": -8.7,
+      "p90": -8.7
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": {
+     "n": 3,
+     "pos": 100.0,
+     "lo": 43.8,
+     "hi": 100.0,
+     "med": 38.9,
+     "p10": 11.7,
+     "p90": 68.1,
+     "close1": {
+      "n": 3,
+      "pos": 100.0,
+      "lo": 43.8,
+      "hi": 100.0,
+      "med": 45.8,
+      "p10": 13.8,
+      "p90": 76.5
+     },
+     "d5": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "d30": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     },
+     "lead": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 40.2,
+      "p10": 12.0,
+      "p90": 68.4
+     }
+    },
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 2.21
+     },
+     {
+      "igId": "1619",
+      "name": "Lumino Industries",
+      "sme": false,
+      "date": "2026-09-03",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 34.15
+     },
+     {
+      "igId": "1413",
+      "name": "Vigor Plast",
+      "sme": true,
+      "date": "2025-09-12",
+      "lead": true,
+      "amtCr": 2.26,
+      "ret": 4.94
+     },
+     {
+      "igId": "891",
+      "name": "Petro Carbon and Chemicals",
+      "sme": true,
+      "date": "2024-07-02",
+      "lead": true,
+      "amtCr": 12.0,
+      "ret": 75.44
+     },
+     {
+      "igId": "799",
+      "name": "KP Green Engineering",
+      "sme": true,
+      "date": "2024-03-22",
+      "lead": false,
+      "amtCr": 2.0,
+      "ret": 38.89
      }
     ]
    },
@@ -248554,6 +248859,105 @@
     ]
    },
    {
+    "key": "TATA INDIA PHARMA HEALTHCARE FUND",
+    "name": "TATA INDIA PHARMA & HEALTHCARE FUND",
+    "cr": 53.0,
+    "n": 5,
+    "main": {
+     "n": 5,
+     "pos": 60.0,
+     "lo": 23.1,
+     "hi": 88.2,
+     "med": 2.2,
+     "p10": -5.9,
+     "p90": 17.1,
+     "close1": {
+      "n": 4,
+      "pos": 75.0,
+      "lo": 30.1,
+      "hi": 95.4,
+      "med": 12.1,
+      "p10": 2.9,
+      "p90": 24.3
+     },
+     "d5": {
+      "n": 4,
+      "pos": 100.0,
+      "lo": 51.0,
+      "hi": 100.0,
+      "med": 15.3,
+      "p10": 5.0,
+      "p90": 22.1
+     },
+     "d30": {
+      "n": 4,
+      "pos": 100.0,
+      "lo": 51.0,
+      "hi": 100.0,
+      "med": 23.4,
+      "p10": 11.3,
+      "p90": 30.8
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 8.0,
+      "ret": 2.21
+     },
+     {
+      "igId": "2030",
+      "name": "Prasol Chemicals",
+      "sme": false,
+      "date": "2026-09-16",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": -9.76
+     },
+     {
+      "igId": "2069",
+      "name": "Symbiotec Pharmalab",
+      "sme": false,
+      "date": "2026-09-01",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 0.0
+     },
+     {
+      "igId": "1865",
+      "name": "Molbio Diagnostics",
+      "sme": false,
+      "date": "2026-08-17",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 21.44
+     },
+     {
+      "igId": "2217",
+      "name": "Manipal Health Enterprises",
+      "sme": false,
+      "date": "2026-08-05",
+      "lead": false,
+      "amtCr": 14.96,
+      "ret": 10.51
+     }
+    ]
+   },
+   {
     "key": "ITI MULTI CAP FUND",
     "name": "ITI MULTI CAP FUND",
     "cr": 36.0,
@@ -248946,105 +249350,6 @@
       "lead": true,
       "amtCr": 32.0,
       "ret": 36.36
-     }
-    ]
-   },
-   {
-    "key": "NOMURA SINGAPORE",
-    "name": "NOMURA SINGAPORE LTD.",
-    "cr": 27.3,
-    "n": 5,
-    "main": {
-     "n": 5,
-     "pos": 40.0,
-     "lo": 11.8,
-     "hi": 76.9,
-     "med": -2.6,
-     "p10": -10.8,
-     "p90": 18.3,
-     "close1": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 2.0,
-      "p10": -10.1,
-      "p90": 13.8
-     },
-     "d5": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 4.3,
-      "p10": -18.3,
-      "p90": 12.7
-     },
-     "d30": {
-      "n": 5,
-      "pos": 60.0,
-      "lo": 23.1,
-      "hi": 88.2,
-      "med": 4.1,
-      "p10": -14.0,
-      "p90": 17.5
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "1827",
-      "name": "Manipal Payment and Identity Solutions",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 7.23,
-      "ret": -2.65
-     },
-     {
-      "igId": "2081",
-      "name": "Deepa Jewellers",
-      "sme": false,
-      "date": "2026-09-08",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 24.86
-     },
-     {
-      "igId": "1820",
-      "name": "Skyways Air",
-      "sme": false,
-      "date": "2026-09-01",
-      "lead": false,
-      "amtCr": 5.04,
-      "ret": -10.14
-     },
-     {
-      "igId": "1862",
-      "name": "Lohia Corp",
-      "sme": false,
-      "date": "2026-07-30",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 8.47
-     },
-     {
-      "igId": "1885",
-      "name": "Turtlemint Fintech Solutions",
-      "sme": false,
-      "date": "2026-06-29",
-      "lead": false,
-      "amtCr": 5.01,
-      "ret": -11.25
      }
     ]
    },
@@ -250136,6 +250441,96 @@
     ]
    },
    {
+    "key": "TITANIUM EQUITY LONG SHORT FUND",
+    "name": "TITANIUM EQUITY LONG-SHORT FUND",
+    "cr": 9.0,
+    "n": 4,
+    "main": {
+     "n": 4,
+     "pos": 100.0,
+     "lo": 51.0,
+     "hi": 100.0,
+     "med": 26.4,
+     "p10": 4.1,
+     "p90": 91.2,
+     "close1": {
+      "n": 3,
+      "pos": 100.0,
+      "lo": 43.8,
+      "hi": 100.0,
+      "med": 53.0,
+      "p10": 25.7,
+      "p90": 87.1
+     },
+     "d5": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 20.8,
+      "p10": -5.8,
+      "p90": 30.0
+     },
+     "d30": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 38.6,
+      "p10": 3.6,
+      "p90": 59.9
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 2.0,
+      "ret": 2.21
+     },
+     {
+      "igId": "2119",
+      "name": "Kanohar Electricals",
+      "sme": false,
+      "date": "2026-09-16",
+      "lead": false,
+      "amtCr": 1.5,
+      "ret": 8.47
+     },
+     {
+      "igId": "1934",
+      "name": "Tempsens Instruments (India)",
+      "sme": false,
+      "date": "2026-08-28",
+      "lead": false,
+      "amtCr": 3.5,
+      "ret": 111.33
+     },
+     {
+      "igId": "1594",
+      "name": "Indo-MIM",
+      "sme": false,
+      "date": "2026-07-30",
+      "lead": false,
+      "amtCr": 2.01,
+      "ret": 44.33
+     }
+    ]
+   },
+   {
     "key": "BANK OF INDIA MANUFACTURING INFRASTRUCTURE FUND",
     "name": "BANK OF INDIA MANUFACTURING & INFRASTRUCTURE FUND",
     "cr": 25.9,
@@ -250402,140 +250797,6 @@
       "lead": false,
       "amtCr": 7.04,
       "ret": 39.58
-     }
-    ]
-   },
-   {
-    "key": "SILVER STRIDE INDIA GLOBAL FUND",
-    "name": "SILVER STRIDE INDIA GLOBAL FUND",
-    "cr": 21.3,
-    "n": 4,
-    "main": {
-     "n": 1,
-     "pos": 100.0,
-     "lo": 20.7,
-     "hi": 100.0,
-     "med": 34.1,
-     "p10": 34.1,
-     "p90": 34.1,
-     "close1": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 34.6,
-      "p10": 34.6,
-      "p90": 34.6
-     },
-     "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -1.9,
-      "p10": -1.9,
-      "p90": -1.9
-     },
-     "d30": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -8.7,
-      "p10": -8.7,
-      "p90": -8.7
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": {
-     "n": 3,
-     "pos": 100.0,
-     "lo": 43.8,
-     "hi": 100.0,
-     "med": 38.9,
-     "p10": 11.7,
-     "p90": 68.1,
-     "close1": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 45.8,
-      "p10": 13.8,
-      "p90": 76.5
-     },
-     "d5": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "d30": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     },
-     "lead": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 40.2,
-      "p10": 12.0,
-      "p90": 68.4
-     }
-    },
-    "ipos": [
-     {
-      "igId": "1619",
-      "name": "Lumino Industries",
-      "sme": false,
-      "date": "2026-09-03",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 34.15
-     },
-     {
-      "igId": "1413",
-      "name": "Vigor Plast",
-      "sme": true,
-      "date": "2025-09-12",
-      "lead": true,
-      "amtCr": 2.26,
-      "ret": 4.94
-     },
-     {
-      "igId": "891",
-      "name": "Petro Carbon and Chemicals",
-      "sme": true,
-      "date": "2024-07-02",
-      "lead": true,
-      "amtCr": 12.0,
-      "ret": 75.44
-     },
-     {
-      "igId": "799",
-      "name": "KP Green Engineering",
-      "sme": true,
-      "date": "2024-03-22",
-      "lead": false,
-      "amtCr": 2.0,
-      "ret": 38.89
      }
     ]
    },
@@ -253690,6 +253951,96 @@
     ]
    },
    {
+    "key": "DHARMAYUG INVESTMENTS",
+    "name": "DHARMAYUG INVESTMENTS LTD.",
+    "cr": 50.0,
+    "n": 4,
+    "main": {
+     "n": 4,
+     "pos": 100.0,
+     "lo": 51.0,
+     "hi": 100.0,
+     "med": 2.9,
+     "p10": 1.3,
+     "p90": 15.1,
+     "close1": {
+      "n": 3,
+      "pos": 100.0,
+      "lo": 43.8,
+      "hi": 100.0,
+      "med": 3.7,
+      "p10": 2.2,
+      "p90": 16.3
+     },
+     "d5": {
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": -1.9,
+      "p10": -3.7,
+      "p90": 0.0
+     },
+     "d30": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 4.7,
+      "p10": 3.5,
+      "p90": 5.8
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 2.21
+     },
+     {
+      "igId": "2305",
+      "name": "NSE",
+      "sme": false,
+      "date": "2026-09-24",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": 0.84
+     },
+     {
+      "igId": "2278",
+      "name": "Bagmane REIT",
+      "sme": false,
+      "date": "2026-05-14",
+      "lead": false,
+      "amtCr": 15.0,
+      "ret": 3.5
+     },
+     {
+      "igId": "1556",
+      "name": "ICICI Prudential AMC",
+      "sme": false,
+      "date": "2025-12-19",
+      "lead": false,
+      "amtCr": 20.0,
+      "ret": 20.09
+     }
+    ]
+   },
+   {
     "key": "QUANT BFSI FUND",
     "name": "QUANT BFSI FUND",
     "cr": 99.7,
@@ -256746,6 +257097,96 @@
     ]
    },
    {
+    "key": "WHITEOAK CAPITAL SPECIAL OPPORTUNITIES FUND",
+    "name": "WHITEOAK CAPITAL SPECIAL OPPORTUNITIES FUND",
+    "cr": 17.0,
+    "n": 4,
+    "main": {
+     "n": 4,
+     "pos": 75.0,
+     "lo": 30.1,
+     "hi": 95.4,
+     "med": 1.5,
+     "p10": -6.7,
+     "p90": 14.7,
+     "close1": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 1.9,
+      "p10": -4.7,
+      "p90": 16.0
+     },
+     "d5": {
+      "n": 1,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 79.3,
+      "med": -4.2,
+      "p10": -4.2,
+      "p90": -4.2
+     },
+     "d30": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 6.1,
+      "p10": 6.1,
+      "p90": 6.1
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 2.54,
+      "ret": 2.21
+     },
+     {
+      "igId": "2305",
+      "name": "NSE",
+      "sme": false,
+      "date": "2026-09-24",
+      "lead": false,
+      "amtCr": 2.0,
+      "ret": 0.84
+     },
+     {
+      "igId": "1556",
+      "name": "ICICI Prudential AMC",
+      "sme": false,
+      "date": "2025-12-19",
+      "lead": false,
+      "amtCr": 0.44,
+      "ret": 20.09
+     },
+     {
+      "igId": "1436",
+      "name": "Epack Prefab Technologies",
+      "sme": false,
+      "date": "2025-10-01",
+      "lead": false,
+      "amtCr": 12.0,
+      "ret": -9.88
+     }
+    ]
+   },
+   {
     "key": "KOTAK SMALL CAP FUND",
     "name": "KOTAK SMALL CAP FUND",
     "cr": 81.6,
@@ -257466,6 +257907,96 @@
     ]
    },
    {
+    "key": "NEO PRIME FUND",
+    "name": "NEO PRIME FUND",
+    "cr": 30.1,
+    "n": 4,
+    "main": {
+     "n": 4,
+     "pos": 50.0,
+     "lo": 15.0,
+     "hi": 85.0,
+     "med": 0.2,
+     "p10": -2.4,
+     "p90": 3.1,
+     "close1": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 2.0,
+      "p10": -8.2,
+      "p90": 3.3
+     },
+     "d5": {
+      "n": 3,
+      "pos": 66.7,
+      "lo": 20.8,
+      "hi": 93.9,
+      "med": 0.5,
+      "p10": -3.3,
+      "p90": 3.5
+     },
+     "d30": {
+      "n": 3,
+      "pos": 33.3,
+      "lo": 6.1,
+      "hi": 79.2,
+      "med": -11.0,
+      "p10": -11.2,
+      "p90": 0.4
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 5.11,
+      "ret": 2.21
+     },
+     {
+      "igId": "1917",
+      "name": "Elevate Campuses",
+      "sme": false,
+      "date": "2026-09-30",
+      "lead": false,
+      "amtCr": 5.0,
+      "ret": -1.91
+     },
+     {
+      "igId": "1827",
+      "name": "Manipal Payment and Identity Solutions",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 10.02,
+      "ret": -2.65
+     },
+     {
+      "igId": "2278",
+      "name": "Bagmane REIT",
+      "sme": false,
+      "date": "2026-05-14",
+      "lead": false,
+      "amtCr": 10.0,
+      "ret": 3.5
+     }
+    ]
+   },
+   {
     "key": "BARODA BNP PARIBAS SMALL CAP FUND",
     "name": "BARODA BNP PARIBAS SMALL CAP FUND",
     "cr": 30.1,
@@ -257822,96 +258353,6 @@
       "lead": false,
       "amtCr": 18.0,
       "ret": 4.34
-     }
-    ]
-   },
-   {
-    "key": "TATA INDIA PHARMA HEALTHCARE FUND",
-    "name": "TATA INDIA PHARMA & HEALTHCARE FUND",
-    "cr": 45.0,
-    "n": 4,
-    "main": {
-     "n": 4,
-     "pos": 50.0,
-     "lo": 15.0,
-     "hi": 85.0,
-     "med": 5.3,
-     "p10": -6.8,
-     "p90": 18.2,
-     "close1": {
-      "n": 4,
-      "pos": 75.0,
-      "lo": 30.1,
-      "hi": 95.4,
-      "med": 12.1,
-      "p10": 2.9,
-      "p90": 24.3
-     },
-     "d5": {
-      "n": 4,
-      "pos": 100.0,
-      "lo": 51.0,
-      "hi": 100.0,
-      "med": 15.3,
-      "p10": 5.0,
-      "p90": 22.1
-     },
-     "d30": {
-      "n": 4,
-      "pos": 100.0,
-      "lo": 51.0,
-      "hi": 100.0,
-      "med": 23.4,
-      "p10": 11.3,
-      "p90": 30.8
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2030",
-      "name": "Prasol Chemicals",
-      "sme": false,
-      "date": "2026-09-16",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": -9.76
-     },
-     {
-      "igId": "2069",
-      "name": "Symbiotec Pharmalab",
-      "sme": false,
-      "date": "2026-09-01",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "1865",
-      "name": "Molbio Diagnostics",
-      "sme": false,
-      "date": "2026-08-17",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 21.44
-     },
-     {
-      "igId": "2217",
-      "name": "Manipal Health Enterprises",
-      "sme": false,
-      "date": "2026-08-05",
-      "lead": false,
-      "amtCr": 14.96,
-      "ret": 10.51
      }
     ]
    },
@@ -259745,87 +260186,6 @@
       "lead": false,
       "amtCr": 7.5,
       "ret": 8.47
-     }
-    ]
-   },
-   {
-    "key": "TITANIUM EQUITY LONG SHORT FUND",
-    "name": "TITANIUM EQUITY LONG-SHORT FUND",
-    "cr": 7.0,
-    "n": 3,
-    "main": {
-     "n": 3,
-     "pos": 100.0,
-     "lo": 43.8,
-     "hi": 100.0,
-     "med": 44.3,
-     "p10": 15.6,
-     "p90": 97.9,
-     "close1": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 53.0,
-      "p10": 25.7,
-      "p90": 87.1
-     },
-     "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 20.8,
-      "p10": -5.8,
-      "p90": 30.0
-     },
-     "d30": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 38.6,
-      "p10": 3.6,
-      "p90": 59.9
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2119",
-      "name": "Kanohar Electricals",
-      "sme": false,
-      "date": "2026-09-16",
-      "lead": false,
-      "amtCr": 1.5,
-      "ret": 8.47
-     },
-     {
-      "igId": "1934",
-      "name": "Tempsens Instruments (India)",
-      "sme": false,
-      "date": "2026-08-28",
-      "lead": false,
-      "amtCr": 3.5,
-      "ret": 111.33
-     },
-     {
-      "igId": "1594",
-      "name": "Indo-MIM",
-      "sme": false,
-      "date": "2026-07-30",
-      "lead": false,
-      "amtCr": 2.01,
-      "ret": 44.33
      }
     ]
    },
@@ -263202,6 +263562,87 @@
     ]
    },
    {
+    "key": "TATA RESOURCES ENERGY FUND",
+    "name": "TATA RESOURCES & ENERGY FUND",
+    "cr": 32.1,
+    "n": 3,
+    "main": {
+     "n": 3,
+     "pos": 100.0,
+     "lo": 43.8,
+     "hi": 100.0,
+     "med": 2.2,
+     "p10": 1.9,
+     "p90": 35.9,
+     "close1": {
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 30.2,
+      "p10": 11.9,
+      "p90": 48.4
+     },
+     "d5": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 20.8,
+      "p10": 20.8,
+      "p90": 20.8
+     },
+     "d30": {
+      "n": 1,
+      "pos": 100.0,
+      "lo": 20.7,
+      "hi": 100.0,
+      "med": 65.2,
+      "p10": 65.2,
+      "p90": 65.2
+     },
+     "lead": {
+      "n": 0,
+      "pos": null,
+      "lo": null,
+      "hi": null,
+      "med": null,
+      "p10": null,
+      "p90": null
+     }
+    },
+    "sme": null,
+    "ipos": [
+     {
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
+      "sme": false,
+      "date": "2026-11-26",
+      "lead": false,
+      "amtCr": 15.1,
+      "ret": 2.21
+     },
+     {
+      "igId": "1594",
+      "name": "Indo-MIM",
+      "sme": false,
+      "date": "2026-07-30",
+      "lead": false,
+      "amtCr": 11.04,
+      "ret": 44.33
+     },
+     {
+      "igId": "1377",
+      "name": "Vikram Solar",
+      "sme": false,
+      "date": "2025-08-26",
+      "lead": false,
+      "amtCr": 6.01,
+      "ret": 1.81
+     }
+    ]
+   },
+   {
     "key": "LIC MF VALUE FUND",
     "name": "LIC MF VALUE FUND",
     "cr": 18.7,
@@ -264376,87 +264817,6 @@
       "lead": true,
       "amtCr": 1.01,
       "ret": 90.0
-     }
-    ]
-   },
-   {
-    "key": "DHARMAYUG INVESTMENTS",
-    "name": "DHARMAYUG INVESTMENTS LTD.",
-    "cr": 40.0,
-    "n": 3,
-    "main": {
-     "n": 3,
-     "pos": 100.0,
-     "lo": 43.8,
-     "hi": 100.0,
-     "med": 3.5,
-     "p10": 1.4,
-     "p90": 16.8,
-     "close1": {
-      "n": 3,
-      "pos": 100.0,
-      "lo": 43.8,
-      "hi": 100.0,
-      "med": 3.7,
-      "p10": 2.2,
-      "p90": 16.3
-     },
-     "d5": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": -1.9,
-      "p10": -3.7,
-      "p90": 0.0
-     },
-     "d30": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 4.7,
-      "p10": 3.5,
-      "p90": 5.8
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2305",
-      "name": "NSE",
-      "sme": false,
-      "date": "2026-09-24",
-      "lead": false,
-      "amtCr": 5.0,
-      "ret": 0.84
-     },
-     {
-      "igId": "2278",
-      "name": "Bagmane REIT",
-      "sme": false,
-      "date": "2026-05-14",
-      "lead": false,
-      "amtCr": 15.0,
-      "ret": 3.5
-     },
-     {
-      "igId": "1556",
-      "name": "ICICI Prudential AMC",
-      "sme": false,
-      "date": "2025-12-19",
-      "lead": false,
-      "amtCr": 20.0,
-      "ret": 20.09
      }
     ]
    },
@@ -270594,87 +270954,6 @@
     ]
    },
    {
-    "key": "WHITEOAK CAPITAL SPECIAL OPPORTUNITIES FUND",
-    "name": "WHITEOAK CAPITAL SPECIAL OPPORTUNITIES FUND",
-    "cr": 14.4,
-    "n": 3,
-    "main": {
-     "n": 3,
-     "pos": 66.7,
-     "lo": 20.8,
-     "hi": 93.9,
-     "med": 0.8,
-     "p10": -7.7,
-     "p90": 16.2,
-     "close1": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 1.9,
-      "p10": -4.7,
-      "p90": 16.0
-     },
-     "d5": {
-      "n": 1,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 79.3,
-      "med": -4.2,
-      "p10": -4.2,
-      "p90": -4.2
-     },
-     "d30": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 6.1,
-      "p10": 6.1,
-      "p90": 6.1
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "2305",
-      "name": "NSE",
-      "sme": false,
-      "date": "2026-09-24",
-      "lead": false,
-      "amtCr": 2.0,
-      "ret": 0.84
-     },
-     {
-      "igId": "1556",
-      "name": "ICICI Prudential AMC",
-      "sme": false,
-      "date": "2025-12-19",
-      "lead": false,
-      "amtCr": 0.44,
-      "ret": 20.09
-     },
-     {
-      "igId": "1436",
-      "name": "Epack Prefab Technologies",
-      "sme": false,
-      "date": "2025-10-01",
-      "lead": false,
-      "amtCr": 12.0,
-      "ret": -9.88
-     }
-    ]
-   },
-   {
     "key": "KOTAK MULTI ASSET ALLOCATION FUND",
     "name": "KOTAK MULTI ASSET ALLOCATION FUND",
     "cr": 139.5,
@@ -271485,44 +271764,44 @@
     ]
    },
    {
-    "key": "NEO PRIME FUND",
-    "name": "NEO PRIME FUND",
-    "cr": 25.0,
+    "key": "GROWW VALUE FUND",
+    "name": "GROWW VALUE FUND",
+    "cr": 2.6,
     "n": 3,
     "main": {
      "n": 3,
      "pos": 33.3,
      "lo": 6.1,
      "hi": 79.2,
-     "med": -1.9,
-     "p10": -2.5,
-     "p90": 2.4,
+     "med": 0.0,
+     "p10": -2.1,
+     "p90": 1.8,
      "close1": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 2.0,
-      "p10": -8.2,
-      "p90": 3.3
+      "n": 2,
+      "pos": 50.0,
+      "lo": 9.5,
+      "hi": 90.5,
+      "med": 0.3,
+      "p10": -1.1,
+      "p90": 1.7
      },
      "d5": {
-      "n": 3,
-      "pos": 66.7,
-      "lo": 20.8,
-      "hi": 93.9,
-      "med": 0.5,
-      "p10": -3.3,
-      "p90": 3.5
+      "n": 2,
+      "pos": 100.0,
+      "lo": 34.2,
+      "hi": 100.0,
+      "med": 6.4,
+      "p10": 4.7,
+      "p90": 8.1
      },
      "d30": {
-      "n": 3,
-      "pos": 33.3,
-      "lo": 6.1,
-      "hi": 79.2,
-      "med": -11.0,
-      "p10": -11.2,
-      "p90": 0.4
+      "n": 2,
+      "pos": 0.0,
+      "lo": 0.0,
+      "hi": 65.8,
+      "med": -10.8,
+      "p10": -11.1,
+      "p90": -10.6
      },
      "lead": {
       "n": 0,
@@ -271537,13 +271816,22 @@
     "sme": null,
     "ipos": [
      {
-      "igId": "1917",
-      "name": "Elevate Campuses",
+      "igId": "2067",
+      "name": "Crystal Crop Protection",
       "sme": false,
-      "date": "2026-09-30",
+      "date": "2026-11-26",
       "lead": false,
-      "amtCr": 5.0,
-      "ret": -1.91
+      "amtCr": 0.15,
+      "ret": 2.21
+     },
+     {
+      "igId": "1848",
+      "name": "Asset Reconstruction",
+      "sme": false,
+      "date": "2026-09-17",
+      "lead": false,
+      "amtCr": 1.0,
+      "ret": 0.0
      },
      {
       "igId": "1827",
@@ -271551,17 +271839,8 @@
       "sme": false,
       "date": "2026-09-17",
       "lead": false,
-      "amtCr": 10.02,
+      "amtCr": 1.5,
       "ret": -2.65
-     },
-     {
-      "igId": "2278",
-      "name": "Bagmane REIT",
-      "sme": false,
-      "date": "2026-05-14",
-      "lead": false,
-      "amtCr": 10.0,
-      "ret": 3.5
      }
     ]
    },
@@ -278639,78 +278918,6 @@
       "lead": false,
       "amtCr": 7.5,
       "ret": 20.09
-     }
-    ]
-   },
-   {
-    "key": "TATA RESOURCES ENERGY FUND",
-    "name": "TATA RESOURCES & ENERGY FUND",
-    "cr": 17.0,
-    "n": 2,
-    "main": {
-     "n": 2,
-     "pos": 100.0,
-     "lo": 34.2,
-     "hi": 100.0,
-     "med": 23.1,
-     "p10": 6.1,
-     "p90": 40.1,
-     "close1": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 30.2,
-      "p10": 11.9,
-      "p90": 48.4
-     },
-     "d5": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 20.8,
-      "p10": 20.8,
-      "p90": 20.8
-     },
-     "d30": {
-      "n": 1,
-      "pos": 100.0,
-      "lo": 20.7,
-      "hi": 100.0,
-      "med": 65.2,
-      "p10": 65.2,
-      "p90": 65.2
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "1594",
-      "name": "Indo-MIM",
-      "sme": false,
-      "date": "2026-07-30",
-      "lead": false,
-      "amtCr": 11.04,
-      "ret": 44.33
-     },
-     {
-      "igId": "1377",
-      "name": "Vikram Solar",
-      "sme": false,
-      "date": "2025-08-26",
-      "lead": false,
-      "amtCr": 6.01,
-      "ret": 1.81
      }
     ]
    },
@@ -294087,78 +294294,6 @@
     ]
    },
    {
-    "key": "GROWW VALUE FUND",
-    "name": "GROWW VALUE FUND",
-    "cr": 2.5,
-    "n": 2,
-    "main": {
-     "n": 2,
-     "pos": 0.0,
-     "lo": 0.0,
-     "hi": 65.8,
-     "med": -1.3,
-     "p10": -2.4,
-     "p90": -0.3,
-     "close1": {
-      "n": 2,
-      "pos": 50.0,
-      "lo": 9.5,
-      "hi": 90.5,
-      "med": 0.3,
-      "p10": -1.1,
-      "p90": 1.7
-     },
-     "d5": {
-      "n": 2,
-      "pos": 100.0,
-      "lo": 34.2,
-      "hi": 100.0,
-      "med": 6.4,
-      "p10": 4.7,
-      "p90": 8.1
-     },
-     "d30": {
-      "n": 2,
-      "pos": 0.0,
-      "lo": 0.0,
-      "hi": 65.8,
-      "med": -10.8,
-      "p10": -11.1,
-      "p90": -10.6
-     },
-     "lead": {
-      "n": 0,
-      "pos": null,
-      "lo": null,
-      "hi": null,
-      "med": null,
-      "p10": null,
-      "p90": null
-     }
-    },
-    "sme": null,
-    "ipos": [
-     {
-      "igId": "1848",
-      "name": "Asset Reconstruction",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 1.0,
-      "ret": 0.0
-     },
-     {
-      "igId": "1827",
-      "name": "Manipal Payment and Identity Solutions",
-      "sme": false,
-      "date": "2026-09-17",
-      "lead": false,
-      "amtCr": 1.5,
-      "ret": -2.65
-     }
-    ]
-   },
-   {
     "key": "PRANITYA INDIA OPPORTUNITIES FUND",
     "name": "PRANITYA INDIA OPPORTUNITIES FUND",
     "cr": 21.6,
@@ -299946,6 +300081,18 @@
     "d5": -7.1,
     "d20": null,
     "done": false
+   },
+   {
+    "client": "IRAGE BROKING SERVICES LLP",
+    "key": "IRAGE BROKING SERVICES",
+    "stock": "BLS Polymers",
+    "sme": false,
+    "date": "2026-11-18",
+    "side": "net buyer",
+    "netCr": 2.87,
+    "d5": -4.3,
+    "d20": null,
+    "done": false
    }
   ],
   "deals": [
@@ -300100,18 +300247,18 @@
    {
     "key": "IRAGE BROKING SERVICES",
     "name": "IRAGE BROKING SERVICES LLP",
-    "n": 12,
+    "n": 13,
     "main": {
      "buys": {
-      "n": 4,
+      "n": 5,
       "d5": {
-       "n": 4,
-       "pos": 25.0,
-       "lo": 4.6,
-       "hi": 69.9,
-       "med": -9.8,
-       "p10": -17.2,
-       "p90": 9.6
+       "n": 5,
+       "pos": 20.0,
+       "lo": 3.6,
+       "hi": 62.4,
+       "med": -4.3,
+       "p10": -17.1,
+       "p90": 7.8
       },
       "d20": {
        "n": 4,
@@ -300122,7 +300269,7 @@
        "p10": -21.6,
        "p90": -8.6
       },
-      "netCr": 82.4
+      "netCr": 85.3
      },
      "sells": {
       "n": 8,
@@ -304280,7 +304427,7 @@
     "igId": "1810",
     "sme": false,
     "src": "anchors",
-    "amountCr": null
+    "amountCr": 81.17
    },
    {
     "date": "2026-12-31",
