@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-26T19:17:37+05:30",
+  "asOf": "2026-11-27T02:56:37+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "26 Nov 2026, 19:17 IST",
+  "label": "27 Nov 2026, 02:56 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -39,7 +39,8 @@
   ],
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
-   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics"
+   "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics",
+   "[subscription] subscription missing for Airpro Technology — check NSE/BSE ids on the row"
   ]
  },
  "expected": [
@@ -1866,7 +1867,7 @@
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-26"
+    "at": "2026-11-27"
    },
    "listingPrice": 278.0,
    "listingGainPct": 2.21,
@@ -1879,7 +1880,7 @@
    "igId": "2067",
    "bseIpoNo": "8089",
    "bseScripCode": "545031",
-   "igFetchedAt": "2026-11-26T15:38:19+05:30",
+   "igFetchedAt": "2026-11-27T02:56:21+05:30",
    "sector": "Other Agricultural Products",
    "anchorShares": 4998708,
    "logo": "crystal-crop-protection-logo.png",
@@ -1925,7 +1926,7 @@
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/anchor_lettere46a8874-a3a3-4682-8e82-a0ec5ddc6cbb.pdf",
      "allotment": "https://in.mpms.mufg.com/Initial_Offer/public-issues.html"
     },
-    "asOf": "2026-11-26T11:13:00+05:30"
+    "asOf": "2026-11-26T20:30:00+05:30"
    },
    "refund": "2026-11-25",
    "apply": {
@@ -2012,9 +2013,9 @@
    "issueSizeCr": 8981.12,
    "freshCr": null,
    "ofsCr": 8981.12,
-   "gmp": 0.75,
-   "gmpPct": 0.55,
-   "gmpTrend": "up",
+   "gmp": 0.7,
+   "gmpPct": 0.51,
+   "gmpTrend": "down",
    "sub": {
     "qib": 4.95,
     "nii": 0.66,
@@ -2035,7 +2036,7 @@
     "parent": null,
     "recordDate": "2026-11-13",
     "src": "ig",
-    "at": "2026-11-26"
+    "at": "2026-11-27"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -2047,8 +2048,8 @@
    "series": "EQUITY",
    "igId": "2401",
    "bseIpoNo": "8092",
-   "bseScripCode": null,
-   "igFetchedAt": "2026-11-26T15:38:19+05:30",
+   "bseScripCode": "545032",
+   "igFetchedAt": "2026-11-27T02:56:21+05:30",
    "refund": "2026-11-26",
    "sector": "Coal",
    "anchorShares": 168768255,
@@ -2058,6 +2059,7 @@
    "gmpEveAsOf": "2026-11-26T15:02:00+05:30",
    "facts": {
     "sector": "Coal",
+    "isin": "INE03K401026",
     "listingAt": "BSE, NSE",
     "kpis": {
      "asOf": "2026-09-30",
@@ -2095,15 +2097,10 @@
      "prospectus": "https://www.sebi.gov.in/filings/public-issues/nov-2026/mahanadi-coalfields-ltd-prospectus_105841.html",
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/mahanandi-ipo-anchor-book.pdf"
     },
-    "asOf": "2026-11-25T16:26:00+05:30"
+    "asOf": "2026-11-26T20:00:00+05:30"
    },
    "gmpSrc": "investorgain",
-   "gmpWitness": {
-    "src": "ipowatch",
-    "gmp": 0.0,
-    "gmpPct": 0.55,
-    "agree": true
-   },
+   "gmpWitness": null,
    "apply": {
     "retail": {
      "amount": 14960,
@@ -2176,7 +2173,8 @@
      "reservedSrc": "narada"
     },
     "asOf": "2026-11-24T18:14:19+05:30"
-   }
+   },
+   "isin": "INE03K401026"
   },
   {
    "name": "Foodlink F&B Holdings",
@@ -2193,9 +2191,9 @@
    "issueSizeCr": 360.76,
    "freshCr": 192.0,
    "ofsCr": 168.76,
-   "gmp": 10.0,
-   "gmpPct": 5.24,
-   "gmpTrend": "flat",
+   "gmp": 7.0,
+   "gmpPct": 3.66,
+   "gmpTrend": "down",
    "sub": {
     "qib": 1.01,
     "nii": 0.4,
@@ -2207,7 +2205,7 @@
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-26"
+    "at": "2026-11-27"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -2225,16 +2223,16 @@
     "src": "ipowatch",
     "gmp": 12.0,
     "gmpPct": 6.28,
-    "agree": true
+    "agree": false
    },
-   "igFetchedAt": "2026-11-26T19:16:22+05:30",
+   "igFetchedAt": "2026-11-27T02:56:21+05:30",
    "refund": "2026-12-02",
    "sector": "Restaurants",
    "anchorShares": 8499483,
    "logo": "foodlink-fb-india-ltd-logo.jpeg",
-   "gmpAsOf": "2026-11-26T19:02:00+05:30",
-   "gmpEve": 10.0,
-   "gmpEveAsOf": "2026-11-26T19:02:00+05:30",
+   "gmpAsOf": "2026-11-26T23:37:00+05:30",
+   "gmpEve": 7.0,
+   "gmpEveAsOf": "2026-11-26T23:37:00+05:30",
    "facts": {
     "sector": "Restaurants",
     "listingAt": "BSE, NSE",
@@ -2320,7 +2318,7 @@
      "received": 46131,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-26T19:17:37+05:30"
+    "asOf": "2026-11-27T02:56:31+05:30"
    }
   },
   {
@@ -2345,7 +2343,7 @@
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-26"
+    "at": "2026-11-27"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -2358,7 +2356,7 @@
    "igId": "2290",
    "bseIpoNo": "8100",
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-26T15:38:19+05:30",
+   "igFetchedAt": "2026-11-27T02:56:21+05:30",
    "refund": "2026-12-07",
    "sector": "Tyres & Rubber Products",
    "anchorShares": 0,
@@ -2380,9 +2378,9 @@
      "lots": 67
     }
    },
-   "gmpAsOf": "2026-11-26T15:02:00+05:30",
+   "gmpAsOf": "2026-11-26T23:37:00+05:30",
    "gmpEve": 27.0,
-   "gmpEveAsOf": "2026-11-26T15:02:00+05:30",
+   "gmpEveAsOf": "2026-11-26T23:37:00+05:30",
    "facts": {
     "sector": "Tyres & Rubber Products",
     "listingAt": "BSE, NSE",
@@ -2443,7 +2441,7 @@
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-26"
+    "at": "2026-11-27"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -2456,7 +2454,7 @@
    "igId": "2232",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-26T15:38:19+05:30",
+   "igFetchedAt": "2026-11-27T02:56:21+05:30",
    "sector": "Civil Construction",
    "anchorShares": 0,
    "logo": "monomark-engineering-logo.png",
@@ -2496,9 +2494,9 @@
     "agree": true
    },
    "refund": "2026-12-08",
-   "gmpAsOf": "2026-11-26T15:02:00+05:30",
+   "gmpAsOf": "2026-11-26T23:37:00+05:30",
    "gmpEve": 24.0,
-   "gmpEveAsOf": "2026-11-26T15:02:00+05:30",
+   "gmpEveAsOf": "2026-11-26T23:37:00+05:30",
    "apply": {
     "retail": {
      "amount": 14625,
@@ -2539,7 +2537,7 @@
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-26"
+    "at": "2026-11-27"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -2552,7 +2550,7 @@
    "igId": "2029",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-26T15:38:19+05:30",
+   "igFetchedAt": "2026-11-27T02:56:21+05:30",
    "refund": "2026-12-03",
    "sector": "Medical Equipment & Supplies",
    "anchorShares": 0,
@@ -2605,7 +2603,7 @@
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-26"
+    "at": "2026-11-27"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -2618,7 +2616,7 @@
    "igId": "2340",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-26T18:14:16+05:30",
+   "igFetchedAt": "2026-11-27T02:56:21+05:30",
    "sector": "Personal Care",
    "anchorShares": 0,
    "logo": "main-swara-logo.png",
@@ -3103,12 +3101,12 @@
    "bandLow": 232.0,
    "bandHigh": 245.0,
    "lotSize": 600,
-   "issueSizeCr": 120.1,
+   "issueSizeCr": 113.92,
    "freshCr": 113.92,
    "ofsCr": null,
-   "gmp": 19.0,
-   "gmpPct": 7.76,
-   "gmpTrend": "flat",
+   "gmp": 23.0,
+   "gmpPct": 9.39,
+   "gmpTrend": "up",
    "sub": {
     "qib": 161.11,
     "nii": 233.67,
@@ -3119,7 +3117,7 @@
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-26"
+    "at": "2026-11-27"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -3132,7 +3130,7 @@
    "igId": "1818",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-26T15:38:19+05:30",
+   "igFetchedAt": "2026-11-27T02:56:21+05:30",
    "refund": "2026-11-26",
    "sector": "Diversified Commercial Services",
    "anchorShares": 1386000,
@@ -3159,6 +3157,7 @@
    "gmpEveAsOf": "2026-11-26T15:02:00+05:30",
    "facts": {
     "sector": "Diversified Commercial Services",
+    "isin": "INE11NS01011",
     "listingAt": "NSE SME",
     "kpis": {
      "asOf": "2026-06-30",
@@ -3186,15 +3185,10 @@
      "anchorLetter": "https://www.chittorgarh.net/reports/anchor-investor/company-letter-watrana.pdf",
      "allotment": "https://maashitla.com/allotment-status/public-issues"
     },
-    "asOf": "2026-11-25T20:30:00+05:30"
+    "asOf": "2026-11-26T20:00:00+05:30"
    },
    "gmpSrc": "investorgain",
-   "gmpWitness": {
-    "src": "ipowatch",
-    "gmp": 22.0,
-    "gmpPct": 8.98,
-    "agree": true
-   },
+   "gmpWitness": null,
    "apps": {
     "qib": {
      "reserved": 1560,
@@ -3227,7 +3221,8 @@
      "reservedSrc": "narada"
     },
     "asOf": "2026-11-24T18:14:19+05:30"
-   }
+   },
+   "isin": "INE11NS01011"
   },
   {
    "name": "Shree Siddhivinayak Greentech Industries",
@@ -3241,11 +3236,11 @@
    "bandLow": 130.0,
    "bandHigh": 142.0,
    "lotSize": 1000,
-   "issueSizeCr": 93.66,
+   "issueSizeCr": 88.98,
    "freshCr": 88.98,
    "ofsCr": null,
-   "gmp": 4.0,
-   "gmpPct": 2.82,
+   "gmp": 2.0,
+   "gmpPct": 1.41,
    "gmpTrend": "down",
    "sub": {
     "qib": 4.27,
@@ -3254,13 +3249,13 @@
     "snii": 0.46,
     "retail": 1.62,
     "total": 1.31,
-    "asOf": "2026-11-26T19:17:37+05:30",
+    "asOf": "2026-11-27T02:56:32+05:30",
     "src": "narada"
    },
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-26"
+    "at": "2026-11-27"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -3273,7 +3268,7 @@
    "igId": "2349",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-26T18:14:16+05:30",
+   "igFetchedAt": "2026-11-27T02:56:21+05:30",
    "refund": "2026-12-01",
    "sector": "Sugar",
    "anchorShares": 0,
@@ -3295,9 +3290,9 @@
      "lots": 3
     }
    },
-   "gmpAsOf": "2026-11-26T17:37:00+05:30",
-   "gmpEve": 6.0,
-   "gmpEveAsOf": "2026-11-26T17:37:00+05:30",
+   "gmpAsOf": "2026-11-26T23:37:00+05:30",
+   "gmpEve": 2.0,
+   "gmpEveAsOf": "2026-11-26T23:37:00+05:30",
    "facts": {
     "sector": "Sugar",
     "listingAt": "NSE SME",
@@ -3366,7 +3361,7 @@
      "received": 2730,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-26T19:17:37+05:30"
+    "asOf": "2026-11-27T02:56:32+05:30"
    }
   },
   {
@@ -3381,7 +3376,7 @@
    "bandLow": 99.0,
    "bandHigh": 99.0,
    "lotSize": 1200,
-   "issueSizeCr": 35.64,
+   "issueSizeCr": 33.86,
    "freshCr": 27.13,
    "ofsCr": 6.73,
    "gmp": 3.0,
@@ -3391,7 +3386,7 @@
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-26"
+    "at": "2026-11-27"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -3404,7 +3399,7 @@
    "igId": "2316",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-26T15:38:19+05:30",
+   "igFetchedAt": "2026-11-27T02:56:21+05:30",
    "refund": "2026-12-03",
    "sector": "Industrial Products",
    "anchorShares": 0,
@@ -3426,9 +3421,9 @@
      "lots": 3
     }
    },
-   "gmpAsOf": "2026-11-26T15:02:00+05:30",
-   "gmpEve": 2.0,
-   "gmpEveAsOf": "2026-11-26T15:02:00+05:30",
+   "gmpAsOf": "2026-11-26T23:37:00+05:30",
+   "gmpEve": 3.0,
+   "gmpEveAsOf": "2026-11-26T23:37:00+05:30",
    "facts": {
     "sector": "Industrial Products",
     "listingAt": "NSE SME",
@@ -3477,7 +3472,7 @@
    "bandLow": 175.0,
    "bandHigh": 180.0,
    "lotSize": 800,
-   "issueSizeCr": 54.0,
+   "issueSizeCr": 51.29,
    "freshCr": 46.79,
    "ofsCr": 4.5,
    "gmp": 24.0,
@@ -3487,7 +3482,7 @@
    "shareholderQuota": {
     "flag": false,
     "src": "ig",
-    "at": "2026-11-26"
+    "at": "2026-11-27"
    },
    "listingPrice": null,
    "listingGainPct": null,
@@ -3507,7 +3502,7 @@
     "gmpPct": 13.33,
     "agree": true
    },
-   "igFetchedAt": "2026-11-26T15:38:19+05:30",
+   "igFetchedAt": "2026-11-27T02:56:21+05:30",
    "refund": "2026-12-07",
    "sector": "Packaging",
    "anchorShares": 840000,
@@ -3529,9 +3524,9 @@
      "lots": 3
     }
    },
-   "gmpAsOf": "2026-11-26T15:02:00+05:30",
+   "gmpAsOf": "2026-11-26T23:37:00+05:30",
    "gmpEve": 24.0,
-   "gmpEveAsOf": "2026-11-26T15:02:00+05:30",
+   "gmpEveAsOf": "2026-11-26T23:37:00+05:30",
    "facts": {
     "sector": "Packaging",
     "listingAt": "NSE SME",
@@ -37123,10 +37118,6 @@
   ],
   "Aegeus Technologies": [
    [
-    "2026-08-28",
-    134.4
-   ],
-   [
     "2026-08-31",
     124.0
    ],
@@ -37356,10 +37347,6 @@
    ]
   ],
   "Alpine Texworld": [
-   [
-    "2026-08-28",
-    55.16
-   ],
    [
     "2026-08-31",
     53.62
@@ -37978,10 +37965,6 @@
    ]
   ],
   "Ardee Industries": [
-   [
-    "2026-08-28",
-    61.16
-   ],
    [
     "2026-08-31",
     58.21
@@ -38751,10 +38734,6 @@
   ],
   "Behari Lal Engineering": [
    [
-    "2026-08-28",
-    457.45
-   ],
-   [
     "2026-08-31",
     440.7
    ],
@@ -38989,10 +38968,6 @@
   ],
   "Caliber Mining": [
    [
-    "2026-08-28",
-    509.8
-   ],
-   [
     "2026-08-31",
     504.35
    ],
@@ -39226,10 +39201,6 @@
    ]
   ],
   "Cube Highways Trust InvIT": [
-   [
-    "2026-08-28",
-    156.42
-   ],
    [
     "2026-08-31",
     157.04
@@ -39675,10 +39646,6 @@
   ],
   "Dhoot Transmission": [
    [
-    "2026-08-28",
-    1454.9
-   ],
-   [
     "2026-08-31",
     1474.6
    ],
@@ -39926,10 +39893,6 @@
    ]
   ],
   "Gaja Alternative Asset Management": [
-   [
-    "2026-08-28",
-    158.66
-   ],
    [
     "2026-08-31",
     150.97
@@ -40355,10 +40318,6 @@
   ],
   "H.R. Hygiene Products": [
    [
-    "2026-08-28",
-    66.8
-   ],
-   [
     "2026-08-31",
     66.3
    ],
@@ -40564,10 +40523,6 @@
    ]
   ],
   "Horizon Industrial Parks": [
-   [
-    "2026-08-28",
-    58.05
-   ],
    [
     "2026-08-31",
     56.89
@@ -41037,10 +40992,6 @@
   ],
   "Indo-MIM": [
    [
-    "2026-08-28",
-    868.05
-   ],
-   [
     "2026-08-31",
     875.45
    ],
@@ -41460,10 +41411,6 @@
    ]
   ],
   "Juniper Green Energy": [
-   [
-    "2026-08-28",
-    258.23
-   ],
    [
     "2026-08-31",
     264.78
@@ -42301,10 +42248,6 @@
   ],
   "LAPL Automotive": [
    [
-    "2026-08-28",
-    125.14
-   ],
-   [
     "2026-08-31",
     119.88
    ],
@@ -42725,10 +42668,6 @@
   ],
   "LEAP India": [
    [
-    "2026-08-28",
-    168.4
-   ],
-   [
     "2026-08-31",
     167.82
    ],
@@ -42963,10 +42902,6 @@
   ],
   "Lalithaa Jewellery Mart": [
    [
-    "2026-08-28",
-    265.24
-   ],
-   [
     "2026-08-31",
     257.89
    ],
@@ -43200,10 +43135,6 @@
    ]
   ],
   "Lohia Corp": [
-   [
-    "2026-08-28",
-    565.1
-   ],
    [
     "2026-08-31",
     551.45
@@ -43661,10 +43592,6 @@
   ],
   "MV Electrosystems": [
    [
-    "2026-08-28",
-    719.55
-   ],
-   [
     "2026-08-31",
     760.45
    ],
@@ -43991,10 +43918,6 @@
   ],
   "Metalic Technoforge": [
    [
-    "2026-08-28",
-    131.1
-   ],
-   [
     "2026-08-31",
     137.65
    ],
@@ -44228,10 +44151,6 @@
    ]
   ],
   "Millworks Technologies": [
-   [
-    "2026-08-28",
-    900.25
-   ],
    [
     "2026-08-31",
     913.95
@@ -44467,10 +44386,6 @@
   ],
   "Molbio Diagnostics": [
    [
-    "2026-08-28",
-    1094.75
-   ],
-   [
     "2026-08-31",
     1086.3
    ],
@@ -44704,10 +44619,6 @@
    ]
   ],
   "Optimystix Entertainment": [
-   [
-    "2026-08-28",
-    174.55
-   ],
    [
     "2026-08-31",
     169.95
@@ -46515,10 +46426,6 @@
   ],
   "SBI Funds Management": [
    [
-    "2026-08-28",
-    563.8
-   ],
-   [
     "2026-08-31",
     577.5
    ],
@@ -46752,10 +46659,6 @@
    ]
   ],
   "Shankesh Jewellers": [
-   [
-    "2026-08-28",
-    91.73
-   ],
    [
     "2026-08-31",
     93.22
@@ -47205,10 +47108,6 @@
   ],
   "Shiprocket": [
    [
-    "2026-08-28",
-    125.4
-   ],
-   [
     "2026-08-31",
     138.89
    ],
@@ -47452,10 +47351,6 @@
    ]
   ],
   "Sotefin Bharat": [
-   [
-    "2026-08-28",
-    254.95
-   ],
    [
     "2026-08-31",
     249.8
@@ -47772,10 +47667,6 @@
    ]
   ],
   "Sunshine Pictures": [
-   [
-    "2026-08-28",
-    429.75
-   ],
    [
     "2026-08-31",
     455.75
@@ -48249,10 +48140,6 @@
   ],
   "Technocraft Ventures": [
    [
-    "2026-08-28",
-    373.83
-   ],
-   [
     "2026-08-31",
     369.12
    ],
@@ -48486,10 +48373,6 @@
    ]
   ],
   "Tempsens Instruments (India)": [
-   [
-    "2026-08-28",
-    634
-   ],
    [
     "2026-08-31",
     563.6
@@ -48910,10 +48793,6 @@
    ]
   ],
   "Xtranet Technologies": [
-   [
-    "2026-08-28",
-    197.11
-   ],
    [
     "2026-08-31",
     194.82
@@ -49695,10 +49574,6 @@
   ],
   "Om Power Transmission": [
    [
-    "2026-08-28",
-    175.31
-   ],
-   [
     "2026-08-31",
     174.16
    ],
@@ -50151,10 +50026,6 @@
   ],
   "Vinit Mobile": [
    [
-    "2026-08-28",
-    64.9
-   ],
-   [
     "2026-08-31",
     62.0
    ],
@@ -50380,10 +50251,6 @@
    ]
   ],
   "OnEMI Technology": [
-   [
-    "2026-08-28",
-    306.3
-   ],
    [
     "2026-08-31",
     307.15
@@ -50619,10 +50486,6 @@
   ],
   "Anawil Wire & Engineering": [
    [
-    "2026-08-28",
-    409.3
-   ],
-   [
     "2026-08-31",
     403.75
    ],
@@ -50856,10 +50719,6 @@
    ]
   ],
   "Aye Finance": [
-   [
-    "2026-08-28",
-    183.92
-   ],
    [
     "2026-08-31",
     179.52
@@ -51095,10 +50954,6 @@
   ],
   "Knack Packaging": [
    [
-    "2026-08-28",
-    192.61
-   ],
-   [
     "2026-08-31",
     190.35
    ],
@@ -51333,10 +51188,6 @@
   ],
   "Shreedhar Spinners": [
    [
-    "2026-08-28",
-    111.0
-   ],
-   [
     "2026-08-31",
     114.3
    ],
@@ -51554,10 +51405,6 @@
    ]
   ],
   "IC Electricals": [
-   [
-    "2026-08-28",
-    128.0
-   ],
    [
     "2026-08-31",
     122.95
@@ -51793,10 +51640,6 @@
   ],
   "Turtlemint Fintech Solutions": [
    [
-    "2026-08-28",
-    152.65
-   ],
-   [
     "2026-08-31",
     144.12
    ],
@@ -52031,10 +51874,6 @@
   ],
   "Happy Steels": [
    [
-    "2026-08-28",
-    92.0
-   ],
-   [
     "2026-08-31",
     85.65
    ],
@@ -52256,10 +52095,6 @@
    ]
   ],
   "Sai Parenteral's": [
-   [
-    "2026-08-28",
-    521.35
-   ],
    [
     "2026-08-31",
     520.2
@@ -52495,10 +52330,6 @@
   ],
   "Clean Max Enviro Energy Solutions": [
    [
-    "2026-08-28",
-    1250.9
-   ],
-   [
     "2026-08-31",
     1246.9
    ],
@@ -52733,10 +52564,6 @@
   ],
   "Utkal Speciality": [
    [
-    "2026-08-28",
-    51.0
-   ],
-   [
     "2026-08-31",
     49.0
    ],
@@ -52950,10 +52777,6 @@
    ]
   ],
   "Laser Power & Infra": [
-   [
-    "2026-08-28",
-    325.65
-   ],
    [
     "2026-08-31",
     314.3
@@ -53189,10 +53012,6 @@
   ],
   "Advit Jewels": [
    [
-    "2026-08-28",
-    250.51
-   ],
-   [
     "2026-08-31",
     240.32
    ],
@@ -53426,10 +53245,6 @@
    ]
   ],
   "Fascinate Textiles": [
-   [
-    "2026-08-28",
-    93.6
-   ],
    [
     "2026-08-31",
     88.95
@@ -53665,10 +53480,6 @@
   ],
   "Clay Craft": [
    [
-    "2026-08-28",
-    159.0
-   ],
-   [
     "2026-08-31",
     157.25
    ],
@@ -53902,10 +53713,6 @@
    ]
   ],
   "Omnitech Engineering": [
-   [
-    "2026-08-28",
-    565.55
-   ],
    [
     "2026-08-31",
     540.5
@@ -54141,10 +53948,6 @@
   ],
   "PNGS Reva Diamond Jewellery": [
    [
-    "2026-08-28",
-    542.25
-   ],
-   [
     "2026-08-31",
     536.55
    ],
@@ -54379,10 +54182,6 @@
   ],
   "Amba Auto Sales & Services": [
    [
-    "2026-08-28",
-    112.95
-   ],
-   [
     "2026-08-31",
     110.8
    ],
@@ -54609,10 +54408,6 @@
   ],
   "Mobilise App": [
    [
-    "2026-08-28",
-    115.75
-   ],
-   [
     "2026-08-31",
     115.75
    ],
@@ -54762,10 +54557,6 @@
    ]
   ],
   "Armour Security": [
-   [
-    "2026-08-28",
-    18.9
-   ],
    [
     "2026-08-31",
     18.05
@@ -55179,10 +54970,6 @@
   ],
   "Avana Electrosystems": [
    [
-    "2026-08-28",
-    150.0
-   ],
-   [
     "2026-08-31",
     151.7
    ],
@@ -55416,10 +55203,6 @@
    ]
   ],
   "E to E Transportation Infrastructure": [
-   [
-    "2026-08-28",
-    275.8
-   ],
    [
     "2026-08-31",
     285.2
@@ -55655,10 +55438,6 @@
   ],
   "Pramodini Medicare": [
    [
-    "2026-08-28",
-    114.8
-   ],
-   [
     "2026-08-31",
     116.5
    ],
@@ -55892,10 +55671,6 @@
    ]
   ],
   "Grover Jewells": [
-   [
-    "2026-08-28",
-    247.0
-   ],
    [
     "2026-08-31",
     245.35
@@ -56491,10 +56266,6 @@
   ],
   "Skytech Infinite Platform": [
    [
-    "2026-08-28",
-    54.5
-   ],
-   [
     "2026-08-31",
     51.8
    ],
@@ -56728,10 +56499,6 @@
    ]
   ],
   "Waterways Leisure Tourism": [
-   [
-    "2026-08-28",
-    105.05
-   ],
    [
     "2026-08-31",
     103.65
@@ -56967,10 +56734,6 @@
   ],
   "Fractal Analytics": [
    [
-    "2026-08-28",
-    844.3
-   ],
-   [
     "2026-08-31",
     852.15
    ],
@@ -57205,10 +56968,6 @@
   ],
   "Victory Electric Vehicles": [
    [
-    "2026-08-28",
-    16.0
-   ],
-   [
     "2026-09-01",
     15.7
    ],
@@ -57410,10 +57169,6 @@
    ]
   ],
   "Shree Ram Twistex": [
-   [
-    "2026-08-28",
-    37.94
-   ],
    [
     "2026-08-31",
     38.55
@@ -57649,10 +57404,6 @@
   ],
   "Vivid Electromech": [
    [
-    "2026-08-28",
-    1503.7
-   ],
-   [
     "2026-08-31",
     1514.35
    ],
@@ -57886,10 +57637,6 @@
    ]
   ],
   "Simca Advertising": [
-   [
-    "2026-08-28",
-    259.8
-   ],
    [
     "2026-08-31",
     260.1
@@ -58311,10 +58058,6 @@
   ],
   "Kusumgar": [
    [
-    "2026-08-28",
-    563.1
-   ],
-   [
     "2026-08-31",
     581.45
    ],
@@ -58548,10 +58291,6 @@
    ]
   ],
   "Hexagon Nutrition": [
-   [
-    "2026-08-28",
-    68.37
-   ],
    [
     "2026-08-31",
     67.4
@@ -58787,10 +58526,6 @@
   ],
   "Biopol Chemicals": [
    [
-    "2026-08-28",
-    56.9
-   ],
-   [
     "2026-08-31",
     51.25
    ],
@@ -59017,10 +58752,6 @@
   ],
   "Acetech E-Commerce": [
    [
-    "2026-08-28",
-    138.0
-   ],
-   [
     "2026-08-31",
     139.0
    ],
@@ -59162,10 +58893,6 @@
    ]
   ],
   "Bio Medica Laboratories": [
-   [
-    "2026-08-28",
-    146.55
-   ],
    [
     "2026-08-31",
     145.75
@@ -59372,10 +59099,6 @@
    ]
   ],
   "GSP Crop Science": [
-   [
-    "2026-08-28",
-    626.6
-   ],
    [
     "2026-08-31",
     639.5
@@ -59611,10 +59334,6 @@
   ],
   "SEDEMAC Mechatronics": [
    [
-    "2026-08-28",
-    3011.6
-   ],
-   [
     "2026-08-31",
     3089.4
    ],
@@ -59848,10 +59567,6 @@
    ]
   ],
   "Avience Biomedicals": [
-   [
-    "2026-08-28",
-    269.5
-   ],
    [
     "2026-08-31",
     266.7
@@ -60087,10 +59802,6 @@
   ],
   "Teamtech Formwork Solutions": [
    [
-    "2026-08-28",
-    140.0
-   ],
-   [
     "2026-08-31",
     141.0
    ],
@@ -60325,10 +60036,6 @@
   ],
   "Teja Engineering Industries": [
    [
-    "2026-08-28",
-    259.0
-   ],
-   [
     "2026-08-31",
     233.1
    ],
@@ -60534,10 +60241,6 @@
    ]
   ],
   "CKK Retail Mart": [
-   [
-    "2026-08-28",
-    166.8
-   ],
    [
     "2026-08-31",
     165.0
@@ -60748,10 +60451,6 @@
    ]
   ],
   "Central Mine Planning": [
-   [
-    "2026-08-28",
-    230.97
-   ],
    [
     "2026-08-31",
     230.92
@@ -60987,10 +60686,6 @@
   ],
   "Shadowfax Technologies": [
    [
-    "2026-08-28",
-    245.36
-   ],
-   [
     "2026-08-31",
     258.48
    ],
@@ -61224,10 +60919,6 @@
    ]
   ],
   "CMR Green Technologies": [
-   [
-    "2026-08-28",
-    225.11
-   ],
    [
     "2026-08-31",
     230.78
@@ -61463,10 +61154,6 @@
   ],
   "Amagi Media Labs": [
    [
-    "2026-08-28",
-    570.8
-   ],
-   [
     "2026-08-31",
     567.5
    ],
@@ -61700,10 +61387,6 @@
    ]
   ],
   "Amir Chand Jagdish Kumar": [
-   [
-    "2026-08-28",
-    174.82
-   ],
    [
     "2026-08-31",
     174.33
@@ -61939,10 +61622,6 @@
   ],
   "Value 360 Communications": [
    [
-    "2026-08-28",
-    72.95
-   ],
-   [
     "2026-08-31",
     75.0
    ],
@@ -62164,10 +61843,6 @@
    ]
   ],
   "Striders Impex": [
-   [
-    "2026-08-28",
-    64.45
-   ],
    [
     "2026-09-01",
     61.5
@@ -62505,10 +62180,6 @@
   ],
   "Srinibas Pradhan Constructions": [
    [
-    "2026-08-28",
-    150.0
-   ],
-   [
     "2026-08-31",
     153.0
    ],
@@ -62674,10 +62345,6 @@
    ]
   ],
   "Brandman Retail": [
-   [
-    "2026-08-28",
-    162.0
-   ],
    [
     "2026-08-31",
     166.4
@@ -62900,10 +62567,6 @@
    ]
   ],
   "Gaudium IVF": [
-   [
-    "2026-08-28",
-    121.72
-   ],
    [
     "2026-08-31",
     127.8
@@ -63321,10 +62984,6 @@
   ],
   "Rajputana Stainless": [
    [
-    "2026-08-28",
-    177.49
-   ],
-   [
     "2026-08-31",
     177.66
    ],
@@ -63558,10 +63217,6 @@
    ]
   ],
   "Credent Connect": [
-   [
-    "2026-08-28",
-    349.1
-   ],
    [
     "2026-08-31",
     349.65
@@ -63797,10 +63452,6 @@
   ],
   "Genxai Analytics": [
    [
-    "2026-08-28",
-    85.6
-   ],
-   [
     "2026-08-31",
     84.9
    ],
@@ -64034,10 +63685,6 @@
    ]
   ],
   "Adisoft Technologies": [
-   [
-    "2026-08-28",
-    198.0
-   ],
    [
     "2026-08-31",
     193.2
@@ -64273,10 +63920,6 @@
   ],
   "Apsis Aerocom": [
    [
-    "2026-08-28",
-    553.8
-   ],
-   [
     "2026-08-31",
     564.85
    ],
@@ -64510,10 +64153,6 @@
    ]
   ],
   "Yaap Digital": [
-   [
-    "2026-08-28",
-    130.0
-   ],
    [
     "2026-08-31",
     122.3
@@ -64749,10 +64388,6 @@
   ],
   "CSM Technologies": [
    [
-    "2026-08-28",
-    97.4
-   ],
-   [
     "2026-08-31",
     96.79
    ],
@@ -64987,10 +64622,6 @@
   ],
   "Marushika Technology": [
    [
-    "2026-08-28",
-    112.65
-   ],
-   [
     "2026-09-01",
     110.0
    ],
@@ -65180,10 +64811,6 @@
    ]
   ],
   "KRM Ayurveda": [
-   [
-    "2026-08-28",
-    280.05
-   ],
    [
     "2026-08-31",
     285.4
@@ -65419,10 +65046,6 @@
   ],
   "Milky Mist Dairy Food": [
    [
-    "2026-08-28",
-    214.31
-   ],
-   [
     "2026-08-31",
     210.94
    ],
@@ -65656,10 +65279,6 @@
    ]
   ],
   "Manipal Health Enterprises": [
-   [
-    "2026-08-28",
-    771.65
-   ],
    [
     "2026-08-31",
     762.8
@@ -65895,10 +65514,6 @@
   ],
   "Powerica": [
    [
-    "2026-08-28",
-    517.7
-   ],
-   [
     "2026-08-31",
     519.0
    ],
@@ -66133,10 +65748,6 @@
   ],
   "Propshop Events & Exhibitions": [
    [
-    "2026-08-28",
-    74.65
-   ],
-   [
     "2026-08-31",
     70.85
    ],
@@ -66318,10 +65929,6 @@
    ]
   ],
   "NFP Sampoorna Foods": [
-   [
-    "2026-08-28",
-    22.05
-   ],
    [
     "2026-08-31",
     21.65
@@ -66536,10 +66143,6 @@
    ]
   ],
   "Innovision": [
-   [
-    "2026-08-28",
-    247.25
-   ],
    [
     "2026-08-31",
     274.25
@@ -66775,10 +66378,6 @@
   ],
   "Q-Line Biotec": [
    [
-    "2026-08-28",
-    548.95
-   ],
-   [
     "2026-08-31",
     595.55
    ],
@@ -67012,10 +66611,6 @@
    ]
   ],
   "Aastha Spintex": [
-   [
-    "2026-08-28",
-    79.61
-   ],
    [
     "2026-08-31",
     83.61
@@ -67695,10 +67290,6 @@
   ],
   "Bharat Coking Coal": [
    [
-    "2026-08-28",
-    34.02
-   ],
-   [
     "2026-08-31",
     33.77
    ],
@@ -67933,10 +67524,6 @@
   ],
   "Propshare Celestia": [
    [
-    "2026-08-28",
-    1020000.0
-   ],
-   [
     "2026-09-01",
     1005000.0
    ],
@@ -68094,10 +67681,6 @@
    ]
   ],
   "G.V. Electricals": [
-   [
-    "2026-08-28",
-    133.4
-   ],
    [
     "2026-08-31",
     126.35
@@ -68329,10 +67912,6 @@
   ],
   "Sham Foam": [
    [
-    "2026-08-28",
-    80.2
-   ],
-   [
     "2026-08-31",
     76.2
    ],
@@ -68550,10 +68129,6 @@
    ]
   ],
   "Accord Transformer & Switchgear": [
-   [
-    "2026-08-28",
-    63.09
-   ],
    [
     "2026-08-31",
     61.91
@@ -68789,10 +68364,6 @@
   ],
   "Mehul Telecom": [
    [
-    "2026-08-28",
-    109.25
-   ],
-   [
     "2026-08-31",
     109.0
    ],
@@ -69011,10 +68582,6 @@
   ],
   "Highness Microelectronics": [
    [
-    "2026-08-28",
-    187.05
-   ],
-   [
     "2026-08-31",
     181.05
    ],
@@ -69228,10 +68795,6 @@
    ]
   ],
   "Digilogic Systems": [
-   [
-    "2026-08-28",
-    187.75
-   ],
    [
     "2026-08-31",
     184.0
@@ -69467,10 +69030,6 @@
   ],
   "Poojaa Precision Engg.": [
    [
-    "2026-08-28",
-    646.9
-   ],
-   [
     "2026-08-31",
     622.8
    ],
@@ -69704,10 +69263,6 @@
    ]
   ],
   "Novus Loyalty": [
-   [
-    "2026-08-28",
-    197.9
-   ],
    [
     "2026-08-31",
     194.2
@@ -70093,10 +69648,6 @@
   ],
   "Rajnandini Fashion India": [
    [
-    "2026-08-28",
-    32.0
-   ],
-   [
     "2026-08-31",
     32.6
    ],
@@ -70307,10 +69858,6 @@
   ],
   "Seemax Resources": [
    [
-    "2026-08-28",
-    53.36
-   ],
-   [
     "2026-09-03",
     51.15
    ],
@@ -70496,10 +70043,6 @@
    ]
   ],
   "Modern Diagnostic": [
-   [
-    "2026-08-28",
-    56.75
-   ],
    [
     "2026-08-31",
     51.92
@@ -70714,10 +70257,6 @@
    ]
   ],
   "Hannah Joseph Hospital": [
-   [
-    "2026-08-28",
-    115.5
-   ],
    [
     "2026-08-31",
     115.75
@@ -70941,10 +70480,6 @@
   ],
   "Elfin Agro India": [
    [
-    "2026-08-28",
-    100.0
-   ],
-   [
     "2026-08-31",
     104.05
    ],
@@ -71138,10 +70673,6 @@
    ]
   ],
   "Horizon Reclaim (India)": [
-   [
-    "2026-08-28",
-    128.0
-   ],
    [
     "2026-08-31",
     127.1
@@ -71377,10 +70908,6 @@
   ],
   "Kratikal Tech": [
    [
-    "2026-08-28",
-    171.35
-   ],
-   [
     "2026-08-31",
     169.8
    ],
@@ -71615,10 +71142,6 @@
   ],
   "GRE Renew Enertech": [
    [
-    "2026-08-28",
-    168.15
-   ],
-   [
     "2026-08-31",
     169.65
    ],
@@ -71837,10 +71360,6 @@
   ],
   "Silverstorm Parks & Resorts": [
    [
-    "2026-08-28",
-    124.15
-   ],
-   [
     "2026-08-31",
     116.8
    ],
@@ -72058,10 +71577,6 @@
    ]
   ],
   "Technocrats Plasma Systems": [
-   [
-    "2026-08-28",
-    252.7
-   ],
    [
     "2026-08-31",
     265.3
@@ -72478,10 +71993,6 @@
    ]
   ],
   "Vahh Chemicals": [
-   [
-    "2026-08-28",
-    54.31
-   ],
    [
     "2026-08-31",
     55.3
@@ -73021,10 +72532,6 @@
   ],
   "Merritronix": [
    [
-    "2026-08-28",
-    314.65
-   ],
-   [
     "2026-08-31",
     317.55
    ],
@@ -73259,10 +72766,6 @@
   ],
   "Sampark India Logistics": [
    [
-    "2026-08-28",
-    92.65
-   ],
-   [
     "2026-09-01",
     90.0
    ],
@@ -73472,10 +72975,6 @@
    ]
   ],
   "Adon Agro Commodities": [
-   [
-    "2026-08-28",
-    85.99
-   ],
    [
     "2026-08-31",
     83.4
@@ -73711,10 +73210,6 @@
   ],
   "Atharva Polyplast": [
    [
-    "2026-08-28",
-    84.69
-   ],
-   [
     "2026-08-31",
     89.4
    ],
@@ -73944,10 +73439,6 @@
    ]
   ],
   "Susan Electricals India": [
-   [
-    "2026-08-28",
-    324.75
-   ],
    [
     "2026-08-31",
     309.35
@@ -74183,10 +73674,6 @@
   ],
   "Advance Technoforge": [
    [
-    "2026-08-28",
-    75.67
-   ],
-   [
     "2026-08-31",
     75.0
    ],
@@ -74421,10 +73908,6 @@
   ],
   "Kanishk Aluminium India": [
    [
-    "2026-08-28",
-    25.0
-   ],
-   [
     "2026-08-31",
     23.75
    ],
@@ -74598,10 +74081,6 @@
    ]
   ],
   "Goldline Pharmaceutical": [
-   [
-    "2026-08-28",
-    40.97
-   ],
    [
     "2026-08-31",
     40.0
@@ -74979,10 +74458,6 @@
   ],
   "Recode Studios": [
    [
-    "2026-08-28",
-    298.9
-   ],
-   [
     "2026-08-31",
     299.0
    ],
@@ -75217,10 +74692,6 @@
   ],
   "Citius Transnet InvIT": [
    [
-    "2026-08-28",
-    114.93
-   ],
-   [
     "2026-08-31",
     114.9
    ],
@@ -75451,10 +74922,6 @@
   ],
   "Fusion Klassroom Edutech": [
    [
-    "2026-08-28",
-    218.0
-   ],
-   [
     "2026-08-31",
     179.15
    ],
@@ -75681,10 +75148,6 @@
   ],
   "UHM Vacation": [
    [
-    "2026-08-28",
-    34.0
-   ],
-   [
     "2026-08-31",
     32.08
    ],
@@ -75910,10 +75373,6 @@
    ]
   ],
   "Kiaasa Retail": [
-   [
-    "2026-08-28",
-    30.93
-   ],
    [
     "2026-08-31",
     31.3
@@ -76149,10 +75608,6 @@
   ],
   "Aureate Tradde": [
    [
-    "2026-08-28",
-    36.6
-   ],
-   [
     "2026-08-31",
     37.0
    ],
@@ -76354,10 +75809,6 @@
    ]
   ],
   "Yaashvi Jewellers": [
-   [
-    "2026-08-28",
-    83.24
-   ],
    [
     "2026-08-31",
     82.16
@@ -76585,10 +76036,6 @@
   ],
   "Jivial Industries": [
    [
-    "2026-08-28",
-    82.7
-   ],
-   [
     "2026-09-01",
     80.6
    ],
@@ -76738,10 +76185,6 @@
    ]
   ],
   "Yashhtej Industries (India)": [
-   [
-    "2026-08-28",
-    57.0
-   ],
    [
     "2026-08-31",
     57.0
@@ -77179,10 +76622,6 @@
   ],
   "Oneindig Technologies": [
    [
-    "2026-08-28",
-    138.0
-   ],
-   [
     "2026-08-31",
     138.99
    ],
@@ -77356,10 +76795,6 @@
    ]
   ],
   "Emiac Technologies": [
-   [
-    "2026-08-28",
-    99.18
-   ],
    [
     "2026-08-31",
     98.0
@@ -77709,10 +77144,6 @@
   ],
   "Gabion Technologies": [
    [
-    "2026-08-28",
-    94.35
-   ],
-   [
     "2026-08-31",
     113.22
    ],
@@ -77942,10 +77373,6 @@
    ]
   ],
   "Tipco Engineering": [
-   [
-    "2026-08-28",
-    241.55
-   ],
    [
     "2026-08-31",
     241.15
@@ -78181,10 +77608,6 @@
   ],
   "Shree Balaji Mala": [
    [
-    "2026-08-28",
-    67.65
-   ],
-   [
     "2026-08-31",
     67.5
    ],
@@ -78358,10 +77781,6 @@
    ]
   ],
   "Safety Controls": [
-   [
-    "2026-08-28",
-    66.01
-   ],
    [
     "2026-08-31",
     64.59
@@ -78592,10 +78011,6 @@
    ]
   ],
   "Bagmane REIT": [
-   [
-    "2026-08-28",
-    106.86
-   ],
    [
     "2026-08-31",
     106.52
@@ -78830,10 +78245,6 @@
    ]
   ],
   "Mopshop Distribution": [
-   [
-    "2026-08-28",
-    117.5
-   ],
    [
     "2026-08-31",
     111.65
@@ -79275,10 +78686,6 @@
   ],
   "Anubhav Plast": [
    [
-    "2026-08-28",
-    50.0
-   ],
-   [
     "2026-08-31",
     50.0
    ],
@@ -79687,10 +79094,6 @@
   ],
   "Aritas Vinyl": [
    [
-    "2026-08-28",
-    13.0
-   ],
-   [
     "2026-08-31",
     12.9
    ],
@@ -79905,10 +79308,6 @@
   ],
   "M R Maniveni": [
    [
-    "2026-08-28",
-    30.0
-   ],
-   [
     "2026-08-31",
     30.1
    ],
@@ -80050,10 +79449,6 @@
    ]
   ],
   "Fractal Industries": [
-   [
-    "2026-08-28",
-    194.7
-   ],
    [
     "2026-08-31",
     202.1
@@ -80200,10 +79595,6 @@
    ]
   ],
   "Q&T Foods": [
-   [
-    "2026-08-28",
-    76.45
-   ],
    [
     "2026-08-31",
     72.65
@@ -80435,10 +79826,6 @@
   ],
   "PAN HR Solutions": [
    [
-    "2026-08-28",
-    51.99
-   ],
-   [
     "2026-09-03",
     50.0
    ],
@@ -80580,10 +79967,6 @@
    ]
   ],
   "INDO SMC": [
-   [
-    "2026-08-28",
-    506.4
-   ],
    [
     "2026-08-31",
     499.0
@@ -81103,10 +80486,6 @@
   ],
   "Devson Catalyst": [
    [
-    "2026-08-28",
-    267.85
-   ],
-   [
     "2026-08-31",
     259.05
    ],
@@ -81340,10 +80719,6 @@
    ]
   ],
   "ENS Enterprises": [
-   [
-    "2026-08-28",
-    103.5
-   ],
    [
     "2026-08-31",
     105.45
@@ -81579,10 +80954,6 @@
   ],
   "Dhanwel Hybrid Seeds": [
    [
-    "2026-08-28",
-    84.89
-   ],
-   [
     "2026-09-03",
     80.65
    ],
@@ -81781,10 +81152,6 @@
   ],
   "Crazy Snacks": [
    [
-    "2026-08-28",
-    55.15
-   ],
-   [
     "2026-08-31",
     60.0
    ],
@@ -81902,10 +81269,6 @@
    ]
   ],
   "Harikanta Overseas": [
-   [
-    "2026-08-28",
-    68.01
-   ],
    [
     "2026-08-31",
     66.5
@@ -82108,10 +81471,6 @@
    ]
   ],
   "Dhaval Packaging": [
-   [
-    "2026-08-28",
-    120.53
-   ],
    [
     "2026-08-31",
     115.21
@@ -82347,10 +81706,6 @@
   ],
   "Diksha Polymers": [
    [
-    "2026-08-28",
-    170.75
-   ],
-   [
     "2026-08-31",
     196.25
    ],
@@ -82432,10 +81787,6 @@
    ]
   ],
   "Kasturi Metal Composite": [
-   [
-    "2026-08-28",
-    50.0
-   ],
    [
     "2026-09-01",
     51.98
@@ -82813,10 +82164,6 @@
   ],
   "Autofurnish": [
    [
-    "2026-08-28",
-    55.0
-   ],
-   [
     "2026-08-31",
     55.25
    ],
@@ -83018,10 +82365,6 @@
    ]
   ],
   "Raajmarg Infra Investment Trust": [
-   [
-    "2026-08-28",
-    121.6
-   ],
    [
     "2026-08-31",
     121.49
@@ -83257,10 +82600,6 @@
   ],
   "Liotech Industries": [
    [
-    "2026-08-28",
-    95.0
-   ],
-   [
     "2026-08-31",
     93.85
    ],
@@ -83483,10 +82822,6 @@
   ],
   "Accretion Nutraveda": [
    [
-    "2026-08-28",
-    281.9
-   ],
-   [
     "2026-08-31",
     272.65
    ],
@@ -83636,10 +82971,6 @@
    ]
   ],
   "Leapfrog Engineering": [
-   [
-    "2026-08-28",
-    22.03
-   ],
    [
     "2026-08-31",
     21.58
@@ -83846,10 +83177,6 @@
    ]
   ],
   "Gulf Lloyds": [
-   [
-    "2026-08-28",
-    37.45
-   ],
    [
     "2026-08-31",
     36.2
@@ -84080,10 +83407,6 @@
    ]
   ],
   "Msafe Equipments": [
-   [
-    "2026-08-28",
-    221.8
-   ],
    [
     "2026-08-31",
     230.5
@@ -84533,10 +83856,6 @@
   ],
   "Speciality Medicines": [
    [
-    "2026-08-28",
-    155.05
-   ],
-   [
     "2026-08-31",
     150.1
    ],
@@ -84750,10 +84069,6 @@
    ]
   ],
   "Yajur Fibres": [
-   [
-    "2026-08-28",
-    38.53
-   ],
    [
     "2026-08-31",
     40.45
@@ -91313,39 +90628,39 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-26T19:17:37+05:30",
+  "asOf": "2026-11-27T02:56:37+05:30",
   "checks": [
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:ok",
     "status": "ok",
     "asOf": "9-Nov 9:37",
-    "elapsed": 2.05,
+    "elapsed": 1.8,
     "calls": 2,
-    "note": "gmp: 9 board rows patched via investorgain; 8 active, 6 of them matched; gmp: second site — 7 agree (within 2% of the issue price), 1 differ, 0 quoted by one site only; gmp: 11 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Johnsoncab Electricals (₹8, investorgain); M.K.Sons Fine Jewels (₹11, investorgain) …",
-    "lastOk": "2026-11-26T19:17:37+05:30",
+    "note": "gmp: 9 board rows patched via investorgain; 8 active, 6 of them matched; gmp: second site — 4 agree (within 2% of the issue price), 2 differ, 0 quoted by one site only; gmp: 11 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Johnsoncab Electricals (₹8, investorgain); M.K.Sons Fine Jewels (₹11, investorgain) …",
+    "lastOk": "2026-11-27T02:56:37+05:30",
     "dueBy": "2026-11-27T07:28:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-26T19:16:22+05:30",
-    "elapsed": 68.59,
-    "calls": 2,
-    "note": "1 records fetched for 11 identified listings (0 without an id); 0 anchor books updated, 103 on file; no record for: Shree Siddhivinayak Greentech Industries",
-    "lastOk": "2026-11-26T19:17:37+05:30",
+    "asOf": "2026-11-27T02:56:21+05:30",
+    "elapsed": 8.47,
+    "calls": 11,
+    "note": "11 records fetched for 11 identified listings (0 without an id); 0 anchor books updated, 103 on file",
+    "lastOk": "2026-11-27T02:56:37+05:30",
     "dueBy": "2026-11-27T07:28:00+05:30"
    },
    {
     "area": "subscription",
     "method": "narada+nse:ok",
     "status": "ok",
-    "asOf": "2026-11-26T19:17:37+05:30",
-    "elapsed": 7.01,
-    "calls": 4,
-    "note": "2/2 rows patched via narada, nse",
-    "lastOk": "2026-11-26T19:17:37+05:30",
+    "asOf": "2026-11-27T02:56:37+05:30",
+    "elapsed": 7.1,
+    "calls": 7,
+    "note": "2/3 rows patched via narada, nse; no subscription for: Airpro Technology",
+    "lastOk": "2026-11-27T02:56:37+05:30",
     "dueBy": "2026-11-27T07:28:00+05:30"
    },
    {
@@ -91538,7 +90853,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "78s, 8 calls, 3/3 modules ok"
+    "note": "18s, 20 calls, 3/3 modules ok"
    }
   ],
   "discrepancies": [
@@ -136524,7 +135839,7 @@
  "records": {
   "2067": {
    "name": "Crystal Crop Protection",
-   "fetchedAt": "2026-11-26T15:38:19+05:30",
+   "fetchedAt": "2026-11-27T02:56:21+05:30",
    "about": [
     "Crystal Crop Protection is an Indian agri-inputs company built around two pillars: agrochemicals and seeds. Everything it makes is tailored to the conditions and needs of Indian farmers. Offerings: Crop protection: Herbicides, fungicides and insecticides, sold under more than 174 brands in a range of pack sizes, including smaller, farmer-friendly formats. The branded business has been its faster-growing segment. Crop nutrition and natural solutions: Bio-stimulants, bio-protectants, plant growth regulators, liquid fertilizers and micronutrients. Seeds: Cotton, cereals, oilseeds, fodder crops, vegetables and flowers, sold across India and exported to markets such as Japan, the USA and Thailand. Exports: Formulations and technicals shipped to Bangladesh, Nepal and several countries in Africa and Asia. Crystal follows a fully integrated model that links research, seed breeding, technology-enabled manufacturing and distribution. Its R&D centre is in Sonipat, Haryana, and the company also works with multinational partners on innovation. Production is spread across Haryana, Gujarat, Jammu & Kashmir, Maharashtra, Telangana and Karnataka, covering formulations, technicals and seed processing. As of 30 September 2025, formulation plants had a combined installed capacity of 75,962 MT, while technicals facilities stood at 3,456 MT. Products reach the market through over 13,000 distributors and 36 distribution centres across India."
    ],
@@ -136906,7 +136221,7 @@
   },
   "1818": {
    "name": "Watrana Rentals",
-   "fetchedAt": "2026-11-26T15:38:19+05:30",
+   "fetchedAt": "2026-11-27T02:56:21+05:30",
    "about": [
     "Watrana Rentals Limited is engaged in providing rental and trading solutions for material handling equipment (MHE) and cargo handling requirements. Its product portfolio includes battery-operated, diesel and gas-powered forklifts, electric stackers, pallet trucks, specialised attachments such as paper-roll clamps, bale clamps and side shifters, along with various ground-support equipment. The company is an ISO 9001:2015, ISO 45001:2018 and ISO 14001:2015 certified supplier of industrial material handling equipment, catering to the requirements of customers across various industries in India. The company's business operations are primarily divided into the following segments: Rental Solutions: Offers material handling equipment on a rental basis, enabling customers to meet their operational requirements while avoiding significant upfront capital expenditure and long-term ownership commitments. Trading in MHE: Engages in the sale of material handling equipment, providing customers with suitable equipment options based on their operational requirements and budgets. Trading in Batteries for MHE: Supplies batteries compatible with different material handling equipment models, catering to both rental customers and equipment buyers. The company has an extensive pan-India presence, with more than 304 rental sites, enabling it to provide equipment accessibility and timely service support to customers across different locations. As of April 30, 2025, the company had an operational fleet of over 1,441 material handling equipment units. Its fleet comprises diesel and electric forklifts, reach trucks, battery-operated stackers, pallet trucks, order pickers, towing trucks and other equipment. As of April 30, 2025, the company had a workforce of approximately 3,122 employees, comprising equipment operators, technicians, engineers, site supervisors and other support staff. Competitive Strengths: Experienced Promoters and Management: Backed by experienced promoters and a senior management team with strong technical knowledge and industry expertise. Skilled Workforce: A large and trained workforce that plays an important role in delivering efficient and reliable services to customers across India. Focus on Quality Assurance: Emphasises service quality and operational standards across its business activities. Extensive Network Presence: Established pan-India network of rental locations, supporting wider customer reach and efficient service delivery."
    ],
@@ -137143,10 +136458,10 @@
    "gmpHistory": [
     {
      "date": "2026-11-26",
-     "gmp": 22.0,
-     "est": 267.0,
-     "pct": 8.98,
-     "kostakSauda": "10000"
+     "gmp": 23.0,
+     "est": 268.0,
+     "pct": 9.39,
+     "kostakSauda": "10500"
     },
     {
      "date": "2026-11-25",
@@ -137234,7 +136549,7 @@
   },
   "2401": {
    "name": "Mahanadi Coalfields",
-   "fetchedAt": "2026-11-26T15:38:19+05:30",
+   "fetchedAt": "2026-11-27T02:56:21+05:30",
    "about": [
     "Mahanadi Coalfields Limited (MCL) is one of India's largest coal producers and is primarily engaged in mining and supplying non-coking coal. The Company operates mainly in the Talcher and Ib Valley coalfields of Odisha and supplies coal to power plants and industries such as steel, cement, aluminium and paper. Mahanadi Coalfields is a wholly owned subsidiary of Coal India Limited. As of June 30, 2026, it operated 17 mines, including 14 open-cast and three underground mines. The Company uses modern machinery and technology to improve mining efficiency and control operating costs. It also operates the Ib Valley Coal Washery, with a capacity of 10 million tonnes per year, to produce better-quality coal with lower ash content. Its railway and road network supports coal transportation to customers across several Indian states. The Company supplies coal through long-term Fuel Supply Agreements (FSAs) and focuses on operational efficiency, technological development and environmental initiatives, including solar power projects. As of June 30, 2026, it had 20,473 permanent employees."
    ],
@@ -137491,9 +136806,9 @@
    "gmpHistory": [
     {
      "date": "2026-11-26",
-     "gmp": 1.0,
-     "est": 137.0,
-     "pct": 0.74,
+     "gmp": 0.7,
+     "est": 136.7,
+     "pct": 0.51,
      "kostakSauda": "100/1400"
     },
     {
@@ -137585,7 +136900,7 @@
   },
   "2349": {
    "name": "Shree Siddhivinayak Greentech Industries",
-   "fetchedAt": "2026-11-26T18:14:16+05:30",
+   "fetchedAt": "2026-11-27T02:56:21+05:30",
    "about": [
     "Shree Siddhivinayak Greentech Industries Limited is an integrated agro-processing company engaged in the production of Jaggery Powder, Khandsari Sugar, jaggery-based value-added food products and sugarcane-derived by-products. The company also operates a Cane Seed nursery to support sugarcane cultivation and strengthen its backward integration capabilities. Its business model caters to both B2B and B2C markets. While its B2B portfolio includes jaggery powder, Khandsari sugar and industrial by-products, its consumer-facing products are marketed under the \"Feel Guddy\" brand, which offers jaggery-based premixes such as Jaggery Tea, Jaggery Coffee, Instant Rice Kheer, Jaggery Laddoo and Jaggery Lapsi. The company operates an integrated sugarcane processing model, enabling it to derive multiple products from a single agricultural input. Alongside its primary products, it commercially utilises processing by-products, including bagasse, molasses, press mud and ash, to improve resource efficiency and minimise waste. Its operations are supported by backward integration through cane seed cultivation, in-house processing infrastructure and established procurement networks. This integrated approach enables the company to serve diverse industrial and retail customer segments while focusing on sustainable and resource-efficient manufacturing. Shree Siddhivinayak Greentech Industries Limited places emphasis on production efficiency, quality assurance, sustainable operations and continuous product development. As of March 31, 2026, the company had 155 permanent employees across various functions, including production, engineering, agriculture, administration, sales, finance, security and other operational departments. Competitive Strengths Integrated Sugarcane Processing Infrastructure: An integrated manufacturing model that enables the production of multiple sugarcane-based products and value-added derivatives. Backward Integration and Farmer Network: Cane seed nursery operations and farmer relationships that support sugarcane cultivation and raw material sourcing. Strategic Location and Procurement Efficiency: Proximity to key sugarcane-growing regions, facilitating efficient procurement and raw material availability. Seasonal Operational Expertise: Experience in managing seasonal sugarcane processing cycles and optimising production capacity utilisation. Sustainable and Zero-Waste Manufacturing: Efficient utilisation of sugarcane and its by-products to minimise waste and maximise resource recovery. Captive Power Generation: Improved energy efficiency through the utilisation of available processing resources for captive power generation. Diversified Product Portfolio: A combination of industrial-grade products and branded consumer offerings catering to B2B and B2C markets. Government Incentives: Potential benefits from applicable government policies and incentive schemes supporting the sugar and agro-processing industries."
    ],
@@ -137812,10 +137127,10 @@
    "gmpHistory": [
     {
      "date": "2026-11-26",
-     "gmp": 6.0,
-     "est": 148.0,
-     "pct": 4.23,
-     "kostakSauda": "4600"
+     "gmp": 2.0,
+     "est": 144.0,
+     "pct": 1.41,
+     "kostakSauda": "1500"
     },
     {
      "date": "2026-11-25",
@@ -137852,15 +137167,15 @@
      "retailBidCr": 10.0
     },
     {
-     "asOf": "2026-11-26T17:42:00+05:30",
+     "asOf": "2026-11-26T17:56:00+05:30",
      "qib": 4.27,
      "nii": 0.83,
      "bnii": 1.01,
      "snii": 0.46,
      "retail": 1.64,
      "total": 1.27,
-     "bidCr": 112.62,
-     "retailBidCr": 72.08
+     "bidCr": 112.73,
+     "retailBidCr": 72.19
     }
    ],
    "company": {
@@ -137871,7 +137186,7 @@
   },
   "1810": {
    "name": "Foodlink F&B Holdings",
-   "fetchedAt": "2026-11-26T19:16:22+05:30",
+   "fetchedAt": "2026-11-27T02:56:21+05:30",
    "about": [
     "```html Foodlink F&B Holdings (India) Limited is a prominent player in the catering and hospitality industry, offering a wide range of food and beverage services across domestic and international markets. The company follows an integrated business model built around three major business verticals: Events Catering: Specialised catering services for weddings, corporate gatherings, MICE events, sporting events, and private celebrations. Casual Dining Restaurants and Cloud Kitchens: Operations covering dine-in restaurants and delivery-focused cloud kitchen formats. Banquets and Integrated F&B Services: Premium banquet venues and comprehensive food and beverage solutions offered under the Jade Luxury Banquets brand. As of December 31, 2024, the company had an operational presence in India and the United Arab Emirates (UAE). In addition, it has delivered catering services for events across several international destinations, including Switzerland, Turkey, Italy, Spain, France, Oman, Qatar, Egypt, Jordan, the Maldives, Thailand, and Nigeria. As disclosed in its Draft Red Herring Prospectus (DRHP), Foodlink operated 30 casual dining restaurant and cloud kitchen units. Of these, 18 units were located across 13 locations in two Indian cities, while the remaining 12 units operated across six locations in Dubai. To support its catering and restaurant operations, the company has established five centralised kitchens in key Indian cities: Mumbai (Maharashtra), Ahmedabad (Gujarat), Mohali (Punjab), Hyderabad (Telangana), and New Delhi. These facilities form an important part of its food preparation and distribution network. As of December 31, 2024, Foodlink had a total workforce of 1,235 employees supporting its business operations and service delivery. Competitive Strengths: Leadership in Premium Catering: Ranked as India's largest organised ultra-luxury and luxury catering company by revenue for Fiscal 2024 among its Indian peers, with services covering weddings, MICE events, sports events, personal celebrations, and banquets. Strong Customer Relationships: Focus on delivering distinctive, innovative, and high-quality food and hospitality experiences, supported by a diversified portfolio of reputed customers. Efficient Kitchen and Supply Chain Network: Strategically positioned centralised kitchens, established operating procedures, and streamlined supply chain capabilities that support consistent service delivery. International Market Presence: Geographically diversified operations and catering experience across multiple domestic and overseas markets. Experienced Leadership: Backed by promoters and a professional management team with extensive industry experience and expertise in the catering and hospitality sector. ```"
    ],
@@ -138066,10 +137381,10 @@
    "gmpHistory": [
     {
      "date": "2026-11-26",
-     "gmp": 10.0,
-     "est": 201.0,
-     "pct": 5.24,
-     "kostakSauda": "600/8400"
+     "gmp": 7.0,
+     "est": 198.0,
+     "pct": 3.66,
+     "kostakSauda": "400/5600"
     },
     {
      "date": "2026-11-25",
@@ -138135,7 +137450,7 @@
   },
   "2232": {
    "name": "Monomark Engineering",
-   "fetchedAt": "2026-11-26T15:38:19+05:30",
+   "fetchedAt": "2026-11-27T02:56:21+05:30",
    "about": [
     "Monomark Engineering (India) Limited provides industrial operations and maintenance (O&M) services, metal fabrication, and project execution services to industries such as metals, cement, ports, and engineering. The company executes projects through two models: EPC, which covers complete project execution from engineering to commissioning, and FEIC, which mainly involves fabrication, erection, installation, and commissioning. As of February, 2026, the company has 28 ongoing projects, including 20 O&M and 8 execution projects. It has completed 20 projects over the last five years and has an unexecuted order book of ₹1,09,535.03 lakhs. The company operates a manufacturing facility in Chittorgarh, Rajasthan, with offices and project sites across several states. It has a total workforce of 6,381 employees, including 836 permanent and 5,545 project-based employees."
    ],
@@ -138373,7 +137688,7 @@
   },
   "2029": {
    "name": "Integris Medtech",
-   "fetchedAt": "2026-11-26T15:38:19+05:30",
+   "fetchedAt": "2026-11-27T02:56:21+05:30",
    "about": [
     "Integris Medtech Limited is an India-based diversified medical technology company with an international presence, specialising in medical devices, healthcare products, and laboratory solutions. Its operations cover the development, manufacturing, marketing, distribution, and sale of a wide range of products across three key segments: cardiovascular devices, clinical diagnostics, and scientific laboratory solutions. The company has manufacturing facilities in India, Germany, and the Netherlands, with a distribution network extending to more than 65 countries across India, Europe, and Southeast Asia. It caters to a large customer base comprising over 9,500 laboratories and approximately 2,000 hospitals and catheterisation laboratories (cath labs). Its product portfolio includes more than 22,000 stock-keeping units (SKUs) across over 200 brands in the laboratory and cardiovascular segments. Integris Medtech conducts its business through the following two principal divisions: Cardiovascular Devices: This division offers a range of interventional cardiology and vascular products, including drug-eluting stents, drug-coated balloons, advanced coronary intervention devices, and vascular access solutions. Laboratory Solutions: This segment provides equipment, reagents, and consumables for clinical, research, and industrial laboratories. It also offers technical support services, including equipment installation, servicing, maintenance, and calibration under its BioCal™ brand. In Asia, the company serves healthcare institutions and laboratory customers across India, Singapore, Thailand, Malaysia, and the Philippines, catering to both government and private-sector organisations. Its European business is primarily focused on cardiovascular medical devices, marketed through proprietary brands such as Chrome and Protégé. Beyond Europe and Asia, the company has an established presence in several other international markets, including the Middle East, Africa, and Latin America. As of June 30, 2025, Integris Medtech had a workforce of 1,879 employees, comprising sales professionals, service engineers, and application specialists. The company has also contributed to clinical research, supporting more than 15,000 patients through over 100 clinical trial sites worldwide, highlighting its focus on medical innovation, clinical validation, and the advancement of healthcare technology."
    ],
@@ -138576,7 +137891,7 @@
   },
   "2290": {
    "name": "Matangi Rubber",
-   "fetchedAt": "2026-11-26T15:38:19+05:30",
+   "fetchedAt": "2026-11-27T02:56:21+05:30",
    "about": [
     "Matangi Rubber Limited is engaged in manufacturing tyres, tyre tubes, tyre flaps and rubber compounds. The Company mainly serves the two-wheeler and three-wheeler tyre segments, while its tubes and flaps are also used in trucks, buses and other commercial vehicles. The Company operates through three business models: manufacturing and selling products under its own brand, contract manufacturing for customers, and job work using customer-supplied raw materials. It also manufactures rubber compounds used in various rubber products. The Company operates five manufacturing plants across three locations: Selaqui (Dehradun, Uttarakhand), Bhind (Madhya Pradesh) and Gummidipoondi (Chennai, Tamil Nadu). Its manufacturing facilities are supported by in-house production, testing and warehousing infrastructure. The Company has an established manufacturing relationship with JK Tyre and also serves other customers through contract manufacturing and job work. Competitive Strengths Five manufacturing plants across three locations. Established manufacturing relationship with JK Tyre. Experienced workforce and management team. Established experience in the tyre and rubber industry. In-house manufacturing and testing facilities. Diverse product portfolio covering tyres, tubes, flaps and rubber compounds. Multiple business models, including own-brand sales, contract manufacturing and job work."
    ],
@@ -138807,7 +138122,7 @@
   },
   "2247": {
    "name": "A J Packaging",
-   "fetchedAt": "2026-11-26T15:38:19+05:30",
+   "fetchedAt": "2026-11-27T02:56:21+05:30",
    "about": [
     "```html A J Packaging is engaged in the manufacturing of a wide variety of metal tin containers in different shapes, including round, oval, and rectangular designs. Its product range covers capacities from 50 grams to 500 grams and 50 ml to 5,000 ml. The company provides various packaging solutions, including printed, lacquered, embossed, specially shaped, and tailor-made metal cans to suit the diverse packaging needs of solid, powdered, and liquid products. The company operates manufacturing units in Hyderabad, Telangana; Ghaziabad, Uttar Pradesh; and Khandala, Maharashtra. These strategically located facilities enable it to cater to the packaging requirements of prominent FMCG companies and paint manufacturers across domestic as well as international markets. A J Packaging follows a business-to-business (B2B) model and supplies its metal packaging products to several established clients. Its customer base includes CCL Products (India) Limited, Indus Coffee, Vayhan Coffee, Modigold and Beverages, Mrs. Bectors Food Specialities Limited, Haldirams Foods International Private Limited, R K Ganapathi Chettiar, SLN Coffee Private Limited, Marino Foods Private Limited, and Asian Paints Limited. Competitive Strengths: Established Track Record Diverse Product Range State-of-the-Art Manufacturing Facilities Strong Customer Base Strategic Location"
    ],
@@ -139082,7 +138397,7 @@
   },
   "2316": {
    "name": "Airpro Technology",
-   "fetchedAt": "2026-11-26T15:38:19+05:30",
+   "fetchedAt": "2026-11-27T02:56:21+05:30",
    "about": [
     "Airpro Technology India Limited is engaged in the development, manufacturing, and supply of networking and communication equipment for industrial, enterprise, and infrastructure applications. The company offers a comprehensive range of technology products that support reliable connectivity, efficient network management, and seamless data communication across diverse operating environments. Its product portfolio caters to the growing demand for advanced wireless and wired networking infrastructure. Airpro Technology India Limited focuses on delivering customized technology solutions through product innovation, firmware development, and application-specific configurations. By combining technical expertise with an integrated product and distribution ecosystem, the company aims to address the evolving connectivity requirements of businesses and industrial customers. Products: Wireless Access Points: Designed to provide stable and high-speed wireless connectivity across indoor spaces, outdoor areas, and high-density network environments. WLAN Controllers: Support centralized administration, configuration, and performance monitoring of wireless access point networks. Ethernet Switches: Enable connectivity between multiple network devices while facilitating efficient data transfer across enterprise networks. Gateways: Support secure network communication and manage data traffic between internal systems and external networks. Outdoor Wireless Solutions: Deliver wireless network coverage for industrial facilities, institutional campuses, and geographically remote locations. 4G/5G Customer Premises Equipment (CPE): Provide wireless broadband connectivity through cellular networks, particularly in areas with limited wired internet infrastructure. Industrial PoE Switches: Combine power and data transmission through a single Ethernet connection to support devices such as IP cameras, wireless access points, and industrial IoT equipment in demanding environments. Competitive Strengths: Development of Application-Specific and Customized Networking Solutions In-House Firmware Development and Product Customization Expertise Diversified and Integrated Networking Product Portfolio Established Channel Network and Demand Generation Ecosystem Customer Engagement Driven by Specific Market and Application Requirements"
    ],
@@ -139309,10 +138624,10 @@
    "gmpHistory": [
     {
      "date": "2026-11-26",
-     "gmp": 2.0,
-     "est": 101.0,
-     "pct": 2.02,
-     "kostakSauda": "1800"
+     "gmp": 3.0,
+     "est": 102.0,
+     "pct": 3.03,
+     "kostakSauda": "2700"
     },
     {
      "date": "2026-11-25",
@@ -139330,7 +138645,7 @@
   },
   "2340": {
    "name": "Swara Baby Products",
-   "fetchedAt": "2026-11-26T18:14:16+05:30",
+   "fetchedAt": "2026-11-27T02:56:21+05:30",
    "desc": [
     "Incorporated in November 2016, Swara Baby Products Limited is a specialized contract manufacturer of disposable consumer hygiene products, offering a diversified portfolio across baby care, adult incontinence, and feminine hygiene categories. The company manufactures baby pant and tape-style diapers, adult diapers, sanitary napkins, panty liners, and related hygiene products for leading brands, while also marketing its own consumer brands, \"Cuddles\" (baby diapers) and \"Shields\" (adult diapers) through online and modern retail channels. According to the TKC Report, Swara Baby Products was the largest contract manufacturer in India's hygiene manufacturing industry by value in Fiscal 2025, holding a 37% market share in baby diaper contract manufacturing and a 36% market share in adult diaper contract manufacturing. The company combines large-scale manufacturing capabilities with centralized R&D, quality assurance, and an efficient supply chain to deliver customized hygiene solutions. It further strengthened its product portfolio by entering the feminine hygiene segment through the acquisition of KAEHPL in December 2025. The company operates strategically located manufacturing facilities supported by strong research, quality control, and an integrated supply chain. As of March 31, 2026, Swara Baby Products employed 775 permanent personnel across production, quality, supply chain, finance, administration, HR, and IT functions. Strengths India's largest contract manufacturer of disposable hygiene products in Fiscal 2025. Diversified product portfolio across baby care, adult incontinence, and feminine hygiene. Strong R&D capabilities with large-scale, quality-focused manufacturing infrastructure. Long-standing customer relationships supported by customized product development. Efficient supply chain, ESG-focused operations, and experienced promoters and management team."
    ],
