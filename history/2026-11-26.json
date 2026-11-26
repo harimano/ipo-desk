@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-26T03:30:49+05:30",
+  "asOf": "2026-11-26T06:45:48+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "26 Nov 2026, 03:30 IST",
+  "label": "26 Nov 2026, 06:45 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -39,7 +39,6 @@
   ],
   "quotaSourceNote": "Quota pipeline fully re-verified 7 Sep 2026 (Monday sweep: every approved/DRHP/awaited row, last-10-day search, plus a new-filing search for listed-parent subsidiaries) against dated reports (Business Standard, Business Today, Moneycontrol, ET, Upstox, SEBI/BSE filings); source links on each row.",
   "unresolved": [
-   "[parents] no NSE symbol found for investor stocks: Indo SMC, NSE (upcoming) — BSE-only, or add to data/aliases.json",
    "[offers] offers with no dates, not on BSE's list — confirm or retire: Fiberweb (India), SM Gold, Vivid Mercantile, Man Infraconstruction, Prime Securities, Tips Music, VRL Logistics"
   ]
  },
@@ -1842,7 +1841,7 @@
    "name": "Crystal Crop Protection",
    "slug": "crystal-crop-protection",
    "type": "Mainboard",
-   "status": "Closed",
+   "status": "Listed",
    "open": "2026-11-18",
    "close": "2026-11-20",
    "allotment": "2026-11-23",
@@ -2197,7 +2196,7 @@
     "nii": 0.0,
     "retail": 0.0,
     "total": 0.0,
-    "asOf": "2026-11-26T03:29:36+05:30",
+    "asOf": "2026-11-26T06:44:17+05:30",
     "src": "bse"
    },
    "shareholderQuota": {
@@ -2223,14 +2222,14 @@
     "gmpPct": 14.14,
     "agree": false
    },
-   "igFetchedAt": "2026-11-26T03:29:33+05:30",
+   "igFetchedAt": "2026-11-26T06:44:08+05:30",
    "refund": "2026-12-02",
    "sector": "Restaurants",
    "anchorShares": 0,
    "logo": "foodlink-fb-india-ltd-logo.jpeg",
-   "gmpAsOf": "2026-11-25T23:37:00+05:30",
+   "gmpAsOf": "2026-11-26T06:02:00+05:30",
    "gmpEve": 18.0,
-   "gmpEveAsOf": "2026-11-25T23:37:00+05:30",
+   "gmpEveAsOf": "2026-11-26T06:02:00+05:30",
    "facts": {
     "sector": "Restaurants",
     "listingAt": "BSE, NSE",
@@ -3131,7 +3130,7 @@
     "snii": 0.06,
     "retail": 0.22,
     "total": 0.4,
-    "asOf": "2026-11-26T03:29:36+05:30",
+    "asOf": "2026-11-26T06:44:17+05:30",
     "src": "narada"
    },
    "shareholderQuota": {
@@ -3150,7 +3149,7 @@
    "igId": "2349",
    "bseIpoNo": null,
    "bseScripCode": null,
-   "igFetchedAt": "2026-11-26T03:29:33+05:30",
+   "igFetchedAt": "2026-11-26T06:44:08+05:30",
    "refund": "2026-12-01",
    "sector": "Sugar",
    "anchorShares": 0,
@@ -3172,9 +3171,9 @@
      "lots": 3
     }
    },
-   "gmpAsOf": "2026-11-25T23:37:00+05:30",
+   "gmpAsOf": "2026-11-26T06:02:00+05:30",
    "gmpEve": 25.0,
-   "gmpEveAsOf": "2026-11-25T23:37:00+05:30",
+   "gmpEveAsOf": "2026-11-26T06:02:00+05:30",
    "facts": {
     "sector": "Sugar",
     "listingAt": "NSE SME",
@@ -3243,7 +3242,7 @@
      "received": 367,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-26T03:29:36+05:30"
+    "asOf": "2026-11-26T06:44:17+05:30"
    }
   },
   {
@@ -17878,7 +17877,7 @@
    ],
    "nsdl": {
     "asOf": "2026-11-25",
-    "checkedAt": "2026-11-25T22:00:47+00:00",
+    "checkedAt": "2026-11-26T01:15:44+00:00",
     "years": [
      [
       "2015-16",
@@ -91133,194 +91132,194 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-26T03:30:49+05:30",
+  "asOf": "2026-11-26T06:45:48+05:30",
   "checks": [
    {
     "area": "calendar",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-26T03:29:31+05:30",
-    "elapsed": 3.13,
+    "asOf": "2026-11-26T06:44:06+05:30",
+    "elapsed": 4.37,
     "calls": 5,
-    "note": "investorgain list=10 carried=0 +nse=5 +bse=1 exchange-only=0: 6 mainboard, 4 sme; 2 open, 5 upcoming",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "note": "investorgain list=9 carried=1 +nse=5 +bse=1 exchange-only=0: 6 mainboard, 4 sme; 2 open, 5 upcoming",
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "gmp",
     "method": "investorgain:ok, ipowatch:ok",
     "status": "ok",
     "asOf": "9-Nov 9:37",
-    "elapsed": 1.67,
+    "elapsed": 2.12,
     "calls": 2,
     "note": "gmp: 8 board rows patched via investorgain; 7 active, 6 of them matched; gmp: second site — 3 agree (within 2% of the issue price), 4 differ, 0 quoted by one site only; gmp: 11 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Johnsoncab Electricals (₹8, investorgain); M.K.Sons Fine Jewels (₹11, investorgain) …",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T10:22:00+05:30"
    },
    {
     "area": "details",
     "method": "investorgain:ok",
     "status": "ok",
-    "asOf": "2026-11-26T03:29:33+05:30",
-    "elapsed": 1.62,
+    "asOf": "2026-11-26T06:44:08+05:30",
+    "elapsed": 1.83,
     "calls": 2,
     "note": "2 records fetched for 10 identified listings (0 without an id); 0 anchor books updated, 103 on file",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T10:22:00+05:30"
    },
    {
     "area": "subscription",
     "method": "bse+narada:ok",
     "status": "ok",
-    "asOf": "2026-11-26T03:29:36+05:30",
-    "elapsed": 1.66,
+    "asOf": "2026-11-26T06:44:17+05:30",
+    "elapsed": 7.04,
     "calls": 4,
     "note": "2/2 rows patched via bse, narada",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T10:22:00+05:30"
    },
    {
     "area": "listings",
     "method": "yahoo:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 5.79,
+    "elapsed": 9.21,
     "calls": 0,
     "note": "4 names priced, 0 moved to recent, 0 history points",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "history",
     "method": "investorgain-566:ok, investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 2.59,
+    "elapsed": 3.14,
     "calls": 2,
     "note": "1412 listings since 2022 (999 SME); fetched 2026: 309; QIB on file for 114 of 413 mainboard issues; shareholder-quota books frozen for 0",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "tape",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-25",
-    "elapsed": 1.13,
-    "calls": 2,
-    "note": "213 listings with an NSE symbol; 1 NSE file(s) read, 163 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 1 BSE file(s) read, 85 closes added, 185 days on file",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "elapsed": 0.01,
+    "calls": 0,
+    "note": "214 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file",
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "anchorbook",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 0.83,
+    "elapsed": 1.08,
     "calls": 1,
-    "note": "0 anchor books read (1 without an anchor table, 0 failed); 923 on file, 589 partial (feed gave only the first names); 0 of 1412 listings still to fetch",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "note": "1 anchor books read (0 without an anchor table, 0 failed); 924 on file, 589 partial (feed gave only the first names); 0 of 1413 listings still to fetch",
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "evidence",
     "method": "computed:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 0.09,
+    "elapsed": 0.21,
     "calls": 0,
-    "note": "track records: 923 of 923 anchor books have an outcome; 913 of 1498 investors with 2+; 1412 listings; windows: mainboard 126, SME 237; 3 warnings",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "note": "track records: 923 of 924 anchor books have an outcome; 913 of 1498 investors with 2+; 1412 listings; windows: mainboard 126, SME 237; 3 warnings",
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "players",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 29.77,
+    "elapsed": 36.6,
     "calls": 55,
-    "note": "54 of 2839 anchor investors read (0 failed); names found for 1 of 10 unlisted issues",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "note": "54 of 2839 anchor investors read (0 failed); names found for 1 of 9 unlisted issues",
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "parents",
     "method": "yahoo:ok",
     "status": "ok",
     "asOf": "2026-11-23",
-    "elapsed": 12.86,
-    "calls": 2,
+    "elapsed": 14.04,
+    "calls": 0,
     "note": "5/5 parent prices; 31/35 investor stocks priced",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "filings",
     "method": "bse_ann:ok, sebi:ok, nse_ann:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 6.23,
+    "elapsed": 8.91,
     "calls": 7,
     "note": "bse_ann: feed of 19 announcements today, 0/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1228 announcements scanned, 2 subsidiary-offer leads; 1 quota rows carry both the register row and the parent's announcement; 1 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 1 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 5 candidates (1 by announcement, 4 by group name); 10 leads held; 19 rows patched, 14 kept previous stage",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "planner",
     "method": "investorgain:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 2.28,
+    "elapsed": 2.7,
     "calls": 4,
-    "note": "144 events 2026-11-19..2027-01-10, 10 issues with terms, 0 from the report only",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "note": "144 events 2026-11-19..2027-01-10, 9 issues with terms, 0 from the report only",
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "offers",
     "method": "bse:ok",
     "status": "ok",
     "asOf": "2026-11-26",
-    "elapsed": 3.11,
+    "elapsed": 4.32,
     "calls": 3,
-    "note": "bse rows=18: 16 rights, 11 buybacks, 0 ofs, 1 ncd; 17 refreshed, 1 new, 0 closed windows dropped",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "note": "bse rows=18: 16 rights, 11 buybacks, 0 ofs, 1 ncd; 18 refreshed, 0 new, 0 closed windows dropped",
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "flows",
     "method": "nse:ok",
     "status": "ok",
     "asOf": "2026-11-25",
-    "elapsed": 5.52,
+    "elapsed": 5.9,
     "calls": 4,
     "note": "2026-11-25 already in history; nsdl to 2026-11-25: 11 months, 12 years; FII +4,479 / DII +4,019 Cr",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "deals",
     "method": "nsearchives:ok",
     "status": "ok",
     "asOf": "2026-11-25",
-    "elapsed": 1.68,
+    "elapsed": 2.15,
     "calls": 4,
-    "note": "bulk.csv: 103 deals; block.csv: 21 deals; 0 tracked-investor deals of 124; 13 patterns; BSE bulk: 96 deals, 13 in this year's listings; BSE block: 2 deals, 0 in this year's listings; listing deals: 23 of today's 124 deals are in this year's listings (12 stocks); 1892 kept over 60 days; 212 of 309 listings have an NSE symbol; 240 with a BSE code",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "note": "bulk.csv: 103 deals; block.csv: 21 deals; 0 tracked-investor deals of 124; 13 patterns; BSE bulk: 96 deals, 13 in this year's listings; BSE block: 2 deals, 0 in this year's listings; listing deals: 23 of today's 124 deals are in this year's listings (12 stocks); 1892 kept over 60 days; 213 of 310 listings have an NSE symbol; 241 with a BSE code",
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "news",
     "method": "rss:ok",
     "status": "ok",
     "asOf": "2026-11-25T23:36:38+05:30",
-    "elapsed": 0.46,
+    "elapsed": 0.79,
     "calls": 3,
     "note": "business-standard: 3/35 primary-market items; economic-times: 4/50 primary-market items; moneycontrol-ipo: blocked — HTTP 403; 7 fresh, 25 kept",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "logos",
@@ -91330,8 +91329,8 @@
     "elapsed": 0.0,
     "calls": 0,
     "note": "79 logos on file; none to fetch",
-    "lastOk": "2026-11-26T03:30:49+05:30",
-    "dueBy": "2026-11-26T07:28:00+05:30"
+    "lastOk": "2026-11-26T06:45:48+05:30",
+    "dueBy": "2026-11-26T18:58:00+05:30"
    },
    {
     "area": "research layer",
@@ -91343,7 +91342,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "82s, 100 calls, 18/18 modules ok"
+    "note": "106s, 96 calls, 18/18 modules ok"
    }
   ],
   "discrepancies": [
@@ -126453,6 +126452,10 @@
    "Antala Industries": {
     "symbol": "ANTALA",
     "triedOn": "2026-11-12"
+   },
+   "Crystal Crop Protection": {
+    "symbol": "CRYSTALCP",
+    "triedOn": "2026-11-26"
    }
   }
  },
@@ -129865,10 +129868,10 @@
    "stageDate": "2026-11-13",
    "ticker": "COALINDIA",
    "needsReview": {
-    "source": "nse_ann",
-    "url": "https://nsearchives.nseindia.in/corporate/COALINDIA_24112026070916_MCL-Prospectus.pdf",
-    "headline": "Disclosure under Regulation 30 of Securities and Exchange Board of India(Listing Obligations and Disclosure Requirements) Regulations, 2015 ( ListingRegulations ) Initial public o&#64256;ering ( IPO ) of equity shares of face value &#8377; 2 each( Equity Shares ) of Mahanadi Coalfield Limited, a sub",
-    "date": "2026-11-24"
+    "source": "sebi",
+    "url": "https://www.sebi.gov.in/filings/public-issues/nov-2026/mahanadi-coalfields-limited-rhp_105777.html",
+    "headline": "Mahanadi Coalfields Limited - RHP<br><a href='https://www.sebi.gov.in/sebi_data/commondocs/nov-2026/Mahanadi%20Coalfields%20Limited_DAP_p.pdf' style=color:#000000> Mahanadi Coalfields Limited - Abridged Prospectus</a>",
+    "date": "2026-11-13"
    },
    "checkedAt": "2026-11-26",
    "igId": "2401"
@@ -130061,10 +130064,10 @@
    "stageDate": "2026-11-02",
    "ticker": "COALINDIA",
    "needsReview": {
-    "source": "nse_ann",
-    "url": "https://nsearchives.nseindia.in/corporate/COALINDIA_24112026070916_MCL-Prospectus.pdf",
-    "headline": "Disclosure under Regulation 30 of Securities and Exchange Board of India(Listing Obligations and Disclosure Requirements) Regulations, 2015 ( ListingRegulations ) Initial public o&#64256;ering ( IPO ) of equity shares of face value &#8377; 2 each( Equity Shares ) of Mahanadi Coalfield Limited, a sub",
-    "date": "2026-11-24",
+    "source": "sebi",
+    "url": "https://www.sebi.gov.in/filings/public-issues/nov-2026/south-eastern-coalfields-limited-drhp_105620.html",
+    "headline": "South Eastern Coalfields Limited- DRHP <br><a href='https://www.sebi.gov.in/sebi_data/commondocs/nov-2026/Sunil%20Gold%20India%20Limited-prospectus_p.pdf' style=color:#000000>South Eastern Coalfields Limited - Draft Abridged Prospectus</a>",
+    "date": "2026-11-04",
     "register": {
      "register": "DRHP",
      "kind": "DRHP",
@@ -137370,7 +137373,7 @@
   },
   "2349": {
    "name": "Shree Siddhivinayak Greentech Industries",
-   "fetchedAt": "2026-11-26T03:29:33+05:30",
+   "fetchedAt": "2026-11-26T06:44:08+05:30",
    "about": [
     "Shree Siddhivinayak Greentech Industries Limited is an integrated agro-processing company engaged in the production of Jaggery Powder, Khandsari Sugar, jaggery-based value-added food products and sugarcane-derived by-products. The company also operates a Cane Seed nursery to support sugarcane cultivation and strengthen its backward integration capabilities. Its business model caters to both B2B and B2C markets. While its B2B portfolio includes jaggery powder, Khandsari sugar and industrial by-products, its consumer-facing products are marketed under the \"Feel Guddy\" brand, which offers jaggery-based premixes such as Jaggery Tea, Jaggery Coffee, Instant Rice Kheer, Jaggery Laddoo and Jaggery Lapsi. The company operates an integrated sugarcane processing model, enabling it to derive multiple products from a single agricultural input. Alongside its primary products, it commercially utilises processing by-products, including bagasse, molasses, press mud and ash, to improve resource efficiency and minimise waste. Its operations are supported by backward integration through cane seed cultivation, in-house processing infrastructure and established procurement networks. This integrated approach enables the company to serve diverse industrial and retail customer segments while focusing on sustainable and resource-efficient manufacturing. Shree Siddhivinayak Greentech Industries Limited places emphasis on production efficiency, quality assurance, sustainable operations and continuous product development. As of March 31, 2026, the company had 155 permanent employees across various functions, including production, engineering, agriculture, administration, sales, finance, security and other operational departments. Competitive Strengths Integrated Sugarcane Processing Infrastructure: An integrated manufacturing model that enables the production of multiple sugarcane-based products and value-added derivatives. Backward Integration and Farmer Network: Cane seed nursery operations and farmer relationships that support sugarcane cultivation and raw material sourcing. Strategic Location and Procurement Efficiency: Proximity to key sugarcane-growing regions, facilitating efficient procurement and raw material availability. Seasonal Operational Expertise: Experience in managing seasonal sugarcane processing cycles and optimising production capacity utilisation. Sustainable and Zero-Waste Manufacturing: Efficient utilisation of sugarcane and its by-products to minimise waste and maximise resource recovery. Captive Power Generation: Improved energy efficiency through the utilisation of available processing resources for captive power generation. Diversified Product Portfolio: A combination of industrial-grade products and branded consumer offerings catering to B2B and B2C markets. Government Incentives: Potential benefits from applicable government policies and incentive schemes supporting the sugar and agro-processing industries."
    ],
@@ -137596,6 +137599,13 @@
    },
    "gmpHistory": [
     {
+     "date": "2026-11-26",
+     "gmp": 25.0,
+     "est": 167.0,
+     "pct": 17.61,
+     "kostakSauda": "19000"
+    },
+    {
      "date": "2026-11-25",
      "gmp": 25.0,
      "est": 167.0,
@@ -137638,7 +137648,7 @@
   },
   "1810": {
    "name": "Foodlink F&B Holdings",
-   "fetchedAt": "2026-11-26T03:29:33+05:30",
+   "fetchedAt": "2026-11-26T06:44:08+05:30",
    "about": [
     "```html Foodlink F&B Holdings (India) Limited is a prominent player in the catering and hospitality industry, offering a wide range of food and beverage services across domestic and international markets. The company follows an integrated business model built around three major business verticals: Events Catering: Specialised catering services for weddings, corporate gatherings, MICE events, sporting events, and private celebrations. Casual Dining Restaurants and Cloud Kitchens: Operations covering dine-in restaurants and delivery-focused cloud kitchen formats. Banquets and Integrated F&B Services: Premium banquet venues and comprehensive food and beverage solutions offered under the Jade Luxury Banquets brand. As of December 31, 2024, the company had an operational presence in India and the United Arab Emirates (UAE). In addition, it has delivered catering services for events across several international destinations, including Switzerland, Turkey, Italy, Spain, France, Oman, Qatar, Egypt, Jordan, the Maldives, Thailand, and Nigeria. As disclosed in its Draft Red Herring Prospectus (DRHP), Foodlink operated 30 casual dining restaurant and cloud kitchen units. Of these, 18 units were located across 13 locations in two Indian cities, while the remaining 12 units operated across six locations in Dubai. To support its catering and restaurant operations, the company has established five centralised kitchens in key Indian cities: Mumbai (Maharashtra), Ahmedabad (Gujarat), Mohali (Punjab), Hyderabad (Telangana), and New Delhi. These facilities form an important part of its food preparation and distribution network. As of December 31, 2024, Foodlink had a total workforce of 1,235 employees supporting its business operations and service delivery. Competitive Strengths: Leadership in Premium Catering: Ranked as India's largest organised ultra-luxury and luxury catering company by revenue for Fiscal 2024 among its Indian peers, with services covering weddings, MICE events, sports events, personal celebrations, and banquets. Strong Customer Relationships: Focus on delivering distinctive, innovative, and high-quality food and hospitality experiences, supported by a diversified portfolio of reputed customers. Efficient Kitchen and Supply Chain Network: Strategically positioned centralised kitchens, established operating procedures, and streamlined supply chain capabilities that support consistent service delivery. International Market Presence: Geographically diversified operations and catering experience across multiple domestic and overseas markets. Experienced Leadership: Backed by promoters and a professional management team with extensive industry experience and expertise in the catering and hospitality sector. ```"
    ],
@@ -137794,6 +137804,13 @@
    },
    "gmpHistory": [
     {
+     "date": "2026-11-26",
+     "gmp": 18.0,
+     "est": 209.0,
+     "pct": 9.42,
+     "kostakSauda": "1100/15400"
+    },
+    {
      "date": "2026-11-25",
      "gmp": 18.0,
      "est": 209.0,
@@ -137830,13 +137847,6 @@
     },
     {
      "date": "2026-11-20",
-     "gmp": 12.0,
-     "est": 12.0,
-     "pct": 0.0,
-     "kostakSauda": "--"
-    },
-    {
-     "date": "2026-11-19",
      "gmp": 12.0,
      "est": 12.0,
      "pct": 0.0,
@@ -139955,13 +139965,21 @@
     "of": 53,
     "names": [],
     "frozenOn": "2026-11-12"
+   },
+   "2067": {
+    "name": "Crystal Crop Protection",
+    "sme": false,
+    "listedOn": "2026-11-26",
+    "large": 0,
+    "of": 54,
+    "names": [],
+    "frozenOn": "2026-11-26"
    }
   },
   "covered": [
    "1810",
    "1818",
    "2029",
-   "2067",
    "2232",
    "2247",
    "2290",
@@ -140148,7 +140166,7 @@
   ]
  },
  "tape": {
-  "asOf": "2026-11-26T03:29:45+05:30",
+  "asOf": "2026-11-26T06:44:30+05:30",
   "dates": [
    "2026-02-23",
    "2026-02-24",
@@ -140352,6 +140370,7 @@
    "2026-11-24"
   ],
   "names": {
+   "Crystal Crop Protection": "CRYSTALCP",
    "Antala Industries": "ANTALA",
    "Vedant Poly Fabs": "VPFL",
    "Johnsoncab Electricals": "JOHNSONCAB",
@@ -140566,7 +140585,7 @@
    "Victory Electric Vehicles": "VICTORYEV",
    "E to E Transportation Infrastructure": "E2ERAIL"
   },
-  "n": 213,
+  "n": 214,
   "bse": {
    "dates": [
     "2026-02-23",
@@ -140873,7 +140892,7 @@
  },
  "anchorBooks": {
   "asOf": "2026-11-26",
-  "n": 923,
+  "n": 924,
   "books": {
    "1782": {
     "name": "Shakti Polytarp",
@@ -203319,6 +203338,157 @@
     ],
     "complete": true,
     "fetchedOn": "2026-11-06"
+   },
+   "2067": {
+    "name": "Crystal Crop Protection",
+    "sme": false,
+    "listedOn": "2026-11-26",
+    "bidDate": "2026-11-17",
+    "price": 272.0,
+    "pctQib": 100.0,
+    "locked30": 2499354.0,
+    "locked90": 2499354.0,
+    "totalShares": 4998708.0,
+    "rows": [
+     {
+      "name": "ASHOKA INDIA EQUITY INVESTMENT TRUST PLC",
+      "shares": 735295.0,
+      "amtCr": 20.0,
+      "pctAlloc": 14.71,
+      "pctIssue": 4.39,
+      "key": "ASHOKA INDIA EQUITY INVESTMENT TRUST"
+     },
+     {
+      "name": "WHITEOAK CAPITAL FLEXI CAP FUND",
+      "shares": 443960.0,
+      "amtCr": 12.08,
+      "pctAlloc": 8.88,
+      "pctIssue": 2.65,
+      "key": "WHITEOAK CAPITAL FLEXI CAP FUND"
+     },
+     {
+      "name": "WHITEOAK CAPITAL MID CAP FUND",
+      "shares": 362560.0,
+      "amtCr": 9.86,
+      "pctAlloc": 7.25,
+      "pctIssue": 2.16,
+      "key": "WHITEOAK CAPITAL MID CAP FUND"
+     },
+     {
+      "name": "WHITEOAK CAPITAL MULTI CAP FUND",
+      "shares": 202840.0,
+      "amtCr": 5.52,
+      "pctAlloc": 4.06,
+      "pctIssue": 1.21,
+      "key": "WHITEOAK CAPITAL MULTI CAP FUND"
+     },
+     {
+      "name": "WHITEOAK CAPITAL SPECIAL OPPORTUNITIES FUND",
+      "shares": 93555.0,
+      "amtCr": 2.54,
+      "pctAlloc": 1.87,
+      "pctIssue": 0.56,
+      "key": "WHITEOAK CAPITAL SPECIAL OPPORTUNITIES FUND"
+     },
+     {
+      "name": "TATA RESOURCES & ENERGY FUND",
+      "shares": 555005.0,
+      "amtCr": 15.1,
+      "pctAlloc": 11.1,
+      "pctIssue": 3.31,
+      "key": "TATA RESOURCES ENERGY FUND"
+     },
+     {
+      "name": "TATA INDIA PHARMA & HEALTHCARE FUND",
+      "shares": 294250.0,
+      "amtCr": 8.0,
+      "pctAlloc": 5.89,
+      "pctIssue": 1.76,
+      "key": "TATA INDIA PHARMA HEALTHCARE FUND"
+     },
+     {
+      "name": "TITANIUM EQUITY LONG-SHORT FUND",
+      "shares": 73535.0,
+      "amtCr": 2.0,
+      "pctAlloc": 1.47,
+      "pctIssue": 0.44,
+      "key": "TITANIUM EQUITY LONG SHORT FUND"
+     },
+     {
+      "name": "INTERNATIONAL FINANCE CORPORATION-SELF MANAGED P1",
+      "shares": 735295.0,
+      "amtCr": 20.0,
+      "pctAlloc": 14.71,
+      "pctIssue": 4.39,
+      "key": "INTERNATIONAL FINANCE CORPORATION SELF MANAGED P1"
+     },
+     {
+      "name": "SILVER STRIDE INDIA GLOBAL FUND",
+      "shares": 367675.0,
+      "amtCr": 10.0,
+      "pctAlloc": 7.36,
+      "pctIssue": 2.19,
+      "key": "SILVER STRIDE INDIA GLOBAL FUND"
+     },
+     {
+      "name": "DHARMAYUG INVESTMENTS LTD.",
+      "shares": 367675.0,
+      "amtCr": 10.0,
+      "pctAlloc": 7.36,
+      "pctIssue": 2.19,
+      "key": "DHARMAYUG INVESTMENTS"
+     },
+     {
+      "name": "GROWW MULTICAP FUND",
+      "shares": 122063.0,
+      "amtCr": 3.32,
+      "pctAlloc": 2.44,
+      "pctIssue": 0.73,
+      "key": "GROWW MULTICAP FUND"
+     },
+     {
+      "name": "GROWW SMALL CAP FUND",
+      "shares": 60091.0,
+      "amtCr": 1.63,
+      "pctAlloc": 1.2,
+      "pctIssue": 0.36,
+      "key": "GROWW SMALL CAP FUND"
+     },
+     {
+      "name": "GROWW VALUE FUND",
+      "shares": 5647.0,
+      "amtCr": 0.15,
+      "pctAlloc": 0.11,
+      "pctIssue": 0.03,
+      "key": "GROWW VALUE FUND"
+     },
+     {
+      "name": "NEO PRIME FUND",
+      "shares": 187801.0,
+      "amtCr": 5.11,
+      "pctAlloc": 3.76,
+      "pctIssue": 1.12,
+      "key": "NEO PRIME FUND"
+     },
+     {
+      "name": "NOMURA SINGAPORE LTD.",
+      "shares": 195731.0,
+      "amtCr": 5.32,
+      "pctAlloc": 3.92,
+      "pctIssue": 1.17,
+      "key": "NOMURA SINGAPORE"
+     },
+     {
+      "name": "CITIGROUP GLOBAL MARKETS MAURITIUS PVT.LTD.",
+      "shares": 195730.0,
+      "amtCr": 5.32,
+      "pctAlloc": 3.92,
+      "pctIssue": 1.17,
+      "key": "CITIGROUP GLOBAL MARKETS MAURITIUS"
+     }
+    ],
+    "complete": true,
+    "fetchedOn": "2026-11-26"
    }
   },
   "none": {
@@ -203815,7 +203985,7 @@
  },
  "trackRecords": {
   "asOf": "2026-11-26",
-  "booksOn": 923,
+  "booksOn": 924,
   "withOutcome": 923,
   "investors": 1498,
   "minRows": 2,
@@ -304077,48 +304247,6 @@
    }
   ],
   "issues": {
-   "2067": {
-    "name": "Crystal Crop Protection",
-    "sme": false,
-    "status": "Closed",
-    "open": "2026-11-18",
-    "close": "2026-11-20",
-    "allotment": "2026-11-23",
-    "refund": "2026-11-25",
-    "listing": "2026-11-26",
-    "blocks": {
-     "retail": {
-      "amount": 14960,
-      "shares": 55,
-      "lots": 1
-     },
-     "snii": {
-      "amount": 209440,
-      "shares": 770,
-      "lots": 14
-     },
-     "bnii": {
-      "amount": 1002320,
-      "shares": 3685,
-      "lots": 67
-     },
-     "employee": {
-      "amount": 13585,
-      "shares": 55,
-      "lots": 1,
-      "discount": 25.0,
-      "offered": 101215
-     }
-    },
-    "releaseDate": "2026-11-25",
-    "releaseSrc": "refund",
-    "blockedDays": 5,
-    "fundReuse": [],
-    "lockIn30": "2026-12-23",
-    "lockIn90": "2027-02-21",
-    "retailSlots": 106033,
-    "retailSizeCr": 159.0
-   },
    "2401": {
     "name": "Mahanadi Coalfields",
     "sme": false,
@@ -304427,7 +304555,7 @@
    },
    "ig607": {
     "rows": 5,
-    "matched": 5
+    "matched": 4
    }
   }
  },
