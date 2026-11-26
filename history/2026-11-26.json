@@ -1,6 +1,6 @@
 {
  "meta": {
-  "asOf": "2026-11-26T18:16:12+05:30",
+  "asOf": "2026-11-26T19:17:37+05:30",
   "awaitingData": [
    "ILJIN Electronics",
    "SJVN Green Energy",
@@ -18,7 +18,7 @@
    "Bajaj Energy",
    "Gretex Share Broking"
   ],
-  "label": "26 Nov 2026, 18:16 IST",
+  "label": "26 Nov 2026, 19:17 IST",
   "marketNotes": [
    "9 Sep refresh: Trendlyne MCP attached (7 calls — 8 parent prices at the 8 Sep close, SAST logs for RELIANCE, COALINDIA, EDELWEISS, HEROMOTOCO). Collector feed still unconfigured. Superinvestor move prices and the quota pipeline are carried from 8 Sep.",
    "Six mainboard issues opened today (ARCIL, LCC Projects, Karamtara, Rentomojo, Manipal Payment, Steamhouse) plus SME Amtech Esters, Vinod Texworld and Infrax Renewable. Pranav Constructions and Apana Logistics close today; Qualiance International closed 8 Sep and lists 11 Sep.",
@@ -2012,9 +2012,9 @@
    "issueSizeCr": 8981.12,
    "freshCr": null,
    "ofsCr": 8981.12,
-   "gmp": 0.5,
-   "gmpPct": 0.37,
-   "gmpTrend": "flat",
+   "gmp": 0.75,
+   "gmpPct": 0.55,
+   "gmpTrend": "up",
    "sub": {
     "qib": 4.95,
     "nii": 0.66,
@@ -2195,7 +2195,7 @@
    "ofsCr": 168.76,
    "gmp": 10.0,
    "gmpPct": 5.24,
-   "gmpTrend": "down",
+   "gmpTrend": "flat",
    "sub": {
     "qib": 1.01,
     "nii": 0.4,
@@ -2227,14 +2227,14 @@
     "gmpPct": 6.28,
     "agree": true
    },
-   "igFetchedAt": "2026-11-26T18:14:16+05:30",
+   "igFetchedAt": "2026-11-26T19:16:22+05:30",
    "refund": "2026-12-02",
    "sector": "Restaurants",
    "anchorShares": 8499483,
    "logo": "foodlink-fb-india-ltd-logo.jpeg",
-   "gmpAsOf": "2026-11-26T17:37:00+05:30",
+   "gmpAsOf": "2026-11-26T19:02:00+05:30",
    "gmpEve": 10.0,
-   "gmpEveAsOf": "2026-11-26T17:37:00+05:30",
+   "gmpEveAsOf": "2026-11-26T19:02:00+05:30",
    "facts": {
     "sector": "Restaurants",
     "listingAt": "BSE, NSE",
@@ -2292,35 +2292,35 @@
    "apps": {
     "qib": {
      "reserved": 5666321,
-     "received": 0,
+     "received": 1,
      "reservedSrc": "narada"
     },
     "nii": {
      "reserved": 2594,
-     "received": 341,
+     "received": 541,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 1729,
-     "received": 65,
+     "received": 109,
      "reservedSrc": "rhp=narada"
     },
     "snii": {
      "reserved": 864,
-     "received": 276,
+     "received": 432,
      "reservedSrc": "rhp"
     },
     "retail": {
      "reserved": 24215,
-     "received": 34421,
+     "received": 45589,
      "reservedSrc": "rhp=narada"
     },
     "total": {
      "reserved": 5693130,
-     "received": 34762,
+     "received": 46131,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-26T18:14:25+05:30"
+    "asOf": "2026-11-26T19:17:37+05:30"
    }
   },
   {
@@ -3241,20 +3241,20 @@
    "bandLow": 130.0,
    "bandHigh": 142.0,
    "lotSize": 1000,
-   "issueSizeCr": 88.98,
+   "issueSizeCr": 93.66,
    "freshCr": 88.98,
    "ofsCr": null,
-   "gmp": 6.0,
-   "gmpPct": 4.23,
-   "gmpTrend": "flat",
+   "gmp": 4.0,
+   "gmpPct": 2.82,
+   "gmpTrend": "down",
    "sub": {
     "qib": 4.27,
-    "nii": 0.82,
-    "bnii": 1.06,
-    "snii": 0.34,
-    "retail": 1.13,
-    "total": 1.01,
-    "asOf": "2026-11-26T18:14:26+05:30",
+    "nii": 0.94,
+    "bnii": 1.17,
+    "snii": 0.46,
+    "retail": 1.62,
+    "total": 1.31,
+    "asOf": "2026-11-26T19:17:37+05:30",
     "src": "narada"
    },
    "shareholderQuota": {
@@ -3333,7 +3333,7 @@
     "src": "ipowatch",
     "gmp": 8.0,
     "gmpPct": 5.63,
-    "agree": true
+    "agree": false
    },
    "apps": {
     "qib": {
@@ -3343,30 +3343,30 @@
     },
     "nii": {
      "reserved": 1033,
-     "received": 153,
+     "received": 221,
      "reservedSrc": "narada"
     },
     "bnii": {
      "reserved": 689,
-     "received": 51,
+     "received": 81,
      "reservedSrc": "narada"
     },
     "snii": {
      "reserved": 344,
-     "received": 102,
+     "received": 140,
      "reservedSrc": "narada"
     },
     "retail": {
      "reserved": 1550,
-     "received": 1755,
+     "received": 2508,
      "reservedSrc": "narada"
     },
     "total": {
      "reserved": 2649,
-     "received": 1909,
+     "received": 2730,
      "reservedSrc": "narada"
     },
-    "asOf": "2026-11-26T18:14:26+05:30"
+    "asOf": "2026-11-26T19:17:37+05:30"
    }
   },
   {
@@ -91313,8 +91313,41 @@
   ]
  },
  "integrity": {
-  "asOf": "2026-11-26T18:16:12+05:30",
+  "asOf": "2026-11-26T19:17:37+05:30",
   "checks": [
+   {
+    "area": "gmp",
+    "method": "investorgain:ok, ipowatch:ok",
+    "status": "ok",
+    "asOf": "9-Nov 9:37",
+    "elapsed": 2.05,
+    "calls": 2,
+    "note": "gmp: 9 board rows patched via investorgain; 8 active, 6 of them matched; gmp: second site — 7 agree (within 2% of the issue price), 1 differ, 0 quoted by one site only; gmp: 11 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Johnsoncab Electricals (₹8, investorgain); M.K.Sons Fine Jewels (₹11, investorgain) …",
+    "lastOk": "2026-11-26T19:17:37+05:30",
+    "dueBy": "2026-11-27T07:28:00+05:30"
+   },
+   {
+    "area": "details",
+    "method": "investorgain:ok",
+    "status": "ok",
+    "asOf": "2026-11-26T19:16:22+05:30",
+    "elapsed": 68.59,
+    "calls": 2,
+    "note": "1 records fetched for 11 identified listings (0 without an id); 0 anchor books updated, 103 on file; no record for: Shree Siddhivinayak Greentech Industries",
+    "lastOk": "2026-11-26T19:17:37+05:30",
+    "dueBy": "2026-11-27T07:28:00+05:30"
+   },
+   {
+    "area": "subscription",
+    "method": "narada+nse:ok",
+    "status": "ok",
+    "asOf": "2026-11-26T19:17:37+05:30",
+    "elapsed": 7.01,
+    "calls": 4,
+    "note": "2/2 rows patched via narada, nse",
+    "lastOk": "2026-11-26T19:17:37+05:30",
+    "dueBy": "2026-11-27T07:28:00+05:30"
+   },
    {
     "area": "calendar",
     "method": "investorgain:ok",
@@ -91324,40 +91357,8 @@
     "calls": 5,
     "note": "investorgain list=10 carried=1 +nse=6 +bse=2 exchange-only=0: 7 mainboard, 4 sme; 2 open, 6 upcoming",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
-   },
-   {
-    "area": "gmp",
-    "method": "investorgain:ok, ipowatch:ok",
-    "status": "ok",
-    "asOf": "9-Nov 9:37",
-    "elapsed": 1.97,
-    "calls": 2,
-    "note": "gmp: 9 board rows patched via investorgain; 8 active, 6 of them matched; gmp: second site — 8 agree (within 2% of the issue price), 0 differ, 0 quoted by one site only; gmp: 11 GMP-site names not on the board: Ajwa Projects (₹1, investorgain); BLS Polymers (₹69, investorgain); Bombay Coated and Special Steels (₹8, investorgain); Carver Roboweld (₹4, investorgain); EAAA India Alternatives (₹54, investorgain); HGS (India) (₹27, investorgain); Johnsoncab Electricals (₹8, investorgain); M.K.Sons Fine Jewels (₹11, investorgain) …",
-    "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
-   },
-   {
-    "area": "details",
-    "method": "investorgain:ok",
-    "status": "ok",
-    "asOf": "2026-11-26T18:14:16+05:30",
-    "elapsed": 2.88,
-    "calls": 3,
-    "note": "3 records fetched for 11 identified listings (0 without an id); 0 anchor books updated, 103 on file; 1 first records fetched for upcoming issues",
-    "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
-   },
-   {
-    "area": "subscription",
-    "method": "narada+nse:ok",
-    "status": "ok",
-    "asOf": "2026-11-26T18:14:26+05:30",
-    "elapsed": 6.36,
-    "calls": 3,
-    "note": "2/2 rows patched via narada, nse",
-    "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "listings",
@@ -91368,7 +91369,8 @@
     "calls": 0,
     "note": "5 names priced, 0 moved to recent, 0 history points",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "history",
@@ -91379,7 +91381,8 @@
     "calls": 2,
     "note": "1413 listings since 2022 (999 SME); fetched 2026: 310; QIB on file for 115 of 414 mainboard issues; shareholder-quota books frozen for 0",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "tape",
@@ -91390,7 +91393,8 @@
     "calls": 0,
     "note": "214 listings with an NSE symbol; 0 NSE file(s) read, 0 closes added; 185 trading days on file, 0 still to fill · 96 BSE-only listings; 0 BSE file(s) read, 0 closes added, 185 days on file",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "anchorbook",
@@ -91401,7 +91405,8 @@
     "calls": 0,
     "note": "0 anchor books read (0 without an anchor table, 0 failed); 924 on file, 589 partial (feed gave only the first names); 0 of 1413 listings still to fetch",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "evidence",
@@ -91412,7 +91417,8 @@
     "calls": 0,
     "note": "track records: 924 of 924 anchor books have an outcome; 913 of 1499 investors with 2+; 1413 listings; windows: mainboard 127, SME 237; 3 warnings",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "players",
@@ -91423,7 +91429,8 @@
     "calls": 55,
     "note": "54 of 2839 anchor investors read (0 failed); names found for 1 of 10 unlisted issues",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "parents",
@@ -91434,7 +91441,8 @@
     "calls": 0,
     "note": "5/5 parent prices; 31/35 investor stocks priced",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "filings",
@@ -91445,7 +91453,8 @@
     "calls": 7,
     "note": "bse_ann: feed of 6851 announcements today, 1/8 parents in it, 0 stage changes; sebi: DRHP+RHP page 1 (50 rows), 0 stage changes; discover: 1534 announcements scanned, 2 subsidiary-offer leads; 1 quota rows carry both the register row and the parent's announcement; 1 board issues carry a shareholder reservation, 0 not on the quota list; 0 books show a shareholder category the record does not; 0 parents from the parent's own announcement; 0 quota rows linked by igId; 1 found held; clocks: 19 open rows stamped, 0 given a lapse date; expected: 42 names; 0 new from the DRHP register, 0 moved to RHP filed, 0 left for the board; discover: 5 candidates (1 by announcement, 4 by group name); 10 leads held; 19 rows patched, 14 kept previous stage",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "planner",
@@ -91456,7 +91465,8 @@
     "calls": 4,
     "note": "144 events 2026-11-19..2027-01-10, 10 issues with terms, 0 from the report only",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "offers",
@@ -91467,7 +91477,8 @@
     "calls": 3,
     "note": "bse rows=19: 16 rights, 12 buybacks, 0 ofs, 1 ncd; 18 refreshed, 1 new, 0 closed windows dropped",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "flows",
@@ -91478,7 +91489,8 @@
     "calls": 4,
     "note": "2026-11-25 already in history; nsdl to 2026-11-26: 11 months, 12 years; FII +4,479 / DII +4,019 Cr",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "deals",
@@ -91489,7 +91501,8 @@
     "calls": 4,
     "note": "bulk.csv: 103 deals; block.csv: 21 deals; 0 tracked-investor deals of 124; 13 patterns; BSE bulk: 24 deals, 6 in this year's listings; BSE block: 2 deals, 0 in this year's listings; listing deals: 16 of today's 124 deals are in this year's listings (9 stocks); 1892 kept over 60 days; 213 of 310 listings have an NSE symbol; 241 with a BSE code",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "news",
@@ -91500,7 +91513,8 @@
     "calls": 3,
     "note": "business-standard: 5/35 primary-market items; economic-times: 0/50 primary-market items; moneycontrol-ipo: 0/4 primary-market items; 5 fresh, 25 kept",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "logos",
@@ -91511,7 +91525,8 @@
     "calls": 1,
     "note": "1 logos made, 0 missing, 0 errors; 0 left; 80 on file",
     "lastOk": "2026-11-26T18:16:12+05:30",
-    "dueBy": "2026-11-27T07:28:00+05:30"
+    "dueBy": "2026-11-27T07:28:00+05:30",
+    "carried": true
    },
    {
     "area": "research layer",
@@ -91523,7 +91538,7 @@
     "area": "run",
     "method": "collector",
     "status": "ok",
-    "note": "123s, 96 calls, 18/18 modules ok"
+    "note": "78s, 8 calls, 3/3 modules ok"
    }
   ],
   "discrepancies": [
@@ -137856,7 +137871,7 @@
   },
   "1810": {
    "name": "Foodlink F&B Holdings",
-   "fetchedAt": "2026-11-26T18:14:16+05:30",
+   "fetchedAt": "2026-11-26T19:16:22+05:30",
    "about": [
     "```html Foodlink F&B Holdings (India) Limited is a prominent player in the catering and hospitality industry, offering a wide range of food and beverage services across domestic and international markets. The company follows an integrated business model built around three major business verticals: Events Catering: Specialised catering services for weddings, corporate gatherings, MICE events, sporting events, and private celebrations. Casual Dining Restaurants and Cloud Kitchens: Operations covering dine-in restaurants and delivery-focused cloud kitchen formats. Banquets and Integrated F&B Services: Premium banquet venues and comprehensive food and beverage solutions offered under the Jade Luxury Banquets brand. As of December 31, 2024, the company had an operational presence in India and the United Arab Emirates (UAE). In addition, it has delivered catering services for events across several international destinations, including Switzerland, Turkey, Italy, Spain, France, Oman, Qatar, Egypt, Jordan, the Maldives, Thailand, and Nigeria. As disclosed in its Draft Red Herring Prospectus (DRHP), Foodlink operated 30 casual dining restaurant and cloud kitchen units. Of these, 18 units were located across 13 locations in two Indian cities, while the remaining 12 units operated across six locations in Dubai. To support its catering and restaurant operations, the company has established five centralised kitchens in key Indian cities: Mumbai (Maharashtra), Ahmedabad (Gujarat), Mohali (Punjab), Hyderabad (Telangana), and New Delhi. These facilities form an important part of its food preparation and distribution network. As of December 31, 2024, Foodlink had a total workforce of 1,235 employees supporting its business operations and service delivery. Competitive Strengths: Leadership in Premium Catering: Ranked as India's largest organised ultra-luxury and luxury catering company by revenue for Fiscal 2024 among its Indian peers, with services covering weddings, MICE events, sports events, personal celebrations, and banquets. Strong Customer Relationships: Focus on delivering distinctive, innovative, and high-quality food and hospitality experiences, supported by a diversified portfolio of reputed customers. Efficient Kitchen and Supply Chain Network: Strategically positioned centralised kitchens, established operating procedures, and streamlined supply chain capabilities that support consistent service delivery. International Market Presence: Geographically diversified operations and catering experience across multiple domestic and overseas markets. Experienced Leadership: Backed by promoters and a professional management team with extensive industry experience and expertise in the catering and hospitality sector. ```"
    ],
@@ -138101,15 +138116,15 @@
    ],
    "bidding": [
     {
-     "asOf": "2026-11-26T17:41:00+05:30",
+     "asOf": "2026-11-26T17:56:00+05:30",
      "qib": 1.0,
      "nii": 0.41,
      "bnii": 0.34,
      "snii": 0.54,
-     "retail": 2.43,
+     "retail": 2.44,
      "total": 1.1,
-     "bidCr": 218.04,
-     "retailBidCr": 87.67
+     "bidCr": 218.3,
+     "retailBidCr": 87.94
     }
    ],
    "company": {
